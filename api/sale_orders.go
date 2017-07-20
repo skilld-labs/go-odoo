@@ -1,7 +1,7 @@
 package api 
 
 import (
-	"github.com/antony360/go-odoo/odoo"
+	"github.com/antony360/go-odoo"
 	"github.com/antony360/go-odoo/types"
 )
 
