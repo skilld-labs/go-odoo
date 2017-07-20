@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/davecgh/go-spew/spew"
-	"./odoo"
+	"github.com/antony360/go-odoo/odoo"
 )
 
 func main() {

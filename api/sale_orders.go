@@ -1,8 +1,8 @@
 package api 
 
 import (
-	"../odoo"
-	"../types"
+	"github.com/antony360/go-odoo/odoo"
+	"github.com/antony360/go-odoo/types"
 )
 
 type SaleOrderService struct {

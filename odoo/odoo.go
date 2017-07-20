@@ -5,7 +5,7 @@ import (
 	"reflect"
 
 	"github.com/kolo/xmlrpc"
-	"../api"
+	"github.com/antony360/go-odoo/api"
 )
 
 type Client struct {
