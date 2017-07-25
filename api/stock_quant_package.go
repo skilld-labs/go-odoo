@@ -1,0 +1,44 @@
+package api
+
+import (
+	"github.com/skilld-labs/go-odoo/types"
+)
+
+type StockQuantPackageService struct {
+	client *Client
+}
+
+func NewStockQuantPackageService(c *Client) *StockQuantPackageService {
+	return &StockQuantPackageService{client: c}
+}
+
+func (svc *StockQuantPackageService) GetIdsByName(name string) ([]int, error) {
+	return svc.client.getIdsByName(types.StockQuantPackageModel, name)
+}
+
+func (svc *StockQuantPackageService) GetByIds(ids []int) (*types.StockQuantPackages, error) {
+	s := &types.StockQuantPackages{}
+	return s, svc.client.getByIds(types.StockQuantPackageModel, ids, s)
+}
+
+func (svc *StockQuantPackageService) GetByName(name string) (*types.StockQuantPackages, error) {
+	s := &types.StockQuantPackages{}
+	return s, svc.client.getByName(types.StockQuantPackageModel, name, s)
+}
+
+func (svc *StockQuantPackageService) GetAll() (*types.StockQuantPackages, error) {
+	s := &types.StockQuantPackages{}
+	return s, svc.client.getAll(types.StockQuantPackageModel, s)
+}
+
+func (svc *StockQuantPackageService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+	return svc.client.create(types.StockQuantPackageModel, fields, relations)
+}
+
+func (svc *StockQuantPackageService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+	return svc.client.update(types.StockQuantPackageModel, ids, fields, relations)
+}
+
+func (svc *StockQuantPackageService) Delete(ids []int) error {
+	return svc.client.delete(types.StockQuantPackageModel, ids)
+}

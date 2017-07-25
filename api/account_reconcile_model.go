@@ -1,0 +1,44 @@
+package api
+
+import (
+	"github.com/skilld-labs/go-odoo/types"
+)
+
+type AccountReconcileModelService struct {
+	client *Client
+}
+
+func NewAccountReconcileModelService(c *Client) *AccountReconcileModelService {
+	return &AccountReconcileModelService{client: c}
+}
+
+func (svc *AccountReconcileModelService) GetIdsByName(name string) ([]int, error) {
+	return svc.client.getIdsByName(types.AccountReconcileModelModel, name)
+}
+
+func (svc *AccountReconcileModelService) GetByIds(ids []int) (*types.AccountReconcileModels, error) {
+	a := &types.AccountReconcileModels{}
+	return a, svc.client.getByIds(types.AccountReconcileModelModel, ids, a)
+}
+
+func (svc *AccountReconcileModelService) GetByName(name string) (*types.AccountReconcileModels, error) {
+	a := &types.AccountReconcileModels{}
+	return a, svc.client.getByName(types.AccountReconcileModelModel, name, a)
+}
+
+func (svc *AccountReconcileModelService) GetAll() (*types.AccountReconcileModels, error) {
+	a := &types.AccountReconcileModels{}
+	return a, svc.client.getAll(types.AccountReconcileModelModel, a)
+}
+
+func (svc *AccountReconcileModelService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+	return svc.client.create(types.AccountReconcileModelModel, fields, relations)
+}
+
+func (svc *AccountReconcileModelService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+	return svc.client.update(types.AccountReconcileModelModel, ids, fields, relations)
+}
+
+func (svc *AccountReconcileModelService) Delete(ids []int) error {
+	return svc.client.delete(types.AccountReconcileModelModel, ids)
+}

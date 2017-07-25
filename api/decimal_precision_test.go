@@ -1,0 +1,44 @@
+package api
+
+import (
+	"github.com/skilld-labs/go-odoo/types"
+)
+
+type DecimalPrecisionTestService struct {
+	client *Client
+}
+
+func NewDecimalPrecisionTestService(c *Client) *DecimalPrecisionTestService {
+	return &DecimalPrecisionTestService{client: c}
+}
+
+func (svc *DecimalPrecisionTestService) GetIdsByName(name string) ([]int, error) {
+	return svc.client.getIdsByName(types.DecimalPrecisionTestModel, name)
+}
+
+func (svc *DecimalPrecisionTestService) GetByIds(ids []int) (*types.DecimalPrecisionTests, error) {
+	d := &types.DecimalPrecisionTests{}
+	return d, svc.client.getByIds(types.DecimalPrecisionTestModel, ids, d)
+}
+
+func (svc *DecimalPrecisionTestService) GetByName(name string) (*types.DecimalPrecisionTests, error) {
+	d := &types.DecimalPrecisionTests{}
+	return d, svc.client.getByName(types.DecimalPrecisionTestModel, name, d)
+}
+
+func (svc *DecimalPrecisionTestService) GetAll() (*types.DecimalPrecisionTests, error) {
+	d := &types.DecimalPrecisionTests{}
+	return d, svc.client.getAll(types.DecimalPrecisionTestModel, d)
+}
+
+func (svc *DecimalPrecisionTestService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+	return svc.client.create(types.DecimalPrecisionTestModel, fields, relations)
+}
+
+func (svc *DecimalPrecisionTestService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+	return svc.client.update(types.DecimalPrecisionTestModel, ids, fields, relations)
+}
+
+func (svc *DecimalPrecisionTestService) Delete(ids []int) error {
+	return svc.client.delete(types.DecimalPrecisionTestModel, ids)
+}

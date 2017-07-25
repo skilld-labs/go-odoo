@@ -1,0 +1,44 @@
+package api
+
+import (
+	"github.com/skilld-labs/go-odoo/types"
+)
+
+type ProjectTaskService struct {
+	client *Client
+}
+
+func NewProjectTaskService(c *Client) *ProjectTaskService {
+	return &ProjectTaskService{client: c}
+}
+
+func (svc *ProjectTaskService) GetIdsByName(name string) ([]int, error) {
+	return svc.client.getIdsByName(types.ProjectTaskModel, name)
+}
+
+func (svc *ProjectTaskService) GetByIds(ids []int) (*types.ProjectTasks, error) {
+	p := &types.ProjectTasks{}
+	return p, svc.client.getByIds(types.ProjectTaskModel, ids, p)
+}
+
+func (svc *ProjectTaskService) GetByName(name string) (*types.ProjectTasks, error) {
+	p := &types.ProjectTasks{}
+	return p, svc.client.getByName(types.ProjectTaskModel, name, p)
+}
+
+func (svc *ProjectTaskService) GetAll() (*types.ProjectTasks, error) {
+	p := &types.ProjectTasks{}
+	return p, svc.client.getAll(types.ProjectTaskModel, p)
+}
+
+func (svc *ProjectTaskService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+	return svc.client.create(types.ProjectTaskModel, fields, relations)
+}
+
+func (svc *ProjectTaskService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+	return svc.client.update(types.ProjectTaskModel, ids, fields, relations)
+}
+
+func (svc *ProjectTaskService) Delete(ids []int) error {
+	return svc.client.delete(types.ProjectTaskModel, ids)
+}
