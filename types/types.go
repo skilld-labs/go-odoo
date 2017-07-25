@@ -2,8 +2,41 @@ package types
 
 import (
 	"reflect"
+	"time"
 )
-func convertNil(s interface{}, ns interface{}) interface{} {
+
+type Handle2ManysStruct []Handle2ManyStruct
+
+type Handle2ManyStruct struct {
+	FieldName               string
+	CreateNewFields         map[string]interface{}
+	CreateExistantFieldsIds []int
+	UV                      []UpdateValue
+	DeleteFieldsIds         []int
+	RemoveFieldsIds         []int
+	RemoveAll               bool
+	ReplaceFieldsIds        []int
+}
+
+type UpdateValue struct {
+	Id     int
+	Values map[string]interface{}
+}
+
+type NilableType interface {
+	Type_() interface{}
+}
+
+type Type interface {
+	NilableType_() interface{}
+}
+
+type Many2One struct {
+	Id   int64
+	Name string
+}
+
+func load(ns interface{}, s interface{}) interface{} {
 	nse := reflect.ValueOf(ns).Elem()
 	se := reflect.ValueOf(s).Elem()
 	for i := 0; i < nse.NumField(); i++ {
@@ -13,6 +46,17 @@ func convertNil(s interface{}, ns interface{}) interface{} {
 			continue
 		}
 		if f.IsNil() || f.Elem().Kind() == reflect.Bool {
+			continue
+		}
+		if se.Field(i).Type().Name() == "Time" {
+			var t time.Time
+			d := f.Elem().String()
+			if len(d) == 10 {
+				t, _ = time.Parse("2006-01-02", d)
+			} else {
+				t, _ = time.Parse("2006-01-02 15:04:05", d)
+			}
+			se.Field(i).Set(reflect.ValueOf(t))
 			continue
 		}
 		if f.Elem().Kind() == reflect.Slice {
@@ -26,17 +70,56 @@ func convertNil(s interface{}, ns interface{}) interface{} {
 				continue
 			}
 			if se.Field(i).Kind() == reflect.Struct {
-				var many2One struct {
-					Id   int64
-					Name string
-				}
-				many2One.Id = f.Elem().Index(0).Elem().Int()
-				many2One.Name = f.Elem().Index(1).Elem().String()
-				se.Field(i).Set(reflect.ValueOf(many2One))
+				se.Field(i).Set(reflect.ValueOf(Many2One{Id: f.Elem().Index(0).Elem().Int(), Name: f.Elem().Index(1).Elem().String()}))
 				continue
 			}
 		}
 		se.Field(i).Set(f.Elem())
 	}
 	return s
+}
+
+func Handle2Manys(fields map[string]interface{}, args *Handle2ManysStruct) map[string]interface{} {
+	for _, arg := range *args {
+		var am []interface{}
+		if len(arg.CreateNewFields) > 0 {
+			am = append(am, AppendValues(0, nil, arg.CreateNewFields))
+		}
+		if len(arg.CreateExistantFieldsIds) > 0 {
+			for _, id := range arg.CreateExistantFieldsIds {
+				am = append(am, AppendValues(4, id, nil))
+			}
+		}
+		if len(arg.UV) > 0 {
+			for _, uv := range arg.UV {
+				am = append(am, AppendValues(1, uv.Id, uv.Values))
+			}
+		}
+		if len(arg.DeleteFieldsIds) > 0 {
+			for _, id := range arg.DeleteFieldsIds {
+				am = append(am, AppendValues(2, id, nil))
+			}
+		}
+		if len(arg.RemoveFieldsIds) > 0 {
+			for _, id := range arg.RemoveFieldsIds {
+				am = append(am, AppendValues(3, id, nil))
+			}
+		}
+		if arg.RemoveAll {
+			am = append(am, AppendValues(5, nil, nil))
+		}
+		if len(arg.ReplaceFieldsIds) > 0 {
+			am = append(am, AppendValues(6, nil, arg.ReplaceFieldsIds))
+		}
+		fields[arg.FieldName] = am
+	}
+	return fields
+}
+
+func AppendValues(actionId int, Ids interface{}, values interface{}) []interface{} {
+	var m []interface{}
+	m = append(m, actionId)
+	m = append(m, Ids)
+	m = append(m, values)
+	return m
 }

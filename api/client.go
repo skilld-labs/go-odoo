@@ -1,11 +1,11 @@
-package odoo 
+package api
 
 import (
 	"net/http"
 	"reflect"
 
+	"../types"
 	"github.com/kolo/xmlrpc"
-	"github.com/antony360/go-odoo/api"
 )
 
 type Client struct {
@@ -19,7 +19,14 @@ type Client struct {
 		UID      int
 	}
 
-	SaleOrder *api.SaleOrderService
+	SaleOrder              *SaleOrderService
+	SaleOrderLine          *SaleOrderLineService
+	ProjectProject         *ProjectProjectService
+	ProjectTask            *ProjectTaskService
+	AccountInvoice         *AccountInvoiceService
+	AccountInvoiceLine     *AccountInvoiceLineService
+	AccountAnalyticAccount *AccountAnalyticAccountService
+	AccountAnalyticLine    *AccountAnalyticLineService
 }
 
 func NewClient(uri string, transport http.RoundTripper) (*Client, error) {
@@ -50,10 +57,8 @@ func (c *Client) Login(dbName string, admin string, password string) error {
 	return err
 }
 
-func (c *Client) Create(model string, args []interface{}) (int, error) {
-	var id int
-	err := c.DoRequest("create", model, args, nil, &id)
-	return id, err
+func (c *Client) Create(model string, args []interface{}, elem interface{}) error {
+	return c.DoRequest("create", model, args, nil, elem)
 }
 
 func (c *Client) Update(model string, args []interface{}) error {
@@ -64,29 +69,30 @@ func (c *Client) Delete(model string, args []interface{}) error {
 	return c.DoRequest("unlink", model, args, nil, nil)
 }
 
-func (c *Client) Search(model string, args []interface{}, options interface{}) ([]int, error) {
-	var ids []int
-	err := c.DoRequest("search", model, args, options, &ids)
-	return ids, err
+func (c *Client) Search(model string, args []interface{}, options interface{}, elem interface{}) error {
+	return c.DoRequest("search", model, args, options, elem)
 }
 
 func (c *Client) Read(model string, args []interface{}, options interface{}, elem interface{}) error {
-	ne := elem.(Type).NilableType()
+	ne := elem.(types.Type).NilableType_()
 	err := c.DoRequest("read", model, args, options, ne)
 	if err == nil {
-		reflect.ValueOf(elem).Elem().Set(reflect.ValueOf(ne.(NilableType).Type()).Elem())
+		reflect.ValueOf(elem).Elem().Set(reflect.ValueOf(ne.(types.NilableType).Type_()).Elem())
 	}
 	return err
 }
 
 func (c *Client) SearchRead(model string, args []interface{}, options interface{}, elem interface{}) error {
-	return c.DoRequest("search_read", model, args, options, elem)
+	ne := elem.(types.Type).NilableType_()
+	err := c.DoRequest("search_read", model, args, options, ne)
+	if err == nil {
+		reflect.ValueOf(elem).Elem().Set(reflect.ValueOf(ne.(types.NilableType).Type_()).Elem())
+	}
+	return err
 }
 
-func (c *Client) SearchCount(model string, args []interface{}) (int, error) {
-	var n int
-	err := c.DoRequest("search_count", model, args, nil, &n)
-	return n, err
+func (c *Client) SearchCount(model string, args []interface{}, elem interface{}) error {
+	return c.DoRequest("search_count", model, args, nil, elem)
 }
 
 func (c *Client) DoRequest(method string, model string, args []interface{}, options interface{}, elem interface{}) error {

@@ -1,150 +1,77 @@
-package types 
+package types
 
-type NilableType interface {
-	Type() interface{}
-}
+import (
+	"time"
+)
 
-type Type interface {
-	NilableType() interface{}
+type RequiredSaleOrderFields struct {
+	PartnerId int `xmlrpc:"partner_id"`
 }
 
 type SaleOrder struct {
-	__LastUpdate      string  `xmlrpc:"__last_update"`
-	AmountTax         float64 `xmlrpc:"amount_tax"`
-	AmountTotal       float64 `xmlrpc:"amount_total"`
-	AmountUntaxed     float64 `xmlrpc:"amount_untaxed"`
-	AutosalesConfigId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"autosales_config_id"`
-	CampaignId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"campaign_id"`
-	ClientOrderRef string `xmlrpc:"client_order_ref"`
-	CompanyId      struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"company_id"`
-	ConfirmationDate string `xmlrpc:"confirmation_date"`
-	CreateDate       string `xmlrpc:"create_date"`
-	CreateUid        struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"create_uid"`
-	CurrencyId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"currency_id"`
-	DateOrder        string `xmlrpc:"date_order"`
-	DeliveryCount    int64  `xmlrpc:"delivery_count"`
-	DisplayName      string `xmlrpc:"display_name"`
-	FiscalPositionId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"fiscal_position_id"`
-	Id       int64 `xmlrpc:"id"`
-	Incoterm struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"incoterm"`
-	InvoiceCount  int64   `xmlrpc:"invoice_count"`
-	InvoiceIds    []int64 `xmlrpc:"invoice_ids"`
-	InvoiceStatus string  `xmlrpc:"invoice_status"`
-	MediumId      struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"medium_id"`
-	MessageChannelIds        []int64 `xmlrpc:"message_channel_ids"`
-	MessageFollowerIds       []int64 `xmlrpc:"message_follower_ids"`
-	MessageIds               []int64 `xmlrpc:"message_ids"`
-	MessageIsFollower        bool    `xmlrpc:"message_is_follower"`
-	MessageLastPost          string  `xmlrpc:"message_last_post"`
-	MessageNeedaction        bool    `xmlrpc:"message_needaction"`
-	MessageNeedactionCounter int64   `xmlrpc:"message_needaction_counter"`
-	MessagePartnerIds        []int64 `xmlrpc:"message_partner_ids"`
-	MessageUnread            bool    `xmlrpc:"message_unread"`
-	MessageUnreadCounter     int64   `xmlrpc:"message_unread_counter"`
-	Name                     string  `xmlrpc:"name"`
-	Note                     string  `xmlrpc:"note"`
-	OpportunityId            struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"opportunity_id"`
-	OrderLine []int64 `xmlrpc:"order_line"`
-	Origin    string  `xmlrpc:"origin"`
-	PartnerId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"partner_id"`
-	PartnerInvoiceId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"partner_invoice_id"`
-	PartnerShippingId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"partner_shipping_id"`
-	PaymentTermId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"payment_term_id"`
-	PickingIds    []int64 `xmlrpc:"picking_ids"`
-	PickingPolicy string  `xmlrpc:"picking_policy"`
-	PricelistId   struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"pricelist_id"`
-	ProcurementGroupId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"procurement_group_id"`
-	ProductId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"product_id"`
-	ProjectId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"project_id"`
-	ProjectProjectId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"project_project_id"`
-	RelatedProjectId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"related_project_id"`
-	SourceId struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"source_id"`
-	State      string  `xmlrpc:"state"`
-	TagIds     []int64 `xmlrpc:"tag_ids"`
-	TasksCount int64   `xmlrpc:"tasks_count"`
-	TasksIds   []int64 `xmlrpc:"tasks_ids"`
-	TeamId     struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"team_id"`
-	TimesheetCount float64 `xmlrpc:"timesheet_count"`
-	TimesheetIds   []int64 `xmlrpc:"timesheet_ids"`
-	UserId         struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"user_id"`
-	ValidityDate string `xmlrpc:"validity_date"`
-	WarehouseId  struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"warehouse_id"`
-	WriteDate string `xmlrpc:"write_date"`
-	WriteUid  struct {
-		Id   int64
-		Name string
-	} `xmlrpc:"write_uid"`
+	__LastUpdate             time.Time `xmlrpc:"__last_update"`
+	AmountTax                float64   `xmlrpc:"amount_tax"`
+	AmountTotal              float64   `xmlrpc:"amount_total"`
+	AmountUntaxed            float64   `xmlrpc:"amount_untaxed"`
+	AutosalesConfigId        Many2One  `xmlrpc:"autosales_config_id"`
+	CampaignId               Many2One  `xmlrpc:"campaign_id"`
+	ClientOrderRef           string    `xmlrpc:"client_order_ref"`
+	CompanyId                Many2One  `xmlrpc:"company_id"`
+	ConfirmationDate         time.Time `xmlrpc:"confirmation_date"`
+	CreateDate               time.Time `xmlrpc:"create_date"`
+	CreateUid                Many2One  `xmlrpc:"create_uid"`
+	CurrencyId               Many2One  `xmlrpc:"currency_id"`
+	DateOrder                time.Time `xmlrpc:"date_order"`
+	DeliveryCount            int64     `xmlrpc:"delivery_count"`
+	DisplayName              string    `xmlrpc:"display_name"`
+	FiscalPositionId         Many2One  `xmlrpc:"fiscal_position_id"`
+	Id                       int64     `xmlrpc:"id"`
+	Incoterm                 Many2One  `xmlrpc:"incoterm"`
+	InvoiceCount             int64     `xmlrpc:"invoice_count"`
+	InvoiceIds               []int64   `xmlrpc:"invoice_ids"`
+	InvoiceStatus            string    `xmlrpc:"invoice_status"`
+	MediumId                 Many2One  `xmlrpc:"medium_id"`
+	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
+	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
+	MessageIds               []int64   `xmlrpc:"message_ids"`
+	MessageIsFollower        bool      `xmlrpc:"message_is_follower"`
+	MessageLastPost          time.Time `xmlrpc:"message_last_post"`
+	MessageNeedaction        bool      `xmlrpc:"message_needaction"`
+	MessageNeedactionCounter int64     `xmlrpc:"message_needaction_counter"`
+	MessagePartnerIds        []int64   `xmlrpc:"message_partner_ids"`
+	MessageUnread            bool      `xmlrpc:"message_unread"`
+	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
+	Name                     string    `xmlrpc:"name"`
+	Note                     string    `xmlrpc:"note"`
+	OpportunityId            Many2One  `xmlrpc:"opportunity_id"`
+	OrderLine                []int64   `xmlrpc:"order_line"`
+	Origin                   string    `xmlrpc:"origin"`
+	PartnerId                Many2One  `xmlrpc:"partner_id"`
+	PartnerInvoiceId         Many2One  `xmlrpc:"partner_invoice_id"`
+	PartnerShippingId        Many2One  `xmlrpc:"partner_shipping_id"`
+	PaymentTermId            Many2One  `xmlrpc:"payment_term_id"`
+	PickingIds               []int64   `xmlrpc:"picking_ids"`
+	PickingPolicy            string    `xmlrpc:"picking_policy"`
+	PricelistId              Many2One  `xmlrpc:"pricelist_id"`
+	ProcurementGroupId       Many2One  `xmlrpc:"procurement_group_id"`
+	ProductId                Many2One  `xmlrpc:"product_id"`
+	ProjectId                Many2One  `xmlrpc:"project_id"`
+	ProjectProjectId         Many2One  `xmlrpc:"project_project_id"`
+	RelatedProjectId         Many2One  `xmlrpc:"related_project_id"`
+	SourceId                 Many2One  `xmlrpc:"source_id"`
+	State                    string    `xmlrpc:"state"`
+	TagIds                   []int64   `xmlrpc:"tag_ids"`
+	TasksCount               int64     `xmlrpc:"tasks_count"`
+	TasksIds                 []int64   `xmlrpc:"tasks_ids"`
+	TeamId                   Many2One  `xmlrpc:"team_id"`
+	TimesheetCount           float64   `xmlrpc:"timesheet_count"`
+	TimesheetIds             []int64   `xmlrpc:"timesheet_ids"`
+	UserId                   Many2One  `xmlrpc:"user_id"`
+	ValidityDate             time.Time `xmlrpc:"validity_date"`
+	WarehouseId              Many2One  `xmlrpc:"warehouse_id"`
+	WriteDate                time.Time `xmlrpc:"write_date"`
+	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
-
 type SaleOrderNil struct {
 	__LastUpdate             interface{} `xmlrpc:"__last_update"`
 	AmountTax                interface{} `xmlrpc:"amount_tax"`
@@ -213,23 +140,23 @@ type SaleOrderNil struct {
 type SaleOrders []SaleOrder
 type SaleOrdersNil []SaleOrderNil
 
-func (s *SaleOrder) NilableType() interface{} {
+func (s *SaleOrder) NilableType_() interface{} {
 	return &SaleOrderNil{}
 }
 
-func (ns *SaleOrderNil) Type() interface{} {
+func (ns *SaleOrderNil) Type_() interface{} {
 	s := &SaleOrder{}
-	return convertNil(s, ns)	
+	return load(ns, s)
 }
 
-func (s *SaleOrders) NilableType() interface{} {
+func (s *SaleOrders) NilableType_() interface{} {
 	return &SaleOrdersNil{}
 }
 
-func (ns *SaleOrdersNil) Type() interface{} {
+func (ns *SaleOrdersNil) Type_() interface{} {
 	s := &SaleOrders{}
 	for _, nsi := range *ns {
-		*s = append(*s, *nsi.Type().(*SaleOrder))
+		*s = append(*s, *nsi.Type_().(*SaleOrder))
 	}
 	return s
 }
