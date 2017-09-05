@@ -28,7 +28,7 @@ func (svc *WizardIrModelMenuCreateService) GetByName(name string) (*types.Wizard
 
 func (svc *WizardIrModelMenuCreateService) GetByField(field string, value string) (*types.WizardIrModelMenuCreates, error) {
 	w := &types.WizardIrModelMenuCreates{}
-	return w, svc.client.getByName(types.WizardIrModelMenuCreateModel, field, value, w)
+	return w, svc.client.getByField(types.WizardIrModelMenuCreateModel, field, value, w)
 }
 
 func (svc *WizardIrModelMenuCreateService) GetAll() (*types.WizardIrModelMenuCreates, error) {

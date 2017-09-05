@@ -28,7 +28,7 @@ func (svc *HrHolidaysService) GetByName(name string) (*types.HrHolidayss, error)
 
 func (svc *HrHolidaysService) GetByField(field string, value string) (*types.HrHolidayss, error) {
 	h := &types.HrHolidayss{}
-	return h, svc.client.getByName(types.HrHolidaysModel, field, value, h)
+	return h, svc.client.getByField(types.HrHolidaysModel, field, value, h)
 }
 
 func (svc *HrHolidaysService) GetAll() (*types.HrHolidayss, error) {

@@ -28,7 +28,7 @@ func (svc *UnknownService) GetByName(name string) (*types.Unknowns, error) {
 
 func (svc *UnknownService) GetByField(field string, value string) (*types.Unknowns, error) {
 	u := &types.Unknowns{}
-	return u, svc.client.getByName(types.UnknownModel, field, value, u)
+	return u, svc.client.getByField(types.UnknownModel, field, value, u)
 }
 
 func (svc *UnknownService) GetAll() (*types.Unknowns, error) {

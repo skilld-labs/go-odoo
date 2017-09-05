@@ -28,7 +28,7 @@ func (svc *ProjectConfigSettingsService) GetByName(name string) (*types.ProjectC
 
 func (svc *ProjectConfigSettingsService) GetByField(field string, value string) (*types.ProjectConfigSettingss, error) {
 	p := &types.ProjectConfigSettingss{}
-	return p, svc.client.getByName(types.ProjectConfigSettingsModel, field, value, p)
+	return p, svc.client.getByField(types.ProjectConfigSettingsModel, field, value, p)
 }
 
 func (svc *ProjectConfigSettingsService) GetAll() (*types.ProjectConfigSettingss, error) {

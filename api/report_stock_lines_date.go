@@ -28,7 +28,7 @@ func (svc *ReportStockLinesDateService) GetByName(name string) (*types.ReportSto
 
 func (svc *ReportStockLinesDateService) GetByField(field string, value string) (*types.ReportStockLinesDates, error) {
 	r := &types.ReportStockLinesDates{}
-	return r, svc.client.getByName(types.ReportStockLinesDateModel, field, value, r)
+	return r, svc.client.getByField(types.ReportStockLinesDateModel, field, value, r)
 }
 
 func (svc *ReportStockLinesDateService) GetAll() (*types.ReportStockLinesDates, error) {

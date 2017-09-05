@@ -28,7 +28,7 @@ func (svc *CrmTeamService) GetByName(name string) (*types.CrmTeams, error) {
 
 func (svc *CrmTeamService) GetByField(field string, value string) (*types.CrmTeams, error) {
 	c := &types.CrmTeams{}
-	return c, svc.client.getByName(types.CrmTeamModel, field, value, c)
+	return c, svc.client.getByField(types.CrmTeamModel, field, value, c)
 }
 
 func (svc *CrmTeamService) GetAll() (*types.CrmTeams, error) {

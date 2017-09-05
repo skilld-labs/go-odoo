@@ -28,7 +28,7 @@ func (svc *AccountMoveLineReconcileWriteoffService) GetByName(name string) (*typ
 
 func (svc *AccountMoveLineReconcileWriteoffService) GetByField(field string, value string) (*types.AccountMoveLineReconcileWriteoffs, error) {
 	a := &types.AccountMoveLineReconcileWriteoffs{}
-	return a, svc.client.getByName(types.AccountMoveLineReconcileWriteoffModel, field, value, a)
+	return a, svc.client.getByField(types.AccountMoveLineReconcileWriteoffModel, field, value, a)
 }
 
 func (svc *AccountMoveLineReconcileWriteoffService) GetAll() (*types.AccountMoveLineReconcileWriteoffs, error) {

@@ -28,7 +28,7 @@ func (svc *IrQwebFieldFloatService) GetByName(name string) (*types.IrQwebFieldFl
 
 func (svc *IrQwebFieldFloatService) GetByField(field string, value string) (*types.IrQwebFieldFloats, error) {
 	i := &types.IrQwebFieldFloats{}
-	return i, svc.client.getByName(types.IrQwebFieldFloatModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldFloatModel, field, value, i)
 }
 
 func (svc *IrQwebFieldFloatService) GetAll() (*types.IrQwebFieldFloats, error) {

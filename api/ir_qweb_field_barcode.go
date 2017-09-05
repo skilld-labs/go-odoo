@@ -28,7 +28,7 @@ func (svc *IrQwebFieldBarcodeService) GetByName(name string) (*types.IrQwebField
 
 func (svc *IrQwebFieldBarcodeService) GetByField(field string, value string) (*types.IrQwebFieldBarcodes, error) {
 	i := &types.IrQwebFieldBarcodes{}
-	return i, svc.client.getByName(types.IrQwebFieldBarcodeModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldBarcodeModel, field, value, i)
 }
 
 func (svc *IrQwebFieldBarcodeService) GetAll() (*types.IrQwebFieldBarcodes, error) {

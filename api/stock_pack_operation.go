@@ -28,7 +28,7 @@ func (svc *StockPackOperationService) GetByName(name string) (*types.StockPackOp
 
 func (svc *StockPackOperationService) GetByField(field string, value string) (*types.StockPackOperations, error) {
 	s := &types.StockPackOperations{}
-	return s, svc.client.getByName(types.StockPackOperationModel, field, value, s)
+	return s, svc.client.getByField(types.StockPackOperationModel, field, value, s)
 }
 
 func (svc *StockPackOperationService) GetAll() (*types.StockPackOperations, error) {

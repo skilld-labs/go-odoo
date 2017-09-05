@@ -28,7 +28,7 @@ func (svc *ChangePasswordUserService) GetByName(name string) (*types.ChangePassw
 
 func (svc *ChangePasswordUserService) GetByField(field string, value string) (*types.ChangePasswordUsers, error) {
 	c := &types.ChangePasswordUsers{}
-	return c, svc.client.getByName(types.ChangePasswordUserModel, field, value, c)
+	return c, svc.client.getByField(types.ChangePasswordUserModel, field, value, c)
 }
 
 func (svc *ChangePasswordUserService) GetAll() (*types.ChangePasswordUsers, error) {

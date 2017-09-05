@@ -28,7 +28,7 @@ func (svc *IrAutovacuumService) GetByName(name string) (*types.IrAutovacuums, er
 
 func (svc *IrAutovacuumService) GetByField(field string, value string) (*types.IrAutovacuums, error) {
 	i := &types.IrAutovacuums{}
-	return i, svc.client.getByName(types.IrAutovacuumModel, field, value, i)
+	return i, svc.client.getByField(types.IrAutovacuumModel, field, value, i)
 }
 
 func (svc *IrAutovacuumService) GetAll() (*types.IrAutovacuums, error) {

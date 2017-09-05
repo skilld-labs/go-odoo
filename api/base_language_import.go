@@ -28,7 +28,7 @@ func (svc *BaseLanguageImportService) GetByName(name string) (*types.BaseLanguag
 
 func (svc *BaseLanguageImportService) GetByField(field string, value string) (*types.BaseLanguageImports, error) {
 	b := &types.BaseLanguageImports{}
-	return b, svc.client.getByName(types.BaseLanguageImportModel, field, value, b)
+	return b, svc.client.getByField(types.BaseLanguageImportModel, field, value, b)
 }
 
 func (svc *BaseLanguageImportService) GetAll() (*types.BaseLanguageImports, error) {

@@ -28,7 +28,7 @@ func (svc *BaseImportTestsModelsO2mService) GetByName(name string) (*types.BaseI
 
 func (svc *BaseImportTestsModelsO2mService) GetByField(field string, value string) (*types.BaseImportTestsModelsO2ms, error) {
 	b := &types.BaseImportTestsModelsO2ms{}
-	return b, svc.client.getByName(types.BaseImportTestsModelsO2mModel, field, value, b)
+	return b, svc.client.getByField(types.BaseImportTestsModelsO2mModel, field, value, b)
 }
 
 func (svc *BaseImportTestsModelsO2mService) GetAll() (*types.BaseImportTestsModelsO2ms, error) {

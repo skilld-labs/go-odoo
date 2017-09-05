@@ -28,7 +28,7 @@ func (svc *MailTestService) GetByName(name string) (*types.MailTests, error) {
 
 func (svc *MailTestService) GetByField(field string, value string) (*types.MailTests, error) {
 	m := &types.MailTests{}
-	return m, svc.client.getByName(types.MailTestModel, field, value, m)
+	return m, svc.client.getByField(types.MailTestModel, field, value, m)
 }
 
 func (svc *MailTestService) GetAll() (*types.MailTests, error) {

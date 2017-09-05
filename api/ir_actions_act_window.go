@@ -28,7 +28,7 @@ func (svc *IrActionsActWindowService) GetByName(name string) (*types.IrActionsAc
 
 func (svc *IrActionsActWindowService) GetByField(field string, value string) (*types.IrActionsActWindows, error) {
 	i := &types.IrActionsActWindows{}
-	return i, svc.client.getByName(types.IrActionsActWindowModel, field, value, i)
+	return i, svc.client.getByField(types.IrActionsActWindowModel, field, value, i)
 }
 
 func (svc *IrActionsActWindowService) GetAll() (*types.IrActionsActWindows, error) {

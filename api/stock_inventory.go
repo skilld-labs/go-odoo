@@ -28,7 +28,7 @@ func (svc *StockInventoryService) GetByName(name string) (*types.StockInventorys
 
 func (svc *StockInventoryService) GetByField(field string, value string) (*types.StockInventorys, error) {
 	s := &types.StockInventorys{}
-	return s, svc.client.getByName(types.StockInventoryModel, field, value, s)
+	return s, svc.client.getByField(types.StockInventoryModel, field, value, s)
 }
 
 func (svc *StockInventoryService) GetAll() (*types.StockInventorys, error) {

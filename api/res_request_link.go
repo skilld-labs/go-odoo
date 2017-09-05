@@ -28,7 +28,7 @@ func (svc *ResRequestLinkService) GetByName(name string) (*types.ResRequestLinks
 
 func (svc *ResRequestLinkService) GetByField(field string, value string) (*types.ResRequestLinks, error) {
 	r := &types.ResRequestLinks{}
-	return r, svc.client.getByName(types.ResRequestLinkModel, field, value, r)
+	return r, svc.client.getByField(types.ResRequestLinkModel, field, value, r)
 }
 
 func (svc *ResRequestLinkService) GetAll() (*types.ResRequestLinks, error) {

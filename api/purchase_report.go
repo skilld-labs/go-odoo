@@ -28,7 +28,7 @@ func (svc *PurchaseReportService) GetByName(name string) (*types.PurchaseReports
 
 func (svc *PurchaseReportService) GetByField(field string, value string) (*types.PurchaseReports, error) {
 	p := &types.PurchaseReports{}
-	return p, svc.client.getByName(types.PurchaseReportModel, field, value, p)
+	return p, svc.client.getByField(types.PurchaseReportModel, field, value, p)
 }
 
 func (svc *PurchaseReportService) GetAll() (*types.PurchaseReports, error) {

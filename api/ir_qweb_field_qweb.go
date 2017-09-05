@@ -28,7 +28,7 @@ func (svc *IrQwebFieldQwebService) GetByName(name string) (*types.IrQwebFieldQwe
 
 func (svc *IrQwebFieldQwebService) GetByField(field string, value string) (*types.IrQwebFieldQwebs, error) {
 	i := &types.IrQwebFieldQwebs{}
-	return i, svc.client.getByName(types.IrQwebFieldQwebModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldQwebModel, field, value, i)
 }
 
 func (svc *IrQwebFieldQwebService) GetAll() (*types.IrQwebFieldQwebs, error) {

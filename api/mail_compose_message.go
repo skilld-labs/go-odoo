@@ -28,7 +28,7 @@ func (svc *MailComposeMessageService) GetByName(name string) (*types.MailCompose
 
 func (svc *MailComposeMessageService) GetByField(field string, value string) (*types.MailComposeMessages, error) {
 	m := &types.MailComposeMessages{}
-	return m, svc.client.getByName(types.MailComposeMessageModel, field, value, m)
+	return m, svc.client.getByField(types.MailComposeMessageModel, field, value, m)
 }
 
 func (svc *MailComposeMessageService) GetAll() (*types.MailComposeMessages, error) {

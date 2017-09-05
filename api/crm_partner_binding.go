@@ -28,7 +28,7 @@ func (svc *CrmPartnerBindingService) GetByName(name string) (*types.CrmPartnerBi
 
 func (svc *CrmPartnerBindingService) GetByField(field string, value string) (*types.CrmPartnerBindings, error) {
 	c := &types.CrmPartnerBindings{}
-	return c, svc.client.getByName(types.CrmPartnerBindingModel, field, value, c)
+	return c, svc.client.getByField(types.CrmPartnerBindingModel, field, value, c)
 }
 
 func (svc *CrmPartnerBindingService) GetAll() (*types.CrmPartnerBindings, error) {

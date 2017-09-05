@@ -28,7 +28,7 @@ func (svc *BarcodeNomenclatureService) GetByName(name string) (*types.BarcodeNom
 
 func (svc *BarcodeNomenclatureService) GetByField(field string, value string) (*types.BarcodeNomenclatures, error) {
 	b := &types.BarcodeNomenclatures{}
-	return b, svc.client.getByName(types.BarcodeNomenclatureModel, field, value, b)
+	return b, svc.client.getByField(types.BarcodeNomenclatureModel, field, value, b)
 }
 
 func (svc *BarcodeNomenclatureService) GetAll() (*types.BarcodeNomenclatures, error) {

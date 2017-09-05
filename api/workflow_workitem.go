@@ -28,7 +28,7 @@ func (svc *WorkflowWorkitemService) GetByName(name string) (*types.WorkflowWorki
 
 func (svc *WorkflowWorkitemService) GetByField(field string, value string) (*types.WorkflowWorkitems, error) {
 	w := &types.WorkflowWorkitems{}
-	return w, svc.client.getByName(types.WorkflowWorkitemModel, field, value, w)
+	return w, svc.client.getByField(types.WorkflowWorkitemModel, field, value, w)
 }
 
 func (svc *WorkflowWorkitemService) GetAll() (*types.WorkflowWorkitems, error) {

@@ -28,7 +28,7 @@ func (svc *StockHistoryService) GetByName(name string) (*types.StockHistorys, er
 
 func (svc *StockHistoryService) GetByField(field string, value string) (*types.StockHistorys, error) {
 	s := &types.StockHistorys{}
-	return s, svc.client.getByName(types.StockHistoryModel, field, value, s)
+	return s, svc.client.getByField(types.StockHistoryModel, field, value, s)
 }
 
 func (svc *StockHistoryService) GetAll() (*types.StockHistorys, error) {

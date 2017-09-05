@@ -28,7 +28,7 @@ func (svc *ResBankService) GetByName(name string) (*types.ResBanks, error) {
 
 func (svc *ResBankService) GetByField(field string, value string) (*types.ResBanks, error) {
 	r := &types.ResBanks{}
-	return r, svc.client.getByName(types.ResBankModel, field, value, r)
+	return r, svc.client.getByField(types.ResBankModel, field, value, r)
 }
 
 func (svc *ResBankService) GetAll() (*types.ResBanks, error) {

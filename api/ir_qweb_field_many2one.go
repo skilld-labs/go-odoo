@@ -28,7 +28,7 @@ func (svc *IrQwebFieldMany2oneService) GetByName(name string) (*types.IrQwebFiel
 
 func (svc *IrQwebFieldMany2oneService) GetByField(field string, value string) (*types.IrQwebFieldMany2ones, error) {
 	i := &types.IrQwebFieldMany2ones{}
-	return i, svc.client.getByName(types.IrQwebFieldMany2oneModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldMany2oneModel, field, value, i)
 }
 
 func (svc *IrQwebFieldMany2oneService) GetAll() (*types.IrQwebFieldMany2ones, error) {

@@ -28,7 +28,7 @@ func (svc *IrModelConstraintService) GetByName(name string) (*types.IrModelConst
 
 func (svc *IrModelConstraintService) GetByField(field string, value string) (*types.IrModelConstraints, error) {
 	i := &types.IrModelConstraints{}
-	return i, svc.client.getByName(types.IrModelConstraintModel, field, value, i)
+	return i, svc.client.getByField(types.IrModelConstraintModel, field, value, i)
 }
 
 func (svc *IrModelConstraintService) GetAll() (*types.IrModelConstraints, error) {

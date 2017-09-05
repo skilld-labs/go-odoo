@@ -28,7 +28,7 @@ func (svc *ImLivechatChannelService) GetByName(name string) (*types.ImLivechatCh
 
 func (svc *ImLivechatChannelService) GetByField(field string, value string) (*types.ImLivechatChannels, error) {
 	i := &types.ImLivechatChannels{}
-	return i, svc.client.getByName(types.ImLivechatChannelModel, field, value, i)
+	return i, svc.client.getByField(types.ImLivechatChannelModel, field, value, i)
 }
 
 func (svc *ImLivechatChannelService) GetAll() (*types.ImLivechatChannels, error) {

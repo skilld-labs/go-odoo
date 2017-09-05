@@ -28,7 +28,7 @@ func (svc *BaseService) GetByName(name string) (*types.Bases, error) {
 
 func (svc *BaseService) GetByField(field string, value string) (*types.Bases, error) {
 	b := &types.Bases{}
-	return b, svc.client.getByName(types.BaseModel, field, value, b)
+	return b, svc.client.getByField(types.BaseModel, field, value, b)
 }
 
 func (svc *BaseService) GetAll() (*types.Bases, error) {

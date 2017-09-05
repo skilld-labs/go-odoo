@@ -28,7 +28,7 @@ func (svc *CrmMergeOpportunityService) GetByName(name string) (*types.CrmMergeOp
 
 func (svc *CrmMergeOpportunityService) GetByField(field string, value string) (*types.CrmMergeOpportunitys, error) {
 	c := &types.CrmMergeOpportunitys{}
-	return c, svc.client.getByName(types.CrmMergeOpportunityModel, field, value, c)
+	return c, svc.client.getByField(types.CrmMergeOpportunityModel, field, value, c)
 }
 
 func (svc *CrmMergeOpportunityService) GetAll() (*types.CrmMergeOpportunitys, error) {

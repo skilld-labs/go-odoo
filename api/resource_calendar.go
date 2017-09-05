@@ -28,7 +28,7 @@ func (svc *ResourceCalendarService) GetByName(name string) (*types.ResourceCalen
 
 func (svc *ResourceCalendarService) GetByField(field string, value string) (*types.ResourceCalendars, error) {
 	r := &types.ResourceCalendars{}
-	return r, svc.client.getByName(types.ResourceCalendarModel, field, value, r)
+	return r, svc.client.getByField(types.ResourceCalendarModel, field, value, r)
 }
 
 func (svc *ResourceCalendarService) GetAll() (*types.ResourceCalendars, error) {

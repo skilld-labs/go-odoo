@@ -28,7 +28,7 @@ func (svc *BaseModuleConfigurationService) GetByName(name string) (*types.BaseMo
 
 func (svc *BaseModuleConfigurationService) GetByField(field string, value string) (*types.BaseModuleConfigurations, error) {
 	b := &types.BaseModuleConfigurations{}
-	return b, svc.client.getByName(types.BaseModuleConfigurationModel, field, value, b)
+	return b, svc.client.getByField(types.BaseModuleConfigurationModel, field, value, b)
 }
 
 func (svc *BaseModuleConfigurationService) GetAll() (*types.BaseModuleConfigurations, error) {

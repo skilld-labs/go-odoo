@@ -28,7 +28,7 @@ func (svc *IrSequenceDateRangeService) GetByName(name string) (*types.IrSequence
 
 func (svc *IrSequenceDateRangeService) GetByField(field string, value string) (*types.IrSequenceDateRanges, error) {
 	i := &types.IrSequenceDateRanges{}
-	return i, svc.client.getByName(types.IrSequenceDateRangeModel, field, value, i)
+	return i, svc.client.getByField(types.IrSequenceDateRangeModel, field, value, i)
 }
 
 func (svc *IrSequenceDateRangeService) GetAll() (*types.IrSequenceDateRanges, error) {

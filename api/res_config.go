@@ -28,7 +28,7 @@ func (svc *ResConfigService) GetByName(name string) (*types.ResConfigs, error) {
 
 func (svc *ResConfigService) GetByField(field string, value string) (*types.ResConfigs, error) {
 	r := &types.ResConfigs{}
-	return r, svc.client.getByName(types.ResConfigModel, field, value, r)
+	return r, svc.client.getByField(types.ResConfigModel, field, value, r)
 }
 
 func (svc *ResConfigService) GetAll() (*types.ResConfigs, error) {

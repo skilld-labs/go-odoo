@@ -28,7 +28,7 @@ func (svc *MailMessageSubtypeService) GetByName(name string) (*types.MailMessage
 
 func (svc *MailMessageSubtypeService) GetByField(field string, value string) (*types.MailMessageSubtypes, error) {
 	m := &types.MailMessageSubtypes{}
-	return m, svc.client.getByName(types.MailMessageSubtypeModel, field, value, m)
+	return m, svc.client.getByField(types.MailMessageSubtypeModel, field, value, m)
 }
 
 func (svc *MailMessageSubtypeService) GetAll() (*types.MailMessageSubtypes, error) {

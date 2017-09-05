@@ -28,7 +28,7 @@ func (svc *ResFontService) GetByName(name string) (*types.ResFonts, error) {
 
 func (svc *ResFontService) GetByField(field string, value string) (*types.ResFonts, error) {
 	r := &types.ResFonts{}
-	return r, svc.client.getByName(types.ResFontModel, field, value, r)
+	return r, svc.client.getByField(types.ResFontModel, field, value, r)
 }
 
 func (svc *ResFontService) GetAll() (*types.ResFonts, error) {

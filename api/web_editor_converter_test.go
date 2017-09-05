@@ -28,7 +28,7 @@ func (svc *WebEditorConverterTestService) GetByName(name string) (*types.WebEdit
 
 func (svc *WebEditorConverterTestService) GetByField(field string, value string) (*types.WebEditorConverterTests, error) {
 	w := &types.WebEditorConverterTests{}
-	return w, svc.client.getByName(types.WebEditorConverterTestModel, field, value, w)
+	return w, svc.client.getByField(types.WebEditorConverterTestModel, field, value, w)
 }
 
 func (svc *WebEditorConverterTestService) GetAll() (*types.WebEditorConverterTests, error) {

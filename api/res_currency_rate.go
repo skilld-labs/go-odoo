@@ -28,7 +28,7 @@ func (svc *ResCurrencyRateService) GetByName(name string) (*types.ResCurrencyRat
 
 func (svc *ResCurrencyRateService) GetByField(field string, value string) (*types.ResCurrencyRates, error) {
 	r := &types.ResCurrencyRates{}
-	return r, svc.client.getByName(types.ResCurrencyRateModel, field, value, r)
+	return r, svc.client.getByField(types.ResCurrencyRateModel, field, value, r)
 }
 
 func (svc *ResCurrencyRateService) GetAll() (*types.ResCurrencyRates, error) {

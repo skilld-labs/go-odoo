@@ -28,7 +28,7 @@ func (svc *IrLoggingService) GetByName(name string) (*types.IrLoggings, error) {
 
 func (svc *IrLoggingService) GetByField(field string, value string) (*types.IrLoggings, error) {
 	i := &types.IrLoggings{}
-	return i, svc.client.getByName(types.IrLoggingModel, field, value, i)
+	return i, svc.client.getByField(types.IrLoggingModel, field, value, i)
 }
 
 func (svc *IrLoggingService) GetAll() (*types.IrLoggings, error) {

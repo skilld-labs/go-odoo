@@ -28,7 +28,7 @@ func (svc *StockMoveOperationLinkService) GetByName(name string) (*types.StockMo
 
 func (svc *StockMoveOperationLinkService) GetByField(field string, value string) (*types.StockMoveOperationLinks, error) {
 	s := &types.StockMoveOperationLinks{}
-	return s, svc.client.getByName(types.StockMoveOperationLinkModel, field, value, s)
+	return s, svc.client.getByField(types.StockMoveOperationLinkModel, field, value, s)
 }
 
 func (svc *StockMoveOperationLinkService) GetAll() (*types.StockMoveOperationLinks, error) {

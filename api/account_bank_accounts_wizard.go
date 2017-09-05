@@ -28,7 +28,7 @@ func (svc *AccountBankAccountsWizardService) GetByName(name string) (*types.Acco
 
 func (svc *AccountBankAccountsWizardService) GetByField(field string, value string) (*types.AccountBankAccountsWizards, error) {
 	a := &types.AccountBankAccountsWizards{}
-	return a, svc.client.getByName(types.AccountBankAccountsWizardModel, field, value, a)
+	return a, svc.client.getByField(types.AccountBankAccountsWizardModel, field, value, a)
 }
 
 func (svc *AccountBankAccountsWizardService) GetAll() (*types.AccountBankAccountsWizards, error) {

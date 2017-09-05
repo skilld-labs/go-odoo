@@ -28,7 +28,7 @@ func (svc *IrQwebFieldIntegerService) GetByName(name string) (*types.IrQwebField
 
 func (svc *IrQwebFieldIntegerService) GetByField(field string, value string) (*types.IrQwebFieldIntegers, error) {
 	i := &types.IrQwebFieldIntegers{}
-	return i, svc.client.getByName(types.IrQwebFieldIntegerModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldIntegerModel, field, value, i)
 }
 
 func (svc *IrQwebFieldIntegerService) GetAll() (*types.IrQwebFieldIntegers, error) {

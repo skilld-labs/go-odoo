@@ -28,7 +28,7 @@ func (svc *WizardValuationHistoryService) GetByName(name string) (*types.WizardV
 
 func (svc *WizardValuationHistoryService) GetByField(field string, value string) (*types.WizardValuationHistorys, error) {
 	w := &types.WizardValuationHistorys{}
-	return w, svc.client.getByName(types.WizardValuationHistoryModel, field, value, w)
+	return w, svc.client.getByField(types.WizardValuationHistoryModel, field, value, w)
 }
 
 func (svc *WizardValuationHistoryService) GetAll() (*types.WizardValuationHistorys, error) {
