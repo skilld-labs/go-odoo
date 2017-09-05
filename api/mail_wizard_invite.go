@@ -26,6 +26,11 @@ func (svc *MailWizardInviteService) GetByName(name string) (*types.MailWizardInv
 	return m, svc.client.getByName(types.MailWizardInviteModel, name, m)
 }
 
+func (svc *MailWizardInviteService) GetByField(field string, value string) (*types.MailWizardInvites, error) {
+	m := &types.MailWizardInvites{}
+	return m, svc.client.getByName(types.MailWizardInviteModel, field, value, m)
+}
+
 func (svc *MailWizardInviteService) GetAll() (*types.MailWizardInvites, error) {
 	m := &types.MailWizardInvites{}
 	return m, svc.client.getAll(types.MailWizardInviteModel, m)

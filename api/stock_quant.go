@@ -26,6 +26,11 @@ func (svc *StockQuantService) GetByName(name string) (*types.StockQuants, error)
 	return s, svc.client.getByName(types.StockQuantModel, name, s)
 }
 
+func (svc *StockQuantService) GetByField(field string, value string) (*types.StockQuants, error) {
+	s := &types.StockQuants{}
+	return s, svc.client.getByName(types.StockQuantModel, field, value, s)
+}
+
 func (svc *StockQuantService) GetAll() (*types.StockQuants, error) {
 	s := &types.StockQuants{}
 	return s, svc.client.getAll(types.StockQuantModel, s)

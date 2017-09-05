@@ -26,6 +26,11 @@ func (svc *StockBackorderConfirmationService) GetByName(name string) (*types.Sto
 	return s, svc.client.getByName(types.StockBackorderConfirmationModel, name, s)
 }
 
+func (svc *StockBackorderConfirmationService) GetByField(field string, value string) (*types.StockBackorderConfirmations, error) {
+	s := &types.StockBackorderConfirmations{}
+	return s, svc.client.getByName(types.StockBackorderConfirmationModel, field, value, s)
+}
+
 func (svc *StockBackorderConfirmationService) GetAll() (*types.StockBackorderConfirmations, error) {
 	s := &types.StockBackorderConfirmations{}
 	return s, svc.client.getAll(types.StockBackorderConfirmationModel, s)

@@ -26,6 +26,11 @@ func (svc *IrAttachmentService) GetByName(name string) (*types.IrAttachments, er
 	return i, svc.client.getByName(types.IrAttachmentModel, name, i)
 }
 
+func (svc *IrAttachmentService) GetByField(field string, value string) (*types.IrAttachments, error) {
+	i := &types.IrAttachments{}
+	return i, svc.client.getByName(types.IrAttachmentModel, field, value, i)
+}
+
 func (svc *IrAttachmentService) GetAll() (*types.IrAttachments, error) {
 	i := &types.IrAttachments{}
 	return i, svc.client.getAll(types.IrAttachmentModel, i)

@@ -26,6 +26,11 @@ func (svc *BaseActionRuleLineTestService) GetByName(name string) (*types.BaseAct
 	return b, svc.client.getByName(types.BaseActionRuleLineTestModel, name, b)
 }
 
+func (svc *BaseActionRuleLineTestService) GetByField(field string, value string) (*types.BaseActionRuleLineTests, error) {
+	b := &types.BaseActionRuleLineTests{}
+	return b, svc.client.getByName(types.BaseActionRuleLineTestModel, field, value, b)
+}
+
 func (svc *BaseActionRuleLineTestService) GetAll() (*types.BaseActionRuleLineTests, error) {
 	b := &types.BaseActionRuleLineTests{}
 	return b, svc.client.getAll(types.BaseActionRuleLineTestModel, b)

@@ -26,6 +26,11 @@ func (svc *UtmCampaignService) GetByName(name string) (*types.UtmCampaigns, erro
 	return u, svc.client.getByName(types.UtmCampaignModel, name, u)
 }
 
+func (svc *UtmCampaignService) GetByField(field string, value string) (*types.UtmCampaigns, error) {
+	u := &types.UtmCampaigns{}
+	return u, svc.client.getByName(types.UtmCampaignModel, field, value, u)
+}
+
 func (svc *UtmCampaignService) GetAll() (*types.UtmCampaigns, error) {
 	u := &types.UtmCampaigns{}
 	return u, svc.client.getAll(types.UtmCampaignModel, u)

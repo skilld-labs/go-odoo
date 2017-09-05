@@ -26,6 +26,11 @@ func (svc *ProductPackagingService) GetByName(name string) (*types.ProductPackag
 	return p, svc.client.getByName(types.ProductPackagingModel, name, p)
 }
 
+func (svc *ProductPackagingService) GetByField(field string, value string) (*types.ProductPackagings, error) {
+	p := &types.ProductPackagings{}
+	return p, svc.client.getByName(types.ProductPackagingModel, field, value, p)
+}
+
 func (svc *ProductPackagingService) GetAll() (*types.ProductPackagings, error) {
 	p := &types.ProductPackagings{}
 	return p, svc.client.getAll(types.ProductPackagingModel, p)

@@ -26,6 +26,11 @@ func (svc *IrQwebFieldImageService) GetByName(name string) (*types.IrQwebFieldIm
 	return i, svc.client.getByName(types.IrQwebFieldImageModel, name, i)
 }
 
+func (svc *IrQwebFieldImageService) GetByField(field string, value string) (*types.IrQwebFieldImages, error) {
+	i := &types.IrQwebFieldImages{}
+	return i, svc.client.getByName(types.IrQwebFieldImageModel, field, value, i)
+}
+
 func (svc *IrQwebFieldImageService) GetAll() (*types.IrQwebFieldImages, error) {
 	i := &types.IrQwebFieldImages{}
 	return i, svc.client.getAll(types.IrQwebFieldImageModel, i)

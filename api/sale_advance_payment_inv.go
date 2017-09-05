@@ -26,6 +26,11 @@ func (svc *SaleAdvancePaymentInvService) GetByName(name string) (*types.SaleAdva
 	return s, svc.client.getByName(types.SaleAdvancePaymentInvModel, name, s)
 }
 
+func (svc *SaleAdvancePaymentInvService) GetByField(field string, value string) (*types.SaleAdvancePaymentInvs, error) {
+	s := &types.SaleAdvancePaymentInvs{}
+	return s, svc.client.getByName(types.SaleAdvancePaymentInvModel, field, value, s)
+}
+
 func (svc *SaleAdvancePaymentInvService) GetAll() (*types.SaleAdvancePaymentInvs, error) {
 	s := &types.SaleAdvancePaymentInvs{}
 	return s, svc.client.getAll(types.SaleAdvancePaymentInvModel, s)

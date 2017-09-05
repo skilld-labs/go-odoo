@@ -26,6 +26,11 @@ func (svc *IrConfigParameterService) GetByName(name string) (*types.IrConfigPara
 	return i, svc.client.getByName(types.IrConfigParameterModel, name, i)
 }
 
+func (svc *IrConfigParameterService) GetByField(field string, value string) (*types.IrConfigParameters, error) {
+	i := &types.IrConfigParameters{}
+	return i, svc.client.getByName(types.IrConfigParameterModel, field, value, i)
+}
+
 func (svc *IrConfigParameterService) GetAll() (*types.IrConfigParameters, error) {
 	i := &types.IrConfigParameters{}
 	return i, svc.client.getAll(types.IrConfigParameterModel, i)

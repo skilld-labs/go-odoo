@@ -26,6 +26,11 @@ func (svc *ProcurementOrderpointComputeService) GetByName(name string) (*types.P
 	return p, svc.client.getByName(types.ProcurementOrderpointComputeModel, name, p)
 }
 
+func (svc *ProcurementOrderpointComputeService) GetByField(field string, value string) (*types.ProcurementOrderpointComputes, error) {
+	p := &types.ProcurementOrderpointComputes{}
+	return p, svc.client.getByName(types.ProcurementOrderpointComputeModel, field, value, p)
+}
+
 func (svc *ProcurementOrderpointComputeService) GetAll() (*types.ProcurementOrderpointComputes, error) {
 	p := &types.ProcurementOrderpointComputes{}
 	return p, svc.client.getAll(types.ProcurementOrderpointComputeModel, p)

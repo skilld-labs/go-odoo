@@ -26,6 +26,11 @@ func (svc *WorkflowTransitionService) GetByName(name string) (*types.WorkflowTra
 	return w, svc.client.getByName(types.WorkflowTransitionModel, name, w)
 }
 
+func (svc *WorkflowTransitionService) GetByField(field string, value string) (*types.WorkflowTransitions, error) {
+	w := &types.WorkflowTransitions{}
+	return w, svc.client.getByName(types.WorkflowTransitionModel, field, value, w)
+}
+
 func (svc *WorkflowTransitionService) GetAll() (*types.WorkflowTransitions, error) {
 	w := &types.WorkflowTransitions{}
 	return w, svc.client.getAll(types.WorkflowTransitionModel, w)

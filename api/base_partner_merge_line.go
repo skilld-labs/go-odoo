@@ -26,6 +26,11 @@ func (svc *BasePartnerMergeLineService) GetByName(name string) (*types.BasePartn
 	return b, svc.client.getByName(types.BasePartnerMergeLineModel, name, b)
 }
 
+func (svc *BasePartnerMergeLineService) GetByField(field string, value string) (*types.BasePartnerMergeLines, error) {
+	b := &types.BasePartnerMergeLines{}
+	return b, svc.client.getByName(types.BasePartnerMergeLineModel, field, value, b)
+}
+
 func (svc *BasePartnerMergeLineService) GetAll() (*types.BasePartnerMergeLines, error) {
 	b := &types.BasePartnerMergeLines{}
 	return b, svc.client.getAll(types.BasePartnerMergeLineModel, b)

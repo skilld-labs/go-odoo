@@ -26,6 +26,11 @@ func (svc *BusPresenceService) GetByName(name string) (*types.BusPresences, erro
 	return b, svc.client.getByName(types.BusPresenceModel, name, b)
 }
 
+func (svc *BusPresenceService) GetByField(field string, value string) (*types.BusPresences, error) {
+	b := &types.BusPresences{}
+	return b, svc.client.getByName(types.BusPresenceModel, field, value, b)
+}
+
 func (svc *BusPresenceService) GetAll() (*types.BusPresences, error) {
 	b := &types.BusPresences{}
 	return b, svc.client.getAll(types.BusPresenceModel, b)

@@ -26,6 +26,11 @@ func (svc *MailMassMailingListService) GetByName(name string) (*types.MailMassMa
 	return m, svc.client.getByName(types.MailMassMailingListModel, name, m)
 }
 
+func (svc *MailMassMailingListService) GetByField(field string, value string) (*types.MailMassMailingLists, error) {
+	m := &types.MailMassMailingLists{}
+	return m, svc.client.getByName(types.MailMassMailingListModel, field, value, m)
+}
+
 func (svc *MailMassMailingListService) GetAll() (*types.MailMassMailingLists, error) {
 	m := &types.MailMassMailingLists{}
 	return m, svc.client.getAll(types.MailMassMailingListModel, m)

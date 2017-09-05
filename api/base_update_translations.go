@@ -26,6 +26,11 @@ func (svc *BaseUpdateTranslationsService) GetByName(name string) (*types.BaseUpd
 	return b, svc.client.getByName(types.BaseUpdateTranslationsModel, name, b)
 }
 
+func (svc *BaseUpdateTranslationsService) GetByField(field string, value string) (*types.BaseUpdateTranslationss, error) {
+	b := &types.BaseUpdateTranslationss{}
+	return b, svc.client.getByName(types.BaseUpdateTranslationsModel, field, value, b)
+}
+
 func (svc *BaseUpdateTranslationsService) GetAll() (*types.BaseUpdateTranslationss, error) {
 	b := &types.BaseUpdateTranslationss{}
 	return b, svc.client.getAll(types.BaseUpdateTranslationsModel, b)

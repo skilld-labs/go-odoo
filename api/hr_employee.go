@@ -26,6 +26,11 @@ func (svc *HrEmployeeService) GetByName(name string) (*types.HrEmployees, error)
 	return h, svc.client.getByName(types.HrEmployeeModel, name, h)
 }
 
+func (svc *HrEmployeeService) GetByField(field string, value string) (*types.HrEmployees, error) {
+	h := &types.HrEmployees{}
+	return h, svc.client.getByName(types.HrEmployeeModel, field, value, h)
+}
+
 func (svc *HrEmployeeService) GetAll() (*types.HrEmployees, error) {
 	h := &types.HrEmployees{}
 	return h, svc.client.getAll(types.HrEmployeeModel, h)

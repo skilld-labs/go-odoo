@@ -37,6 +37,11 @@ func (svc *{{camelModel}}Service) GetByName(name string) (*types.{{camelModel}}s
 	return {{variable_name}}, svc.client.getByName(types.{{camelModel}}Model, name, {{variable_name}})
 }
 
+func (svc *{{camelModel}}Service) GetByField(field string, value string) (*types.{{camelModel}}s, error) {
+	{{variable_name}} := &types.{{camelModel}}s{}
+	return {{variable_name}}, svc.client.getByName(types.{{camelModel}}Model, field, value, {{variable_name}})
+}
+
 func (svc *{{camelModel}}Service) GetAll() (*types.{{camelModel}}s, error) {
 	{{variable_name}} := &types.{{camelModel}}s{}
 	return {{variable_name}}, svc.client.getAll(types.{{camelModel}}Model, {{variable_name}})

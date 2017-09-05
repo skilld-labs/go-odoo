@@ -26,6 +26,11 @@ func (svc *EmailTemplatePreviewService) GetByName(name string) (*types.EmailTemp
 	return e, svc.client.getByName(types.EmailTemplatePreviewModel, name, e)
 }
 
+func (svc *EmailTemplatePreviewService) GetByField(field string, value string) (*types.EmailTemplatePreviews, error) {
+	e := &types.EmailTemplatePreviews{}
+	return e, svc.client.getByName(types.EmailTemplatePreviewModel, field, value, e)
+}
+
 func (svc *EmailTemplatePreviewService) GetAll() (*types.EmailTemplatePreviews, error) {
 	e := &types.EmailTemplatePreviews{}
 	return e, svc.client.getAll(types.EmailTemplatePreviewModel, e)

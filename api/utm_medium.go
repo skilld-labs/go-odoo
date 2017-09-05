@@ -26,6 +26,11 @@ func (svc *UtmMediumService) GetByName(name string) (*types.UtmMediums, error) {
 	return u, svc.client.getByName(types.UtmMediumModel, name, u)
 }
 
+func (svc *UtmMediumService) GetByField(field string, value string) (*types.UtmMediums, error) {
+	u := &types.UtmMediums{}
+	return u, svc.client.getByName(types.UtmMediumModel, field, value, u)
+}
+
 func (svc *UtmMediumService) GetAll() (*types.UtmMediums, error) {
 	u := &types.UtmMediums{}
 	return u, svc.client.getAll(types.UtmMediumModel, u)

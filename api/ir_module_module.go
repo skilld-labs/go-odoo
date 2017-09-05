@@ -26,6 +26,11 @@ func (svc *IrModuleModuleService) GetByName(name string) (*types.IrModuleModules
 	return i, svc.client.getByName(types.IrModuleModuleModel, name, i)
 }
 
+func (svc *IrModuleModuleService) GetByField(field string, value string) (*types.IrModuleModules, error) {
+	i := &types.IrModuleModules{}
+	return i, svc.client.getByName(types.IrModuleModuleModel, field, value, i)
+}
+
 func (svc *IrModuleModuleService) GetAll() (*types.IrModuleModules, error) {
 	i := &types.IrModuleModules{}
 	return i, svc.client.getAll(types.IrModuleModuleModel, i)

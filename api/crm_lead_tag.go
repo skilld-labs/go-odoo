@@ -26,6 +26,11 @@ func (svc *CrmLeadTagService) GetByName(name string) (*types.CrmLeadTags, error)
 	return c, svc.client.getByName(types.CrmLeadTagModel, name, c)
 }
 
+func (svc *CrmLeadTagService) GetByField(field string, value string) (*types.CrmLeadTags, error) {
+	c := &types.CrmLeadTags{}
+	return c, svc.client.getByName(types.CrmLeadTagModel, field, value, c)
+}
+
 func (svc *CrmLeadTagService) GetAll() (*types.CrmLeadTags, error) {
 	c := &types.CrmLeadTags{}
 	return c, svc.client.getAll(types.CrmLeadTagModel, c)

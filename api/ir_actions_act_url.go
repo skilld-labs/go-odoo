@@ -26,6 +26,11 @@ func (svc *IrActionsActUrlService) GetByName(name string) (*types.IrActionsActUr
 	return i, svc.client.getByName(types.IrActionsActUrlModel, name, i)
 }
 
+func (svc *IrActionsActUrlService) GetByField(field string, value string) (*types.IrActionsActUrls, error) {
+	i := &types.IrActionsActUrls{}
+	return i, svc.client.getByName(types.IrActionsActUrlModel, field, value, i)
+}
+
 func (svc *IrActionsActUrlService) GetAll() (*types.IrActionsActUrls, error) {
 	i := &types.IrActionsActUrls{}
 	return i, svc.client.getAll(types.IrActionsActUrlModel, i)

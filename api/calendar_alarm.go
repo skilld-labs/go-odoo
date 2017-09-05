@@ -26,6 +26,11 @@ func (svc *CalendarAlarmService) GetByName(name string) (*types.CalendarAlarms, 
 	return c, svc.client.getByName(types.CalendarAlarmModel, name, c)
 }
 
+func (svc *CalendarAlarmService) GetByField(field string, value string) (*types.CalendarAlarms, error) {
+	c := &types.CalendarAlarms{}
+	return c, svc.client.getByName(types.CalendarAlarmModel, field, value, c)
+}
+
 func (svc *CalendarAlarmService) GetAll() (*types.CalendarAlarms, error) {
 	c := &types.CalendarAlarms{}
 	return c, svc.client.getAll(types.CalendarAlarmModel, c)

@@ -26,6 +26,11 @@ func (svc *AccountTaxTemplateService) GetByName(name string) (*types.AccountTaxT
 	return a, svc.client.getByName(types.AccountTaxTemplateModel, name, a)
 }
 
+func (svc *AccountTaxTemplateService) GetByField(field string, value string) (*types.AccountTaxTemplates, error) {
+	a := &types.AccountTaxTemplates{}
+	return a, svc.client.getByName(types.AccountTaxTemplateModel, field, value, a)
+}
+
 func (svc *AccountTaxTemplateService) GetAll() (*types.AccountTaxTemplates, error) {
 	a := &types.AccountTaxTemplates{}
 	return a, svc.client.getAll(types.AccountTaxTemplateModel, a)

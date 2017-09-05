@@ -26,6 +26,11 @@ func (svc *WizardMultiChartsAccountsService) GetByName(name string) (*types.Wiza
 	return w, svc.client.getByName(types.WizardMultiChartsAccountsModel, name, w)
 }
 
+func (svc *WizardMultiChartsAccountsService) GetByField(field string, value string) (*types.WizardMultiChartsAccountss, error) {
+	w := &types.WizardMultiChartsAccountss{}
+	return w, svc.client.getByName(types.WizardMultiChartsAccountsModel, field, value, w)
+}
+
 func (svc *WizardMultiChartsAccountsService) GetAll() (*types.WizardMultiChartsAccountss, error) {
 	w := &types.WizardMultiChartsAccountss{}
 	return w, svc.client.getAll(types.WizardMultiChartsAccountsModel, w)

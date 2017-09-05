@@ -26,6 +26,11 @@ func (svc *ReportBaseReportIrmodulereferenceService) GetByName(name string) (*ty
 	return r, svc.client.getByName(types.ReportBaseReportIrmodulereferenceModel, name, r)
 }
 
+func (svc *ReportBaseReportIrmodulereferenceService) GetByField(field string, value string) (*types.ReportBaseReportIrmodulereferences, error) {
+	r := &types.ReportBaseReportIrmodulereferences{}
+	return r, svc.client.getByName(types.ReportBaseReportIrmodulereferenceModel, field, value, r)
+}
+
 func (svc *ReportBaseReportIrmodulereferenceService) GetAll() (*types.ReportBaseReportIrmodulereferences, error) {
 	r := &types.ReportBaseReportIrmodulereferences{}
 	return r, svc.client.getAll(types.ReportBaseReportIrmodulereferenceModel, r)

@@ -26,6 +26,11 @@ func (svc *BaseConfigSettingsService) GetByName(name string) (*types.BaseConfigS
 	return b, svc.client.getByName(types.BaseConfigSettingsModel, name, b)
 }
 
+func (svc *BaseConfigSettingsService) GetByField(field string, value string) (*types.BaseConfigSettingss, error) {
+	b := &types.BaseConfigSettingss{}
+	return b, svc.client.getByName(types.BaseConfigSettingsModel, field, value, b)
+}
+
 func (svc *BaseConfigSettingsService) GetAll() (*types.BaseConfigSettingss, error) {
 	b := &types.BaseConfigSettingss{}
 	return b, svc.client.getAll(types.BaseConfigSettingsModel, b)

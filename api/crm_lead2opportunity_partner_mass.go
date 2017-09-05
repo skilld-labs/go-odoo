@@ -26,6 +26,11 @@ func (svc *CrmLead2opportunityPartnerMassService) GetByName(name string) (*types
 	return c, svc.client.getByName(types.CrmLead2opportunityPartnerMassModel, name, c)
 }
 
+func (svc *CrmLead2opportunityPartnerMassService) GetByField(field string, value string) (*types.CrmLead2opportunityPartnerMasss, error) {
+	c := &types.CrmLead2opportunityPartnerMasss{}
+	return c, svc.client.getByName(types.CrmLead2opportunityPartnerMassModel, field, value, c)
+}
+
 func (svc *CrmLead2opportunityPartnerMassService) GetAll() (*types.CrmLead2opportunityPartnerMasss, error) {
 	c := &types.CrmLead2opportunityPartnerMasss{}
 	return c, svc.client.getAll(types.CrmLead2opportunityPartnerMassModel, c)

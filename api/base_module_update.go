@@ -26,6 +26,11 @@ func (svc *BaseModuleUpdateService) GetByName(name string) (*types.BaseModuleUpd
 	return b, svc.client.getByName(types.BaseModuleUpdateModel, name, b)
 }
 
+func (svc *BaseModuleUpdateService) GetByField(field string, value string) (*types.BaseModuleUpdates, error) {
+	b := &types.BaseModuleUpdates{}
+	return b, svc.client.getByName(types.BaseModuleUpdateModel, field, value, b)
+}
+
 func (svc *BaseModuleUpdateService) GetAll() (*types.BaseModuleUpdates, error) {
 	b := &types.BaseModuleUpdates{}
 	return b, svc.client.getAll(types.BaseModuleUpdateModel, b)

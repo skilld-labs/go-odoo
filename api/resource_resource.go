@@ -26,6 +26,11 @@ func (svc *ResourceResourceService) GetByName(name string) (*types.ResourceResou
 	return r, svc.client.getByName(types.ResourceResourceModel, name, r)
 }
 
+func (svc *ResourceResourceService) GetByField(field string, value string) (*types.ResourceResources, error) {
+	r := &types.ResourceResources{}
+	return r, svc.client.getByName(types.ResourceResourceModel, field, value, r)
+}
+
 func (svc *ResourceResourceService) GetAll() (*types.ResourceResources, error) {
 	r := &types.ResourceResources{}
 	return r, svc.client.getAll(types.ResourceResourceModel, r)

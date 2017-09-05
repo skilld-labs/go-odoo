@@ -26,6 +26,11 @@ func (svc *IrFieldsConverterService) GetByName(name string) (*types.IrFieldsConv
 	return i, svc.client.getByName(types.IrFieldsConverterModel, name, i)
 }
 
+func (svc *IrFieldsConverterService) GetByField(field string, value string) (*types.IrFieldsConverters, error) {
+	i := &types.IrFieldsConverters{}
+	return i, svc.client.getByName(types.IrFieldsConverterModel, field, value, i)
+}
+
 func (svc *IrFieldsConverterService) GetAll() (*types.IrFieldsConverters, error) {
 	i := &types.IrFieldsConverters{}
 	return i, svc.client.getAll(types.IrFieldsConverterModel, i)

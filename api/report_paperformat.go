@@ -26,6 +26,11 @@ func (svc *ReportPaperformatService) GetByName(name string) (*types.ReportPaperf
 	return r, svc.client.getByName(types.ReportPaperformatModel, name, r)
 }
 
+func (svc *ReportPaperformatService) GetByField(field string, value string) (*types.ReportPaperformats, error) {
+	r := &types.ReportPaperformats{}
+	return r, svc.client.getByName(types.ReportPaperformatModel, field, value, r)
+}
+
 func (svc *ReportPaperformatService) GetAll() (*types.ReportPaperformats, error) {
 	r := &types.ReportPaperformats{}
 	return r, svc.client.getAll(types.ReportPaperformatModel, r)

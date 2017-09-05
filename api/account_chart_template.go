@@ -26,6 +26,11 @@ func (svc *AccountChartTemplateService) GetByName(name string) (*types.AccountCh
 	return a, svc.client.getByName(types.AccountChartTemplateModel, name, a)
 }
 
+func (svc *AccountChartTemplateService) GetByField(field string, value string) (*types.AccountChartTemplates, error) {
+	a := &types.AccountChartTemplates{}
+	return a, svc.client.getByName(types.AccountChartTemplateModel, field, value, a)
+}
+
 func (svc *AccountChartTemplateService) GetAll() (*types.AccountChartTemplates, error) {
 	a := &types.AccountChartTemplates{}
 	return a, svc.client.getAll(types.AccountChartTemplateModel, a)

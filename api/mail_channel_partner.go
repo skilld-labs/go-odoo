@@ -26,6 +26,11 @@ func (svc *MailChannelPartnerService) GetByName(name string) (*types.MailChannel
 	return m, svc.client.getByName(types.MailChannelPartnerModel, name, m)
 }
 
+func (svc *MailChannelPartnerService) GetByField(field string, value string) (*types.MailChannelPartners, error) {
+	m := &types.MailChannelPartners{}
+	return m, svc.client.getByName(types.MailChannelPartnerModel, field, value, m)
+}
+
 func (svc *MailChannelPartnerService) GetAll() (*types.MailChannelPartners, error) {
 	m := &types.MailChannelPartners{}
 	return m, svc.client.getAll(types.MailChannelPartnerModel, m)

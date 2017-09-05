@@ -26,6 +26,11 @@ func (svc *PublisherWarrantyContractService) GetByName(name string) (*types.Publ
 	return p, svc.client.getByName(types.PublisherWarrantyContractModel, name, p)
 }
 
+func (svc *PublisherWarrantyContractService) GetByField(field string, value string) (*types.PublisherWarrantyContracts, error) {
+	p := &types.PublisherWarrantyContracts{}
+	return p, svc.client.getByName(types.PublisherWarrantyContractModel, field, value, p)
+}
+
 func (svc *PublisherWarrantyContractService) GetAll() (*types.PublisherWarrantyContracts, error) {
 	p := &types.PublisherWarrantyContracts{}
 	return p, svc.client.getAll(types.PublisherWarrantyContractModel, p)

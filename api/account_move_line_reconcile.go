@@ -26,6 +26,11 @@ func (svc *AccountMoveLineReconcileService) GetByName(name string) (*types.Accou
 	return a, svc.client.getByName(types.AccountMoveLineReconcileModel, name, a)
 }
 
+func (svc *AccountMoveLineReconcileService) GetByField(field string, value string) (*types.AccountMoveLineReconciles, error) {
+	a := &types.AccountMoveLineReconciles{}
+	return a, svc.client.getByName(types.AccountMoveLineReconcileModel, field, value, a)
+}
+
 func (svc *AccountMoveLineReconcileService) GetAll() (*types.AccountMoveLineReconciles, error) {
 	a := &types.AccountMoveLineReconciles{}
 	return a, svc.client.getAll(types.AccountMoveLineReconcileModel, a)

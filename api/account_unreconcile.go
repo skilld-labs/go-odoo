@@ -26,6 +26,11 @@ func (svc *AccountUnreconcileService) GetByName(name string) (*types.AccountUnre
 	return a, svc.client.getByName(types.AccountUnreconcileModel, name, a)
 }
 
+func (svc *AccountUnreconcileService) GetByField(field string, value string) (*types.AccountUnreconciles, error) {
+	a := &types.AccountUnreconciles{}
+	return a, svc.client.getByName(types.AccountUnreconcileModel, field, value, a)
+}
+
 func (svc *AccountUnreconcileService) GetAll() (*types.AccountUnreconciles, error) {
 	a := &types.AccountUnreconciles{}
 	return a, svc.client.getAll(types.AccountUnreconcileModel, a)

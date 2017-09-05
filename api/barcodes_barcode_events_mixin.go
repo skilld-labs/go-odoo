@@ -26,6 +26,11 @@ func (svc *BarcodesBarcodeEventsMixinService) GetByName(name string) (*types.Bar
 	return b, svc.client.getByName(types.BarcodesBarcodeEventsMixinModel, name, b)
 }
 
+func (svc *BarcodesBarcodeEventsMixinService) GetByField(field string, value string) (*types.BarcodesBarcodeEventsMixins, error) {
+	b := &types.BarcodesBarcodeEventsMixins{}
+	return b, svc.client.getByName(types.BarcodesBarcodeEventsMixinModel, field, value, b)
+}
+
 func (svc *BarcodesBarcodeEventsMixinService) GetAll() (*types.BarcodesBarcodeEventsMixins, error) {
 	b := &types.BarcodesBarcodeEventsMixins{}
 	return b, svc.client.getAll(types.BarcodesBarcodeEventsMixinModel, b)

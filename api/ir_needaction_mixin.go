@@ -26,6 +26,11 @@ func (svc *IrNeedactionMixinService) GetByName(name string) (*types.IrNeedaction
 	return i, svc.client.getByName(types.IrNeedactionMixinModel, name, i)
 }
 
+func (svc *IrNeedactionMixinService) GetByField(field string, value string) (*types.IrNeedactionMixins, error) {
+	i := &types.IrNeedactionMixins{}
+	return i, svc.client.getByName(types.IrNeedactionMixinModel, field, value, i)
+}
+
 func (svc *IrNeedactionMixinService) GetAll() (*types.IrNeedactionMixins, error) {
 	i := &types.IrNeedactionMixins{}
 	return i, svc.client.getAll(types.IrNeedactionMixinModel, i)

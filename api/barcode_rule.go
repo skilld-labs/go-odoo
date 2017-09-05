@@ -26,6 +26,11 @@ func (svc *BarcodeRuleService) GetByName(name string) (*types.BarcodeRules, erro
 	return b, svc.client.getByName(types.BarcodeRuleModel, name, b)
 }
 
+func (svc *BarcodeRuleService) GetByField(field string, value string) (*types.BarcodeRules, error) {
+	b := &types.BarcodeRules{}
+	return b, svc.client.getByName(types.BarcodeRuleModel, field, value, b)
+}
+
 func (svc *BarcodeRuleService) GetAll() (*types.BarcodeRules, error) {
 	b := &types.BarcodeRules{}
 	return b, svc.client.getAll(types.BarcodeRuleModel, b)

@@ -26,6 +26,11 @@ func (svc *SaleLayoutCategoryService) GetByName(name string) (*types.SaleLayoutC
 	return s, svc.client.getByName(types.SaleLayoutCategoryModel, name, s)
 }
 
+func (svc *SaleLayoutCategoryService) GetByField(field string, value string) (*types.SaleLayoutCategorys, error) {
+	s := &types.SaleLayoutCategorys{}
+	return s, svc.client.getByName(types.SaleLayoutCategoryModel, field, value, s)
+}
+
 func (svc *SaleLayoutCategoryService) GetAll() (*types.SaleLayoutCategorys, error) {
 	s := &types.SaleLayoutCategorys{}
 	return s, svc.client.getAll(types.SaleLayoutCategoryModel, s)

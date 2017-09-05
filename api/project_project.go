@@ -26,6 +26,11 @@ func (svc *ProjectProjectService) GetByName(name string) (*types.ProjectProjects
 	return p, svc.client.getByName(types.ProjectProjectModel, name, p)
 }
 
+func (svc *ProjectProjectService) GetByField(field string, value string) (*types.ProjectProjects, error) {
+	p := &types.ProjectProjects{}
+	return p, svc.client.getByName(types.ProjectProjectModel, field, value, p)
+}
+
 func (svc *ProjectProjectService) GetAll() (*types.ProjectProjects, error) {
 	p := &types.ProjectProjects{}
 	return p, svc.client.getAll(types.ProjectProjectModel, p)

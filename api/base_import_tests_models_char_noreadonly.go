@@ -26,6 +26,11 @@ func (svc *BaseImportTestsModelsCharNoreadonlyService) GetByName(name string) (*
 	return b, svc.client.getByName(types.BaseImportTestsModelsCharNoreadonlyModel, name, b)
 }
 
+func (svc *BaseImportTestsModelsCharNoreadonlyService) GetByField(field string, value string) (*types.BaseImportTestsModelsCharNoreadonlys, error) {
+	b := &types.BaseImportTestsModelsCharNoreadonlys{}
+	return b, svc.client.getByName(types.BaseImportTestsModelsCharNoreadonlyModel, field, value, b)
+}
+
 func (svc *BaseImportTestsModelsCharNoreadonlyService) GetAll() (*types.BaseImportTestsModelsCharNoreadonlys, error) {
 	b := &types.BaseImportTestsModelsCharNoreadonlys{}
 	return b, svc.client.getAll(types.BaseImportTestsModelsCharNoreadonlyModel, b)

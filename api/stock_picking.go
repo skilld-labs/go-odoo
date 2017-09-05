@@ -26,6 +26,11 @@ func (svc *StockPickingService) GetByName(name string) (*types.StockPickings, er
 	return s, svc.client.getByName(types.StockPickingModel, name, s)
 }
 
+func (svc *StockPickingService) GetByField(field string, value string) (*types.StockPickings, error) {
+	s := &types.StockPickings{}
+	return s, svc.client.getByName(types.StockPickingModel, field, value, s)
+}
+
 func (svc *StockPickingService) GetAll() (*types.StockPickings, error) {
 	s := &types.StockPickings{}
 	return s, svc.client.getAll(types.StockPickingModel, s)

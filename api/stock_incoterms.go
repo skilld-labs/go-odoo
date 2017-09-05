@@ -26,6 +26,11 @@ func (svc *StockIncotermsService) GetByName(name string) (*types.StockIncotermss
 	return s, svc.client.getByName(types.StockIncotermsModel, name, s)
 }
 
+func (svc *StockIncotermsService) GetByField(field string, value string) (*types.StockIncotermss, error) {
+	s := &types.StockIncotermss{}
+	return s, svc.client.getByName(types.StockIncotermsModel, field, value, s)
+}
+
 func (svc *StockIncotermsService) GetAll() (*types.StockIncotermss, error) {
 	s := &types.StockIncotermss{}
 	return s, svc.client.getAll(types.StockIncotermsModel, s)

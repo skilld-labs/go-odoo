@@ -26,6 +26,11 @@ func (svc *ImLivechatReportOperatorService) GetByName(name string) (*types.ImLiv
 	return i, svc.client.getByName(types.ImLivechatReportOperatorModel, name, i)
 }
 
+func (svc *ImLivechatReportOperatorService) GetByField(field string, value string) (*types.ImLivechatReportOperators, error) {
+	i := &types.ImLivechatReportOperators{}
+	return i, svc.client.getByName(types.ImLivechatReportOperatorModel, field, value, i)
+}
+
 func (svc *ImLivechatReportOperatorService) GetAll() (*types.ImLivechatReportOperators, error) {
 	i := &types.ImLivechatReportOperators{}
 	return i, svc.client.getAll(types.ImLivechatReportOperatorModel, i)

@@ -26,6 +26,11 @@ func (svc *WebPlannerService) GetByName(name string) (*types.WebPlanners, error)
 	return w, svc.client.getByName(types.WebPlannerModel, name, w)
 }
 
+func (svc *WebPlannerService) GetByField(field string, value string) (*types.WebPlanners, error) {
+	w := &types.WebPlanners{}
+	return w, svc.client.getByName(types.WebPlannerModel, field, value, w)
+}
+
 func (svc *WebPlannerService) GetAll() (*types.WebPlanners, error) {
 	w := &types.WebPlanners{}
 	return w, svc.client.getAll(types.WebPlannerModel, w)

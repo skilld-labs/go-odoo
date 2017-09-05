@@ -26,6 +26,11 @@ func (svc *StockWarehouseOrderpointService) GetByName(name string) (*types.Stock
 	return s, svc.client.getByName(types.StockWarehouseOrderpointModel, name, s)
 }
 
+func (svc *StockWarehouseOrderpointService) GetByField(field string, value string) (*types.StockWarehouseOrderpoints, error) {
+	s := &types.StockWarehouseOrderpoints{}
+	return s, svc.client.getByName(types.StockWarehouseOrderpointModel, field, value, s)
+}
+
 func (svc *StockWarehouseOrderpointService) GetAll() (*types.StockWarehouseOrderpoints, error) {
 	s := &types.StockWarehouseOrderpoints{}
 	return s, svc.client.getAll(types.StockWarehouseOrderpointModel, s)

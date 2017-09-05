@@ -26,6 +26,11 @@ func (svc *DecimalPrecisionTestService) GetByName(name string) (*types.DecimalPr
 	return d, svc.client.getByName(types.DecimalPrecisionTestModel, name, d)
 }
 
+func (svc *DecimalPrecisionTestService) GetByField(field string, value string) (*types.DecimalPrecisionTests, error) {
+	d := &types.DecimalPrecisionTests{}
+	return d, svc.client.getByName(types.DecimalPrecisionTestModel, field, value, d)
+}
+
 func (svc *DecimalPrecisionTestService) GetAll() (*types.DecimalPrecisionTests, error) {
 	d := &types.DecimalPrecisionTests{}
 	return d, svc.client.getAll(types.DecimalPrecisionTestModel, d)
