@@ -26,6 +26,11 @@ func (svc *BasePartnerMergeAutomaticWizardService) GetByName(name string) (*type
 	return b, svc.client.getByName(types.BasePartnerMergeAutomaticWizardModel, name, b)
 }
 
+func (svc *BasePartnerMergeAutomaticWizardService) GetByField(field string, value string) (*types.BasePartnerMergeAutomaticWizards, error) {
+	b := &types.BasePartnerMergeAutomaticWizards{}
+	return b, svc.client.getByName(types.BasePartnerMergeAutomaticWizardModel, field, value, b)
+}
+
 func (svc *BasePartnerMergeAutomaticWizardService) GetAll() (*types.BasePartnerMergeAutomaticWizards, error) {
 	b := &types.BasePartnerMergeAutomaticWizards{}
 	return b, svc.client.getAll(types.BasePartnerMergeAutomaticWizardModel, b)

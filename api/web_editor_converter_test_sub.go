@@ -26,6 +26,11 @@ func (svc *WebEditorConverterTestSubService) GetByName(name string) (*types.WebE
 	return w, svc.client.getByName(types.WebEditorConverterTestSubModel, name, w)
 }
 
+func (svc *WebEditorConverterTestSubService) GetByField(field string, value string) (*types.WebEditorConverterTestSubs, error) {
+	w := &types.WebEditorConverterTestSubs{}
+	return w, svc.client.getByName(types.WebEditorConverterTestSubModel, field, value, w)
+}
+
 func (svc *WebEditorConverterTestSubService) GetAll() (*types.WebEditorConverterTestSubs, error) {
 	w := &types.WebEditorConverterTestSubs{}
 	return w, svc.client.getAll(types.WebEditorConverterTestSubModel, w)

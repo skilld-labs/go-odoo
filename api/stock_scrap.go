@@ -26,6 +26,11 @@ func (svc *StockScrapService) GetByName(name string) (*types.StockScraps, error)
 	return s, svc.client.getByName(types.StockScrapModel, name, s)
 }
 
+func (svc *StockScrapService) GetByField(field string, value string) (*types.StockScraps, error) {
+	s := &types.StockScraps{}
+	return s, svc.client.getByName(types.StockScrapModel, field, value, s)
+}
+
 func (svc *StockScrapService) GetAll() (*types.StockScraps, error) {
 	s := &types.StockScraps{}
 	return s, svc.client.getAll(types.StockScrapModel, s)

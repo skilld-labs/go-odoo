@@ -26,6 +26,11 @@ func (svc *IrQwebFieldHtmlService) GetByName(name string) (*types.IrQwebFieldHtm
 	return i, svc.client.getByName(types.IrQwebFieldHtmlModel, name, i)
 }
 
+func (svc *IrQwebFieldHtmlService) GetByField(field string, value string) (*types.IrQwebFieldHtmls, error) {
+	i := &types.IrQwebFieldHtmls{}
+	return i, svc.client.getByName(types.IrQwebFieldHtmlModel, field, value, i)
+}
+
 func (svc *IrQwebFieldHtmlService) GetAll() (*types.IrQwebFieldHtmls, error) {
 	i := &types.IrQwebFieldHtmls{}
 	return i, svc.client.getAll(types.IrQwebFieldHtmlModel, i)

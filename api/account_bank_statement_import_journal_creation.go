@@ -26,6 +26,11 @@ func (svc *AccountBankStatementImportJournalCreationService) GetByName(name stri
 	return a, svc.client.getByName(types.AccountBankStatementImportJournalCreationModel, name, a)
 }
 
+func (svc *AccountBankStatementImportJournalCreationService) GetByField(field string, value string) (*types.AccountBankStatementImportJournalCreations, error) {
+	a := &types.AccountBankStatementImportJournalCreations{}
+	return a, svc.client.getByName(types.AccountBankStatementImportJournalCreationModel, field, value, a)
+}
+
 func (svc *AccountBankStatementImportJournalCreationService) GetAll() (*types.AccountBankStatementImportJournalCreations, error) {
 	a := &types.AccountBankStatementImportJournalCreations{}
 	return a, svc.client.getAll(types.AccountBankStatementImportJournalCreationModel, a)

@@ -26,6 +26,11 @@ func (svc *IrRuleService) GetByName(name string) (*types.IrRules, error) {
 	return i, svc.client.getByName(types.IrRuleModel, name, i)
 }
 
+func (svc *IrRuleService) GetByField(field string, value string) (*types.IrRules, error) {
+	i := &types.IrRules{}
+	return i, svc.client.getByName(types.IrRuleModel, field, value, i)
+}
+
 func (svc *IrRuleService) GetAll() (*types.IrRules, error) {
 	i := &types.IrRules{}
 	return i, svc.client.getAll(types.IrRuleModel, i)

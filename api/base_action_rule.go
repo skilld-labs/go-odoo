@@ -26,6 +26,11 @@ func (svc *BaseActionRuleService) GetByName(name string) (*types.BaseActionRules
 	return b, svc.client.getByName(types.BaseActionRuleModel, name, b)
 }
 
+func (svc *BaseActionRuleService) GetByField(field string, value string) (*types.BaseActionRules, error) {
+	b := &types.BaseActionRules{}
+	return b, svc.client.getByName(types.BaseActionRuleModel, field, value, b)
+}
+
 func (svc *BaseActionRuleService) GetAll() (*types.BaseActionRules, error) {
 	b := &types.BaseActionRules{}
 	return b, svc.client.getAll(types.BaseActionRuleModel, b)

@@ -26,6 +26,11 @@ func (svc *ProcurementGroupService) GetByName(name string) (*types.ProcurementGr
 	return p, svc.client.getByName(types.ProcurementGroupModel, name, p)
 }
 
+func (svc *ProcurementGroupService) GetByField(field string, value string) (*types.ProcurementGroups, error) {
+	p := &types.ProcurementGroups{}
+	return p, svc.client.getByName(types.ProcurementGroupModel, field, value, p)
+}
+
 func (svc *ProcurementGroupService) GetAll() (*types.ProcurementGroups, error) {
 	p := &types.ProcurementGroups{}
 	return p, svc.client.getAll(types.ProcurementGroupModel, p)

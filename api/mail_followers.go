@@ -26,6 +26,11 @@ func (svc *MailFollowersService) GetByName(name string) (*types.MailFollowerss, 
 	return m, svc.client.getByName(types.MailFollowersModel, name, m)
 }
 
+func (svc *MailFollowersService) GetByField(field string, value string) (*types.MailFollowerss, error) {
+	m := &types.MailFollowerss{}
+	return m, svc.client.getByName(types.MailFollowersModel, field, value, m)
+}
+
 func (svc *MailFollowersService) GetAll() (*types.MailFollowerss, error) {
 	m := &types.MailFollowerss{}
 	return m, svc.client.getAll(types.MailFollowersModel, m)

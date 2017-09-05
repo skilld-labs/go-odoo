@@ -26,6 +26,11 @@ func (svc *AccountInvoiceRefundService) GetByName(name string) (*types.AccountIn
 	return a, svc.client.getByName(types.AccountInvoiceRefundModel, name, a)
 }
 
+func (svc *AccountInvoiceRefundService) GetByField(field string, value string) (*types.AccountInvoiceRefunds, error) {
+	a := &types.AccountInvoiceRefunds{}
+	return a, svc.client.getByName(types.AccountInvoiceRefundModel, field, value, a)
+}
+
 func (svc *AccountInvoiceRefundService) GetAll() (*types.AccountInvoiceRefunds, error) {
 	a := &types.AccountInvoiceRefunds{}
 	return a, svc.client.getAll(types.AccountInvoiceRefundModel, a)

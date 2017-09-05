@@ -26,6 +26,11 @@ func (svc *BaseLanguageExportService) GetByName(name string) (*types.BaseLanguag
 	return b, svc.client.getByName(types.BaseLanguageExportModel, name, b)
 }
 
+func (svc *BaseLanguageExportService) GetByField(field string, value string) (*types.BaseLanguageExports, error) {
+	b := &types.BaseLanguageExports{}
+	return b, svc.client.getByName(types.BaseLanguageExportModel, field, value, b)
+}
+
 func (svc *BaseLanguageExportService) GetAll() (*types.BaseLanguageExports, error) {
 	b := &types.BaseLanguageExports{}
 	return b, svc.client.getAll(types.BaseLanguageExportModel, b)

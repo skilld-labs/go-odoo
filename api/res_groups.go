@@ -26,6 +26,11 @@ func (svc *ResGroupsService) GetByName(name string) (*types.ResGroupss, error) {
 	return r, svc.client.getByName(types.ResGroupsModel, name, r)
 }
 
+func (svc *ResGroupsService) GetByField(field string, value string) (*types.ResGroupss, error) {
+	r := &types.ResGroupss{}
+	return r, svc.client.getByName(types.ResGroupsModel, field, value, r)
+}
+
 func (svc *ResGroupsService) GetAll() (*types.ResGroupss, error) {
 	r := &types.ResGroupss{}
 	return r, svc.client.getAll(types.ResGroupsModel, r)

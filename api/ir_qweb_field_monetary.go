@@ -26,6 +26,11 @@ func (svc *IrQwebFieldMonetaryService) GetByName(name string) (*types.IrQwebFiel
 	return i, svc.client.getByName(types.IrQwebFieldMonetaryModel, name, i)
 }
 
+func (svc *IrQwebFieldMonetaryService) GetByField(field string, value string) (*types.IrQwebFieldMonetarys, error) {
+	i := &types.IrQwebFieldMonetarys{}
+	return i, svc.client.getByName(types.IrQwebFieldMonetaryModel, field, value, i)
+}
+
 func (svc *IrQwebFieldMonetaryService) GetAll() (*types.IrQwebFieldMonetarys, error) {
 	i := &types.IrQwebFieldMonetarys{}
 	return i, svc.client.getAll(types.IrQwebFieldMonetaryModel, i)

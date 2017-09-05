@@ -26,6 +26,11 @@ func (svc *PortalWizardService) GetByName(name string) (*types.PortalWizards, er
 	return p, svc.client.getByName(types.PortalWizardModel, name, p)
 }
 
+func (svc *PortalWizardService) GetByField(field string, value string) (*types.PortalWizards, error) {
+	p := &types.PortalWizards{}
+	return p, svc.client.getByName(types.PortalWizardModel, field, value, p)
+}
+
 func (svc *PortalWizardService) GetAll() (*types.PortalWizards, error) {
 	p := &types.PortalWizards{}
 	return p, svc.client.getAll(types.PortalWizardModel, p)

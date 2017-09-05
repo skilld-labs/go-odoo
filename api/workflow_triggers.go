@@ -26,6 +26,11 @@ func (svc *WorkflowTriggersService) GetByName(name string) (*types.WorkflowTrigg
 	return w, svc.client.getByName(types.WorkflowTriggersModel, name, w)
 }
 
+func (svc *WorkflowTriggersService) GetByField(field string, value string) (*types.WorkflowTriggerss, error) {
+	w := &types.WorkflowTriggerss{}
+	return w, svc.client.getByName(types.WorkflowTriggersModel, field, value, w)
+}
+
 func (svc *WorkflowTriggersService) GetAll() (*types.WorkflowTriggerss, error) {
 	w := &types.WorkflowTriggerss{}
 	return w, svc.client.getAll(types.WorkflowTriggersModel, w)

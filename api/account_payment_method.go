@@ -26,6 +26,11 @@ func (svc *AccountPaymentMethodService) GetByName(name string) (*types.AccountPa
 	return a, svc.client.getByName(types.AccountPaymentMethodModel, name, a)
 }
 
+func (svc *AccountPaymentMethodService) GetByField(field string, value string) (*types.AccountPaymentMethods, error) {
+	a := &types.AccountPaymentMethods{}
+	return a, svc.client.getByName(types.AccountPaymentMethodModel, field, value, a)
+}
+
 func (svc *AccountPaymentMethodService) GetAll() (*types.AccountPaymentMethods, error) {
 	a := &types.AccountPaymentMethods{}
 	return a, svc.client.getAll(types.AccountPaymentMethodModel, a)

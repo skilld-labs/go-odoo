@@ -26,6 +26,11 @@ func (svc *ReportAccountReportGeneralledgerService) GetByName(name string) (*typ
 	return r, svc.client.getByName(types.ReportAccountReportGeneralledgerModel, name, r)
 }
 
+func (svc *ReportAccountReportGeneralledgerService) GetByField(field string, value string) (*types.ReportAccountReportGeneralledgers, error) {
+	r := &types.ReportAccountReportGeneralledgers{}
+	return r, svc.client.getByName(types.ReportAccountReportGeneralledgerModel, field, value, r)
+}
+
 func (svc *ReportAccountReportGeneralledgerService) GetAll() (*types.ReportAccountReportGeneralledgers, error) {
 	r := &types.ReportAccountReportGeneralledgers{}
 	return r, svc.client.getAll(types.ReportAccountReportGeneralledgerModel, r)

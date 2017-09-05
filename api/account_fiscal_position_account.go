@@ -26,6 +26,11 @@ func (svc *AccountFiscalPositionAccountService) GetByName(name string) (*types.A
 	return a, svc.client.getByName(types.AccountFiscalPositionAccountModel, name, a)
 }
 
+func (svc *AccountFiscalPositionAccountService) GetByField(field string, value string) (*types.AccountFiscalPositionAccounts, error) {
+	a := &types.AccountFiscalPositionAccounts{}
+	return a, svc.client.getByName(types.AccountFiscalPositionAccountModel, field, value, a)
+}
+
 func (svc *AccountFiscalPositionAccountService) GetAll() (*types.AccountFiscalPositionAccounts, error) {
 	a := &types.AccountFiscalPositionAccounts{}
 	return a, svc.client.getAll(types.AccountFiscalPositionAccountModel, a)

@@ -26,6 +26,11 @@ func (svc *WebTourTourService) GetByName(name string) (*types.WebTourTours, erro
 	return w, svc.client.getByName(types.WebTourTourModel, name, w)
 }
 
+func (svc *WebTourTourService) GetByField(field string, value string) (*types.WebTourTours, error) {
+	w := &types.WebTourTours{}
+	return w, svc.client.getByName(types.WebTourTourModel, field, value, w)
+}
+
 func (svc *WebTourTourService) GetAll() (*types.WebTourTours, error) {
 	w := &types.WebTourTours{}
 	return w, svc.client.getAll(types.WebTourTourModel, w)

@@ -26,6 +26,11 @@ func (svc *BaseActionRuleLeadTestService) GetByName(name string) (*types.BaseAct
 	return b, svc.client.getByName(types.BaseActionRuleLeadTestModel, name, b)
 }
 
+func (svc *BaseActionRuleLeadTestService) GetByField(field string, value string) (*types.BaseActionRuleLeadTests, error) {
+	b := &types.BaseActionRuleLeadTests{}
+	return b, svc.client.getByName(types.BaseActionRuleLeadTestModel, field, value, b)
+}
+
 func (svc *BaseActionRuleLeadTestService) GetAll() (*types.BaseActionRuleLeadTests, error) {
 	b := &types.BaseActionRuleLeadTests{}
 	return b, svc.client.getAll(types.BaseActionRuleLeadTestModel, b)

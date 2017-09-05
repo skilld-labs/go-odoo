@@ -26,6 +26,11 @@ func (svc *ValidateAccountMoveService) GetByName(name string) (*types.ValidateAc
 	return v, svc.client.getByName(types.ValidateAccountMoveModel, name, v)
 }
 
+func (svc *ValidateAccountMoveService) GetByField(field string, value string) (*types.ValidateAccountMoves, error) {
+	v := &types.ValidateAccountMoves{}
+	return v, svc.client.getByName(types.ValidateAccountMoveModel, field, value, v)
+}
+
 func (svc *ValidateAccountMoveService) GetAll() (*types.ValidateAccountMoves, error) {
 	v := &types.ValidateAccountMoves{}
 	return v, svc.client.getAll(types.ValidateAccountMoveModel, v)

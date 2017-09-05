@@ -26,6 +26,11 @@ func (svc *IrQwebFieldMany2oneService) GetByName(name string) (*types.IrQwebFiel
 	return i, svc.client.getByName(types.IrQwebFieldMany2oneModel, name, i)
 }
 
+func (svc *IrQwebFieldMany2oneService) GetByField(field string, value string) (*types.IrQwebFieldMany2ones, error) {
+	i := &types.IrQwebFieldMany2ones{}
+	return i, svc.client.getByName(types.IrQwebFieldMany2oneModel, field, value, i)
+}
+
 func (svc *IrQwebFieldMany2oneService) GetAll() (*types.IrQwebFieldMany2ones, error) {
 	i := &types.IrQwebFieldMany2ones{}
 	return i, svc.client.getAll(types.IrQwebFieldMany2oneModel, i)

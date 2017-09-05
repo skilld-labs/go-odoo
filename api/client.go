@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"reflect"
 
-	"github.com/skilld-labs/go-odoo/types"
 	"github.com/kolo/xmlrpc"
+	"github.com/skilld-labs/go-odoo/types"
 )
 
 type Client struct {
@@ -103,6 +103,11 @@ func (c *Client) getByIds(model string, ids []int, elem interface{}) error {
 
 func (c *Client) getByName(model string, name string, elem interface{}) error {
 	err := c.SearchRead(model, []interface{}{[]interface{}{[]string{"name", "=", name}}}, nil, elem)
+	return err
+}
+
+func (c *Client) getByField(model string, field string, value string, elem interface{}) error {
+	err := c.SearchRead(model, []interface{}{[]interface{}{[]string{field, "=", value}}}, nil, elem)
 	return err
 }
 

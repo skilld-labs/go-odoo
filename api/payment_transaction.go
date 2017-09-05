@@ -26,6 +26,11 @@ func (svc *PaymentTransactionService) GetByName(name string) (*types.PaymentTran
 	return p, svc.client.getByName(types.PaymentTransactionModel, name, p)
 }
 
+func (svc *PaymentTransactionService) GetByField(field string, value string) (*types.PaymentTransactions, error) {
+	p := &types.PaymentTransactions{}
+	return p, svc.client.getByName(types.PaymentTransactionModel, field, value, p)
+}
+
 func (svc *PaymentTransactionService) GetAll() (*types.PaymentTransactions, error) {
 	p := &types.PaymentTransactions{}
 	return p, svc.client.getAll(types.PaymentTransactionModel, p)

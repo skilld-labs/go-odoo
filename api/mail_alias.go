@@ -26,6 +26,11 @@ func (svc *MailAliasService) GetByName(name string) (*types.MailAliass, error) {
 	return m, svc.client.getByName(types.MailAliasModel, name, m)
 }
 
+func (svc *MailAliasService) GetByField(field string, value string) (*types.MailAliass, error) {
+	m := &types.MailAliass{}
+	return m, svc.client.getByName(types.MailAliasModel, field, value, m)
+}
+
 func (svc *MailAliasService) GetAll() (*types.MailAliass, error) {
 	m := &types.MailAliass{}
 	return m, svc.client.getAll(types.MailAliasModel, m)

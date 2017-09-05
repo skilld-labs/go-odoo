@@ -26,6 +26,11 @@ func (svc *LinkTrackerService) GetByName(name string) (*types.LinkTrackers, erro
 	return l, svc.client.getByName(types.LinkTrackerModel, name, l)
 }
 
+func (svc *LinkTrackerService) GetByField(field string, value string) (*types.LinkTrackers, error) {
+	l := &types.LinkTrackers{}
+	return l, svc.client.getByName(types.LinkTrackerModel, field, value, l)
+}
+
 func (svc *LinkTrackerService) GetAll() (*types.LinkTrackers, error) {
 	l := &types.LinkTrackers{}
 	return l, svc.client.getAll(types.LinkTrackerModel, l)

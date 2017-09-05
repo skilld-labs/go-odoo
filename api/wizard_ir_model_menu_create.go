@@ -26,6 +26,11 @@ func (svc *WizardIrModelMenuCreateService) GetByName(name string) (*types.Wizard
 	return w, svc.client.getByName(types.WizardIrModelMenuCreateModel, name, w)
 }
 
+func (svc *WizardIrModelMenuCreateService) GetByField(field string, value string) (*types.WizardIrModelMenuCreates, error) {
+	w := &types.WizardIrModelMenuCreates{}
+	return w, svc.client.getByName(types.WizardIrModelMenuCreateModel, field, value, w)
+}
+
 func (svc *WizardIrModelMenuCreateService) GetAll() (*types.WizardIrModelMenuCreates, error) {
 	w := &types.WizardIrModelMenuCreates{}
 	return w, svc.client.getAll(types.WizardIrModelMenuCreateModel, w)

@@ -26,6 +26,11 @@ func (svc *ResCountryGroupService) GetByName(name string) (*types.ResCountryGrou
 	return r, svc.client.getByName(types.ResCountryGroupModel, name, r)
 }
 
+func (svc *ResCountryGroupService) GetByField(field string, value string) (*types.ResCountryGroups, error) {
+	r := &types.ResCountryGroups{}
+	return r, svc.client.getByName(types.ResCountryGroupModel, field, value, r)
+}
+
 func (svc *ResCountryGroupService) GetAll() (*types.ResCountryGroups, error) {
 	r := &types.ResCountryGroups{}
 	return r, svc.client.getAll(types.ResCountryGroupModel, r)

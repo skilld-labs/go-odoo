@@ -26,6 +26,11 @@ func (svc *WorkflowInstanceService) GetByName(name string) (*types.WorkflowInsta
 	return w, svc.client.getByName(types.WorkflowInstanceModel, name, w)
 }
 
+func (svc *WorkflowInstanceService) GetByField(field string, value string) (*types.WorkflowInstances, error) {
+	w := &types.WorkflowInstances{}
+	return w, svc.client.getByName(types.WorkflowInstanceModel, field, value, w)
+}
+
 func (svc *WorkflowInstanceService) GetAll() (*types.WorkflowInstances, error) {
 	w := &types.WorkflowInstances{}
 	return w, svc.client.getAll(types.WorkflowInstanceModel, w)

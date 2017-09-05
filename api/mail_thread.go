@@ -26,6 +26,11 @@ func (svc *MailThreadService) GetByName(name string) (*types.MailThreads, error)
 	return m, svc.client.getByName(types.MailThreadModel, name, m)
 }
 
+func (svc *MailThreadService) GetByField(field string, value string) (*types.MailThreads, error) {
+	m := &types.MailThreads{}
+	return m, svc.client.getByName(types.MailThreadModel, field, value, m)
+}
+
 func (svc *MailThreadService) GetAll() (*types.MailThreads, error) {
 	m := &types.MailThreads{}
 	return m, svc.client.getAll(types.MailThreadModel, m)

@@ -26,6 +26,11 @@ func (svc *ProductPricelistService) GetByName(name string) (*types.ProductPricel
 	return p, svc.client.getByName(types.ProductPricelistModel, name, p)
 }
 
+func (svc *ProductPricelistService) GetByField(field string, value string) (*types.ProductPricelists, error) {
+	p := &types.ProductPricelists{}
+	return p, svc.client.getByName(types.ProductPricelistModel, field, value, p)
+}
+
 func (svc *ProductPricelistService) GetAll() (*types.ProductPricelists, error) {
 	p := &types.ProductPricelists{}
 	return p, svc.client.getAll(types.ProductPricelistModel, p)

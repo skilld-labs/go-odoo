@@ -26,6 +26,11 @@ func (svc *AccountPrintJournalService) GetByName(name string) (*types.AccountPri
 	return a, svc.client.getByName(types.AccountPrintJournalModel, name, a)
 }
 
+func (svc *AccountPrintJournalService) GetByField(field string, value string) (*types.AccountPrintJournals, error) {
+	a := &types.AccountPrintJournals{}
+	return a, svc.client.getByName(types.AccountPrintJournalModel, field, value, a)
+}
+
 func (svc *AccountPrintJournalService) GetAll() (*types.AccountPrintJournals, error) {
 	a := &types.AccountPrintJournals{}
 	return a, svc.client.getAll(types.AccountPrintJournalModel, a)

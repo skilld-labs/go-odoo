@@ -26,6 +26,11 @@ func (svc *CalendarContactsService) GetByName(name string) (*types.CalendarConta
 	return c, svc.client.getByName(types.CalendarContactsModel, name, c)
 }
 
+func (svc *CalendarContactsService) GetByField(field string, value string) (*types.CalendarContactss, error) {
+	c := &types.CalendarContactss{}
+	return c, svc.client.getByName(types.CalendarContactsModel, field, value, c)
+}
+
 func (svc *CalendarContactsService) GetAll() (*types.CalendarContactss, error) {
 	c := &types.CalendarContactss{}
 	return c, svc.client.getAll(types.CalendarContactsModel, c)

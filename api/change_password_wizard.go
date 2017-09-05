@@ -26,6 +26,11 @@ func (svc *ChangePasswordWizardService) GetByName(name string) (*types.ChangePas
 	return c, svc.client.getByName(types.ChangePasswordWizardModel, name, c)
 }
 
+func (svc *ChangePasswordWizardService) GetByField(field string, value string) (*types.ChangePasswordWizards, error) {
+	c := &types.ChangePasswordWizards{}
+	return c, svc.client.getByName(types.ChangePasswordWizardModel, field, value, c)
+}
+
 func (svc *ChangePasswordWizardService) GetAll() (*types.ChangePasswordWizards, error) {
 	c := &types.ChangePasswordWizards{}
 	return c, svc.client.getAll(types.ChangePasswordWizardModel, c)

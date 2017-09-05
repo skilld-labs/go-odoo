@@ -26,6 +26,11 @@ func (svc *IrUiViewCustomService) GetByName(name string) (*types.IrUiViewCustoms
 	return i, svc.client.getByName(types.IrUiViewCustomModel, name, i)
 }
 
+func (svc *IrUiViewCustomService) GetByField(field string, value string) (*types.IrUiViewCustoms, error) {
+	i := &types.IrUiViewCustoms{}
+	return i, svc.client.getByName(types.IrUiViewCustomModel, field, value, i)
+}
+
 func (svc *IrUiViewCustomService) GetAll() (*types.IrUiViewCustoms, error) {
 	i := &types.IrUiViewCustoms{}
 	return i, svc.client.getAll(types.IrUiViewCustomModel, i)

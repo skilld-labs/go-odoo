@@ -26,6 +26,11 @@ func (svc *IrActionsActWindowViewService) GetByName(name string) (*types.IrActio
 	return i, svc.client.getByName(types.IrActionsActWindowViewModel, name, i)
 }
 
+func (svc *IrActionsActWindowViewService) GetByField(field string, value string) (*types.IrActionsActWindowViews, error) {
+	i := &types.IrActionsActWindowViews{}
+	return i, svc.client.getByName(types.IrActionsActWindowViewModel, field, value, i)
+}
+
 func (svc *IrActionsActWindowViewService) GetAll() (*types.IrActionsActWindowViews, error) {
 	i := &types.IrActionsActWindowViews{}
 	return i, svc.client.getAll(types.IrActionsActWindowViewModel, i)

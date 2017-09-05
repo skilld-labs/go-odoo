@@ -26,6 +26,11 @@ func (svc *StockFixedPutawayStratService) GetByName(name string) (*types.StockFi
 	return s, svc.client.getByName(types.StockFixedPutawayStratModel, name, s)
 }
 
+func (svc *StockFixedPutawayStratService) GetByField(field string, value string) (*types.StockFixedPutawayStrats, error) {
+	s := &types.StockFixedPutawayStrats{}
+	return s, svc.client.getByName(types.StockFixedPutawayStratModel, field, value, s)
+}
+
 func (svc *StockFixedPutawayStratService) GetAll() (*types.StockFixedPutawayStrats, error) {
 	s := &types.StockFixedPutawayStrats{}
 	return s, svc.client.getAll(types.StockFixedPutawayStratModel, s)

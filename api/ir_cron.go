@@ -26,6 +26,11 @@ func (svc *IrCronService) GetByName(name string) (*types.IrCrons, error) {
 	return i, svc.client.getByName(types.IrCronModel, name, i)
 }
 
+func (svc *IrCronService) GetByField(field string, value string) (*types.IrCrons, error) {
+	i := &types.IrCrons{}
+	return i, svc.client.getByName(types.IrCronModel, field, value, i)
+}
+
 func (svc *IrCronService) GetAll() (*types.IrCrons, error) {
 	i := &types.IrCrons{}
 	return i, svc.client.getAll(types.IrCronModel, i)

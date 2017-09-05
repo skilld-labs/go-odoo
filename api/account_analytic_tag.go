@@ -26,6 +26,11 @@ func (svc *AccountAnalyticTagService) GetByName(name string) (*types.AccountAnal
 	return a, svc.client.getByName(types.AccountAnalyticTagModel, name, a)
 }
 
+func (svc *AccountAnalyticTagService) GetByField(field string, value string) (*types.AccountAnalyticTags, error) {
+	a := &types.AccountAnalyticTags{}
+	return a, svc.client.getByName(types.AccountAnalyticTagModel, field, value, a)
+}
+
 func (svc *AccountAnalyticTagService) GetAll() (*types.AccountAnalyticTags, error) {
 	a := &types.AccountAnalyticTags{}
 	return a, svc.client.getAll(types.AccountAnalyticTagModel, a)

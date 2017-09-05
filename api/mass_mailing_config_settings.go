@@ -26,6 +26,11 @@ func (svc *MassMailingConfigSettingsService) GetByName(name string) (*types.Mass
 	return m, svc.client.getByName(types.MassMailingConfigSettingsModel, name, m)
 }
 
+func (svc *MassMailingConfigSettingsService) GetByField(field string, value string) (*types.MassMailingConfigSettingss, error) {
+	m := &types.MassMailingConfigSettingss{}
+	return m, svc.client.getByName(types.MassMailingConfigSettingsModel, field, value, m)
+}
+
 func (svc *MassMailingConfigSettingsService) GetAll() (*types.MassMailingConfigSettingss, error) {
 	m := &types.MassMailingConfigSettingss{}
 	return m, svc.client.getAll(types.MassMailingConfigSettingsModel, m)

@@ -26,6 +26,11 @@ func (svc *TaxAdjustmentsWizardService) GetByName(name string) (*types.TaxAdjust
 	return t, svc.client.getByName(types.TaxAdjustmentsWizardModel, name, t)
 }
 
+func (svc *TaxAdjustmentsWizardService) GetByField(field string, value string) (*types.TaxAdjustmentsWizards, error) {
+	t := &types.TaxAdjustmentsWizards{}
+	return t, svc.client.getByName(types.TaxAdjustmentsWizardModel, field, value, t)
+}
+
 func (svc *TaxAdjustmentsWizardService) GetAll() (*types.TaxAdjustmentsWizards, error) {
 	t := &types.TaxAdjustmentsWizards{}
 	return t, svc.client.getAll(types.TaxAdjustmentsWizardModel, t)

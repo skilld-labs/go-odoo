@@ -26,6 +26,11 @@ func (svc *IrQwebFieldDurationService) GetByName(name string) (*types.IrQwebFiel
 	return i, svc.client.getByName(types.IrQwebFieldDurationModel, name, i)
 }
 
+func (svc *IrQwebFieldDurationService) GetByField(field string, value string) (*types.IrQwebFieldDurations, error) {
+	i := &types.IrQwebFieldDurations{}
+	return i, svc.client.getByName(types.IrQwebFieldDurationModel, field, value, i)
+}
+
 func (svc *IrQwebFieldDurationService) GetAll() (*types.IrQwebFieldDurations, error) {
 	i := &types.IrQwebFieldDurations{}
 	return i, svc.client.getAll(types.IrQwebFieldDurationModel, i)

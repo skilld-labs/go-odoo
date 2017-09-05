@@ -26,6 +26,11 @@ func (svc *BaseLanguageInstallService) GetByName(name string) (*types.BaseLangua
 	return b, svc.client.getByName(types.BaseLanguageInstallModel, name, b)
 }
 
+func (svc *BaseLanguageInstallService) GetByField(field string, value string) (*types.BaseLanguageInstalls, error) {
+	b := &types.BaseLanguageInstalls{}
+	return b, svc.client.getByName(types.BaseLanguageInstallModel, field, value, b)
+}
+
 func (svc *BaseLanguageInstallService) GetAll() (*types.BaseLanguageInstalls, error) {
 	b := &types.BaseLanguageInstalls{}
 	return b, svc.client.getAll(types.BaseLanguageInstallModel, b)

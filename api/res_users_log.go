@@ -26,6 +26,11 @@ func (svc *ResUsersLogService) GetByName(name string) (*types.ResUsersLogs, erro
 	return r, svc.client.getByName(types.ResUsersLogModel, name, r)
 }
 
+func (svc *ResUsersLogService) GetByField(field string, value string) (*types.ResUsersLogs, error) {
+	r := &types.ResUsersLogs{}
+	return r, svc.client.getByName(types.ResUsersLogModel, field, value, r)
+}
+
 func (svc *ResUsersLogService) GetAll() (*types.ResUsersLogs, error) {
 	r := &types.ResUsersLogs{}
 	return r, svc.client.getAll(types.ResUsersLogModel, r)

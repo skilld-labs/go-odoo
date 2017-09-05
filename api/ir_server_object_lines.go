@@ -26,6 +26,11 @@ func (svc *IrServerObjectLinesService) GetByName(name string) (*types.IrServerOb
 	return i, svc.client.getByName(types.IrServerObjectLinesModel, name, i)
 }
 
+func (svc *IrServerObjectLinesService) GetByField(field string, value string) (*types.IrServerObjectLiness, error) {
+	i := &types.IrServerObjectLiness{}
+	return i, svc.client.getByName(types.IrServerObjectLinesModel, field, value, i)
+}
+
 func (svc *IrServerObjectLinesService) GetAll() (*types.IrServerObjectLiness, error) {
 	i := &types.IrServerObjectLiness{}
 	return i, svc.client.getAll(types.IrServerObjectLinesModel, i)

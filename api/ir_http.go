@@ -26,6 +26,11 @@ func (svc *IrHttpService) GetByName(name string) (*types.IrHttps, error) {
 	return i, svc.client.getByName(types.IrHttpModel, name, i)
 }
 
+func (svc *IrHttpService) GetByField(field string, value string) (*types.IrHttps, error) {
+	i := &types.IrHttps{}
+	return i, svc.client.getByName(types.IrHttpModel, field, value, i)
+}
+
 func (svc *IrHttpService) GetAll() (*types.IrHttps, error) {
 	i := &types.IrHttps{}
 	return i, svc.client.getAll(types.IrHttpModel, i)

@@ -26,6 +26,11 @@ func (svc *UtmSourceService) GetByName(name string) (*types.UtmSources, error) {
 	return u, svc.client.getByName(types.UtmSourceModel, name, u)
 }
 
+func (svc *UtmSourceService) GetByField(field string, value string) (*types.UtmSources, error) {
+	u := &types.UtmSources{}
+	return u, svc.client.getByName(types.UtmSourceModel, field, value, u)
+}
+
 func (svc *UtmSourceService) GetAll() (*types.UtmSources, error) {
 	u := &types.UtmSources{}
 	return u, svc.client.getAll(types.UtmSourceModel, u)

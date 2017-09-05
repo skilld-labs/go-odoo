@@ -26,6 +26,11 @@ func (svc *ResConfigInstallerService) GetByName(name string) (*types.ResConfigIn
 	return r, svc.client.getByName(types.ResConfigInstallerModel, name, r)
 }
 
+func (svc *ResConfigInstallerService) GetByField(field string, value string) (*types.ResConfigInstallers, error) {
+	r := &types.ResConfigInstallers{}
+	return r, svc.client.getByName(types.ResConfigInstallerModel, field, value, r)
+}
+
 func (svc *ResConfigInstallerService) GetAll() (*types.ResConfigInstallers, error) {
 	r := &types.ResConfigInstallers{}
 	return r, svc.client.getAll(types.ResConfigInstallerModel, r)

@@ -26,6 +26,11 @@ func (svc *StockProductionLotService) GetByName(name string) (*types.StockProduc
 	return s, svc.client.getByName(types.StockProductionLotModel, name, s)
 }
 
+func (svc *StockProductionLotService) GetByField(field string, value string) (*types.StockProductionLots, error) {
+	s := &types.StockProductionLots{}
+	return s, svc.client.getByName(types.StockProductionLotModel, field, value, s)
+}
+
 func (svc *StockProductionLotService) GetAll() (*types.StockProductionLots, error) {
 	s := &types.StockProductionLots{}
 	return s, svc.client.getAll(types.StockProductionLotModel, s)
