@@ -28,7 +28,7 @@ func (svc *CrmOpportunityReportService) GetByName(name string) (*types.CrmOpport
 
 func (svc *CrmOpportunityReportService) GetByField(field string, value string) (*types.CrmOpportunityReports, error) {
 	c := &types.CrmOpportunityReports{}
-	return c, svc.client.getByName(types.CrmOpportunityReportModel, field, value, c)
+	return c, svc.client.getByField(types.CrmOpportunityReportModel, field, value, c)
 }
 
 func (svc *CrmOpportunityReportService) GetAll() (*types.CrmOpportunityReports, error) {

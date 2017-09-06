@@ -28,7 +28,7 @@ func (svc *StockLocationRouteService) GetByName(name string) (*types.StockLocati
 
 func (svc *StockLocationRouteService) GetByField(field string, value string) (*types.StockLocationRoutes, error) {
 	s := &types.StockLocationRoutes{}
-	return s, svc.client.getByName(types.StockLocationRouteModel, field, value, s)
+	return s, svc.client.getByField(types.StockLocationRouteModel, field, value, s)
 }
 
 func (svc *StockLocationRouteService) GetAll() (*types.StockLocationRoutes, error) {

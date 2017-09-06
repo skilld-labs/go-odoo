@@ -28,7 +28,7 @@ func (svc *ReportHrHolidaysReportHolidayssummaryService) GetByName(name string) 
 
 func (svc *ReportHrHolidaysReportHolidayssummaryService) GetByField(field string, value string) (*types.ReportHrHolidaysReportHolidayssummarys, error) {
 	r := &types.ReportHrHolidaysReportHolidayssummarys{}
-	return r, svc.client.getByName(types.ReportHrHolidaysReportHolidayssummaryModel, field, value, r)
+	return r, svc.client.getByField(types.ReportHrHolidaysReportHolidayssummaryModel, field, value, r)
 }
 
 func (svc *ReportHrHolidaysReportHolidayssummaryService) GetAll() (*types.ReportHrHolidaysReportHolidayssummarys, error) {

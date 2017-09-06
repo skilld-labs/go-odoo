@@ -28,7 +28,7 @@ func (svc *MailTrackingValueService) GetByName(name string) (*types.MailTracking
 
 func (svc *MailTrackingValueService) GetByField(field string, value string) (*types.MailTrackingValues, error) {
 	m := &types.MailTrackingValues{}
-	return m, svc.client.getByName(types.MailTrackingValueModel, field, value, m)
+	return m, svc.client.getByField(types.MailTrackingValueModel, field, value, m)
 }
 
 func (svc *MailTrackingValueService) GetAll() (*types.MailTrackingValues, error) {

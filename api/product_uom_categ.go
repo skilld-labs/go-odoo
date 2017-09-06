@@ -28,7 +28,7 @@ func (svc *ProductUomCategService) GetByName(name string) (*types.ProductUomCate
 
 func (svc *ProductUomCategService) GetByField(field string, value string) (*types.ProductUomCategs, error) {
 	p := &types.ProductUomCategs{}
-	return p, svc.client.getByName(types.ProductUomCategModel, field, value, p)
+	return p, svc.client.getByField(types.ProductUomCategModel, field, value, p)
 }
 
 func (svc *ProductUomCategService) GetAll() (*types.ProductUomCategs, error) {

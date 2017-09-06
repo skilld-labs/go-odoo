@@ -28,7 +28,7 @@ func (svc *IrValuesService) GetByName(name string) (*types.IrValuess, error) {
 
 func (svc *IrValuesService) GetByField(field string, value string) (*types.IrValuess, error) {
 	i := &types.IrValuess{}
-	return i, svc.client.getByName(types.IrValuesModel, field, value, i)
+	return i, svc.client.getByField(types.IrValuesModel, field, value, i)
 }
 
 func (svc *IrValuesService) GetAll() (*types.IrValuess, error) {

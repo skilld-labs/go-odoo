@@ -28,7 +28,7 @@ func (svc *StockLocationService) GetByName(name string) (*types.StockLocations, 
 
 func (svc *StockLocationService) GetByField(field string, value string) (*types.StockLocations, error) {
 	s := &types.StockLocations{}
-	return s, svc.client.getByName(types.StockLocationModel, field, value, s)
+	return s, svc.client.getByField(types.StockLocationModel, field, value, s)
 }
 
 func (svc *StockLocationService) GetAll() (*types.StockLocations, error) {

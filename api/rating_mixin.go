@@ -28,7 +28,7 @@ func (svc *RatingMixinService) GetByName(name string) (*types.RatingMixins, erro
 
 func (svc *RatingMixinService) GetByField(field string, value string) (*types.RatingMixins, error) {
 	r := &types.RatingMixins{}
-	return r, svc.client.getByName(types.RatingMixinModel, field, value, r)
+	return r, svc.client.getByField(types.RatingMixinModel, field, value, r)
 }
 
 func (svc *RatingMixinService) GetAll() (*types.RatingMixins, error) {

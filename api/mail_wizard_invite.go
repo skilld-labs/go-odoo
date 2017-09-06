@@ -28,7 +28,7 @@ func (svc *MailWizardInviteService) GetByName(name string) (*types.MailWizardInv
 
 func (svc *MailWizardInviteService) GetByField(field string, value string) (*types.MailWizardInvites, error) {
 	m := &types.MailWizardInvites{}
-	return m, svc.client.getByName(types.MailWizardInviteModel, field, value, m)
+	return m, svc.client.getByField(types.MailWizardInviteModel, field, value, m)
 }
 
 func (svc *MailWizardInviteService) GetAll() (*types.MailWizardInvites, error) {

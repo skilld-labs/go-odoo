@@ -28,7 +28,7 @@ func (svc *ResLangService) GetByName(name string) (*types.ResLangs, error) {
 
 func (svc *ResLangService) GetByField(field string, value string) (*types.ResLangs, error) {
 	r := &types.ResLangs{}
-	return r, svc.client.getByName(types.ResLangModel, field, value, r)
+	return r, svc.client.getByField(types.ResLangModel, field, value, r)
 }
 
 func (svc *ResLangService) GetAll() (*types.ResLangs, error) {

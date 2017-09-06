@@ -28,7 +28,7 @@ func (svc *ProductUomService) GetByName(name string) (*types.ProductUoms, error)
 
 func (svc *ProductUomService) GetByField(field string, value string) (*types.ProductUoms, error) {
 	p := &types.ProductUoms{}
-	return p, svc.client.getByName(types.ProductUomModel, field, value, p)
+	return p, svc.client.getByField(types.ProductUomModel, field, value, p)
 }
 
 func (svc *ProductUomService) GetAll() (*types.ProductUoms, error) {

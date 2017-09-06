@@ -28,7 +28,7 @@ func (svc *AccountBankStatementCashboxService) GetByName(name string) (*types.Ac
 
 func (svc *AccountBankStatementCashboxService) GetByField(field string, value string) (*types.AccountBankStatementCashboxs, error) {
 	a := &types.AccountBankStatementCashboxs{}
-	return a, svc.client.getByName(types.AccountBankStatementCashboxModel, field, value, a)
+	return a, svc.client.getByField(types.AccountBankStatementCashboxModel, field, value, a)
 }
 
 func (svc *AccountBankStatementCashboxService) GetAll() (*types.AccountBankStatementCashboxs, error) {

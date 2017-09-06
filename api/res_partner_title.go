@@ -28,7 +28,7 @@ func (svc *ResPartnerTitleService) GetByName(name string) (*types.ResPartnerTitl
 
 func (svc *ResPartnerTitleService) GetByField(field string, value string) (*types.ResPartnerTitles, error) {
 	r := &types.ResPartnerTitles{}
-	return r, svc.client.getByName(types.ResPartnerTitleModel, field, value, r)
+	return r, svc.client.getByField(types.ResPartnerTitleModel, field, value, r)
 }
 
 func (svc *ResPartnerTitleService) GetAll() (*types.ResPartnerTitles, error) {

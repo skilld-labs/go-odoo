@@ -28,7 +28,7 @@ func (svc *ProcurementRuleService) GetByName(name string) (*types.ProcurementRul
 
 func (svc *ProcurementRuleService) GetByField(field string, value string) (*types.ProcurementRules, error) {
 	p := &types.ProcurementRules{}
-	return p, svc.client.getByName(types.ProcurementRuleModel, field, value, p)
+	return p, svc.client.getByField(types.ProcurementRuleModel, field, value, p)
 }
 
 func (svc *ProcurementRuleService) GetAll() (*types.ProcurementRules, error) {

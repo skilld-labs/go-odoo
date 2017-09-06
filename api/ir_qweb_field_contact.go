@@ -28,7 +28,7 @@ func (svc *IrQwebFieldContactService) GetByName(name string) (*types.IrQwebField
 
 func (svc *IrQwebFieldContactService) GetByField(field string, value string) (*types.IrQwebFieldContacts, error) {
 	i := &types.IrQwebFieldContacts{}
-	return i, svc.client.getByName(types.IrQwebFieldContactModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldContactModel, field, value, i)
 }
 
 func (svc *IrQwebFieldContactService) GetAll() (*types.IrQwebFieldContacts, error) {

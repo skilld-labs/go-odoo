@@ -28,7 +28,7 @@ func (svc *IrQwebFieldTextService) GetByName(name string) (*types.IrQwebFieldTex
 
 func (svc *IrQwebFieldTextService) GetByField(field string, value string) (*types.IrQwebFieldTexts, error) {
 	i := &types.IrQwebFieldTexts{}
-	return i, svc.client.getByName(types.IrQwebFieldTextModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldTextModel, field, value, i)
 }
 
 func (svc *IrQwebFieldTextService) GetAll() (*types.IrQwebFieldTexts, error) {

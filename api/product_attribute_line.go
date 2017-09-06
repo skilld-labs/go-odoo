@@ -28,7 +28,7 @@ func (svc *ProductAttributeLineService) GetByName(name string) (*types.ProductAt
 
 func (svc *ProductAttributeLineService) GetByField(field string, value string) (*types.ProductAttributeLines, error) {
 	p := &types.ProductAttributeLines{}
-	return p, svc.client.getByName(types.ProductAttributeLineModel, field, value, p)
+	return p, svc.client.getByField(types.ProductAttributeLineModel, field, value, p)
 }
 
 func (svc *ProductAttributeLineService) GetAll() (*types.ProductAttributeLines, error) {

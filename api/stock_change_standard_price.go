@@ -28,7 +28,7 @@ func (svc *StockChangeStandardPriceService) GetByName(name string) (*types.Stock
 
 func (svc *StockChangeStandardPriceService) GetByField(field string, value string) (*types.StockChangeStandardPrices, error) {
 	s := &types.StockChangeStandardPrices{}
-	return s, svc.client.getByName(types.StockChangeStandardPriceModel, field, value, s)
+	return s, svc.client.getByField(types.StockChangeStandardPriceModel, field, value, s)
 }
 
 func (svc *StockChangeStandardPriceService) GetAll() (*types.StockChangeStandardPrices, error) {

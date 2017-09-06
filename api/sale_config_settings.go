@@ -28,7 +28,7 @@ func (svc *SaleConfigSettingsService) GetByName(name string) (*types.SaleConfigS
 
 func (svc *SaleConfigSettingsService) GetByField(field string, value string) (*types.SaleConfigSettingss, error) {
 	s := &types.SaleConfigSettingss{}
-	return s, svc.client.getByName(types.SaleConfigSettingsModel, field, value, s)
+	return s, svc.client.getByField(types.SaleConfigSettingsModel, field, value, s)
 }
 
 func (svc *SaleConfigSettingsService) GetAll() (*types.SaleConfigSettingss, error) {

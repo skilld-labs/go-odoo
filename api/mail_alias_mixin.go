@@ -28,7 +28,7 @@ func (svc *MailAliasMixinService) GetByName(name string) (*types.MailAliasMixins
 
 func (svc *MailAliasMixinService) GetByField(field string, value string) (*types.MailAliasMixins, error) {
 	m := &types.MailAliasMixins{}
-	return m, svc.client.getByName(types.MailAliasMixinModel, field, value, m)
+	return m, svc.client.getByField(types.MailAliasMixinModel, field, value, m)
 }
 
 func (svc *MailAliasMixinService) GetAll() (*types.MailAliasMixins, error) {

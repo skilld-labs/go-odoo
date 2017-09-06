@@ -28,7 +28,7 @@ func (svc *MailNotificationService) GetByName(name string) (*types.MailNotificat
 
 func (svc *MailNotificationService) GetByField(field string, value string) (*types.MailNotifications, error) {
 	m := &types.MailNotifications{}
-	return m, svc.client.getByName(types.MailNotificationModel, field, value, m)
+	return m, svc.client.getByField(types.MailNotificationModel, field, value, m)
 }
 
 func (svc *MailNotificationService) GetAll() (*types.MailNotifications, error) {

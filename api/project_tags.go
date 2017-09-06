@@ -28,7 +28,7 @@ func (svc *ProjectTagsService) GetByName(name string) (*types.ProjectTagss, erro
 
 func (svc *ProjectTagsService) GetByField(field string, value string) (*types.ProjectTagss, error) {
 	p := &types.ProjectTagss{}
-	return p, svc.client.getByName(types.ProjectTagsModel, field, value, p)
+	return p, svc.client.getByField(types.ProjectTagsModel, field, value, p)
 }
 
 func (svc *ProjectTagsService) GetAll() (*types.ProjectTagss, error) {

@@ -28,7 +28,7 @@ func (svc *ReportAccountReportOverdueService) GetByName(name string) (*types.Rep
 
 func (svc *ReportAccountReportOverdueService) GetByField(field string, value string) (*types.ReportAccountReportOverdues, error) {
 	r := &types.ReportAccountReportOverdues{}
-	return r, svc.client.getByName(types.ReportAccountReportOverdueModel, field, value, r)
+	return r, svc.client.getByField(types.ReportAccountReportOverdueModel, field, value, r)
 }
 
 func (svc *ReportAccountReportOverdueService) GetAll() (*types.ReportAccountReportOverdues, error) {

@@ -28,7 +28,7 @@ func (svc *AccountMoveReversalService) GetByName(name string) (*types.AccountMov
 
 func (svc *AccountMoveReversalService) GetByField(field string, value string) (*types.AccountMoveReversals, error) {
 	a := &types.AccountMoveReversals{}
-	return a, svc.client.getByName(types.AccountMoveReversalModel, field, value, a)
+	return a, svc.client.getByField(types.AccountMoveReversalModel, field, value, a)
 }
 
 func (svc *AccountMoveReversalService) GetAll() (*types.AccountMoveReversals, error) {

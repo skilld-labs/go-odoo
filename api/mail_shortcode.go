@@ -28,7 +28,7 @@ func (svc *MailShortcodeService) GetByName(name string) (*types.MailShortcodes, 
 
 func (svc *MailShortcodeService) GetByField(field string, value string) (*types.MailShortcodes, error) {
 	m := &types.MailShortcodes{}
-	return m, svc.client.getByName(types.MailShortcodeModel, field, value, m)
+	return m, svc.client.getByField(types.MailShortcodeModel, field, value, m)
 }
 
 func (svc *MailShortcodeService) GetAll() (*types.MailShortcodes, error) {

@@ -28,7 +28,7 @@ func (svc *IrQwebFieldDatetimeService) GetByName(name string) (*types.IrQwebFiel
 
 func (svc *IrQwebFieldDatetimeService) GetByField(field string, value string) (*types.IrQwebFieldDatetimes, error) {
 	i := &types.IrQwebFieldDatetimes{}
-	return i, svc.client.getByName(types.IrQwebFieldDatetimeModel, field, value, i)
+	return i, svc.client.getByField(types.IrQwebFieldDatetimeModel, field, value, i)
 }
 
 func (svc *IrQwebFieldDatetimeService) GetAll() (*types.IrQwebFieldDatetimes, error) {

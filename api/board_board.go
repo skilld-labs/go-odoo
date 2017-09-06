@@ -28,7 +28,7 @@ func (svc *BoardBoardService) GetByName(name string) (*types.BoardBoards, error)
 
 func (svc *BoardBoardService) GetByField(field string, value string) (*types.BoardBoards, error) {
 	b := &types.BoardBoards{}
-	return b, svc.client.getByName(types.BoardBoardModel, field, value, b)
+	return b, svc.client.getByField(types.BoardBoardModel, field, value, b)
 }
 
 func (svc *BoardBoardService) GetAll() (*types.BoardBoards, error) {

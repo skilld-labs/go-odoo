@@ -28,7 +28,7 @@ func (svc *PortalWizardService) GetByName(name string) (*types.PortalWizards, er
 
 func (svc *PortalWizardService) GetByField(field string, value string) (*types.PortalWizards, error) {
 	p := &types.PortalWizards{}
-	return p, svc.client.getByName(types.PortalWizardModel, field, value, p)
+	return p, svc.client.getByField(types.PortalWizardModel, field, value, p)
 }
 
 func (svc *PortalWizardService) GetAll() (*types.PortalWizards, error) {

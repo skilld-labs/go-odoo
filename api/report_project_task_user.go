@@ -28,7 +28,7 @@ func (svc *ReportProjectTaskUserService) GetByName(name string) (*types.ReportPr
 
 func (svc *ReportProjectTaskUserService) GetByField(field string, value string) (*types.ReportProjectTaskUsers, error) {
 	r := &types.ReportProjectTaskUsers{}
-	return r, svc.client.getByName(types.ReportProjectTaskUserModel, field, value, r)
+	return r, svc.client.getByField(types.ReportProjectTaskUserModel, field, value, r)
 }
 
 func (svc *ReportProjectTaskUserService) GetAll() (*types.ReportProjectTaskUsers, error) {

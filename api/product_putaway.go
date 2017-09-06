@@ -28,7 +28,7 @@ func (svc *ProductPutawayService) GetByName(name string) (*types.ProductPutaways
 
 func (svc *ProductPutawayService) GetByField(field string, value string) (*types.ProductPutaways, error) {
 	p := &types.ProductPutaways{}
-	return p, svc.client.getByName(types.ProductPutawayModel, field, value, p)
+	return p, svc.client.getByField(types.ProductPutawayModel, field, value, p)
 }
 
 func (svc *ProductPutawayService) GetAll() (*types.ProductPutaways, error) {

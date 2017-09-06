@@ -28,7 +28,7 @@ func (svc *MailTemplateService) GetByName(name string) (*types.MailTemplates, er
 
 func (svc *MailTemplateService) GetByField(field string, value string) (*types.MailTemplates, error) {
 	m := &types.MailTemplates{}
-	return m, svc.client.getByName(types.MailTemplateModel, field, value, m)
+	return m, svc.client.getByField(types.MailTemplateModel, field, value, m)
 }
 
 func (svc *MailTemplateService) GetAll() (*types.MailTemplates, error) {

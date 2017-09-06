@@ -28,7 +28,7 @@ func (svc *CrmActivityLogService) GetByName(name string) (*types.CrmActivityLogs
 
 func (svc *CrmActivityLogService) GetByField(field string, value string) (*types.CrmActivityLogs, error) {
 	c := &types.CrmActivityLogs{}
-	return c, svc.client.getByName(types.CrmActivityLogModel, field, value, c)
+	return c, svc.client.getByField(types.CrmActivityLogModel, field, value, c)
 }
 
 func (svc *CrmActivityLogService) GetAll() (*types.CrmActivityLogs, error) {

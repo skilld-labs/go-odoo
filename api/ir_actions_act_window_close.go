@@ -28,7 +28,7 @@ func (svc *IrActionsActWindowCloseService) GetByName(name string) (*types.IrActi
 
 func (svc *IrActionsActWindowCloseService) GetByField(field string, value string) (*types.IrActionsActWindowCloses, error) {
 	i := &types.IrActionsActWindowCloses{}
-	return i, svc.client.getByName(types.IrActionsActWindowCloseModel, field, value, i)
+	return i, svc.client.getByField(types.IrActionsActWindowCloseModel, field, value, i)
 }
 
 func (svc *IrActionsActWindowCloseService) GetAll() (*types.IrActionsActWindowCloses, error) {

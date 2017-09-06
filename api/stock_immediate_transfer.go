@@ -28,7 +28,7 @@ func (svc *StockImmediateTransferService) GetByName(name string) (*types.StockIm
 
 func (svc *StockImmediateTransferService) GetByField(field string, value string) (*types.StockImmediateTransfers, error) {
 	s := &types.StockImmediateTransfers{}
-	return s, svc.client.getByName(types.StockImmediateTransferModel, field, value, s)
+	return s, svc.client.getByField(types.StockImmediateTransferModel, field, value, s)
 }
 
 func (svc *StockImmediateTransferService) GetAll() (*types.StockImmediateTransfers, error) {

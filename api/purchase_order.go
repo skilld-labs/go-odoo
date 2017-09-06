@@ -28,7 +28,7 @@ func (svc *PurchaseOrderService) GetByName(name string) (*types.PurchaseOrders, 
 
 func (svc *PurchaseOrderService) GetByField(field string, value string) (*types.PurchaseOrders, error) {
 	p := &types.PurchaseOrders{}
-	return p, svc.client.getByName(types.PurchaseOrderModel, field, value, p)
+	return p, svc.client.getByField(types.PurchaseOrderModel, field, value, p)
 }
 
 func (svc *PurchaseOrderService) GetAll() (*types.PurchaseOrders, error) {

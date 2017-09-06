@@ -28,7 +28,7 @@ func (svc *RatingRatingService) GetByName(name string) (*types.RatingRatings, er
 
 func (svc *RatingRatingService) GetByField(field string, value string) (*types.RatingRatings, error) {
 	r := &types.RatingRatings{}
-	return r, svc.client.getByName(types.RatingRatingModel, field, value, r)
+	return r, svc.client.getByField(types.RatingRatingModel, field, value, r)
 }
 
 func (svc *RatingRatingService) GetAll() (*types.RatingRatings, error) {

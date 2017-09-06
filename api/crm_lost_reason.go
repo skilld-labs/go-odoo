@@ -28,7 +28,7 @@ func (svc *CrmLostReasonService) GetByName(name string) (*types.CrmLostReasons, 
 
 func (svc *CrmLostReasonService) GetByField(field string, value string) (*types.CrmLostReasons, error) {
 	c := &types.CrmLostReasons{}
-	return c, svc.client.getByName(types.CrmLostReasonModel, field, value, c)
+	return c, svc.client.getByField(types.CrmLostReasonModel, field, value, c)
 }
 
 func (svc *CrmLostReasonService) GetAll() (*types.CrmLostReasons, error) {

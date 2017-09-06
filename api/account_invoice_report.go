@@ -28,7 +28,7 @@ func (svc *AccountInvoiceReportService) GetByName(name string) (*types.AccountIn
 
 func (svc *AccountInvoiceReportService) GetByField(field string, value string) (*types.AccountInvoiceReports, error) {
 	a := &types.AccountInvoiceReports{}
-	return a, svc.client.getByName(types.AccountInvoiceReportModel, field, value, a)
+	return a, svc.client.getByField(types.AccountInvoiceReportModel, field, value, a)
 }
 
 func (svc *AccountInvoiceReportService) GetAll() (*types.AccountInvoiceReports, error) {

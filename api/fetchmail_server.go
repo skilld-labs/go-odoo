@@ -28,7 +28,7 @@ func (svc *FetchmailServerService) GetByName(name string) (*types.FetchmailServe
 
 func (svc *FetchmailServerService) GetByField(field string, value string) (*types.FetchmailServers, error) {
 	f := &types.FetchmailServers{}
-	return f, svc.client.getByName(types.FetchmailServerModel, field, value, f)
+	return f, svc.client.getByField(types.FetchmailServerModel, field, value, f)
 }
 
 func (svc *FetchmailServerService) GetAll() (*types.FetchmailServers, error) {

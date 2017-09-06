@@ -28,7 +28,7 @@ func (svc *MailFollowersService) GetByName(name string) (*types.MailFollowerss, 
 
 func (svc *MailFollowersService) GetByField(field string, value string) (*types.MailFollowerss, error) {
 	m := &types.MailFollowerss{}
-	return m, svc.client.getByName(types.MailFollowersModel, field, value, m)
+	return m, svc.client.getByField(types.MailFollowersModel, field, value, m)
 }
 
 func (svc *MailFollowersService) GetAll() (*types.MailFollowerss, error) {

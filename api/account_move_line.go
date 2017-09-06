@@ -28,7 +28,7 @@ func (svc *AccountMoveLineService) GetByName(name string) (*types.AccountMoveLin
 
 func (svc *AccountMoveLineService) GetByField(field string, value string) (*types.AccountMoveLines, error) {
 	a := &types.AccountMoveLines{}
-	return a, svc.client.getByName(types.AccountMoveLineModel, field, value, a)
+	return a, svc.client.getByField(types.AccountMoveLineModel, field, value, a)
 }
 
 func (svc *AccountMoveLineService) GetAll() (*types.AccountMoveLines, error) {

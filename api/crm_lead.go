@@ -28,7 +28,7 @@ func (svc *CrmLeadService) GetByName(name string) (*types.CrmLeads, error) {
 
 func (svc *CrmLeadService) GetByField(field string, value string) (*types.CrmLeads, error) {
 	c := &types.CrmLeads{}
-	return c, svc.client.getByName(types.CrmLeadModel, field, value, c)
+	return c, svc.client.getByField(types.CrmLeadModel, field, value, c)
 }
 
 func (svc *CrmLeadService) GetAll() (*types.CrmLeads, error) {

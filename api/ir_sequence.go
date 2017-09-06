@@ -28,7 +28,7 @@ func (svc *IrSequenceService) GetByName(name string) (*types.IrSequences, error)
 
 func (svc *IrSequenceService) GetByField(field string, value string) (*types.IrSequences, error) {
 	i := &types.IrSequences{}
-	return i, svc.client.getByName(types.IrSequenceModel, field, value, i)
+	return i, svc.client.getByField(types.IrSequenceModel, field, value, i)
 }
 
 func (svc *IrSequenceService) GetAll() (*types.IrSequences, error) {

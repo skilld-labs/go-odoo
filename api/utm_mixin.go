@@ -28,7 +28,7 @@ func (svc *UtmMixinService) GetByName(name string) (*types.UtmMixins, error) {
 
 func (svc *UtmMixinService) GetByField(field string, value string) (*types.UtmMixins, error) {
 	u := &types.UtmMixins{}
-	return u, svc.client.getByName(types.UtmMixinModel, field, value, u)
+	return u, svc.client.getByField(types.UtmMixinModel, field, value, u)
 }
 
 func (svc *UtmMixinService) GetAll() (*types.UtmMixins, error) {

@@ -28,7 +28,7 @@ func (svc *CrmLead2opportunityPartnerService) GetByName(name string) (*types.Crm
 
 func (svc *CrmLead2opportunityPartnerService) GetByField(field string, value string) (*types.CrmLead2opportunityPartners, error) {
 	c := &types.CrmLead2opportunityPartners{}
-	return c, svc.client.getByName(types.CrmLead2opportunityPartnerModel, field, value, c)
+	return c, svc.client.getByField(types.CrmLead2opportunityPartnerModel, field, value, c)
 }
 
 func (svc *CrmLead2opportunityPartnerService) GetAll() (*types.CrmLead2opportunityPartners, error) {
