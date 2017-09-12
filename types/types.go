@@ -10,16 +10,16 @@ type Relations []Relation
 type Relation struct {
 	FieldName               string
 	CreateNewFields         []map[string]interface{}
-	CreateExistantFieldsIds []int
+	CreateExistantFieldsIds []int64
 	UpdateFields            []UpdateField
-	DeleteFieldsIds         []int
-	RemoveFieldsIds         []int
+	DeleteFieldsIds         []int64
+	RemoveFieldsIds         []int64
 	RemoveAll               bool
-	ReplaceFieldsIds        []int
+	ReplaceFieldsIds        []int64
 }
 
 type UpdateField struct {
-	Id     int
+	Id     int64
 	Values map[string]interface{}
 }
 
