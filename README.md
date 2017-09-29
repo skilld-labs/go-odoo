@@ -108,4 +108,5 @@ func main() {
 ## Contributors
 
 Antoine Huret (<huret.antoine@yahoo.fr>)
+
 Jean-Baptiste Guerraz (<jbguerraz@gmail.com>)
