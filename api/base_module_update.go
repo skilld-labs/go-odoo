@@ -12,11 +12,11 @@ func NewBaseModuleUpdateService(c *Client) *BaseModuleUpdateService {
 	return &BaseModuleUpdateService{client: c}
 }
 
-func (svc *BaseModuleUpdateService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseModuleUpdateService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseModuleUpdateModel, name)
 }
 
-func (svc *BaseModuleUpdateService) GetByIds(ids []int) (*types.BaseModuleUpdates, error) {
+func (svc *BaseModuleUpdateService) GetByIds(ids []int64) (*types.BaseModuleUpdates, error) {
 	b := &types.BaseModuleUpdates{}
 	return b, svc.client.getByIds(types.BaseModuleUpdateModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseModuleUpdateService) GetAll() (*types.BaseModuleUpdates, error) {
 	return b, svc.client.getAll(types.BaseModuleUpdateModel, b)
 }
 
-func (svc *BaseModuleUpdateService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseModuleUpdateService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseModuleUpdateModel, fields, relations)
 }
 
-func (svc *BaseModuleUpdateService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseModuleUpdateService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseModuleUpdateModel, ids, fields, relations)
 }
 
-func (svc *BaseModuleUpdateService) Delete(ids []int) error {
+func (svc *BaseModuleUpdateService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseModuleUpdateModel, ids)
 }

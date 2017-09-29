@@ -12,11 +12,11 @@ func NewBarcodeRuleService(c *Client) *BarcodeRuleService {
 	return &BarcodeRuleService{client: c}
 }
 
-func (svc *BarcodeRuleService) GetIdsByName(name string) ([]int, error) {
+func (svc *BarcodeRuleService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BarcodeRuleModel, name)
 }
 
-func (svc *BarcodeRuleService) GetByIds(ids []int) (*types.BarcodeRules, error) {
+func (svc *BarcodeRuleService) GetByIds(ids []int64) (*types.BarcodeRules, error) {
 	b := &types.BarcodeRules{}
 	return b, svc.client.getByIds(types.BarcodeRuleModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BarcodeRuleService) GetAll() (*types.BarcodeRules, error) {
 	return b, svc.client.getAll(types.BarcodeRuleModel, b)
 }
 
-func (svc *BarcodeRuleService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BarcodeRuleService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BarcodeRuleModel, fields, relations)
 }
 
-func (svc *BarcodeRuleService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BarcodeRuleService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BarcodeRuleModel, ids, fields, relations)
 }
 
-func (svc *BarcodeRuleService) Delete(ids []int) error {
+func (svc *BarcodeRuleService) Delete(ids []int64) error {
 	return svc.client.delete(types.BarcodeRuleModel, ids)
 }

@@ -12,11 +12,11 @@ func NewIrFiltersService(c *Client) *IrFiltersService {
 	return &IrFiltersService{client: c}
 }
 
-func (svc *IrFiltersService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrFiltersService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrFiltersModel, name)
 }
 
-func (svc *IrFiltersService) GetByIds(ids []int) (*types.IrFilterss, error) {
+func (svc *IrFiltersService) GetByIds(ids []int64) (*types.IrFilterss, error) {
 	i := &types.IrFilterss{}
 	return i, svc.client.getByIds(types.IrFiltersModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrFiltersService) GetAll() (*types.IrFilterss, error) {
 	return i, svc.client.getAll(types.IrFiltersModel, i)
 }
 
-func (svc *IrFiltersService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrFiltersService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrFiltersModel, fields, relations)
 }
 
-func (svc *IrFiltersService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrFiltersService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrFiltersModel, ids, fields, relations)
 }
 
-func (svc *IrFiltersService) Delete(ids []int) error {
+func (svc *IrFiltersService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrFiltersModel, ids)
 }

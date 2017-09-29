@@ -12,11 +12,11 @@ func NewMailChannelPartnerService(c *Client) *MailChannelPartnerService {
 	return &MailChannelPartnerService{client: c}
 }
 
-func (svc *MailChannelPartnerService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailChannelPartnerService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailChannelPartnerModel, name)
 }
 
-func (svc *MailChannelPartnerService) GetByIds(ids []int) (*types.MailChannelPartners, error) {
+func (svc *MailChannelPartnerService) GetByIds(ids []int64) (*types.MailChannelPartners, error) {
 	m := &types.MailChannelPartners{}
 	return m, svc.client.getByIds(types.MailChannelPartnerModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailChannelPartnerService) GetAll() (*types.MailChannelPartners, erro
 	return m, svc.client.getAll(types.MailChannelPartnerModel, m)
 }
 
-func (svc *MailChannelPartnerService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailChannelPartnerService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailChannelPartnerModel, fields, relations)
 }
 
-func (svc *MailChannelPartnerService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailChannelPartnerService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailChannelPartnerModel, ids, fields, relations)
 }
 
-func (svc *MailChannelPartnerService) Delete(ids []int) error {
+func (svc *MailChannelPartnerService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailChannelPartnerModel, ids)
 }

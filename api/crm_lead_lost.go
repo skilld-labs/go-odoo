@@ -12,11 +12,11 @@ func NewCrmLeadLostService(c *Client) *CrmLeadLostService {
 	return &CrmLeadLostService{client: c}
 }
 
-func (svc *CrmLeadLostService) GetIdsByName(name string) ([]int, error) {
+func (svc *CrmLeadLostService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CrmLeadLostModel, name)
 }
 
-func (svc *CrmLeadLostService) GetByIds(ids []int) (*types.CrmLeadLosts, error) {
+func (svc *CrmLeadLostService) GetByIds(ids []int64) (*types.CrmLeadLosts, error) {
 	c := &types.CrmLeadLosts{}
 	return c, svc.client.getByIds(types.CrmLeadLostModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CrmLeadLostService) GetAll() (*types.CrmLeadLosts, error) {
 	return c, svc.client.getAll(types.CrmLeadLostModel, c)
 }
 
-func (svc *CrmLeadLostService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CrmLeadLostService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CrmLeadLostModel, fields, relations)
 }
 
-func (svc *CrmLeadLostService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CrmLeadLostService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CrmLeadLostModel, ids, fields, relations)
 }
 
-func (svc *CrmLeadLostService) Delete(ids []int) error {
+func (svc *CrmLeadLostService) Delete(ids []int64) error {
 	return svc.client.delete(types.CrmLeadLostModel, ids)
 }

@@ -12,11 +12,11 @@ func NewCalendarAlarmService(c *Client) *CalendarAlarmService {
 	return &CalendarAlarmService{client: c}
 }
 
-func (svc *CalendarAlarmService) GetIdsByName(name string) ([]int, error) {
+func (svc *CalendarAlarmService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CalendarAlarmModel, name)
 }
 
-func (svc *CalendarAlarmService) GetByIds(ids []int) (*types.CalendarAlarms, error) {
+func (svc *CalendarAlarmService) GetByIds(ids []int64) (*types.CalendarAlarms, error) {
 	c := &types.CalendarAlarms{}
 	return c, svc.client.getByIds(types.CalendarAlarmModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CalendarAlarmService) GetAll() (*types.CalendarAlarms, error) {
 	return c, svc.client.getAll(types.CalendarAlarmModel, c)
 }
 
-func (svc *CalendarAlarmService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CalendarAlarmService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CalendarAlarmModel, fields, relations)
 }
 
-func (svc *CalendarAlarmService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CalendarAlarmService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CalendarAlarmModel, ids, fields, relations)
 }
 
-func (svc *CalendarAlarmService) Delete(ids []int) error {
+func (svc *CalendarAlarmService) Delete(ids []int64) error {
 	return svc.client.delete(types.CalendarAlarmModel, ids)
 }

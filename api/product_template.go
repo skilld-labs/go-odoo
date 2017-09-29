@@ -12,11 +12,11 @@ func NewProductTemplateService(c *Client) *ProductTemplateService {
 	return &ProductTemplateService{client: c}
 }
 
-func (svc *ProductTemplateService) GetIdsByName(name string) ([]int, error) {
+func (svc *ProductTemplateService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ProductTemplateModel, name)
 }
 
-func (svc *ProductTemplateService) GetByIds(ids []int) (*types.ProductTemplates, error) {
+func (svc *ProductTemplateService) GetByIds(ids []int64) (*types.ProductTemplates, error) {
 	p := &types.ProductTemplates{}
 	return p, svc.client.getByIds(types.ProductTemplateModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *ProductTemplateService) GetAll() (*types.ProductTemplates, error) {
 	return p, svc.client.getAll(types.ProductTemplateModel, p)
 }
 
-func (svc *ProductTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ProductTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ProductTemplateModel, fields, relations)
 }
 
-func (svc *ProductTemplateService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ProductTemplateService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ProductTemplateModel, ids, fields, relations)
 }
 
-func (svc *ProductTemplateService) Delete(ids []int) error {
+func (svc *ProductTemplateService) Delete(ids []int64) error {
 	return svc.client.delete(types.ProductTemplateModel, ids)
 }

@@ -12,11 +12,11 @@ func NewStockWarehouseOrderpointService(c *Client) *StockWarehouseOrderpointServ
 	return &StockWarehouseOrderpointService{client: c}
 }
 
-func (svc *StockWarehouseOrderpointService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockWarehouseOrderpointService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockWarehouseOrderpointModel, name)
 }
 
-func (svc *StockWarehouseOrderpointService) GetByIds(ids []int) (*types.StockWarehouseOrderpoints, error) {
+func (svc *StockWarehouseOrderpointService) GetByIds(ids []int64) (*types.StockWarehouseOrderpoints, error) {
 	s := &types.StockWarehouseOrderpoints{}
 	return s, svc.client.getByIds(types.StockWarehouseOrderpointModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockWarehouseOrderpointService) GetAll() (*types.StockWarehouseOrder
 	return s, svc.client.getAll(types.StockWarehouseOrderpointModel, s)
 }
 
-func (svc *StockWarehouseOrderpointService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockWarehouseOrderpointService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockWarehouseOrderpointModel, fields, relations)
 }
 
-func (svc *StockWarehouseOrderpointService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockWarehouseOrderpointService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockWarehouseOrderpointModel, ids, fields, relations)
 }
 
-func (svc *StockWarehouseOrderpointService) Delete(ids []int) error {
+func (svc *StockWarehouseOrderpointService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockWarehouseOrderpointModel, ids)
 }

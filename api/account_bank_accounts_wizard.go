@@ -12,11 +12,11 @@ func NewAccountBankAccountsWizardService(c *Client) *AccountBankAccountsWizardSe
 	return &AccountBankAccountsWizardService{client: c}
 }
 
-func (svc *AccountBankAccountsWizardService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountBankAccountsWizardService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountBankAccountsWizardModel, name)
 }
 
-func (svc *AccountBankAccountsWizardService) GetByIds(ids []int) (*types.AccountBankAccountsWizards, error) {
+func (svc *AccountBankAccountsWizardService) GetByIds(ids []int64) (*types.AccountBankAccountsWizards, error) {
 	a := &types.AccountBankAccountsWizards{}
 	return a, svc.client.getByIds(types.AccountBankAccountsWizardModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountBankAccountsWizardService) GetAll() (*types.AccountBankAccount
 	return a, svc.client.getAll(types.AccountBankAccountsWizardModel, a)
 }
 
-func (svc *AccountBankAccountsWizardService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountBankAccountsWizardService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountBankAccountsWizardModel, fields, relations)
 }
 
-func (svc *AccountBankAccountsWizardService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountBankAccountsWizardService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountBankAccountsWizardModel, ids, fields, relations)
 }
 
-func (svc *AccountBankAccountsWizardService) Delete(ids []int) error {
+func (svc *AccountBankAccountsWizardService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountBankAccountsWizardModel, ids)
 }

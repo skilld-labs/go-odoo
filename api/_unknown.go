@@ -12,11 +12,11 @@ func NewUnknownService(c *Client) *UnknownService {
 	return &UnknownService{client: c}
 }
 
-func (svc *UnknownService) GetIdsByName(name string) ([]int, error) {
+func (svc *UnknownService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.UnknownModel, name)
 }
 
-func (svc *UnknownService) GetByIds(ids []int) (*types.Unknowns, error) {
+func (svc *UnknownService) GetByIds(ids []int64) (*types.Unknowns, error) {
 	u := &types.Unknowns{}
 	return u, svc.client.getByIds(types.UnknownModel, ids, u)
 }
@@ -36,14 +36,14 @@ func (svc *UnknownService) GetAll() (*types.Unknowns, error) {
 	return u, svc.client.getAll(types.UnknownModel, u)
 }
 
-func (svc *UnknownService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *UnknownService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.UnknownModel, fields, relations)
 }
 
-func (svc *UnknownService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *UnknownService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.UnknownModel, ids, fields, relations)
 }
 
-func (svc *UnknownService) Delete(ids []int) error {
+func (svc *UnknownService) Delete(ids []int64) error {
 	return svc.client.delete(types.UnknownModel, ids)
 }

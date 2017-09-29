@@ -12,11 +12,11 @@ func NewAccountPrintJournalService(c *Client) *AccountPrintJournalService {
 	return &AccountPrintJournalService{client: c}
 }
 
-func (svc *AccountPrintJournalService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountPrintJournalService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountPrintJournalModel, name)
 }
 
-func (svc *AccountPrintJournalService) GetByIds(ids []int) (*types.AccountPrintJournals, error) {
+func (svc *AccountPrintJournalService) GetByIds(ids []int64) (*types.AccountPrintJournals, error) {
 	a := &types.AccountPrintJournals{}
 	return a, svc.client.getByIds(types.AccountPrintJournalModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountPrintJournalService) GetAll() (*types.AccountPrintJournals, er
 	return a, svc.client.getAll(types.AccountPrintJournalModel, a)
 }
 
-func (svc *AccountPrintJournalService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountPrintJournalService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountPrintJournalModel, fields, relations)
 }
 
-func (svc *AccountPrintJournalService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountPrintJournalService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountPrintJournalModel, ids, fields, relations)
 }
 
-func (svc *AccountPrintJournalService) Delete(ids []int) error {
+func (svc *AccountPrintJournalService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountPrintJournalModel, ids)
 }

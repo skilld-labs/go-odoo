@@ -12,11 +12,11 @@ func NewMailMassMailingStageService(c *Client) *MailMassMailingStageService {
 	return &MailMassMailingStageService{client: c}
 }
 
-func (svc *MailMassMailingStageService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailMassMailingStageService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailMassMailingStageModel, name)
 }
 
-func (svc *MailMassMailingStageService) GetByIds(ids []int) (*types.MailMassMailingStages, error) {
+func (svc *MailMassMailingStageService) GetByIds(ids []int64) (*types.MailMassMailingStages, error) {
 	m := &types.MailMassMailingStages{}
 	return m, svc.client.getByIds(types.MailMassMailingStageModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailMassMailingStageService) GetAll() (*types.MailMassMailingStages, 
 	return m, svc.client.getAll(types.MailMassMailingStageModel, m)
 }
 
-func (svc *MailMassMailingStageService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailMassMailingStageService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailMassMailingStageModel, fields, relations)
 }
 
-func (svc *MailMassMailingStageService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailMassMailingStageService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailMassMailingStageModel, ids, fields, relations)
 }
 
-func (svc *MailMassMailingStageService) Delete(ids []int) error {
+func (svc *MailMassMailingStageService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailMassMailingStageModel, ids)
 }

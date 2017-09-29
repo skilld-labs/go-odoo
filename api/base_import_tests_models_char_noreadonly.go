@@ -12,11 +12,11 @@ func NewBaseImportTestsModelsCharNoreadonlyService(c *Client) *BaseImportTestsMo
 	return &BaseImportTestsModelsCharNoreadonlyService{client: c}
 }
 
-func (svc *BaseImportTestsModelsCharNoreadonlyService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseImportTestsModelsCharNoreadonlyService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseImportTestsModelsCharNoreadonlyModel, name)
 }
 
-func (svc *BaseImportTestsModelsCharNoreadonlyService) GetByIds(ids []int) (*types.BaseImportTestsModelsCharNoreadonlys, error) {
+func (svc *BaseImportTestsModelsCharNoreadonlyService) GetByIds(ids []int64) (*types.BaseImportTestsModelsCharNoreadonlys, error) {
 	b := &types.BaseImportTestsModelsCharNoreadonlys{}
 	return b, svc.client.getByIds(types.BaseImportTestsModelsCharNoreadonlyModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseImportTestsModelsCharNoreadonlyService) GetAll() (*types.BaseImpo
 	return b, svc.client.getAll(types.BaseImportTestsModelsCharNoreadonlyModel, b)
 }
 
-func (svc *BaseImportTestsModelsCharNoreadonlyService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseImportTestsModelsCharNoreadonlyService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseImportTestsModelsCharNoreadonlyModel, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsCharNoreadonlyService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseImportTestsModelsCharNoreadonlyService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseImportTestsModelsCharNoreadonlyModel, ids, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsCharNoreadonlyService) Delete(ids []int) error {
+func (svc *BaseImportTestsModelsCharNoreadonlyService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseImportTestsModelsCharNoreadonlyModel, ids)
 }

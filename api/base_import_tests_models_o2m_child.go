@@ -12,11 +12,11 @@ func NewBaseImportTestsModelsO2mChildService(c *Client) *BaseImportTestsModelsO2
 	return &BaseImportTestsModelsO2mChildService{client: c}
 }
 
-func (svc *BaseImportTestsModelsO2mChildService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseImportTestsModelsO2mChildService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseImportTestsModelsO2mChildModel, name)
 }
 
-func (svc *BaseImportTestsModelsO2mChildService) GetByIds(ids []int) (*types.BaseImportTestsModelsO2mChilds, error) {
+func (svc *BaseImportTestsModelsO2mChildService) GetByIds(ids []int64) (*types.BaseImportTestsModelsO2mChilds, error) {
 	b := &types.BaseImportTestsModelsO2mChilds{}
 	return b, svc.client.getByIds(types.BaseImportTestsModelsO2mChildModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseImportTestsModelsO2mChildService) GetAll() (*types.BaseImportTest
 	return b, svc.client.getAll(types.BaseImportTestsModelsO2mChildModel, b)
 }
 
-func (svc *BaseImportTestsModelsO2mChildService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseImportTestsModelsO2mChildService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseImportTestsModelsO2mChildModel, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsO2mChildService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseImportTestsModelsO2mChildService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseImportTestsModelsO2mChildModel, ids, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsO2mChildService) Delete(ids []int) error {
+func (svc *BaseImportTestsModelsO2mChildService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseImportTestsModelsO2mChildModel, ids)
 }

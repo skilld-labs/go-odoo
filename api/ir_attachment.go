@@ -12,11 +12,11 @@ func NewIrAttachmentService(c *Client) *IrAttachmentService {
 	return &IrAttachmentService{client: c}
 }
 
-func (svc *IrAttachmentService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrAttachmentService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrAttachmentModel, name)
 }
 
-func (svc *IrAttachmentService) GetByIds(ids []int) (*types.IrAttachments, error) {
+func (svc *IrAttachmentService) GetByIds(ids []int64) (*types.IrAttachments, error) {
 	i := &types.IrAttachments{}
 	return i, svc.client.getByIds(types.IrAttachmentModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrAttachmentService) GetAll() (*types.IrAttachments, error) {
 	return i, svc.client.getAll(types.IrAttachmentModel, i)
 }
 
-func (svc *IrAttachmentService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrAttachmentService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrAttachmentModel, fields, relations)
 }
 
-func (svc *IrAttachmentService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrAttachmentService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrAttachmentModel, ids, fields, relations)
 }
 
-func (svc *IrAttachmentService) Delete(ids []int) error {
+func (svc *IrAttachmentService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrAttachmentModel, ids)
 }

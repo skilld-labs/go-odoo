@@ -12,11 +12,11 @@ func NewAccountAgedTrialBalanceService(c *Client) *AccountAgedTrialBalanceServic
 	return &AccountAgedTrialBalanceService{client: c}
 }
 
-func (svc *AccountAgedTrialBalanceService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountAgedTrialBalanceService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountAgedTrialBalanceModel, name)
 }
 
-func (svc *AccountAgedTrialBalanceService) GetByIds(ids []int) (*types.AccountAgedTrialBalances, error) {
+func (svc *AccountAgedTrialBalanceService) GetByIds(ids []int64) (*types.AccountAgedTrialBalances, error) {
 	a := &types.AccountAgedTrialBalances{}
 	return a, svc.client.getByIds(types.AccountAgedTrialBalanceModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountAgedTrialBalanceService) GetAll() (*types.AccountAgedTrialBala
 	return a, svc.client.getAll(types.AccountAgedTrialBalanceModel, a)
 }
 
-func (svc *AccountAgedTrialBalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountAgedTrialBalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountAgedTrialBalanceModel, fields, relations)
 }
 
-func (svc *AccountAgedTrialBalanceService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountAgedTrialBalanceService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountAgedTrialBalanceModel, ids, fields, relations)
 }
 
-func (svc *AccountAgedTrialBalanceService) Delete(ids []int) error {
+func (svc *AccountAgedTrialBalanceService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountAgedTrialBalanceModel, ids)
 }

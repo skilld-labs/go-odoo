@@ -12,11 +12,11 @@ func NewSaleOrderLineService(c *Client) *SaleOrderLineService {
 	return &SaleOrderLineService{client: c}
 }
 
-func (svc *SaleOrderLineService) GetIdsByName(name string) ([]int, error) {
+func (svc *SaleOrderLineService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.SaleOrderLineModel, name)
 }
 
-func (svc *SaleOrderLineService) GetByIds(ids []int) (*types.SaleOrderLines, error) {
+func (svc *SaleOrderLineService) GetByIds(ids []int64) (*types.SaleOrderLines, error) {
 	s := &types.SaleOrderLines{}
 	return s, svc.client.getByIds(types.SaleOrderLineModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *SaleOrderLineService) GetAll() (*types.SaleOrderLines, error) {
 	return s, svc.client.getAll(types.SaleOrderLineModel, s)
 }
 
-func (svc *SaleOrderLineService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *SaleOrderLineService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.SaleOrderLineModel, fields, relations)
 }
 
-func (svc *SaleOrderLineService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *SaleOrderLineService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.SaleOrderLineModel, ids, fields, relations)
 }
 
-func (svc *SaleOrderLineService) Delete(ids []int) error {
+func (svc *SaleOrderLineService) Delete(ids []int64) error {
 	return svc.client.delete(types.SaleOrderLineModel, ids)
 }

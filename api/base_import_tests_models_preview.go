@@ -12,11 +12,11 @@ func NewBaseImportTestsModelsPreviewService(c *Client) *BaseImportTestsModelsPre
 	return &BaseImportTestsModelsPreviewService{client: c}
 }
 
-func (svc *BaseImportTestsModelsPreviewService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseImportTestsModelsPreviewService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseImportTestsModelsPreviewModel, name)
 }
 
-func (svc *BaseImportTestsModelsPreviewService) GetByIds(ids []int) (*types.BaseImportTestsModelsPreviews, error) {
+func (svc *BaseImportTestsModelsPreviewService) GetByIds(ids []int64) (*types.BaseImportTestsModelsPreviews, error) {
 	b := &types.BaseImportTestsModelsPreviews{}
 	return b, svc.client.getByIds(types.BaseImportTestsModelsPreviewModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseImportTestsModelsPreviewService) GetAll() (*types.BaseImportTests
 	return b, svc.client.getAll(types.BaseImportTestsModelsPreviewModel, b)
 }
 
-func (svc *BaseImportTestsModelsPreviewService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseImportTestsModelsPreviewService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseImportTestsModelsPreviewModel, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsPreviewService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseImportTestsModelsPreviewService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseImportTestsModelsPreviewModel, ids, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsPreviewService) Delete(ids []int) error {
+func (svc *BaseImportTestsModelsPreviewService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseImportTestsModelsPreviewModel, ids)
 }

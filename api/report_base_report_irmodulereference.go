@@ -12,11 +12,11 @@ func NewReportBaseReportIrmodulereferenceService(c *Client) *ReportBaseReportIrm
 	return &ReportBaseReportIrmodulereferenceService{client: c}
 }
 
-func (svc *ReportBaseReportIrmodulereferenceService) GetIdsByName(name string) ([]int, error) {
+func (svc *ReportBaseReportIrmodulereferenceService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ReportBaseReportIrmodulereferenceModel, name)
 }
 
-func (svc *ReportBaseReportIrmodulereferenceService) GetByIds(ids []int) (*types.ReportBaseReportIrmodulereferences, error) {
+func (svc *ReportBaseReportIrmodulereferenceService) GetByIds(ids []int64) (*types.ReportBaseReportIrmodulereferences, error) {
 	r := &types.ReportBaseReportIrmodulereferences{}
 	return r, svc.client.getByIds(types.ReportBaseReportIrmodulereferenceModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ReportBaseReportIrmodulereferenceService) GetAll() (*types.ReportBase
 	return r, svc.client.getAll(types.ReportBaseReportIrmodulereferenceModel, r)
 }
 
-func (svc *ReportBaseReportIrmodulereferenceService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ReportBaseReportIrmodulereferenceService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ReportBaseReportIrmodulereferenceModel, fields, relations)
 }
 
-func (svc *ReportBaseReportIrmodulereferenceService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ReportBaseReportIrmodulereferenceService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ReportBaseReportIrmodulereferenceModel, ids, fields, relations)
 }
 
-func (svc *ReportBaseReportIrmodulereferenceService) Delete(ids []int) error {
+func (svc *ReportBaseReportIrmodulereferenceService) Delete(ids []int64) error {
 	return svc.client.delete(types.ReportBaseReportIrmodulereferenceModel, ids)
 }

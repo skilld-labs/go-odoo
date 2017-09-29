@@ -12,11 +12,11 @@ func NewReportHrHolidaysReportHolidayssummaryService(c *Client) *ReportHrHoliday
 	return &ReportHrHolidaysReportHolidayssummaryService{client: c}
 }
 
-func (svc *ReportHrHolidaysReportHolidayssummaryService) GetIdsByName(name string) ([]int, error) {
+func (svc *ReportHrHolidaysReportHolidayssummaryService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ReportHrHolidaysReportHolidayssummaryModel, name)
 }
 
-func (svc *ReportHrHolidaysReportHolidayssummaryService) GetByIds(ids []int) (*types.ReportHrHolidaysReportHolidayssummarys, error) {
+func (svc *ReportHrHolidaysReportHolidayssummaryService) GetByIds(ids []int64) (*types.ReportHrHolidaysReportHolidayssummarys, error) {
 	r := &types.ReportHrHolidaysReportHolidayssummarys{}
 	return r, svc.client.getByIds(types.ReportHrHolidaysReportHolidayssummaryModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ReportHrHolidaysReportHolidayssummaryService) GetAll() (*types.Report
 	return r, svc.client.getAll(types.ReportHrHolidaysReportHolidayssummaryModel, r)
 }
 
-func (svc *ReportHrHolidaysReportHolidayssummaryService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ReportHrHolidaysReportHolidayssummaryService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ReportHrHolidaysReportHolidayssummaryModel, fields, relations)
 }
 
-func (svc *ReportHrHolidaysReportHolidayssummaryService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ReportHrHolidaysReportHolidayssummaryService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ReportHrHolidaysReportHolidayssummaryModel, ids, fields, relations)
 }
 
-func (svc *ReportHrHolidaysReportHolidayssummaryService) Delete(ids []int) error {
+func (svc *ReportHrHolidaysReportHolidayssummaryService) Delete(ids []int64) error {
 	return svc.client.delete(types.ReportHrHolidaysReportHolidayssummaryModel, ids)
 }

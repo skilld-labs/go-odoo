@@ -12,11 +12,11 @@ func NewReportAccountReportAgedpartnerbalanceService(c *Client) *ReportAccountRe
 	return &ReportAccountReportAgedpartnerbalanceService{client: c}
 }
 
-func (svc *ReportAccountReportAgedpartnerbalanceService) GetIdsByName(name string) ([]int, error) {
+func (svc *ReportAccountReportAgedpartnerbalanceService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ReportAccountReportAgedpartnerbalanceModel, name)
 }
 
-func (svc *ReportAccountReportAgedpartnerbalanceService) GetByIds(ids []int) (*types.ReportAccountReportAgedpartnerbalances, error) {
+func (svc *ReportAccountReportAgedpartnerbalanceService) GetByIds(ids []int64) (*types.ReportAccountReportAgedpartnerbalances, error) {
 	r := &types.ReportAccountReportAgedpartnerbalances{}
 	return r, svc.client.getByIds(types.ReportAccountReportAgedpartnerbalanceModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ReportAccountReportAgedpartnerbalanceService) GetAll() (*types.Report
 	return r, svc.client.getAll(types.ReportAccountReportAgedpartnerbalanceModel, r)
 }
 
-func (svc *ReportAccountReportAgedpartnerbalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ReportAccountReportAgedpartnerbalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ReportAccountReportAgedpartnerbalanceModel, fields, relations)
 }
 
-func (svc *ReportAccountReportAgedpartnerbalanceService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ReportAccountReportAgedpartnerbalanceService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ReportAccountReportAgedpartnerbalanceModel, ids, fields, relations)
 }
 
-func (svc *ReportAccountReportAgedpartnerbalanceService) Delete(ids []int) error {
+func (svc *ReportAccountReportAgedpartnerbalanceService) Delete(ids []int64) error {
 	return svc.client.delete(types.ReportAccountReportAgedpartnerbalanceModel, ids)
 }

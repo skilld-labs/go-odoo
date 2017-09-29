@@ -12,11 +12,11 @@ func NewLinkTrackerClickService(c *Client) *LinkTrackerClickService {
 	return &LinkTrackerClickService{client: c}
 }
 
-func (svc *LinkTrackerClickService) GetIdsByName(name string) ([]int, error) {
+func (svc *LinkTrackerClickService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.LinkTrackerClickModel, name)
 }
 
-func (svc *LinkTrackerClickService) GetByIds(ids []int) (*types.LinkTrackerClicks, error) {
+func (svc *LinkTrackerClickService) GetByIds(ids []int64) (*types.LinkTrackerClicks, error) {
 	l := &types.LinkTrackerClicks{}
 	return l, svc.client.getByIds(types.LinkTrackerClickModel, ids, l)
 }
@@ -36,14 +36,14 @@ func (svc *LinkTrackerClickService) GetAll() (*types.LinkTrackerClicks, error) {
 	return l, svc.client.getAll(types.LinkTrackerClickModel, l)
 }
 
-func (svc *LinkTrackerClickService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *LinkTrackerClickService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.LinkTrackerClickModel, fields, relations)
 }
 
-func (svc *LinkTrackerClickService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *LinkTrackerClickService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.LinkTrackerClickModel, ids, fields, relations)
 }
 
-func (svc *LinkTrackerClickService) Delete(ids []int) error {
+func (svc *LinkTrackerClickService) Delete(ids []int64) error {
 	return svc.client.delete(types.LinkTrackerClickModel, ids)
 }

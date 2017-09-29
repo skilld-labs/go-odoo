@@ -12,11 +12,11 @@ func NewResRequestLinkService(c *Client) *ResRequestLinkService {
 	return &ResRequestLinkService{client: c}
 }
 
-func (svc *ResRequestLinkService) GetIdsByName(name string) ([]int, error) {
+func (svc *ResRequestLinkService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ResRequestLinkModel, name)
 }
 
-func (svc *ResRequestLinkService) GetByIds(ids []int) (*types.ResRequestLinks, error) {
+func (svc *ResRequestLinkService) GetByIds(ids []int64) (*types.ResRequestLinks, error) {
 	r := &types.ResRequestLinks{}
 	return r, svc.client.getByIds(types.ResRequestLinkModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ResRequestLinkService) GetAll() (*types.ResRequestLinks, error) {
 	return r, svc.client.getAll(types.ResRequestLinkModel, r)
 }
 
-func (svc *ResRequestLinkService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ResRequestLinkService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ResRequestLinkModel, fields, relations)
 }
 
-func (svc *ResRequestLinkService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ResRequestLinkService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ResRequestLinkModel, ids, fields, relations)
 }
 
-func (svc *ResRequestLinkService) Delete(ids []int) error {
+func (svc *ResRequestLinkService) Delete(ids []int64) error {
 	return svc.client.delete(types.ResRequestLinkModel, ids)
 }

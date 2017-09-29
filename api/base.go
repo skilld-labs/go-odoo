@@ -12,11 +12,11 @@ func NewBaseService(c *Client) *BaseService {
 	return &BaseService{client: c}
 }
 
-func (svc *BaseService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseModel, name)
 }
 
-func (svc *BaseService) GetByIds(ids []int) (*types.Bases, error) {
+func (svc *BaseService) GetByIds(ids []int64) (*types.Bases, error) {
 	b := &types.Bases{}
 	return b, svc.client.getByIds(types.BaseModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseService) GetAll() (*types.Bases, error) {
 	return b, svc.client.getAll(types.BaseModel, b)
 }
 
-func (svc *BaseService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseModel, fields, relations)
 }
 
-func (svc *BaseService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseModel, ids, fields, relations)
 }
 
-func (svc *BaseService) Delete(ids []int) error {
+func (svc *BaseService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseModel, ids)
 }

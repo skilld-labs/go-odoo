@@ -12,11 +12,11 @@ func NewIrFieldsConverterService(c *Client) *IrFieldsConverterService {
 	return &IrFieldsConverterService{client: c}
 }
 
-func (svc *IrFieldsConverterService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrFieldsConverterService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrFieldsConverterModel, name)
 }
 
-func (svc *IrFieldsConverterService) GetByIds(ids []int) (*types.IrFieldsConverters, error) {
+func (svc *IrFieldsConverterService) GetByIds(ids []int64) (*types.IrFieldsConverters, error) {
 	i := &types.IrFieldsConverters{}
 	return i, svc.client.getByIds(types.IrFieldsConverterModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrFieldsConverterService) GetAll() (*types.IrFieldsConverters, error)
 	return i, svc.client.getAll(types.IrFieldsConverterModel, i)
 }
 
-func (svc *IrFieldsConverterService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrFieldsConverterService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrFieldsConverterModel, fields, relations)
 }
 
-func (svc *IrFieldsConverterService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrFieldsConverterService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrFieldsConverterModel, ids, fields, relations)
 }
 
-func (svc *IrFieldsConverterService) Delete(ids []int) error {
+func (svc *IrFieldsConverterService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrFieldsConverterModel, ids)
 }

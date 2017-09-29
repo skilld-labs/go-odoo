@@ -12,11 +12,11 @@ func NewIrNeedactionMixinService(c *Client) *IrNeedactionMixinService {
 	return &IrNeedactionMixinService{client: c}
 }
 
-func (svc *IrNeedactionMixinService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrNeedactionMixinService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrNeedactionMixinModel, name)
 }
 
-func (svc *IrNeedactionMixinService) GetByIds(ids []int) (*types.IrNeedactionMixins, error) {
+func (svc *IrNeedactionMixinService) GetByIds(ids []int64) (*types.IrNeedactionMixins, error) {
 	i := &types.IrNeedactionMixins{}
 	return i, svc.client.getByIds(types.IrNeedactionMixinModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrNeedactionMixinService) GetAll() (*types.IrNeedactionMixins, error)
 	return i, svc.client.getAll(types.IrNeedactionMixinModel, i)
 }
 
-func (svc *IrNeedactionMixinService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrNeedactionMixinService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrNeedactionMixinModel, fields, relations)
 }
 
-func (svc *IrNeedactionMixinService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrNeedactionMixinService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrNeedactionMixinModel, ids, fields, relations)
 }
 
-func (svc *IrNeedactionMixinService) Delete(ids []int) error {
+func (svc *IrNeedactionMixinService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrNeedactionMixinModel, ids)
 }

@@ -12,11 +12,11 @@ func NewAccountChartTemplateService(c *Client) *AccountChartTemplateService {
 	return &AccountChartTemplateService{client: c}
 }
 
-func (svc *AccountChartTemplateService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountChartTemplateService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountChartTemplateModel, name)
 }
 
-func (svc *AccountChartTemplateService) GetByIds(ids []int) (*types.AccountChartTemplates, error) {
+func (svc *AccountChartTemplateService) GetByIds(ids []int64) (*types.AccountChartTemplates, error) {
 	a := &types.AccountChartTemplates{}
 	return a, svc.client.getByIds(types.AccountChartTemplateModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountChartTemplateService) GetAll() (*types.AccountChartTemplates, 
 	return a, svc.client.getAll(types.AccountChartTemplateModel, a)
 }
 
-func (svc *AccountChartTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountChartTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountChartTemplateModel, fields, relations)
 }
 
-func (svc *AccountChartTemplateService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountChartTemplateService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountChartTemplateModel, ids, fields, relations)
 }
 
-func (svc *AccountChartTemplateService) Delete(ids []int) error {
+func (svc *AccountChartTemplateService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountChartTemplateModel, ids)
 }

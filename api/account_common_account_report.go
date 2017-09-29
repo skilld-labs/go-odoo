@@ -12,11 +12,11 @@ func NewAccountCommonAccountReportService(c *Client) *AccountCommonAccountReport
 	return &AccountCommonAccountReportService{client: c}
 }
 
-func (svc *AccountCommonAccountReportService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountCommonAccountReportService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountCommonAccountReportModel, name)
 }
 
-func (svc *AccountCommonAccountReportService) GetByIds(ids []int) (*types.AccountCommonAccountReports, error) {
+func (svc *AccountCommonAccountReportService) GetByIds(ids []int64) (*types.AccountCommonAccountReports, error) {
 	a := &types.AccountCommonAccountReports{}
 	return a, svc.client.getByIds(types.AccountCommonAccountReportModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountCommonAccountReportService) GetAll() (*types.AccountCommonAcco
 	return a, svc.client.getAll(types.AccountCommonAccountReportModel, a)
 }
 
-func (svc *AccountCommonAccountReportService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountCommonAccountReportService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountCommonAccountReportModel, fields, relations)
 }
 
-func (svc *AccountCommonAccountReportService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountCommonAccountReportService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountCommonAccountReportModel, ids, fields, relations)
 }
 
-func (svc *AccountCommonAccountReportService) Delete(ids []int) error {
+func (svc *AccountCommonAccountReportService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountCommonAccountReportModel, ids)
 }

@@ -12,11 +12,11 @@ func NewBaseLanguageExportService(c *Client) *BaseLanguageExportService {
 	return &BaseLanguageExportService{client: c}
 }
 
-func (svc *BaseLanguageExportService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseLanguageExportService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseLanguageExportModel, name)
 }
 
-func (svc *BaseLanguageExportService) GetByIds(ids []int) (*types.BaseLanguageExports, error) {
+func (svc *BaseLanguageExportService) GetByIds(ids []int64) (*types.BaseLanguageExports, error) {
 	b := &types.BaseLanguageExports{}
 	return b, svc.client.getByIds(types.BaseLanguageExportModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseLanguageExportService) GetAll() (*types.BaseLanguageExports, erro
 	return b, svc.client.getAll(types.BaseLanguageExportModel, b)
 }
 
-func (svc *BaseLanguageExportService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseLanguageExportService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseLanguageExportModel, fields, relations)
 }
 
-func (svc *BaseLanguageExportService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseLanguageExportService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseLanguageExportModel, ids, fields, relations)
 }
 
-func (svc *BaseLanguageExportService) Delete(ids []int) error {
+func (svc *BaseLanguageExportService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseLanguageExportModel, ids)
 }

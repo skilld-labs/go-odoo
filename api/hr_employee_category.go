@@ -12,11 +12,11 @@ func NewHrEmployeeCategoryService(c *Client) *HrEmployeeCategoryService {
 	return &HrEmployeeCategoryService{client: c}
 }
 
-func (svc *HrEmployeeCategoryService) GetIdsByName(name string) ([]int, error) {
+func (svc *HrEmployeeCategoryService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.HrEmployeeCategoryModel, name)
 }
 
-func (svc *HrEmployeeCategoryService) GetByIds(ids []int) (*types.HrEmployeeCategorys, error) {
+func (svc *HrEmployeeCategoryService) GetByIds(ids []int64) (*types.HrEmployeeCategorys, error) {
 	h := &types.HrEmployeeCategorys{}
 	return h, svc.client.getByIds(types.HrEmployeeCategoryModel, ids, h)
 }
@@ -36,14 +36,14 @@ func (svc *HrEmployeeCategoryService) GetAll() (*types.HrEmployeeCategorys, erro
 	return h, svc.client.getAll(types.HrEmployeeCategoryModel, h)
 }
 
-func (svc *HrEmployeeCategoryService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *HrEmployeeCategoryService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.HrEmployeeCategoryModel, fields, relations)
 }
 
-func (svc *HrEmployeeCategoryService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *HrEmployeeCategoryService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.HrEmployeeCategoryModel, ids, fields, relations)
 }
 
-func (svc *HrEmployeeCategoryService) Delete(ids []int) error {
+func (svc *HrEmployeeCategoryService) Delete(ids []int64) error {
 	return svc.client.delete(types.HrEmployeeCategoryModel, ids)
 }

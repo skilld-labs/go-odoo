@@ -12,11 +12,11 @@ func NewBaseActionRuleLineTestService(c *Client) *BaseActionRuleLineTestService 
 	return &BaseActionRuleLineTestService{client: c}
 }
 
-func (svc *BaseActionRuleLineTestService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseActionRuleLineTestService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseActionRuleLineTestModel, name)
 }
 
-func (svc *BaseActionRuleLineTestService) GetByIds(ids []int) (*types.BaseActionRuleLineTests, error) {
+func (svc *BaseActionRuleLineTestService) GetByIds(ids []int64) (*types.BaseActionRuleLineTests, error) {
 	b := &types.BaseActionRuleLineTests{}
 	return b, svc.client.getByIds(types.BaseActionRuleLineTestModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseActionRuleLineTestService) GetAll() (*types.BaseActionRuleLineTes
 	return b, svc.client.getAll(types.BaseActionRuleLineTestModel, b)
 }
 
-func (svc *BaseActionRuleLineTestService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseActionRuleLineTestService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseActionRuleLineTestModel, fields, relations)
 }
 
-func (svc *BaseActionRuleLineTestService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseActionRuleLineTestService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseActionRuleLineTestModel, ids, fields, relations)
 }
 
-func (svc *BaseActionRuleLineTestService) Delete(ids []int) error {
+func (svc *BaseActionRuleLineTestService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseActionRuleLineTestModel, ids)
 }

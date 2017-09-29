@@ -12,11 +12,11 @@ func NewIrActionsReportXmlService(c *Client) *IrActionsReportXmlService {
 	return &IrActionsReportXmlService{client: c}
 }
 
-func (svc *IrActionsReportXmlService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrActionsReportXmlService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrActionsReportXmlModel, name)
 }
 
-func (svc *IrActionsReportXmlService) GetByIds(ids []int) (*types.IrActionsReportXmls, error) {
+func (svc *IrActionsReportXmlService) GetByIds(ids []int64) (*types.IrActionsReportXmls, error) {
 	i := &types.IrActionsReportXmls{}
 	return i, svc.client.getByIds(types.IrActionsReportXmlModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrActionsReportXmlService) GetAll() (*types.IrActionsReportXmls, erro
 	return i, svc.client.getAll(types.IrActionsReportXmlModel, i)
 }
 
-func (svc *IrActionsReportXmlService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrActionsReportXmlService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrActionsReportXmlModel, fields, relations)
 }
 
-func (svc *IrActionsReportXmlService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrActionsReportXmlService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrActionsReportXmlModel, ids, fields, relations)
 }
 
-func (svc *IrActionsReportXmlService) Delete(ids []int) error {
+func (svc *IrActionsReportXmlService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrActionsReportXmlModel, ids)
 }

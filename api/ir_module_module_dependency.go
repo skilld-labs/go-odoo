@@ -12,11 +12,11 @@ func NewIrModuleModuleDependencyService(c *Client) *IrModuleModuleDependencyServ
 	return &IrModuleModuleDependencyService{client: c}
 }
 
-func (svc *IrModuleModuleDependencyService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrModuleModuleDependencyService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrModuleModuleDependencyModel, name)
 }
 
-func (svc *IrModuleModuleDependencyService) GetByIds(ids []int) (*types.IrModuleModuleDependencys, error) {
+func (svc *IrModuleModuleDependencyService) GetByIds(ids []int64) (*types.IrModuleModuleDependencys, error) {
 	i := &types.IrModuleModuleDependencys{}
 	return i, svc.client.getByIds(types.IrModuleModuleDependencyModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrModuleModuleDependencyService) GetAll() (*types.IrModuleModuleDepen
 	return i, svc.client.getAll(types.IrModuleModuleDependencyModel, i)
 }
 
-func (svc *IrModuleModuleDependencyService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrModuleModuleDependencyService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrModuleModuleDependencyModel, fields, relations)
 }
 
-func (svc *IrModuleModuleDependencyService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrModuleModuleDependencyService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrModuleModuleDependencyModel, ids, fields, relations)
 }
 
-func (svc *IrModuleModuleDependencyService) Delete(ids []int) error {
+func (svc *IrModuleModuleDependencyService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrModuleModuleDependencyModel, ids)
 }

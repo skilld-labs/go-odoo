@@ -12,11 +12,11 @@ func NewAccountInvoiceConfirmService(c *Client) *AccountInvoiceConfirmService {
 	return &AccountInvoiceConfirmService{client: c}
 }
 
-func (svc *AccountInvoiceConfirmService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountInvoiceConfirmService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountInvoiceConfirmModel, name)
 }
 
-func (svc *AccountInvoiceConfirmService) GetByIds(ids []int) (*types.AccountInvoiceConfirms, error) {
+func (svc *AccountInvoiceConfirmService) GetByIds(ids []int64) (*types.AccountInvoiceConfirms, error) {
 	a := &types.AccountInvoiceConfirms{}
 	return a, svc.client.getByIds(types.AccountInvoiceConfirmModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountInvoiceConfirmService) GetAll() (*types.AccountInvoiceConfirms
 	return a, svc.client.getAll(types.AccountInvoiceConfirmModel, a)
 }
 
-func (svc *AccountInvoiceConfirmService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountInvoiceConfirmService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountInvoiceConfirmModel, fields, relations)
 }
 
-func (svc *AccountInvoiceConfirmService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountInvoiceConfirmService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountInvoiceConfirmModel, ids, fields, relations)
 }
 
-func (svc *AccountInvoiceConfirmService) Delete(ids []int) error {
+func (svc *AccountInvoiceConfirmService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountInvoiceConfirmModel, ids)
 }

@@ -12,11 +12,11 @@ func NewSaleAdvancePaymentInvService(c *Client) *SaleAdvancePaymentInvService {
 	return &SaleAdvancePaymentInvService{client: c}
 }
 
-func (svc *SaleAdvancePaymentInvService) GetIdsByName(name string) ([]int, error) {
+func (svc *SaleAdvancePaymentInvService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.SaleAdvancePaymentInvModel, name)
 }
 
-func (svc *SaleAdvancePaymentInvService) GetByIds(ids []int) (*types.SaleAdvancePaymentInvs, error) {
+func (svc *SaleAdvancePaymentInvService) GetByIds(ids []int64) (*types.SaleAdvancePaymentInvs, error) {
 	s := &types.SaleAdvancePaymentInvs{}
 	return s, svc.client.getByIds(types.SaleAdvancePaymentInvModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *SaleAdvancePaymentInvService) GetAll() (*types.SaleAdvancePaymentInvs
 	return s, svc.client.getAll(types.SaleAdvancePaymentInvModel, s)
 }
 
-func (svc *SaleAdvancePaymentInvService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *SaleAdvancePaymentInvService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.SaleAdvancePaymentInvModel, fields, relations)
 }
 
-func (svc *SaleAdvancePaymentInvService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *SaleAdvancePaymentInvService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.SaleAdvancePaymentInvModel, ids, fields, relations)
 }
 
-func (svc *SaleAdvancePaymentInvService) Delete(ids []int) error {
+func (svc *SaleAdvancePaymentInvService) Delete(ids []int64) error {
 	return svc.client.delete(types.SaleAdvancePaymentInvModel, ids)
 }

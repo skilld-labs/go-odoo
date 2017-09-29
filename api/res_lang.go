@@ -12,11 +12,11 @@ func NewResLangService(c *Client) *ResLangService {
 	return &ResLangService{client: c}
 }
 
-func (svc *ResLangService) GetIdsByName(name string) ([]int, error) {
+func (svc *ResLangService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ResLangModel, name)
 }
 
-func (svc *ResLangService) GetByIds(ids []int) (*types.ResLangs, error) {
+func (svc *ResLangService) GetByIds(ids []int64) (*types.ResLangs, error) {
 	r := &types.ResLangs{}
 	return r, svc.client.getByIds(types.ResLangModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ResLangService) GetAll() (*types.ResLangs, error) {
 	return r, svc.client.getAll(types.ResLangModel, r)
 }
 
-func (svc *ResLangService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ResLangService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ResLangModel, fields, relations)
 }
 
-func (svc *ResLangService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ResLangService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ResLangModel, ids, fields, relations)
 }
 
-func (svc *ResLangService) Delete(ids []int) error {
+func (svc *ResLangService) Delete(ids []int64) error {
 	return svc.client.delete(types.ResLangModel, ids)
 }

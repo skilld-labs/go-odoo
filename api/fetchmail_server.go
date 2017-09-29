@@ -12,11 +12,11 @@ func NewFetchmailServerService(c *Client) *FetchmailServerService {
 	return &FetchmailServerService{client: c}
 }
 
-func (svc *FetchmailServerService) GetIdsByName(name string) ([]int, error) {
+func (svc *FetchmailServerService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.FetchmailServerModel, name)
 }
 
-func (svc *FetchmailServerService) GetByIds(ids []int) (*types.FetchmailServers, error) {
+func (svc *FetchmailServerService) GetByIds(ids []int64) (*types.FetchmailServers, error) {
 	f := &types.FetchmailServers{}
 	return f, svc.client.getByIds(types.FetchmailServerModel, ids, f)
 }
@@ -36,14 +36,14 @@ func (svc *FetchmailServerService) GetAll() (*types.FetchmailServers, error) {
 	return f, svc.client.getAll(types.FetchmailServerModel, f)
 }
 
-func (svc *FetchmailServerService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *FetchmailServerService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.FetchmailServerModel, fields, relations)
 }
 
-func (svc *FetchmailServerService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *FetchmailServerService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.FetchmailServerModel, ids, fields, relations)
 }
 
-func (svc *FetchmailServerService) Delete(ids []int) error {
+func (svc *FetchmailServerService) Delete(ids []int64) error {
 	return svc.client.delete(types.FetchmailServerModel, ids)
 }

@@ -12,11 +12,11 @@ func NewWizardMultiChartsAccountsService(c *Client) *WizardMultiChartsAccountsSe
 	return &WizardMultiChartsAccountsService{client: c}
 }
 
-func (svc *WizardMultiChartsAccountsService) GetIdsByName(name string) ([]int, error) {
+func (svc *WizardMultiChartsAccountsService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.WizardMultiChartsAccountsModel, name)
 }
 
-func (svc *WizardMultiChartsAccountsService) GetByIds(ids []int) (*types.WizardMultiChartsAccountss, error) {
+func (svc *WizardMultiChartsAccountsService) GetByIds(ids []int64) (*types.WizardMultiChartsAccountss, error) {
 	w := &types.WizardMultiChartsAccountss{}
 	return w, svc.client.getByIds(types.WizardMultiChartsAccountsModel, ids, w)
 }
@@ -36,14 +36,14 @@ func (svc *WizardMultiChartsAccountsService) GetAll() (*types.WizardMultiChartsA
 	return w, svc.client.getAll(types.WizardMultiChartsAccountsModel, w)
 }
 
-func (svc *WizardMultiChartsAccountsService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *WizardMultiChartsAccountsService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.WizardMultiChartsAccountsModel, fields, relations)
 }
 
-func (svc *WizardMultiChartsAccountsService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *WizardMultiChartsAccountsService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.WizardMultiChartsAccountsModel, ids, fields, relations)
 }
 
-func (svc *WizardMultiChartsAccountsService) Delete(ids []int) error {
+func (svc *WizardMultiChartsAccountsService) Delete(ids []int64) error {
 	return svc.client.delete(types.WizardMultiChartsAccountsModel, ids)
 }

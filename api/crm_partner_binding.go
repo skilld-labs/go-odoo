@@ -12,11 +12,11 @@ func NewCrmPartnerBindingService(c *Client) *CrmPartnerBindingService {
 	return &CrmPartnerBindingService{client: c}
 }
 
-func (svc *CrmPartnerBindingService) GetIdsByName(name string) ([]int, error) {
+func (svc *CrmPartnerBindingService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CrmPartnerBindingModel, name)
 }
 
-func (svc *CrmPartnerBindingService) GetByIds(ids []int) (*types.CrmPartnerBindings, error) {
+func (svc *CrmPartnerBindingService) GetByIds(ids []int64) (*types.CrmPartnerBindings, error) {
 	c := &types.CrmPartnerBindings{}
 	return c, svc.client.getByIds(types.CrmPartnerBindingModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CrmPartnerBindingService) GetAll() (*types.CrmPartnerBindings, error)
 	return c, svc.client.getAll(types.CrmPartnerBindingModel, c)
 }
 
-func (svc *CrmPartnerBindingService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CrmPartnerBindingService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CrmPartnerBindingModel, fields, relations)
 }
 
-func (svc *CrmPartnerBindingService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CrmPartnerBindingService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CrmPartnerBindingModel, ids, fields, relations)
 }
 
-func (svc *CrmPartnerBindingService) Delete(ids []int) error {
+func (svc *CrmPartnerBindingService) Delete(ids []int64) error {
 	return svc.client.delete(types.CrmPartnerBindingModel, ids)
 }

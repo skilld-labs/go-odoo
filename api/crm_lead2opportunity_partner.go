@@ -12,11 +12,11 @@ func NewCrmLead2opportunityPartnerService(c *Client) *CrmLead2opportunityPartner
 	return &CrmLead2opportunityPartnerService{client: c}
 }
 
-func (svc *CrmLead2opportunityPartnerService) GetIdsByName(name string) ([]int, error) {
+func (svc *CrmLead2opportunityPartnerService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CrmLead2opportunityPartnerModel, name)
 }
 
-func (svc *CrmLead2opportunityPartnerService) GetByIds(ids []int) (*types.CrmLead2opportunityPartners, error) {
+func (svc *CrmLead2opportunityPartnerService) GetByIds(ids []int64) (*types.CrmLead2opportunityPartners, error) {
 	c := &types.CrmLead2opportunityPartners{}
 	return c, svc.client.getByIds(types.CrmLead2opportunityPartnerModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CrmLead2opportunityPartnerService) GetAll() (*types.CrmLead2opportuni
 	return c, svc.client.getAll(types.CrmLead2opportunityPartnerModel, c)
 }
 
-func (svc *CrmLead2opportunityPartnerService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CrmLead2opportunityPartnerService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CrmLead2opportunityPartnerModel, fields, relations)
 }
 
-func (svc *CrmLead2opportunityPartnerService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CrmLead2opportunityPartnerService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CrmLead2opportunityPartnerModel, ids, fields, relations)
 }
 
-func (svc *CrmLead2opportunityPartnerService) Delete(ids []int) error {
+func (svc *CrmLead2opportunityPartnerService) Delete(ids []int64) error {
 	return svc.client.delete(types.CrmLead2opportunityPartnerModel, ids)
 }

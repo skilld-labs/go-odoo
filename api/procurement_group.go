@@ -12,11 +12,11 @@ func NewProcurementGroupService(c *Client) *ProcurementGroupService {
 	return &ProcurementGroupService{client: c}
 }
 
-func (svc *ProcurementGroupService) GetIdsByName(name string) ([]int, error) {
+func (svc *ProcurementGroupService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ProcurementGroupModel, name)
 }
 
-func (svc *ProcurementGroupService) GetByIds(ids []int) (*types.ProcurementGroups, error) {
+func (svc *ProcurementGroupService) GetByIds(ids []int64) (*types.ProcurementGroups, error) {
 	p := &types.ProcurementGroups{}
 	return p, svc.client.getByIds(types.ProcurementGroupModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *ProcurementGroupService) GetAll() (*types.ProcurementGroups, error) {
 	return p, svc.client.getAll(types.ProcurementGroupModel, p)
 }
 
-func (svc *ProcurementGroupService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ProcurementGroupService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ProcurementGroupModel, fields, relations)
 }
 
-func (svc *ProcurementGroupService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ProcurementGroupService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ProcurementGroupModel, ids, fields, relations)
 }
 
-func (svc *ProcurementGroupService) Delete(ids []int) error {
+func (svc *ProcurementGroupService) Delete(ids []int64) error {
 	return svc.client.delete(types.ProcurementGroupModel, ids)
 }
