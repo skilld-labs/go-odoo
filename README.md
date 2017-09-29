@@ -105,6 +105,7 @@ func main() {
 
 - If you have an issue, please report it on the [issue tracker](https://github.com/skilld-labs/go-odoo/issues)
 
-## Author
+## Contributors
 
 Antoine Huret (<huret.antoine@yahoo.fr>)
+Jean-Baptiste Guerraz (<jbguerraz@gmail.com>)
