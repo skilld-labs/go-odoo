@@ -12,11 +12,11 @@ func NewWorkflowActivityService(c *Client) *WorkflowActivityService {
 	return &WorkflowActivityService{client: c}
 }
 
-func (svc *WorkflowActivityService) GetIdsByName(name string) ([]int, error) {
+func (svc *WorkflowActivityService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.WorkflowActivityModel, name)
 }
 
-func (svc *WorkflowActivityService) GetByIds(ids []int) (*types.WorkflowActivitys, error) {
+func (svc *WorkflowActivityService) GetByIds(ids []int64) (*types.WorkflowActivitys, error) {
 	w := &types.WorkflowActivitys{}
 	return w, svc.client.getByIds(types.WorkflowActivityModel, ids, w)
 }
@@ -36,14 +36,14 @@ func (svc *WorkflowActivityService) GetAll() (*types.WorkflowActivitys, error) {
 	return w, svc.client.getAll(types.WorkflowActivityModel, w)
 }
 
-func (svc *WorkflowActivityService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *WorkflowActivityService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.WorkflowActivityModel, fields, relations)
 }
 
-func (svc *WorkflowActivityService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *WorkflowActivityService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.WorkflowActivityModel, ids, fields, relations)
 }
 
-func (svc *WorkflowActivityService) Delete(ids []int) error {
+func (svc *WorkflowActivityService) Delete(ids []int64) error {
 	return svc.client.delete(types.WorkflowActivityModel, ids)
 }

@@ -12,11 +12,11 @@ func NewResUsersLogService(c *Client) *ResUsersLogService {
 	return &ResUsersLogService{client: c}
 }
 
-func (svc *ResUsersLogService) GetIdsByName(name string) ([]int, error) {
+func (svc *ResUsersLogService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ResUsersLogModel, name)
 }
 
-func (svc *ResUsersLogService) GetByIds(ids []int) (*types.ResUsersLogs, error) {
+func (svc *ResUsersLogService) GetByIds(ids []int64) (*types.ResUsersLogs, error) {
 	r := &types.ResUsersLogs{}
 	return r, svc.client.getByIds(types.ResUsersLogModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ResUsersLogService) GetAll() (*types.ResUsersLogs, error) {
 	return r, svc.client.getAll(types.ResUsersLogModel, r)
 }
 
-func (svc *ResUsersLogService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ResUsersLogService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ResUsersLogModel, fields, relations)
 }
 
-func (svc *ResUsersLogService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ResUsersLogService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ResUsersLogModel, ids, fields, relations)
 }
 
-func (svc *ResUsersLogService) Delete(ids []int) error {
+func (svc *ResUsersLogService) Delete(ids []int64) error {
 	return svc.client.delete(types.ResUsersLogModel, ids)
 }

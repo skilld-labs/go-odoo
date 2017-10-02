@@ -12,11 +12,11 @@ func NewAccountFiscalPositionAccountTemplateService(c *Client) *AccountFiscalPos
 	return &AccountFiscalPositionAccountTemplateService{client: c}
 }
 
-func (svc *AccountFiscalPositionAccountTemplateService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountFiscalPositionAccountTemplateService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountFiscalPositionAccountTemplateModel, name)
 }
 
-func (svc *AccountFiscalPositionAccountTemplateService) GetByIds(ids []int) (*types.AccountFiscalPositionAccountTemplates, error) {
+func (svc *AccountFiscalPositionAccountTemplateService) GetByIds(ids []int64) (*types.AccountFiscalPositionAccountTemplates, error) {
 	a := &types.AccountFiscalPositionAccountTemplates{}
 	return a, svc.client.getByIds(types.AccountFiscalPositionAccountTemplateModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountFiscalPositionAccountTemplateService) GetAll() (*types.Account
 	return a, svc.client.getAll(types.AccountFiscalPositionAccountTemplateModel, a)
 }
 
-func (svc *AccountFiscalPositionAccountTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountFiscalPositionAccountTemplateService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountFiscalPositionAccountTemplateModel, fields, relations)
 }
 
-func (svc *AccountFiscalPositionAccountTemplateService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountFiscalPositionAccountTemplateService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountFiscalPositionAccountTemplateModel, ids, fields, relations)
 }
 
-func (svc *AccountFiscalPositionAccountTemplateService) Delete(ids []int) error {
+func (svc *AccountFiscalPositionAccountTemplateService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountFiscalPositionAccountTemplateModel, ids)
 }

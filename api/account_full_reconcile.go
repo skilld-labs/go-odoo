@@ -12,11 +12,11 @@ func NewAccountFullReconcileService(c *Client) *AccountFullReconcileService {
 	return &AccountFullReconcileService{client: c}
 }
 
-func (svc *AccountFullReconcileService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountFullReconcileService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountFullReconcileModel, name)
 }
 
-func (svc *AccountFullReconcileService) GetByIds(ids []int) (*types.AccountFullReconciles, error) {
+func (svc *AccountFullReconcileService) GetByIds(ids []int64) (*types.AccountFullReconciles, error) {
 	a := &types.AccountFullReconciles{}
 	return a, svc.client.getByIds(types.AccountFullReconcileModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountFullReconcileService) GetAll() (*types.AccountFullReconciles, 
 	return a, svc.client.getAll(types.AccountFullReconcileModel, a)
 }
 
-func (svc *AccountFullReconcileService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountFullReconcileService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountFullReconcileModel, fields, relations)
 }
 
-func (svc *AccountFullReconcileService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountFullReconcileService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountFullReconcileModel, ids, fields, relations)
 }
 
-func (svc *AccountFullReconcileService) Delete(ids []int) error {
+func (svc *AccountFullReconcileService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountFullReconcileModel, ids)
 }

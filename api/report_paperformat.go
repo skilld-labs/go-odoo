@@ -12,11 +12,11 @@ func NewReportPaperformatService(c *Client) *ReportPaperformatService {
 	return &ReportPaperformatService{client: c}
 }
 
-func (svc *ReportPaperformatService) GetIdsByName(name string) ([]int, error) {
+func (svc *ReportPaperformatService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ReportPaperformatModel, name)
 }
 
-func (svc *ReportPaperformatService) GetByIds(ids []int) (*types.ReportPaperformats, error) {
+func (svc *ReportPaperformatService) GetByIds(ids []int64) (*types.ReportPaperformats, error) {
 	r := &types.ReportPaperformats{}
 	return r, svc.client.getByIds(types.ReportPaperformatModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ReportPaperformatService) GetAll() (*types.ReportPaperformats, error)
 	return r, svc.client.getAll(types.ReportPaperformatModel, r)
 }
 
-func (svc *ReportPaperformatService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ReportPaperformatService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ReportPaperformatModel, fields, relations)
 }
 
-func (svc *ReportPaperformatService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ReportPaperformatService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ReportPaperformatModel, ids, fields, relations)
 }
 
-func (svc *ReportPaperformatService) Delete(ids []int) error {
+func (svc *ReportPaperformatService) Delete(ids []int64) error {
 	return svc.client.delete(types.ReportPaperformatModel, ids)
 }

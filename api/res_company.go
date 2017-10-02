@@ -12,11 +12,11 @@ func NewResCompanyService(c *Client) *ResCompanyService {
 	return &ResCompanyService{client: c}
 }
 
-func (svc *ResCompanyService) GetIdsByName(name string) ([]int, error) {
+func (svc *ResCompanyService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ResCompanyModel, name)
 }
 
-func (svc *ResCompanyService) GetByIds(ids []int) (*types.ResCompanys, error) {
+func (svc *ResCompanyService) GetByIds(ids []int64) (*types.ResCompanys, error) {
 	r := &types.ResCompanys{}
 	return r, svc.client.getByIds(types.ResCompanyModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ResCompanyService) GetAll() (*types.ResCompanys, error) {
 	return r, svc.client.getAll(types.ResCompanyModel, r)
 }
 
-func (svc *ResCompanyService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ResCompanyService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ResCompanyModel, fields, relations)
 }
 
-func (svc *ResCompanyService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ResCompanyService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ResCompanyModel, ids, fields, relations)
 }
 
-func (svc *ResCompanyService) Delete(ids []int) error {
+func (svc *ResCompanyService) Delete(ids []int64) error {
 	return svc.client.delete(types.ResCompanyModel, ids)
 }

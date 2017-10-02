@@ -12,11 +12,11 @@ func NewHrHolidaysStatusService(c *Client) *HrHolidaysStatusService {
 	return &HrHolidaysStatusService{client: c}
 }
 
-func (svc *HrHolidaysStatusService) GetIdsByName(name string) ([]int, error) {
+func (svc *HrHolidaysStatusService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.HrHolidaysStatusModel, name)
 }
 
-func (svc *HrHolidaysStatusService) GetByIds(ids []int) (*types.HrHolidaysStatuss, error) {
+func (svc *HrHolidaysStatusService) GetByIds(ids []int64) (*types.HrHolidaysStatuss, error) {
 	h := &types.HrHolidaysStatuss{}
 	return h, svc.client.getByIds(types.HrHolidaysStatusModel, ids, h)
 }
@@ -36,14 +36,14 @@ func (svc *HrHolidaysStatusService) GetAll() (*types.HrHolidaysStatuss, error) {
 	return h, svc.client.getAll(types.HrHolidaysStatusModel, h)
 }
 
-func (svc *HrHolidaysStatusService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *HrHolidaysStatusService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.HrHolidaysStatusModel, fields, relations)
 }
 
-func (svc *HrHolidaysStatusService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *HrHolidaysStatusService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.HrHolidaysStatusModel, ids, fields, relations)
 }
 
-func (svc *HrHolidaysStatusService) Delete(ids []int) error {
+func (svc *HrHolidaysStatusService) Delete(ids []int64) error {
 	return svc.client.delete(types.HrHolidaysStatusModel, ids)
 }

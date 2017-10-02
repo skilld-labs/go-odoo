@@ -12,11 +12,11 @@ func NewAccountMoveLineReconcileWriteoffService(c *Client) *AccountMoveLineRecon
 	return &AccountMoveLineReconcileWriteoffService{client: c}
 }
 
-func (svc *AccountMoveLineReconcileWriteoffService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountMoveLineReconcileWriteoffService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountMoveLineReconcileWriteoffModel, name)
 }
 
-func (svc *AccountMoveLineReconcileWriteoffService) GetByIds(ids []int) (*types.AccountMoveLineReconcileWriteoffs, error) {
+func (svc *AccountMoveLineReconcileWriteoffService) GetByIds(ids []int64) (*types.AccountMoveLineReconcileWriteoffs, error) {
 	a := &types.AccountMoveLineReconcileWriteoffs{}
 	return a, svc.client.getByIds(types.AccountMoveLineReconcileWriteoffModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountMoveLineReconcileWriteoffService) GetAll() (*types.AccountMove
 	return a, svc.client.getAll(types.AccountMoveLineReconcileWriteoffModel, a)
 }
 
-func (svc *AccountMoveLineReconcileWriteoffService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountMoveLineReconcileWriteoffService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountMoveLineReconcileWriteoffModel, fields, relations)
 }
 
-func (svc *AccountMoveLineReconcileWriteoffService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountMoveLineReconcileWriteoffService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountMoveLineReconcileWriteoffModel, ids, fields, relations)
 }
 
-func (svc *AccountMoveLineReconcileWriteoffService) Delete(ids []int) error {
+func (svc *AccountMoveLineReconcileWriteoffService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountMoveLineReconcileWriteoffModel, ids)
 }

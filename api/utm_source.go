@@ -12,11 +12,11 @@ func NewUtmSourceService(c *Client) *UtmSourceService {
 	return &UtmSourceService{client: c}
 }
 
-func (svc *UtmSourceService) GetIdsByName(name string) ([]int, error) {
+func (svc *UtmSourceService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.UtmSourceModel, name)
 }
 
-func (svc *UtmSourceService) GetByIds(ids []int) (*types.UtmSources, error) {
+func (svc *UtmSourceService) GetByIds(ids []int64) (*types.UtmSources, error) {
 	u := &types.UtmSources{}
 	return u, svc.client.getByIds(types.UtmSourceModel, ids, u)
 }
@@ -36,14 +36,14 @@ func (svc *UtmSourceService) GetAll() (*types.UtmSources, error) {
 	return u, svc.client.getAll(types.UtmSourceModel, u)
 }
 
-func (svc *UtmSourceService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *UtmSourceService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.UtmSourceModel, fields, relations)
 }
 
-func (svc *UtmSourceService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *UtmSourceService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.UtmSourceModel, ids, fields, relations)
 }
 
-func (svc *UtmSourceService) Delete(ids []int) error {
+func (svc *UtmSourceService) Delete(ids []int64) error {
 	return svc.client.delete(types.UtmSourceModel, ids)
 }

@@ -12,11 +12,11 @@ func NewAccountUnreconcileService(c *Client) *AccountUnreconcileService {
 	return &AccountUnreconcileService{client: c}
 }
 
-func (svc *AccountUnreconcileService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountUnreconcileService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountUnreconcileModel, name)
 }
 
-func (svc *AccountUnreconcileService) GetByIds(ids []int) (*types.AccountUnreconciles, error) {
+func (svc *AccountUnreconcileService) GetByIds(ids []int64) (*types.AccountUnreconciles, error) {
 	a := &types.AccountUnreconciles{}
 	return a, svc.client.getByIds(types.AccountUnreconcileModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountUnreconcileService) GetAll() (*types.AccountUnreconciles, erro
 	return a, svc.client.getAll(types.AccountUnreconcileModel, a)
 }
 
-func (svc *AccountUnreconcileService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountUnreconcileService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountUnreconcileModel, fields, relations)
 }
 
-func (svc *AccountUnreconcileService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountUnreconcileService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountUnreconcileModel, ids, fields, relations)
 }
 
-func (svc *AccountUnreconcileService) Delete(ids []int) error {
+func (svc *AccountUnreconcileService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountUnreconcileModel, ids)
 }

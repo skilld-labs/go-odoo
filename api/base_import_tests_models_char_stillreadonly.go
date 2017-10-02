@@ -12,11 +12,11 @@ func NewBaseImportTestsModelsCharStillreadonlyService(c *Client) *BaseImportTest
 	return &BaseImportTestsModelsCharStillreadonlyService{client: c}
 }
 
-func (svc *BaseImportTestsModelsCharStillreadonlyService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseImportTestsModelsCharStillreadonlyService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseImportTestsModelsCharStillreadonlyModel, name)
 }
 
-func (svc *BaseImportTestsModelsCharStillreadonlyService) GetByIds(ids []int) (*types.BaseImportTestsModelsCharStillreadonlys, error) {
+func (svc *BaseImportTestsModelsCharStillreadonlyService) GetByIds(ids []int64) (*types.BaseImportTestsModelsCharStillreadonlys, error) {
 	b := &types.BaseImportTestsModelsCharStillreadonlys{}
 	return b, svc.client.getByIds(types.BaseImportTestsModelsCharStillreadonlyModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseImportTestsModelsCharStillreadonlyService) GetAll() (*types.BaseI
 	return b, svc.client.getAll(types.BaseImportTestsModelsCharStillreadonlyModel, b)
 }
 
-func (svc *BaseImportTestsModelsCharStillreadonlyService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseImportTestsModelsCharStillreadonlyService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseImportTestsModelsCharStillreadonlyModel, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsCharStillreadonlyService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseImportTestsModelsCharStillreadonlyService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseImportTestsModelsCharStillreadonlyModel, ids, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsCharStillreadonlyService) Delete(ids []int) error {
+func (svc *BaseImportTestsModelsCharStillreadonlyService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseImportTestsModelsCharStillreadonlyModel, ids)
 }

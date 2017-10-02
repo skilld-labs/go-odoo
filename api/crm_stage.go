@@ -12,11 +12,11 @@ func NewCrmStageService(c *Client) *CrmStageService {
 	return &CrmStageService{client: c}
 }
 
-func (svc *CrmStageService) GetIdsByName(name string) ([]int, error) {
+func (svc *CrmStageService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CrmStageModel, name)
 }
 
-func (svc *CrmStageService) GetByIds(ids []int) (*types.CrmStages, error) {
+func (svc *CrmStageService) GetByIds(ids []int64) (*types.CrmStages, error) {
 	c := &types.CrmStages{}
 	return c, svc.client.getByIds(types.CrmStageModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CrmStageService) GetAll() (*types.CrmStages, error) {
 	return c, svc.client.getAll(types.CrmStageModel, c)
 }
 
-func (svc *CrmStageService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CrmStageService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CrmStageModel, fields, relations)
 }
 
-func (svc *CrmStageService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CrmStageService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CrmStageModel, ids, fields, relations)
 }
 
-func (svc *CrmStageService) Delete(ids []int) error {
+func (svc *CrmStageService) Delete(ids []int64) error {
 	return svc.client.delete(types.CrmStageModel, ids)
 }

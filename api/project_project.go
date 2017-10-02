@@ -12,11 +12,11 @@ func NewProjectProjectService(c *Client) *ProjectProjectService {
 	return &ProjectProjectService{client: c}
 }
 
-func (svc *ProjectProjectService) GetIdsByName(name string) ([]int, error) {
+func (svc *ProjectProjectService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ProjectProjectModel, name)
 }
 
-func (svc *ProjectProjectService) GetByIds(ids []int) (*types.ProjectProjects, error) {
+func (svc *ProjectProjectService) GetByIds(ids []int64) (*types.ProjectProjects, error) {
 	p := &types.ProjectProjects{}
 	return p, svc.client.getByIds(types.ProjectProjectModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *ProjectProjectService) GetAll() (*types.ProjectProjects, error) {
 	return p, svc.client.getAll(types.ProjectProjectModel, p)
 }
 
-func (svc *ProjectProjectService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ProjectProjectService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ProjectProjectModel, fields, relations)
 }
 
-func (svc *ProjectProjectService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ProjectProjectService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ProjectProjectModel, ids, fields, relations)
 }
 
-func (svc *ProjectProjectService) Delete(ids []int) error {
+func (svc *ProjectProjectService) Delete(ids []int64) error {
 	return svc.client.delete(types.ProjectProjectModel, ids)
 }

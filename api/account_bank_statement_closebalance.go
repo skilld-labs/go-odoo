@@ -12,11 +12,11 @@ func NewAccountBankStatementClosebalanceService(c *Client) *AccountBankStatement
 	return &AccountBankStatementClosebalanceService{client: c}
 }
 
-func (svc *AccountBankStatementClosebalanceService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountBankStatementClosebalanceService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountBankStatementClosebalanceModel, name)
 }
 
-func (svc *AccountBankStatementClosebalanceService) GetByIds(ids []int) (*types.AccountBankStatementClosebalances, error) {
+func (svc *AccountBankStatementClosebalanceService) GetByIds(ids []int64) (*types.AccountBankStatementClosebalances, error) {
 	a := &types.AccountBankStatementClosebalances{}
 	return a, svc.client.getByIds(types.AccountBankStatementClosebalanceModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountBankStatementClosebalanceService) GetAll() (*types.AccountBank
 	return a, svc.client.getAll(types.AccountBankStatementClosebalanceModel, a)
 }
 
-func (svc *AccountBankStatementClosebalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountBankStatementClosebalanceService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountBankStatementClosebalanceModel, fields, relations)
 }
 
-func (svc *AccountBankStatementClosebalanceService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountBankStatementClosebalanceService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountBankStatementClosebalanceModel, ids, fields, relations)
 }
 
-func (svc *AccountBankStatementClosebalanceService) Delete(ids []int) error {
+func (svc *AccountBankStatementClosebalanceService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountBankStatementClosebalanceModel, ids)
 }

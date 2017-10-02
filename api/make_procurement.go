@@ -12,11 +12,11 @@ func NewMakeProcurementService(c *Client) *MakeProcurementService {
 	return &MakeProcurementService{client: c}
 }
 
-func (svc *MakeProcurementService) GetIdsByName(name string) ([]int, error) {
+func (svc *MakeProcurementService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MakeProcurementModel, name)
 }
 
-func (svc *MakeProcurementService) GetByIds(ids []int) (*types.MakeProcurements, error) {
+func (svc *MakeProcurementService) GetByIds(ids []int64) (*types.MakeProcurements, error) {
 	m := &types.MakeProcurements{}
 	return m, svc.client.getByIds(types.MakeProcurementModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MakeProcurementService) GetAll() (*types.MakeProcurements, error) {
 	return m, svc.client.getAll(types.MakeProcurementModel, m)
 }
 
-func (svc *MakeProcurementService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MakeProcurementService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MakeProcurementModel, fields, relations)
 }
 
-func (svc *MakeProcurementService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MakeProcurementService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MakeProcurementModel, ids, fields, relations)
 }
 
-func (svc *MakeProcurementService) Delete(ids []int) error {
+func (svc *MakeProcurementService) Delete(ids []int64) error {
 	return svc.client.delete(types.MakeProcurementModel, ids)
 }

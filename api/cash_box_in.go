@@ -12,11 +12,11 @@ func NewCashBoxInService(c *Client) *CashBoxInService {
 	return &CashBoxInService{client: c}
 }
 
-func (svc *CashBoxInService) GetIdsByName(name string) ([]int, error) {
+func (svc *CashBoxInService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.CashBoxInModel, name)
 }
 
-func (svc *CashBoxInService) GetByIds(ids []int) (*types.CashBoxIns, error) {
+func (svc *CashBoxInService) GetByIds(ids []int64) (*types.CashBoxIns, error) {
 	c := &types.CashBoxIns{}
 	return c, svc.client.getByIds(types.CashBoxInModel, ids, c)
 }
@@ -36,14 +36,14 @@ func (svc *CashBoxInService) GetAll() (*types.CashBoxIns, error) {
 	return c, svc.client.getAll(types.CashBoxInModel, c)
 }
 
-func (svc *CashBoxInService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *CashBoxInService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.CashBoxInModel, fields, relations)
 }
 
-func (svc *CashBoxInService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *CashBoxInService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.CashBoxInModel, ids, fields, relations)
 }
 
-func (svc *CashBoxInService) Delete(ids []int) error {
+func (svc *CashBoxInService) Delete(ids []int64) error {
 	return svc.client.delete(types.CashBoxInModel, ids)
 }

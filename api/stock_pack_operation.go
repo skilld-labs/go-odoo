@@ -12,11 +12,11 @@ func NewStockPackOperationService(c *Client) *StockPackOperationService {
 	return &StockPackOperationService{client: c}
 }
 
-func (svc *StockPackOperationService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockPackOperationService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockPackOperationModel, name)
 }
 
-func (svc *StockPackOperationService) GetByIds(ids []int) (*types.StockPackOperations, error) {
+func (svc *StockPackOperationService) GetByIds(ids []int64) (*types.StockPackOperations, error) {
 	s := &types.StockPackOperations{}
 	return s, svc.client.getByIds(types.StockPackOperationModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockPackOperationService) GetAll() (*types.StockPackOperations, erro
 	return s, svc.client.getAll(types.StockPackOperationModel, s)
 }
 
-func (svc *StockPackOperationService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockPackOperationService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockPackOperationModel, fields, relations)
 }
 
-func (svc *StockPackOperationService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockPackOperationService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockPackOperationModel, ids, fields, relations)
 }
 
-func (svc *StockPackOperationService) Delete(ids []int) error {
+func (svc *StockPackOperationService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockPackOperationModel, ids)
 }

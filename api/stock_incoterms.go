@@ -12,11 +12,11 @@ func NewStockIncotermsService(c *Client) *StockIncotermsService {
 	return &StockIncotermsService{client: c}
 }
 
-func (svc *StockIncotermsService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockIncotermsService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockIncotermsModel, name)
 }
 
-func (svc *StockIncotermsService) GetByIds(ids []int) (*types.StockIncotermss, error) {
+func (svc *StockIncotermsService) GetByIds(ids []int64) (*types.StockIncotermss, error) {
 	s := &types.StockIncotermss{}
 	return s, svc.client.getByIds(types.StockIncotermsModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockIncotermsService) GetAll() (*types.StockIncotermss, error) {
 	return s, svc.client.getAll(types.StockIncotermsModel, s)
 }
 
-func (svc *StockIncotermsService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockIncotermsService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockIncotermsModel, fields, relations)
 }
 
-func (svc *StockIncotermsService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockIncotermsService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockIncotermsModel, ids, fields, relations)
 }
 
-func (svc *StockIncotermsService) Delete(ids []int) error {
+func (svc *StockIncotermsService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockIncotermsModel, ids)
 }

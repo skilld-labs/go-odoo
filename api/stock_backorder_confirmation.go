@@ -12,11 +12,11 @@ func NewStockBackorderConfirmationService(c *Client) *StockBackorderConfirmation
 	return &StockBackorderConfirmationService{client: c}
 }
 
-func (svc *StockBackorderConfirmationService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockBackorderConfirmationService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockBackorderConfirmationModel, name)
 }
 
-func (svc *StockBackorderConfirmationService) GetByIds(ids []int) (*types.StockBackorderConfirmations, error) {
+func (svc *StockBackorderConfirmationService) GetByIds(ids []int64) (*types.StockBackorderConfirmations, error) {
 	s := &types.StockBackorderConfirmations{}
 	return s, svc.client.getByIds(types.StockBackorderConfirmationModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockBackorderConfirmationService) GetAll() (*types.StockBackorderCon
 	return s, svc.client.getAll(types.StockBackorderConfirmationModel, s)
 }
 
-func (svc *StockBackorderConfirmationService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockBackorderConfirmationService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockBackorderConfirmationModel, fields, relations)
 }
 
-func (svc *StockBackorderConfirmationService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockBackorderConfirmationService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockBackorderConfirmationModel, ids, fields, relations)
 }
 
-func (svc *StockBackorderConfirmationService) Delete(ids []int) error {
+func (svc *StockBackorderConfirmationService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockBackorderConfirmationModel, ids)
 }

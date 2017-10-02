@@ -12,11 +12,11 @@ func NewWizardValuationHistoryService(c *Client) *WizardValuationHistoryService 
 	return &WizardValuationHistoryService{client: c}
 }
 
-func (svc *WizardValuationHistoryService) GetIdsByName(name string) ([]int, error) {
+func (svc *WizardValuationHistoryService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.WizardValuationHistoryModel, name)
 }
 
-func (svc *WizardValuationHistoryService) GetByIds(ids []int) (*types.WizardValuationHistorys, error) {
+func (svc *WizardValuationHistoryService) GetByIds(ids []int64) (*types.WizardValuationHistorys, error) {
 	w := &types.WizardValuationHistorys{}
 	return w, svc.client.getByIds(types.WizardValuationHistoryModel, ids, w)
 }
@@ -36,14 +36,14 @@ func (svc *WizardValuationHistoryService) GetAll() (*types.WizardValuationHistor
 	return w, svc.client.getAll(types.WizardValuationHistoryModel, w)
 }
 
-func (svc *WizardValuationHistoryService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *WizardValuationHistoryService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.WizardValuationHistoryModel, fields, relations)
 }
 
-func (svc *WizardValuationHistoryService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *WizardValuationHistoryService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.WizardValuationHistoryModel, ids, fields, relations)
 }
 
-func (svc *WizardValuationHistoryService) Delete(ids []int) error {
+func (svc *WizardValuationHistoryService) Delete(ids []int64) error {
 	return svc.client.delete(types.WizardValuationHistoryModel, ids)
 }

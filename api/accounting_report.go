@@ -12,11 +12,11 @@ func NewAccountingReportService(c *Client) *AccountingReportService {
 	return &AccountingReportService{client: c}
 }
 
-func (svc *AccountingReportService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountingReportService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountingReportModel, name)
 }
 
-func (svc *AccountingReportService) GetByIds(ids []int) (*types.AccountingReports, error) {
+func (svc *AccountingReportService) GetByIds(ids []int64) (*types.AccountingReports, error) {
 	a := &types.AccountingReports{}
 	return a, svc.client.getByIds(types.AccountingReportModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountingReportService) GetAll() (*types.AccountingReports, error) {
 	return a, svc.client.getAll(types.AccountingReportModel, a)
 }
 
-func (svc *AccountingReportService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountingReportService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountingReportModel, fields, relations)
 }
 
-func (svc *AccountingReportService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountingReportService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountingReportModel, ids, fields, relations)
 }
 
-func (svc *AccountingReportService) Delete(ids []int) error {
+func (svc *AccountingReportService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountingReportModel, ids)
 }

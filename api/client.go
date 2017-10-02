@@ -48,6 +48,20 @@ func (c *Client) Login(dbName string, admin string, password string) error {
 	return err
 }
 
+func (c *Client) GetReport(model string, ids []int64) (map[string]interface{}, error) {
+	client, err := xmlrpc.NewClient(c.URI+"/xmlrpc/2/report", c.Transport)
+	if err != nil {
+		return nil, err
+	}
+	var report map[string]interface{}
+	reportService := NewIrActionsReportXmlService(c)
+	fields, err := reportService.GetByField("model", model)
+	if err != nil {
+		return nil, err
+	}
+	return report, client.Call("render_report", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, (*fields)[0].ReportName, ids}, &report)
+}
+
 func (c *Client) Create(model string, args []interface{}, elem interface{}) error {
 	return c.DoRequest("create", model, args, nil, elem)
 }
@@ -90,13 +104,13 @@ func (c *Client) DoRequest(method string, model string, args []interface{}, opti
 	return c.client.Call("execute_kw", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, model, method, args, options}, elem)
 }
 
-func (c *Client) getIdsByName(model string, name string) ([]int, error) {
-	var ids []int
+func (c *Client) getIdsByName(model string, name string) ([]int64, error) {
+	var ids []int64
 	err := c.Search(model, []interface{}{[]string{"name", "=", name}}, nil, &ids)
 	return ids, err
 }
 
-func (c *Client) getByIds(model string, ids []int, elem interface{}) error {
+func (c *Client) getByIds(model string, ids []int64, elem interface{}) error {
 	err := c.Read(model, []interface{}{ids}, nil, elem)
 	return err
 }
@@ -116,8 +130,8 @@ func (c *Client) getAll(model string, elem interface{}) error {
 	return err
 }
 
-func (c *Client) create(model string, fields map[string]interface{}, relation *types.Relations) (int, error) {
-	var id int
+func (c *Client) create(model string, fields map[string]interface{}, relation *types.Relations) (int64, error) {
+	var id int64
 	if relation != nil {
 		types.HandleRelations(&fields, relation)
 	}
@@ -125,7 +139,7 @@ func (c *Client) create(model string, fields map[string]interface{}, relation *t
 	return id, err
 }
 
-func (c *Client) update(model string, ids []int, fields map[string]interface{}, relation *types.Relations) error {
+func (c *Client) update(model string, ids []int64, fields map[string]interface{}, relation *types.Relations) error {
 	if relation != nil {
 		types.HandleRelations(&fields, relation)
 	}
@@ -133,6 +147,6 @@ func (c *Client) update(model string, ids []int, fields map[string]interface{}, 
 	return err
 }
 
-func (c *Client) delete(model string, ids []int) error {
+func (c *Client) delete(model string, ids []int64) error {
 	return c.Delete(model, []interface{}{ids})
 }

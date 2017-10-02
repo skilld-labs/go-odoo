@@ -12,11 +12,11 @@ func NewWebPlannerService(c *Client) *WebPlannerService {
 	return &WebPlannerService{client: c}
 }
 
-func (svc *WebPlannerService) GetIdsByName(name string) ([]int, error) {
+func (svc *WebPlannerService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.WebPlannerModel, name)
 }
 
-func (svc *WebPlannerService) GetByIds(ids []int) (*types.WebPlanners, error) {
+func (svc *WebPlannerService) GetByIds(ids []int64) (*types.WebPlanners, error) {
 	w := &types.WebPlanners{}
 	return w, svc.client.getByIds(types.WebPlannerModel, ids, w)
 }
@@ -36,14 +36,14 @@ func (svc *WebPlannerService) GetAll() (*types.WebPlanners, error) {
 	return w, svc.client.getAll(types.WebPlannerModel, w)
 }
 
-func (svc *WebPlannerService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *WebPlannerService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.WebPlannerModel, fields, relations)
 }
 
-func (svc *WebPlannerService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *WebPlannerService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.WebPlannerModel, ids, fields, relations)
 }
 
-func (svc *WebPlannerService) Delete(ids []int) error {
+func (svc *WebPlannerService) Delete(ids []int64) error {
 	return svc.client.delete(types.WebPlannerModel, ids)
 }

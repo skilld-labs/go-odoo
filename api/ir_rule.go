@@ -12,11 +12,11 @@ func NewIrRuleService(c *Client) *IrRuleService {
 	return &IrRuleService{client: c}
 }
 
-func (svc *IrRuleService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrRuleService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrRuleModel, name)
 }
 
-func (svc *IrRuleService) GetByIds(ids []int) (*types.IrRules, error) {
+func (svc *IrRuleService) GetByIds(ids []int64) (*types.IrRules, error) {
 	i := &types.IrRules{}
 	return i, svc.client.getByIds(types.IrRuleModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrRuleService) GetAll() (*types.IrRules, error) {
 	return i, svc.client.getAll(types.IrRuleModel, i)
 }
 
-func (svc *IrRuleService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrRuleService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrRuleModel, fields, relations)
 }
 
-func (svc *IrRuleService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrRuleService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrRuleModel, ids, fields, relations)
 }
 
-func (svc *IrRuleService) Delete(ids []int) error {
+func (svc *IrRuleService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrRuleModel, ids)
 }

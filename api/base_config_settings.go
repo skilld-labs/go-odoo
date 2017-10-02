@@ -12,11 +12,11 @@ func NewBaseConfigSettingsService(c *Client) *BaseConfigSettingsService {
 	return &BaseConfigSettingsService{client: c}
 }
 
-func (svc *BaseConfigSettingsService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseConfigSettingsService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseConfigSettingsModel, name)
 }
 
-func (svc *BaseConfigSettingsService) GetByIds(ids []int) (*types.BaseConfigSettingss, error) {
+func (svc *BaseConfigSettingsService) GetByIds(ids []int64) (*types.BaseConfigSettingss, error) {
 	b := &types.BaseConfigSettingss{}
 	return b, svc.client.getByIds(types.BaseConfigSettingsModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseConfigSettingsService) GetAll() (*types.BaseConfigSettingss, erro
 	return b, svc.client.getAll(types.BaseConfigSettingsModel, b)
 }
 
-func (svc *BaseConfigSettingsService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseConfigSettingsService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseConfigSettingsModel, fields, relations)
 }
 
-func (svc *BaseConfigSettingsService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseConfigSettingsService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseConfigSettingsModel, ids, fields, relations)
 }
 
-func (svc *BaseConfigSettingsService) Delete(ids []int) error {
+func (svc *BaseConfigSettingsService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseConfigSettingsModel, ids)
 }

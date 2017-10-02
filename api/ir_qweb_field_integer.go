@@ -12,11 +12,11 @@ func NewIrQwebFieldIntegerService(c *Client) *IrQwebFieldIntegerService {
 	return &IrQwebFieldIntegerService{client: c}
 }
 
-func (svc *IrQwebFieldIntegerService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldIntegerService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldIntegerModel, name)
 }
 
-func (svc *IrQwebFieldIntegerService) GetByIds(ids []int) (*types.IrQwebFieldIntegers, error) {
+func (svc *IrQwebFieldIntegerService) GetByIds(ids []int64) (*types.IrQwebFieldIntegers, error) {
 	i := &types.IrQwebFieldIntegers{}
 	return i, svc.client.getByIds(types.IrQwebFieldIntegerModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldIntegerService) GetAll() (*types.IrQwebFieldIntegers, erro
 	return i, svc.client.getAll(types.IrQwebFieldIntegerModel, i)
 }
 
-func (svc *IrQwebFieldIntegerService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldIntegerService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldIntegerModel, fields, relations)
 }
 
-func (svc *IrQwebFieldIntegerService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldIntegerService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldIntegerModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldIntegerService) Delete(ids []int) error {
+func (svc *IrQwebFieldIntegerService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldIntegerModel, ids)
 }

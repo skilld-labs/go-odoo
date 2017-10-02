@@ -12,11 +12,11 @@ func NewAccountBankStatementImportJournalCreationService(c *Client) *AccountBank
 	return &AccountBankStatementImportJournalCreationService{client: c}
 }
 
-func (svc *AccountBankStatementImportJournalCreationService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountBankStatementImportJournalCreationService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountBankStatementImportJournalCreationModel, name)
 }
 
-func (svc *AccountBankStatementImportJournalCreationService) GetByIds(ids []int) (*types.AccountBankStatementImportJournalCreations, error) {
+func (svc *AccountBankStatementImportJournalCreationService) GetByIds(ids []int64) (*types.AccountBankStatementImportJournalCreations, error) {
 	a := &types.AccountBankStatementImportJournalCreations{}
 	return a, svc.client.getByIds(types.AccountBankStatementImportJournalCreationModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountBankStatementImportJournalCreationService) GetAll() (*types.Ac
 	return a, svc.client.getAll(types.AccountBankStatementImportJournalCreationModel, a)
 }
 
-func (svc *AccountBankStatementImportJournalCreationService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountBankStatementImportJournalCreationService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountBankStatementImportJournalCreationModel, fields, relations)
 }
 
-func (svc *AccountBankStatementImportJournalCreationService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountBankStatementImportJournalCreationService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountBankStatementImportJournalCreationModel, ids, fields, relations)
 }
 
-func (svc *AccountBankStatementImportJournalCreationService) Delete(ids []int) error {
+func (svc *AccountBankStatementImportJournalCreationService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountBankStatementImportJournalCreationModel, ids)
 }

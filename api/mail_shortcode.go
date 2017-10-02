@@ -12,11 +12,11 @@ func NewMailShortcodeService(c *Client) *MailShortcodeService {
 	return &MailShortcodeService{client: c}
 }
 
-func (svc *MailShortcodeService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailShortcodeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailShortcodeModel, name)
 }
 
-func (svc *MailShortcodeService) GetByIds(ids []int) (*types.MailShortcodes, error) {
+func (svc *MailShortcodeService) GetByIds(ids []int64) (*types.MailShortcodes, error) {
 	m := &types.MailShortcodes{}
 	return m, svc.client.getByIds(types.MailShortcodeModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailShortcodeService) GetAll() (*types.MailShortcodes, error) {
 	return m, svc.client.getAll(types.MailShortcodeModel, m)
 }
 
-func (svc *MailShortcodeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailShortcodeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailShortcodeModel, fields, relations)
 }
 
-func (svc *MailShortcodeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailShortcodeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailShortcodeModel, ids, fields, relations)
 }
 
-func (svc *MailShortcodeService) Delete(ids []int) error {
+func (svc *MailShortcodeService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailShortcodeModel, ids)
 }

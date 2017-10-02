@@ -12,11 +12,11 @@ func NewStockScrapService(c *Client) *StockScrapService {
 	return &StockScrapService{client: c}
 }
 
-func (svc *StockScrapService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockScrapService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockScrapModel, name)
 }
 
-func (svc *StockScrapService) GetByIds(ids []int) (*types.StockScraps, error) {
+func (svc *StockScrapService) GetByIds(ids []int64) (*types.StockScraps, error) {
 	s := &types.StockScraps{}
 	return s, svc.client.getByIds(types.StockScrapModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockScrapService) GetAll() (*types.StockScraps, error) {
 	return s, svc.client.getAll(types.StockScrapModel, s)
 }
 
-func (svc *StockScrapService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockScrapService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockScrapModel, fields, relations)
 }
 
-func (svc *StockScrapService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockScrapService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockScrapModel, ids, fields, relations)
 }
 
-func (svc *StockScrapService) Delete(ids []int) error {
+func (svc *StockScrapService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockScrapModel, ids)
 }

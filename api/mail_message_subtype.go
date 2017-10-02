@@ -12,11 +12,11 @@ func NewMailMessageSubtypeService(c *Client) *MailMessageSubtypeService {
 	return &MailMessageSubtypeService{client: c}
 }
 
-func (svc *MailMessageSubtypeService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailMessageSubtypeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailMessageSubtypeModel, name)
 }
 
-func (svc *MailMessageSubtypeService) GetByIds(ids []int) (*types.MailMessageSubtypes, error) {
+func (svc *MailMessageSubtypeService) GetByIds(ids []int64) (*types.MailMessageSubtypes, error) {
 	m := &types.MailMessageSubtypes{}
 	return m, svc.client.getByIds(types.MailMessageSubtypeModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailMessageSubtypeService) GetAll() (*types.MailMessageSubtypes, erro
 	return m, svc.client.getAll(types.MailMessageSubtypeModel, m)
 }
 
-func (svc *MailMessageSubtypeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailMessageSubtypeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailMessageSubtypeModel, fields, relations)
 }
 
-func (svc *MailMessageSubtypeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailMessageSubtypeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailMessageSubtypeModel, ids, fields, relations)
 }
 
-func (svc *MailMessageSubtypeService) Delete(ids []int) error {
+func (svc *MailMessageSubtypeService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailMessageSubtypeModel, ids)
 }

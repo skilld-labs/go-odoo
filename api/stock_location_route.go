@@ -12,11 +12,11 @@ func NewStockLocationRouteService(c *Client) *StockLocationRouteService {
 	return &StockLocationRouteService{client: c}
 }
 
-func (svc *StockLocationRouteService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockLocationRouteService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockLocationRouteModel, name)
 }
 
-func (svc *StockLocationRouteService) GetByIds(ids []int) (*types.StockLocationRoutes, error) {
+func (svc *StockLocationRouteService) GetByIds(ids []int64) (*types.StockLocationRoutes, error) {
 	s := &types.StockLocationRoutes{}
 	return s, svc.client.getByIds(types.StockLocationRouteModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockLocationRouteService) GetAll() (*types.StockLocationRoutes, erro
 	return s, svc.client.getAll(types.StockLocationRouteModel, s)
 }
 
-func (svc *StockLocationRouteService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockLocationRouteService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockLocationRouteModel, fields, relations)
 }
 
-func (svc *StockLocationRouteService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockLocationRouteService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockLocationRouteModel, ids, fields, relations)
 }
 
-func (svc *StockLocationRouteService) Delete(ids []int) error {
+func (svc *StockLocationRouteService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockLocationRouteModel, ids)
 }

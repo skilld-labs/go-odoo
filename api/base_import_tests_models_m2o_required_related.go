@@ -12,11 +12,11 @@ func NewBaseImportTestsModelsM2oRequiredRelatedService(c *Client) *BaseImportTes
 	return &BaseImportTestsModelsM2oRequiredRelatedService{client: c}
 }
 
-func (svc *BaseImportTestsModelsM2oRequiredRelatedService) GetIdsByName(name string) ([]int, error) {
+func (svc *BaseImportTestsModelsM2oRequiredRelatedService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.BaseImportTestsModelsM2oRequiredRelatedModel, name)
 }
 
-func (svc *BaseImportTestsModelsM2oRequiredRelatedService) GetByIds(ids []int) (*types.BaseImportTestsModelsM2oRequiredRelateds, error) {
+func (svc *BaseImportTestsModelsM2oRequiredRelatedService) GetByIds(ids []int64) (*types.BaseImportTestsModelsM2oRequiredRelateds, error) {
 	b := &types.BaseImportTestsModelsM2oRequiredRelateds{}
 	return b, svc.client.getByIds(types.BaseImportTestsModelsM2oRequiredRelatedModel, ids, b)
 }
@@ -36,14 +36,14 @@ func (svc *BaseImportTestsModelsM2oRequiredRelatedService) GetAll() (*types.Base
 	return b, svc.client.getAll(types.BaseImportTestsModelsM2oRequiredRelatedModel, b)
 }
 
-func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.BaseImportTestsModelsM2oRequiredRelatedModel, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.BaseImportTestsModelsM2oRequiredRelatedModel, ids, fields, relations)
 }
 
-func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Delete(ids []int) error {
+func (svc *BaseImportTestsModelsM2oRequiredRelatedService) Delete(ids []int64) error {
 	return svc.client.delete(types.BaseImportTestsModelsM2oRequiredRelatedModel, ids)
 }

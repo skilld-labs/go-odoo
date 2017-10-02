@@ -12,11 +12,11 @@ func NewResConfigSettingsService(c *Client) *ResConfigSettingsService {
 	return &ResConfigSettingsService{client: c}
 }
 
-func (svc *ResConfigSettingsService) GetIdsByName(name string) ([]int, error) {
+func (svc *ResConfigSettingsService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ResConfigSettingsModel, name)
 }
 
-func (svc *ResConfigSettingsService) GetByIds(ids []int) (*types.ResConfigSettingss, error) {
+func (svc *ResConfigSettingsService) GetByIds(ids []int64) (*types.ResConfigSettingss, error) {
 	r := &types.ResConfigSettingss{}
 	return r, svc.client.getByIds(types.ResConfigSettingsModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *ResConfigSettingsService) GetAll() (*types.ResConfigSettingss, error)
 	return r, svc.client.getAll(types.ResConfigSettingsModel, r)
 }
 
-func (svc *ResConfigSettingsService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ResConfigSettingsService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ResConfigSettingsModel, fields, relations)
 }
 
-func (svc *ResConfigSettingsService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ResConfigSettingsService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ResConfigSettingsModel, ids, fields, relations)
 }
 
-func (svc *ResConfigSettingsService) Delete(ids []int) error {
+func (svc *ResConfigSettingsService) Delete(ids []int64) error {
 	return svc.client.delete(types.ResConfigSettingsModel, ids)
 }

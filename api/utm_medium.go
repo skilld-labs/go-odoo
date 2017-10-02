@@ -12,11 +12,11 @@ func NewUtmMediumService(c *Client) *UtmMediumService {
 	return &UtmMediumService{client: c}
 }
 
-func (svc *UtmMediumService) GetIdsByName(name string) ([]int, error) {
+func (svc *UtmMediumService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.UtmMediumModel, name)
 }
 
-func (svc *UtmMediumService) GetByIds(ids []int) (*types.UtmMediums, error) {
+func (svc *UtmMediumService) GetByIds(ids []int64) (*types.UtmMediums, error) {
 	u := &types.UtmMediums{}
 	return u, svc.client.getByIds(types.UtmMediumModel, ids, u)
 }
@@ -36,14 +36,14 @@ func (svc *UtmMediumService) GetAll() (*types.UtmMediums, error) {
 	return u, svc.client.getAll(types.UtmMediumModel, u)
 }
 
-func (svc *UtmMediumService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *UtmMediumService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.UtmMediumModel, fields, relations)
 }
 
-func (svc *UtmMediumService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *UtmMediumService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.UtmMediumModel, ids, fields, relations)
 }
 
-func (svc *UtmMediumService) Delete(ids []int) error {
+func (svc *UtmMediumService) Delete(ids []int64) error {
 	return svc.client.delete(types.UtmMediumModel, ids)
 }

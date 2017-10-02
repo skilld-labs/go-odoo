@@ -12,11 +12,11 @@ func NewIrQwebFieldHtmlService(c *Client) *IrQwebFieldHtmlService {
 	return &IrQwebFieldHtmlService{client: c}
 }
 
-func (svc *IrQwebFieldHtmlService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldHtmlService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldHtmlModel, name)
 }
 
-func (svc *IrQwebFieldHtmlService) GetByIds(ids []int) (*types.IrQwebFieldHtmls, error) {
+func (svc *IrQwebFieldHtmlService) GetByIds(ids []int64) (*types.IrQwebFieldHtmls, error) {
 	i := &types.IrQwebFieldHtmls{}
 	return i, svc.client.getByIds(types.IrQwebFieldHtmlModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldHtmlService) GetAll() (*types.IrQwebFieldHtmls, error) {
 	return i, svc.client.getAll(types.IrQwebFieldHtmlModel, i)
 }
 
-func (svc *IrQwebFieldHtmlService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldHtmlService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldHtmlModel, fields, relations)
 }
 
-func (svc *IrQwebFieldHtmlService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldHtmlService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldHtmlModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldHtmlService) Delete(ids []int) error {
+func (svc *IrQwebFieldHtmlService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldHtmlModel, ids)
 }

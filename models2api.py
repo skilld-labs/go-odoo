@@ -23,11 +23,11 @@ func New{{camelModel}}Service(c *Client) *{{camelModel}}Service {
 	return &{{camelModel}}Service{client: c}
 }
 
-func (svc *{{camelModel}}Service) GetIdsByName(name string) ([]int, error) {
+func (svc *{{camelModel}}Service) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.{{camelModel}}Model, name)
 }
 
-func (svc *{{camelModel}}Service) GetByIds(ids []int) (*types.{{camelModel}}s, error) {
+func (svc *{{camelModel}}Service) GetByIds(ids []int64) (*types.{{camelModel}}s, error) {
 	{{variable_name}} := &types.{{camelModel}}s{}
 	return {{variable_name}}, svc.client.getByIds(types.{{camelModel}}Model, ids, {{variable_name}})
 }
@@ -47,15 +47,15 @@ func (svc *{{camelModel}}Service) GetAll() (*types.{{camelModel}}s, error) {
 	return {{variable_name}}, svc.client.getAll(types.{{camelModel}}Model, {{variable_name}})
 }
 
-func (svc *{{camelModel}}Service) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *{{camelModel}}Service) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.{{camelModel}}Model, fields, relations)
 }
 
-func (svc *{{camelModel}}Service) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *{{camelModel}}Service) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.{{camelModel}}Model, ids, fields, relations)
 }
 
-func (svc *{{camelModel}}Service) Delete(ids []int) error {
+func (svc *{{camelModel}}Service) Delete(ids []int64) error {
 	return svc.client.delete(types.{{camelModel}}Model, ids)
 }
 """.replace('{{camelModel}}', camelcase(model)).replace('{{variable_name}}', camelcase(model)[0].lower())

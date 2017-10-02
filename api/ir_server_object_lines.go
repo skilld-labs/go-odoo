@@ -12,11 +12,11 @@ func NewIrServerObjectLinesService(c *Client) *IrServerObjectLinesService {
 	return &IrServerObjectLinesService{client: c}
 }
 
-func (svc *IrServerObjectLinesService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrServerObjectLinesService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrServerObjectLinesModel, name)
 }
 
-func (svc *IrServerObjectLinesService) GetByIds(ids []int) (*types.IrServerObjectLiness, error) {
+func (svc *IrServerObjectLinesService) GetByIds(ids []int64) (*types.IrServerObjectLiness, error) {
 	i := &types.IrServerObjectLiness{}
 	return i, svc.client.getByIds(types.IrServerObjectLinesModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrServerObjectLinesService) GetAll() (*types.IrServerObjectLiness, er
 	return i, svc.client.getAll(types.IrServerObjectLinesModel, i)
 }
 
-func (svc *IrServerObjectLinesService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrServerObjectLinesService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrServerObjectLinesModel, fields, relations)
 }
 
-func (svc *IrServerObjectLinesService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrServerObjectLinesService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrServerObjectLinesModel, ids, fields, relations)
 }
 
-func (svc *IrServerObjectLinesService) Delete(ids []int) error {
+func (svc *IrServerObjectLinesService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrServerObjectLinesModel, ids)
 }

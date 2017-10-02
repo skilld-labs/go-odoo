@@ -12,11 +12,11 @@ func NewIrActionsActUrlService(c *Client) *IrActionsActUrlService {
 	return &IrActionsActUrlService{client: c}
 }
 
-func (svc *IrActionsActUrlService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrActionsActUrlService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrActionsActUrlModel, name)
 }
 
-func (svc *IrActionsActUrlService) GetByIds(ids []int) (*types.IrActionsActUrls, error) {
+func (svc *IrActionsActUrlService) GetByIds(ids []int64) (*types.IrActionsActUrls, error) {
 	i := &types.IrActionsActUrls{}
 	return i, svc.client.getByIds(types.IrActionsActUrlModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrActionsActUrlService) GetAll() (*types.IrActionsActUrls, error) {
 	return i, svc.client.getAll(types.IrActionsActUrlModel, i)
 }
 
-func (svc *IrActionsActUrlService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrActionsActUrlService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrActionsActUrlModel, fields, relations)
 }
 
-func (svc *IrActionsActUrlService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrActionsActUrlService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrActionsActUrlModel, ids, fields, relations)
 }
 
-func (svc *IrActionsActUrlService) Delete(ids []int) error {
+func (svc *IrActionsActUrlService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrActionsActUrlModel, ids)
 }

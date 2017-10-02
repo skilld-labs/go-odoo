@@ -12,11 +12,11 @@ func NewIrQwebFieldMonetaryService(c *Client) *IrQwebFieldMonetaryService {
 	return &IrQwebFieldMonetaryService{client: c}
 }
 
-func (svc *IrQwebFieldMonetaryService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldMonetaryService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldMonetaryModel, name)
 }
 
-func (svc *IrQwebFieldMonetaryService) GetByIds(ids []int) (*types.IrQwebFieldMonetarys, error) {
+func (svc *IrQwebFieldMonetaryService) GetByIds(ids []int64) (*types.IrQwebFieldMonetarys, error) {
 	i := &types.IrQwebFieldMonetarys{}
 	return i, svc.client.getByIds(types.IrQwebFieldMonetaryModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldMonetaryService) GetAll() (*types.IrQwebFieldMonetarys, er
 	return i, svc.client.getAll(types.IrQwebFieldMonetaryModel, i)
 }
 
-func (svc *IrQwebFieldMonetaryService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldMonetaryService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldMonetaryModel, fields, relations)
 }
 
-func (svc *IrQwebFieldMonetaryService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldMonetaryService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldMonetaryModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldMonetaryService) Delete(ids []int) error {
+func (svc *IrQwebFieldMonetaryService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldMonetaryModel, ids)
 }

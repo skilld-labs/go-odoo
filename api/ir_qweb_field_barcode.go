@@ -12,11 +12,11 @@ func NewIrQwebFieldBarcodeService(c *Client) *IrQwebFieldBarcodeService {
 	return &IrQwebFieldBarcodeService{client: c}
 }
 
-func (svc *IrQwebFieldBarcodeService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldBarcodeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldBarcodeModel, name)
 }
 
-func (svc *IrQwebFieldBarcodeService) GetByIds(ids []int) (*types.IrQwebFieldBarcodes, error) {
+func (svc *IrQwebFieldBarcodeService) GetByIds(ids []int64) (*types.IrQwebFieldBarcodes, error) {
 	i := &types.IrQwebFieldBarcodes{}
 	return i, svc.client.getByIds(types.IrQwebFieldBarcodeModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldBarcodeService) GetAll() (*types.IrQwebFieldBarcodes, erro
 	return i, svc.client.getAll(types.IrQwebFieldBarcodeModel, i)
 }
 
-func (svc *IrQwebFieldBarcodeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldBarcodeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldBarcodeModel, fields, relations)
 }
 
-func (svc *IrQwebFieldBarcodeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldBarcodeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldBarcodeModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldBarcodeService) Delete(ids []int) error {
+func (svc *IrQwebFieldBarcodeService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldBarcodeModel, ids)
 }

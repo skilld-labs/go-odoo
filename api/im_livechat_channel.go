@@ -12,11 +12,11 @@ func NewImLivechatChannelService(c *Client) *ImLivechatChannelService {
 	return &ImLivechatChannelService{client: c}
 }
 
-func (svc *ImLivechatChannelService) GetIdsByName(name string) ([]int, error) {
+func (svc *ImLivechatChannelService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ImLivechatChannelModel, name)
 }
 
-func (svc *ImLivechatChannelService) GetByIds(ids []int) (*types.ImLivechatChannels, error) {
+func (svc *ImLivechatChannelService) GetByIds(ids []int64) (*types.ImLivechatChannels, error) {
 	i := &types.ImLivechatChannels{}
 	return i, svc.client.getByIds(types.ImLivechatChannelModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *ImLivechatChannelService) GetAll() (*types.ImLivechatChannels, error)
 	return i, svc.client.getAll(types.ImLivechatChannelModel, i)
 }
 
-func (svc *ImLivechatChannelService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ImLivechatChannelService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ImLivechatChannelModel, fields, relations)
 }
 
-func (svc *ImLivechatChannelService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ImLivechatChannelService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ImLivechatChannelModel, ids, fields, relations)
 }
 
-func (svc *ImLivechatChannelService) Delete(ids []int) error {
+func (svc *ImLivechatChannelService) Delete(ids []int64) error {
 	return svc.client.delete(types.ImLivechatChannelModel, ids)
 }

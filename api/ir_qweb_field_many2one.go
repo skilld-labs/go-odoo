@@ -12,11 +12,11 @@ func NewIrQwebFieldMany2oneService(c *Client) *IrQwebFieldMany2oneService {
 	return &IrQwebFieldMany2oneService{client: c}
 }
 
-func (svc *IrQwebFieldMany2oneService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldMany2oneService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldMany2oneModel, name)
 }
 
-func (svc *IrQwebFieldMany2oneService) GetByIds(ids []int) (*types.IrQwebFieldMany2ones, error) {
+func (svc *IrQwebFieldMany2oneService) GetByIds(ids []int64) (*types.IrQwebFieldMany2ones, error) {
 	i := &types.IrQwebFieldMany2ones{}
 	return i, svc.client.getByIds(types.IrQwebFieldMany2oneModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldMany2oneService) GetAll() (*types.IrQwebFieldMany2ones, er
 	return i, svc.client.getAll(types.IrQwebFieldMany2oneModel, i)
 }
 
-func (svc *IrQwebFieldMany2oneService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldMany2oneService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldMany2oneModel, fields, relations)
 }
 
-func (svc *IrQwebFieldMany2oneService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldMany2oneService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldMany2oneModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldMany2oneService) Delete(ids []int) error {
+func (svc *IrQwebFieldMany2oneService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldMany2oneModel, ids)
 }

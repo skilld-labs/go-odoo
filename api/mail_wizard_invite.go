@@ -12,11 +12,11 @@ func NewMailWizardInviteService(c *Client) *MailWizardInviteService {
 	return &MailWizardInviteService{client: c}
 }
 
-func (svc *MailWizardInviteService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailWizardInviteService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailWizardInviteModel, name)
 }
 
-func (svc *MailWizardInviteService) GetByIds(ids []int) (*types.MailWizardInvites, error) {
+func (svc *MailWizardInviteService) GetByIds(ids []int64) (*types.MailWizardInvites, error) {
 	m := &types.MailWizardInvites{}
 	return m, svc.client.getByIds(types.MailWizardInviteModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailWizardInviteService) GetAll() (*types.MailWizardInvites, error) {
 	return m, svc.client.getAll(types.MailWizardInviteModel, m)
 }
 
-func (svc *MailWizardInviteService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailWizardInviteService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailWizardInviteModel, fields, relations)
 }
 
-func (svc *MailWizardInviteService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailWizardInviteService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailWizardInviteModel, ids, fields, relations)
 }
 
-func (svc *MailWizardInviteService) Delete(ids []int) error {
+func (svc *MailWizardInviteService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailWizardInviteModel, ids)
 }

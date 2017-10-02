@@ -12,11 +12,11 @@ func NewIrModelConstraintService(c *Client) *IrModelConstraintService {
 	return &IrModelConstraintService{client: c}
 }
 
-func (svc *IrModelConstraintService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrModelConstraintService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrModelConstraintModel, name)
 }
 
-func (svc *IrModelConstraintService) GetByIds(ids []int) (*types.IrModelConstraints, error) {
+func (svc *IrModelConstraintService) GetByIds(ids []int64) (*types.IrModelConstraints, error) {
 	i := &types.IrModelConstraints{}
 	return i, svc.client.getByIds(types.IrModelConstraintModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrModelConstraintService) GetAll() (*types.IrModelConstraints, error)
 	return i, svc.client.getAll(types.IrModelConstraintModel, i)
 }
 
-func (svc *IrModelConstraintService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrModelConstraintService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrModelConstraintModel, fields, relations)
 }
 
-func (svc *IrModelConstraintService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrModelConstraintService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrModelConstraintModel, ids, fields, relations)
 }
 
-func (svc *IrModelConstraintService) Delete(ids []int) error {
+func (svc *IrModelConstraintService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrModelConstraintModel, ids)
 }

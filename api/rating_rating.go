@@ -12,11 +12,11 @@ func NewRatingRatingService(c *Client) *RatingRatingService {
 	return &RatingRatingService{client: c}
 }
 
-func (svc *RatingRatingService) GetIdsByName(name string) ([]int, error) {
+func (svc *RatingRatingService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.RatingRatingModel, name)
 }
 
-func (svc *RatingRatingService) GetByIds(ids []int) (*types.RatingRatings, error) {
+func (svc *RatingRatingService) GetByIds(ids []int64) (*types.RatingRatings, error) {
 	r := &types.RatingRatings{}
 	return r, svc.client.getByIds(types.RatingRatingModel, ids, r)
 }
@@ -36,14 +36,14 @@ func (svc *RatingRatingService) GetAll() (*types.RatingRatings, error) {
 	return r, svc.client.getAll(types.RatingRatingModel, r)
 }
 
-func (svc *RatingRatingService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *RatingRatingService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.RatingRatingModel, fields, relations)
 }
 
-func (svc *RatingRatingService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *RatingRatingService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.RatingRatingModel, ids, fields, relations)
 }
 
-func (svc *RatingRatingService) Delete(ids []int) error {
+func (svc *RatingRatingService) Delete(ids []int64) error {
 	return svc.client.delete(types.RatingRatingModel, ids)
 }

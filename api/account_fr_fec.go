@@ -12,11 +12,11 @@ func NewAccountFrFecService(c *Client) *AccountFrFecService {
 	return &AccountFrFecService{client: c}
 }
 
-func (svc *AccountFrFecService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountFrFecService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountFrFecModel, name)
 }
 
-func (svc *AccountFrFecService) GetByIds(ids []int) (*types.AccountFrFecs, error) {
+func (svc *AccountFrFecService) GetByIds(ids []int64) (*types.AccountFrFecs, error) {
 	a := &types.AccountFrFecs{}
 	return a, svc.client.getByIds(types.AccountFrFecModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountFrFecService) GetAll() (*types.AccountFrFecs, error) {
 	return a, svc.client.getAll(types.AccountFrFecModel, a)
 }
 
-func (svc *AccountFrFecService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountFrFecService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountFrFecModel, fields, relations)
 }
 
-func (svc *AccountFrFecService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountFrFecService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountFrFecModel, ids, fields, relations)
 }
 
-func (svc *AccountFrFecService) Delete(ids []int) error {
+func (svc *AccountFrFecService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountFrFecModel, ids)
 }

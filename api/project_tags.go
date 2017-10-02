@@ -12,11 +12,11 @@ func NewProjectTagsService(c *Client) *ProjectTagsService {
 	return &ProjectTagsService{client: c}
 }
 
-func (svc *ProjectTagsService) GetIdsByName(name string) ([]int, error) {
+func (svc *ProjectTagsService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ProjectTagsModel, name)
 }
 
-func (svc *ProjectTagsService) GetByIds(ids []int) (*types.ProjectTagss, error) {
+func (svc *ProjectTagsService) GetByIds(ids []int64) (*types.ProjectTagss, error) {
 	p := &types.ProjectTagss{}
 	return p, svc.client.getByIds(types.ProjectTagsModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *ProjectTagsService) GetAll() (*types.ProjectTagss, error) {
 	return p, svc.client.getAll(types.ProjectTagsModel, p)
 }
 
-func (svc *ProjectTagsService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ProjectTagsService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ProjectTagsModel, fields, relations)
 }
 
-func (svc *ProjectTagsService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ProjectTagsService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ProjectTagsModel, ids, fields, relations)
 }
 
-func (svc *ProjectTagsService) Delete(ids []int) error {
+func (svc *ProjectTagsService) Delete(ids []int64) error {
 	return svc.client.delete(types.ProjectTagsModel, ids)
 }

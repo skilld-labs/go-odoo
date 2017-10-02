@@ -12,11 +12,11 @@ func NewWebEditorConverterTestService(c *Client) *WebEditorConverterTestService 
 	return &WebEditorConverterTestService{client: c}
 }
 
-func (svc *WebEditorConverterTestService) GetIdsByName(name string) ([]int, error) {
+func (svc *WebEditorConverterTestService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.WebEditorConverterTestModel, name)
 }
 
-func (svc *WebEditorConverterTestService) GetByIds(ids []int) (*types.WebEditorConverterTests, error) {
+func (svc *WebEditorConverterTestService) GetByIds(ids []int64) (*types.WebEditorConverterTests, error) {
 	w := &types.WebEditorConverterTests{}
 	return w, svc.client.getByIds(types.WebEditorConverterTestModel, ids, w)
 }
@@ -36,14 +36,14 @@ func (svc *WebEditorConverterTestService) GetAll() (*types.WebEditorConverterTes
 	return w, svc.client.getAll(types.WebEditorConverterTestModel, w)
 }
 
-func (svc *WebEditorConverterTestService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *WebEditorConverterTestService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.WebEditorConverterTestModel, fields, relations)
 }
 
-func (svc *WebEditorConverterTestService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *WebEditorConverterTestService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.WebEditorConverterTestModel, ids, fields, relations)
 }
 
-func (svc *WebEditorConverterTestService) Delete(ids []int) error {
+func (svc *WebEditorConverterTestService) Delete(ids []int64) error {
 	return svc.client.delete(types.WebEditorConverterTestModel, ids)
 }

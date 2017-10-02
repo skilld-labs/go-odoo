@@ -12,11 +12,11 @@ func NewProcurementOrderComputeAllService(c *Client) *ProcurementOrderComputeAll
 	return &ProcurementOrderComputeAllService{client: c}
 }
 
-func (svc *ProcurementOrderComputeAllService) GetIdsByName(name string) ([]int, error) {
+func (svc *ProcurementOrderComputeAllService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.ProcurementOrderComputeAllModel, name)
 }
 
-func (svc *ProcurementOrderComputeAllService) GetByIds(ids []int) (*types.ProcurementOrderComputeAlls, error) {
+func (svc *ProcurementOrderComputeAllService) GetByIds(ids []int64) (*types.ProcurementOrderComputeAlls, error) {
 	p := &types.ProcurementOrderComputeAlls{}
 	return p, svc.client.getByIds(types.ProcurementOrderComputeAllModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *ProcurementOrderComputeAllService) GetAll() (*types.ProcurementOrderC
 	return p, svc.client.getAll(types.ProcurementOrderComputeAllModel, p)
 }
 
-func (svc *ProcurementOrderComputeAllService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *ProcurementOrderComputeAllService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.ProcurementOrderComputeAllModel, fields, relations)
 }
 
-func (svc *ProcurementOrderComputeAllService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *ProcurementOrderComputeAllService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.ProcurementOrderComputeAllModel, ids, fields, relations)
 }
 
-func (svc *ProcurementOrderComputeAllService) Delete(ids []int) error {
+func (svc *ProcurementOrderComputeAllService) Delete(ids []int64) error {
 	return svc.client.delete(types.ProcurementOrderComputeAllModel, ids)
 }
