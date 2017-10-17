@@ -5,15 +5,14 @@ import (
 )
 
 type ResourceResource struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Active         bool      `xmlrpc:"active"`
 	CalendarId     Many2One  `xmlrpc:"calendar_id"`
-	Code           string    `xmlrpc:"code"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Name           string    `xmlrpc:"name"`
 	ResourceType   string    `xmlrpc:"resource_type"`
 	TimeEfficiency float64   `xmlrpc:"time_efficiency"`
@@ -23,15 +22,14 @@ type ResourceResource struct {
 }
 
 type ResourceResourceNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Active         bool        `xmlrpc:"active"`
 	CalendarId     interface{} `xmlrpc:"calendar_id"`
-	Code           interface{} `xmlrpc:"code"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Name           interface{} `xmlrpc:"name"`
 	ResourceType   interface{} `xmlrpc:"resource_type"`
 	TimeEfficiency interface{} `xmlrpc:"time_efficiency"`

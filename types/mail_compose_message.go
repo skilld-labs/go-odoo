@@ -5,7 +5,6 @@ import (
 )
 
 type MailComposeMessage struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	ActiveDomain          string    `xmlrpc:"active_domain"`
 	AttachmentIds         []int64   `xmlrpc:"attachment_ids"`
 	AuthorAvatar          string    `xmlrpc:"author_avatar"`
@@ -23,8 +22,10 @@ type MailComposeMessage struct {
 	EmailFrom             string    `xmlrpc:"email_from"`
 	Id                    int64     `xmlrpc:"id"`
 	IsLog                 bool      `xmlrpc:"is_log"`
-	MailServerId          Many2One  `xmlrpc:"mail_server_id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
+	MailActivityTypeId    Many2One  `xmlrpc:"mail_activity_type_id"`
 	MailingListIds        []int64   `xmlrpc:"mailing_list_ids"`
+	MailServerId          Many2One  `xmlrpc:"mail_server_id"`
 	MassMailingCampaignId Many2One  `xmlrpc:"mass_mailing_campaign_id"`
 	MassMailingId         Many2One  `xmlrpc:"mass_mailing_id"`
 	MassMailingName       string    `xmlrpc:"mass_mailing_name"`
@@ -38,6 +39,8 @@ type MailComposeMessage struct {
 	Notify                bool      `xmlrpc:"notify"`
 	ParentId              Many2One  `xmlrpc:"parent_id"`
 	PartnerIds            []int64   `xmlrpc:"partner_ids"`
+	RatingIds             []int64   `xmlrpc:"rating_ids"`
+	RatingValue           float64   `xmlrpc:"rating_value"`
 	RecordName            string    `xmlrpc:"record_name"`
 	ReplyTo               string    `xmlrpc:"reply_to"`
 	ResId                 int64     `xmlrpc:"res_id"`
@@ -53,7 +56,6 @@ type MailComposeMessage struct {
 }
 
 type MailComposeMessageNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	ActiveDomain          interface{} `xmlrpc:"active_domain"`
 	AttachmentIds         interface{} `xmlrpc:"attachment_ids"`
 	AuthorAvatar          interface{} `xmlrpc:"author_avatar"`
@@ -71,8 +73,10 @@ type MailComposeMessageNil struct {
 	EmailFrom             interface{} `xmlrpc:"email_from"`
 	Id                    interface{} `xmlrpc:"id"`
 	IsLog                 bool        `xmlrpc:"is_log"`
-	MailServerId          interface{} `xmlrpc:"mail_server_id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
+	MailActivityTypeId    interface{} `xmlrpc:"mail_activity_type_id"`
 	MailingListIds        interface{} `xmlrpc:"mailing_list_ids"`
+	MailServerId          interface{} `xmlrpc:"mail_server_id"`
 	MassMailingCampaignId interface{} `xmlrpc:"mass_mailing_campaign_id"`
 	MassMailingId         interface{} `xmlrpc:"mass_mailing_id"`
 	MassMailingName       interface{} `xmlrpc:"mass_mailing_name"`
@@ -86,6 +90,8 @@ type MailComposeMessageNil struct {
 	Notify                bool        `xmlrpc:"notify"`
 	ParentId              interface{} `xmlrpc:"parent_id"`
 	PartnerIds            interface{} `xmlrpc:"partner_ids"`
+	RatingIds             interface{} `xmlrpc:"rating_ids"`
+	RatingValue           interface{} `xmlrpc:"rating_value"`
 	RecordName            interface{} `xmlrpc:"record_name"`
 	ReplyTo               interface{} `xmlrpc:"reply_to"`
 	ResId                 interface{} `xmlrpc:"res_id"`

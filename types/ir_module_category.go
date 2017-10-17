@@ -5,13 +5,14 @@ import (
 )
 
 type IrModuleCategory struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ChildIds    []int64   `xmlrpc:"child_ids"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	Description string    `xmlrpc:"description"`
 	DisplayName string    `xmlrpc:"display_name"`
+	Exclusive   bool      `xmlrpc:"exclusive"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ModuleIds   []int64   `xmlrpc:"module_ids"`
 	ModuleNr    int64     `xmlrpc:"module_nr"`
 	Name        string    `xmlrpc:"name"`
@@ -24,13 +25,14 @@ type IrModuleCategory struct {
 }
 
 type IrModuleCategoryNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ChildIds    interface{} `xmlrpc:"child_ids"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	Description interface{} `xmlrpc:"description"`
 	DisplayName interface{} `xmlrpc:"display_name"`
+	Exclusive   bool        `xmlrpc:"exclusive"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ModuleIds   interface{} `xmlrpc:"module_ids"`
 	ModuleNr    interface{} `xmlrpc:"module_nr"`
 	Name        interface{} `xmlrpc:"name"`

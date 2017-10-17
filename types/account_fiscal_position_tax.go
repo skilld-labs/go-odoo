@@ -5,11 +5,11 @@ import (
 )
 
 type AccountFiscalPositionTax struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	PositionId  Many2One  `xmlrpc:"position_id"`
 	TaxDestId   Many2One  `xmlrpc:"tax_dest_id"`
 	TaxSrcId    Many2One  `xmlrpc:"tax_src_id"`
@@ -18,11 +18,11 @@ type AccountFiscalPositionTax struct {
 }
 
 type AccountFiscalPositionTaxNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	PositionId  interface{} `xmlrpc:"position_id"`
 	TaxDestId   interface{} `xmlrpc:"tax_dest_id"`
 	TaxSrcId    interface{} `xmlrpc:"tax_src_id"`

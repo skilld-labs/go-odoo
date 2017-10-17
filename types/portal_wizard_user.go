@@ -5,13 +5,13 @@ import (
 )
 
 type PortalWizardUser struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Email       string    `xmlrpc:"email"`
 	Id          int64     `xmlrpc:"id"`
 	InPortal    bool      `xmlrpc:"in_portal"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	PartnerId   Many2One  `xmlrpc:"partner_id"`
 	UserId      Many2One  `xmlrpc:"user_id"`
 	WizardId    Many2One  `xmlrpc:"wizard_id"`
@@ -20,13 +20,13 @@ type PortalWizardUser struct {
 }
 
 type PortalWizardUserNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Email       interface{} `xmlrpc:"email"`
 	Id          interface{} `xmlrpc:"id"`
 	InPortal    bool        `xmlrpc:"in_portal"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	PartnerId   interface{} `xmlrpc:"partner_id"`
 	UserId      interface{} `xmlrpc:"user_id"`
 	WizardId    interface{} `xmlrpc:"wizard_id"`

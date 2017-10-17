@@ -5,8 +5,8 @@ import (
 )
 
 type IrModel struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	AccessIds         []int64   `xmlrpc:"access_ids"`
+	Count             int64     `xmlrpc:"count"`
 	CreateDate        time.Time `xmlrpc:"create_date"`
 	CreateUid         Many2One  `xmlrpc:"create_uid"`
 	DisplayName       string    `xmlrpc:"display_name"`
@@ -14,6 +14,8 @@ type IrModel struct {
 	Id                int64     `xmlrpc:"id"`
 	Info              string    `xmlrpc:"info"`
 	InheritedModelIds []int64   `xmlrpc:"inherited_model_ids"`
+	IsMailThread      bool      `xmlrpc:"is_mail_thread"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Model             string    `xmlrpc:"model"`
 	Modules           string    `xmlrpc:"modules"`
 	Name              string    `xmlrpc:"name"`
@@ -25,8 +27,8 @@ type IrModel struct {
 }
 
 type IrModelNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	AccessIds         interface{} `xmlrpc:"access_ids"`
+	Count             interface{} `xmlrpc:"count"`
 	CreateDate        interface{} `xmlrpc:"create_date"`
 	CreateUid         interface{} `xmlrpc:"create_uid"`
 	DisplayName       interface{} `xmlrpc:"display_name"`
@@ -34,6 +36,8 @@ type IrModelNil struct {
 	Id                interface{} `xmlrpc:"id"`
 	Info              interface{} `xmlrpc:"info"`
 	InheritedModelIds interface{} `xmlrpc:"inherited_model_ids"`
+	IsMailThread      bool        `xmlrpc:"is_mail_thread"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Model             interface{} `xmlrpc:"model"`
 	Modules           interface{} `xmlrpc:"modules"`
 	Name              interface{} `xmlrpc:"name"`

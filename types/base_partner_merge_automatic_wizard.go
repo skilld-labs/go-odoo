@@ -5,7 +5,6 @@ import (
 )
 
 type BasePartnerMergeAutomaticWizard struct {
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	CreateDate         time.Time `xmlrpc:"create_date"`
 	CreateUid          Many2One  `xmlrpc:"create_uid"`
 	CurrentLineId      Many2One  `xmlrpc:"current_line_id"`
@@ -19,6 +18,7 @@ type BasePartnerMergeAutomaticWizard struct {
 	GroupByParentId    bool      `xmlrpc:"group_by_parent_id"`
 	GroupByVat         bool      `xmlrpc:"group_by_vat"`
 	Id                 int64     `xmlrpc:"id"`
+	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	LineIds            []int64   `xmlrpc:"line_ids"`
 	MaximumGroup       int64     `xmlrpc:"maximum_group"`
 	NumberGroup        int64     `xmlrpc:"number_group"`
@@ -29,7 +29,6 @@ type BasePartnerMergeAutomaticWizard struct {
 }
 
 type BasePartnerMergeAutomaticWizardNil struct {
-	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	CreateDate         interface{} `xmlrpc:"create_date"`
 	CreateUid          interface{} `xmlrpc:"create_uid"`
 	CurrentLineId      interface{} `xmlrpc:"current_line_id"`
@@ -43,6 +42,7 @@ type BasePartnerMergeAutomaticWizardNil struct {
 	GroupByParentId    bool        `xmlrpc:"group_by_parent_id"`
 	GroupByVat         bool        `xmlrpc:"group_by_vat"`
 	Id                 interface{} `xmlrpc:"id"`
+	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	LineIds            interface{} `xmlrpc:"line_ids"`
 	MaximumGroup       interface{} `xmlrpc:"maximum_group"`
 	NumberGroup        interface{} `xmlrpc:"number_group"`

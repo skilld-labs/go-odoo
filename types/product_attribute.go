@@ -5,13 +5,13 @@ import (
 )
 
 type ProductAttribute struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	AttributeLineIds []int64   `xmlrpc:"attribute_line_ids"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
 	CreateVariant    bool      `xmlrpc:"create_variant"`
 	DisplayName      string    `xmlrpc:"display_name"`
 	Id               int64     `xmlrpc:"id"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Name             string    `xmlrpc:"name"`
 	Sequence         int64     `xmlrpc:"sequence"`
 	ValueIds         []int64   `xmlrpc:"value_ids"`
@@ -20,13 +20,13 @@ type ProductAttribute struct {
 }
 
 type ProductAttributeNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	AttributeLineIds interface{} `xmlrpc:"attribute_line_ids"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
 	CreateVariant    bool        `xmlrpc:"create_variant"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	Id               interface{} `xmlrpc:"id"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Name             interface{} `xmlrpc:"name"`
 	Sequence         interface{} `xmlrpc:"sequence"`
 	ValueIds         interface{} `xmlrpc:"value_ids"`

@@ -5,7 +5,6 @@ import (
 )
 
 type AccountReconcileModel struct {
-	LastUpdate              time.Time `xmlrpc:"__last_update"`
 	AccountId               Many2One  `xmlrpc:"account_id"`
 	Amount                  float64   `xmlrpc:"amount"`
 	AmountType              string    `xmlrpc:"amount_type"`
@@ -18,6 +17,7 @@ type AccountReconcileModel struct {
 	Id                      int64     `xmlrpc:"id"`
 	JournalId               Many2One  `xmlrpc:"journal_id"`
 	Label                   string    `xmlrpc:"label"`
+	LastUpdate              time.Time `xmlrpc:"__last_update"`
 	Name                    string    `xmlrpc:"name"`
 	SecondAccountId         Many2One  `xmlrpc:"second_account_id"`
 	SecondAmount            float64   `xmlrpc:"second_amount"`
@@ -33,7 +33,6 @@ type AccountReconcileModel struct {
 }
 
 type AccountReconcileModelNil struct {
-	LastUpdate              interface{} `xmlrpc:"__last_update"`
 	AccountId               interface{} `xmlrpc:"account_id"`
 	Amount                  interface{} `xmlrpc:"amount"`
 	AmountType              interface{} `xmlrpc:"amount_type"`
@@ -46,6 +45,7 @@ type AccountReconcileModelNil struct {
 	Id                      interface{} `xmlrpc:"id"`
 	JournalId               interface{} `xmlrpc:"journal_id"`
 	Label                   interface{} `xmlrpc:"label"`
+	LastUpdate              interface{} `xmlrpc:"__last_update"`
 	Name                    interface{} `xmlrpc:"name"`
 	SecondAccountId         interface{} `xmlrpc:"second_account_id"`
 	SecondAmount            interface{} `xmlrpc:"second_amount"`

@@ -5,12 +5,12 @@ import (
 )
 
 type BasePartnerMergeLine struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	AggrIds     string    `xmlrpc:"aggr_ids"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	MinId       int64     `xmlrpc:"min_id"`
 	WizardId    Many2One  `xmlrpc:"wizard_id"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
@@ -18,12 +18,12 @@ type BasePartnerMergeLine struct {
 }
 
 type BasePartnerMergeLineNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	AggrIds     interface{} `xmlrpc:"aggr_ids"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	MinId       interface{} `xmlrpc:"min_id"`
 	WizardId    interface{} `xmlrpc:"wizard_id"`
 	WriteDate   interface{} `xmlrpc:"write_date"`

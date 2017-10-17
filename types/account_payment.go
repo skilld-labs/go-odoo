@@ -5,8 +5,10 @@ import (
 )
 
 type AccountPayment struct {
-	LastUpdate                time.Time `xmlrpc:"__last_update"`
 	Amount                    float64   `xmlrpc:"amount"`
+	CheckAmountInWords        string    `xmlrpc:"check_amount_in_words"`
+	CheckManualSequencing     bool      `xmlrpc:"check_manual_sequencing"`
+	CheckNumber               int64     `xmlrpc:"check_number"`
 	Communication             string    `xmlrpc:"communication"`
 	CompanyId                 Many2One  `xmlrpc:"company_id"`
 	CreateDate                time.Time `xmlrpc:"create_date"`
@@ -20,8 +22,20 @@ type AccountPayment struct {
 	Id                        int64     `xmlrpc:"id"`
 	InvoiceIds                []int64   `xmlrpc:"invoice_ids"`
 	JournalId                 Many2One  `xmlrpc:"journal_id"`
+	LastUpdate                time.Time `xmlrpc:"__last_update"`
+	MessageChannelIds         []int64   `xmlrpc:"message_channel_ids"`
+	MessageFollowerIds        []int64   `xmlrpc:"message_follower_ids"`
+	MessageIds                []int64   `xmlrpc:"message_ids"`
+	MessageIsFollower         bool      `xmlrpc:"message_is_follower"`
+	MessageLastPost           time.Time `xmlrpc:"message_last_post"`
+	MessageNeedaction         bool      `xmlrpc:"message_needaction"`
+	MessageNeedactionCounter  int64     `xmlrpc:"message_needaction_counter"`
+	MessagePartnerIds         []int64   `xmlrpc:"message_partner_ids"`
+	MessageUnread             bool      `xmlrpc:"message_unread"`
+	MessageUnreadCounter      int64     `xmlrpc:"message_unread_counter"`
 	MoveLineIds               []int64   `xmlrpc:"move_line_ids"`
 	MoveName                  string    `xmlrpc:"move_name"`
+	MoveReconciled            bool      `xmlrpc:"move_reconciled"`
 	Name                      string    `xmlrpc:"name"`
 	PartnerId                 Many2One  `xmlrpc:"partner_id"`
 	PartnerType               string    `xmlrpc:"partner_type"`
@@ -35,14 +49,18 @@ type AccountPayment struct {
 	PaymentTransactionId      Many2One  `xmlrpc:"payment_transaction_id"`
 	PaymentType               string    `xmlrpc:"payment_type"`
 	State                     string    `xmlrpc:"state"`
+	WebsiteMessageIds         []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                 time.Time `xmlrpc:"write_date"`
-	WriteUid                  Many2One  `xmlrpc:"write_uid"`
 	WriteoffAccountId         Many2One  `xmlrpc:"writeoff_account_id"`
+	WriteoffLabel             string    `xmlrpc:"writeoff_label"`
+	WriteUid                  Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountPaymentNil struct {
-	LastUpdate                interface{} `xmlrpc:"__last_update"`
 	Amount                    interface{} `xmlrpc:"amount"`
+	CheckAmountInWords        interface{} `xmlrpc:"check_amount_in_words"`
+	CheckManualSequencing     bool        `xmlrpc:"check_manual_sequencing"`
+	CheckNumber               interface{} `xmlrpc:"check_number"`
 	Communication             interface{} `xmlrpc:"communication"`
 	CompanyId                 interface{} `xmlrpc:"company_id"`
 	CreateDate                interface{} `xmlrpc:"create_date"`
@@ -56,8 +74,20 @@ type AccountPaymentNil struct {
 	Id                        interface{} `xmlrpc:"id"`
 	InvoiceIds                interface{} `xmlrpc:"invoice_ids"`
 	JournalId                 interface{} `xmlrpc:"journal_id"`
+	LastUpdate                interface{} `xmlrpc:"__last_update"`
+	MessageChannelIds         interface{} `xmlrpc:"message_channel_ids"`
+	MessageFollowerIds        interface{} `xmlrpc:"message_follower_ids"`
+	MessageIds                interface{} `xmlrpc:"message_ids"`
+	MessageIsFollower         bool        `xmlrpc:"message_is_follower"`
+	MessageLastPost           interface{} `xmlrpc:"message_last_post"`
+	MessageNeedaction         bool        `xmlrpc:"message_needaction"`
+	MessageNeedactionCounter  interface{} `xmlrpc:"message_needaction_counter"`
+	MessagePartnerIds         interface{} `xmlrpc:"message_partner_ids"`
+	MessageUnread             bool        `xmlrpc:"message_unread"`
+	MessageUnreadCounter      interface{} `xmlrpc:"message_unread_counter"`
 	MoveLineIds               interface{} `xmlrpc:"move_line_ids"`
 	MoveName                  interface{} `xmlrpc:"move_name"`
+	MoveReconciled            bool        `xmlrpc:"move_reconciled"`
 	Name                      interface{} `xmlrpc:"name"`
 	PartnerId                 interface{} `xmlrpc:"partner_id"`
 	PartnerType               interface{} `xmlrpc:"partner_type"`
@@ -71,9 +101,11 @@ type AccountPaymentNil struct {
 	PaymentTransactionId      interface{} `xmlrpc:"payment_transaction_id"`
 	PaymentType               interface{} `xmlrpc:"payment_type"`
 	State                     interface{} `xmlrpc:"state"`
+	WebsiteMessageIds         interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                 interface{} `xmlrpc:"write_date"`
-	WriteUid                  interface{} `xmlrpc:"write_uid"`
 	WriteoffAccountId         interface{} `xmlrpc:"writeoff_account_id"`
+	WriteoffLabel             interface{} `xmlrpc:"writeoff_label"`
+	WriteUid                  interface{} `xmlrpc:"write_uid"`
 }
 
 var AccountPaymentModel string = "account.payment"

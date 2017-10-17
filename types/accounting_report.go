@@ -5,7 +5,6 @@ import (
 )
 
 type AccountingReport struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	AccountReportId Many2One  `xmlrpc:"account_report_id"`
 	CompanyId       Many2One  `xmlrpc:"company_id"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
@@ -21,13 +20,13 @@ type AccountingReport struct {
 	Id              int64     `xmlrpc:"id"`
 	JournalIds      []int64   `xmlrpc:"journal_ids"`
 	LabelFilter     string    `xmlrpc:"label_filter"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	TargetMove      string    `xmlrpc:"target_move"`
 	WriteDate       time.Time `xmlrpc:"write_date"`
 	WriteUid        Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountingReportNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	AccountReportId interface{} `xmlrpc:"account_report_id"`
 	CompanyId       interface{} `xmlrpc:"company_id"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
@@ -43,6 +42,7 @@ type AccountingReportNil struct {
 	Id              interface{} `xmlrpc:"id"`
 	JournalIds      interface{} `xmlrpc:"journal_ids"`
 	LabelFilter     interface{} `xmlrpc:"label_filter"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	TargetMove      interface{} `xmlrpc:"target_move"`
 	WriteDate       interface{} `xmlrpc:"write_date"`
 	WriteUid        interface{} `xmlrpc:"write_uid"`

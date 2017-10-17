@@ -5,7 +5,6 @@ import (
 )
 
 type PurchaseReport struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	AccountAnalyticId   Many2One  `xmlrpc:"account_analytic_id"`
 	CategoryId          Many2One  `xmlrpc:"category_id"`
 	CommercialPartnerId Many2One  `xmlrpc:"commercial_partner_id"`
@@ -19,6 +18,7 @@ type PurchaseReport struct {
 	DisplayName         string    `xmlrpc:"display_name"`
 	FiscalPositionId    Many2One  `xmlrpc:"fiscal_position_id"`
 	Id                  int64     `xmlrpc:"id"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	NbrLines            int64     `xmlrpc:"nbr_lines"`
 	Negociation         float64   `xmlrpc:"negociation"`
 	PartnerId           Many2One  `xmlrpc:"partner_id"`
@@ -37,7 +37,6 @@ type PurchaseReport struct {
 }
 
 type PurchaseReportNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	AccountAnalyticId   interface{} `xmlrpc:"account_analytic_id"`
 	CategoryId          interface{} `xmlrpc:"category_id"`
 	CommercialPartnerId interface{} `xmlrpc:"commercial_partner_id"`
@@ -51,6 +50,7 @@ type PurchaseReportNil struct {
 	DisplayName         interface{} `xmlrpc:"display_name"`
 	FiscalPositionId    interface{} `xmlrpc:"fiscal_position_id"`
 	Id                  interface{} `xmlrpc:"id"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	NbrLines            interface{} `xmlrpc:"nbr_lines"`
 	Negociation         interface{} `xmlrpc:"negociation"`
 	PartnerId           interface{} `xmlrpc:"partner_id"`

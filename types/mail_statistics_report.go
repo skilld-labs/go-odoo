@@ -5,13 +5,13 @@ import (
 )
 
 type MailStatisticsReport struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	Bounced       int64     `xmlrpc:"bounced"`
 	Campaign      string    `xmlrpc:"campaign"`
 	Delivered     int64     `xmlrpc:"delivered"`
 	DisplayName   string    `xmlrpc:"display_name"`
 	EmailFrom     string    `xmlrpc:"email_from"`
 	Id            int64     `xmlrpc:"id"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	Name          string    `xmlrpc:"name"`
 	Opened        int64     `xmlrpc:"opened"`
 	Replied       int64     `xmlrpc:"replied"`
@@ -21,13 +21,13 @@ type MailStatisticsReport struct {
 }
 
 type MailStatisticsReportNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	Bounced       interface{} `xmlrpc:"bounced"`
 	Campaign      interface{} `xmlrpc:"campaign"`
 	Delivered     interface{} `xmlrpc:"delivered"`
 	DisplayName   interface{} `xmlrpc:"display_name"`
 	EmailFrom     interface{} `xmlrpc:"email_from"`
 	Id            interface{} `xmlrpc:"id"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	Name          interface{} `xmlrpc:"name"`
 	Opened        interface{} `xmlrpc:"opened"`
 	Replied       interface{} `xmlrpc:"replied"`

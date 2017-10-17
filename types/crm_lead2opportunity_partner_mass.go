@@ -5,7 +5,6 @@ import (
 )
 
 type CrmLead2opportunityPartnerMass struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Action           string    `xmlrpc:"action"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
@@ -13,6 +12,7 @@ type CrmLead2opportunityPartnerMass struct {
 	DisplayName      string    `xmlrpc:"display_name"`
 	ForceAssignation bool      `xmlrpc:"force_assignation"`
 	Id               int64     `xmlrpc:"id"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Name             string    `xmlrpc:"name"`
 	OpportunityIds   []int64   `xmlrpc:"opportunity_ids"`
 	PartnerId        Many2One  `xmlrpc:"partner_id"`
@@ -24,7 +24,6 @@ type CrmLead2opportunityPartnerMass struct {
 }
 
 type CrmLead2opportunityPartnerMassNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Action           interface{} `xmlrpc:"action"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
@@ -32,6 +31,7 @@ type CrmLead2opportunityPartnerMassNil struct {
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	ForceAssignation bool        `xmlrpc:"force_assignation"`
 	Id               interface{} `xmlrpc:"id"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Name             interface{} `xmlrpc:"name"`
 	OpportunityIds   interface{} `xmlrpc:"opportunity_ids"`
 	PartnerId        interface{} `xmlrpc:"partner_id"`

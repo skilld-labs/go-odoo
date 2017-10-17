@@ -5,13 +5,13 @@ import (
 )
 
 type IrSequenceDateRange struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
 	DateFrom         time.Time `xmlrpc:"date_from"`
 	DateTo           time.Time `xmlrpc:"date_to"`
 	DisplayName      string    `xmlrpc:"display_name"`
 	Id               int64     `xmlrpc:"id"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	NumberNext       int64     `xmlrpc:"number_next"`
 	NumberNextActual int64     `xmlrpc:"number_next_actual"`
 	SequenceId       Many2One  `xmlrpc:"sequence_id"`
@@ -20,13 +20,13 @@ type IrSequenceDateRange struct {
 }
 
 type IrSequenceDateRangeNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
 	DateFrom         interface{} `xmlrpc:"date_from"`
 	DateTo           interface{} `xmlrpc:"date_to"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	Id               interface{} `xmlrpc:"id"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	NumberNext       interface{} `xmlrpc:"number_next"`
 	NumberNextActual interface{} `xmlrpc:"number_next_actual"`
 	SequenceId       interface{} `xmlrpc:"sequence_id"`

@@ -5,7 +5,6 @@ import (
 )
 
 type AccountAgedTrialBalance struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	CompanyId       Many2One  `xmlrpc:"company_id"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
 	CreateUid       Many2One  `xmlrpc:"create_uid"`
@@ -14,6 +13,7 @@ type AccountAgedTrialBalance struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
 	JournalIds      []int64   `xmlrpc:"journal_ids"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	PeriodLength    int64     `xmlrpc:"period_length"`
 	ResultSelection string    `xmlrpc:"result_selection"`
 	TargetMove      string    `xmlrpc:"target_move"`
@@ -22,7 +22,6 @@ type AccountAgedTrialBalance struct {
 }
 
 type AccountAgedTrialBalanceNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	CompanyId       interface{} `xmlrpc:"company_id"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
 	CreateUid       interface{} `xmlrpc:"create_uid"`
@@ -31,6 +30,7 @@ type AccountAgedTrialBalanceNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
 	JournalIds      interface{} `xmlrpc:"journal_ids"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	PeriodLength    interface{} `xmlrpc:"period_length"`
 	ResultSelection interface{} `xmlrpc:"result_selection"`
 	TargetMove      interface{} `xmlrpc:"target_move"`

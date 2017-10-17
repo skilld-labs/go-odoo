@@ -5,7 +5,6 @@ import (
 )
 
 type PaymentToken struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	AcquirerId  Many2One  `xmlrpc:"acquirer_id"`
 	AcquirerRef string    `xmlrpc:"acquirer_ref"`
 	Active      bool      `xmlrpc:"active"`
@@ -13,16 +12,17 @@ type PaymentToken struct {
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	PartnerId   Many2One  `xmlrpc:"partner_id"`
 	PaymentIds  []int64   `xmlrpc:"payment_ids"`
 	ShortName   string    `xmlrpc:"short_name"`
+	Verified    bool      `xmlrpc:"verified"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
 	WriteUid    Many2One  `xmlrpc:"write_uid"`
 }
 
 type PaymentTokenNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	AcquirerId  interface{} `xmlrpc:"acquirer_id"`
 	AcquirerRef interface{} `xmlrpc:"acquirer_ref"`
 	Active      bool        `xmlrpc:"active"`
@@ -30,10 +30,12 @@ type PaymentTokenNil struct {
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	PartnerId   interface{} `xmlrpc:"partner_id"`
 	PaymentIds  interface{} `xmlrpc:"payment_ids"`
 	ShortName   interface{} `xmlrpc:"short_name"`
+	Verified    bool        `xmlrpc:"verified"`
 	WriteDate   interface{} `xmlrpc:"write_date"`
 	WriteUid    interface{} `xmlrpc:"write_uid"`
 }

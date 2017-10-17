@@ -5,7 +5,6 @@ import (
 )
 
 type LinkTrackerClick struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	ClickDate             time.Time `xmlrpc:"click_date"`
 	CountryId             Many2One  `xmlrpc:"country_id"`
 	CreateDate            time.Time `xmlrpc:"create_date"`
@@ -13,6 +12,7 @@ type LinkTrackerClick struct {
 	DisplayName           string    `xmlrpc:"display_name"`
 	Id                    int64     `xmlrpc:"id"`
 	Ip                    string    `xmlrpc:"ip"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	LinkId                Many2One  `xmlrpc:"link_id"`
 	MailStatId            Many2One  `xmlrpc:"mail_stat_id"`
 	MassMailingCampaignId Many2One  `xmlrpc:"mass_mailing_campaign_id"`
@@ -22,7 +22,6 @@ type LinkTrackerClick struct {
 }
 
 type LinkTrackerClickNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	ClickDate             interface{} `xmlrpc:"click_date"`
 	CountryId             interface{} `xmlrpc:"country_id"`
 	CreateDate            interface{} `xmlrpc:"create_date"`
@@ -30,6 +29,7 @@ type LinkTrackerClickNil struct {
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Id                    interface{} `xmlrpc:"id"`
 	Ip                    interface{} `xmlrpc:"ip"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	LinkId                interface{} `xmlrpc:"link_id"`
 	MailStatId            interface{} `xmlrpc:"mail_stat_id"`
 	MassMailingCampaignId interface{} `xmlrpc:"mass_mailing_campaign_id"`

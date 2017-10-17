@@ -5,7 +5,6 @@ import (
 )
 
 type BaseLanguageImport struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Code        string    `xmlrpc:"code"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
@@ -13,6 +12,7 @@ type BaseLanguageImport struct {
 	DisplayName string    `xmlrpc:"display_name"`
 	Filename    string    `xmlrpc:"filename"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	Overwrite   bool      `xmlrpc:"overwrite"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
@@ -20,7 +20,6 @@ type BaseLanguageImport struct {
 }
 
 type BaseLanguageImportNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Code        interface{} `xmlrpc:"code"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
@@ -28,6 +27,7 @@ type BaseLanguageImportNil struct {
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Filename    interface{} `xmlrpc:"filename"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	Overwrite   bool        `xmlrpc:"overwrite"`
 	WriteDate   interface{} `xmlrpc:"write_date"`

@@ -5,11 +5,11 @@ import (
 )
 
 type CrmMergeOpportunity struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	OpportunityIds []int64   `xmlrpc:"opportunity_ids"`
 	TeamId         Many2One  `xmlrpc:"team_id"`
 	UserId         Many2One  `xmlrpc:"user_id"`
@@ -18,11 +18,11 @@ type CrmMergeOpportunity struct {
 }
 
 type CrmMergeOpportunityNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	OpportunityIds interface{} `xmlrpc:"opportunity_ids"`
 	TeamId         interface{} `xmlrpc:"team_id"`
 	UserId         interface{} `xmlrpc:"user_id"`

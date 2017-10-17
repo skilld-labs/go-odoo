@@ -5,7 +5,6 @@ import (
 )
 
 type AccountReportGeneralLedger struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
@@ -16,6 +15,7 @@ type AccountReportGeneralLedger struct {
 	Id             int64     `xmlrpc:"id"`
 	InitialBalance bool      `xmlrpc:"initial_balance"`
 	JournalIds     []int64   `xmlrpc:"journal_ids"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Sortby         string    `xmlrpc:"sortby"`
 	TargetMove     string    `xmlrpc:"target_move"`
 	WriteDate      time.Time `xmlrpc:"write_date"`
@@ -23,7 +23,6 @@ type AccountReportGeneralLedger struct {
 }
 
 type AccountReportGeneralLedgerNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
@@ -34,6 +33,7 @@ type AccountReportGeneralLedgerNil struct {
 	Id             interface{} `xmlrpc:"id"`
 	InitialBalance bool        `xmlrpc:"initial_balance"`
 	JournalIds     interface{} `xmlrpc:"journal_ids"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Sortby         interface{} `xmlrpc:"sortby"`
 	TargetMove     interface{} `xmlrpc:"target_move"`
 	WriteDate      interface{} `xmlrpc:"write_date"`

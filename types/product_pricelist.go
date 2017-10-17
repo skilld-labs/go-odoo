@@ -5,7 +5,6 @@ import (
 )
 
 type ProductPricelist struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Active          bool      `xmlrpc:"active"`
 	CompanyId       Many2One  `xmlrpc:"company_id"`
 	CountryGroupIds []int64   `xmlrpc:"country_group_ids"`
@@ -16,6 +15,7 @@ type ProductPricelist struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
 	ItemIds         []int64   `xmlrpc:"item_ids"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Name            string    `xmlrpc:"name"`
 	Sequence        int64     `xmlrpc:"sequence"`
 	WriteDate       time.Time `xmlrpc:"write_date"`
@@ -23,7 +23,6 @@ type ProductPricelist struct {
 }
 
 type ProductPricelistNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Active          bool        `xmlrpc:"active"`
 	CompanyId       interface{} `xmlrpc:"company_id"`
 	CountryGroupIds interface{} `xmlrpc:"country_group_ids"`
@@ -34,6 +33,7 @@ type ProductPricelistNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
 	ItemIds         interface{} `xmlrpc:"item_ids"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Name            interface{} `xmlrpc:"name"`
 	Sequence        interface{} `xmlrpc:"sequence"`
 	WriteDate       interface{} `xmlrpc:"write_date"`

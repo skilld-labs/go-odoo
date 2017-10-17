@@ -5,7 +5,6 @@ import (
 )
 
 type StockLocationPath struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Active         bool      `xmlrpc:"active"`
 	Auto           string    `xmlrpc:"auto"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
@@ -14,6 +13,7 @@ type StockLocationPath struct {
 	Delay          int64     `xmlrpc:"delay"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	LocationDestId Many2One  `xmlrpc:"location_dest_id"`
 	LocationFromId Many2One  `xmlrpc:"location_from_id"`
 	Name           string    `xmlrpc:"name"`
@@ -28,7 +28,6 @@ type StockLocationPath struct {
 }
 
 type StockLocationPathNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Active         bool        `xmlrpc:"active"`
 	Auto           interface{} `xmlrpc:"auto"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
@@ -37,6 +36,7 @@ type StockLocationPathNil struct {
 	Delay          interface{} `xmlrpc:"delay"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	LocationDestId interface{} `xmlrpc:"location_dest_id"`
 	LocationFromId interface{} `xmlrpc:"location_from_id"`
 	Name           interface{} `xmlrpc:"name"`

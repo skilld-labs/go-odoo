@@ -5,7 +5,6 @@ import (
 )
 
 type BaseImportImport struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
@@ -13,13 +12,13 @@ type BaseImportImport struct {
 	FileName    string    `xmlrpc:"file_name"`
 	FileType    string    `xmlrpc:"file_type"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ResModel    string    `xmlrpc:"res_model"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
 	WriteUid    Many2One  `xmlrpc:"write_uid"`
 }
 
 type BaseImportImportNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
@@ -27,6 +26,7 @@ type BaseImportImportNil struct {
 	FileName    interface{} `xmlrpc:"file_name"`
 	FileType    interface{} `xmlrpc:"file_type"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ResModel    interface{} `xmlrpc:"res_model"`
 	WriteDate   interface{} `xmlrpc:"write_date"`
 	WriteUid    interface{} `xmlrpc:"write_uid"`

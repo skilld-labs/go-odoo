@@ -5,7 +5,6 @@ import (
 )
 
 type AccountAbstractPayment struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Amount            float64   `xmlrpc:"amount"`
 	Communication     string    `xmlrpc:"communication"`
 	CompanyId         Many2One  `xmlrpc:"company_id"`
@@ -14,6 +13,7 @@ type AccountAbstractPayment struct {
 	HidePaymentMethod bool      `xmlrpc:"hide_payment_method"`
 	Id                int64     `xmlrpc:"id"`
 	JournalId         Many2One  `xmlrpc:"journal_id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	PartnerId         Many2One  `xmlrpc:"partner_id"`
 	PartnerType       string    `xmlrpc:"partner_type"`
 	PaymentDate       time.Time `xmlrpc:"payment_date"`
@@ -23,7 +23,6 @@ type AccountAbstractPayment struct {
 }
 
 type AccountAbstractPaymentNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Amount            interface{} `xmlrpc:"amount"`
 	Communication     interface{} `xmlrpc:"communication"`
 	CompanyId         interface{} `xmlrpc:"company_id"`
@@ -32,6 +31,7 @@ type AccountAbstractPaymentNil struct {
 	HidePaymentMethod bool        `xmlrpc:"hide_payment_method"`
 	Id                interface{} `xmlrpc:"id"`
 	JournalId         interface{} `xmlrpc:"journal_id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	PartnerId         interface{} `xmlrpc:"partner_id"`
 	PartnerType       interface{} `xmlrpc:"partner_type"`
 	PaymentDate       interface{} `xmlrpc:"payment_date"`

@@ -5,7 +5,6 @@ import (
 )
 
 type AccountCommonPartnerReport struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	CompanyId       Many2One  `xmlrpc:"company_id"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
 	CreateUid       Many2One  `xmlrpc:"create_uid"`
@@ -14,6 +13,7 @@ type AccountCommonPartnerReport struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
 	JournalIds      []int64   `xmlrpc:"journal_ids"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	ResultSelection string    `xmlrpc:"result_selection"`
 	TargetMove      string    `xmlrpc:"target_move"`
 	WriteDate       time.Time `xmlrpc:"write_date"`
@@ -21,7 +21,6 @@ type AccountCommonPartnerReport struct {
 }
 
 type AccountCommonPartnerReportNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	CompanyId       interface{} `xmlrpc:"company_id"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
 	CreateUid       interface{} `xmlrpc:"create_uid"`
@@ -30,6 +29,7 @@ type AccountCommonPartnerReportNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
 	JournalIds      interface{} `xmlrpc:"journal_ids"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	ResultSelection interface{} `xmlrpc:"result_selection"`
 	TargetMove      interface{} `xmlrpc:"target_move"`
 	WriteDate       interface{} `xmlrpc:"write_date"`

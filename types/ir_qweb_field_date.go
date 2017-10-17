@@ -5,15 +5,15 @@ import (
 )
 
 type IrQwebFieldDate struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 }
 
 type IrQwebFieldDateNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 }
 
 var IrQwebFieldDateModel string = "ir.qweb.field.date"

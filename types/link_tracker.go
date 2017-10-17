@@ -5,7 +5,6 @@ import (
 )
 
 type LinkTracker struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	CampaignId            Many2One  `xmlrpc:"campaign_id"`
 	Code                  string    `xmlrpc:"code"`
 	Count                 int64     `xmlrpc:"count"`
@@ -15,6 +14,7 @@ type LinkTracker struct {
 	Favicon               string    `xmlrpc:"favicon"`
 	IconSrc               string    `xmlrpc:"icon_src"`
 	Id                    int64     `xmlrpc:"id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	LinkClickIds          []int64   `xmlrpc:"link_click_ids"`
 	LinkCodeIds           []int64   `xmlrpc:"link_code_ids"`
 	MassMailingCampaignId Many2One  `xmlrpc:"mass_mailing_campaign_id"`
@@ -31,7 +31,6 @@ type LinkTracker struct {
 }
 
 type LinkTrackerNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	CampaignId            interface{} `xmlrpc:"campaign_id"`
 	Code                  interface{} `xmlrpc:"code"`
 	Count                 interface{} `xmlrpc:"count"`
@@ -41,6 +40,7 @@ type LinkTrackerNil struct {
 	Favicon               interface{} `xmlrpc:"favicon"`
 	IconSrc               interface{} `xmlrpc:"icon_src"`
 	Id                    interface{} `xmlrpc:"id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	LinkClickIds          interface{} `xmlrpc:"link_click_ids"`
 	LinkCodeIds           interface{} `xmlrpc:"link_code_ids"`
 	MassMailingCampaignId interface{} `xmlrpc:"mass_mailing_campaign_id"`

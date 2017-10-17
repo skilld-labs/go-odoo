@@ -5,7 +5,6 @@ import (
 )
 
 type AccountFiscalPosition struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	AccountIds     []int64   `xmlrpc:"account_ids"`
 	Active         bool      `xmlrpc:"active"`
 	AutoApply      bool      `xmlrpc:"auto_apply"`
@@ -16,6 +15,7 @@ type AccountFiscalPosition struct {
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Name           string    `xmlrpc:"name"`
 	Note           string    `xmlrpc:"note"`
 	Sequence       int64     `xmlrpc:"sequence"`
@@ -30,7 +30,6 @@ type AccountFiscalPosition struct {
 }
 
 type AccountFiscalPositionNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	AccountIds     interface{} `xmlrpc:"account_ids"`
 	Active         bool        `xmlrpc:"active"`
 	AutoApply      bool        `xmlrpc:"auto_apply"`
@@ -41,6 +40,7 @@ type AccountFiscalPositionNil struct {
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Name           interface{} `xmlrpc:"name"`
 	Note           interface{} `xmlrpc:"note"`
 	Sequence       interface{} `xmlrpc:"sequence"`

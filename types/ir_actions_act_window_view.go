@@ -5,12 +5,12 @@ import (
 )
 
 type IrActionsActWindowView struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ActWindowId Many2One  `xmlrpc:"act_window_id"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Multi       bool      `xmlrpc:"multi"`
 	Sequence    int64     `xmlrpc:"sequence"`
 	ViewId      Many2One  `xmlrpc:"view_id"`
@@ -20,12 +20,12 @@ type IrActionsActWindowView struct {
 }
 
 type IrActionsActWindowViewNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ActWindowId interface{} `xmlrpc:"act_window_id"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Multi       bool        `xmlrpc:"multi"`
 	Sequence    interface{} `xmlrpc:"sequence"`
 	ViewId      interface{} `xmlrpc:"view_id"`

@@ -5,13 +5,13 @@ import (
 )
 
 type ProjectTaskType struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	Description    string    `xmlrpc:"description"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Fold           bool      `xmlrpc:"fold"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	LegendBlocked  string    `xmlrpc:"legend_blocked"`
 	LegendDone     string    `xmlrpc:"legend_done"`
 	LegendNormal   string    `xmlrpc:"legend_normal"`
@@ -25,13 +25,13 @@ type ProjectTaskType struct {
 }
 
 type ProjectTaskTypeNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	Description    interface{} `xmlrpc:"description"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Fold           bool        `xmlrpc:"fold"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	LegendBlocked  interface{} `xmlrpc:"legend_blocked"`
 	LegendDone     interface{} `xmlrpc:"legend_done"`
 	LegendNormal   interface{} `xmlrpc:"legend_normal"`

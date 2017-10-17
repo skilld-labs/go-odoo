@@ -5,7 +5,6 @@ import (
 )
 
 type AccountMoveLineReconcileWriteoff struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	AnalyticId    Many2One  `xmlrpc:"analytic_id"`
 	Comment       string    `xmlrpc:"comment"`
 	CreateDate    time.Time `xmlrpc:"create_date"`
@@ -14,13 +13,13 @@ type AccountMoveLineReconcileWriteoff struct {
 	DisplayName   string    `xmlrpc:"display_name"`
 	Id            int64     `xmlrpc:"id"`
 	JournalId     Many2One  `xmlrpc:"journal_id"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
 	WriteoffAccId Many2One  `xmlrpc:"writeoff_acc_id"`
+	WriteUid      Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountMoveLineReconcileWriteoffNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	AnalyticId    interface{} `xmlrpc:"analytic_id"`
 	Comment       interface{} `xmlrpc:"comment"`
 	CreateDate    interface{} `xmlrpc:"create_date"`
@@ -29,9 +28,10 @@ type AccountMoveLineReconcileWriteoffNil struct {
 	DisplayName   interface{} `xmlrpc:"display_name"`
 	Id            interface{} `xmlrpc:"id"`
 	JournalId     interface{} `xmlrpc:"journal_id"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	WriteDate     interface{} `xmlrpc:"write_date"`
-	WriteUid      interface{} `xmlrpc:"write_uid"`
 	WriteoffAccId interface{} `xmlrpc:"writeoff_acc_id"`
+	WriteUid      interface{} `xmlrpc:"write_uid"`
 }
 
 var AccountMoveLineReconcileWriteoffModel string = "account.move.line.reconcile.writeoff"

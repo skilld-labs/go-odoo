@@ -5,12 +5,12 @@ import (
 )
 
 type ResCountryGroup struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	CountryIds   []int64   `xmlrpc:"country_ids"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
 	CreateUid    Many2One  `xmlrpc:"create_uid"`
 	DisplayName  string    `xmlrpc:"display_name"`
 	Id           int64     `xmlrpc:"id"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Name         string    `xmlrpc:"name"`
 	PricelistIds []int64   `xmlrpc:"pricelist_ids"`
 	WriteDate    time.Time `xmlrpc:"write_date"`
@@ -18,12 +18,12 @@ type ResCountryGroup struct {
 }
 
 type ResCountryGroupNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	CountryIds   interface{} `xmlrpc:"country_ids"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
 	CreateUid    interface{} `xmlrpc:"create_uid"`
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	Id           interface{} `xmlrpc:"id"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Name         interface{} `xmlrpc:"name"`
 	PricelistIds interface{} `xmlrpc:"pricelist_ids"`
 	WriteDate    interface{} `xmlrpc:"write_date"`

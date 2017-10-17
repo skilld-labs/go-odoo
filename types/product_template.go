@@ -5,8 +5,13 @@ import (
 )
 
 type ProductTemplate struct {
-	LastUpdate                             time.Time `xmlrpc:"__last_update"`
 	Active                                 bool      `xmlrpc:"active"`
+	ActivityDateDeadline                   time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds                            []int64   `xmlrpc:"activity_ids"`
+	ActivityState                          string    `xmlrpc:"activity_state"`
+	ActivitySummary                        string    `xmlrpc:"activity_summary"`
+	ActivityTypeId                         Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId                         Many2One  `xmlrpc:"activity_user_id"`
 	AttributeLineIds                       []int64   `xmlrpc:"attribute_line_ids"`
 	Barcode                                string    `xmlrpc:"barcode"`
 	CategId                                Many2One  `xmlrpc:"categ_id"`
@@ -19,6 +24,8 @@ type ProductTemplate struct {
 	DefaultCode                            string    `xmlrpc:"default_code"`
 	Description                            string    `xmlrpc:"description"`
 	DescriptionPicking                     string    `xmlrpc:"description_picking"`
+	DescriptionPickingin                   string    `xmlrpc:"description_pickingin"`
+	DescriptionPickingout                  string    `xmlrpc:"description_pickingout"`
 	DescriptionPurchase                    string    `xmlrpc:"description_purchase"`
 	DescriptionSale                        string    `xmlrpc:"description_sale"`
 	DisplayName                            string    `xmlrpc:"display_name"`
@@ -30,6 +37,7 @@ type ProductTemplate struct {
 	IncomingQty                            float64   `xmlrpc:"incoming_qty"`
 	InvoicePolicy                          string    `xmlrpc:"invoice_policy"`
 	ItemIds                                []int64   `xmlrpc:"item_ids"`
+	LastUpdate                             time.Time `xmlrpc:"__last_update"`
 	ListPrice                              float64   `xmlrpc:"list_price"`
 	LocationId                             Many2One  `xmlrpc:"location_id"`
 	LstPrice                               float64   `xmlrpc:"lst_price"`
@@ -60,7 +68,6 @@ type ProductTemplate struct {
 	PropertyStockAccountInput              Many2One  `xmlrpc:"property_stock_account_input"`
 	PropertyStockAccountOutput             Many2One  `xmlrpc:"property_stock_account_output"`
 	PropertyStockInventory                 Many2One  `xmlrpc:"property_stock_inventory"`
-	PropertyStockProcurement               Many2One  `xmlrpc:"property_stock_procurement"`
 	PropertyStockProduction                Many2One  `xmlrpc:"property_stock_production"`
 	PropertyValuation                      string    `xmlrpc:"property_valuation"`
 	PurchaseCount                          int64     `xmlrpc:"purchase_count"`
@@ -72,6 +79,7 @@ type ProductTemplate struct {
 	Rental                                 bool      `xmlrpc:"rental"`
 	ReorderingMaxQty                       float64   `xmlrpc:"reordering_max_qty"`
 	ReorderingMinQty                       float64   `xmlrpc:"reordering_min_qty"`
+	ResponsibleId                          Many2One  `xmlrpc:"responsible_id"`
 	RouteFromCategIds                      []int64   `xmlrpc:"route_from_categ_ids"`
 	RouteIds                               []int64   `xmlrpc:"route_ids"`
 	SaleDelay                              float64   `xmlrpc:"sale_delay"`
@@ -81,27 +89,35 @@ type ProductTemplate struct {
 	SalesCount                             int64     `xmlrpc:"sales_count"`
 	SellerIds                              []int64   `xmlrpc:"seller_ids"`
 	Sequence                               int64     `xmlrpc:"sequence"`
+	ServicePolicy                          string    `xmlrpc:"service_policy"`
+	ServiceTracking                        string    `xmlrpc:"service_tracking"`
+	ServiceType                            string    `xmlrpc:"service_type"`
 	StandardPrice                          float64   `xmlrpc:"standard_price"`
 	SupplierTaxesId                        []int64   `xmlrpc:"supplier_taxes_id"`
 	TaxesId                                []int64   `xmlrpc:"taxes_id"`
-	TrackService                           string    `xmlrpc:"track_service"`
 	Tracking                               string    `xmlrpc:"tracking"`
 	Type                                   string    `xmlrpc:"type"`
 	UomId                                  Many2One  `xmlrpc:"uom_id"`
 	UomPoId                                Many2One  `xmlrpc:"uom_po_id"`
 	Valuation                              string    `xmlrpc:"valuation"`
+	VariantSellerIds                       []int64   `xmlrpc:"variant_seller_ids"`
 	VirtualAvailable                       float64   `xmlrpc:"virtual_available"`
 	Volume                                 float64   `xmlrpc:"volume"`
 	WarehouseId                            Many2One  `xmlrpc:"warehouse_id"`
-	Warranty                               float64   `xmlrpc:"warranty"`
+	WebsiteMessageIds                      []int64   `xmlrpc:"website_message_ids"`
 	Weight                                 float64   `xmlrpc:"weight"`
 	WriteDate                              time.Time `xmlrpc:"write_date"`
 	WriteUid                               Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProductTemplateNil struct {
-	LastUpdate                             interface{} `xmlrpc:"__last_update"`
 	Active                                 bool        `xmlrpc:"active"`
+	ActivityDateDeadline                   interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds                            interface{} `xmlrpc:"activity_ids"`
+	ActivityState                          interface{} `xmlrpc:"activity_state"`
+	ActivitySummary                        interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId                         interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId                         interface{} `xmlrpc:"activity_user_id"`
 	AttributeLineIds                       interface{} `xmlrpc:"attribute_line_ids"`
 	Barcode                                interface{} `xmlrpc:"barcode"`
 	CategId                                interface{} `xmlrpc:"categ_id"`
@@ -114,6 +130,8 @@ type ProductTemplateNil struct {
 	DefaultCode                            interface{} `xmlrpc:"default_code"`
 	Description                            interface{} `xmlrpc:"description"`
 	DescriptionPicking                     interface{} `xmlrpc:"description_picking"`
+	DescriptionPickingin                   interface{} `xmlrpc:"description_pickingin"`
+	DescriptionPickingout                  interface{} `xmlrpc:"description_pickingout"`
 	DescriptionPurchase                    interface{} `xmlrpc:"description_purchase"`
 	DescriptionSale                        interface{} `xmlrpc:"description_sale"`
 	DisplayName                            interface{} `xmlrpc:"display_name"`
@@ -125,6 +143,7 @@ type ProductTemplateNil struct {
 	IncomingQty                            interface{} `xmlrpc:"incoming_qty"`
 	InvoicePolicy                          interface{} `xmlrpc:"invoice_policy"`
 	ItemIds                                interface{} `xmlrpc:"item_ids"`
+	LastUpdate                             interface{} `xmlrpc:"__last_update"`
 	ListPrice                              interface{} `xmlrpc:"list_price"`
 	LocationId                             interface{} `xmlrpc:"location_id"`
 	LstPrice                               interface{} `xmlrpc:"lst_price"`
@@ -155,7 +174,6 @@ type ProductTemplateNil struct {
 	PropertyStockAccountInput              interface{} `xmlrpc:"property_stock_account_input"`
 	PropertyStockAccountOutput             interface{} `xmlrpc:"property_stock_account_output"`
 	PropertyStockInventory                 interface{} `xmlrpc:"property_stock_inventory"`
-	PropertyStockProcurement               interface{} `xmlrpc:"property_stock_procurement"`
 	PropertyStockProduction                interface{} `xmlrpc:"property_stock_production"`
 	PropertyValuation                      interface{} `xmlrpc:"property_valuation"`
 	PurchaseCount                          interface{} `xmlrpc:"purchase_count"`
@@ -167,6 +185,7 @@ type ProductTemplateNil struct {
 	Rental                                 bool        `xmlrpc:"rental"`
 	ReorderingMaxQty                       interface{} `xmlrpc:"reordering_max_qty"`
 	ReorderingMinQty                       interface{} `xmlrpc:"reordering_min_qty"`
+	ResponsibleId                          interface{} `xmlrpc:"responsible_id"`
 	RouteFromCategIds                      interface{} `xmlrpc:"route_from_categ_ids"`
 	RouteIds                               interface{} `xmlrpc:"route_ids"`
 	SaleDelay                              interface{} `xmlrpc:"sale_delay"`
@@ -176,19 +195,22 @@ type ProductTemplateNil struct {
 	SalesCount                             interface{} `xmlrpc:"sales_count"`
 	SellerIds                              interface{} `xmlrpc:"seller_ids"`
 	Sequence                               interface{} `xmlrpc:"sequence"`
+	ServicePolicy                          interface{} `xmlrpc:"service_policy"`
+	ServiceTracking                        interface{} `xmlrpc:"service_tracking"`
+	ServiceType                            interface{} `xmlrpc:"service_type"`
 	StandardPrice                          interface{} `xmlrpc:"standard_price"`
 	SupplierTaxesId                        interface{} `xmlrpc:"supplier_taxes_id"`
 	TaxesId                                interface{} `xmlrpc:"taxes_id"`
-	TrackService                           interface{} `xmlrpc:"track_service"`
 	Tracking                               interface{} `xmlrpc:"tracking"`
 	Type                                   interface{} `xmlrpc:"type"`
 	UomId                                  interface{} `xmlrpc:"uom_id"`
 	UomPoId                                interface{} `xmlrpc:"uom_po_id"`
 	Valuation                              interface{} `xmlrpc:"valuation"`
+	VariantSellerIds                       interface{} `xmlrpc:"variant_seller_ids"`
 	VirtualAvailable                       interface{} `xmlrpc:"virtual_available"`
 	Volume                                 interface{} `xmlrpc:"volume"`
 	WarehouseId                            interface{} `xmlrpc:"warehouse_id"`
-	Warranty                               interface{} `xmlrpc:"warranty"`
+	WebsiteMessageIds                      interface{} `xmlrpc:"website_message_ids"`
 	Weight                                 interface{} `xmlrpc:"weight"`
 	WriteDate                              interface{} `xmlrpc:"write_date"`
 	WriteUid                               interface{} `xmlrpc:"write_uid"`

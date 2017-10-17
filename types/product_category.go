@@ -5,12 +5,13 @@ import (
 )
 
 type ProductCategory struct {
-	LastUpdate                                  time.Time `xmlrpc:"__last_update"`
 	ChildId                                     []int64   `xmlrpc:"child_id"`
+	CompleteName                                string    `xmlrpc:"complete_name"`
 	CreateDate                                  time.Time `xmlrpc:"create_date"`
 	CreateUid                                   Many2One  `xmlrpc:"create_uid"`
 	DisplayName                                 string    `xmlrpc:"display_name"`
 	Id                                          int64     `xmlrpc:"id"`
+	LastUpdate                                  time.Time `xmlrpc:"__last_update"`
 	Name                                        string    `xmlrpc:"name"`
 	ParentId                                    Many2One  `xmlrpc:"parent_id"`
 	ParentLeft                                  int64     `xmlrpc:"parent_left"`
@@ -28,18 +29,18 @@ type ProductCategory struct {
 	RemovalStrategyId                           Many2One  `xmlrpc:"removal_strategy_id"`
 	RouteIds                                    []int64   `xmlrpc:"route_ids"`
 	TotalRouteIds                               []int64   `xmlrpc:"total_route_ids"`
-	Type                                        string    `xmlrpc:"type"`
 	WriteDate                                   time.Time `xmlrpc:"write_date"`
 	WriteUid                                    Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProductCategoryNil struct {
-	LastUpdate                                  interface{} `xmlrpc:"__last_update"`
 	ChildId                                     interface{} `xmlrpc:"child_id"`
+	CompleteName                                interface{} `xmlrpc:"complete_name"`
 	CreateDate                                  interface{} `xmlrpc:"create_date"`
 	CreateUid                                   interface{} `xmlrpc:"create_uid"`
 	DisplayName                                 interface{} `xmlrpc:"display_name"`
 	Id                                          interface{} `xmlrpc:"id"`
+	LastUpdate                                  interface{} `xmlrpc:"__last_update"`
 	Name                                        interface{} `xmlrpc:"name"`
 	ParentId                                    interface{} `xmlrpc:"parent_id"`
 	ParentLeft                                  interface{} `xmlrpc:"parent_left"`
@@ -57,7 +58,6 @@ type ProductCategoryNil struct {
 	RemovalStrategyId                           interface{} `xmlrpc:"removal_strategy_id"`
 	RouteIds                                    interface{} `xmlrpc:"route_ids"`
 	TotalRouteIds                               interface{} `xmlrpc:"total_route_ids"`
-	Type                                        interface{} `xmlrpc:"type"`
 	WriteDate                                   interface{} `xmlrpc:"write_date"`
 	WriteUid                                    interface{} `xmlrpc:"write_uid"`
 }

@@ -5,7 +5,7 @@ import (
 )
 
 type AccountInvoiceReport struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
+	AccountAnalyticId        Many2One  `xmlrpc:"account_analytic_id"`
 	AccountId                Many2One  `xmlrpc:"account_id"`
 	AccountLineId            Many2One  `xmlrpc:"account_line_id"`
 	CategId                  Many2One  `xmlrpc:"categ_id"`
@@ -20,6 +20,7 @@ type AccountInvoiceReport struct {
 	FiscalPositionId         Many2One  `xmlrpc:"fiscal_position_id"`
 	Id                       int64     `xmlrpc:"id"`
 	JournalId                Many2One  `xmlrpc:"journal_id"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	Nbr                      int64     `xmlrpc:"nbr"`
 	PartnerBankId            Many2One  `xmlrpc:"partner_bank_id"`
 	PartnerId                Many2One  `xmlrpc:"partner_id"`
@@ -37,12 +38,10 @@ type AccountInvoiceReport struct {
 	UserCurrencyPriceTotal   float64   `xmlrpc:"user_currency_price_total"`
 	UserCurrencyResidual     float64   `xmlrpc:"user_currency_residual"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
-	Volume                   float64   `xmlrpc:"volume"`
-	Weight                   float64   `xmlrpc:"weight"`
 }
 
 type AccountInvoiceReportNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
+	AccountAnalyticId        interface{} `xmlrpc:"account_analytic_id"`
 	AccountId                interface{} `xmlrpc:"account_id"`
 	AccountLineId            interface{} `xmlrpc:"account_line_id"`
 	CategId                  interface{} `xmlrpc:"categ_id"`
@@ -57,6 +56,7 @@ type AccountInvoiceReportNil struct {
 	FiscalPositionId         interface{} `xmlrpc:"fiscal_position_id"`
 	Id                       interface{} `xmlrpc:"id"`
 	JournalId                interface{} `xmlrpc:"journal_id"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	Nbr                      interface{} `xmlrpc:"nbr"`
 	PartnerBankId            interface{} `xmlrpc:"partner_bank_id"`
 	PartnerId                interface{} `xmlrpc:"partner_id"`
@@ -74,8 +74,6 @@ type AccountInvoiceReportNil struct {
 	UserCurrencyPriceTotal   interface{} `xmlrpc:"user_currency_price_total"`
 	UserCurrencyResidual     interface{} `xmlrpc:"user_currency_residual"`
 	UserId                   interface{} `xmlrpc:"user_id"`
-	Volume                   interface{} `xmlrpc:"volume"`
-	Weight                   interface{} `xmlrpc:"weight"`
 }
 
 var AccountInvoiceReportModel string = "account.invoice.report"

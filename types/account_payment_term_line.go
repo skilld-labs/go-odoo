@@ -5,12 +5,12 @@ import (
 )
 
 type AccountPaymentTermLine struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	Days        int64     `xmlrpc:"days"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Option      string    `xmlrpc:"option"`
 	PaymentId   Many2One  `xmlrpc:"payment_id"`
 	Sequence    int64     `xmlrpc:"sequence"`
@@ -21,12 +21,12 @@ type AccountPaymentTermLine struct {
 }
 
 type AccountPaymentTermLineNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	Days        interface{} `xmlrpc:"days"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Option      interface{} `xmlrpc:"option"`
 	PaymentId   interface{} `xmlrpc:"payment_id"`
 	Sequence    interface{} `xmlrpc:"sequence"`

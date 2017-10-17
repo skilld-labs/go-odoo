@@ -5,10 +5,14 @@ import (
 )
 
 type ResUsers struct {
-	LastUpdate                    time.Time `xmlrpc:"__last_update"`
 	ActionId                      Many2One  `xmlrpc:"action_id"`
 	Active                        bool      `xmlrpc:"active"`
-	ActivitiesCount               int64     `xmlrpc:"activities_count"`
+	ActivityDateDeadline          time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds                   []int64   `xmlrpc:"activity_ids"`
+	ActivityState                 string    `xmlrpc:"activity_state"`
+	ActivitySummary               string    `xmlrpc:"activity_summary"`
+	ActivityTypeId                Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId                Many2One  `xmlrpc:"activity_user_id"`
 	AliasContact                  string    `xmlrpc:"alias_contact"`
 	AliasId                       Many2One  `xmlrpc:"alias_id"`
 	BankAccountCount              int64     `xmlrpc:"bank_account_count"`
@@ -22,6 +26,7 @@ type ResUsers struct {
 	Color                         int64     `xmlrpc:"color"`
 	Comment                       string    `xmlrpc:"comment"`
 	CommercialCompanyName         string    `xmlrpc:"commercial_company_name"`
+	CommercialPartnerCountryId    Many2One  `xmlrpc:"commercial_partner_country_id"`
 	CommercialPartnerId           Many2One  `xmlrpc:"commercial_partner_id"`
 	CompaniesCount                int64     `xmlrpc:"companies_count"`
 	CompanyId                     Many2One  `xmlrpc:"company_id"`
@@ -46,23 +51,23 @@ type ResUsers struct {
 	EmailFormatted                string    `xmlrpc:"email_formatted"`
 	Employee                      bool      `xmlrpc:"employee"`
 	EmployeeIds                   []int64   `xmlrpc:"employee_ids"`
-	Fax                           string    `xmlrpc:"fax"`
 	Function                      string    `xmlrpc:"function"`
 	GroupsId                      []int64   `xmlrpc:"groups_id"`
 	HasUnreconciledEntries        bool      `xmlrpc:"has_unreconciled_entries"`
 	Id                            int64     `xmlrpc:"id"`
-	ImStatus                      string    `xmlrpc:"im_status"`
 	Image                         string    `xmlrpc:"image"`
 	ImageMedium                   string    `xmlrpc:"image_medium"`
 	ImageSmall                    string    `xmlrpc:"image_small"`
+	ImStatus                      string    `xmlrpc:"im_status"`
+	IndustryId                    Many2One  `xmlrpc:"industry_id"`
 	InvoiceIds                    []int64   `xmlrpc:"invoice_ids"`
 	InvoiceWarn                   string    `xmlrpc:"invoice_warn"`
 	InvoiceWarnMsg                string    `xmlrpc:"invoice_warn_msg"`
 	IsCompany                     bool      `xmlrpc:"is_company"`
-	IssuedTotal                   float64   `xmlrpc:"issued_total"`
 	JournalItemCount              int64     `xmlrpc:"journal_item_count"`
 	Lang                          string    `xmlrpc:"lang"`
 	LastTimeEntriesChecked        time.Time `xmlrpc:"last_time_entries_checked"`
+	LastUpdate                    time.Time `xmlrpc:"__last_update"`
 	LogIds                        []int64   `xmlrpc:"log_ids"`
 	Login                         string    `xmlrpc:"login"`
 	LoginDate                     time.Time `xmlrpc:"login_date"`
@@ -85,7 +90,7 @@ type ResUsers struct {
 	Mobile                        string    `xmlrpc:"mobile"`
 	Name                          string    `xmlrpc:"name"`
 	NewPassword                   string    `xmlrpc:"new_password"`
-	NotifyEmail                   string    `xmlrpc:"notify_email"`
+	NotificationType              string    `xmlrpc:"notification_type"`
 	OpportunityCount              int64     `xmlrpc:"opportunity_count"`
 	OpportunityIds                []int64   `xmlrpc:"opportunity_ids"`
 	OptOut                        bool      `xmlrpc:"opt_out"`
@@ -115,6 +120,8 @@ type ResUsers struct {
 	PurchaseWarnMsg               string    `xmlrpc:"purchase_warn_msg"`
 	Ref                           string    `xmlrpc:"ref"`
 	RefCompanyIds                 []int64   `xmlrpc:"ref_company_ids"`
+	ResourceCalendarId            Many2One  `xmlrpc:"resource_calendar_id"`
+	ResourceIds                   []int64   `xmlrpc:"resource_ids"`
 	SaleOrderCount                int64     `xmlrpc:"sale_order_count"`
 	SaleOrderIds                  []int64   `xmlrpc:"sale_order_ids"`
 	SaleTeamId                    Many2One  `xmlrpc:"sale_team_id"`
@@ -128,6 +135,7 @@ type ResUsers struct {
 	SignupType                    string    `xmlrpc:"signup_type"`
 	SignupUrl                     string    `xmlrpc:"signup_url"`
 	SignupValid                   bool      `xmlrpc:"signup_valid"`
+	Siret                         string    `xmlrpc:"siret"`
 	State                         string    `xmlrpc:"state"`
 	StateId                       Many2One  `xmlrpc:"state_id"`
 	Street                        string    `xmlrpc:"street"`
@@ -150,16 +158,21 @@ type ResUsers struct {
 	UserIds                       []int64   `xmlrpc:"user_ids"`
 	Vat                           string    `xmlrpc:"vat"`
 	Website                       string    `xmlrpc:"website"`
+	WebsiteMessageIds             []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                     time.Time `xmlrpc:"write_date"`
 	WriteUid                      Many2One  `xmlrpc:"write_uid"`
 	Zip                           string    `xmlrpc:"zip"`
 }
 
 type ResUsersNil struct {
-	LastUpdate                    interface{} `xmlrpc:"__last_update"`
 	ActionId                      interface{} `xmlrpc:"action_id"`
 	Active                        bool        `xmlrpc:"active"`
-	ActivitiesCount               interface{} `xmlrpc:"activities_count"`
+	ActivityDateDeadline          interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds                   interface{} `xmlrpc:"activity_ids"`
+	ActivityState                 interface{} `xmlrpc:"activity_state"`
+	ActivitySummary               interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId                interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId                interface{} `xmlrpc:"activity_user_id"`
 	AliasContact                  interface{} `xmlrpc:"alias_contact"`
 	AliasId                       interface{} `xmlrpc:"alias_id"`
 	BankAccountCount              interface{} `xmlrpc:"bank_account_count"`
@@ -173,6 +186,7 @@ type ResUsersNil struct {
 	Color                         interface{} `xmlrpc:"color"`
 	Comment                       interface{} `xmlrpc:"comment"`
 	CommercialCompanyName         interface{} `xmlrpc:"commercial_company_name"`
+	CommercialPartnerCountryId    interface{} `xmlrpc:"commercial_partner_country_id"`
 	CommercialPartnerId           interface{} `xmlrpc:"commercial_partner_id"`
 	CompaniesCount                interface{} `xmlrpc:"companies_count"`
 	CompanyId                     interface{} `xmlrpc:"company_id"`
@@ -197,23 +211,23 @@ type ResUsersNil struct {
 	EmailFormatted                interface{} `xmlrpc:"email_formatted"`
 	Employee                      bool        `xmlrpc:"employee"`
 	EmployeeIds                   interface{} `xmlrpc:"employee_ids"`
-	Fax                           interface{} `xmlrpc:"fax"`
 	Function                      interface{} `xmlrpc:"function"`
 	GroupsId                      interface{} `xmlrpc:"groups_id"`
 	HasUnreconciledEntries        bool        `xmlrpc:"has_unreconciled_entries"`
 	Id                            interface{} `xmlrpc:"id"`
-	ImStatus                      interface{} `xmlrpc:"im_status"`
 	Image                         interface{} `xmlrpc:"image"`
 	ImageMedium                   interface{} `xmlrpc:"image_medium"`
 	ImageSmall                    interface{} `xmlrpc:"image_small"`
+	ImStatus                      interface{} `xmlrpc:"im_status"`
+	IndustryId                    interface{} `xmlrpc:"industry_id"`
 	InvoiceIds                    interface{} `xmlrpc:"invoice_ids"`
 	InvoiceWarn                   interface{} `xmlrpc:"invoice_warn"`
 	InvoiceWarnMsg                interface{} `xmlrpc:"invoice_warn_msg"`
 	IsCompany                     bool        `xmlrpc:"is_company"`
-	IssuedTotal                   interface{} `xmlrpc:"issued_total"`
 	JournalItemCount              interface{} `xmlrpc:"journal_item_count"`
 	Lang                          interface{} `xmlrpc:"lang"`
 	LastTimeEntriesChecked        interface{} `xmlrpc:"last_time_entries_checked"`
+	LastUpdate                    interface{} `xmlrpc:"__last_update"`
 	LogIds                        interface{} `xmlrpc:"log_ids"`
 	Login                         interface{} `xmlrpc:"login"`
 	LoginDate                     interface{} `xmlrpc:"login_date"`
@@ -236,7 +250,7 @@ type ResUsersNil struct {
 	Mobile                        interface{} `xmlrpc:"mobile"`
 	Name                          interface{} `xmlrpc:"name"`
 	NewPassword                   interface{} `xmlrpc:"new_password"`
-	NotifyEmail                   interface{} `xmlrpc:"notify_email"`
+	NotificationType              interface{} `xmlrpc:"notification_type"`
 	OpportunityCount              interface{} `xmlrpc:"opportunity_count"`
 	OpportunityIds                interface{} `xmlrpc:"opportunity_ids"`
 	OptOut                        bool        `xmlrpc:"opt_out"`
@@ -266,6 +280,8 @@ type ResUsersNil struct {
 	PurchaseWarnMsg               interface{} `xmlrpc:"purchase_warn_msg"`
 	Ref                           interface{} `xmlrpc:"ref"`
 	RefCompanyIds                 interface{} `xmlrpc:"ref_company_ids"`
+	ResourceCalendarId            interface{} `xmlrpc:"resource_calendar_id"`
+	ResourceIds                   interface{} `xmlrpc:"resource_ids"`
 	SaleOrderCount                interface{} `xmlrpc:"sale_order_count"`
 	SaleOrderIds                  interface{} `xmlrpc:"sale_order_ids"`
 	SaleTeamId                    interface{} `xmlrpc:"sale_team_id"`
@@ -279,6 +295,7 @@ type ResUsersNil struct {
 	SignupType                    interface{} `xmlrpc:"signup_type"`
 	SignupUrl                     interface{} `xmlrpc:"signup_url"`
 	SignupValid                   bool        `xmlrpc:"signup_valid"`
+	Siret                         interface{} `xmlrpc:"siret"`
 	State                         interface{} `xmlrpc:"state"`
 	StateId                       interface{} `xmlrpc:"state_id"`
 	Street                        interface{} `xmlrpc:"street"`
@@ -301,6 +318,7 @@ type ResUsersNil struct {
 	UserIds                       interface{} `xmlrpc:"user_ids"`
 	Vat                           interface{} `xmlrpc:"vat"`
 	Website                       interface{} `xmlrpc:"website"`
+	WebsiteMessageIds             interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                     interface{} `xmlrpc:"write_date"`
 	WriteUid                      interface{} `xmlrpc:"write_uid"`
 	Zip                           interface{} `xmlrpc:"zip"`

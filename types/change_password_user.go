@@ -5,11 +5,11 @@ import (
 )
 
 type ChangePasswordUser struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	NewPasswd   string    `xmlrpc:"new_passwd"`
 	UserId      Many2One  `xmlrpc:"user_id"`
 	UserLogin   string    `xmlrpc:"user_login"`
@@ -19,11 +19,11 @@ type ChangePasswordUser struct {
 }
 
 type ChangePasswordUserNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	NewPasswd   interface{} `xmlrpc:"new_passwd"`
 	UserId      interface{} `xmlrpc:"user_id"`
 	UserLogin   interface{} `xmlrpc:"user_login"`

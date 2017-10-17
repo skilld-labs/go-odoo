@@ -5,7 +5,6 @@ import (
 )
 
 type AccountReportPartnerLedger struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	AmountCurrency  bool      `xmlrpc:"amount_currency"`
 	CompanyId       Many2One  `xmlrpc:"company_id"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
@@ -15,6 +14,7 @@ type AccountReportPartnerLedger struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
 	JournalIds      []int64   `xmlrpc:"journal_ids"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Reconciled      bool      `xmlrpc:"reconciled"`
 	ResultSelection string    `xmlrpc:"result_selection"`
 	TargetMove      string    `xmlrpc:"target_move"`
@@ -23,7 +23,6 @@ type AccountReportPartnerLedger struct {
 }
 
 type AccountReportPartnerLedgerNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	AmountCurrency  bool        `xmlrpc:"amount_currency"`
 	CompanyId       interface{} `xmlrpc:"company_id"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
@@ -33,6 +32,7 @@ type AccountReportPartnerLedgerNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
 	JournalIds      interface{} `xmlrpc:"journal_ids"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Reconciled      bool        `xmlrpc:"reconciled"`
 	ResultSelection interface{} `xmlrpc:"result_selection"`
 	TargetMove      interface{} `xmlrpc:"target_move"`

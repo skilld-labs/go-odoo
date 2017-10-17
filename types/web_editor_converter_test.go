@@ -5,7 +5,6 @@ import (
 )
 
 type WebEditorConverterTest struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Binary       string    `xmlrpc:"binary"`
 	Char         string    `xmlrpc:"char"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
@@ -17,6 +16,7 @@ type WebEditorConverterTest struct {
 	Html         string    `xmlrpc:"html"`
 	Id           int64     `xmlrpc:"id"`
 	Integer      int64     `xmlrpc:"integer"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Many2one     Many2One  `xmlrpc:"many2one"`
 	Numeric      float64   `xmlrpc:"numeric"`
 	Selection    string    `xmlrpc:"selection"`
@@ -27,7 +27,6 @@ type WebEditorConverterTest struct {
 }
 
 type WebEditorConverterTestNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Binary       interface{} `xmlrpc:"binary"`
 	Char         interface{} `xmlrpc:"char"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
@@ -39,6 +38,7 @@ type WebEditorConverterTestNil struct {
 	Html         interface{} `xmlrpc:"html"`
 	Id           interface{} `xmlrpc:"id"`
 	Integer      interface{} `xmlrpc:"integer"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Many2one     interface{} `xmlrpc:"many2one"`
 	Numeric      interface{} `xmlrpc:"numeric"`
 	Selection    interface{} `xmlrpc:"selection"`

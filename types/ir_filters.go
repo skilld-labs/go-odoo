@@ -5,7 +5,6 @@ import (
 )
 
 type IrFilters struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ActionId    Many2One  `xmlrpc:"action_id"`
 	Active      bool      `xmlrpc:"active"`
 	Context     string    `xmlrpc:"context"`
@@ -15,6 +14,7 @@ type IrFilters struct {
 	Domain      string    `xmlrpc:"domain"`
 	Id          int64     `xmlrpc:"id"`
 	IsDefault   bool      `xmlrpc:"is_default"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ModelId     string    `xmlrpc:"model_id"`
 	Name        string    `xmlrpc:"name"`
 	Sort        string    `xmlrpc:"sort"`
@@ -24,7 +24,6 @@ type IrFilters struct {
 }
 
 type IrFiltersNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ActionId    interface{} `xmlrpc:"action_id"`
 	Active      bool        `xmlrpc:"active"`
 	Context     interface{} `xmlrpc:"context"`
@@ -34,6 +33,7 @@ type IrFiltersNil struct {
 	Domain      interface{} `xmlrpc:"domain"`
 	Id          interface{} `xmlrpc:"id"`
 	IsDefault   bool        `xmlrpc:"is_default"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ModelId     interface{} `xmlrpc:"model_id"`
 	Name        interface{} `xmlrpc:"name"`
 	Sort        interface{} `xmlrpc:"sort"`

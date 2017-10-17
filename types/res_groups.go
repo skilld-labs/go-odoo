@@ -5,7 +5,6 @@ import (
 )
 
 type ResGroups struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	CategoryId      Many2One  `xmlrpc:"category_id"`
 	Color           int64     `xmlrpc:"color"`
 	Comment         string    `xmlrpc:"comment"`
@@ -16,6 +15,7 @@ type ResGroups struct {
 	Id              int64     `xmlrpc:"id"`
 	ImpliedIds      []int64   `xmlrpc:"implied_ids"`
 	IsPortal        bool      `xmlrpc:"is_portal"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	MenuAccess      []int64   `xmlrpc:"menu_access"`
 	ModelAccess     []int64   `xmlrpc:"model_access"`
 	Name            string    `xmlrpc:"name"`
@@ -29,7 +29,6 @@ type ResGroups struct {
 }
 
 type ResGroupsNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	CategoryId      interface{} `xmlrpc:"category_id"`
 	Color           interface{} `xmlrpc:"color"`
 	Comment         interface{} `xmlrpc:"comment"`
@@ -40,6 +39,7 @@ type ResGroupsNil struct {
 	Id              interface{} `xmlrpc:"id"`
 	ImpliedIds      interface{} `xmlrpc:"implied_ids"`
 	IsPortal        bool        `xmlrpc:"is_portal"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	MenuAccess      interface{} `xmlrpc:"menu_access"`
 	ModelAccess     interface{} `xmlrpc:"model_access"`
 	Name            interface{} `xmlrpc:"name"`

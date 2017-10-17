@@ -5,8 +5,13 @@ import (
 )
 
 type CrmLead struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	Active                   bool      `xmlrpc:"active"`
+	ActivityDateDeadline     time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds              []int64   `xmlrpc:"activity_ids"`
+	ActivityState            string    `xmlrpc:"activity_state"`
+	ActivitySummary          string    `xmlrpc:"activity_summary"`
+	ActivityTypeId           Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId           Many2One  `xmlrpc:"activity_user_id"`
 	CampaignId               Many2One  `xmlrpc:"campaign_id"`
 	City                     string    `xmlrpc:"city"`
 	Color                    int64     `xmlrpc:"color"`
@@ -16,9 +21,7 @@ type CrmLead struct {
 	CountryId                Many2One  `xmlrpc:"country_id"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
-	DateAction               time.Time `xmlrpc:"date_action"`
 	DateActionLast           time.Time `xmlrpc:"date_action_last"`
-	DateActionNext           time.Time `xmlrpc:"date_action_next"`
 	DateClosed               time.Time `xmlrpc:"date_closed"`
 	DateConversion           time.Time `xmlrpc:"date_conversion"`
 	DateDeadline             time.Time `xmlrpc:"date_deadline"`
@@ -30,10 +33,10 @@ type CrmLead struct {
 	DisplayName              string    `xmlrpc:"display_name"`
 	EmailCc                  string    `xmlrpc:"email_cc"`
 	EmailFrom                string    `xmlrpc:"email_from"`
-	Fax                      string    `xmlrpc:"fax"`
 	Function                 string    `xmlrpc:"function"`
 	Id                       int64     `xmlrpc:"id"`
 	KanbanState              string    `xmlrpc:"kanban_state"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LostReason               Many2One  `xmlrpc:"lost_reason"`
 	MachineLeadName          string    `xmlrpc:"machine_lead_name"`
 	MediumId                 Many2One  `xmlrpc:"medium_id"`
@@ -51,7 +54,6 @@ type CrmLead struct {
 	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
 	Mobile                   string    `xmlrpc:"mobile"`
 	Name                     string    `xmlrpc:"name"`
-	NextActivityId           Many2One  `xmlrpc:"next_activity_id"`
 	OptOut                   bool      `xmlrpc:"opt_out"`
 	OrderIds                 []int64   `xmlrpc:"order_ids"`
 	PartnerAddressEmail      string    `xmlrpc:"partner_address_email"`
@@ -73,19 +75,25 @@ type CrmLead struct {
 	TagIds                   []int64   `xmlrpc:"tag_ids"`
 	TeamId                   Many2One  `xmlrpc:"team_id"`
 	Title                    Many2One  `xmlrpc:"title"`
-	TitleAction              string    `xmlrpc:"title_action"`
 	Type                     string    `xmlrpc:"type"`
 	UserEmail                string    `xmlrpc:"user_email"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
 	UserLogin                string    `xmlrpc:"user_login"`
+	Website                  string    `xmlrpc:"website"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 	Zip                      string    `xmlrpc:"zip"`
 }
 
 type CrmLeadNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	Active                   bool        `xmlrpc:"active"`
+	ActivityDateDeadline     interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds              interface{} `xmlrpc:"activity_ids"`
+	ActivityState            interface{} `xmlrpc:"activity_state"`
+	ActivitySummary          interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId           interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId           interface{} `xmlrpc:"activity_user_id"`
 	CampaignId               interface{} `xmlrpc:"campaign_id"`
 	City                     interface{} `xmlrpc:"city"`
 	Color                    interface{} `xmlrpc:"color"`
@@ -95,9 +103,7 @@ type CrmLeadNil struct {
 	CountryId                interface{} `xmlrpc:"country_id"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
-	DateAction               interface{} `xmlrpc:"date_action"`
 	DateActionLast           interface{} `xmlrpc:"date_action_last"`
-	DateActionNext           interface{} `xmlrpc:"date_action_next"`
 	DateClosed               interface{} `xmlrpc:"date_closed"`
 	DateConversion           interface{} `xmlrpc:"date_conversion"`
 	DateDeadline             interface{} `xmlrpc:"date_deadline"`
@@ -109,10 +115,10 @@ type CrmLeadNil struct {
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	EmailCc                  interface{} `xmlrpc:"email_cc"`
 	EmailFrom                interface{} `xmlrpc:"email_from"`
-	Fax                      interface{} `xmlrpc:"fax"`
 	Function                 interface{} `xmlrpc:"function"`
 	Id                       interface{} `xmlrpc:"id"`
 	KanbanState              interface{} `xmlrpc:"kanban_state"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LostReason               interface{} `xmlrpc:"lost_reason"`
 	MachineLeadName          interface{} `xmlrpc:"machine_lead_name"`
 	MediumId                 interface{} `xmlrpc:"medium_id"`
@@ -130,7 +136,6 @@ type CrmLeadNil struct {
 	MessageUnreadCounter     interface{} `xmlrpc:"message_unread_counter"`
 	Mobile                   interface{} `xmlrpc:"mobile"`
 	Name                     interface{} `xmlrpc:"name"`
-	NextActivityId           interface{} `xmlrpc:"next_activity_id"`
 	OptOut                   bool        `xmlrpc:"opt_out"`
 	OrderIds                 interface{} `xmlrpc:"order_ids"`
 	PartnerAddressEmail      interface{} `xmlrpc:"partner_address_email"`
@@ -152,11 +157,12 @@ type CrmLeadNil struct {
 	TagIds                   interface{} `xmlrpc:"tag_ids"`
 	TeamId                   interface{} `xmlrpc:"team_id"`
 	Title                    interface{} `xmlrpc:"title"`
-	TitleAction              interface{} `xmlrpc:"title_action"`
 	Type                     interface{} `xmlrpc:"type"`
 	UserEmail                interface{} `xmlrpc:"user_email"`
 	UserId                   interface{} `xmlrpc:"user_id"`
 	UserLogin                interface{} `xmlrpc:"user_login"`
+	Website                  interface{} `xmlrpc:"website"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 	Zip                      interface{} `xmlrpc:"zip"`

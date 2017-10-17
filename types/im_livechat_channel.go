@@ -5,7 +5,6 @@ import (
 )
 
 type ImLivechatChannel struct {
-	LastUpdate                   time.Time `xmlrpc:"__last_update"`
 	AreYouInside                 bool      `xmlrpc:"are_you_inside"`
 	ButtonText                   string    `xmlrpc:"button_text"`
 	ChannelIds                   []int64   `xmlrpc:"channel_ids"`
@@ -18,6 +17,7 @@ type ImLivechatChannel struct {
 	ImageMedium                  string    `xmlrpc:"image_medium"`
 	ImageSmall                   string    `xmlrpc:"image_small"`
 	InputPlaceholder             string    `xmlrpc:"input_placeholder"`
+	LastUpdate                   time.Time `xmlrpc:"__last_update"`
 	Name                         string    `xmlrpc:"name"`
 	NbrChannel                   int64     `xmlrpc:"nbr_channel"`
 	RatingPercentageSatisfaction int64     `xmlrpc:"rating_percentage_satisfaction"`
@@ -30,7 +30,6 @@ type ImLivechatChannel struct {
 }
 
 type ImLivechatChannelNil struct {
-	LastUpdate                   interface{} `xmlrpc:"__last_update"`
 	AreYouInside                 bool        `xmlrpc:"are_you_inside"`
 	ButtonText                   interface{} `xmlrpc:"button_text"`
 	ChannelIds                   interface{} `xmlrpc:"channel_ids"`
@@ -43,6 +42,7 @@ type ImLivechatChannelNil struct {
 	ImageMedium                  interface{} `xmlrpc:"image_medium"`
 	ImageSmall                   interface{} `xmlrpc:"image_small"`
 	InputPlaceholder             interface{} `xmlrpc:"input_placeholder"`
+	LastUpdate                   interface{} `xmlrpc:"__last_update"`
 	Name                         interface{} `xmlrpc:"name"`
 	NbrChannel                   interface{} `xmlrpc:"nbr_channel"`
 	RatingPercentageSatisfaction interface{} `xmlrpc:"rating_percentage_satisfaction"`

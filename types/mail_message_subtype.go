@@ -5,7 +5,6 @@ import (
 )
 
 type MailMessageSubtype struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	CreateDate    time.Time `xmlrpc:"create_date"`
 	CreateUid     Many2One  `xmlrpc:"create_uid"`
 	Default       bool      `xmlrpc:"default"`
@@ -14,6 +13,7 @@ type MailMessageSubtype struct {
 	Hidden        bool      `xmlrpc:"hidden"`
 	Id            int64     `xmlrpc:"id"`
 	Internal      bool      `xmlrpc:"internal"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	Name          string    `xmlrpc:"name"`
 	ParentId      Many2One  `xmlrpc:"parent_id"`
 	RelationField string    `xmlrpc:"relation_field"`
@@ -24,7 +24,6 @@ type MailMessageSubtype struct {
 }
 
 type MailMessageSubtypeNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	CreateDate    interface{} `xmlrpc:"create_date"`
 	CreateUid     interface{} `xmlrpc:"create_uid"`
 	Default       bool        `xmlrpc:"default"`
@@ -33,6 +32,7 @@ type MailMessageSubtypeNil struct {
 	Hidden        bool        `xmlrpc:"hidden"`
 	Id            interface{} `xmlrpc:"id"`
 	Internal      bool        `xmlrpc:"internal"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	Name          interface{} `xmlrpc:"name"`
 	ParentId      interface{} `xmlrpc:"parent_id"`
 	RelationField interface{} `xmlrpc:"relation_field"`

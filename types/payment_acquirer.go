@@ -5,10 +5,11 @@ import (
 )
 
 type PaymentAcquirer struct {
-	LastUpdate                 time.Time `xmlrpc:"__last_update"`
-	AutoConfirm                string    `xmlrpc:"auto_confirm"`
+	AuthorizeImplemented       bool      `xmlrpc:"authorize_implemented"`
 	CancelMsg                  string    `xmlrpc:"cancel_msg"`
+	CaptureManually            bool      `xmlrpc:"capture_manually"`
 	CompanyId                  Many2One  `xmlrpc:"company_id"`
+	CountryIds                 []int64   `xmlrpc:"country_ids"`
 	CreateDate                 time.Time `xmlrpc:"create_date"`
 	CreateUid                  Many2One  `xmlrpc:"create_uid"`
 	Description                string    `xmlrpc:"description"`
@@ -27,9 +28,12 @@ type PaymentAcquirer struct {
 	ImageMedium                string    `xmlrpc:"image_medium"`
 	ImageSmall                 string    `xmlrpc:"image_small"`
 	JournalId                  Many2One  `xmlrpc:"journal_id"`
+	LastUpdate                 time.Time `xmlrpc:"__last_update"`
 	ModuleId                   Many2One  `xmlrpc:"module_id"`
 	ModuleState                string    `xmlrpc:"module_state"`
 	Name                       string    `xmlrpc:"name"`
+	PaymentFlow                string    `xmlrpc:"payment_flow"`
+	PaymentIconIds             []int64   `xmlrpc:"payment_icon_ids"`
 	PendingMsg                 string    `xmlrpc:"pending_msg"`
 	PostMsg                    string    `xmlrpc:"post_msg"`
 	PreMsg                     string    `xmlrpc:"pre_msg"`
@@ -37,6 +41,7 @@ type PaymentAcquirer struct {
 	RegistrationViewTemplateId Many2One  `xmlrpc:"registration_view_template_id"`
 	SaveToken                  string    `xmlrpc:"save_token"`
 	Sequence                   int64     `xmlrpc:"sequence"`
+	SpecificCountries          bool      `xmlrpc:"specific_countries"`
 	TokenImplemented           bool      `xmlrpc:"token_implemented"`
 	ViewTemplateId             Many2One  `xmlrpc:"view_template_id"`
 	WebsitePublished           bool      `xmlrpc:"website_published"`
@@ -45,10 +50,11 @@ type PaymentAcquirer struct {
 }
 
 type PaymentAcquirerNil struct {
-	LastUpdate                 interface{} `xmlrpc:"__last_update"`
-	AutoConfirm                interface{} `xmlrpc:"auto_confirm"`
+	AuthorizeImplemented       bool        `xmlrpc:"authorize_implemented"`
 	CancelMsg                  interface{} `xmlrpc:"cancel_msg"`
+	CaptureManually            bool        `xmlrpc:"capture_manually"`
 	CompanyId                  interface{} `xmlrpc:"company_id"`
+	CountryIds                 interface{} `xmlrpc:"country_ids"`
 	CreateDate                 interface{} `xmlrpc:"create_date"`
 	CreateUid                  interface{} `xmlrpc:"create_uid"`
 	Description                interface{} `xmlrpc:"description"`
@@ -67,9 +73,12 @@ type PaymentAcquirerNil struct {
 	ImageMedium                interface{} `xmlrpc:"image_medium"`
 	ImageSmall                 interface{} `xmlrpc:"image_small"`
 	JournalId                  interface{} `xmlrpc:"journal_id"`
+	LastUpdate                 interface{} `xmlrpc:"__last_update"`
 	ModuleId                   interface{} `xmlrpc:"module_id"`
 	ModuleState                interface{} `xmlrpc:"module_state"`
 	Name                       interface{} `xmlrpc:"name"`
+	PaymentFlow                interface{} `xmlrpc:"payment_flow"`
+	PaymentIconIds             interface{} `xmlrpc:"payment_icon_ids"`
 	PendingMsg                 interface{} `xmlrpc:"pending_msg"`
 	PostMsg                    interface{} `xmlrpc:"post_msg"`
 	PreMsg                     interface{} `xmlrpc:"pre_msg"`
@@ -77,6 +86,7 @@ type PaymentAcquirerNil struct {
 	RegistrationViewTemplateId interface{} `xmlrpc:"registration_view_template_id"`
 	SaveToken                  interface{} `xmlrpc:"save_token"`
 	Sequence                   interface{} `xmlrpc:"sequence"`
+	SpecificCountries          bool        `xmlrpc:"specific_countries"`
 	TokenImplemented           bool        `xmlrpc:"token_implemented"`
 	ViewTemplateId             interface{} `xmlrpc:"view_template_id"`
 	WebsitePublished           bool        `xmlrpc:"website_published"`

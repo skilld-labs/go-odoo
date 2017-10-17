@@ -5,7 +5,6 @@ import (
 )
 
 type MailTrackingValue struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
 	DisplayName      string    `xmlrpc:"display_name"`
@@ -13,6 +12,7 @@ type MailTrackingValue struct {
 	FieldDesc        string    `xmlrpc:"field_desc"`
 	FieldType        string    `xmlrpc:"field_type"`
 	Id               int64     `xmlrpc:"id"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	MailMessageId    Many2One  `xmlrpc:"mail_message_id"`
 	NewValueChar     string    `xmlrpc:"new_value_char"`
 	NewValueDatetime time.Time `xmlrpc:"new_value_datetime"`
@@ -31,7 +31,6 @@ type MailTrackingValue struct {
 }
 
 type MailTrackingValueNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
@@ -39,6 +38,7 @@ type MailTrackingValueNil struct {
 	FieldDesc        interface{} `xmlrpc:"field_desc"`
 	FieldType        interface{} `xmlrpc:"field_type"`
 	Id               interface{} `xmlrpc:"id"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	MailMessageId    interface{} `xmlrpc:"mail_message_id"`
 	NewValueChar     interface{} `xmlrpc:"new_value_char"`
 	NewValueDatetime interface{} `xmlrpc:"new_value_datetime"`

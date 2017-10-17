@@ -5,10 +5,17 @@ import (
 )
 
 type SaleOrder struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
+	AccessToken              string    `xmlrpc:"access_token"`
+	ActivityDateDeadline     time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds              []int64   `xmlrpc:"activity_ids"`
+	ActivityState            string    `xmlrpc:"activity_state"`
+	ActivitySummary          string    `xmlrpc:"activity_summary"`
+	ActivityTypeId           Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId           Many2One  `xmlrpc:"activity_user_id"`
 	AmountTax                float64   `xmlrpc:"amount_tax"`
 	AmountTotal              float64   `xmlrpc:"amount_total"`
 	AmountUntaxed            float64   `xmlrpc:"amount_untaxed"`
+	AnalyticAccountId        Many2One  `xmlrpc:"analytic_account_id"`
 	AutosalesConfigId        Many2One  `xmlrpc:"autosales_config_id"`
 	CampaignId               Many2One  `xmlrpc:"campaign_id"`
 	ClientOrderRef           string    `xmlrpc:"client_order_ref"`
@@ -26,6 +33,8 @@ type SaleOrder struct {
 	InvoiceCount             int64     `xmlrpc:"invoice_count"`
 	InvoiceIds               []int64   `xmlrpc:"invoice_ids"`
 	InvoiceStatus            string    `xmlrpc:"invoice_status"`
+	IsExpired                bool      `xmlrpc:"is_expired"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	MediumId                 Many2One  `xmlrpc:"medium_id"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
@@ -48,12 +57,12 @@ type SaleOrder struct {
 	PaymentTermId            Many2One  `xmlrpc:"payment_term_id"`
 	PickingIds               []int64   `xmlrpc:"picking_ids"`
 	PickingPolicy            string    `xmlrpc:"picking_policy"`
+	PortalUrl                string    `xmlrpc:"portal_url"`
 	PricelistId              Many2One  `xmlrpc:"pricelist_id"`
 	ProcurementGroupId       Many2One  `xmlrpc:"procurement_group_id"`
 	ProductId                Many2One  `xmlrpc:"product_id"`
-	ProjectId                Many2One  `xmlrpc:"project_id"`
+	ProjectIds               []int64   `xmlrpc:"project_ids"`
 	ProjectProjectId         Many2One  `xmlrpc:"project_project_id"`
-	RelatedProjectId         Many2One  `xmlrpc:"related_project_id"`
 	SourceId                 Many2One  `xmlrpc:"source_id"`
 	State                    string    `xmlrpc:"state"`
 	TagIds                   []int64   `xmlrpc:"tag_ids"`
@@ -65,15 +74,23 @@ type SaleOrder struct {
 	UserId                   Many2One  `xmlrpc:"user_id"`
 	ValidityDate             time.Time `xmlrpc:"validity_date"`
 	WarehouseId              Many2One  `xmlrpc:"warehouse_id"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type SaleOrderNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
+	AccessToken              interface{} `xmlrpc:"access_token"`
+	ActivityDateDeadline     interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds              interface{} `xmlrpc:"activity_ids"`
+	ActivityState            interface{} `xmlrpc:"activity_state"`
+	ActivitySummary          interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId           interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId           interface{} `xmlrpc:"activity_user_id"`
 	AmountTax                interface{} `xmlrpc:"amount_tax"`
 	AmountTotal              interface{} `xmlrpc:"amount_total"`
 	AmountUntaxed            interface{} `xmlrpc:"amount_untaxed"`
+	AnalyticAccountId        interface{} `xmlrpc:"analytic_account_id"`
 	AutosalesConfigId        interface{} `xmlrpc:"autosales_config_id"`
 	CampaignId               interface{} `xmlrpc:"campaign_id"`
 	ClientOrderRef           interface{} `xmlrpc:"client_order_ref"`
@@ -91,6 +108,8 @@ type SaleOrderNil struct {
 	InvoiceCount             interface{} `xmlrpc:"invoice_count"`
 	InvoiceIds               interface{} `xmlrpc:"invoice_ids"`
 	InvoiceStatus            interface{} `xmlrpc:"invoice_status"`
+	IsExpired                bool        `xmlrpc:"is_expired"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	MediumId                 interface{} `xmlrpc:"medium_id"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
@@ -113,12 +132,12 @@ type SaleOrderNil struct {
 	PaymentTermId            interface{} `xmlrpc:"payment_term_id"`
 	PickingIds               interface{} `xmlrpc:"picking_ids"`
 	PickingPolicy            interface{} `xmlrpc:"picking_policy"`
+	PortalUrl                interface{} `xmlrpc:"portal_url"`
 	PricelistId              interface{} `xmlrpc:"pricelist_id"`
 	ProcurementGroupId       interface{} `xmlrpc:"procurement_group_id"`
 	ProductId                interface{} `xmlrpc:"product_id"`
-	ProjectId                interface{} `xmlrpc:"project_id"`
+	ProjectIds               interface{} `xmlrpc:"project_ids"`
 	ProjectProjectId         interface{} `xmlrpc:"project_project_id"`
-	RelatedProjectId         interface{} `xmlrpc:"related_project_id"`
 	SourceId                 interface{} `xmlrpc:"source_id"`
 	State                    interface{} `xmlrpc:"state"`
 	TagIds                   interface{} `xmlrpc:"tag_ids"`
@@ -130,6 +149,7 @@ type SaleOrderNil struct {
 	UserId                   interface{} `xmlrpc:"user_id"`
 	ValidityDate             interface{} `xmlrpc:"validity_date"`
 	WarehouseId              interface{} `xmlrpc:"warehouse_id"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

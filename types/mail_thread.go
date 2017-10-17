@@ -5,9 +5,9 @@ import (
 )
 
 type MailThread struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	DisplayName              string    `xmlrpc:"display_name"`
 	Id                       int64     `xmlrpc:"id"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
 	MessageIds               []int64   `xmlrpc:"message_ids"`
@@ -18,12 +18,13 @@ type MailThread struct {
 	MessagePartnerIds        []int64   `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool      `xmlrpc:"message_unread"`
 	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 }
 
 type MailThreadNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	Id                       interface{} `xmlrpc:"id"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
 	MessageIds               interface{} `xmlrpc:"message_ids"`
@@ -34,6 +35,7 @@ type MailThreadNil struct {
 	MessagePartnerIds        interface{} `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool        `xmlrpc:"message_unread"`
 	MessageUnreadCounter     interface{} `xmlrpc:"message_unread_counter"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 }
 
 var MailThreadModel string = "mail.thread"

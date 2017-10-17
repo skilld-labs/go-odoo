@@ -5,7 +5,6 @@ import (
 )
 
 type WizardMultiChartsAccounts struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	BankAccountCodePrefix string    `xmlrpc:"bank_account_code_prefix"`
 	BankAccountIds        []int64   `xmlrpc:"bank_account_ids"`
 	CashAccountCodePrefix string    `xmlrpc:"cash_account_code_prefix"`
@@ -18,6 +17,7 @@ type WizardMultiChartsAccounts struct {
 	CurrencyId            Many2One  `xmlrpc:"currency_id"`
 	DisplayName           string    `xmlrpc:"display_name"`
 	Id                    int64     `xmlrpc:"id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	OnlyOneChartTemplate  bool      `xmlrpc:"only_one_chart_template"`
 	PurchaseTaxId         Many2One  `xmlrpc:"purchase_tax_id"`
 	PurchaseTaxRate       float64   `xmlrpc:"purchase_tax_rate"`
@@ -30,7 +30,6 @@ type WizardMultiChartsAccounts struct {
 }
 
 type WizardMultiChartsAccountsNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	BankAccountCodePrefix interface{} `xmlrpc:"bank_account_code_prefix"`
 	BankAccountIds        interface{} `xmlrpc:"bank_account_ids"`
 	CashAccountCodePrefix interface{} `xmlrpc:"cash_account_code_prefix"`
@@ -43,6 +42,7 @@ type WizardMultiChartsAccountsNil struct {
 	CurrencyId            interface{} `xmlrpc:"currency_id"`
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Id                    interface{} `xmlrpc:"id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	OnlyOneChartTemplate  bool        `xmlrpc:"only_one_chart_template"`
 	PurchaseTaxId         interface{} `xmlrpc:"purchase_tax_id"`
 	PurchaseTaxRate       interface{} `xmlrpc:"purchase_tax_rate"`
