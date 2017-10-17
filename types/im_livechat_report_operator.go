@@ -5,11 +5,11 @@ import (
 )
 
 type ImLivechatReportOperator struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	ChannelId         Many2One  `xmlrpc:"channel_id"`
 	DisplayName       string    `xmlrpc:"display_name"`
 	Duration          float64   `xmlrpc:"duration"`
 	Id                int64     `xmlrpc:"id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	LivechatChannelId Many2One  `xmlrpc:"livechat_channel_id"`
 	NbrChannel        int64     `xmlrpc:"nbr_channel"`
 	PartnerId         Many2One  `xmlrpc:"partner_id"`
@@ -18,11 +18,11 @@ type ImLivechatReportOperator struct {
 }
 
 type ImLivechatReportOperatorNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	ChannelId         interface{} `xmlrpc:"channel_id"`
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	Duration          interface{} `xmlrpc:"duration"`
 	Id                interface{} `xmlrpc:"id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	LivechatChannelId interface{} `xmlrpc:"livechat_channel_id"`
 	NbrChannel        interface{} `xmlrpc:"nbr_channel"`
 	PartnerId         interface{} `xmlrpc:"partner_id"`

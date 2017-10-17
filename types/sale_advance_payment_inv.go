@@ -5,7 +5,6 @@ import (
 )
 
 type SaleAdvancePaymentInv struct {
-	LastUpdate           time.Time `xmlrpc:"__last_update"`
 	AdvancePaymentMethod string    `xmlrpc:"advance_payment_method"`
 	Amount               float64   `xmlrpc:"amount"`
 	Count                int64     `xmlrpc:"count"`
@@ -15,13 +14,13 @@ type SaleAdvancePaymentInv struct {
 	DepositTaxesId       []int64   `xmlrpc:"deposit_taxes_id"`
 	DisplayName          string    `xmlrpc:"display_name"`
 	Id                   int64     `xmlrpc:"id"`
+	LastUpdate           time.Time `xmlrpc:"__last_update"`
 	ProductId            Many2One  `xmlrpc:"product_id"`
 	WriteDate            time.Time `xmlrpc:"write_date"`
 	WriteUid             Many2One  `xmlrpc:"write_uid"`
 }
 
 type SaleAdvancePaymentInvNil struct {
-	LastUpdate           interface{} `xmlrpc:"__last_update"`
 	AdvancePaymentMethod interface{} `xmlrpc:"advance_payment_method"`
 	Amount               interface{} `xmlrpc:"amount"`
 	Count                interface{} `xmlrpc:"count"`
@@ -31,6 +30,7 @@ type SaleAdvancePaymentInvNil struct {
 	DepositTaxesId       interface{} `xmlrpc:"deposit_taxes_id"`
 	DisplayName          interface{} `xmlrpc:"display_name"`
 	Id                   interface{} `xmlrpc:"id"`
+	LastUpdate           interface{} `xmlrpc:"__last_update"`
 	ProductId            interface{} `xmlrpc:"product_id"`
 	WriteDate            interface{} `xmlrpc:"write_date"`
 	WriteUid             interface{} `xmlrpc:"write_uid"`

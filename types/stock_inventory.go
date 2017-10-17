@@ -5,7 +5,6 @@ import (
 )
 
 type StockInventory struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	AccountingDate time.Time `xmlrpc:"accounting_date"`
 	CategoryId     Many2One  `xmlrpc:"category_id"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
@@ -16,6 +15,7 @@ type StockInventory struct {
 	Exhausted      bool      `xmlrpc:"exhausted"`
 	Filter         string    `xmlrpc:"filter"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	LineIds        []int64   `xmlrpc:"line_ids"`
 	LocationId     Many2One  `xmlrpc:"location_id"`
 	LotId          Many2One  `xmlrpc:"lot_id"`
@@ -31,7 +31,6 @@ type StockInventory struct {
 }
 
 type StockInventoryNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	AccountingDate interface{} `xmlrpc:"accounting_date"`
 	CategoryId     interface{} `xmlrpc:"category_id"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
@@ -42,6 +41,7 @@ type StockInventoryNil struct {
 	Exhausted      bool        `xmlrpc:"exhausted"`
 	Filter         interface{} `xmlrpc:"filter"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	LineIds        interface{} `xmlrpc:"line_ids"`
 	LocationId     interface{} `xmlrpc:"location_id"`
 	LotId          interface{} `xmlrpc:"lot_id"`

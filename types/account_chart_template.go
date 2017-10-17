@@ -5,7 +5,6 @@ import (
 )
 
 type AccountChartTemplate struct {
-	LastUpdate                        time.Time `xmlrpc:"__last_update"`
 	AccountIds                        []int64   `xmlrpc:"account_ids"`
 	BankAccountCodePrefix             string    `xmlrpc:"bank_account_code_prefix"`
 	CashAccountCodePrefix             string    `xmlrpc:"cash_account_code_prefix"`
@@ -19,6 +18,7 @@ type AccountChartTemplate struct {
 	ExpenseCurrencyExchangeAccountId  Many2One  `xmlrpc:"expense_currency_exchange_account_id"`
 	Id                                int64     `xmlrpc:"id"`
 	IncomeCurrencyExchangeAccountId   Many2One  `xmlrpc:"income_currency_exchange_account_id"`
+	LastUpdate                        time.Time `xmlrpc:"__last_update"`
 	Name                              string    `xmlrpc:"name"`
 	ParentId                          Many2One  `xmlrpc:"parent_id"`
 	PropertyAccountExpenseCategId     Many2One  `xmlrpc:"property_account_expense_categ_id"`
@@ -39,7 +39,6 @@ type AccountChartTemplate struct {
 }
 
 type AccountChartTemplateNil struct {
-	LastUpdate                        interface{} `xmlrpc:"__last_update"`
 	AccountIds                        interface{} `xmlrpc:"account_ids"`
 	BankAccountCodePrefix             interface{} `xmlrpc:"bank_account_code_prefix"`
 	CashAccountCodePrefix             interface{} `xmlrpc:"cash_account_code_prefix"`
@@ -53,6 +52,7 @@ type AccountChartTemplateNil struct {
 	ExpenseCurrencyExchangeAccountId  interface{} `xmlrpc:"expense_currency_exchange_account_id"`
 	Id                                interface{} `xmlrpc:"id"`
 	IncomeCurrencyExchangeAccountId   interface{} `xmlrpc:"income_currency_exchange_account_id"`
+	LastUpdate                        interface{} `xmlrpc:"__last_update"`
 	Name                              interface{} `xmlrpc:"name"`
 	ParentId                          interface{} `xmlrpc:"parent_id"`
 	PropertyAccountExpenseCategId     interface{} `xmlrpc:"property_account_expense_categ_id"`

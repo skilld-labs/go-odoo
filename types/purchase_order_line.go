@@ -5,7 +5,6 @@ import (
 )
 
 type PurchaseOrderLine struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	AccountAnalyticId Many2One  `xmlrpc:"account_analytic_id"`
 	AnalyticTagIds    []int64   `xmlrpc:"analytic_tag_ids"`
 	CompanyId         Many2One  `xmlrpc:"company_id"`
@@ -17,16 +16,19 @@ type PurchaseOrderLine struct {
 	DisplayName       string    `xmlrpc:"display_name"`
 	Id                int64     `xmlrpc:"id"`
 	InvoiceLines      []int64   `xmlrpc:"invoice_lines"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
+	MoveDestIds       []int64   `xmlrpc:"move_dest_ids"`
 	MoveIds           []int64   `xmlrpc:"move_ids"`
 	Name              string    `xmlrpc:"name"`
 	OrderId           Many2One  `xmlrpc:"order_id"`
+	OrderpointId      Many2One  `xmlrpc:"orderpoint_id"`
 	PartnerId         Many2One  `xmlrpc:"partner_id"`
 	PriceSubtotal     float64   `xmlrpc:"price_subtotal"`
 	PriceTax          float64   `xmlrpc:"price_tax"`
 	PriceTotal        float64   `xmlrpc:"price_total"`
 	PriceUnit         float64   `xmlrpc:"price_unit"`
-	ProcurementIds    []int64   `xmlrpc:"procurement_ids"`
 	ProductId         Many2One  `xmlrpc:"product_id"`
+	ProductImage      string    `xmlrpc:"product_image"`
 	ProductQty        float64   `xmlrpc:"product_qty"`
 	ProductUom        Many2One  `xmlrpc:"product_uom"`
 	QtyInvoiced       float64   `xmlrpc:"qty_invoiced"`
@@ -39,7 +41,6 @@ type PurchaseOrderLine struct {
 }
 
 type PurchaseOrderLineNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	AccountAnalyticId interface{} `xmlrpc:"account_analytic_id"`
 	AnalyticTagIds    interface{} `xmlrpc:"analytic_tag_ids"`
 	CompanyId         interface{} `xmlrpc:"company_id"`
@@ -51,16 +52,19 @@ type PurchaseOrderLineNil struct {
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	Id                interface{} `xmlrpc:"id"`
 	InvoiceLines      interface{} `xmlrpc:"invoice_lines"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
+	MoveDestIds       interface{} `xmlrpc:"move_dest_ids"`
 	MoveIds           interface{} `xmlrpc:"move_ids"`
 	Name              interface{} `xmlrpc:"name"`
 	OrderId           interface{} `xmlrpc:"order_id"`
+	OrderpointId      interface{} `xmlrpc:"orderpoint_id"`
 	PartnerId         interface{} `xmlrpc:"partner_id"`
 	PriceSubtotal     interface{} `xmlrpc:"price_subtotal"`
 	PriceTax          interface{} `xmlrpc:"price_tax"`
 	PriceTotal        interface{} `xmlrpc:"price_total"`
 	PriceUnit         interface{} `xmlrpc:"price_unit"`
-	ProcurementIds    interface{} `xmlrpc:"procurement_ids"`
 	ProductId         interface{} `xmlrpc:"product_id"`
+	ProductImage      interface{} `xmlrpc:"product_image"`
 	ProductQty        interface{} `xmlrpc:"product_qty"`
 	ProductUom        interface{} `xmlrpc:"product_uom"`
 	QtyInvoiced       interface{} `xmlrpc:"qty_invoiced"`

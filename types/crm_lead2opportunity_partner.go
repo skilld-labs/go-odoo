@@ -5,12 +5,12 @@ import (
 )
 
 type CrmLead2opportunityPartner struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Action         string    `xmlrpc:"action"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Name           string    `xmlrpc:"name"`
 	OpportunityIds []int64   `xmlrpc:"opportunity_ids"`
 	PartnerId      Many2One  `xmlrpc:"partner_id"`
@@ -21,12 +21,12 @@ type CrmLead2opportunityPartner struct {
 }
 
 type CrmLead2opportunityPartnerNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Action         interface{} `xmlrpc:"action"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Name           interface{} `xmlrpc:"name"`
 	OpportunityIds interface{} `xmlrpc:"opportunity_ids"`
 	PartnerId      interface{} `xmlrpc:"partner_id"`

@@ -5,22 +5,22 @@ import (
 )
 
 type ReportStockForecast struct {
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	CumulativeQuantity float64   `xmlrpc:"cumulative_quantity"`
 	Date               time.Time `xmlrpc:"date"`
 	DisplayName        string    `xmlrpc:"display_name"`
 	Id                 int64     `xmlrpc:"id"`
+	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	ProductId          Many2One  `xmlrpc:"product_id"`
 	ProductTmplId      Many2One  `xmlrpc:"product_tmpl_id"`
 	Quantity           float64   `xmlrpc:"quantity"`
 }
 
 type ReportStockForecastNil struct {
-	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	CumulativeQuantity interface{} `xmlrpc:"cumulative_quantity"`
 	Date               interface{} `xmlrpc:"date"`
 	DisplayName        interface{} `xmlrpc:"display_name"`
 	Id                 interface{} `xmlrpc:"id"`
+	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	ProductId          interface{} `xmlrpc:"product_id"`
 	ProductTmplId      interface{} `xmlrpc:"product_tmpl_id"`
 	Quantity           interface{} `xmlrpc:"quantity"`

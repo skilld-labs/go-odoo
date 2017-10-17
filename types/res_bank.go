@@ -5,7 +5,6 @@ import (
 )
 
 type ResBank struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Active      bool      `xmlrpc:"active"`
 	Bic         string    `xmlrpc:"bic"`
 	City        string    `xmlrpc:"city"`
@@ -14,8 +13,8 @@ type ResBank struct {
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Email       string    `xmlrpc:"email"`
-	Fax         string    `xmlrpc:"fax"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	Phone       string    `xmlrpc:"phone"`
 	State       Many2One  `xmlrpc:"state"`
@@ -27,7 +26,6 @@ type ResBank struct {
 }
 
 type ResBankNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Active      bool        `xmlrpc:"active"`
 	Bic         interface{} `xmlrpc:"bic"`
 	City        interface{} `xmlrpc:"city"`
@@ -36,8 +34,8 @@ type ResBankNil struct {
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Email       interface{} `xmlrpc:"email"`
-	Fax         interface{} `xmlrpc:"fax"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	Phone       interface{} `xmlrpc:"phone"`
 	State       interface{} `xmlrpc:"state"`

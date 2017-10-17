@@ -5,11 +5,11 @@ import (
 )
 
 type BaseImportTestsModelsO2mChild struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ParentId    Many2One  `xmlrpc:"parent_id"`
 	Value       int64     `xmlrpc:"value"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
@@ -17,11 +17,11 @@ type BaseImportTestsModelsO2mChild struct {
 }
 
 type BaseImportTestsModelsO2mChildNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ParentId    interface{} `xmlrpc:"parent_id"`
 	Value       interface{} `xmlrpc:"value"`
 	WriteDate   interface{} `xmlrpc:"write_date"`

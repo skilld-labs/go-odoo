@@ -5,7 +5,6 @@ import (
 )
 
 type CrmOpportunityReport struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	Active              bool      `xmlrpc:"active"`
 	CampaignId          Many2One  `xmlrpc:"campaign_id"`
 	City                string    `xmlrpc:"city"`
@@ -22,6 +21,7 @@ type CrmOpportunityReport struct {
 	DisplayName         string    `xmlrpc:"display_name"`
 	ExpectedRevenue     float64   `xmlrpc:"expected_revenue"`
 	Id                  int64     `xmlrpc:"id"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	LostReason          Many2One  `xmlrpc:"lost_reason"`
 	MediumId            Many2One  `xmlrpc:"medium_id"`
 	NbrActivities       int64     `xmlrpc:"nbr_activities"`
@@ -39,7 +39,6 @@ type CrmOpportunityReport struct {
 }
 
 type CrmOpportunityReportNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	Active              bool        `xmlrpc:"active"`
 	CampaignId          interface{} `xmlrpc:"campaign_id"`
 	City                interface{} `xmlrpc:"city"`
@@ -56,6 +55,7 @@ type CrmOpportunityReportNil struct {
 	DisplayName         interface{} `xmlrpc:"display_name"`
 	ExpectedRevenue     interface{} `xmlrpc:"expected_revenue"`
 	Id                  interface{} `xmlrpc:"id"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	LostReason          interface{} `xmlrpc:"lost_reason"`
 	MediumId            interface{} `xmlrpc:"medium_id"`
 	NbrActivities       interface{} `xmlrpc:"nbr_activities"`

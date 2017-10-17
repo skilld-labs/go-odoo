@@ -5,13 +5,13 @@ import (
 )
 
 type IrLogging struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   int64     `xmlrpc:"create_uid"`
 	Dbname      string    `xmlrpc:"dbname"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Func        string    `xmlrpc:"func"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Level       string    `xmlrpc:"level"`
 	Line        string    `xmlrpc:"line"`
 	Message     string    `xmlrpc:"message"`
@@ -23,13 +23,13 @@ type IrLogging struct {
 }
 
 type IrLoggingNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	Dbname      interface{} `xmlrpc:"dbname"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Func        interface{} `xmlrpc:"func"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Level       interface{} `xmlrpc:"level"`
 	Line        interface{} `xmlrpc:"line"`
 	Message     interface{} `xmlrpc:"message"`

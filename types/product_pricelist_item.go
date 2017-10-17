@@ -5,7 +5,6 @@ import (
 )
 
 type ProductPricelistItem struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	AppliedOn       string    `xmlrpc:"applied_on"`
 	Base            string    `xmlrpc:"base"`
 	BasePricelistId Many2One  `xmlrpc:"base_pricelist_id"`
@@ -20,25 +19,24 @@ type ProductPricelistItem struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	FixedPrice      float64   `xmlrpc:"fixed_price"`
 	Id              int64     `xmlrpc:"id"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	MinQuantity     int64     `xmlrpc:"min_quantity"`
 	Name            string    `xmlrpc:"name"`
 	PercentPrice    float64   `xmlrpc:"percent_price"`
 	Price           string    `xmlrpc:"price"`
 	PriceDiscount   float64   `xmlrpc:"price_discount"`
+	PricelistId     Many2One  `xmlrpc:"pricelist_id"`
 	PriceMaxMargin  float64   `xmlrpc:"price_max_margin"`
 	PriceMinMargin  float64   `xmlrpc:"price_min_margin"`
 	PriceRound      float64   `xmlrpc:"price_round"`
 	PriceSurcharge  float64   `xmlrpc:"price_surcharge"`
-	PricelistId     Many2One  `xmlrpc:"pricelist_id"`
 	ProductId       Many2One  `xmlrpc:"product_id"`
 	ProductTmplId   Many2One  `xmlrpc:"product_tmpl_id"`
-	Sequence        int64     `xmlrpc:"sequence"`
 	WriteDate       time.Time `xmlrpc:"write_date"`
 	WriteUid        Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProductPricelistItemNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	AppliedOn       interface{} `xmlrpc:"applied_on"`
 	Base            interface{} `xmlrpc:"base"`
 	BasePricelistId interface{} `xmlrpc:"base_pricelist_id"`
@@ -53,19 +51,19 @@ type ProductPricelistItemNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	FixedPrice      interface{} `xmlrpc:"fixed_price"`
 	Id              interface{} `xmlrpc:"id"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	MinQuantity     interface{} `xmlrpc:"min_quantity"`
 	Name            interface{} `xmlrpc:"name"`
 	PercentPrice    interface{} `xmlrpc:"percent_price"`
 	Price           interface{} `xmlrpc:"price"`
 	PriceDiscount   interface{} `xmlrpc:"price_discount"`
+	PricelistId     interface{} `xmlrpc:"pricelist_id"`
 	PriceMaxMargin  interface{} `xmlrpc:"price_max_margin"`
 	PriceMinMargin  interface{} `xmlrpc:"price_min_margin"`
 	PriceRound      interface{} `xmlrpc:"price_round"`
 	PriceSurcharge  interface{} `xmlrpc:"price_surcharge"`
-	PricelistId     interface{} `xmlrpc:"pricelist_id"`
 	ProductId       interface{} `xmlrpc:"product_id"`
 	ProductTmplId   interface{} `xmlrpc:"product_tmpl_id"`
-	Sequence        interface{} `xmlrpc:"sequence"`
 	WriteDate       interface{} `xmlrpc:"write_date"`
 	WriteUid        interface{} `xmlrpc:"write_uid"`
 }

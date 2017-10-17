@@ -5,7 +5,6 @@ import (
 )
 
 type ProductUom struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Active      bool      `xmlrpc:"active"`
 	CategoryId  Many2One  `xmlrpc:"category_id"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
@@ -14,6 +13,7 @@ type ProductUom struct {
 	Factor      float64   `xmlrpc:"factor"`
 	FactorInv   float64   `xmlrpc:"factor_inv"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	Rounding    float64   `xmlrpc:"rounding"`
 	UomType     string    `xmlrpc:"uom_type"`
@@ -22,7 +22,6 @@ type ProductUom struct {
 }
 
 type ProductUomNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Active      bool        `xmlrpc:"active"`
 	CategoryId  interface{} `xmlrpc:"category_id"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
@@ -31,6 +30,7 @@ type ProductUomNil struct {
 	Factor      interface{} `xmlrpc:"factor"`
 	FactorInv   interface{} `xmlrpc:"factor_inv"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	Rounding    interface{} `xmlrpc:"rounding"`
 	UomType     interface{} `xmlrpc:"uom_type"`

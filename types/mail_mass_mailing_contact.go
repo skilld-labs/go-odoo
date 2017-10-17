@@ -5,13 +5,15 @@ import (
 )
 
 type MailMassMailingContact struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
+	CompanyName              string    `xmlrpc:"company_name"`
+	CountryId                Many2One  `xmlrpc:"country_id"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
 	DisplayName              string    `xmlrpc:"display_name"`
 	Email                    string    `xmlrpc:"email"`
 	Id                       int64     `xmlrpc:"id"`
-	ListId                   Many2One  `xmlrpc:"list_id"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
+	ListIds                  []int64   `xmlrpc:"list_ids"`
 	MessageBounce            int64     `xmlrpc:"message_bounce"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
@@ -25,19 +27,24 @@ type MailMassMailingContact struct {
 	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
 	Name                     string    `xmlrpc:"name"`
 	OptOut                   bool      `xmlrpc:"opt_out"`
+	TagIds                   []int64   `xmlrpc:"tag_ids"`
+	TitleId                  Many2One  `xmlrpc:"title_id"`
 	UnsubscriptionDate       time.Time `xmlrpc:"unsubscription_date"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type MailMassMailingContactNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
+	CompanyName              interface{} `xmlrpc:"company_name"`
+	CountryId                interface{} `xmlrpc:"country_id"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	Email                    interface{} `xmlrpc:"email"`
 	Id                       interface{} `xmlrpc:"id"`
-	ListId                   interface{} `xmlrpc:"list_id"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
+	ListIds                  interface{} `xmlrpc:"list_ids"`
 	MessageBounce            interface{} `xmlrpc:"message_bounce"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
@@ -51,7 +58,10 @@ type MailMassMailingContactNil struct {
 	MessageUnreadCounter     interface{} `xmlrpc:"message_unread_counter"`
 	Name                     interface{} `xmlrpc:"name"`
 	OptOut                   bool        `xmlrpc:"opt_out"`
+	TagIds                   interface{} `xmlrpc:"tag_ids"`
+	TitleId                  interface{} `xmlrpc:"title_id"`
 	UnsubscriptionDate       interface{} `xmlrpc:"unsubscription_date"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

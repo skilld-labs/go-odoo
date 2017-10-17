@@ -5,7 +5,6 @@ import (
 )
 
 type ReportPaperformat struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	CreateDate    time.Time `xmlrpc:"create_date"`
 	CreateUid     Many2One  `xmlrpc:"create_uid"`
 	Default       bool      `xmlrpc:"default"`
@@ -15,6 +14,7 @@ type ReportPaperformat struct {
 	HeaderLine    bool      `xmlrpc:"header_line"`
 	HeaderSpacing int64     `xmlrpc:"header_spacing"`
 	Id            int64     `xmlrpc:"id"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	MarginBottom  float64   `xmlrpc:"margin_bottom"`
 	MarginLeft    float64   `xmlrpc:"margin_left"`
 	MarginRight   float64   `xmlrpc:"margin_right"`
@@ -29,7 +29,6 @@ type ReportPaperformat struct {
 }
 
 type ReportPaperformatNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	CreateDate    interface{} `xmlrpc:"create_date"`
 	CreateUid     interface{} `xmlrpc:"create_uid"`
 	Default       bool        `xmlrpc:"default"`
@@ -39,6 +38,7 @@ type ReportPaperformatNil struct {
 	HeaderLine    bool        `xmlrpc:"header_line"`
 	HeaderSpacing interface{} `xmlrpc:"header_spacing"`
 	Id            interface{} `xmlrpc:"id"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	MarginBottom  interface{} `xmlrpc:"margin_bottom"`
 	MarginLeft    interface{} `xmlrpc:"margin_left"`
 	MarginRight   interface{} `xmlrpc:"margin_right"`

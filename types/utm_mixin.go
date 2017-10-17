@@ -5,19 +5,19 @@ import (
 )
 
 type UtmMixin struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CampaignId  Many2One  `xmlrpc:"campaign_id"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	MediumId    Many2One  `xmlrpc:"medium_id"`
 	SourceId    Many2One  `xmlrpc:"source_id"`
 }
 
 type UtmMixinNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CampaignId  interface{} `xmlrpc:"campaign_id"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	MediumId    interface{} `xmlrpc:"medium_id"`
 	SourceId    interface{} `xmlrpc:"source_id"`
 }

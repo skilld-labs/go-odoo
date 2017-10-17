@@ -5,12 +5,12 @@ import (
 )
 
 type MailWizardInvite struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ChannelIds  []int64   `xmlrpc:"channel_ids"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Message     string    `xmlrpc:"message"`
 	PartnerIds  []int64   `xmlrpc:"partner_ids"`
 	ResId       int64     `xmlrpc:"res_id"`
@@ -21,12 +21,12 @@ type MailWizardInvite struct {
 }
 
 type MailWizardInviteNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ChannelIds  interface{} `xmlrpc:"channel_ids"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Message     interface{} `xmlrpc:"message"`
 	PartnerIds  interface{} `xmlrpc:"partner_ids"`
 	ResId       interface{} `xmlrpc:"res_id"`

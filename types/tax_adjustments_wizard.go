@@ -5,7 +5,6 @@ import (
 )
 
 type TaxAdjustmentsWizard struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Amount            float64   `xmlrpc:"amount"`
 	CompanyCurrencyId Many2One  `xmlrpc:"company_currency_id"`
 	CreateDate        time.Time `xmlrpc:"create_date"`
@@ -16,6 +15,7 @@ type TaxAdjustmentsWizard struct {
 	DisplayName       string    `xmlrpc:"display_name"`
 	Id                int64     `xmlrpc:"id"`
 	JournalId         Many2One  `xmlrpc:"journal_id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Reason            string    `xmlrpc:"reason"`
 	TaxId             Many2One  `xmlrpc:"tax_id"`
 	WriteDate         time.Time `xmlrpc:"write_date"`
@@ -23,7 +23,6 @@ type TaxAdjustmentsWizard struct {
 }
 
 type TaxAdjustmentsWizardNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Amount            interface{} `xmlrpc:"amount"`
 	CompanyCurrencyId interface{} `xmlrpc:"company_currency_id"`
 	CreateDate        interface{} `xmlrpc:"create_date"`
@@ -34,6 +33,7 @@ type TaxAdjustmentsWizardNil struct {
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	Id                interface{} `xmlrpc:"id"`
 	JournalId         interface{} `xmlrpc:"journal_id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Reason            interface{} `xmlrpc:"reason"`
 	TaxId             interface{} `xmlrpc:"tax_id"`
 	WriteDate         interface{} `xmlrpc:"write_date"`

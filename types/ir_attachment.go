@@ -5,7 +5,7 @@ import (
 )
 
 type IrAttachment struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
+	AccessToken  string    `xmlrpc:"access_token"`
 	Checksum     string    `xmlrpc:"checksum"`
 	CompanyId    Many2One  `xmlrpc:"company_id"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
@@ -18,6 +18,7 @@ type IrAttachment struct {
 	FileSize     int64     `xmlrpc:"file_size"`
 	Id           int64     `xmlrpc:"id"`
 	IndexContent string    `xmlrpc:"index_content"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	LocalUrl     string    `xmlrpc:"local_url"`
 	Mimetype     string    `xmlrpc:"mimetype"`
 	Name         string    `xmlrpc:"name"`
@@ -34,7 +35,7 @@ type IrAttachment struct {
 }
 
 type IrAttachmentNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
+	AccessToken  interface{} `xmlrpc:"access_token"`
 	Checksum     interface{} `xmlrpc:"checksum"`
 	CompanyId    interface{} `xmlrpc:"company_id"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
@@ -47,6 +48,7 @@ type IrAttachmentNil struct {
 	FileSize     interface{} `xmlrpc:"file_size"`
 	Id           interface{} `xmlrpc:"id"`
 	IndexContent interface{} `xmlrpc:"index_content"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	LocalUrl     interface{} `xmlrpc:"local_url"`
 	Mimetype     interface{} `xmlrpc:"mimetype"`
 	Name         interface{} `xmlrpc:"name"`

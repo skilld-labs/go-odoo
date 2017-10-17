@@ -5,8 +5,13 @@ import (
 )
 
 type ProjectTask struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	Active                   bool      `xmlrpc:"active"`
+	ActivityDateDeadline     time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds              []int64   `xmlrpc:"activity_ids"`
+	ActivityState            string    `xmlrpc:"activity_state"`
+	ActivitySummary          string    `xmlrpc:"activity_summary"`
+	ActivityTypeId           Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId           Many2One  `xmlrpc:"activity_user_id"`
 	AttachmentIds            []int64   `xmlrpc:"attachment_ids"`
 	ChildIds                 []int64   `xmlrpc:"child_ids"`
 	ChildrenHours            float64   `xmlrpc:"children_hours"`
@@ -21,11 +26,15 @@ type ProjectTask struct {
 	DateStart                time.Time `xmlrpc:"date_start"`
 	DelayHours               float64   `xmlrpc:"delay_hours"`
 	Description              string    `xmlrpc:"description"`
-	DisplayName              string    `xmlrpc:"display_name"`
 	DisplayedImageId         Many2One  `xmlrpc:"displayed_image_id"`
+	DisplayName              string    `xmlrpc:"display_name"`
 	EffectiveHours           float64   `xmlrpc:"effective_hours"`
+	EmailCc                  string    `xmlrpc:"email_cc"`
+	EmailFrom                string    `xmlrpc:"email_from"`
 	Id                       int64     `xmlrpc:"id"`
 	KanbanState              string    `xmlrpc:"kanban_state"`
+	KanbanStateLabel         string    `xmlrpc:"kanban_state_label"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LegendBlocked            string    `xmlrpc:"legend_blocked"`
 	LegendDone               string    `xmlrpc:"legend_done"`
 	LegendNormal             string    `xmlrpc:"legend_normal"`
@@ -45,8 +54,8 @@ type ProjectTask struct {
 	ParentId                 Many2One  `xmlrpc:"parent_id"`
 	PartnerId                Many2One  `xmlrpc:"partner_id"`
 	PlannedHours             float64   `xmlrpc:"planned_hours"`
+	PortalUrl                string    `xmlrpc:"portal_url"`
 	Priority                 string    `xmlrpc:"priority"`
-	ProcurementId            Many2One  `xmlrpc:"procurement_id"`
 	Progress                 float64   `xmlrpc:"progress"`
 	ProjectId                Many2One  `xmlrpc:"project_id"`
 	RemainingHours           float64   `xmlrpc:"remaining_hours"`
@@ -61,13 +70,23 @@ type ProjectTask struct {
 	TotalHoursSpent          float64   `xmlrpc:"total_hours_spent"`
 	UserEmail                string    `xmlrpc:"user_email"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
+	WorkingDaysClose         float64   `xmlrpc:"working_days_close"`
+	WorkingDaysOpen          float64   `xmlrpc:"working_days_open"`
+	WorkingHoursClose        float64   `xmlrpc:"working_hours_close"`
+	WorkingHoursOpen         float64   `xmlrpc:"working_hours_open"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProjectTaskNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	Active                   bool        `xmlrpc:"active"`
+	ActivityDateDeadline     interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds              interface{} `xmlrpc:"activity_ids"`
+	ActivityState            interface{} `xmlrpc:"activity_state"`
+	ActivitySummary          interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId           interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId           interface{} `xmlrpc:"activity_user_id"`
 	AttachmentIds            interface{} `xmlrpc:"attachment_ids"`
 	ChildIds                 interface{} `xmlrpc:"child_ids"`
 	ChildrenHours            interface{} `xmlrpc:"children_hours"`
@@ -82,11 +101,15 @@ type ProjectTaskNil struct {
 	DateStart                interface{} `xmlrpc:"date_start"`
 	DelayHours               interface{} `xmlrpc:"delay_hours"`
 	Description              interface{} `xmlrpc:"description"`
-	DisplayName              interface{} `xmlrpc:"display_name"`
 	DisplayedImageId         interface{} `xmlrpc:"displayed_image_id"`
+	DisplayName              interface{} `xmlrpc:"display_name"`
 	EffectiveHours           interface{} `xmlrpc:"effective_hours"`
+	EmailCc                  interface{} `xmlrpc:"email_cc"`
+	EmailFrom                interface{} `xmlrpc:"email_from"`
 	Id                       interface{} `xmlrpc:"id"`
 	KanbanState              interface{} `xmlrpc:"kanban_state"`
+	KanbanStateLabel         interface{} `xmlrpc:"kanban_state_label"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LegendBlocked            interface{} `xmlrpc:"legend_blocked"`
 	LegendDone               interface{} `xmlrpc:"legend_done"`
 	LegendNormal             interface{} `xmlrpc:"legend_normal"`
@@ -106,8 +129,8 @@ type ProjectTaskNil struct {
 	ParentId                 interface{} `xmlrpc:"parent_id"`
 	PartnerId                interface{} `xmlrpc:"partner_id"`
 	PlannedHours             interface{} `xmlrpc:"planned_hours"`
+	PortalUrl                interface{} `xmlrpc:"portal_url"`
 	Priority                 interface{} `xmlrpc:"priority"`
-	ProcurementId            interface{} `xmlrpc:"procurement_id"`
 	Progress                 interface{} `xmlrpc:"progress"`
 	ProjectId                interface{} `xmlrpc:"project_id"`
 	RemainingHours           interface{} `xmlrpc:"remaining_hours"`
@@ -122,6 +145,11 @@ type ProjectTaskNil struct {
 	TotalHoursSpent          interface{} `xmlrpc:"total_hours_spent"`
 	UserEmail                interface{} `xmlrpc:"user_email"`
 	UserId                   interface{} `xmlrpc:"user_id"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
+	WorkingDaysClose         interface{} `xmlrpc:"working_days_close"`
+	WorkingDaysOpen          interface{} `xmlrpc:"working_days_open"`
+	WorkingHoursClose        interface{} `xmlrpc:"working_hours_close"`
+	WorkingHoursOpen         interface{} `xmlrpc:"working_hours_open"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

@@ -5,47 +5,41 @@ import (
 )
 
 type StockQuantPackage struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
-	AncestorIds      []int64   `xmlrpc:"ancestor_ids"`
-	ChildrenIds      []int64   `xmlrpc:"children_ids"`
-	ChildrenQuantIds []int64   `xmlrpc:"children_quant_ids"`
-	CompanyId        Many2One  `xmlrpc:"company_id"`
-	CreateDate       time.Time `xmlrpc:"create_date"`
-	CreateUid        Many2One  `xmlrpc:"create_uid"`
-	DisplayName      string    `xmlrpc:"display_name"`
-	Id               int64     `xmlrpc:"id"`
-	LocationId       Many2One  `xmlrpc:"location_id"`
-	Name             string    `xmlrpc:"name"`
-	OwnerId          Many2One  `xmlrpc:"owner_id"`
-	PackagingId      Many2One  `xmlrpc:"packaging_id"`
-	ParentId         Many2One  `xmlrpc:"parent_id"`
-	ParentLeft       int64     `xmlrpc:"parent_left"`
-	ParentRight      int64     `xmlrpc:"parent_right"`
-	QuantIds         []int64   `xmlrpc:"quant_ids"`
-	WriteDate        time.Time `xmlrpc:"write_date"`
-	WriteUid         Many2One  `xmlrpc:"write_uid"`
+	CompanyId                 Many2One  `xmlrpc:"company_id"`
+	CreateDate                time.Time `xmlrpc:"create_date"`
+	CreateUid                 Many2One  `xmlrpc:"create_uid"`
+	CurrentPickingId          bool      `xmlrpc:"current_picking_id"`
+	CurrentPickingMoveLineIds []int64   `xmlrpc:"current_picking_move_line_ids"`
+	DisplayName               string    `xmlrpc:"display_name"`
+	Id                        int64     `xmlrpc:"id"`
+	LastUpdate                time.Time `xmlrpc:"__last_update"`
+	LocationId                Many2One  `xmlrpc:"location_id"`
+	MoveLineIds               []int64   `xmlrpc:"move_line_ids"`
+	Name                      string    `xmlrpc:"name"`
+	OwnerId                   Many2One  `xmlrpc:"owner_id"`
+	PackagingId               Many2One  `xmlrpc:"packaging_id"`
+	QuantIds                  []int64   `xmlrpc:"quant_ids"`
+	WriteDate                 time.Time `xmlrpc:"write_date"`
+	WriteUid                  Many2One  `xmlrpc:"write_uid"`
 }
 
 type StockQuantPackageNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
-	AncestorIds      interface{} `xmlrpc:"ancestor_ids"`
-	ChildrenIds      interface{} `xmlrpc:"children_ids"`
-	ChildrenQuantIds interface{} `xmlrpc:"children_quant_ids"`
-	CompanyId        interface{} `xmlrpc:"company_id"`
-	CreateDate       interface{} `xmlrpc:"create_date"`
-	CreateUid        interface{} `xmlrpc:"create_uid"`
-	DisplayName      interface{} `xmlrpc:"display_name"`
-	Id               interface{} `xmlrpc:"id"`
-	LocationId       interface{} `xmlrpc:"location_id"`
-	Name             interface{} `xmlrpc:"name"`
-	OwnerId          interface{} `xmlrpc:"owner_id"`
-	PackagingId      interface{} `xmlrpc:"packaging_id"`
-	ParentId         interface{} `xmlrpc:"parent_id"`
-	ParentLeft       interface{} `xmlrpc:"parent_left"`
-	ParentRight      interface{} `xmlrpc:"parent_right"`
-	QuantIds         interface{} `xmlrpc:"quant_ids"`
-	WriteDate        interface{} `xmlrpc:"write_date"`
-	WriteUid         interface{} `xmlrpc:"write_uid"`
+	CompanyId                 interface{} `xmlrpc:"company_id"`
+	CreateDate                interface{} `xmlrpc:"create_date"`
+	CreateUid                 interface{} `xmlrpc:"create_uid"`
+	CurrentPickingId          bool        `xmlrpc:"current_picking_id"`
+	CurrentPickingMoveLineIds interface{} `xmlrpc:"current_picking_move_line_ids"`
+	DisplayName               interface{} `xmlrpc:"display_name"`
+	Id                        interface{} `xmlrpc:"id"`
+	LastUpdate                interface{} `xmlrpc:"__last_update"`
+	LocationId                interface{} `xmlrpc:"location_id"`
+	MoveLineIds               interface{} `xmlrpc:"move_line_ids"`
+	Name                      interface{} `xmlrpc:"name"`
+	OwnerId                   interface{} `xmlrpc:"owner_id"`
+	PackagingId               interface{} `xmlrpc:"packaging_id"`
+	QuantIds                  interface{} `xmlrpc:"quant_ids"`
+	WriteDate                 interface{} `xmlrpc:"write_date"`
+	WriteUid                  interface{} `xmlrpc:"write_uid"`
 }
 
 var StockQuantPackageModel string = "stock.quant.package"

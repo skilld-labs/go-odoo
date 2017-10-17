@@ -5,7 +5,6 @@ import (
 )
 
 type HrHolidays struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	CanReset                 bool      `xmlrpc:"can_reset"`
 	CategoryId               Many2One  `xmlrpc:"category_id"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
@@ -16,12 +15,13 @@ type HrHolidays struct {
 	DisplayName              string    `xmlrpc:"display_name"`
 	DoubleValidation         bool      `xmlrpc:"double_validation"`
 	EmployeeId               Many2One  `xmlrpc:"employee_id"`
+	FirstApproverId          Many2One  `xmlrpc:"first_approver_id"`
 	HolidayStatusId          Many2One  `xmlrpc:"holiday_status_id"`
 	HolidayType              string    `xmlrpc:"holiday_type"`
 	Id                       int64     `xmlrpc:"id"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LinkedRequestIds         []int64   `xmlrpc:"linked_request_ids"`
 	ManagerId                Many2One  `xmlrpc:"manager_id"`
-	ManagerId2               Many2One  `xmlrpc:"manager_id2"`
 	MeetingId                Many2One  `xmlrpc:"meeting_id"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
@@ -40,15 +40,17 @@ type HrHolidays struct {
 	ParentId                 Many2One  `xmlrpc:"parent_id"`
 	PayslipStatus            bool      `xmlrpc:"payslip_status"`
 	ReportNote               string    `xmlrpc:"report_note"`
+	SecondApproverId         Many2One  `xmlrpc:"second_approver_id"`
 	State                    string    `xmlrpc:"state"`
+	TimesheetIds             []int64   `xmlrpc:"timesheet_ids"`
 	Type                     string    `xmlrpc:"type"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type HrHolidaysNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	CanReset                 bool        `xmlrpc:"can_reset"`
 	CategoryId               interface{} `xmlrpc:"category_id"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
@@ -59,12 +61,13 @@ type HrHolidaysNil struct {
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	DoubleValidation         bool        `xmlrpc:"double_validation"`
 	EmployeeId               interface{} `xmlrpc:"employee_id"`
+	FirstApproverId          interface{} `xmlrpc:"first_approver_id"`
 	HolidayStatusId          interface{} `xmlrpc:"holiday_status_id"`
 	HolidayType              interface{} `xmlrpc:"holiday_type"`
 	Id                       interface{} `xmlrpc:"id"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LinkedRequestIds         interface{} `xmlrpc:"linked_request_ids"`
 	ManagerId                interface{} `xmlrpc:"manager_id"`
-	ManagerId2               interface{} `xmlrpc:"manager_id2"`
 	MeetingId                interface{} `xmlrpc:"meeting_id"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
@@ -83,9 +86,12 @@ type HrHolidaysNil struct {
 	ParentId                 interface{} `xmlrpc:"parent_id"`
 	PayslipStatus            bool        `xmlrpc:"payslip_status"`
 	ReportNote               interface{} `xmlrpc:"report_note"`
+	SecondApproverId         interface{} `xmlrpc:"second_approver_id"`
 	State                    interface{} `xmlrpc:"state"`
+	TimesheetIds             interface{} `xmlrpc:"timesheet_ids"`
 	Type                     interface{} `xmlrpc:"type"`
 	UserId                   interface{} `xmlrpc:"user_id"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

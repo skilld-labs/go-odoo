@@ -5,17 +5,17 @@ import (
 )
 
 type BarcodesBarcodeEventsMixin struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	BarcodeScanned string    `xmlrpc:"_barcode_scanned"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 }
 
 type BarcodesBarcodeEventsMixinNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	BarcodeScanned interface{} `xmlrpc:"_barcode_scanned"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 }
 
 var BarcodesBarcodeEventsMixinModel string = "barcodes.barcode_events_mixin"

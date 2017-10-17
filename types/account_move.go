@@ -5,7 +5,6 @@ import (
 )
 
 type AccountMove struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Amount            float64   `xmlrpc:"amount"`
 	CompanyId         Many2One  `xmlrpc:"company_id"`
 	CreateDate        time.Time `xmlrpc:"create_date"`
@@ -16,6 +15,7 @@ type AccountMove struct {
 	DummyAccountId    Many2One  `xmlrpc:"dummy_account_id"`
 	Id                int64     `xmlrpc:"id"`
 	JournalId         Many2One  `xmlrpc:"journal_id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	LineIds           []int64   `xmlrpc:"line_ids"`
 	MatchedPercentage float64   `xmlrpc:"matched_percentage"`
 	Name              string    `xmlrpc:"name"`
@@ -23,13 +23,13 @@ type AccountMove struct {
 	PartnerId         Many2One  `xmlrpc:"partner_id"`
 	Ref               string    `xmlrpc:"ref"`
 	State             string    `xmlrpc:"state"`
-	StatementLineId   Many2One  `xmlrpc:"statement_line_id"`
+	StockMoveId       Many2One  `xmlrpc:"stock_move_id"`
+	TaxCashBasisRecId Many2One  `xmlrpc:"tax_cash_basis_rec_id"`
 	WriteDate         time.Time `xmlrpc:"write_date"`
 	WriteUid          Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountMoveNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Amount            interface{} `xmlrpc:"amount"`
 	CompanyId         interface{} `xmlrpc:"company_id"`
 	CreateDate        interface{} `xmlrpc:"create_date"`
@@ -40,6 +40,7 @@ type AccountMoveNil struct {
 	DummyAccountId    interface{} `xmlrpc:"dummy_account_id"`
 	Id                interface{} `xmlrpc:"id"`
 	JournalId         interface{} `xmlrpc:"journal_id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	LineIds           interface{} `xmlrpc:"line_ids"`
 	MatchedPercentage interface{} `xmlrpc:"matched_percentage"`
 	Name              interface{} `xmlrpc:"name"`
@@ -47,7 +48,8 @@ type AccountMoveNil struct {
 	PartnerId         interface{} `xmlrpc:"partner_id"`
 	Ref               interface{} `xmlrpc:"ref"`
 	State             interface{} `xmlrpc:"state"`
-	StatementLineId   interface{} `xmlrpc:"statement_line_id"`
+	StockMoveId       interface{} `xmlrpc:"stock_move_id"`
+	TaxCashBasisRecId interface{} `xmlrpc:"tax_cash_basis_rec_id"`
 	WriteDate         interface{} `xmlrpc:"write_date"`
 	WriteUid          interface{} `xmlrpc:"write_uid"`
 }

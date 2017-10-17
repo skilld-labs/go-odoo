@@ -5,12 +5,12 @@ import (
 )
 
 type AccountAccountType struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	CreateDate            time.Time `xmlrpc:"create_date"`
 	CreateUid             Many2One  `xmlrpc:"create_uid"`
 	DisplayName           string    `xmlrpc:"display_name"`
 	Id                    int64     `xmlrpc:"id"`
 	IncludeInitialBalance bool      `xmlrpc:"include_initial_balance"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Name                  string    `xmlrpc:"name"`
 	Note                  string    `xmlrpc:"note"`
 	Type                  string    `xmlrpc:"type"`
@@ -19,12 +19,12 @@ type AccountAccountType struct {
 }
 
 type AccountAccountTypeNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	CreateDate            interface{} `xmlrpc:"create_date"`
 	CreateUid             interface{} `xmlrpc:"create_uid"`
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Id                    interface{} `xmlrpc:"id"`
 	IncludeInitialBalance bool        `xmlrpc:"include_initial_balance"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Name                  interface{} `xmlrpc:"name"`
 	Note                  interface{} `xmlrpc:"note"`
 	Type                  interface{} `xmlrpc:"type"`

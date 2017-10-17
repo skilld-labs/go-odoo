@@ -5,12 +5,12 @@ import (
 )
 
 type ImLivechatReportChannel struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	ChannelId         Many2One  `xmlrpc:"channel_id"`
 	ChannelName       string    `xmlrpc:"channel_name"`
 	DisplayName       string    `xmlrpc:"display_name"`
 	Duration          float64   `xmlrpc:"duration"`
 	Id                int64     `xmlrpc:"id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	LivechatChannelId Many2One  `xmlrpc:"livechat_channel_id"`
 	NbrMessage        int64     `xmlrpc:"nbr_message"`
 	NbrSpeaker        int64     `xmlrpc:"nbr_speaker"`
@@ -22,12 +22,12 @@ type ImLivechatReportChannel struct {
 }
 
 type ImLivechatReportChannelNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	ChannelId         interface{} `xmlrpc:"channel_id"`
 	ChannelName       interface{} `xmlrpc:"channel_name"`
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	Duration          interface{} `xmlrpc:"duration"`
 	Id                interface{} `xmlrpc:"id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	LivechatChannelId interface{} `xmlrpc:"livechat_channel_id"`
 	NbrMessage        interface{} `xmlrpc:"nbr_message"`
 	NbrSpeaker        interface{} `xmlrpc:"nbr_speaker"`

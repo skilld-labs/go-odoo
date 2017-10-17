@@ -5,7 +5,6 @@ import (
 )
 
 type IrUiMenu struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Action       string    `xmlrpc:"action"`
 	Active       bool      `xmlrpc:"active"`
 	ChildId      []int64   `xmlrpc:"child_id"`
@@ -15,7 +14,7 @@ type IrUiMenu struct {
 	DisplayName  string    `xmlrpc:"display_name"`
 	GroupsId     []int64   `xmlrpc:"groups_id"`
 	Id           int64     `xmlrpc:"id"`
-	LoadXmlid    bool      `xmlrpc:"load_xmlid"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Name         string    `xmlrpc:"name"`
 	ParentId     Many2One  `xmlrpc:"parent_id"`
 	ParentLeft   int64     `xmlrpc:"parent_left"`
@@ -28,7 +27,6 @@ type IrUiMenu struct {
 }
 
 type IrUiMenuNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Action       interface{} `xmlrpc:"action"`
 	Active       bool        `xmlrpc:"active"`
 	ChildId      interface{} `xmlrpc:"child_id"`
@@ -38,7 +36,7 @@ type IrUiMenuNil struct {
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	GroupsId     interface{} `xmlrpc:"groups_id"`
 	Id           interface{} `xmlrpc:"id"`
-	LoadXmlid    bool        `xmlrpc:"load_xmlid"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Name         interface{} `xmlrpc:"name"`
 	ParentId     interface{} `xmlrpc:"parent_id"`
 	ParentLeft   interface{} `xmlrpc:"parent_left"`

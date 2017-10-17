@@ -5,7 +5,12 @@ import (
 )
 
 type StockPicking struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
+	ActivityDateDeadline     time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds              []int64   `xmlrpc:"activity_ids"`
+	ActivityState            string    `xmlrpc:"activity_state"`
+	ActivitySummary          string    `xmlrpc:"activity_summary"`
+	ActivityTypeId           Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId           Many2One  `xmlrpc:"activity_user_id"`
 	BackorderId              Many2One  `xmlrpc:"backorder_id"`
 	CompanyId                Many2One  `xmlrpc:"company_id"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
@@ -14,12 +19,13 @@ type StockPicking struct {
 	DateDone                 time.Time `xmlrpc:"date_done"`
 	DisplayName              string    `xmlrpc:"display_name"`
 	GroupId                  Many2One  `xmlrpc:"group_id"`
+	HasPackages              bool      `xmlrpc:"has_packages"`
 	HasScrapMove             bool      `xmlrpc:"has_scrap_move"`
 	Id                       int64     `xmlrpc:"id"`
-	LaunchPackOperations     bool      `xmlrpc:"launch_pack_operations"`
+	IsLocked                 bool      `xmlrpc:"is_locked"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LocationDestId           Many2One  `xmlrpc:"location_dest_id"`
 	LocationId               Many2One  `xmlrpc:"location_id"`
-	MaxDate                  time.Time `xmlrpc:"max_date"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
 	MessageIds               []int64   `xmlrpc:"message_ids"`
@@ -30,17 +36,14 @@ type StockPicking struct {
 	MessagePartnerIds        []int64   `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool      `xmlrpc:"message_unread"`
 	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
-	MinDate                  time.Time `xmlrpc:"min_date"`
+	MoveLineExist            bool      `xmlrpc:"move_line_exist"`
+	MoveLineIds              []int64   `xmlrpc:"move_line_ids"`
 	MoveLines                []int64   `xmlrpc:"move_lines"`
 	MoveType                 string    `xmlrpc:"move_type"`
 	Name                     string    `xmlrpc:"name"`
 	Note                     string    `xmlrpc:"note"`
 	Origin                   string    `xmlrpc:"origin"`
 	OwnerId                  Many2One  `xmlrpc:"owner_id"`
-	PackOperationExist       bool      `xmlrpc:"pack_operation_exist"`
-	PackOperationIds         []int64   `xmlrpc:"pack_operation_ids"`
-	PackOperationPackIds     []int64   `xmlrpc:"pack_operation_pack_ids"`
-	PackOperationProductIds  []int64   `xmlrpc:"pack_operation_product_ids"`
 	PartnerId                Many2One  `xmlrpc:"partner_id"`
 	PickingTypeCode          string    `xmlrpc:"picking_type_code"`
 	PickingTypeEntirePacks   bool      `xmlrpc:"picking_type_entire_packs"`
@@ -49,16 +52,25 @@ type StockPicking struct {
 	Priority                 string    `xmlrpc:"priority"`
 	ProductId                Many2One  `xmlrpc:"product_id"`
 	PurchaseId               Many2One  `xmlrpc:"purchase_id"`
-	QuantReservedExist       bool      `xmlrpc:"quant_reserved_exist"`
-	RecomputePackOp          bool      `xmlrpc:"recompute_pack_op"`
 	SaleId                   Many2One  `xmlrpc:"sale_id"`
+	ScheduledDate            time.Time `xmlrpc:"scheduled_date"`
+	ShowCheckAvailability    bool      `xmlrpc:"show_check_availability"`
+	ShowMarkAsTodo           bool      `xmlrpc:"show_mark_as_todo"`
+	ShowOperations           bool      `xmlrpc:"show_operations"`
+	ShowValidate             bool      `xmlrpc:"show_validate"`
 	State                    string    `xmlrpc:"state"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type StockPickingNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
+	ActivityDateDeadline     interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds              interface{} `xmlrpc:"activity_ids"`
+	ActivityState            interface{} `xmlrpc:"activity_state"`
+	ActivitySummary          interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId           interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId           interface{} `xmlrpc:"activity_user_id"`
 	BackorderId              interface{} `xmlrpc:"backorder_id"`
 	CompanyId                interface{} `xmlrpc:"company_id"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
@@ -67,12 +79,13 @@ type StockPickingNil struct {
 	DateDone                 interface{} `xmlrpc:"date_done"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	GroupId                  interface{} `xmlrpc:"group_id"`
+	HasPackages              bool        `xmlrpc:"has_packages"`
 	HasScrapMove             bool        `xmlrpc:"has_scrap_move"`
 	Id                       interface{} `xmlrpc:"id"`
-	LaunchPackOperations     bool        `xmlrpc:"launch_pack_operations"`
+	IsLocked                 bool        `xmlrpc:"is_locked"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LocationDestId           interface{} `xmlrpc:"location_dest_id"`
 	LocationId               interface{} `xmlrpc:"location_id"`
-	MaxDate                  interface{} `xmlrpc:"max_date"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
 	MessageIds               interface{} `xmlrpc:"message_ids"`
@@ -83,17 +96,14 @@ type StockPickingNil struct {
 	MessagePartnerIds        interface{} `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool        `xmlrpc:"message_unread"`
 	MessageUnreadCounter     interface{} `xmlrpc:"message_unread_counter"`
-	MinDate                  interface{} `xmlrpc:"min_date"`
+	MoveLineExist            bool        `xmlrpc:"move_line_exist"`
+	MoveLineIds              interface{} `xmlrpc:"move_line_ids"`
 	MoveLines                interface{} `xmlrpc:"move_lines"`
 	MoveType                 interface{} `xmlrpc:"move_type"`
 	Name                     interface{} `xmlrpc:"name"`
 	Note                     interface{} `xmlrpc:"note"`
 	Origin                   interface{} `xmlrpc:"origin"`
 	OwnerId                  interface{} `xmlrpc:"owner_id"`
-	PackOperationExist       bool        `xmlrpc:"pack_operation_exist"`
-	PackOperationIds         interface{} `xmlrpc:"pack_operation_ids"`
-	PackOperationPackIds     interface{} `xmlrpc:"pack_operation_pack_ids"`
-	PackOperationProductIds  interface{} `xmlrpc:"pack_operation_product_ids"`
 	PartnerId                interface{} `xmlrpc:"partner_id"`
 	PickingTypeCode          interface{} `xmlrpc:"picking_type_code"`
 	PickingTypeEntirePacks   bool        `xmlrpc:"picking_type_entire_packs"`
@@ -102,10 +112,14 @@ type StockPickingNil struct {
 	Priority                 interface{} `xmlrpc:"priority"`
 	ProductId                interface{} `xmlrpc:"product_id"`
 	PurchaseId               interface{} `xmlrpc:"purchase_id"`
-	QuantReservedExist       bool        `xmlrpc:"quant_reserved_exist"`
-	RecomputePackOp          bool        `xmlrpc:"recompute_pack_op"`
 	SaleId                   interface{} `xmlrpc:"sale_id"`
+	ScheduledDate            interface{} `xmlrpc:"scheduled_date"`
+	ShowCheckAvailability    bool        `xmlrpc:"show_check_availability"`
+	ShowMarkAsTodo           bool        `xmlrpc:"show_mark_as_todo"`
+	ShowOperations           bool        `xmlrpc:"show_operations"`
+	ShowValidate             bool        `xmlrpc:"show_validate"`
 	State                    interface{} `xmlrpc:"state"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

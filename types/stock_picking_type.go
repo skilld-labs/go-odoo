@@ -5,7 +5,6 @@ import (
 )
 
 type StockPickingType struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Active                 bool      `xmlrpc:"active"`
 	BarcodeNomenclatureId  Many2One  `xmlrpc:"barcode_nomenclature_id"`
 	Code                   string    `xmlrpc:"code"`
@@ -23,6 +22,7 @@ type StockPickingType struct {
 	DisplayName            string    `xmlrpc:"display_name"`
 	Id                     int64     `xmlrpc:"id"`
 	LastDonePicking        string    `xmlrpc:"last_done_picking"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Name                   string    `xmlrpc:"name"`
 	RatePickingBackorders  int64     `xmlrpc:"rate_picking_backorders"`
 	RatePickingLate        int64     `xmlrpc:"rate_picking_late"`
@@ -30,6 +30,8 @@ type StockPickingType struct {
 	Sequence               int64     `xmlrpc:"sequence"`
 	SequenceId             Many2One  `xmlrpc:"sequence_id"`
 	ShowEntirePacks        bool      `xmlrpc:"show_entire_packs"`
+	ShowOperations         bool      `xmlrpc:"show_operations"`
+	ShowReserved           bool      `xmlrpc:"show_reserved"`
 	UseCreateLots          bool      `xmlrpc:"use_create_lots"`
 	UseExistingLots        bool      `xmlrpc:"use_existing_lots"`
 	WarehouseId            Many2One  `xmlrpc:"warehouse_id"`
@@ -38,7 +40,6 @@ type StockPickingType struct {
 }
 
 type StockPickingTypeNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Active                 bool        `xmlrpc:"active"`
 	BarcodeNomenclatureId  interface{} `xmlrpc:"barcode_nomenclature_id"`
 	Code                   interface{} `xmlrpc:"code"`
@@ -56,6 +57,7 @@ type StockPickingTypeNil struct {
 	DisplayName            interface{} `xmlrpc:"display_name"`
 	Id                     interface{} `xmlrpc:"id"`
 	LastDonePicking        interface{} `xmlrpc:"last_done_picking"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Name                   interface{} `xmlrpc:"name"`
 	RatePickingBackorders  interface{} `xmlrpc:"rate_picking_backorders"`
 	RatePickingLate        interface{} `xmlrpc:"rate_picking_late"`
@@ -63,6 +65,8 @@ type StockPickingTypeNil struct {
 	Sequence               interface{} `xmlrpc:"sequence"`
 	SequenceId             interface{} `xmlrpc:"sequence_id"`
 	ShowEntirePacks        bool        `xmlrpc:"show_entire_packs"`
+	ShowOperations         bool        `xmlrpc:"show_operations"`
+	ShowReserved           bool        `xmlrpc:"show_reserved"`
 	UseCreateLots          bool        `xmlrpc:"use_create_lots"`
 	UseExistingLots        bool        `xmlrpc:"use_existing_lots"`
 	WarehouseId            interface{} `xmlrpc:"warehouse_id"`

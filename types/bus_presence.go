@@ -5,21 +5,21 @@ import (
 )
 
 type BusPresence struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	DisplayName  string    `xmlrpc:"display_name"`
 	Id           int64     `xmlrpc:"id"`
 	LastPoll     time.Time `xmlrpc:"last_poll"`
 	LastPresence time.Time `xmlrpc:"last_presence"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Status       string    `xmlrpc:"status"`
 	UserId       Many2One  `xmlrpc:"user_id"`
 }
 
 type BusPresenceNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	Id           interface{} `xmlrpc:"id"`
 	LastPoll     interface{} `xmlrpc:"last_poll"`
 	LastPresence interface{} `xmlrpc:"last_presence"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Status       interface{} `xmlrpc:"status"`
 	UserId       interface{} `xmlrpc:"user_id"`
 }

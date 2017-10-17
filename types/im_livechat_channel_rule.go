@@ -5,7 +5,6 @@ import (
 )
 
 type ImLivechatChannelRule struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Action         string    `xmlrpc:"action"`
 	AutoPopupTimer int64     `xmlrpc:"auto_popup_timer"`
 	ChannelId      Many2One  `xmlrpc:"channel_id"`
@@ -14,6 +13,7 @@ type ImLivechatChannelRule struct {
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	RegexUrl       string    `xmlrpc:"regex_url"`
 	Sequence       int64     `xmlrpc:"sequence"`
 	WriteDate      time.Time `xmlrpc:"write_date"`
@@ -21,7 +21,6 @@ type ImLivechatChannelRule struct {
 }
 
 type ImLivechatChannelRuleNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Action         interface{} `xmlrpc:"action"`
 	AutoPopupTimer interface{} `xmlrpc:"auto_popup_timer"`
 	ChannelId      interface{} `xmlrpc:"channel_id"`
@@ -30,6 +29,7 @@ type ImLivechatChannelRuleNil struct {
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	RegexUrl       interface{} `xmlrpc:"regex_url"`
 	Sequence       interface{} `xmlrpc:"sequence"`
 	WriteDate      interface{} `xmlrpc:"write_date"`

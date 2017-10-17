@@ -5,15 +5,14 @@ import (
 )
 
 type CalendarEvent struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	Active                   bool      `xmlrpc:"active"`
+	ActivityIds              []int64   `xmlrpc:"activity_ids"`
 	AlarmIds                 []int64   `xmlrpc:"alarm_ids"`
 	Allday                   bool      `xmlrpc:"allday"`
 	AttendeeIds              []int64   `xmlrpc:"attendee_ids"`
 	AttendeeStatus           string    `xmlrpc:"attendee_status"`
 	Byday                    string    `xmlrpc:"byday"`
 	CategIds                 []int64   `xmlrpc:"categ_ids"`
-	ColorPartnerId           int64     `xmlrpc:"color_partner_id"`
 	Count                    int64     `xmlrpc:"count"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
@@ -29,6 +28,8 @@ type CalendarEvent struct {
 	Id                       int64     `xmlrpc:"id"`
 	Interval                 int64     `xmlrpc:"interval"`
 	IsAttendee               bool      `xmlrpc:"is_attendee"`
+	IsHighlighted            bool      `xmlrpc:"is_highlighted"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	Location                 string    `xmlrpc:"location"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
@@ -44,11 +45,15 @@ type CalendarEvent struct {
 	MonthBy                  string    `xmlrpc:"month_by"`
 	Name                     string    `xmlrpc:"name"`
 	OpportunityId            Many2One  `xmlrpc:"opportunity_id"`
+	PartnerId                Many2One  `xmlrpc:"partner_id"`
 	PartnerIds               []int64   `xmlrpc:"partner_ids"`
 	Privacy                  string    `xmlrpc:"privacy"`
 	Recurrency               bool      `xmlrpc:"recurrency"`
 	RecurrentId              int64     `xmlrpc:"recurrent_id"`
 	RecurrentIdDate          time.Time `xmlrpc:"recurrent_id_date"`
+	ResId                    int64     `xmlrpc:"res_id"`
+	ResModel                 string    `xmlrpc:"res_model"`
+	ResModelId               Many2One  `xmlrpc:"res_model_id"`
 	Rrule                    string    `xmlrpc:"rrule"`
 	RruleType                string    `xmlrpc:"rrule_type"`
 	Sa                       bool      `xmlrpc:"sa"`
@@ -65,21 +70,21 @@ type CalendarEvent struct {
 	Tu                       bool      `xmlrpc:"tu"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
 	We                       bool      `xmlrpc:"we"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WeekList                 string    `xmlrpc:"week_list"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type CalendarEventNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	Active                   bool        `xmlrpc:"active"`
+	ActivityIds              interface{} `xmlrpc:"activity_ids"`
 	AlarmIds                 interface{} `xmlrpc:"alarm_ids"`
 	Allday                   bool        `xmlrpc:"allday"`
 	AttendeeIds              interface{} `xmlrpc:"attendee_ids"`
 	AttendeeStatus           interface{} `xmlrpc:"attendee_status"`
 	Byday                    interface{} `xmlrpc:"byday"`
 	CategIds                 interface{} `xmlrpc:"categ_ids"`
-	ColorPartnerId           interface{} `xmlrpc:"color_partner_id"`
 	Count                    interface{} `xmlrpc:"count"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
@@ -95,6 +100,8 @@ type CalendarEventNil struct {
 	Id                       interface{} `xmlrpc:"id"`
 	Interval                 interface{} `xmlrpc:"interval"`
 	IsAttendee               bool        `xmlrpc:"is_attendee"`
+	IsHighlighted            bool        `xmlrpc:"is_highlighted"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	Location                 interface{} `xmlrpc:"location"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
@@ -110,11 +117,15 @@ type CalendarEventNil struct {
 	MonthBy                  interface{} `xmlrpc:"month_by"`
 	Name                     interface{} `xmlrpc:"name"`
 	OpportunityId            interface{} `xmlrpc:"opportunity_id"`
+	PartnerId                interface{} `xmlrpc:"partner_id"`
 	PartnerIds               interface{} `xmlrpc:"partner_ids"`
 	Privacy                  interface{} `xmlrpc:"privacy"`
 	Recurrency               bool        `xmlrpc:"recurrency"`
 	RecurrentId              interface{} `xmlrpc:"recurrent_id"`
 	RecurrentIdDate          interface{} `xmlrpc:"recurrent_id_date"`
+	ResId                    interface{} `xmlrpc:"res_id"`
+	ResModel                 interface{} `xmlrpc:"res_model"`
+	ResModelId               interface{} `xmlrpc:"res_model_id"`
 	Rrule                    interface{} `xmlrpc:"rrule"`
 	RruleType                interface{} `xmlrpc:"rrule_type"`
 	Sa                       bool        `xmlrpc:"sa"`
@@ -131,6 +142,7 @@ type CalendarEventNil struct {
 	Tu                       bool        `xmlrpc:"tu"`
 	UserId                   interface{} `xmlrpc:"user_id"`
 	We                       bool        `xmlrpc:"we"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WeekList                 interface{} `xmlrpc:"week_list"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`

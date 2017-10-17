@@ -5,7 +5,6 @@ import (
 )
 
 type IrModuleModule struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Application      bool      `xmlrpc:"application"`
 	Author           string    `xmlrpc:"author"`
 	AutoInstall      bool      `xmlrpc:"auto_install"`
@@ -18,10 +17,12 @@ type IrModuleModule struct {
 	Description      string    `xmlrpc:"description"`
 	DescriptionHtml  string    `xmlrpc:"description_html"`
 	DisplayName      string    `xmlrpc:"display_name"`
+	ExclusionIds     []int64   `xmlrpc:"exclusion_ids"`
 	Icon             string    `xmlrpc:"icon"`
 	IconImage        string    `xmlrpc:"icon_image"`
 	Id               int64     `xmlrpc:"id"`
 	InstalledVersion string    `xmlrpc:"installed_version"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	LatestVersion    string    `xmlrpc:"latest_version"`
 	License          string    `xmlrpc:"license"`
 	Maintainer       string    `xmlrpc:"maintainer"`
@@ -41,7 +42,6 @@ type IrModuleModule struct {
 }
 
 type IrModuleModuleNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Application      bool        `xmlrpc:"application"`
 	Author           interface{} `xmlrpc:"author"`
 	AutoInstall      bool        `xmlrpc:"auto_install"`
@@ -54,10 +54,12 @@ type IrModuleModuleNil struct {
 	Description      interface{} `xmlrpc:"description"`
 	DescriptionHtml  interface{} `xmlrpc:"description_html"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
+	ExclusionIds     interface{} `xmlrpc:"exclusion_ids"`
 	Icon             interface{} `xmlrpc:"icon"`
 	IconImage        interface{} `xmlrpc:"icon_image"`
 	Id               interface{} `xmlrpc:"id"`
 	InstalledVersion interface{} `xmlrpc:"installed_version"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	LatestVersion    interface{} `xmlrpc:"latest_version"`
 	License          interface{} `xmlrpc:"license"`
 	Maintainer       interface{} `xmlrpc:"maintainer"`

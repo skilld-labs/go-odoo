@@ -5,7 +5,7 @@ import (
 )
 
 type ResPartnerBank struct {
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
+	AbaRouting         int64     `xmlrpc:"aba_routing"`
 	AccNumber          string    `xmlrpc:"acc_number"`
 	AccType            string    `xmlrpc:"acc_type"`
 	BankBic            string    `xmlrpc:"bank_bic"`
@@ -18,6 +18,7 @@ type ResPartnerBank struct {
 	DisplayName        string    `xmlrpc:"display_name"`
 	Id                 int64     `xmlrpc:"id"`
 	JournalId          []int64   `xmlrpc:"journal_id"`
+	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	PartnerId          Many2One  `xmlrpc:"partner_id"`
 	SanitizedAccNumber string    `xmlrpc:"sanitized_acc_number"`
 	Sequence           int64     `xmlrpc:"sequence"`
@@ -26,7 +27,7 @@ type ResPartnerBank struct {
 }
 
 type ResPartnerBankNil struct {
-	LastUpdate         interface{} `xmlrpc:"__last_update"`
+	AbaRouting         interface{} `xmlrpc:"aba_routing"`
 	AccNumber          interface{} `xmlrpc:"acc_number"`
 	AccType            interface{} `xmlrpc:"acc_type"`
 	BankBic            interface{} `xmlrpc:"bank_bic"`
@@ -39,6 +40,7 @@ type ResPartnerBankNil struct {
 	DisplayName        interface{} `xmlrpc:"display_name"`
 	Id                 interface{} `xmlrpc:"id"`
 	JournalId          interface{} `xmlrpc:"journal_id"`
+	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	PartnerId          interface{} `xmlrpc:"partner_id"`
 	SanitizedAccNumber interface{} `xmlrpc:"sanitized_acc_number"`
 	Sequence           interface{} `xmlrpc:"sequence"`

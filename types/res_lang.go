@@ -5,7 +5,6 @@ import (
 )
 
 type ResLang struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Active       bool      `xmlrpc:"active"`
 	Code         string    `xmlrpc:"code"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
@@ -17,6 +16,7 @@ type ResLang struct {
 	Grouping     string    `xmlrpc:"grouping"`
 	Id           int64     `xmlrpc:"id"`
 	IsoCode      string    `xmlrpc:"iso_code"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Name         string    `xmlrpc:"name"`
 	ThousandsSep string    `xmlrpc:"thousands_sep"`
 	TimeFormat   string    `xmlrpc:"time_format"`
@@ -26,7 +26,6 @@ type ResLang struct {
 }
 
 type ResLangNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Active       bool        `xmlrpc:"active"`
 	Code         interface{} `xmlrpc:"code"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
@@ -38,6 +37,7 @@ type ResLangNil struct {
 	Grouping     interface{} `xmlrpc:"grouping"`
 	Id           interface{} `xmlrpc:"id"`
 	IsoCode      interface{} `xmlrpc:"iso_code"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Name         interface{} `xmlrpc:"name"`
 	ThousandsSep interface{} `xmlrpc:"thousands_sep"`
 	TimeFormat   interface{} `xmlrpc:"time_format"`

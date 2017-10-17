@@ -5,45 +5,47 @@ import (
 )
 
 type IrActionsClient struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Context     string    `xmlrpc:"context"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Help        string    `xmlrpc:"help"`
-	Id          int64     `xmlrpc:"id"`
-	Name        string    `xmlrpc:"name"`
-	Params      string    `xmlrpc:"params"`
-	ParamsStore string    `xmlrpc:"params_store"`
-	ResModel    string    `xmlrpc:"res_model"`
-	Tag         string    `xmlrpc:"tag"`
-	Target      string    `xmlrpc:"target"`
-	Type        string    `xmlrpc:"type"`
-	Usage       string    `xmlrpc:"usage"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
-	XmlId       string    `xmlrpc:"xml_id"`
+	BindingModelId Many2One  `xmlrpc:"binding_model_id"`
+	BindingType    string    `xmlrpc:"binding_type"`
+	Context        string    `xmlrpc:"context"`
+	CreateDate     time.Time `xmlrpc:"create_date"`
+	CreateUid      Many2One  `xmlrpc:"create_uid"`
+	DisplayName    string    `xmlrpc:"display_name"`
+	Help           string    `xmlrpc:"help"`
+	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
+	Name           string    `xmlrpc:"name"`
+	Params         string    `xmlrpc:"params"`
+	ParamsStore    string    `xmlrpc:"params_store"`
+	ResModel       string    `xmlrpc:"res_model"`
+	Tag            string    `xmlrpc:"tag"`
+	Target         string    `xmlrpc:"target"`
+	Type           string    `xmlrpc:"type"`
+	WriteDate      time.Time `xmlrpc:"write_date"`
+	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	XmlId          string    `xmlrpc:"xml_id"`
 }
 
 type IrActionsClientNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
-	Context     interface{} `xmlrpc:"context"`
-	CreateDate  interface{} `xmlrpc:"create_date"`
-	CreateUid   interface{} `xmlrpc:"create_uid"`
-	DisplayName interface{} `xmlrpc:"display_name"`
-	Help        interface{} `xmlrpc:"help"`
-	Id          interface{} `xmlrpc:"id"`
-	Name        interface{} `xmlrpc:"name"`
-	Params      interface{} `xmlrpc:"params"`
-	ParamsStore interface{} `xmlrpc:"params_store"`
-	ResModel    interface{} `xmlrpc:"res_model"`
-	Tag         interface{} `xmlrpc:"tag"`
-	Target      interface{} `xmlrpc:"target"`
-	Type        interface{} `xmlrpc:"type"`
-	Usage       interface{} `xmlrpc:"usage"`
-	WriteDate   interface{} `xmlrpc:"write_date"`
-	WriteUid    interface{} `xmlrpc:"write_uid"`
-	XmlId       interface{} `xmlrpc:"xml_id"`
+	BindingModelId interface{} `xmlrpc:"binding_model_id"`
+	BindingType    interface{} `xmlrpc:"binding_type"`
+	Context        interface{} `xmlrpc:"context"`
+	CreateDate     interface{} `xmlrpc:"create_date"`
+	CreateUid      interface{} `xmlrpc:"create_uid"`
+	DisplayName    interface{} `xmlrpc:"display_name"`
+	Help           interface{} `xmlrpc:"help"`
+	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
+	Name           interface{} `xmlrpc:"name"`
+	Params         interface{} `xmlrpc:"params"`
+	ParamsStore    interface{} `xmlrpc:"params_store"`
+	ResModel       interface{} `xmlrpc:"res_model"`
+	Tag            interface{} `xmlrpc:"tag"`
+	Target         interface{} `xmlrpc:"target"`
+	Type           interface{} `xmlrpc:"type"`
+	WriteDate      interface{} `xmlrpc:"write_date"`
+	WriteUid       interface{} `xmlrpc:"write_uid"`
+	XmlId          interface{} `xmlrpc:"xml_id"`
 }
 
 var IrActionsClientModel string = "ir.actions.client"

@@ -5,7 +5,6 @@ import (
 )
 
 type AccountInvoiceLine struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	AccountAnalyticId      Many2One  `xmlrpc:"account_analytic_id"`
 	AccountId              Many2One  `xmlrpc:"account_id"`
 	AnalyticTagIds         []int64   `xmlrpc:"analytic_tag_ids"`
@@ -19,6 +18,8 @@ type AccountInvoiceLine struct {
 	Id                     int64     `xmlrpc:"id"`
 	InvoiceId              Many2One  `xmlrpc:"invoice_id"`
 	InvoiceLineTaxIds      []int64   `xmlrpc:"invoice_line_tax_ids"`
+	IsRoundingLine         bool      `xmlrpc:"is_rounding_line"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	LayoutCategoryId       Many2One  `xmlrpc:"layout_category_id"`
 	LayoutCategorySequence int64     `xmlrpc:"layout_category_sequence"`
 	Name                   string    `xmlrpc:"name"`
@@ -26,8 +27,10 @@ type AccountInvoiceLine struct {
 	PartnerId              Many2One  `xmlrpc:"partner_id"`
 	PriceSubtotal          float64   `xmlrpc:"price_subtotal"`
 	PriceSubtotalSigned    float64   `xmlrpc:"price_subtotal_signed"`
+	PriceTotal             float64   `xmlrpc:"price_total"`
 	PriceUnit              float64   `xmlrpc:"price_unit"`
 	ProductId              Many2One  `xmlrpc:"product_id"`
+	ProductImage           string    `xmlrpc:"product_image"`
 	PurchaseId             Many2One  `xmlrpc:"purchase_id"`
 	PurchaseLineId         Many2One  `xmlrpc:"purchase_line_id"`
 	Quantity               float64   `xmlrpc:"quantity"`
@@ -39,7 +42,6 @@ type AccountInvoiceLine struct {
 }
 
 type AccountInvoiceLineNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	AccountAnalyticId      interface{} `xmlrpc:"account_analytic_id"`
 	AccountId              interface{} `xmlrpc:"account_id"`
 	AnalyticTagIds         interface{} `xmlrpc:"analytic_tag_ids"`
@@ -53,6 +55,8 @@ type AccountInvoiceLineNil struct {
 	Id                     interface{} `xmlrpc:"id"`
 	InvoiceId              interface{} `xmlrpc:"invoice_id"`
 	InvoiceLineTaxIds      interface{} `xmlrpc:"invoice_line_tax_ids"`
+	IsRoundingLine         bool        `xmlrpc:"is_rounding_line"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	LayoutCategoryId       interface{} `xmlrpc:"layout_category_id"`
 	LayoutCategorySequence interface{} `xmlrpc:"layout_category_sequence"`
 	Name                   interface{} `xmlrpc:"name"`
@@ -60,8 +64,10 @@ type AccountInvoiceLineNil struct {
 	PartnerId              interface{} `xmlrpc:"partner_id"`
 	PriceSubtotal          interface{} `xmlrpc:"price_subtotal"`
 	PriceSubtotalSigned    interface{} `xmlrpc:"price_subtotal_signed"`
+	PriceTotal             interface{} `xmlrpc:"price_total"`
 	PriceUnit              interface{} `xmlrpc:"price_unit"`
 	ProductId              interface{} `xmlrpc:"product_id"`
+	ProductImage           interface{} `xmlrpc:"product_image"`
 	PurchaseId             interface{} `xmlrpc:"purchase_id"`
 	PurchaseLineId         interface{} `xmlrpc:"purchase_line_id"`
 	Quantity               interface{} `xmlrpc:"quantity"`

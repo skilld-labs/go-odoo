@@ -5,13 +5,13 @@ import (
 )
 
 type IrProperty struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	FieldsId       Many2One  `xmlrpc:"fields_id"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	Name           string    `xmlrpc:"name"`
 	ResId          string    `xmlrpc:"res_id"`
 	Type           string    `xmlrpc:"type"`
@@ -26,13 +26,13 @@ type IrProperty struct {
 }
 
 type IrPropertyNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	FieldsId       interface{} `xmlrpc:"fields_id"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	Name           interface{} `xmlrpc:"name"`
 	ResId          interface{} `xmlrpc:"res_id"`
 	Type           interface{} `xmlrpc:"type"`

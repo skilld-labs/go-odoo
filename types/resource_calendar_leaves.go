@@ -5,7 +5,6 @@ import (
 )
 
 type ResourceCalendarLeaves struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CalendarId  Many2One  `xmlrpc:"calendar_id"`
 	CompanyId   Many2One  `xmlrpc:"company_id"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
@@ -15,14 +14,15 @@ type ResourceCalendarLeaves struct {
 	DisplayName string    `xmlrpc:"display_name"`
 	HolidayId   Many2One  `xmlrpc:"holiday_id"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	ResourceId  Many2One  `xmlrpc:"resource_id"`
+	Tz          string    `xmlrpc:"tz"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
 	WriteUid    Many2One  `xmlrpc:"write_uid"`
 }
 
 type ResourceCalendarLeavesNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CalendarId  interface{} `xmlrpc:"calendar_id"`
 	CompanyId   interface{} `xmlrpc:"company_id"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
@@ -32,8 +32,10 @@ type ResourceCalendarLeavesNil struct {
 	DisplayName interface{} `xmlrpc:"display_name"`
 	HolidayId   interface{} `xmlrpc:"holiday_id"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	ResourceId  interface{} `xmlrpc:"resource_id"`
+	Tz          interface{} `xmlrpc:"tz"`
 	WriteDate   interface{} `xmlrpc:"write_date"`
 	WriteUid    interface{} `xmlrpc:"write_uid"`
 }

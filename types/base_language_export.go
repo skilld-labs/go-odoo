@@ -5,7 +5,6 @@ import (
 )
 
 type BaseLanguageExport struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	Data        string    `xmlrpc:"data"`
@@ -13,6 +12,7 @@ type BaseLanguageExport struct {
 	Format      string    `xmlrpc:"format"`
 	Id          int64     `xmlrpc:"id"`
 	Lang        string    `xmlrpc:"lang"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Modules     []int64   `xmlrpc:"modules"`
 	Name        string    `xmlrpc:"name"`
 	State       string    `xmlrpc:"state"`
@@ -21,7 +21,6 @@ type BaseLanguageExport struct {
 }
 
 type BaseLanguageExportNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	Data        interface{} `xmlrpc:"data"`
@@ -29,6 +28,7 @@ type BaseLanguageExportNil struct {
 	Format      interface{} `xmlrpc:"format"`
 	Id          interface{} `xmlrpc:"id"`
 	Lang        interface{} `xmlrpc:"lang"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Modules     interface{} `xmlrpc:"modules"`
 	Name        interface{} `xmlrpc:"name"`
 	State       interface{} `xmlrpc:"state"`

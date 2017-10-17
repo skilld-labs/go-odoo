@@ -5,12 +5,12 @@ import (
 )
 
 type IrUiViewCustom struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Arch        string    `xmlrpc:"arch"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	RefId       Many2One  `xmlrpc:"ref_id"`
 	UserId      Many2One  `xmlrpc:"user_id"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
@@ -18,12 +18,12 @@ type IrUiViewCustom struct {
 }
 
 type IrUiViewCustomNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Arch        interface{} `xmlrpc:"arch"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	RefId       interface{} `xmlrpc:"ref_id"`
 	UserId      interface{} `xmlrpc:"user_id"`
 	WriteDate   interface{} `xmlrpc:"write_date"`

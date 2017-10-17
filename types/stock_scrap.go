@@ -5,12 +5,12 @@ import (
 )
 
 type StockScrap struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
 	CreateUid       Many2One  `xmlrpc:"create_uid"`
 	DateExpected    time.Time `xmlrpc:"date_expected"`
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	LocationId      Many2One  `xmlrpc:"location_id"`
 	LotId           Many2One  `xmlrpc:"lot_id"`
 	MoveId          Many2One  `xmlrpc:"move_id"`
@@ -30,12 +30,12 @@ type StockScrap struct {
 }
 
 type StockScrapNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
 	CreateUid       interface{} `xmlrpc:"create_uid"`
 	DateExpected    interface{} `xmlrpc:"date_expected"`
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	LocationId      interface{} `xmlrpc:"location_id"`
 	LotId           interface{} `xmlrpc:"lot_id"`
 	MoveId          interface{} `xmlrpc:"move_id"`

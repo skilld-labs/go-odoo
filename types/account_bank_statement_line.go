@@ -5,7 +5,6 @@ import (
 )
 
 type AccountBankStatementLine struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	AccountId         Many2One  `xmlrpc:"account_id"`
 	Amount            float64   `xmlrpc:"amount"`
 	AmountCurrency    float64   `xmlrpc:"amount_currency"`
@@ -20,6 +19,7 @@ type AccountBankStatementLine struct {
 	JournalCurrencyId Many2One  `xmlrpc:"journal_currency_id"`
 	JournalEntryIds   []int64   `xmlrpc:"journal_entry_ids"`
 	JournalId         Many2One  `xmlrpc:"journal_id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	MoveName          string    `xmlrpc:"move_name"`
 	Name              string    `xmlrpc:"name"`
 	Note              string    `xmlrpc:"note"`
@@ -35,7 +35,6 @@ type AccountBankStatementLine struct {
 }
 
 type AccountBankStatementLineNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	AccountId         interface{} `xmlrpc:"account_id"`
 	Amount            interface{} `xmlrpc:"amount"`
 	AmountCurrency    interface{} `xmlrpc:"amount_currency"`
@@ -50,6 +49,7 @@ type AccountBankStatementLineNil struct {
 	JournalCurrencyId interface{} `xmlrpc:"journal_currency_id"`
 	JournalEntryIds   interface{} `xmlrpc:"journal_entry_ids"`
 	JournalId         interface{} `xmlrpc:"journal_id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	MoveName          interface{} `xmlrpc:"move_name"`
 	Name              interface{} `xmlrpc:"name"`
 	Note              interface{} `xmlrpc:"note"`

@@ -5,11 +5,11 @@ import (
 )
 
 type SaleLayoutCategory struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	Pagebreak   bool      `xmlrpc:"pagebreak"`
 	Sequence    int64     `xmlrpc:"sequence"`
@@ -19,11 +19,11 @@ type SaleLayoutCategory struct {
 }
 
 type SaleLayoutCategoryNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	Pagebreak   bool        `xmlrpc:"pagebreak"`
 	Sequence    interface{} `xmlrpc:"sequence"`

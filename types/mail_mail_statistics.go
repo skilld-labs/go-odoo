@@ -5,13 +5,14 @@ import (
 )
 
 type MailMailStatistics struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Bounced               time.Time `xmlrpc:"bounced"`
+	Clicked               time.Time `xmlrpc:"clicked"`
 	CreateDate            time.Time `xmlrpc:"create_date"`
 	CreateUid             Many2One  `xmlrpc:"create_uid"`
 	DisplayName           string    `xmlrpc:"display_name"`
 	Exception             time.Time `xmlrpc:"exception"`
 	Id                    int64     `xmlrpc:"id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	LinksClickIds         []int64   `xmlrpc:"links_click_ids"`
 	MailMailId            Many2One  `xmlrpc:"mail_mail_id"`
 	MailMailIdInt         int64     `xmlrpc:"mail_mail_id_int"`
@@ -32,13 +33,14 @@ type MailMailStatistics struct {
 }
 
 type MailMailStatisticsNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Bounced               interface{} `xmlrpc:"bounced"`
+	Clicked               interface{} `xmlrpc:"clicked"`
 	CreateDate            interface{} `xmlrpc:"create_date"`
 	CreateUid             interface{} `xmlrpc:"create_uid"`
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Exception             interface{} `xmlrpc:"exception"`
 	Id                    interface{} `xmlrpc:"id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	LinksClickIds         interface{} `xmlrpc:"links_click_ids"`
 	MailMailId            interface{} `xmlrpc:"mail_mail_id"`
 	MailMailIdInt         interface{} `xmlrpc:"mail_mail_id_int"`

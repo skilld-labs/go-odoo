@@ -5,18 +5,19 @@ import (
 )
 
 type HrDepartment struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	AbsenceOfToday           int64     `xmlrpc:"absence_of_today"`
 	Active                   bool      `xmlrpc:"active"`
 	AllocationToApproveCount int64     `xmlrpc:"allocation_to_approve_count"`
 	ChildIds                 []int64   `xmlrpc:"child_ids"`
 	Color                    int64     `xmlrpc:"color"`
 	CompanyId                Many2One  `xmlrpc:"company_id"`
+	CompleteName             string    `xmlrpc:"complete_name"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
 	DisplayName              string    `xmlrpc:"display_name"`
 	Id                       int64     `xmlrpc:"id"`
 	JobsIds                  []int64   `xmlrpc:"jobs_ids"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LeaveToApproveCount      int64     `xmlrpc:"leave_to_approve_count"`
 	ManagerId                Many2One  `xmlrpc:"manager_id"`
 	MemberIds                []int64   `xmlrpc:"member_ids"`
@@ -34,23 +35,25 @@ type HrDepartment struct {
 	Note                     string    `xmlrpc:"note"`
 	ParentId                 Many2One  `xmlrpc:"parent_id"`
 	TotalEmployee            int64     `xmlrpc:"total_employee"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type HrDepartmentNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	AbsenceOfToday           interface{} `xmlrpc:"absence_of_today"`
 	Active                   bool        `xmlrpc:"active"`
 	AllocationToApproveCount interface{} `xmlrpc:"allocation_to_approve_count"`
 	ChildIds                 interface{} `xmlrpc:"child_ids"`
 	Color                    interface{} `xmlrpc:"color"`
 	CompanyId                interface{} `xmlrpc:"company_id"`
+	CompleteName             interface{} `xmlrpc:"complete_name"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	Id                       interface{} `xmlrpc:"id"`
 	JobsIds                  interface{} `xmlrpc:"jobs_ids"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LeaveToApproveCount      interface{} `xmlrpc:"leave_to_approve_count"`
 	ManagerId                interface{} `xmlrpc:"manager_id"`
 	MemberIds                interface{} `xmlrpc:"member_ids"`
@@ -68,6 +71,7 @@ type HrDepartmentNil struct {
 	Note                     interface{} `xmlrpc:"note"`
 	ParentId                 interface{} `xmlrpc:"parent_id"`
 	TotalEmployee            interface{} `xmlrpc:"total_employee"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

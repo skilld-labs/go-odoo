@@ -5,7 +5,6 @@ import (
 )
 
 type AccountInvoiceRefund struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
 	CreateUid    Many2One  `xmlrpc:"create_uid"`
 	Date         time.Time `xmlrpc:"date"`
@@ -14,13 +13,13 @@ type AccountInvoiceRefund struct {
 	DisplayName  string    `xmlrpc:"display_name"`
 	FilterRefund string    `xmlrpc:"filter_refund"`
 	Id           int64     `xmlrpc:"id"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	RefundOnly   bool      `xmlrpc:"refund_only"`
 	WriteDate    time.Time `xmlrpc:"write_date"`
 	WriteUid     Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountInvoiceRefundNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
 	CreateUid    interface{} `xmlrpc:"create_uid"`
 	Date         interface{} `xmlrpc:"date"`
@@ -29,6 +28,7 @@ type AccountInvoiceRefundNil struct {
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	FilterRefund interface{} `xmlrpc:"filter_refund"`
 	Id           interface{} `xmlrpc:"id"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	RefundOnly   bool        `xmlrpc:"refund_only"`
 	WriteDate    interface{} `xmlrpc:"write_date"`
 	WriteUid     interface{} `xmlrpc:"write_uid"`

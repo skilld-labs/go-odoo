@@ -5,12 +5,12 @@ import (
 )
 
 type IrModuleModuleDependency struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DependId    Many2One  `xmlrpc:"depend_id"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ModuleId    Many2One  `xmlrpc:"module_id"`
 	Name        string    `xmlrpc:"name"`
 	State       string    `xmlrpc:"state"`
@@ -19,12 +19,12 @@ type IrModuleModuleDependency struct {
 }
 
 type IrModuleModuleDependencyNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DependId    interface{} `xmlrpc:"depend_id"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ModuleId    interface{} `xmlrpc:"module_id"`
 	Name        interface{} `xmlrpc:"name"`
 	State       interface{} `xmlrpc:"state"`

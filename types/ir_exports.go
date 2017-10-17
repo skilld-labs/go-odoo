@@ -5,12 +5,12 @@ import (
 )
 
 type IrExports struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
 	CreateUid    Many2One  `xmlrpc:"create_uid"`
 	DisplayName  string    `xmlrpc:"display_name"`
 	ExportFields []int64   `xmlrpc:"export_fields"`
 	Id           int64     `xmlrpc:"id"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Name         string    `xmlrpc:"name"`
 	Resource     string    `xmlrpc:"resource"`
 	WriteDate    time.Time `xmlrpc:"write_date"`
@@ -18,12 +18,12 @@ type IrExports struct {
 }
 
 type IrExportsNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
 	CreateUid    interface{} `xmlrpc:"create_uid"`
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	ExportFields interface{} `xmlrpc:"export_fields"`
 	Id           interface{} `xmlrpc:"id"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Name         interface{} `xmlrpc:"name"`
 	Resource     interface{} `xmlrpc:"resource"`
 	WriteDate    interface{} `xmlrpc:"write_date"`
