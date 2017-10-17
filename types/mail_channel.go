@@ -5,7 +5,6 @@ import (
 )
 
 type MailChannel struct {
-	LastUpdate                time.Time `xmlrpc:"__last_update"`
 	AliasContact              string    `xmlrpc:"alias_contact"`
 	AliasDefaults             string    `xmlrpc:"alias_defaults"`
 	AliasDomain               string    `xmlrpc:"alias_domain"`
@@ -34,6 +33,7 @@ type MailChannel struct {
 	ImageSmall                string    `xmlrpc:"image_small"`
 	IsMember                  bool      `xmlrpc:"is_member"`
 	IsSubscribed              bool      `xmlrpc:"is_subscribed"`
+	LastUpdate                time.Time `xmlrpc:"__last_update"`
 	LivechatChannelId         Many2One  `xmlrpc:"livechat_channel_id"`
 	MessageChannelIds         []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds        []int64   `xmlrpc:"message_follower_ids"`
@@ -49,14 +49,16 @@ type MailChannel struct {
 	Public                    string    `xmlrpc:"public"`
 	RatingCount               int64     `xmlrpc:"rating_count"`
 	RatingIds                 []int64   `xmlrpc:"rating_ids"`
+	RatingLastFeedback        string    `xmlrpc:"rating_last_feedback"`
+	RatingLastImage           string    `xmlrpc:"rating_last_image"`
 	RatingLastValue           float64   `xmlrpc:"rating_last_value"`
 	Uuid                      string    `xmlrpc:"uuid"`
+	WebsiteMessageIds         []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                 time.Time `xmlrpc:"write_date"`
 	WriteUid                  Many2One  `xmlrpc:"write_uid"`
 }
 
 type MailChannelNil struct {
-	LastUpdate                interface{} `xmlrpc:"__last_update"`
 	AliasContact              interface{} `xmlrpc:"alias_contact"`
 	AliasDefaults             interface{} `xmlrpc:"alias_defaults"`
 	AliasDomain               interface{} `xmlrpc:"alias_domain"`
@@ -85,6 +87,7 @@ type MailChannelNil struct {
 	ImageSmall                interface{} `xmlrpc:"image_small"`
 	IsMember                  bool        `xmlrpc:"is_member"`
 	IsSubscribed              bool        `xmlrpc:"is_subscribed"`
+	LastUpdate                interface{} `xmlrpc:"__last_update"`
 	LivechatChannelId         interface{} `xmlrpc:"livechat_channel_id"`
 	MessageChannelIds         interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds        interface{} `xmlrpc:"message_follower_ids"`
@@ -100,8 +103,11 @@ type MailChannelNil struct {
 	Public                    interface{} `xmlrpc:"public"`
 	RatingCount               interface{} `xmlrpc:"rating_count"`
 	RatingIds                 interface{} `xmlrpc:"rating_ids"`
+	RatingLastFeedback        interface{} `xmlrpc:"rating_last_feedback"`
+	RatingLastImage           interface{} `xmlrpc:"rating_last_image"`
 	RatingLastValue           interface{} `xmlrpc:"rating_last_value"`
 	Uuid                      interface{} `xmlrpc:"uuid"`
+	WebsiteMessageIds         interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                 interface{} `xmlrpc:"write_date"`
 	WriteUid                  interface{} `xmlrpc:"write_uid"`
 }

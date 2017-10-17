@@ -5,16 +5,17 @@ import (
 )
 
 type AccountReconcileModelTemplate struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	AccountId        Many2One  `xmlrpc:"account_id"`
 	Amount           float64   `xmlrpc:"amount"`
 	AmountType       string    `xmlrpc:"amount_type"`
+	ChartTemplateId  Many2One  `xmlrpc:"chart_template_id"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
 	DisplayName      string    `xmlrpc:"display_name"`
 	HasSecondLine    bool      `xmlrpc:"has_second_line"`
 	Id               int64     `xmlrpc:"id"`
 	Label            string    `xmlrpc:"label"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Name             string    `xmlrpc:"name"`
 	SecondAccountId  Many2One  `xmlrpc:"second_account_id"`
 	SecondAmount     float64   `xmlrpc:"second_amount"`
@@ -28,16 +29,17 @@ type AccountReconcileModelTemplate struct {
 }
 
 type AccountReconcileModelTemplateNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	AccountId        interface{} `xmlrpc:"account_id"`
 	Amount           interface{} `xmlrpc:"amount"`
 	AmountType       interface{} `xmlrpc:"amount_type"`
+	ChartTemplateId  interface{} `xmlrpc:"chart_template_id"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	HasSecondLine    bool        `xmlrpc:"has_second_line"`
 	Id               interface{} `xmlrpc:"id"`
 	Label            interface{} `xmlrpc:"label"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Name             interface{} `xmlrpc:"name"`
 	SecondAccountId  interface{} `xmlrpc:"second_account_id"`
 	SecondAmount     interface{} `xmlrpc:"second_amount"`

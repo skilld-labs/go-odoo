@@ -5,16 +5,15 @@ import (
 )
 
 type IrRule struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Active      bool      `xmlrpc:"active"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
-	Domain      string    `xmlrpc:"domain"`
 	DomainForce string    `xmlrpc:"domain_force"`
 	Global      bool      `xmlrpc:"global"`
 	Groups      []int64   `xmlrpc:"groups"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ModelId     Many2One  `xmlrpc:"model_id"`
 	Name        string    `xmlrpc:"name"`
 	PermCreate  bool      `xmlrpc:"perm_create"`
@@ -26,16 +25,15 @@ type IrRule struct {
 }
 
 type IrRuleNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Active      bool        `xmlrpc:"active"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
-	Domain      interface{} `xmlrpc:"domain"`
 	DomainForce interface{} `xmlrpc:"domain_force"`
 	Global      bool        `xmlrpc:"global"`
 	Groups      interface{} `xmlrpc:"groups"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ModelId     interface{} `xmlrpc:"model_id"`
 	Name        interface{} `xmlrpc:"name"`
 	PermCreate  bool        `xmlrpc:"perm_create"`

@@ -5,7 +5,6 @@ import (
 )
 
 type MailMassMailingCampaign struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Bounced         int64     `xmlrpc:"bounced"`
 	BouncedRatio    int64     `xmlrpc:"bounced_ratio"`
 	CampaignId      Many2One  `xmlrpc:"campaign_id"`
@@ -17,6 +16,7 @@ type MailMassMailingCampaign struct {
 	DisplayName     string    `xmlrpc:"display_name"`
 	Failed          int64     `xmlrpc:"failed"`
 	Id              int64     `xmlrpc:"id"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	MassMailingIds  []int64   `xmlrpc:"mass_mailing_ids"`
 	MediumId        Many2One  `xmlrpc:"medium_id"`
 	Name            string    `xmlrpc:"name"`
@@ -39,7 +39,6 @@ type MailMassMailingCampaign struct {
 }
 
 type MailMassMailingCampaignNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Bounced         interface{} `xmlrpc:"bounced"`
 	BouncedRatio    interface{} `xmlrpc:"bounced_ratio"`
 	CampaignId      interface{} `xmlrpc:"campaign_id"`
@@ -51,6 +50,7 @@ type MailMassMailingCampaignNil struct {
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Failed          interface{} `xmlrpc:"failed"`
 	Id              interface{} `xmlrpc:"id"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	MassMailingIds  interface{} `xmlrpc:"mass_mailing_ids"`
 	MediumId        interface{} `xmlrpc:"medium_id"`
 	Name            interface{} `xmlrpc:"name"`

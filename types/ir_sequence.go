@@ -5,7 +5,6 @@ import (
 )
 
 type IrSequence struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Active           bool      `xmlrpc:"active"`
 	Code             string    `xmlrpc:"code"`
 	CompanyId        Many2One  `xmlrpc:"company_id"`
@@ -15,6 +14,7 @@ type IrSequence struct {
 	DisplayName      string    `xmlrpc:"display_name"`
 	Id               int64     `xmlrpc:"id"`
 	Implementation   string    `xmlrpc:"implementation"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Name             string    `xmlrpc:"name"`
 	NumberIncrement  int64     `xmlrpc:"number_increment"`
 	NumberNext       int64     `xmlrpc:"number_next"`
@@ -28,7 +28,6 @@ type IrSequence struct {
 }
 
 type IrSequenceNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Active           bool        `xmlrpc:"active"`
 	Code             interface{} `xmlrpc:"code"`
 	CompanyId        interface{} `xmlrpc:"company_id"`
@@ -38,6 +37,7 @@ type IrSequenceNil struct {
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	Id               interface{} `xmlrpc:"id"`
 	Implementation   interface{} `xmlrpc:"implementation"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Name             interface{} `xmlrpc:"name"`
 	NumberIncrement  interface{} `xmlrpc:"number_increment"`
 	NumberNext       interface{} `xmlrpc:"number_next"`

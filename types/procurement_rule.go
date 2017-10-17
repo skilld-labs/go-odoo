@@ -5,7 +5,6 @@ import (
 )
 
 type ProcurementRule struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Action                 string    `xmlrpc:"action"`
 	Active                 bool      `xmlrpc:"active"`
 	CompanyId              Many2One  `xmlrpc:"company_id"`
@@ -16,6 +15,7 @@ type ProcurementRule struct {
 	GroupId                Many2One  `xmlrpc:"group_id"`
 	GroupPropagationOption string    `xmlrpc:"group_propagation_option"`
 	Id                     int64     `xmlrpc:"id"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	LocationId             Many2One  `xmlrpc:"location_id"`
 	LocationSrcId          Many2One  `xmlrpc:"location_src_id"`
 	Name                   string    `xmlrpc:"name"`
@@ -33,7 +33,6 @@ type ProcurementRule struct {
 }
 
 type ProcurementRuleNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Action                 interface{} `xmlrpc:"action"`
 	Active                 bool        `xmlrpc:"active"`
 	CompanyId              interface{} `xmlrpc:"company_id"`
@@ -44,6 +43,7 @@ type ProcurementRuleNil struct {
 	GroupId                interface{} `xmlrpc:"group_id"`
 	GroupPropagationOption interface{} `xmlrpc:"group_propagation_option"`
 	Id                     interface{} `xmlrpc:"id"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	LocationId             interface{} `xmlrpc:"location_id"`
 	LocationSrcId          interface{} `xmlrpc:"location_src_id"`
 	Name                   interface{} `xmlrpc:"name"`

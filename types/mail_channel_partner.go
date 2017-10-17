@@ -5,7 +5,6 @@ import (
 )
 
 type MailChannelPartner struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	ChannelId     Many2One  `xmlrpc:"channel_id"`
 	CreateDate    time.Time `xmlrpc:"create_date"`
 	CreateUid     Many2One  `xmlrpc:"create_uid"`
@@ -14,6 +13,8 @@ type MailChannelPartner struct {
 	Id            int64     `xmlrpc:"id"`
 	IsMinimized   bool      `xmlrpc:"is_minimized"`
 	IsPinned      bool      `xmlrpc:"is_pinned"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
+	PartnerEmail  string    `xmlrpc:"partner_email"`
 	PartnerId     Many2One  `xmlrpc:"partner_id"`
 	SeenMessageId Many2One  `xmlrpc:"seen_message_id"`
 	WriteDate     time.Time `xmlrpc:"write_date"`
@@ -21,7 +22,6 @@ type MailChannelPartner struct {
 }
 
 type MailChannelPartnerNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	ChannelId     interface{} `xmlrpc:"channel_id"`
 	CreateDate    interface{} `xmlrpc:"create_date"`
 	CreateUid     interface{} `xmlrpc:"create_uid"`
@@ -30,6 +30,8 @@ type MailChannelPartnerNil struct {
 	Id            interface{} `xmlrpc:"id"`
 	IsMinimized   bool        `xmlrpc:"is_minimized"`
 	IsPinned      bool        `xmlrpc:"is_pinned"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
+	PartnerEmail  interface{} `xmlrpc:"partner_email"`
 	PartnerId     interface{} `xmlrpc:"partner_id"`
 	SeenMessageId interface{} `xmlrpc:"seen_message_id"`
 	WriteDate     interface{} `xmlrpc:"write_date"`

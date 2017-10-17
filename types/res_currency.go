@@ -5,41 +5,45 @@ import (
 )
 
 type ResCurrency struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	Active        bool      `xmlrpc:"active"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	Date          time.Time `xmlrpc:"date"`
-	DecimalPlaces int64     `xmlrpc:"decimal_places"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	Name          string    `xmlrpc:"name"`
-	Position      string    `xmlrpc:"position"`
-	Rate          float64   `xmlrpc:"rate"`
-	RateIds       []int64   `xmlrpc:"rate_ids"`
-	Rounding      float64   `xmlrpc:"rounding"`
-	Symbol        string    `xmlrpc:"symbol"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	Active               bool      `xmlrpc:"active"`
+	CreateDate           time.Time `xmlrpc:"create_date"`
+	CreateUid            Many2One  `xmlrpc:"create_uid"`
+	CurrencySubunitLabel string    `xmlrpc:"currency_subunit_label"`
+	CurrencyUnitLabel    string    `xmlrpc:"currency_unit_label"`
+	Date                 time.Time `xmlrpc:"date"`
+	DecimalPlaces        int64     `xmlrpc:"decimal_places"`
+	DisplayName          string    `xmlrpc:"display_name"`
+	Id                   int64     `xmlrpc:"id"`
+	LastUpdate           time.Time `xmlrpc:"__last_update"`
+	Name                 string    `xmlrpc:"name"`
+	Position             string    `xmlrpc:"position"`
+	Rate                 float64   `xmlrpc:"rate"`
+	RateIds              []int64   `xmlrpc:"rate_ids"`
+	Rounding             float64   `xmlrpc:"rounding"`
+	Symbol               string    `xmlrpc:"symbol"`
+	WriteDate            time.Time `xmlrpc:"write_date"`
+	WriteUid             Many2One  `xmlrpc:"write_uid"`
 }
 
 type ResCurrencyNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
-	Active        bool        `xmlrpc:"active"`
-	CreateDate    interface{} `xmlrpc:"create_date"`
-	CreateUid     interface{} `xmlrpc:"create_uid"`
-	Date          interface{} `xmlrpc:"date"`
-	DecimalPlaces interface{} `xmlrpc:"decimal_places"`
-	DisplayName   interface{} `xmlrpc:"display_name"`
-	Id            interface{} `xmlrpc:"id"`
-	Name          interface{} `xmlrpc:"name"`
-	Position      interface{} `xmlrpc:"position"`
-	Rate          interface{} `xmlrpc:"rate"`
-	RateIds       interface{} `xmlrpc:"rate_ids"`
-	Rounding      interface{} `xmlrpc:"rounding"`
-	Symbol        interface{} `xmlrpc:"symbol"`
-	WriteDate     interface{} `xmlrpc:"write_date"`
-	WriteUid      interface{} `xmlrpc:"write_uid"`
+	Active               bool        `xmlrpc:"active"`
+	CreateDate           interface{} `xmlrpc:"create_date"`
+	CreateUid            interface{} `xmlrpc:"create_uid"`
+	CurrencySubunitLabel interface{} `xmlrpc:"currency_subunit_label"`
+	CurrencyUnitLabel    interface{} `xmlrpc:"currency_unit_label"`
+	Date                 interface{} `xmlrpc:"date"`
+	DecimalPlaces        interface{} `xmlrpc:"decimal_places"`
+	DisplayName          interface{} `xmlrpc:"display_name"`
+	Id                   interface{} `xmlrpc:"id"`
+	LastUpdate           interface{} `xmlrpc:"__last_update"`
+	Name                 interface{} `xmlrpc:"name"`
+	Position             interface{} `xmlrpc:"position"`
+	Rate                 interface{} `xmlrpc:"rate"`
+	RateIds              interface{} `xmlrpc:"rate_ids"`
+	Rounding             interface{} `xmlrpc:"rounding"`
+	Symbol               interface{} `xmlrpc:"symbol"`
+	WriteDate            interface{} `xmlrpc:"write_date"`
+	WriteUid             interface{} `xmlrpc:"write_uid"`
 }
 
 var ResCurrencyModel string = "res.currency"

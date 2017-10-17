@@ -5,7 +5,6 @@ import (
 )
 
 type StockLocationRoute struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Active                 bool      `xmlrpc:"active"`
 	CategIds               []int64   `xmlrpc:"categ_ids"`
 	CompanyId              Many2One  `xmlrpc:"company_id"`
@@ -13,6 +12,7 @@ type StockLocationRoute struct {
 	CreateUid              Many2One  `xmlrpc:"create_uid"`
 	DisplayName            string    `xmlrpc:"display_name"`
 	Id                     int64     `xmlrpc:"id"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Name                   string    `xmlrpc:"name"`
 	ProductCategSelectable bool      `xmlrpc:"product_categ_selectable"`
 	ProductIds             []int64   `xmlrpc:"product_ids"`
@@ -30,7 +30,6 @@ type StockLocationRoute struct {
 }
 
 type StockLocationRouteNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Active                 bool        `xmlrpc:"active"`
 	CategIds               interface{} `xmlrpc:"categ_ids"`
 	CompanyId              interface{} `xmlrpc:"company_id"`
@@ -38,6 +37,7 @@ type StockLocationRouteNil struct {
 	CreateUid              interface{} `xmlrpc:"create_uid"`
 	DisplayName            interface{} `xmlrpc:"display_name"`
 	Id                     interface{} `xmlrpc:"id"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Name                   interface{} `xmlrpc:"name"`
 	ProductCategSelectable bool        `xmlrpc:"product_categ_selectable"`
 	ProductIds             interface{} `xmlrpc:"product_ids"`

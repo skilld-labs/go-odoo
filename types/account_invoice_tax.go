@@ -5,10 +5,11 @@ import (
 )
 
 type AccountInvoiceTax struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	AccountAnalyticId Many2One  `xmlrpc:"account_analytic_id"`
 	AccountId         Many2One  `xmlrpc:"account_id"`
 	Amount            float64   `xmlrpc:"amount"`
+	AmountRounding    float64   `xmlrpc:"amount_rounding"`
+	AmountTotal       float64   `xmlrpc:"amount_total"`
 	Base              float64   `xmlrpc:"base"`
 	CompanyId         Many2One  `xmlrpc:"company_id"`
 	CreateDate        time.Time `xmlrpc:"create_date"`
@@ -17,6 +18,7 @@ type AccountInvoiceTax struct {
 	DisplayName       string    `xmlrpc:"display_name"`
 	Id                int64     `xmlrpc:"id"`
 	InvoiceId         Many2One  `xmlrpc:"invoice_id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Manual            bool      `xmlrpc:"manual"`
 	Name              string    `xmlrpc:"name"`
 	Sequence          int64     `xmlrpc:"sequence"`
@@ -26,10 +28,11 @@ type AccountInvoiceTax struct {
 }
 
 type AccountInvoiceTaxNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	AccountAnalyticId interface{} `xmlrpc:"account_analytic_id"`
 	AccountId         interface{} `xmlrpc:"account_id"`
 	Amount            interface{} `xmlrpc:"amount"`
+	AmountRounding    interface{} `xmlrpc:"amount_rounding"`
+	AmountTotal       interface{} `xmlrpc:"amount_total"`
 	Base              interface{} `xmlrpc:"base"`
 	CompanyId         interface{} `xmlrpc:"company_id"`
 	CreateDate        interface{} `xmlrpc:"create_date"`
@@ -38,6 +41,7 @@ type AccountInvoiceTaxNil struct {
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	Id                interface{} `xmlrpc:"id"`
 	InvoiceId         interface{} `xmlrpc:"invoice_id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Manual            bool        `xmlrpc:"manual"`
 	Name              interface{} `xmlrpc:"name"`
 	Sequence          interface{} `xmlrpc:"sequence"`

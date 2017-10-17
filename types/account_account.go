@@ -5,7 +5,6 @@ import (
 )
 
 type AccountAccount struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Code                   string    `xmlrpc:"code"`
 	CompanyId              Many2One  `xmlrpc:"company_id"`
 	CreateDate             time.Time `xmlrpc:"create_date"`
@@ -13,11 +12,15 @@ type AccountAccount struct {
 	CurrencyId             Many2One  `xmlrpc:"currency_id"`
 	Deprecated             bool      `xmlrpc:"deprecated"`
 	DisplayName            string    `xmlrpc:"display_name"`
+	GroupId                Many2One  `xmlrpc:"group_id"`
 	Id                     int64     `xmlrpc:"id"`
 	InternalType           string    `xmlrpc:"internal_type"`
 	LastTimeEntriesChecked time.Time `xmlrpc:"last_time_entries_checked"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	Name                   string    `xmlrpc:"name"`
 	Note                   string    `xmlrpc:"note"`
+	OpeningCredit          float64   `xmlrpc:"opening_credit"`
+	OpeningDebit           float64   `xmlrpc:"opening_debit"`
 	Reconcile              bool      `xmlrpc:"reconcile"`
 	TagIds                 []int64   `xmlrpc:"tag_ids"`
 	TaxIds                 []int64   `xmlrpc:"tax_ids"`
@@ -27,7 +30,6 @@ type AccountAccount struct {
 }
 
 type AccountAccountNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Code                   interface{} `xmlrpc:"code"`
 	CompanyId              interface{} `xmlrpc:"company_id"`
 	CreateDate             interface{} `xmlrpc:"create_date"`
@@ -35,11 +37,15 @@ type AccountAccountNil struct {
 	CurrencyId             interface{} `xmlrpc:"currency_id"`
 	Deprecated             bool        `xmlrpc:"deprecated"`
 	DisplayName            interface{} `xmlrpc:"display_name"`
+	GroupId                interface{} `xmlrpc:"group_id"`
 	Id                     interface{} `xmlrpc:"id"`
 	InternalType           interface{} `xmlrpc:"internal_type"`
 	LastTimeEntriesChecked interface{} `xmlrpc:"last_time_entries_checked"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	Name                   interface{} `xmlrpc:"name"`
 	Note                   interface{} `xmlrpc:"note"`
+	OpeningCredit          interface{} `xmlrpc:"opening_credit"`
+	OpeningDebit           interface{} `xmlrpc:"opening_debit"`
 	Reconcile              bool        `xmlrpc:"reconcile"`
 	TagIds                 interface{} `xmlrpc:"tag_ids"`
 	TaxIds                 interface{} `xmlrpc:"tax_ids"`

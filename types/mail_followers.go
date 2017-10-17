@@ -5,10 +5,10 @@ import (
 )
 
 type MailFollowers struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ChannelId   Many2One  `xmlrpc:"channel_id"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	PartnerId   Many2One  `xmlrpc:"partner_id"`
 	ResId       int64     `xmlrpc:"res_id"`
 	ResModel    string    `xmlrpc:"res_model"`
@@ -16,10 +16,10 @@ type MailFollowers struct {
 }
 
 type MailFollowersNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ChannelId   interface{} `xmlrpc:"channel_id"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	PartnerId   interface{} `xmlrpc:"partner_id"`
 	ResId       interface{} `xmlrpc:"res_id"`
 	ResModel    interface{} `xmlrpc:"res_model"`

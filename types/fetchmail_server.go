@@ -5,7 +5,6 @@ import (
 )
 
 type FetchmailServer struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	ActionId      Many2One  `xmlrpc:"action_id"`
 	Active        bool      `xmlrpc:"active"`
 	Attach        bool      `xmlrpc:"attach"`
@@ -16,6 +15,7 @@ type FetchmailServer struct {
 	DisplayName   string    `xmlrpc:"display_name"`
 	Id            int64     `xmlrpc:"id"`
 	IsSsl         bool      `xmlrpc:"is_ssl"`
+	LastUpdate    time.Time `xmlrpc:"__last_update"`
 	MessageIds    []int64   `xmlrpc:"message_ids"`
 	Name          string    `xmlrpc:"name"`
 	ObjectId      Many2One  `xmlrpc:"object_id"`
@@ -33,7 +33,6 @@ type FetchmailServer struct {
 }
 
 type FetchmailServerNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	ActionId      interface{} `xmlrpc:"action_id"`
 	Active        bool        `xmlrpc:"active"`
 	Attach        bool        `xmlrpc:"attach"`
@@ -44,6 +43,7 @@ type FetchmailServerNil struct {
 	DisplayName   interface{} `xmlrpc:"display_name"`
 	Id            interface{} `xmlrpc:"id"`
 	IsSsl         bool        `xmlrpc:"is_ssl"`
+	LastUpdate    interface{} `xmlrpc:"__last_update"`
 	MessageIds    interface{} `xmlrpc:"message_ids"`
 	Name          interface{} `xmlrpc:"name"`
 	ObjectId      interface{} `xmlrpc:"object_id"`

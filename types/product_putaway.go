@@ -5,26 +5,24 @@ import (
 )
 
 type ProductPutaway struct {
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	CreateDate       time.Time `xmlrpc:"create_date"`
 	CreateUid        Many2One  `xmlrpc:"create_uid"`
 	DisplayName      string    `xmlrpc:"display_name"`
 	FixedLocationIds []int64   `xmlrpc:"fixed_location_ids"`
 	Id               int64     `xmlrpc:"id"`
-	Method           string    `xmlrpc:"method"`
+	LastUpdate       time.Time `xmlrpc:"__last_update"`
 	Name             string    `xmlrpc:"name"`
 	WriteDate        time.Time `xmlrpc:"write_date"`
 	WriteUid         Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProductPutawayNil struct {
-	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	CreateDate       interface{} `xmlrpc:"create_date"`
 	CreateUid        interface{} `xmlrpc:"create_uid"`
 	DisplayName      interface{} `xmlrpc:"display_name"`
 	FixedLocationIds interface{} `xmlrpc:"fixed_location_ids"`
 	Id               interface{} `xmlrpc:"id"`
-	Method           interface{} `xmlrpc:"method"`
+	LastUpdate       interface{} `xmlrpc:"__last_update"`
 	Name             interface{} `xmlrpc:"name"`
 	WriteDate        interface{} `xmlrpc:"write_date"`
 	WriteUid         interface{} `xmlrpc:"write_uid"`

@@ -5,7 +5,6 @@ import (
 )
 
 type AccountPartialReconcile struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	Amount            float64   `xmlrpc:"amount"`
 	AmountCurrency    float64   `xmlrpc:"amount_currency"`
 	CompanyCurrencyId Many2One  `xmlrpc:"company_currency_id"`
@@ -18,12 +17,13 @@ type AccountPartialReconcile struct {
 	DisplayName       string    `xmlrpc:"display_name"`
 	FullReconcileId   Many2One  `xmlrpc:"full_reconcile_id"`
 	Id                int64     `xmlrpc:"id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
+	MaxDate           time.Time `xmlrpc:"max_date"`
 	WriteDate         time.Time `xmlrpc:"write_date"`
 	WriteUid          Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountPartialReconcileNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	Amount            interface{} `xmlrpc:"amount"`
 	AmountCurrency    interface{} `xmlrpc:"amount_currency"`
 	CompanyCurrencyId interface{} `xmlrpc:"company_currency_id"`
@@ -36,6 +36,8 @@ type AccountPartialReconcileNil struct {
 	DisplayName       interface{} `xmlrpc:"display_name"`
 	FullReconcileId   interface{} `xmlrpc:"full_reconcile_id"`
 	Id                interface{} `xmlrpc:"id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
+	MaxDate           interface{} `xmlrpc:"max_date"`
 	WriteDate         interface{} `xmlrpc:"write_date"`
 	WriteUid          interface{} `xmlrpc:"write_uid"`
 }

@@ -5,9 +5,9 @@ import (
 )
 
 type HrHolidaysRemainingLeavesUser struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	LeaveType   string    `xmlrpc:"leave_type"`
 	Name        string    `xmlrpc:"name"`
 	NoOfLeaves  int64     `xmlrpc:"no_of_leaves"`
@@ -15,9 +15,9 @@ type HrHolidaysRemainingLeavesUser struct {
 }
 
 type HrHolidaysRemainingLeavesUserNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	LeaveType   interface{} `xmlrpc:"leave_type"`
 	Name        interface{} `xmlrpc:"name"`
 	NoOfLeaves  interface{} `xmlrpc:"no_of_leaves"`

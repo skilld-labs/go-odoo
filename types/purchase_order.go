@@ -5,7 +5,12 @@ import (
 )
 
 type PurchaseOrder struct {
-	LastUpdate                 time.Time `xmlrpc:"__last_update"`
+	ActivityDateDeadline       time.Time `xmlrpc:"activity_date_deadline"`
+	ActivityIds                []int64   `xmlrpc:"activity_ids"`
+	ActivityState              string    `xmlrpc:"activity_state"`
+	ActivitySummary            string    `xmlrpc:"activity_summary"`
+	ActivityTypeId             Many2One  `xmlrpc:"activity_type_id"`
+	ActivityUserId             Many2One  `xmlrpc:"activity_user_id"`
 	AmountTax                  float64   `xmlrpc:"amount_tax"`
 	AmountTotal                float64   `xmlrpc:"amount_total"`
 	AmountUntaxed              float64   `xmlrpc:"amount_untaxed"`
@@ -27,6 +32,7 @@ type PurchaseOrder struct {
 	InvoiceIds                 []int64   `xmlrpc:"invoice_ids"`
 	InvoiceStatus              string    `xmlrpc:"invoice_status"`
 	IsShipped                  bool      `xmlrpc:"is_shipped"`
+	LastUpdate                 time.Time `xmlrpc:"__last_update"`
 	MessageChannelIds          []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds         []int64   `xmlrpc:"message_follower_ids"`
 	MessageIds                 []int64   `xmlrpc:"message_ids"`
@@ -49,12 +55,19 @@ type PurchaseOrder struct {
 	PickingTypeId              Many2One  `xmlrpc:"picking_type_id"`
 	ProductId                  Many2One  `xmlrpc:"product_id"`
 	State                      string    `xmlrpc:"state"`
+	WebsiteMessageIds          []int64   `xmlrpc:"website_message_ids"`
+	WebsiteUrl                 string    `xmlrpc:"website_url"`
 	WriteDate                  time.Time `xmlrpc:"write_date"`
 	WriteUid                   Many2One  `xmlrpc:"write_uid"`
 }
 
 type PurchaseOrderNil struct {
-	LastUpdate                 interface{} `xmlrpc:"__last_update"`
+	ActivityDateDeadline       interface{} `xmlrpc:"activity_date_deadline"`
+	ActivityIds                interface{} `xmlrpc:"activity_ids"`
+	ActivityState              interface{} `xmlrpc:"activity_state"`
+	ActivitySummary            interface{} `xmlrpc:"activity_summary"`
+	ActivityTypeId             interface{} `xmlrpc:"activity_type_id"`
+	ActivityUserId             interface{} `xmlrpc:"activity_user_id"`
 	AmountTax                  interface{} `xmlrpc:"amount_tax"`
 	AmountTotal                interface{} `xmlrpc:"amount_total"`
 	AmountUntaxed              interface{} `xmlrpc:"amount_untaxed"`
@@ -76,6 +89,7 @@ type PurchaseOrderNil struct {
 	InvoiceIds                 interface{} `xmlrpc:"invoice_ids"`
 	InvoiceStatus              interface{} `xmlrpc:"invoice_status"`
 	IsShipped                  bool        `xmlrpc:"is_shipped"`
+	LastUpdate                 interface{} `xmlrpc:"__last_update"`
 	MessageChannelIds          interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds         interface{} `xmlrpc:"message_follower_ids"`
 	MessageIds                 interface{} `xmlrpc:"message_ids"`
@@ -98,6 +112,8 @@ type PurchaseOrderNil struct {
 	PickingTypeId              interface{} `xmlrpc:"picking_type_id"`
 	ProductId                  interface{} `xmlrpc:"product_id"`
 	State                      interface{} `xmlrpc:"state"`
+	WebsiteMessageIds          interface{} `xmlrpc:"website_message_ids"`
+	WebsiteUrl                 interface{} `xmlrpc:"website_url"`
 	WriteDate                  interface{} `xmlrpc:"write_date"`
 	WriteUid                   interface{} `xmlrpc:"write_uid"`
 }

@@ -5,7 +5,6 @@ import (
 )
 
 type BarcodeRule struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Alias                 string    `xmlrpc:"alias"`
 	BarcodeNomenclatureId Many2One  `xmlrpc:"barcode_nomenclature_id"`
 	CreateDate            time.Time `xmlrpc:"create_date"`
@@ -13,6 +12,7 @@ type BarcodeRule struct {
 	DisplayName           string    `xmlrpc:"display_name"`
 	Encoding              string    `xmlrpc:"encoding"`
 	Id                    int64     `xmlrpc:"id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Name                  string    `xmlrpc:"name"`
 	Pattern               string    `xmlrpc:"pattern"`
 	Sequence              int64     `xmlrpc:"sequence"`
@@ -22,7 +22,6 @@ type BarcodeRule struct {
 }
 
 type BarcodeRuleNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Alias                 interface{} `xmlrpc:"alias"`
 	BarcodeNomenclatureId interface{} `xmlrpc:"barcode_nomenclature_id"`
 	CreateDate            interface{} `xmlrpc:"create_date"`
@@ -30,6 +29,7 @@ type BarcodeRuleNil struct {
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Encoding              interface{} `xmlrpc:"encoding"`
 	Id                    interface{} `xmlrpc:"id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Name                  interface{} `xmlrpc:"name"`
 	Pattern               interface{} `xmlrpc:"pattern"`
 	Sequence              interface{} `xmlrpc:"sequence"`

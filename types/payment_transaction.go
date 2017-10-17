@@ -5,11 +5,13 @@ import (
 )
 
 type PaymentTransaction struct {
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	AcquirerId        Many2One  `xmlrpc:"acquirer_id"`
 	AcquirerReference string    `xmlrpc:"acquirer_reference"`
 	Amount            float64   `xmlrpc:"amount"`
-	CallbackEval      string    `xmlrpc:"callback_eval"`
+	CallbackHash      string    `xmlrpc:"callback_hash"`
+	CallbackMethod    string    `xmlrpc:"callback_method"`
+	CallbackModelId   Many2One  `xmlrpc:"callback_model_id"`
+	CallbackResId     int64     `xmlrpc:"callback_res_id"`
 	CreateDate        time.Time `xmlrpc:"create_date"`
 	CreateUid         Many2One  `xmlrpc:"create_uid"`
 	CurrencyId        Many2One  `xmlrpc:"currency_id"`
@@ -18,6 +20,7 @@ type PaymentTransaction struct {
 	Fees              float64   `xmlrpc:"fees"`
 	Html3ds           string    `xmlrpc:"html_3ds"`
 	Id                int64     `xmlrpc:"id"`
+	LastUpdate        time.Time `xmlrpc:"__last_update"`
 	PartnerAddress    string    `xmlrpc:"partner_address"`
 	PartnerCity       string    `xmlrpc:"partner_city"`
 	PartnerCountryId  Many2One  `xmlrpc:"partner_country_id"`
@@ -28,6 +31,7 @@ type PaymentTransaction struct {
 	PartnerPhone      string    `xmlrpc:"partner_phone"`
 	PartnerZip        string    `xmlrpc:"partner_zip"`
 	PaymentTokenId    Many2One  `xmlrpc:"payment_token_id"`
+	Provider          string    `xmlrpc:"provider"`
 	Reference         string    `xmlrpc:"reference"`
 	State             string    `xmlrpc:"state"`
 	StateMessage      string    `xmlrpc:"state_message"`
@@ -37,11 +41,13 @@ type PaymentTransaction struct {
 }
 
 type PaymentTransactionNil struct {
-	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	AcquirerId        interface{} `xmlrpc:"acquirer_id"`
 	AcquirerReference interface{} `xmlrpc:"acquirer_reference"`
 	Amount            interface{} `xmlrpc:"amount"`
-	CallbackEval      interface{} `xmlrpc:"callback_eval"`
+	CallbackHash      interface{} `xmlrpc:"callback_hash"`
+	CallbackMethod    interface{} `xmlrpc:"callback_method"`
+	CallbackModelId   interface{} `xmlrpc:"callback_model_id"`
+	CallbackResId     interface{} `xmlrpc:"callback_res_id"`
 	CreateDate        interface{} `xmlrpc:"create_date"`
 	CreateUid         interface{} `xmlrpc:"create_uid"`
 	CurrencyId        interface{} `xmlrpc:"currency_id"`
@@ -50,6 +56,7 @@ type PaymentTransactionNil struct {
 	Fees              interface{} `xmlrpc:"fees"`
 	Html3ds           interface{} `xmlrpc:"html_3ds"`
 	Id                interface{} `xmlrpc:"id"`
+	LastUpdate        interface{} `xmlrpc:"__last_update"`
 	PartnerAddress    interface{} `xmlrpc:"partner_address"`
 	PartnerCity       interface{} `xmlrpc:"partner_city"`
 	PartnerCountryId  interface{} `xmlrpc:"partner_country_id"`
@@ -60,6 +67,7 @@ type PaymentTransactionNil struct {
 	PartnerPhone      interface{} `xmlrpc:"partner_phone"`
 	PartnerZip        interface{} `xmlrpc:"partner_zip"`
 	PaymentTokenId    interface{} `xmlrpc:"payment_token_id"`
+	Provider          interface{} `xmlrpc:"provider"`
 	Reference         interface{} `xmlrpc:"reference"`
 	State             interface{} `xmlrpc:"state"`
 	StateMessage      interface{} `xmlrpc:"state_message"`

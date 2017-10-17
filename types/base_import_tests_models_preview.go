@@ -5,11 +5,11 @@ import (
 )
 
 type BaseImportTestsModelsPreview struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	Othervalue  int64     `xmlrpc:"othervalue"`
 	Somevalue   int64     `xmlrpc:"somevalue"`
@@ -18,11 +18,11 @@ type BaseImportTestsModelsPreview struct {
 }
 
 type BaseImportTestsModelsPreviewNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	Othervalue  interface{} `xmlrpc:"othervalue"`
 	Somevalue   interface{} `xmlrpc:"somevalue"`

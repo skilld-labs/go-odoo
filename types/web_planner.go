@@ -5,13 +5,13 @@ import (
 )
 
 type WebPlanner struct {
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	Active             bool      `xmlrpc:"active"`
 	CreateDate         time.Time `xmlrpc:"create_date"`
 	CreateUid          Many2One  `xmlrpc:"create_uid"`
 	Data               string    `xmlrpc:"data"`
 	DisplayName        string    `xmlrpc:"display_name"`
 	Id                 int64     `xmlrpc:"id"`
+	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	MenuId             Many2One  `xmlrpc:"menu_id"`
 	Name               string    `xmlrpc:"name"`
 	PlannerApplication string    `xmlrpc:"planner_application"`
@@ -23,13 +23,13 @@ type WebPlanner struct {
 }
 
 type WebPlannerNil struct {
-	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	Active             bool        `xmlrpc:"active"`
 	CreateDate         interface{} `xmlrpc:"create_date"`
 	CreateUid          interface{} `xmlrpc:"create_uid"`
 	Data               interface{} `xmlrpc:"data"`
 	DisplayName        interface{} `xmlrpc:"display_name"`
 	Id                 interface{} `xmlrpc:"id"`
+	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	MenuId             interface{} `xmlrpc:"menu_id"`
 	Name               interface{} `xmlrpc:"name"`
 	PlannerApplication interface{} `xmlrpc:"planner_application"`

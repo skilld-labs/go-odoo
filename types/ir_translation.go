@@ -5,11 +5,11 @@ import (
 )
 
 type IrTranslation struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Comments    string    `xmlrpc:"comments"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
 	Lang        string    `xmlrpc:"lang"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Module      string    `xmlrpc:"module"`
 	Name        string    `xmlrpc:"name"`
 	ResId       int64     `xmlrpc:"res_id"`
@@ -21,11 +21,11 @@ type IrTranslation struct {
 }
 
 type IrTranslationNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Comments    interface{} `xmlrpc:"comments"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
 	Lang        interface{} `xmlrpc:"lang"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Module      interface{} `xmlrpc:"module"`
 	Name        interface{} `xmlrpc:"name"`
 	ResId       interface{} `xmlrpc:"res_id"`

@@ -5,7 +5,6 @@ import (
 )
 
 type MailMail struct {
-	LastUpdate           time.Time `xmlrpc:"__last_update"`
 	AttachmentIds        []int64   `xmlrpc:"attachment_ids"`
 	AuthorAvatar         string    `xmlrpc:"author_avatar"`
 	AuthorId             Many2One  `xmlrpc:"author_id"`
@@ -25,9 +24,11 @@ type MailMail struct {
 	FetchmailServerId    Many2One  `xmlrpc:"fetchmail_server_id"`
 	Headers              string    `xmlrpc:"headers"`
 	Id                   int64     `xmlrpc:"id"`
+	LastUpdate           time.Time `xmlrpc:"__last_update"`
+	MailActivityTypeId   Many2One  `xmlrpc:"mail_activity_type_id"`
+	MailingId            Many2One  `xmlrpc:"mailing_id"`
 	MailMessageId        Many2One  `xmlrpc:"mail_message_id"`
 	MailServerId         Many2One  `xmlrpc:"mail_server_id"`
-	MailingId            Many2One  `xmlrpc:"mailing_id"`
 	MessageId            string    `xmlrpc:"message_id"`
 	MessageType          string    `xmlrpc:"message_type"`
 	Model                string    `xmlrpc:"model"`
@@ -38,6 +39,8 @@ type MailMail struct {
 	NotificationIds      []int64   `xmlrpc:"notification_ids"`
 	ParentId             Many2One  `xmlrpc:"parent_id"`
 	PartnerIds           []int64   `xmlrpc:"partner_ids"`
+	RatingIds            []int64   `xmlrpc:"rating_ids"`
+	RatingValue          float64   `xmlrpc:"rating_value"`
 	RecipientIds         []int64   `xmlrpc:"recipient_ids"`
 	RecordName           string    `xmlrpc:"record_name"`
 	References           string    `xmlrpc:"references"`
@@ -56,7 +59,6 @@ type MailMail struct {
 }
 
 type MailMailNil struct {
-	LastUpdate           interface{} `xmlrpc:"__last_update"`
 	AttachmentIds        interface{} `xmlrpc:"attachment_ids"`
 	AuthorAvatar         interface{} `xmlrpc:"author_avatar"`
 	AuthorId             interface{} `xmlrpc:"author_id"`
@@ -76,9 +78,11 @@ type MailMailNil struct {
 	FetchmailServerId    interface{} `xmlrpc:"fetchmail_server_id"`
 	Headers              interface{} `xmlrpc:"headers"`
 	Id                   interface{} `xmlrpc:"id"`
+	LastUpdate           interface{} `xmlrpc:"__last_update"`
+	MailActivityTypeId   interface{} `xmlrpc:"mail_activity_type_id"`
+	MailingId            interface{} `xmlrpc:"mailing_id"`
 	MailMessageId        interface{} `xmlrpc:"mail_message_id"`
 	MailServerId         interface{} `xmlrpc:"mail_server_id"`
-	MailingId            interface{} `xmlrpc:"mailing_id"`
 	MessageId            interface{} `xmlrpc:"message_id"`
 	MessageType          interface{} `xmlrpc:"message_type"`
 	Model                interface{} `xmlrpc:"model"`
@@ -89,6 +93,8 @@ type MailMailNil struct {
 	NotificationIds      interface{} `xmlrpc:"notification_ids"`
 	ParentId             interface{} `xmlrpc:"parent_id"`
 	PartnerIds           interface{} `xmlrpc:"partner_ids"`
+	RatingIds            interface{} `xmlrpc:"rating_ids"`
+	RatingValue          interface{} `xmlrpc:"rating_value"`
 	RecipientIds         interface{} `xmlrpc:"recipient_ids"`
 	RecordName           interface{} `xmlrpc:"record_name"`
 	References           interface{} `xmlrpc:"references"`

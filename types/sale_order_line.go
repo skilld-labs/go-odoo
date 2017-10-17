@@ -5,7 +5,8 @@ import (
 )
 
 type SaleOrderLine struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
+	AmtInvoiced            float64   `xmlrpc:"amt_invoiced"`
+	AmtToInvoice           float64   `xmlrpc:"amt_to_invoice"`
 	AnalyticTagIds         []int64   `xmlrpc:"analytic_tag_ids"`
 	AutosalesBaseOrderLine Many2One  `xmlrpc:"autosales_base_order_line"`
 	AutosalesLine          bool      `xmlrpc:"autosales_line"`
@@ -19,8 +20,12 @@ type SaleOrderLine struct {
 	Id                     int64     `xmlrpc:"id"`
 	InvoiceLines           []int64   `xmlrpc:"invoice_lines"`
 	InvoiceStatus          string    `xmlrpc:"invoice_status"`
+	IsDownpayment          bool      `xmlrpc:"is_downpayment"`
+	IsService              bool      `xmlrpc:"is_service"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	LayoutCategoryId       Many2One  `xmlrpc:"layout_category_id"`
 	LayoutCategorySequence int64     `xmlrpc:"layout_category_sequence"`
+	MoveIds                []int64   `xmlrpc:"move_ids"`
 	Name                   string    `xmlrpc:"name"`
 	OrderId                Many2One  `xmlrpc:"order_id"`
 	OrderPartnerId         Many2One  `xmlrpc:"order_partner_id"`
@@ -31,10 +36,9 @@ type SaleOrderLine struct {
 	PriceTax               float64   `xmlrpc:"price_tax"`
 	PriceTotal             float64   `xmlrpc:"price_total"`
 	PriceUnit              float64   `xmlrpc:"price_unit"`
-	ProcurementIds         []int64   `xmlrpc:"procurement_ids"`
 	ProductId              Many2One  `xmlrpc:"product_id"`
+	ProductImage           string    `xmlrpc:"product_image"`
 	ProductPackaging       Many2One  `xmlrpc:"product_packaging"`
-	ProductTmplId          Many2One  `xmlrpc:"product_tmpl_id"`
 	ProductUom             Many2One  `xmlrpc:"product_uom"`
 	ProductUomQty          float64   `xmlrpc:"product_uom_qty"`
 	QtyDelivered           float64   `xmlrpc:"qty_delivered"`
@@ -45,13 +49,15 @@ type SaleOrderLine struct {
 	SalesmanId             Many2One  `xmlrpc:"salesman_id"`
 	Sequence               int64     `xmlrpc:"sequence"`
 	State                  string    `xmlrpc:"state"`
+	TaskId                 Many2One  `xmlrpc:"task_id"`
 	TaxId                  []int64   `xmlrpc:"tax_id"`
 	WriteDate              time.Time `xmlrpc:"write_date"`
 	WriteUid               Many2One  `xmlrpc:"write_uid"`
 }
 
 type SaleOrderLineNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
+	AmtInvoiced            interface{} `xmlrpc:"amt_invoiced"`
+	AmtToInvoice           interface{} `xmlrpc:"amt_to_invoice"`
 	AnalyticTagIds         interface{} `xmlrpc:"analytic_tag_ids"`
 	AutosalesBaseOrderLine interface{} `xmlrpc:"autosales_base_order_line"`
 	AutosalesLine          bool        `xmlrpc:"autosales_line"`
@@ -65,8 +71,12 @@ type SaleOrderLineNil struct {
 	Id                     interface{} `xmlrpc:"id"`
 	InvoiceLines           interface{} `xmlrpc:"invoice_lines"`
 	InvoiceStatus          interface{} `xmlrpc:"invoice_status"`
+	IsDownpayment          bool        `xmlrpc:"is_downpayment"`
+	IsService              bool        `xmlrpc:"is_service"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	LayoutCategoryId       interface{} `xmlrpc:"layout_category_id"`
 	LayoutCategorySequence interface{} `xmlrpc:"layout_category_sequence"`
+	MoveIds                interface{} `xmlrpc:"move_ids"`
 	Name                   interface{} `xmlrpc:"name"`
 	OrderId                interface{} `xmlrpc:"order_id"`
 	OrderPartnerId         interface{} `xmlrpc:"order_partner_id"`
@@ -77,10 +87,9 @@ type SaleOrderLineNil struct {
 	PriceTax               interface{} `xmlrpc:"price_tax"`
 	PriceTotal             interface{} `xmlrpc:"price_total"`
 	PriceUnit              interface{} `xmlrpc:"price_unit"`
-	ProcurementIds         interface{} `xmlrpc:"procurement_ids"`
 	ProductId              interface{} `xmlrpc:"product_id"`
+	ProductImage           interface{} `xmlrpc:"product_image"`
 	ProductPackaging       interface{} `xmlrpc:"product_packaging"`
-	ProductTmplId          interface{} `xmlrpc:"product_tmpl_id"`
 	ProductUom             interface{} `xmlrpc:"product_uom"`
 	ProductUomQty          interface{} `xmlrpc:"product_uom_qty"`
 	QtyDelivered           interface{} `xmlrpc:"qty_delivered"`
@@ -91,6 +100,7 @@ type SaleOrderLineNil struct {
 	SalesmanId             interface{} `xmlrpc:"salesman_id"`
 	Sequence               interface{} `xmlrpc:"sequence"`
 	State                  interface{} `xmlrpc:"state"`
+	TaskId                 interface{} `xmlrpc:"task_id"`
 	TaxId                  interface{} `xmlrpc:"tax_id"`
 	WriteDate              interface{} `xmlrpc:"write_date"`
 	WriteUid               interface{} `xmlrpc:"write_uid"`

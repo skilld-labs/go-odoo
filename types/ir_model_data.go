@@ -5,7 +5,6 @@ import (
 )
 
 type IrModelData struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	CompleteName string    `xmlrpc:"complete_name"`
 	CreateDate   time.Time `xmlrpc:"create_date"`
 	CreateUid    Many2One  `xmlrpc:"create_uid"`
@@ -13,6 +12,7 @@ type IrModelData struct {
 	DateUpdate   time.Time `xmlrpc:"date_update"`
 	DisplayName  string    `xmlrpc:"display_name"`
 	Id           int64     `xmlrpc:"id"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	Model        string    `xmlrpc:"model"`
 	Module       string    `xmlrpc:"module"`
 	Name         string    `xmlrpc:"name"`
@@ -24,7 +24,6 @@ type IrModelData struct {
 }
 
 type IrModelDataNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	CompleteName interface{} `xmlrpc:"complete_name"`
 	CreateDate   interface{} `xmlrpc:"create_date"`
 	CreateUid    interface{} `xmlrpc:"create_uid"`
@@ -32,6 +31,7 @@ type IrModelDataNil struct {
 	DateUpdate   interface{} `xmlrpc:"date_update"`
 	DisplayName  interface{} `xmlrpc:"display_name"`
 	Id           interface{} `xmlrpc:"id"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	Model        interface{} `xmlrpc:"model"`
 	Module       interface{} `xmlrpc:"module"`
 	Name         interface{} `xmlrpc:"name"`

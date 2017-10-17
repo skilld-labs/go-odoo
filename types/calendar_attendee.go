@@ -5,7 +5,6 @@ import (
 )
 
 type CalendarAttendee struct {
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	AccessToken  string    `xmlrpc:"access_token"`
 	Availability string    `xmlrpc:"availability"`
 	CommonName   string    `xmlrpc:"common_name"`
@@ -15,6 +14,7 @@ type CalendarAttendee struct {
 	Email        string    `xmlrpc:"email"`
 	EventId      Many2One  `xmlrpc:"event_id"`
 	Id           int64     `xmlrpc:"id"`
+	LastUpdate   time.Time `xmlrpc:"__last_update"`
 	PartnerId    Many2One  `xmlrpc:"partner_id"`
 	State        string    `xmlrpc:"state"`
 	WriteDate    time.Time `xmlrpc:"write_date"`
@@ -22,7 +22,6 @@ type CalendarAttendee struct {
 }
 
 type CalendarAttendeeNil struct {
-	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	AccessToken  interface{} `xmlrpc:"access_token"`
 	Availability interface{} `xmlrpc:"availability"`
 	CommonName   interface{} `xmlrpc:"common_name"`
@@ -32,6 +31,7 @@ type CalendarAttendeeNil struct {
 	Email        interface{} `xmlrpc:"email"`
 	EventId      interface{} `xmlrpc:"event_id"`
 	Id           interface{} `xmlrpc:"id"`
+	LastUpdate   interface{} `xmlrpc:"__last_update"`
 	PartnerId    interface{} `xmlrpc:"partner_id"`
 	State        interface{} `xmlrpc:"state"`
 	WriteDate    interface{} `xmlrpc:"write_date"`

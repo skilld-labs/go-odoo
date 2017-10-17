@@ -5,11 +5,11 @@ import (
 )
 
 type StockProductionLot struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
 	DisplayName              string    `xmlrpc:"display_name"`
 	Id                       int64     `xmlrpc:"id"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
 	MessageIds               []int64   `xmlrpc:"message_ids"`
@@ -26,16 +26,17 @@ type StockProductionLot struct {
 	ProductUomId             Many2One  `xmlrpc:"product_uom_id"`
 	QuantIds                 []int64   `xmlrpc:"quant_ids"`
 	Ref                      string    `xmlrpc:"ref"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type StockProductionLotNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
 	Id                       interface{} `xmlrpc:"id"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
 	MessageIds               interface{} `xmlrpc:"message_ids"`
@@ -52,6 +53,7 @@ type StockProductionLotNil struct {
 	ProductUomId             interface{} `xmlrpc:"product_uom_id"`
 	QuantIds                 interface{} `xmlrpc:"quant_ids"`
 	Ref                      interface{} `xmlrpc:"ref"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

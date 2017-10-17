@@ -5,7 +5,6 @@ import (
 )
 
 type StockWarehouse struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	Active              bool      `xmlrpc:"active"`
 	BuyPullId           Many2One  `xmlrpc:"buy_pull_id"`
 	BuyToResupply       bool      `xmlrpc:"buy_to_resupply"`
@@ -19,8 +18,9 @@ type StockWarehouse struct {
 	DeliverySteps       string    `xmlrpc:"delivery_steps"`
 	DisplayName         string    `xmlrpc:"display_name"`
 	Id                  int64     `xmlrpc:"id"`
-	InTypeId            Many2One  `xmlrpc:"in_type_id"`
 	IntTypeId           Many2One  `xmlrpc:"int_type_id"`
+	InTypeId            Many2One  `xmlrpc:"in_type_id"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	LotStockId          Many2One  `xmlrpc:"lot_stock_id"`
 	MtoPullId           Many2One  `xmlrpc:"mto_pull_id"`
 	Name                string    `xmlrpc:"name"`
@@ -43,7 +43,6 @@ type StockWarehouse struct {
 }
 
 type StockWarehouseNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	Active              bool        `xmlrpc:"active"`
 	BuyPullId           interface{} `xmlrpc:"buy_pull_id"`
 	BuyToResupply       bool        `xmlrpc:"buy_to_resupply"`
@@ -57,8 +56,9 @@ type StockWarehouseNil struct {
 	DeliverySteps       interface{} `xmlrpc:"delivery_steps"`
 	DisplayName         interface{} `xmlrpc:"display_name"`
 	Id                  interface{} `xmlrpc:"id"`
-	InTypeId            interface{} `xmlrpc:"in_type_id"`
 	IntTypeId           interface{} `xmlrpc:"int_type_id"`
+	InTypeId            interface{} `xmlrpc:"in_type_id"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	LotStockId          interface{} `xmlrpc:"lot_stock_id"`
 	MtoPullId           interface{} `xmlrpc:"mto_pull_id"`
 	Name                interface{} `xmlrpc:"name"`

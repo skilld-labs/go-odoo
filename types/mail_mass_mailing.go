@@ -5,7 +5,6 @@ import (
 )
 
 type MailMassMailing struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Active                bool      `xmlrpc:"active"`
 	AttachmentIds         []int64   `xmlrpc:"attachment_ids"`
 	BodyHtml              string    `xmlrpc:"body_html"`
@@ -24,8 +23,11 @@ type MailMassMailing struct {
 	Failed                int64     `xmlrpc:"failed"`
 	Id                    int64     `xmlrpc:"id"`
 	KeepArchives          bool      `xmlrpc:"keep_archives"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	MailingDomain         string    `xmlrpc:"mailing_domain"`
-	MailingModel          string    `xmlrpc:"mailing_model"`
+	MailingModelId        Many2One  `xmlrpc:"mailing_model_id"`
+	MailingModelName      string    `xmlrpc:"mailing_model_name"`
+	MailingModelReal      string    `xmlrpc:"mailing_model_real"`
 	MassMailingCampaignId Many2One  `xmlrpc:"mass_mailing_campaign_id"`
 	MediumId              Many2One  `xmlrpc:"medium_id"`
 	Name                  string    `xmlrpc:"name"`
@@ -37,8 +39,8 @@ type MailMassMailing struct {
 	RepliedRatio          int64     `xmlrpc:"replied_ratio"`
 	ReplyTo               string    `xmlrpc:"reply_to"`
 	ReplyToMode           string    `xmlrpc:"reply_to_mode"`
-	ScheduleDate          time.Time `xmlrpc:"schedule_date"`
 	Scheduled             int64     `xmlrpc:"scheduled"`
+	ScheduleDate          time.Time `xmlrpc:"schedule_date"`
 	Sent                  int64     `xmlrpc:"sent"`
 	SentDate              time.Time `xmlrpc:"sent_date"`
 	SourceId              Many2One  `xmlrpc:"source_id"`
@@ -50,7 +52,6 @@ type MailMassMailing struct {
 }
 
 type MailMassMailingNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Active                bool        `xmlrpc:"active"`
 	AttachmentIds         interface{} `xmlrpc:"attachment_ids"`
 	BodyHtml              interface{} `xmlrpc:"body_html"`
@@ -69,8 +70,11 @@ type MailMassMailingNil struct {
 	Failed                interface{} `xmlrpc:"failed"`
 	Id                    interface{} `xmlrpc:"id"`
 	KeepArchives          bool        `xmlrpc:"keep_archives"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	MailingDomain         interface{} `xmlrpc:"mailing_domain"`
-	MailingModel          interface{} `xmlrpc:"mailing_model"`
+	MailingModelId        interface{} `xmlrpc:"mailing_model_id"`
+	MailingModelName      interface{} `xmlrpc:"mailing_model_name"`
+	MailingModelReal      interface{} `xmlrpc:"mailing_model_real"`
 	MassMailingCampaignId interface{} `xmlrpc:"mass_mailing_campaign_id"`
 	MediumId              interface{} `xmlrpc:"medium_id"`
 	Name                  interface{} `xmlrpc:"name"`
@@ -82,8 +86,8 @@ type MailMassMailingNil struct {
 	RepliedRatio          interface{} `xmlrpc:"replied_ratio"`
 	ReplyTo               interface{} `xmlrpc:"reply_to"`
 	ReplyToMode           interface{} `xmlrpc:"reply_to_mode"`
-	ScheduleDate          interface{} `xmlrpc:"schedule_date"`
 	Scheduled             interface{} `xmlrpc:"scheduled"`
+	ScheduleDate          interface{} `xmlrpc:"schedule_date"`
 	Sent                  interface{} `xmlrpc:"sent"`
 	SentDate              interface{} `xmlrpc:"sent_date"`
 	SourceId              interface{} `xmlrpc:"source_id"`

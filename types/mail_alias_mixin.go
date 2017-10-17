@@ -5,7 +5,6 @@ import (
 )
 
 type MailAliasMixin struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	AliasContact        string    `xmlrpc:"alias_contact"`
 	AliasDefaults       string    `xmlrpc:"alias_defaults"`
 	AliasDomain         string    `xmlrpc:"alias_domain"`
@@ -20,12 +19,12 @@ type MailAliasMixin struct {
 	CreateUid           Many2One  `xmlrpc:"create_uid"`
 	DisplayName         string    `xmlrpc:"display_name"`
 	Id                  int64     `xmlrpc:"id"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	WriteDate           time.Time `xmlrpc:"write_date"`
 	WriteUid            Many2One  `xmlrpc:"write_uid"`
 }
 
 type MailAliasMixinNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	AliasContact        interface{} `xmlrpc:"alias_contact"`
 	AliasDefaults       interface{} `xmlrpc:"alias_defaults"`
 	AliasDomain         interface{} `xmlrpc:"alias_domain"`
@@ -40,6 +39,7 @@ type MailAliasMixinNil struct {
 	CreateUid           interface{} `xmlrpc:"create_uid"`
 	DisplayName         interface{} `xmlrpc:"display_name"`
 	Id                  interface{} `xmlrpc:"id"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	WriteDate           interface{} `xmlrpc:"write_date"`
 	WriteUid            interface{} `xmlrpc:"write_uid"`
 }

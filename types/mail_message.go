@@ -5,7 +5,6 @@ import (
 )
 
 type MailMessage struct {
-	LastUpdate           time.Time `xmlrpc:"__last_update"`
 	AttachmentIds        []int64   `xmlrpc:"attachment_ids"`
 	AuthorAvatar         string    `xmlrpc:"author_avatar"`
 	AuthorId             Many2One  `xmlrpc:"author_id"`
@@ -18,6 +17,8 @@ type MailMessage struct {
 	DisplayName          string    `xmlrpc:"display_name"`
 	EmailFrom            string    `xmlrpc:"email_from"`
 	Id                   int64     `xmlrpc:"id"`
+	LastUpdate           time.Time `xmlrpc:"__last_update"`
+	MailActivityTypeId   Many2One  `xmlrpc:"mail_activity_type_id"`
 	MailServerId         Many2One  `xmlrpc:"mail_server_id"`
 	MessageId            string    `xmlrpc:"message_id"`
 	MessageType          string    `xmlrpc:"message_type"`
@@ -28,6 +29,8 @@ type MailMessage struct {
 	NotificationIds      []int64   `xmlrpc:"notification_ids"`
 	ParentId             Many2One  `xmlrpc:"parent_id"`
 	PartnerIds           []int64   `xmlrpc:"partner_ids"`
+	RatingIds            []int64   `xmlrpc:"rating_ids"`
+	RatingValue          float64   `xmlrpc:"rating_value"`
 	RecordName           string    `xmlrpc:"record_name"`
 	ReplyTo              string    `xmlrpc:"reply_to"`
 	ResId                int64     `xmlrpc:"res_id"`
@@ -41,7 +44,6 @@ type MailMessage struct {
 }
 
 type MailMessageNil struct {
-	LastUpdate           interface{} `xmlrpc:"__last_update"`
 	AttachmentIds        interface{} `xmlrpc:"attachment_ids"`
 	AuthorAvatar         interface{} `xmlrpc:"author_avatar"`
 	AuthorId             interface{} `xmlrpc:"author_id"`
@@ -54,6 +56,8 @@ type MailMessageNil struct {
 	DisplayName          interface{} `xmlrpc:"display_name"`
 	EmailFrom            interface{} `xmlrpc:"email_from"`
 	Id                   interface{} `xmlrpc:"id"`
+	LastUpdate           interface{} `xmlrpc:"__last_update"`
+	MailActivityTypeId   interface{} `xmlrpc:"mail_activity_type_id"`
 	MailServerId         interface{} `xmlrpc:"mail_server_id"`
 	MessageId            interface{} `xmlrpc:"message_id"`
 	MessageType          interface{} `xmlrpc:"message_type"`
@@ -64,6 +68,8 @@ type MailMessageNil struct {
 	NotificationIds      interface{} `xmlrpc:"notification_ids"`
 	ParentId             interface{} `xmlrpc:"parent_id"`
 	PartnerIds           interface{} `xmlrpc:"partner_ids"`
+	RatingIds            interface{} `xmlrpc:"rating_ids"`
+	RatingValue          interface{} `xmlrpc:"rating_value"`
 	RecordName           interface{} `xmlrpc:"record_name"`
 	ReplyTo              interface{} `xmlrpc:"reply_to"`
 	ResId                interface{} `xmlrpc:"res_id"`

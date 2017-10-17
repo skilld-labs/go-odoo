@@ -5,7 +5,6 @@ import (
 )
 
 type IrUiView struct {
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	Active             bool      `xmlrpc:"active"`
 	Arch               string    `xmlrpc:"arch"`
 	ArchBase           string    `xmlrpc:"arch_base"`
@@ -20,6 +19,7 @@ type IrUiView struct {
 	InheritChildrenIds []int64   `xmlrpc:"inherit_children_ids"`
 	InheritId          Many2One  `xmlrpc:"inherit_id"`
 	Key                string    `xmlrpc:"key"`
+	LastUpdate         time.Time `xmlrpc:"__last_update"`
 	Mode               string    `xmlrpc:"mode"`
 	Model              string    `xmlrpc:"model"`
 	ModelDataId        Many2One  `xmlrpc:"model_data_id"`
@@ -33,7 +33,6 @@ type IrUiView struct {
 }
 
 type IrUiViewNil struct {
-	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	Active             bool        `xmlrpc:"active"`
 	Arch               interface{} `xmlrpc:"arch"`
 	ArchBase           interface{} `xmlrpc:"arch_base"`
@@ -48,6 +47,7 @@ type IrUiViewNil struct {
 	InheritChildrenIds interface{} `xmlrpc:"inherit_children_ids"`
 	InheritId          interface{} `xmlrpc:"inherit_id"`
 	Key                interface{} `xmlrpc:"key"`
+	LastUpdate         interface{} `xmlrpc:"__last_update"`
 	Mode               interface{} `xmlrpc:"mode"`
 	Model              interface{} `xmlrpc:"model"`
 	ModelDataId        interface{} `xmlrpc:"model_data_id"`

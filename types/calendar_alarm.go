@@ -5,7 +5,6 @@ import (
 )
 
 type CalendarAlarm struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
 	CreateUid       Many2One  `xmlrpc:"create_uid"`
 	DisplayName     string    `xmlrpc:"display_name"`
@@ -13,6 +12,7 @@ type CalendarAlarm struct {
 	DurationMinutes int64     `xmlrpc:"duration_minutes"`
 	Id              int64     `xmlrpc:"id"`
 	Interval        string    `xmlrpc:"interval"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Name            string    `xmlrpc:"name"`
 	Type            string    `xmlrpc:"type"`
 	WriteDate       time.Time `xmlrpc:"write_date"`
@@ -20,7 +20,6 @@ type CalendarAlarm struct {
 }
 
 type CalendarAlarmNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
 	CreateUid       interface{} `xmlrpc:"create_uid"`
 	DisplayName     interface{} `xmlrpc:"display_name"`
@@ -28,6 +27,7 @@ type CalendarAlarmNil struct {
 	DurationMinutes interface{} `xmlrpc:"duration_minutes"`
 	Id              interface{} `xmlrpc:"id"`
 	Interval        interface{} `xmlrpc:"interval"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Name            interface{} `xmlrpc:"name"`
 	Type            interface{} `xmlrpc:"type"`
 	WriteDate       interface{} `xmlrpc:"write_date"`

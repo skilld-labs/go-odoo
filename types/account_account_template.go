@@ -5,14 +5,15 @@ import (
 )
 
 type AccountAccountTemplate struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	ChartTemplateId Many2One  `xmlrpc:"chart_template_id"`
 	Code            string    `xmlrpc:"code"`
 	CreateDate      time.Time `xmlrpc:"create_date"`
 	CreateUid       Many2One  `xmlrpc:"create_uid"`
 	CurrencyId      Many2One  `xmlrpc:"currency_id"`
 	DisplayName     string    `xmlrpc:"display_name"`
+	GroupId         Many2One  `xmlrpc:"group_id"`
 	Id              int64     `xmlrpc:"id"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Name            string    `xmlrpc:"name"`
 	Nocreate        bool      `xmlrpc:"nocreate"`
 	Note            string    `xmlrpc:"note"`
@@ -25,14 +26,15 @@ type AccountAccountTemplate struct {
 }
 
 type AccountAccountTemplateNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	ChartTemplateId interface{} `xmlrpc:"chart_template_id"`
 	Code            interface{} `xmlrpc:"code"`
 	CreateDate      interface{} `xmlrpc:"create_date"`
 	CreateUid       interface{} `xmlrpc:"create_uid"`
 	CurrencyId      interface{} `xmlrpc:"currency_id"`
 	DisplayName     interface{} `xmlrpc:"display_name"`
+	GroupId         interface{} `xmlrpc:"group_id"`
 	Id              interface{} `xmlrpc:"id"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Name            interface{} `xmlrpc:"name"`
 	Nocreate        bool        `xmlrpc:"nocreate"`
 	Note            interface{} `xmlrpc:"note"`

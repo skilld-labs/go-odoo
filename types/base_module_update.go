@@ -5,12 +5,12 @@ import (
 )
 
 type BaseModuleUpdate struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Added       int64     `xmlrpc:"added"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	State       string    `xmlrpc:"state"`
 	Updated     int64     `xmlrpc:"updated"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
@@ -18,12 +18,12 @@ type BaseModuleUpdate struct {
 }
 
 type BaseModuleUpdateNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Added       interface{} `xmlrpc:"added"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	State       interface{} `xmlrpc:"state"`
 	Updated     interface{} `xmlrpc:"updated"`
 	WriteDate   interface{} `xmlrpc:"write_date"`

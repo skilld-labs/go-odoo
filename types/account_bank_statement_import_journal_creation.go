@@ -5,8 +5,9 @@ import (
 )
 
 type AccountBankStatementImportJournalCreation struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	AccountControlIds        []int64   `xmlrpc:"account_control_ids"`
+	AccountSetupBankDataDone bool      `xmlrpc:"account_setup_bank_data_done"`
+	Active                   bool      `xmlrpc:"active"`
 	AtLeastOneInbound        bool      `xmlrpc:"at_least_one_inbound"`
 	AtLeastOneOutbound       bool      `xmlrpc:"at_least_one_outbound"`
 	BankAccNumber            string    `xmlrpc:"bank_acc_number"`
@@ -15,6 +16,7 @@ type AccountBankStatementImportJournalCreation struct {
 	BankStatementsSource     string    `xmlrpc:"bank_statements_source"`
 	BelongsToCompany         bool      `xmlrpc:"belongs_to_company"`
 	Code                     string    `xmlrpc:"code"`
+	Color                    int64     `xmlrpc:"color"`
 	CompanyId                Many2One  `xmlrpc:"company_id"`
 	CreateDate               time.Time `xmlrpc:"create_date"`
 	CreateUid                Many2One  `xmlrpc:"create_uid"`
@@ -22,21 +24,23 @@ type AccountBankStatementImportJournalCreation struct {
 	DefaultCreditAccountId   Many2One  `xmlrpc:"default_credit_account_id"`
 	DefaultDebitAccountId    Many2One  `xmlrpc:"default_debit_account_id"`
 	DisplayName              string    `xmlrpc:"display_name"`
-	DisplayOnFooter          bool      `xmlrpc:"display_on_footer"`
 	GroupInvoiceLines        bool      `xmlrpc:"group_invoice_lines"`
 	Id                       int64     `xmlrpc:"id"`
 	InboundPaymentMethodIds  []int64   `xmlrpc:"inbound_payment_method_ids"`
 	JournalId                Many2One  `xmlrpc:"journal_id"`
 	KanbanDashboard          string    `xmlrpc:"kanban_dashboard"`
 	KanbanDashboardGraph     string    `xmlrpc:"kanban_dashboard_graph"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LossAccountId            Many2One  `xmlrpc:"loss_account_id"`
 	Name                     string    `xmlrpc:"name"`
 	OutboundPaymentMethodIds []int64   `xmlrpc:"outbound_payment_method_ids"`
 	ProfitAccountId          Many2One  `xmlrpc:"profit_account_id"`
 	RefundSequence           bool      `xmlrpc:"refund_sequence"`
 	RefundSequenceId         Many2One  `xmlrpc:"refund_sequence_id"`
+	RefundSequenceNumberNext int64     `xmlrpc:"refund_sequence_number_next"`
 	Sequence                 int64     `xmlrpc:"sequence"`
 	SequenceId               Many2One  `xmlrpc:"sequence_id"`
+	SequenceNumberNext       int64     `xmlrpc:"sequence_number_next"`
 	ShowOnDashboard          bool      `xmlrpc:"show_on_dashboard"`
 	Type                     string    `xmlrpc:"type"`
 	TypeControlIds           []int64   `xmlrpc:"type_control_ids"`
@@ -46,8 +50,9 @@ type AccountBankStatementImportJournalCreation struct {
 }
 
 type AccountBankStatementImportJournalCreationNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	AccountControlIds        interface{} `xmlrpc:"account_control_ids"`
+	AccountSetupBankDataDone bool        `xmlrpc:"account_setup_bank_data_done"`
+	Active                   bool        `xmlrpc:"active"`
 	AtLeastOneInbound        bool        `xmlrpc:"at_least_one_inbound"`
 	AtLeastOneOutbound       bool        `xmlrpc:"at_least_one_outbound"`
 	BankAccNumber            interface{} `xmlrpc:"bank_acc_number"`
@@ -56,6 +61,7 @@ type AccountBankStatementImportJournalCreationNil struct {
 	BankStatementsSource     interface{} `xmlrpc:"bank_statements_source"`
 	BelongsToCompany         bool        `xmlrpc:"belongs_to_company"`
 	Code                     interface{} `xmlrpc:"code"`
+	Color                    interface{} `xmlrpc:"color"`
 	CompanyId                interface{} `xmlrpc:"company_id"`
 	CreateDate               interface{} `xmlrpc:"create_date"`
 	CreateUid                interface{} `xmlrpc:"create_uid"`
@@ -63,21 +69,23 @@ type AccountBankStatementImportJournalCreationNil struct {
 	DefaultCreditAccountId   interface{} `xmlrpc:"default_credit_account_id"`
 	DefaultDebitAccountId    interface{} `xmlrpc:"default_debit_account_id"`
 	DisplayName              interface{} `xmlrpc:"display_name"`
-	DisplayOnFooter          bool        `xmlrpc:"display_on_footer"`
 	GroupInvoiceLines        bool        `xmlrpc:"group_invoice_lines"`
 	Id                       interface{} `xmlrpc:"id"`
 	InboundPaymentMethodIds  interface{} `xmlrpc:"inbound_payment_method_ids"`
 	JournalId                interface{} `xmlrpc:"journal_id"`
 	KanbanDashboard          interface{} `xmlrpc:"kanban_dashboard"`
 	KanbanDashboardGraph     interface{} `xmlrpc:"kanban_dashboard_graph"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LossAccountId            interface{} `xmlrpc:"loss_account_id"`
 	Name                     interface{} `xmlrpc:"name"`
 	OutboundPaymentMethodIds interface{} `xmlrpc:"outbound_payment_method_ids"`
 	ProfitAccountId          interface{} `xmlrpc:"profit_account_id"`
 	RefundSequence           bool        `xmlrpc:"refund_sequence"`
 	RefundSequenceId         interface{} `xmlrpc:"refund_sequence_id"`
+	RefundSequenceNumberNext interface{} `xmlrpc:"refund_sequence_number_next"`
 	Sequence                 interface{} `xmlrpc:"sequence"`
 	SequenceId               interface{} `xmlrpc:"sequence_id"`
+	SequenceNumberNext       interface{} `xmlrpc:"sequence_number_next"`
 	ShowOnDashboard          bool        `xmlrpc:"show_on_dashboard"`
 	Type                     interface{} `xmlrpc:"type"`
 	TypeControlIds           interface{} `xmlrpc:"type_control_ids"`

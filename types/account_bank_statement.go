@@ -5,7 +5,6 @@ import (
 )
 
 type AccountBankStatement struct {
-	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	AllLinesReconciled       bool      `xmlrpc:"all_lines_reconciled"`
 	BalanceEnd               float64   `xmlrpc:"balance_end"`
 	BalanceEndReal           float64   `xmlrpc:"balance_end_real"`
@@ -24,6 +23,7 @@ type AccountBankStatement struct {
 	IsDifferenceZero         bool      `xmlrpc:"is_difference_zero"`
 	JournalId                Many2One  `xmlrpc:"journal_id"`
 	JournalType              string    `xmlrpc:"journal_type"`
+	LastUpdate               time.Time `xmlrpc:"__last_update"`
 	LineIds                  []int64   `xmlrpc:"line_ids"`
 	MessageChannelIds        []int64   `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       []int64   `xmlrpc:"message_follower_ids"`
@@ -35,18 +35,19 @@ type AccountBankStatement struct {
 	MessagePartnerIds        []int64   `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool      `xmlrpc:"message_unread"`
 	MessageUnreadCounter     int64     `xmlrpc:"message_unread_counter"`
+	MoveLineCount            int64     `xmlrpc:"move_line_count"`
 	MoveLineIds              []int64   `xmlrpc:"move_line_ids"`
 	Name                     string    `xmlrpc:"name"`
 	Reference                string    `xmlrpc:"reference"`
 	State                    string    `xmlrpc:"state"`
 	TotalEntryEncoding       float64   `xmlrpc:"total_entry_encoding"`
 	UserId                   Many2One  `xmlrpc:"user_id"`
+	WebsiteMessageIds        []int64   `xmlrpc:"website_message_ids"`
 	WriteDate                time.Time `xmlrpc:"write_date"`
 	WriteUid                 Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountBankStatementNil struct {
-	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	AllLinesReconciled       bool        `xmlrpc:"all_lines_reconciled"`
 	BalanceEnd               interface{} `xmlrpc:"balance_end"`
 	BalanceEndReal           interface{} `xmlrpc:"balance_end_real"`
@@ -65,6 +66,7 @@ type AccountBankStatementNil struct {
 	IsDifferenceZero         bool        `xmlrpc:"is_difference_zero"`
 	JournalId                interface{} `xmlrpc:"journal_id"`
 	JournalType              interface{} `xmlrpc:"journal_type"`
+	LastUpdate               interface{} `xmlrpc:"__last_update"`
 	LineIds                  interface{} `xmlrpc:"line_ids"`
 	MessageChannelIds        interface{} `xmlrpc:"message_channel_ids"`
 	MessageFollowerIds       interface{} `xmlrpc:"message_follower_ids"`
@@ -76,12 +78,14 @@ type AccountBankStatementNil struct {
 	MessagePartnerIds        interface{} `xmlrpc:"message_partner_ids"`
 	MessageUnread            bool        `xmlrpc:"message_unread"`
 	MessageUnreadCounter     interface{} `xmlrpc:"message_unread_counter"`
+	MoveLineCount            interface{} `xmlrpc:"move_line_count"`
 	MoveLineIds              interface{} `xmlrpc:"move_line_ids"`
 	Name                     interface{} `xmlrpc:"name"`
 	Reference                interface{} `xmlrpc:"reference"`
 	State                    interface{} `xmlrpc:"state"`
 	TotalEntryEncoding       interface{} `xmlrpc:"total_entry_encoding"`
 	UserId                   interface{} `xmlrpc:"user_id"`
+	WebsiteMessageIds        interface{} `xmlrpc:"website_message_ids"`
 	WriteDate                interface{} `xmlrpc:"write_date"`
 	WriteUid                 interface{} `xmlrpc:"write_uid"`
 }

@@ -5,31 +5,33 @@ import (
 )
 
 type ProductPackaging struct {
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	Name          string    `xmlrpc:"name"`
-	ProductTmplId Many2One  `xmlrpc:"product_tmpl_id"`
-	Qty           float64   `xmlrpc:"qty"`
-	Sequence      int64     `xmlrpc:"sequence"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	Barcode     string    `xmlrpc:"barcode"`
+	CreateDate  time.Time `xmlrpc:"create_date"`
+	CreateUid   Many2One  `xmlrpc:"create_uid"`
+	DisplayName string    `xmlrpc:"display_name"`
+	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
+	Name        string    `xmlrpc:"name"`
+	ProductId   Many2One  `xmlrpc:"product_id"`
+	Qty         float64   `xmlrpc:"qty"`
+	Sequence    int64     `xmlrpc:"sequence"`
+	WriteDate   time.Time `xmlrpc:"write_date"`
+	WriteUid    Many2One  `xmlrpc:"write_uid"`
 }
 
 type ProductPackagingNil struct {
-	LastUpdate    interface{} `xmlrpc:"__last_update"`
-	CreateDate    interface{} `xmlrpc:"create_date"`
-	CreateUid     interface{} `xmlrpc:"create_uid"`
-	DisplayName   interface{} `xmlrpc:"display_name"`
-	Id            interface{} `xmlrpc:"id"`
-	Name          interface{} `xmlrpc:"name"`
-	ProductTmplId interface{} `xmlrpc:"product_tmpl_id"`
-	Qty           interface{} `xmlrpc:"qty"`
-	Sequence      interface{} `xmlrpc:"sequence"`
-	WriteDate     interface{} `xmlrpc:"write_date"`
-	WriteUid      interface{} `xmlrpc:"write_uid"`
+	Barcode     interface{} `xmlrpc:"barcode"`
+	CreateDate  interface{} `xmlrpc:"create_date"`
+	CreateUid   interface{} `xmlrpc:"create_uid"`
+	DisplayName interface{} `xmlrpc:"display_name"`
+	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
+	Name        interface{} `xmlrpc:"name"`
+	ProductId   interface{} `xmlrpc:"product_id"`
+	Qty         interface{} `xmlrpc:"qty"`
+	Sequence    interface{} `xmlrpc:"sequence"`
+	WriteDate   interface{} `xmlrpc:"write_date"`
+	WriteUid    interface{} `xmlrpc:"write_uid"`
 }
 
 var ProductPackagingModel string = "product.packaging"

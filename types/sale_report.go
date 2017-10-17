@@ -5,21 +5,24 @@ import (
 )
 
 type SaleReport struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
+	AmtInvoiced         float64   `xmlrpc:"amt_invoiced"`
+	AmtToInvoice        float64   `xmlrpc:"amt_to_invoice"`
 	AnalyticAccountId   Many2One  `xmlrpc:"analytic_account_id"`
 	CategId             Many2One  `xmlrpc:"categ_id"`
 	CommercialPartnerId Many2One  `xmlrpc:"commercial_partner_id"`
 	CompanyId           Many2One  `xmlrpc:"company_id"`
+	ConfirmationDate    time.Time `xmlrpc:"confirmation_date"`
 	CountryId           Many2One  `xmlrpc:"country_id"`
 	Date                time.Time `xmlrpc:"date"`
 	DisplayName         string    `xmlrpc:"display_name"`
 	Id                  int64     `xmlrpc:"id"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	Name                string    `xmlrpc:"name"`
 	Nbr                 int64     `xmlrpc:"nbr"`
 	PartnerId           Many2One  `xmlrpc:"partner_id"`
+	PricelistId         Many2One  `xmlrpc:"pricelist_id"`
 	PriceSubtotal       float64   `xmlrpc:"price_subtotal"`
 	PriceTotal          float64   `xmlrpc:"price_total"`
-	PricelistId         Many2One  `xmlrpc:"pricelist_id"`
 	ProductId           Many2One  `xmlrpc:"product_id"`
 	ProductTmplId       Many2One  `xmlrpc:"product_tmpl_id"`
 	ProductUom          Many2One  `xmlrpc:"product_uom"`
@@ -36,21 +39,24 @@ type SaleReport struct {
 }
 
 type SaleReportNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
+	AmtInvoiced         interface{} `xmlrpc:"amt_invoiced"`
+	AmtToInvoice        interface{} `xmlrpc:"amt_to_invoice"`
 	AnalyticAccountId   interface{} `xmlrpc:"analytic_account_id"`
 	CategId             interface{} `xmlrpc:"categ_id"`
 	CommercialPartnerId interface{} `xmlrpc:"commercial_partner_id"`
 	CompanyId           interface{} `xmlrpc:"company_id"`
+	ConfirmationDate    interface{} `xmlrpc:"confirmation_date"`
 	CountryId           interface{} `xmlrpc:"country_id"`
 	Date                interface{} `xmlrpc:"date"`
 	DisplayName         interface{} `xmlrpc:"display_name"`
 	Id                  interface{} `xmlrpc:"id"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	Name                interface{} `xmlrpc:"name"`
 	Nbr                 interface{} `xmlrpc:"nbr"`
 	PartnerId           interface{} `xmlrpc:"partner_id"`
+	PricelistId         interface{} `xmlrpc:"pricelist_id"`
 	PriceSubtotal       interface{} `xmlrpc:"price_subtotal"`
 	PriceTotal          interface{} `xmlrpc:"price_total"`
-	PricelistId         interface{} `xmlrpc:"pricelist_id"`
 	ProductId           interface{} `xmlrpc:"product_id"`
 	ProductTmplId       interface{} `xmlrpc:"product_tmpl_id"`
 	ProductUom          interface{} `xmlrpc:"product_uom"`

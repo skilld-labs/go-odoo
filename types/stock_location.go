@@ -5,7 +5,6 @@ import (
 )
 
 type StockLocation struct {
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	Active                bool      `xmlrpc:"active"`
 	Barcode               string    `xmlrpc:"barcode"`
 	ChildIds              []int64   `xmlrpc:"child_ids"`
@@ -16,6 +15,7 @@ type StockLocation struct {
 	CreateUid             Many2One  `xmlrpc:"create_uid"`
 	DisplayName           string    `xmlrpc:"display_name"`
 	Id                    int64     `xmlrpc:"id"`
+	LastUpdate            time.Time `xmlrpc:"__last_update"`
 	LocationId            Many2One  `xmlrpc:"location_id"`
 	Name                  string    `xmlrpc:"name"`
 	ParentLeft            int64     `xmlrpc:"parent_left"`
@@ -36,7 +36,6 @@ type StockLocation struct {
 }
 
 type StockLocationNil struct {
-	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	Active                bool        `xmlrpc:"active"`
 	Barcode               interface{} `xmlrpc:"barcode"`
 	ChildIds              interface{} `xmlrpc:"child_ids"`
@@ -47,6 +46,7 @@ type StockLocationNil struct {
 	CreateUid             interface{} `xmlrpc:"create_uid"`
 	DisplayName           interface{} `xmlrpc:"display_name"`
 	Id                    interface{} `xmlrpc:"id"`
+	LastUpdate            interface{} `xmlrpc:"__last_update"`
 	LocationId            interface{} `xmlrpc:"location_id"`
 	Name                  interface{} `xmlrpc:"name"`
 	ParentLeft            interface{} `xmlrpc:"parent_left"`

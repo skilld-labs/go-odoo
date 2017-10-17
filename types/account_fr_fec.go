@@ -5,7 +5,6 @@ import (
 )
 
 type AccountFrFec struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DateFrom    time.Time `xmlrpc:"date_from"`
@@ -15,12 +14,12 @@ type AccountFrFec struct {
 	FecData     string    `xmlrpc:"fec_data"`
 	Filename    string    `xmlrpc:"filename"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	WriteDate   time.Time `xmlrpc:"write_date"`
 	WriteUid    Many2One  `xmlrpc:"write_uid"`
 }
 
 type AccountFrFecNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DateFrom    interface{} `xmlrpc:"date_from"`
@@ -30,6 +29,7 @@ type AccountFrFecNil struct {
 	FecData     interface{} `xmlrpc:"fec_data"`
 	Filename    interface{} `xmlrpc:"filename"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	WriteDate   interface{} `xmlrpc:"write_date"`
 	WriteUid    interface{} `xmlrpc:"write_uid"`
 }

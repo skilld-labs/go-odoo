@@ -5,7 +5,6 @@ import (
 )
 
 type ResPartnerCategory struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Active      bool      `xmlrpc:"active"`
 	ChildIds    []int64   `xmlrpc:"child_ids"`
 	Color       int64     `xmlrpc:"color"`
@@ -13,6 +12,7 @@ type ResPartnerCategory struct {
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Name        string    `xmlrpc:"name"`
 	ParentId    Many2One  `xmlrpc:"parent_id"`
 	ParentLeft  int64     `xmlrpc:"parent_left"`
@@ -23,7 +23,6 @@ type ResPartnerCategory struct {
 }
 
 type ResPartnerCategoryNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Active      bool        `xmlrpc:"active"`
 	ChildIds    interface{} `xmlrpc:"child_ids"`
 	Color       interface{} `xmlrpc:"color"`
@@ -31,6 +30,7 @@ type ResPartnerCategoryNil struct {
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Name        interface{} `xmlrpc:"name"`
 	ParentId    interface{} `xmlrpc:"parent_id"`
 	ParentLeft  interface{} `xmlrpc:"parent_left"`

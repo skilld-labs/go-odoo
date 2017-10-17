@@ -5,7 +5,6 @@ import (
 )
 
 type AccountFinancialReport struct {
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	AccountIds      []int64   `xmlrpc:"account_ids"`
 	AccountReportId Many2One  `xmlrpc:"account_report_id"`
 	AccountTypeIds  []int64   `xmlrpc:"account_type_ids"`
@@ -15,6 +14,7 @@ type AccountFinancialReport struct {
 	DisplayDetail   string    `xmlrpc:"display_detail"`
 	DisplayName     string    `xmlrpc:"display_name"`
 	Id              int64     `xmlrpc:"id"`
+	LastUpdate      time.Time `xmlrpc:"__last_update"`
 	Level           int64     `xmlrpc:"level"`
 	Name            string    `xmlrpc:"name"`
 	ParentId        Many2One  `xmlrpc:"parent_id"`
@@ -27,7 +27,6 @@ type AccountFinancialReport struct {
 }
 
 type AccountFinancialReportNil struct {
-	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	AccountIds      interface{} `xmlrpc:"account_ids"`
 	AccountReportId interface{} `xmlrpc:"account_report_id"`
 	AccountTypeIds  interface{} `xmlrpc:"account_type_ids"`
@@ -37,6 +36,7 @@ type AccountFinancialReportNil struct {
 	DisplayDetail   interface{} `xmlrpc:"display_detail"`
 	DisplayName     interface{} `xmlrpc:"display_name"`
 	Id              interface{} `xmlrpc:"id"`
+	LastUpdate      interface{} `xmlrpc:"__last_update"`
 	Level           interface{} `xmlrpc:"level"`
 	Name            interface{} `xmlrpc:"name"`
 	ParentId        interface{} `xmlrpc:"parent_id"`

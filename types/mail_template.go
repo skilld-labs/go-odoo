@@ -5,7 +5,6 @@ import (
 )
 
 type MailTemplate struct {
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	AttachmentIds       []int64   `xmlrpc:"attachment_ids"`
 	AutoDelete          bool      `xmlrpc:"auto_delete"`
 	BodyHtml            string    `xmlrpc:"body_html"`
@@ -18,6 +17,7 @@ type MailTemplate struct {
 	EmailTo             string    `xmlrpc:"email_to"`
 	Id                  int64     `xmlrpc:"id"`
 	Lang                string    `xmlrpc:"lang"`
+	LastUpdate          time.Time `xmlrpc:"__last_update"`
 	MailServerId        Many2One  `xmlrpc:"mail_server_id"`
 	Model               string    `xmlrpc:"model"`
 	ModelId             Many2One  `xmlrpc:"model_id"`
@@ -26,14 +26,13 @@ type MailTemplate struct {
 	NullValue           string    `xmlrpc:"null_value"`
 	PartnerTo           string    `xmlrpc:"partner_to"`
 	RefIrActWindow      Many2One  `xmlrpc:"ref_ir_act_window"`
-	RefIrValue          Many2One  `xmlrpc:"ref_ir_value"`
 	ReplyTo             string    `xmlrpc:"reply_to"`
 	ReportName          string    `xmlrpc:"report_name"`
 	ReportTemplate      Many2One  `xmlrpc:"report_template"`
 	ScheduledDate       string    `xmlrpc:"scheduled_date"`
+	Subject             string    `xmlrpc:"subject"`
 	SubModelObjectField Many2One  `xmlrpc:"sub_model_object_field"`
 	SubObject           Many2One  `xmlrpc:"sub_object"`
-	Subject             string    `xmlrpc:"subject"`
 	UseDefaultTo        bool      `xmlrpc:"use_default_to"`
 	UserSignature       bool      `xmlrpc:"user_signature"`
 	WriteDate           time.Time `xmlrpc:"write_date"`
@@ -41,7 +40,6 @@ type MailTemplate struct {
 }
 
 type MailTemplateNil struct {
-	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	AttachmentIds       interface{} `xmlrpc:"attachment_ids"`
 	AutoDelete          bool        `xmlrpc:"auto_delete"`
 	BodyHtml            interface{} `xmlrpc:"body_html"`
@@ -54,6 +52,7 @@ type MailTemplateNil struct {
 	EmailTo             interface{} `xmlrpc:"email_to"`
 	Id                  interface{} `xmlrpc:"id"`
 	Lang                interface{} `xmlrpc:"lang"`
+	LastUpdate          interface{} `xmlrpc:"__last_update"`
 	MailServerId        interface{} `xmlrpc:"mail_server_id"`
 	Model               interface{} `xmlrpc:"model"`
 	ModelId             interface{} `xmlrpc:"model_id"`
@@ -62,14 +61,13 @@ type MailTemplateNil struct {
 	NullValue           interface{} `xmlrpc:"null_value"`
 	PartnerTo           interface{} `xmlrpc:"partner_to"`
 	RefIrActWindow      interface{} `xmlrpc:"ref_ir_act_window"`
-	RefIrValue          interface{} `xmlrpc:"ref_ir_value"`
 	ReplyTo             interface{} `xmlrpc:"reply_to"`
 	ReportName          interface{} `xmlrpc:"report_name"`
 	ReportTemplate      interface{} `xmlrpc:"report_template"`
 	ScheduledDate       interface{} `xmlrpc:"scheduled_date"`
+	Subject             interface{} `xmlrpc:"subject"`
 	SubModelObjectField interface{} `xmlrpc:"sub_model_object_field"`
 	SubObject           interface{} `xmlrpc:"sub_object"`
-	Subject             interface{} `xmlrpc:"subject"`
 	UseDefaultTo        bool        `xmlrpc:"use_default_to"`
 	UserSignature       bool        `xmlrpc:"user_signature"`
 	WriteDate           interface{} `xmlrpc:"write_date"`

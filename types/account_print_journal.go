@@ -5,7 +5,6 @@ import (
 )
 
 type AccountPrintJournal struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	AmountCurrency bool      `xmlrpc:"amount_currency"`
 	CompanyId      Many2One  `xmlrpc:"company_id"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
@@ -15,6 +14,7 @@ type AccountPrintJournal struct {
 	DisplayName    string    `xmlrpc:"display_name"`
 	Id             int64     `xmlrpc:"id"`
 	JournalIds     []int64   `xmlrpc:"journal_ids"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	SortSelection  string    `xmlrpc:"sort_selection"`
 	TargetMove     string    `xmlrpc:"target_move"`
 	WriteDate      time.Time `xmlrpc:"write_date"`
@@ -22,7 +22,6 @@ type AccountPrintJournal struct {
 }
 
 type AccountPrintJournalNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	AmountCurrency bool        `xmlrpc:"amount_currency"`
 	CompanyId      interface{} `xmlrpc:"company_id"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
@@ -32,6 +31,7 @@ type AccountPrintJournalNil struct {
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Id             interface{} `xmlrpc:"id"`
 	JournalIds     interface{} `xmlrpc:"journal_ids"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	SortSelection  interface{} `xmlrpc:"sort_selection"`
 	TargetMove     interface{} `xmlrpc:"target_move"`
 	WriteDate      interface{} `xmlrpc:"write_date"`

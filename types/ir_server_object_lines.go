@@ -5,12 +5,12 @@ import (
 )
 
 type IrServerObjectLines struct {
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	Col1        Many2One  `xmlrpc:"col1"`
 	CreateDate  time.Time `xmlrpc:"create_date"`
 	CreateUid   Many2One  `xmlrpc:"create_uid"`
 	DisplayName string    `xmlrpc:"display_name"`
 	Id          int64     `xmlrpc:"id"`
+	LastUpdate  time.Time `xmlrpc:"__last_update"`
 	ServerId    Many2One  `xmlrpc:"server_id"`
 	Type        string    `xmlrpc:"type"`
 	Value       string    `xmlrpc:"value"`
@@ -19,12 +19,12 @@ type IrServerObjectLines struct {
 }
 
 type IrServerObjectLinesNil struct {
-	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	Col1        interface{} `xmlrpc:"col1"`
 	CreateDate  interface{} `xmlrpc:"create_date"`
 	CreateUid   interface{} `xmlrpc:"create_uid"`
 	DisplayName interface{} `xmlrpc:"display_name"`
 	Id          interface{} `xmlrpc:"id"`
+	LastUpdate  interface{} `xmlrpc:"__last_update"`
 	ServerId    interface{} `xmlrpc:"server_id"`
 	Type        interface{} `xmlrpc:"type"`
 	Value       interface{} `xmlrpc:"value"`

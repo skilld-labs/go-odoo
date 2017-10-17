@@ -5,12 +5,12 @@ import (
 )
 
 type CrmStage struct {
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	CreateDate     time.Time `xmlrpc:"create_date"`
 	CreateUid      Many2One  `xmlrpc:"create_uid"`
 	DisplayName    string    `xmlrpc:"display_name"`
 	Fold           bool      `xmlrpc:"fold"`
 	Id             int64     `xmlrpc:"id"`
+	LastUpdate     time.Time `xmlrpc:"__last_update"`
 	LegendPriority string    `xmlrpc:"legend_priority"`
 	Name           string    `xmlrpc:"name"`
 	OnChange       bool      `xmlrpc:"on_change"`
@@ -23,12 +23,12 @@ type CrmStage struct {
 }
 
 type CrmStageNil struct {
-	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	CreateDate     interface{} `xmlrpc:"create_date"`
 	CreateUid      interface{} `xmlrpc:"create_uid"`
 	DisplayName    interface{} `xmlrpc:"display_name"`
 	Fold           bool        `xmlrpc:"fold"`
 	Id             interface{} `xmlrpc:"id"`
+	LastUpdate     interface{} `xmlrpc:"__last_update"`
 	LegendPriority interface{} `xmlrpc:"legend_priority"`
 	Name           interface{} `xmlrpc:"name"`
 	OnChange       bool        `xmlrpc:"on_change"`

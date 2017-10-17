@@ -5,7 +5,6 @@ import (
 )
 
 type AccountAnalyticLine struct {
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	AccountId              Many2One  `xmlrpc:"account_id"`
 	Amount                 float64   `xmlrpc:"amount"`
 	AmountCurrency         float64   `xmlrpc:"amount_currency"`
@@ -19,8 +18,11 @@ type AccountAnalyticLine struct {
 	Date                   time.Time `xmlrpc:"date"`
 	DepartmentId           Many2One  `xmlrpc:"department_id"`
 	DisplayName            string    `xmlrpc:"display_name"`
+	EmployeeId             Many2One  `xmlrpc:"employee_id"`
 	GeneralAccountId       Many2One  `xmlrpc:"general_account_id"`
+	HolidayId              Many2One  `xmlrpc:"holiday_id"`
 	Id                     int64     `xmlrpc:"id"`
+	LastUpdate             time.Time `xmlrpc:"__last_update"`
 	MoveId                 Many2One  `xmlrpc:"move_id"`
 	Name                   string    `xmlrpc:"name"`
 	PartnerId              Many2One  `xmlrpc:"partner_id"`
@@ -31,6 +33,9 @@ type AccountAnalyticLine struct {
 	SoLine                 Many2One  `xmlrpc:"so_line"`
 	TagIds                 []int64   `xmlrpc:"tag_ids"`
 	TaskId                 Many2One  `xmlrpc:"task_id"`
+	TimesheetInvoiceId     Many2One  `xmlrpc:"timesheet_invoice_id"`
+	TimesheetInvoiceType   string    `xmlrpc:"timesheet_invoice_type"`
+	TimesheetRevenue       float64   `xmlrpc:"timesheet_revenue"`
 	UnitAmount             float64   `xmlrpc:"unit_amount"`
 	UserId                 Many2One  `xmlrpc:"user_id"`
 	WriteDate              time.Time `xmlrpc:"write_date"`
@@ -38,7 +43,6 @@ type AccountAnalyticLine struct {
 }
 
 type AccountAnalyticLineNil struct {
-	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	AccountId              interface{} `xmlrpc:"account_id"`
 	Amount                 interface{} `xmlrpc:"amount"`
 	AmountCurrency         interface{} `xmlrpc:"amount_currency"`
@@ -52,8 +56,11 @@ type AccountAnalyticLineNil struct {
 	Date                   interface{} `xmlrpc:"date"`
 	DepartmentId           interface{} `xmlrpc:"department_id"`
 	DisplayName            interface{} `xmlrpc:"display_name"`
+	EmployeeId             interface{} `xmlrpc:"employee_id"`
 	GeneralAccountId       interface{} `xmlrpc:"general_account_id"`
+	HolidayId              interface{} `xmlrpc:"holiday_id"`
 	Id                     interface{} `xmlrpc:"id"`
+	LastUpdate             interface{} `xmlrpc:"__last_update"`
 	MoveId                 interface{} `xmlrpc:"move_id"`
 	Name                   interface{} `xmlrpc:"name"`
 	PartnerId              interface{} `xmlrpc:"partner_id"`
@@ -64,6 +71,9 @@ type AccountAnalyticLineNil struct {
 	SoLine                 interface{} `xmlrpc:"so_line"`
 	TagIds                 interface{} `xmlrpc:"tag_ids"`
 	TaskId                 interface{} `xmlrpc:"task_id"`
+	TimesheetInvoiceId     interface{} `xmlrpc:"timesheet_invoice_id"`
+	TimesheetInvoiceType   interface{} `xmlrpc:"timesheet_invoice_type"`
+	TimesheetRevenue       interface{} `xmlrpc:"timesheet_revenue"`
 	UnitAmount             interface{} `xmlrpc:"unit_amount"`
 	UserId                 interface{} `xmlrpc:"user_id"`
 	WriteDate              interface{} `xmlrpc:"write_date"`
