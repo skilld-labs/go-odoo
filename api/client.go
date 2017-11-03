@@ -29,15 +29,6 @@ func NewClient(uri string, transport http.RoundTripper) (*Client, error) {
 	return client, err
 }
 
-func (c *Client) GetReport(model string, ids []int) ([]byte, error) {
-	client, err := xmlrpc.NewClient(c.URI+"/xmlrpc/2/report", c.Transport)
-	if err != nil {
-		return err
-	}
-	var report []byte
-	return report, client.Call("render_report", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, model, ids}, &report)
-}
-
 func (c *Client) Login(dbName string, admin string, password string) error {
 	var uid int
 	uriTemp := c.URI + "/xmlrpc/2/common"
@@ -63,7 +54,7 @@ func (c *Client) GetReport(model string, ids []int64) (map[string]interface{}, e
 		return nil, err
 	}
 	var report map[string]interface{}
-	reportService := NewIrActionsReportXmlService(c)
+	reportService := NewIrActionsReportService(c)
 	fields, err := reportService.GetByField("model", model)
 	if err != nil {
 		return nil, err
