@@ -12,11 +12,11 @@ func NewStockTraceabilityReportService(c *Client) *StockTraceabilityReportServic
 	return &StockTraceabilityReportService{client: c}
 }
 
-func (svc *StockTraceabilityReportService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockTraceabilityReportService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockTraceabilityReportModel, name)
 }
 
-func (svc *StockTraceabilityReportService) GetByIds(ids []int) (*types.StockTraceabilityReports, error) {
+func (svc *StockTraceabilityReportService) GetByIds(ids []int64) (*types.StockTraceabilityReports, error) {
 	s := &types.StockTraceabilityReports{}
 	return s, svc.client.getByIds(types.StockTraceabilityReportModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockTraceabilityReportService) GetAll() (*types.StockTraceabilityRep
 	return s, svc.client.getAll(types.StockTraceabilityReportModel, s)
 }
 
-func (svc *StockTraceabilityReportService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockTraceabilityReportService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockTraceabilityReportModel, fields, relations)
 }
 
-func (svc *StockTraceabilityReportService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockTraceabilityReportService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockTraceabilityReportModel, ids, fields, relations)
 }
 
-func (svc *StockTraceabilityReportService) Delete(ids []int) error {
+func (svc *StockTraceabilityReportService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockTraceabilityReportModel, ids)
 }

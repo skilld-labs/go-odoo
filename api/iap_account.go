@@ -12,11 +12,11 @@ func NewIapAccountService(c *Client) *IapAccountService {
 	return &IapAccountService{client: c}
 }
 
-func (svc *IapAccountService) GetIdsByName(name string) ([]int, error) {
+func (svc *IapAccountService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IapAccountModel, name)
 }
 
-func (svc *IapAccountService) GetByIds(ids []int) (*types.IapAccounts, error) {
+func (svc *IapAccountService) GetByIds(ids []int64) (*types.IapAccounts, error) {
 	i := &types.IapAccounts{}
 	return i, svc.client.getByIds(types.IapAccountModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IapAccountService) GetAll() (*types.IapAccounts, error) {
 	return i, svc.client.getAll(types.IapAccountModel, i)
 }
 
-func (svc *IapAccountService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IapAccountService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IapAccountModel, fields, relations)
 }
 
-func (svc *IapAccountService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IapAccountService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IapAccountModel, ids, fields, relations)
 }
 
-func (svc *IapAccountService) Delete(ids []int) error {
+func (svc *IapAccountService) Delete(ids []int64) error {
 	return svc.client.delete(types.IapAccountModel, ids)
 }

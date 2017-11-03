@@ -12,11 +12,11 @@ func NewIrQwebFieldFloatTimeService(c *Client) *IrQwebFieldFloatTimeService {
 	return &IrQwebFieldFloatTimeService{client: c}
 }
 
-func (svc *IrQwebFieldFloatTimeService) GetIdsByName(name string) ([]int, error) {
+func (svc *IrQwebFieldFloatTimeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.IrQwebFieldFloatTimeModel, name)
 }
 
-func (svc *IrQwebFieldFloatTimeService) GetByIds(ids []int) (*types.IrQwebFieldFloatTimes, error) {
+func (svc *IrQwebFieldFloatTimeService) GetByIds(ids []int64) (*types.IrQwebFieldFloatTimes, error) {
 	i := &types.IrQwebFieldFloatTimes{}
 	return i, svc.client.getByIds(types.IrQwebFieldFloatTimeModel, ids, i)
 }
@@ -36,14 +36,14 @@ func (svc *IrQwebFieldFloatTimeService) GetAll() (*types.IrQwebFieldFloatTimes, 
 	return i, svc.client.getAll(types.IrQwebFieldFloatTimeModel, i)
 }
 
-func (svc *IrQwebFieldFloatTimeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *IrQwebFieldFloatTimeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.IrQwebFieldFloatTimeModel, fields, relations)
 }
 
-func (svc *IrQwebFieldFloatTimeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *IrQwebFieldFloatTimeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.IrQwebFieldFloatTimeModel, ids, fields, relations)
 }
 
-func (svc *IrQwebFieldFloatTimeService) Delete(ids []int) error {
+func (svc *IrQwebFieldFloatTimeService) Delete(ids []int64) error {
 	return svc.client.delete(types.IrQwebFieldFloatTimeModel, ids)
 }

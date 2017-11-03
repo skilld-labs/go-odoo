@@ -12,11 +12,11 @@ func NewStockWarnInsufficientQtyService(c *Client) *StockWarnInsufficientQtyServ
 	return &StockWarnInsufficientQtyService{client: c}
 }
 
-func (svc *StockWarnInsufficientQtyService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockWarnInsufficientQtyService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockWarnInsufficientQtyModel, name)
 }
 
-func (svc *StockWarnInsufficientQtyService) GetByIds(ids []int) (*types.StockWarnInsufficientQtys, error) {
+func (svc *StockWarnInsufficientQtyService) GetByIds(ids []int64) (*types.StockWarnInsufficientQtys, error) {
 	s := &types.StockWarnInsufficientQtys{}
 	return s, svc.client.getByIds(types.StockWarnInsufficientQtyModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockWarnInsufficientQtyService) GetAll() (*types.StockWarnInsufficie
 	return s, svc.client.getAll(types.StockWarnInsufficientQtyModel, s)
 }
 
-func (svc *StockWarnInsufficientQtyService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockWarnInsufficientQtyService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockWarnInsufficientQtyModel, fields, relations)
 }
 
-func (svc *StockWarnInsufficientQtyService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockWarnInsufficientQtyService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockWarnInsufficientQtyModel, ids, fields, relations)
 }
 
-func (svc *StockWarnInsufficientQtyService) Delete(ids []int) error {
+func (svc *StockWarnInsufficientQtyService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockWarnInsufficientQtyModel, ids)
 }
