@@ -12,11 +12,11 @@ func NewStockOverprocessedTransferService(c *Client) *StockOverprocessedTransfer
 	return &StockOverprocessedTransferService{client: c}
 }
 
-func (svc *StockOverprocessedTransferService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockOverprocessedTransferService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockOverprocessedTransferModel, name)
 }
 
-func (svc *StockOverprocessedTransferService) GetByIds(ids []int) (*types.StockOverprocessedTransfers, error) {
+func (svc *StockOverprocessedTransferService) GetByIds(ids []int64) (*types.StockOverprocessedTransfers, error) {
 	s := &types.StockOverprocessedTransfers{}
 	return s, svc.client.getByIds(types.StockOverprocessedTransferModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockOverprocessedTransferService) GetAll() (*types.StockOverprocesse
 	return s, svc.client.getAll(types.StockOverprocessedTransferModel, s)
 }
 
-func (svc *StockOverprocessedTransferService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockOverprocessedTransferService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockOverprocessedTransferModel, fields, relations)
 }
 
-func (svc *StockOverprocessedTransferService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockOverprocessedTransferService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockOverprocessedTransferModel, ids, fields, relations)
 }
 
-func (svc *StockOverprocessedTransferService) Delete(ids []int) error {
+func (svc *StockOverprocessedTransferService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockOverprocessedTransferModel, ids)
 }

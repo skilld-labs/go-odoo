@@ -12,11 +12,11 @@ func NewAutosalesConfigService(c *Client) *AutosalesConfigService {
 	return &AutosalesConfigService{client: c}
 }
 
-func (svc *AutosalesConfigService) GetIdsByName(name string) ([]int, error) {
+func (svc *AutosalesConfigService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AutosalesConfigModel, name)
 }
 
-func (svc *AutosalesConfigService) GetByIds(ids []int) (*types.AutosalesConfigs, error) {
+func (svc *AutosalesConfigService) GetByIds(ids []int64) (*types.AutosalesConfigs, error) {
 	a := &types.AutosalesConfigs{}
 	return a, svc.client.getByIds(types.AutosalesConfigModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AutosalesConfigService) GetAll() (*types.AutosalesConfigs, error) {
 	return a, svc.client.getAll(types.AutosalesConfigModel, a)
 }
 
-func (svc *AutosalesConfigService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AutosalesConfigService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AutosalesConfigModel, fields, relations)
 }
 
-func (svc *AutosalesConfigService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AutosalesConfigService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AutosalesConfigModel, ids, fields, relations)
 }
 
-func (svc *AutosalesConfigService) Delete(ids []int) error {
+func (svc *AutosalesConfigService) Delete(ids []int64) error {
 	return svc.client.delete(types.AutosalesConfigModel, ids)
 }

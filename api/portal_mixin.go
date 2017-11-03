@@ -12,11 +12,11 @@ func NewPortalMixinService(c *Client) *PortalMixinService {
 	return &PortalMixinService{client: c}
 }
 
-func (svc *PortalMixinService) GetIdsByName(name string) ([]int, error) {
+func (svc *PortalMixinService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.PortalMixinModel, name)
 }
 
-func (svc *PortalMixinService) GetByIds(ids []int) (*types.PortalMixins, error) {
+func (svc *PortalMixinService) GetByIds(ids []int64) (*types.PortalMixins, error) {
 	p := &types.PortalMixins{}
 	return p, svc.client.getByIds(types.PortalMixinModel, ids, p)
 }
@@ -36,14 +36,14 @@ func (svc *PortalMixinService) GetAll() (*types.PortalMixins, error) {
 	return p, svc.client.getAll(types.PortalMixinModel, p)
 }
 
-func (svc *PortalMixinService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *PortalMixinService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.PortalMixinModel, fields, relations)
 }
 
-func (svc *PortalMixinService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *PortalMixinService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.PortalMixinModel, ids, fields, relations)
 }
 
-func (svc *PortalMixinService) Delete(ids []int) error {
+func (svc *PortalMixinService) Delete(ids []int64) error {
 	return svc.client.delete(types.PortalMixinModel, ids)
 }

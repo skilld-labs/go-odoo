@@ -12,11 +12,11 @@ func NewSmsApiService(c *Client) *SmsApiService {
 	return &SmsApiService{client: c}
 }
 
-func (svc *SmsApiService) GetIdsByName(name string) ([]int, error) {
+func (svc *SmsApiService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.SmsApiModel, name)
 }
 
-func (svc *SmsApiService) GetByIds(ids []int) (*types.SmsApis, error) {
+func (svc *SmsApiService) GetByIds(ids []int64) (*types.SmsApis, error) {
 	s := &types.SmsApis{}
 	return s, svc.client.getByIds(types.SmsApiModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *SmsApiService) GetAll() (*types.SmsApis, error) {
 	return s, svc.client.getAll(types.SmsApiModel, s)
 }
 
-func (svc *SmsApiService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *SmsApiService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.SmsApiModel, fields, relations)
 }
 
-func (svc *SmsApiService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *SmsApiService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.SmsApiModel, ids, fields, relations)
 }
 
-func (svc *SmsApiService) Delete(ids []int) error {
+func (svc *SmsApiService) Delete(ids []int64) error {
 	return svc.client.delete(types.SmsApiModel, ids)
 }

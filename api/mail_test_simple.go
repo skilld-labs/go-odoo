@@ -12,11 +12,11 @@ func NewMailTestSimpleService(c *Client) *MailTestSimpleService {
 	return &MailTestSimpleService{client: c}
 }
 
-func (svc *MailTestSimpleService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailTestSimpleService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailTestSimpleModel, name)
 }
 
-func (svc *MailTestSimpleService) GetByIds(ids []int) (*types.MailTestSimples, error) {
+func (svc *MailTestSimpleService) GetByIds(ids []int64) (*types.MailTestSimples, error) {
 	m := &types.MailTestSimples{}
 	return m, svc.client.getByIds(types.MailTestSimpleModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailTestSimpleService) GetAll() (*types.MailTestSimples, error) {
 	return m, svc.client.getAll(types.MailTestSimpleModel, m)
 }
 
-func (svc *MailTestSimpleService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailTestSimpleService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailTestSimpleModel, fields, relations)
 }
 
-func (svc *MailTestSimpleService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailTestSimpleService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailTestSimpleModel, ids, fields, relations)
 }
 
-func (svc *MailTestSimpleService) Delete(ids []int) error {
+func (svc *MailTestSimpleService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailTestSimpleModel, ids)
 }

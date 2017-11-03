@@ -12,11 +12,11 @@ func NewAccountCashRoundingService(c *Client) *AccountCashRoundingService {
 	return &AccountCashRoundingService{client: c}
 }
 
-func (svc *AccountCashRoundingService) GetIdsByName(name string) ([]int, error) {
+func (svc *AccountCashRoundingService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.AccountCashRoundingModel, name)
 }
 
-func (svc *AccountCashRoundingService) GetByIds(ids []int) (*types.AccountCashRoundings, error) {
+func (svc *AccountCashRoundingService) GetByIds(ids []int64) (*types.AccountCashRoundings, error) {
 	a := &types.AccountCashRoundings{}
 	return a, svc.client.getByIds(types.AccountCashRoundingModel, ids, a)
 }
@@ -36,14 +36,14 @@ func (svc *AccountCashRoundingService) GetAll() (*types.AccountCashRoundings, er
 	return a, svc.client.getAll(types.AccountCashRoundingModel, a)
 }
 
-func (svc *AccountCashRoundingService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *AccountCashRoundingService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.AccountCashRoundingModel, fields, relations)
 }
 
-func (svc *AccountCashRoundingService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *AccountCashRoundingService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.AccountCashRoundingModel, ids, fields, relations)
 }
 
-func (svc *AccountCashRoundingService) Delete(ids []int) error {
+func (svc *AccountCashRoundingService) Delete(ids []int64) error {
 	return svc.client.delete(types.AccountCashRoundingModel, ids)
 }

@@ -12,11 +12,11 @@ func NewMailActivityTypeService(c *Client) *MailActivityTypeService {
 	return &MailActivityTypeService{client: c}
 }
 
-func (svc *MailActivityTypeService) GetIdsByName(name string) ([]int, error) {
+func (svc *MailActivityTypeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.MailActivityTypeModel, name)
 }
 
-func (svc *MailActivityTypeService) GetByIds(ids []int) (*types.MailActivityTypes, error) {
+func (svc *MailActivityTypeService) GetByIds(ids []int64) (*types.MailActivityTypes, error) {
 	m := &types.MailActivityTypes{}
 	return m, svc.client.getByIds(types.MailActivityTypeModel, ids, m)
 }
@@ -36,14 +36,14 @@ func (svc *MailActivityTypeService) GetAll() (*types.MailActivityTypes, error) {
 	return m, svc.client.getAll(types.MailActivityTypeModel, m)
 }
 
-func (svc *MailActivityTypeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *MailActivityTypeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.MailActivityTypeModel, fields, relations)
 }
 
-func (svc *MailActivityTypeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *MailActivityTypeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.MailActivityTypeModel, ids, fields, relations)
 }
 
-func (svc *MailActivityTypeService) Delete(ids []int) error {
+func (svc *MailActivityTypeService) Delete(ids []int64) error {
 	return svc.client.delete(types.MailActivityTypeModel, ids)
 }

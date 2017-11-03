@@ -12,11 +12,11 @@ func NewStockSchedulerComputeService(c *Client) *StockSchedulerComputeService {
 	return &StockSchedulerComputeService{client: c}
 }
 
-func (svc *StockSchedulerComputeService) GetIdsByName(name string) ([]int, error) {
+func (svc *StockSchedulerComputeService) GetIdsByName(name string) ([]int64, error) {
 	return svc.client.getIdsByName(types.StockSchedulerComputeModel, name)
 }
 
-func (svc *StockSchedulerComputeService) GetByIds(ids []int) (*types.StockSchedulerComputes, error) {
+func (svc *StockSchedulerComputeService) GetByIds(ids []int64) (*types.StockSchedulerComputes, error) {
 	s := &types.StockSchedulerComputes{}
 	return s, svc.client.getByIds(types.StockSchedulerComputeModel, ids, s)
 }
@@ -36,14 +36,14 @@ func (svc *StockSchedulerComputeService) GetAll() (*types.StockSchedulerComputes
 	return s, svc.client.getAll(types.StockSchedulerComputeModel, s)
 }
 
-func (svc *StockSchedulerComputeService) Create(fields map[string]interface{}, relations *types.Relations) (int, error) {
+func (svc *StockSchedulerComputeService) Create(fields map[string]interface{}, relations *types.Relations) (int64, error) {
 	return svc.client.create(types.StockSchedulerComputeModel, fields, relations)
 }
 
-func (svc *StockSchedulerComputeService) Update(ids []int, fields map[string]interface{}, relations *types.Relations) error {
+func (svc *StockSchedulerComputeService) Update(ids []int64, fields map[string]interface{}, relations *types.Relations) error {
 	return svc.client.update(types.StockSchedulerComputeModel, ids, fields, relations)
 }
 
-func (svc *StockSchedulerComputeService) Delete(ids []int) error {
+func (svc *StockSchedulerComputeService) Delete(ids []int64) error {
 	return svc.client.delete(types.StockSchedulerComputeModel, ids)
 }
