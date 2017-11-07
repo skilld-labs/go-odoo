@@ -13,7 +13,7 @@ func getAll() {
 	}
 	err = c.Login("dbName", "admin", "password")
 	if err != nil {
-		return err
+		fmt.Prinln(err.Error())
 	}
 	//get the sale order service
 	s := api.NewSaleOrderService(c)
