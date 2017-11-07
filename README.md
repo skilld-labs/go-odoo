@@ -83,7 +83,7 @@ func main() {
 	}
 	err = c.Login("dbName", "admin", "password")
 	if err != nil {
-		return err
+		fmt.Println(err.Error())
 	}
 	//get the sale order service
 	s := api.NewSaleOrderService(c)
