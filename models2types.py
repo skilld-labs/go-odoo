@@ -14,7 +14,7 @@ types = {
     'integer': 'int64',
     'boolean': 'bool',
     'text': 'string',
-    'selection': 'string',
+    'selection': 'interface{}',
     'float': 'float64',
     'binary': 'string',
     'html': 'string',

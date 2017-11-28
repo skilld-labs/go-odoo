@@ -5,31 +5,31 @@ import (
 )
 
 type ProcurementRule struct {
-	Action                 string    `xmlrpc:"action"`
-	Active                 bool      `xmlrpc:"active"`
-	CompanyId              Many2One  `xmlrpc:"company_id"`
-	CreateDate             time.Time `xmlrpc:"create_date"`
-	CreateUid              Many2One  `xmlrpc:"create_uid"`
-	Delay                  int64     `xmlrpc:"delay"`
-	DisplayName            string    `xmlrpc:"display_name"`
-	GroupId                Many2One  `xmlrpc:"group_id"`
-	GroupPropagationOption string    `xmlrpc:"group_propagation_option"`
-	Id                     int64     `xmlrpc:"id"`
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
-	LocationId             Many2One  `xmlrpc:"location_id"`
-	LocationSrcId          Many2One  `xmlrpc:"location_src_id"`
-	Name                   string    `xmlrpc:"name"`
-	PartnerAddressId       Many2One  `xmlrpc:"partner_address_id"`
-	PickingTypeId          Many2One  `xmlrpc:"picking_type_id"`
-	ProcureMethod          string    `xmlrpc:"procure_method"`
-	Propagate              bool      `xmlrpc:"propagate"`
-	PropagateWarehouseId   Many2One  `xmlrpc:"propagate_warehouse_id"`
-	RouteId                Many2One  `xmlrpc:"route_id"`
-	RouteSequence          int64     `xmlrpc:"route_sequence"`
-	Sequence               int64     `xmlrpc:"sequence"`
-	WarehouseId            Many2One  `xmlrpc:"warehouse_id"`
-	WriteDate              time.Time `xmlrpc:"write_date"`
-	WriteUid               Many2One  `xmlrpc:"write_uid"`
+	Action                 interface{} `xmlrpc:"action"`
+	Active                 bool        `xmlrpc:"active"`
+	CompanyId              Many2One    `xmlrpc:"company_id"`
+	CreateDate             time.Time   `xmlrpc:"create_date"`
+	CreateUid              Many2One    `xmlrpc:"create_uid"`
+	Delay                  int64       `xmlrpc:"delay"`
+	DisplayName            string      `xmlrpc:"display_name"`
+	GroupId                Many2One    `xmlrpc:"group_id"`
+	GroupPropagationOption interface{} `xmlrpc:"group_propagation_option"`
+	Id                     int64       `xmlrpc:"id"`
+	LastUpdate             time.Time   `xmlrpc:"__last_update"`
+	LocationId             Many2One    `xmlrpc:"location_id"`
+	LocationSrcId          Many2One    `xmlrpc:"location_src_id"`
+	Name                   string      `xmlrpc:"name"`
+	PartnerAddressId       Many2One    `xmlrpc:"partner_address_id"`
+	PickingTypeId          Many2One    `xmlrpc:"picking_type_id"`
+	ProcureMethod          interface{} `xmlrpc:"procure_method"`
+	Propagate              bool        `xmlrpc:"propagate"`
+	PropagateWarehouseId   Many2One    `xmlrpc:"propagate_warehouse_id"`
+	RouteId                Many2One    `xmlrpc:"route_id"`
+	RouteSequence          int64       `xmlrpc:"route_sequence"`
+	Sequence               int64       `xmlrpc:"sequence"`
+	WarehouseId            Many2One    `xmlrpc:"warehouse_id"`
+	WriteDate              time.Time   `xmlrpc:"write_date"`
+	WriteUid               Many2One    `xmlrpc:"write_uid"`
 }
 
 type ProcurementRuleNil struct {

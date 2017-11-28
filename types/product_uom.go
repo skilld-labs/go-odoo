@@ -5,20 +5,20 @@ import (
 )
 
 type ProductUom struct {
-	Active      bool      `xmlrpc:"active"`
-	CategoryId  Many2One  `xmlrpc:"category_id"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Factor      float64   `xmlrpc:"factor"`
-	FactorInv   float64   `xmlrpc:"factor_inv"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Name        string    `xmlrpc:"name"`
-	Rounding    float64   `xmlrpc:"rounding"`
-	UomType     string    `xmlrpc:"uom_type"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	Active      bool        `xmlrpc:"active"`
+	CategoryId  Many2One    `xmlrpc:"category_id"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Factor      float64     `xmlrpc:"factor"`
+	FactorInv   float64     `xmlrpc:"factor_inv"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Name        string      `xmlrpc:"name"`
+	Rounding    float64     `xmlrpc:"rounding"`
+	UomType     interface{} `xmlrpc:"uom_type"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type ProductUomNil struct {

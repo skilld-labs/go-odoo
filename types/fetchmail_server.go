@@ -5,31 +5,31 @@ import (
 )
 
 type FetchmailServer struct {
-	ActionId      Many2One  `xmlrpc:"action_id"`
-	Active        bool      `xmlrpc:"active"`
-	Attach        bool      `xmlrpc:"attach"`
-	Configuration string    `xmlrpc:"configuration"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	Date          time.Time `xmlrpc:"date"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	IsSsl         bool      `xmlrpc:"is_ssl"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	MessageIds    []int64   `xmlrpc:"message_ids"`
-	Name          string    `xmlrpc:"name"`
-	ObjectId      Many2One  `xmlrpc:"object_id"`
-	Original      bool      `xmlrpc:"original"`
-	Password      string    `xmlrpc:"password"`
-	Port          int64     `xmlrpc:"port"`
-	Priority      int64     `xmlrpc:"priority"`
-	Script        string    `xmlrpc:"script"`
-	Server        string    `xmlrpc:"server"`
-	State         string    `xmlrpc:"state"`
-	Type          string    `xmlrpc:"type"`
-	User          string    `xmlrpc:"user"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	ActionId      Many2One    `xmlrpc:"action_id"`
+	Active        bool        `xmlrpc:"active"`
+	Attach        bool        `xmlrpc:"attach"`
+	Configuration string      `xmlrpc:"configuration"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	Date          time.Time   `xmlrpc:"date"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	Id            int64       `xmlrpc:"id"`
+	IsSsl         bool        `xmlrpc:"is_ssl"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	MessageIds    []int64     `xmlrpc:"message_ids"`
+	Name          string      `xmlrpc:"name"`
+	ObjectId      Many2One    `xmlrpc:"object_id"`
+	Original      bool        `xmlrpc:"original"`
+	Password      string      `xmlrpc:"password"`
+	Port          int64       `xmlrpc:"port"`
+	Priority      int64       `xmlrpc:"priority"`
+	Script        string      `xmlrpc:"script"`
+	Server        string      `xmlrpc:"server"`
+	State         interface{} `xmlrpc:"state"`
+	Type          interface{} `xmlrpc:"type"`
+	User          string      `xmlrpc:"user"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type FetchmailServerNil struct {

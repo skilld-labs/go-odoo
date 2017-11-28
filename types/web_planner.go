@@ -5,21 +5,21 @@ import (
 )
 
 type WebPlanner struct {
-	Active             bool      `xmlrpc:"active"`
-	CreateDate         time.Time `xmlrpc:"create_date"`
-	CreateUid          Many2One  `xmlrpc:"create_uid"`
-	Data               string    `xmlrpc:"data"`
-	DisplayName        string    `xmlrpc:"display_name"`
-	Id                 int64     `xmlrpc:"id"`
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
-	MenuId             Many2One  `xmlrpc:"menu_id"`
-	Name               string    `xmlrpc:"name"`
-	PlannerApplication string    `xmlrpc:"planner_application"`
-	Progress           int64     `xmlrpc:"progress"`
-	TooltipPlanner     string    `xmlrpc:"tooltip_planner"`
-	ViewId             Many2One  `xmlrpc:"view_id"`
-	WriteDate          time.Time `xmlrpc:"write_date"`
-	WriteUid           Many2One  `xmlrpc:"write_uid"`
+	Active             bool        `xmlrpc:"active"`
+	CreateDate         time.Time   `xmlrpc:"create_date"`
+	CreateUid          Many2One    `xmlrpc:"create_uid"`
+	Data               string      `xmlrpc:"data"`
+	DisplayName        string      `xmlrpc:"display_name"`
+	Id                 int64       `xmlrpc:"id"`
+	LastUpdate         time.Time   `xmlrpc:"__last_update"`
+	MenuId             Many2One    `xmlrpc:"menu_id"`
+	Name               string      `xmlrpc:"name"`
+	PlannerApplication interface{} `xmlrpc:"planner_application"`
+	Progress           int64       `xmlrpc:"progress"`
+	TooltipPlanner     string      `xmlrpc:"tooltip_planner"`
+	ViewId             Many2One    `xmlrpc:"view_id"`
+	WriteDate          time.Time   `xmlrpc:"write_date"`
+	WriteUid           Many2One    `xmlrpc:"write_uid"`
 }
 
 type WebPlannerNil struct {

@@ -5,17 +5,17 @@ import (
 )
 
 type IrActionsTodo struct {
-	ActionId    Many2One  `xmlrpc:"action_id"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Name        string    `xmlrpc:"name"`
-	Sequence    int64     `xmlrpc:"sequence"`
-	State       string    `xmlrpc:"state"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	ActionId    Many2One    `xmlrpc:"action_id"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Name        string      `xmlrpc:"name"`
+	Sequence    int64       `xmlrpc:"sequence"`
+	State       interface{} `xmlrpc:"state"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrActionsTodoNil struct {

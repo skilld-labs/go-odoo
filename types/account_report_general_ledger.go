@@ -5,21 +5,21 @@ import (
 )
 
 type AccountReportGeneralLedger struct {
-	CompanyId      Many2One  `xmlrpc:"company_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DateFrom       time.Time `xmlrpc:"date_from"`
-	DateTo         time.Time `xmlrpc:"date_to"`
-	DisplayAccount string    `xmlrpc:"display_account"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	InitialBalance bool      `xmlrpc:"initial_balance"`
-	JournalIds     []int64   `xmlrpc:"journal_ids"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Sortby         string    `xmlrpc:"sortby"`
-	TargetMove     string    `xmlrpc:"target_move"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	CompanyId      Many2One    `xmlrpc:"company_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DateFrom       time.Time   `xmlrpc:"date_from"`
+	DateTo         time.Time   `xmlrpc:"date_to"`
+	DisplayAccount interface{} `xmlrpc:"display_account"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	InitialBalance bool        `xmlrpc:"initial_balance"`
+	JournalIds     []int64     `xmlrpc:"journal_ids"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Sortby         interface{} `xmlrpc:"sortby"`
+	TargetMove     interface{} `xmlrpc:"target_move"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountReportGeneralLedgerNil struct {

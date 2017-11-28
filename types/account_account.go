@@ -5,28 +5,28 @@ import (
 )
 
 type AccountAccount struct {
-	Code                   string    `xmlrpc:"code"`
-	CompanyId              Many2One  `xmlrpc:"company_id"`
-	CreateDate             time.Time `xmlrpc:"create_date"`
-	CreateUid              Many2One  `xmlrpc:"create_uid"`
-	CurrencyId             Many2One  `xmlrpc:"currency_id"`
-	Deprecated             bool      `xmlrpc:"deprecated"`
-	DisplayName            string    `xmlrpc:"display_name"`
-	GroupId                Many2One  `xmlrpc:"group_id"`
-	Id                     int64     `xmlrpc:"id"`
-	InternalType           string    `xmlrpc:"internal_type"`
-	LastTimeEntriesChecked time.Time `xmlrpc:"last_time_entries_checked"`
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
-	Name                   string    `xmlrpc:"name"`
-	Note                   string    `xmlrpc:"note"`
-	OpeningCredit          float64   `xmlrpc:"opening_credit"`
-	OpeningDebit           float64   `xmlrpc:"opening_debit"`
-	Reconcile              bool      `xmlrpc:"reconcile"`
-	TagIds                 []int64   `xmlrpc:"tag_ids"`
-	TaxIds                 []int64   `xmlrpc:"tax_ids"`
-	UserTypeId             Many2One  `xmlrpc:"user_type_id"`
-	WriteDate              time.Time `xmlrpc:"write_date"`
-	WriteUid               Many2One  `xmlrpc:"write_uid"`
+	Code                   string      `xmlrpc:"code"`
+	CompanyId              Many2One    `xmlrpc:"company_id"`
+	CreateDate             time.Time   `xmlrpc:"create_date"`
+	CreateUid              Many2One    `xmlrpc:"create_uid"`
+	CurrencyId             Many2One    `xmlrpc:"currency_id"`
+	Deprecated             bool        `xmlrpc:"deprecated"`
+	DisplayName            string      `xmlrpc:"display_name"`
+	GroupId                Many2One    `xmlrpc:"group_id"`
+	Id                     int64       `xmlrpc:"id"`
+	InternalType           interface{} `xmlrpc:"internal_type"`
+	LastTimeEntriesChecked time.Time   `xmlrpc:"last_time_entries_checked"`
+	LastUpdate             time.Time   `xmlrpc:"__last_update"`
+	Name                   string      `xmlrpc:"name"`
+	Note                   string      `xmlrpc:"note"`
+	OpeningCredit          float64     `xmlrpc:"opening_credit"`
+	OpeningDebit           float64     `xmlrpc:"opening_debit"`
+	Reconcile              bool        `xmlrpc:"reconcile"`
+	TagIds                 []int64     `xmlrpc:"tag_ids"`
+	TaxIds                 []int64     `xmlrpc:"tax_ids"`
+	UserTypeId             Many2One    `xmlrpc:"user_type_id"`
+	WriteDate              time.Time   `xmlrpc:"write_date"`
+	WriteUid               Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountAccountNil struct {

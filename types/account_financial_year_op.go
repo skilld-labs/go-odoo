@@ -5,19 +5,19 @@ import (
 )
 
 type AccountFinancialYearOp struct {
-	AccountSetupFyDataDone bool      `xmlrpc:"account_setup_fy_data_done"`
-	CompanyId              Many2One  `xmlrpc:"company_id"`
-	CreateDate             time.Time `xmlrpc:"create_date"`
-	CreateUid              Many2One  `xmlrpc:"create_uid"`
-	DisplayName            string    `xmlrpc:"display_name"`
-	FiscalyearLastDay      int64     `xmlrpc:"fiscalyear_last_day"`
-	FiscalyearLastMonth    string    `xmlrpc:"fiscalyear_last_month"`
-	Id                     int64     `xmlrpc:"id"`
-	LastUpdate             time.Time `xmlrpc:"__last_update"`
-	OpeningDate            time.Time `xmlrpc:"opening_date"`
-	OpeningMovePosted      bool      `xmlrpc:"opening_move_posted"`
-	WriteDate              time.Time `xmlrpc:"write_date"`
-	WriteUid               Many2One  `xmlrpc:"write_uid"`
+	AccountSetupFyDataDone bool        `xmlrpc:"account_setup_fy_data_done"`
+	CompanyId              Many2One    `xmlrpc:"company_id"`
+	CreateDate             time.Time   `xmlrpc:"create_date"`
+	CreateUid              Many2One    `xmlrpc:"create_uid"`
+	DisplayName            string      `xmlrpc:"display_name"`
+	FiscalyearLastDay      int64       `xmlrpc:"fiscalyear_last_day"`
+	FiscalyearLastMonth    interface{} `xmlrpc:"fiscalyear_last_month"`
+	Id                     int64       `xmlrpc:"id"`
+	LastUpdate             time.Time   `xmlrpc:"__last_update"`
+	OpeningDate            time.Time   `xmlrpc:"opening_date"`
+	OpeningMovePosted      bool        `xmlrpc:"opening_move_posted"`
+	WriteDate              time.Time   `xmlrpc:"write_date"`
+	WriteUid               Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountFinancialYearOpNil struct {

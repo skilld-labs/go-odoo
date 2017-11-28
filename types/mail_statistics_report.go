@@ -5,19 +5,19 @@ import (
 )
 
 type MailStatisticsReport struct {
-	Bounced       int64     `xmlrpc:"bounced"`
-	Campaign      string    `xmlrpc:"campaign"`
-	Delivered     int64     `xmlrpc:"delivered"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	EmailFrom     string    `xmlrpc:"email_from"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	Name          string    `xmlrpc:"name"`
-	Opened        int64     `xmlrpc:"opened"`
-	Replied       int64     `xmlrpc:"replied"`
-	ScheduledDate time.Time `xmlrpc:"scheduled_date"`
-	Sent          int64     `xmlrpc:"sent"`
-	State         string    `xmlrpc:"state"`
+	Bounced       int64       `xmlrpc:"bounced"`
+	Campaign      string      `xmlrpc:"campaign"`
+	Delivered     int64       `xmlrpc:"delivered"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	EmailFrom     string      `xmlrpc:"email_from"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	Name          string      `xmlrpc:"name"`
+	Opened        int64       `xmlrpc:"opened"`
+	Replied       int64       `xmlrpc:"replied"`
+	ScheduledDate time.Time   `xmlrpc:"scheduled_date"`
+	Sent          int64       `xmlrpc:"sent"`
+	State         interface{} `xmlrpc:"state"`
 }
 
 type MailStatisticsReportNil struct {

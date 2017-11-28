@@ -5,19 +5,19 @@ import (
 )
 
 type IrActionsActions struct {
-	BindingModelId Many2One  `xmlrpc:"binding_model_id"`
-	BindingType    string    `xmlrpc:"binding_type"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Help           string    `xmlrpc:"help"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Name           string    `xmlrpc:"name"`
-	Type           string    `xmlrpc:"type"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
-	XmlId          string    `xmlrpc:"xml_id"`
+	BindingModelId Many2One    `xmlrpc:"binding_model_id"`
+	BindingType    interface{} `xmlrpc:"binding_type"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Help           string      `xmlrpc:"help"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Name           string      `xmlrpc:"name"`
+	Type           string      `xmlrpc:"type"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
+	XmlId          string      `xmlrpc:"xml_id"`
 }
 
 type IrActionsActionsNil struct {

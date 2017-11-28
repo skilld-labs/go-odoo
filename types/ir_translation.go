@@ -5,19 +5,19 @@ import (
 )
 
 type IrTranslation struct {
-	Comments    string    `xmlrpc:"comments"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Id          int64     `xmlrpc:"id"`
-	Lang        string    `xmlrpc:"lang"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Module      string    `xmlrpc:"module"`
-	Name        string    `xmlrpc:"name"`
-	ResId       int64     `xmlrpc:"res_id"`
-	Source      string    `xmlrpc:"source"`
-	Src         string    `xmlrpc:"src"`
-	State       string    `xmlrpc:"state"`
-	Type        string    `xmlrpc:"type"`
-	Value       string    `xmlrpc:"value"`
+	Comments    string      `xmlrpc:"comments"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Id          int64       `xmlrpc:"id"`
+	Lang        interface{} `xmlrpc:"lang"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Module      string      `xmlrpc:"module"`
+	Name        string      `xmlrpc:"name"`
+	ResId       int64       `xmlrpc:"res_id"`
+	Source      string      `xmlrpc:"source"`
+	Src         string      `xmlrpc:"src"`
+	State       interface{} `xmlrpc:"state"`
+	Type        interface{} `xmlrpc:"type"`
+	Value       string      `xmlrpc:"value"`
 }
 
 type IrTranslationNil struct {

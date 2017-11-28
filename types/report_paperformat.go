@@ -5,27 +5,27 @@ import (
 )
 
 type ReportPaperformat struct {
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	Default       bool      `xmlrpc:"default"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Dpi           int64     `xmlrpc:"dpi"`
-	Format        string    `xmlrpc:"format"`
-	HeaderLine    bool      `xmlrpc:"header_line"`
-	HeaderSpacing int64     `xmlrpc:"header_spacing"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	MarginBottom  float64   `xmlrpc:"margin_bottom"`
-	MarginLeft    float64   `xmlrpc:"margin_left"`
-	MarginRight   float64   `xmlrpc:"margin_right"`
-	MarginTop     float64   `xmlrpc:"margin_top"`
-	Name          string    `xmlrpc:"name"`
-	Orientation   string    `xmlrpc:"orientation"`
-	PageHeight    int64     `xmlrpc:"page_height"`
-	PageWidth     int64     `xmlrpc:"page_width"`
-	ReportIds     []int64   `xmlrpc:"report_ids"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	Default       bool        `xmlrpc:"default"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	Dpi           int64       `xmlrpc:"dpi"`
+	Format        interface{} `xmlrpc:"format"`
+	HeaderLine    bool        `xmlrpc:"header_line"`
+	HeaderSpacing int64       `xmlrpc:"header_spacing"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	MarginBottom  float64     `xmlrpc:"margin_bottom"`
+	MarginLeft    float64     `xmlrpc:"margin_left"`
+	MarginRight   float64     `xmlrpc:"margin_right"`
+	MarginTop     float64     `xmlrpc:"margin_top"`
+	Name          string      `xmlrpc:"name"`
+	Orientation   interface{} `xmlrpc:"orientation"`
+	PageHeight    int64       `xmlrpc:"page_height"`
+	PageWidth     int64       `xmlrpc:"page_width"`
+	ReportIds     []int64     `xmlrpc:"report_ids"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type ReportPaperformatNil struct {

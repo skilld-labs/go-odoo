@@ -5,14 +5,14 @@ import (
 )
 
 type MailNotification struct {
-	DisplayName   string    `xmlrpc:"display_name"`
-	EmailStatus   string    `xmlrpc:"email_status"`
-	Id            int64     `xmlrpc:"id"`
-	IsEmail       bool      `xmlrpc:"is_email"`
-	IsRead        bool      `xmlrpc:"is_read"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	MailMessageId Many2One  `xmlrpc:"mail_message_id"`
-	ResPartnerId  Many2One  `xmlrpc:"res_partner_id"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	EmailStatus   interface{} `xmlrpc:"email_status"`
+	Id            int64       `xmlrpc:"id"`
+	IsEmail       bool        `xmlrpc:"is_email"`
+	IsRead        bool        `xmlrpc:"is_read"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	MailMessageId Many2One    `xmlrpc:"mail_message_id"`
+	ResPartnerId  Many2One    `xmlrpc:"res_partner_id"`
 }
 
 type MailNotificationNil struct {

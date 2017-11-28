@@ -5,25 +5,25 @@ import (
 )
 
 type AccountFinancialReport struct {
-	AccountIds      []int64   `xmlrpc:"account_ids"`
-	AccountReportId Many2One  `xmlrpc:"account_report_id"`
-	AccountTypeIds  []int64   `xmlrpc:"account_type_ids"`
-	ChildrenIds     []int64   `xmlrpc:"children_ids"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	DisplayDetail   string    `xmlrpc:"display_detail"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	Id              int64     `xmlrpc:"id"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	Level           int64     `xmlrpc:"level"`
-	Name            string    `xmlrpc:"name"`
-	ParentId        Many2One  `xmlrpc:"parent_id"`
-	Sequence        int64     `xmlrpc:"sequence"`
-	Sign            string    `xmlrpc:"sign"`
-	StyleOverwrite  string    `xmlrpc:"style_overwrite"`
-	Type            string    `xmlrpc:"type"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	AccountIds      []int64     `xmlrpc:"account_ids"`
+	AccountReportId Many2One    `xmlrpc:"account_report_id"`
+	AccountTypeIds  []int64     `xmlrpc:"account_type_ids"`
+	ChildrenIds     []int64     `xmlrpc:"children_ids"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	DisplayDetail   interface{} `xmlrpc:"display_detail"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	Id              int64       `xmlrpc:"id"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	Level           int64       `xmlrpc:"level"`
+	Name            string      `xmlrpc:"name"`
+	ParentId        Many2One    `xmlrpc:"parent_id"`
+	Sequence        int64       `xmlrpc:"sequence"`
+	Sign            interface{} `xmlrpc:"sign"`
+	StyleOverwrite  interface{} `xmlrpc:"style_overwrite"`
+	Type            interface{} `xmlrpc:"type"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountFinancialReportNil struct {

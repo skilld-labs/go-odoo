@@ -5,28 +5,28 @@ import (
 )
 
 type StockScrap struct {
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	DateExpected    time.Time `xmlrpc:"date_expected"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	Id              int64     `xmlrpc:"id"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	LocationId      Many2One  `xmlrpc:"location_id"`
-	LotId           Many2One  `xmlrpc:"lot_id"`
-	MoveId          Many2One  `xmlrpc:"move_id"`
-	Name            string    `xmlrpc:"name"`
-	Origin          string    `xmlrpc:"origin"`
-	OwnerId         Many2One  `xmlrpc:"owner_id"`
-	PackageId       Many2One  `xmlrpc:"package_id"`
-	PickingId       Many2One  `xmlrpc:"picking_id"`
-	ProductId       Many2One  `xmlrpc:"product_id"`
-	ProductUomId    Many2One  `xmlrpc:"product_uom_id"`
-	ScrapLocationId Many2One  `xmlrpc:"scrap_location_id"`
-	ScrapQty        float64   `xmlrpc:"scrap_qty"`
-	State           string    `xmlrpc:"state"`
-	Tracking        string    `xmlrpc:"tracking"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	DateExpected    time.Time   `xmlrpc:"date_expected"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	Id              int64       `xmlrpc:"id"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	LocationId      Many2One    `xmlrpc:"location_id"`
+	LotId           Many2One    `xmlrpc:"lot_id"`
+	MoveId          Many2One    `xmlrpc:"move_id"`
+	Name            string      `xmlrpc:"name"`
+	Origin          string      `xmlrpc:"origin"`
+	OwnerId         Many2One    `xmlrpc:"owner_id"`
+	PackageId       Many2One    `xmlrpc:"package_id"`
+	PickingId       Many2One    `xmlrpc:"picking_id"`
+	ProductId       Many2One    `xmlrpc:"product_id"`
+	ProductUomId    Many2One    `xmlrpc:"product_uom_id"`
+	ScrapLocationId Many2One    `xmlrpc:"scrap_location_id"`
+	ScrapQty        float64     `xmlrpc:"scrap_qty"`
+	State           interface{} `xmlrpc:"state"`
+	Tracking        interface{} `xmlrpc:"tracking"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type StockScrapNil struct {

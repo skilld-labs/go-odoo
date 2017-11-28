@@ -5,29 +5,29 @@ import (
 )
 
 type IrActionsReport struct {
-	Attachment      string    `xmlrpc:"attachment"`
-	AttachmentUse   bool      `xmlrpc:"attachment_use"`
-	BindingModelId  Many2One  `xmlrpc:"binding_model_id"`
-	BindingType     string    `xmlrpc:"binding_type"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	GroupsId        []int64   `xmlrpc:"groups_id"`
-	Help            string    `xmlrpc:"help"`
-	Id              int64     `xmlrpc:"id"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	Model           string    `xmlrpc:"model"`
-	Multi           bool      `xmlrpc:"multi"`
-	Name            string    `xmlrpc:"name"`
-	PaperformatId   Many2One  `xmlrpc:"paperformat_id"`
-	PrintReportName string    `xmlrpc:"print_report_name"`
-	ReportFile      string    `xmlrpc:"report_file"`
-	ReportName      string    `xmlrpc:"report_name"`
-	ReportType      string    `xmlrpc:"report_type"`
-	Type            string    `xmlrpc:"type"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
-	XmlId           string    `xmlrpc:"xml_id"`
+	Attachment      string      `xmlrpc:"attachment"`
+	AttachmentUse   bool        `xmlrpc:"attachment_use"`
+	BindingModelId  Many2One    `xmlrpc:"binding_model_id"`
+	BindingType     interface{} `xmlrpc:"binding_type"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	GroupsId        []int64     `xmlrpc:"groups_id"`
+	Help            string      `xmlrpc:"help"`
+	Id              int64       `xmlrpc:"id"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	Model           string      `xmlrpc:"model"`
+	Multi           bool        `xmlrpc:"multi"`
+	Name            string      `xmlrpc:"name"`
+	PaperformatId   Many2One    `xmlrpc:"paperformat_id"`
+	PrintReportName string      `xmlrpc:"print_report_name"`
+	ReportFile      string      `xmlrpc:"report_file"`
+	ReportName      string      `xmlrpc:"report_name"`
+	ReportType      interface{} `xmlrpc:"report_type"`
+	Type            string      `xmlrpc:"type"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
+	XmlId           string      `xmlrpc:"xml_id"`
 }
 
 type IrActionsReportNil struct {

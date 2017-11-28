@@ -5,17 +5,17 @@ import (
 )
 
 type IrModuleModuleExclusion struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	ExclusionId Many2One  `xmlrpc:"exclusion_id"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	ModuleId    Many2One  `xmlrpc:"module_id"`
-	Name        string    `xmlrpc:"name"`
-	State       string    `xmlrpc:"state"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	ExclusionId Many2One    `xmlrpc:"exclusion_id"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	ModuleId    Many2One    `xmlrpc:"module_id"`
+	Name        string      `xmlrpc:"name"`
+	State       interface{} `xmlrpc:"state"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrModuleModuleExclusionNil struct {

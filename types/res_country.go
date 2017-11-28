@@ -5,24 +5,24 @@ import (
 )
 
 type ResCountry struct {
-	AddressFormat   string    `xmlrpc:"address_format"`
-	AddressViewId   Many2One  `xmlrpc:"address_view_id"`
-	Code            string    `xmlrpc:"code"`
-	CountryGroupIds []int64   `xmlrpc:"country_group_ids"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	CurrencyId      Many2One  `xmlrpc:"currency_id"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	Id              int64     `xmlrpc:"id"`
-	Image           string    `xmlrpc:"image"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	Name            string    `xmlrpc:"name"`
-	NamePosition    string    `xmlrpc:"name_position"`
-	PhoneCode       int64     `xmlrpc:"phone_code"`
-	StateIds        []int64   `xmlrpc:"state_ids"`
-	VatLabel        string    `xmlrpc:"vat_label"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	AddressFormat   string      `xmlrpc:"address_format"`
+	AddressViewId   Many2One    `xmlrpc:"address_view_id"`
+	Code            string      `xmlrpc:"code"`
+	CountryGroupIds []int64     `xmlrpc:"country_group_ids"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	CurrencyId      Many2One    `xmlrpc:"currency_id"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	Id              int64       `xmlrpc:"id"`
+	Image           string      `xmlrpc:"image"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	Name            string      `xmlrpc:"name"`
+	NamePosition    interface{} `xmlrpc:"name_position"`
+	PhoneCode       int64       `xmlrpc:"phone_code"`
+	StateIds        []int64     `xmlrpc:"state_ids"`
+	VatLabel        string      `xmlrpc:"vat_label"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type ResCountryNil struct {

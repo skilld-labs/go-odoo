@@ -5,19 +5,19 @@ import (
 )
 
 type AccountPaymentTermLine struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	Days        int64     `xmlrpc:"days"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Option      string    `xmlrpc:"option"`
-	PaymentId   Many2One  `xmlrpc:"payment_id"`
-	Sequence    int64     `xmlrpc:"sequence"`
-	Value       string    `xmlrpc:"value"`
-	ValueAmount float64   `xmlrpc:"value_amount"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	Days        int64       `xmlrpc:"days"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Option      interface{} `xmlrpc:"option"`
+	PaymentId   Many2One    `xmlrpc:"payment_id"`
+	Sequence    int64       `xmlrpc:"sequence"`
+	Value       interface{} `xmlrpc:"value"`
+	ValueAmount float64     `xmlrpc:"value_amount"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountPaymentTermLineNil struct {

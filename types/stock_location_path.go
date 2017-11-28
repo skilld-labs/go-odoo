@@ -5,26 +5,26 @@ import (
 )
 
 type StockLocationPath struct {
-	Active         bool      `xmlrpc:"active"`
-	Auto           string    `xmlrpc:"auto"`
-	CompanyId      Many2One  `xmlrpc:"company_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	Delay          int64     `xmlrpc:"delay"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	LocationDestId Many2One  `xmlrpc:"location_dest_id"`
-	LocationFromId Many2One  `xmlrpc:"location_from_id"`
-	Name           string    `xmlrpc:"name"`
-	PickingTypeId  Many2One  `xmlrpc:"picking_type_id"`
-	Propagate      bool      `xmlrpc:"propagate"`
-	RouteId        Many2One  `xmlrpc:"route_id"`
-	RouteSequence  int64     `xmlrpc:"route_sequence"`
-	Sequence       int64     `xmlrpc:"sequence"`
-	WarehouseId    Many2One  `xmlrpc:"warehouse_id"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	Active         bool        `xmlrpc:"active"`
+	Auto           interface{} `xmlrpc:"auto"`
+	CompanyId      Many2One    `xmlrpc:"company_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	Delay          int64       `xmlrpc:"delay"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	LocationDestId Many2One    `xmlrpc:"location_dest_id"`
+	LocationFromId Many2One    `xmlrpc:"location_from_id"`
+	Name           string      `xmlrpc:"name"`
+	PickingTypeId  Many2One    `xmlrpc:"picking_type_id"`
+	Propagate      bool        `xmlrpc:"propagate"`
+	RouteId        Many2One    `xmlrpc:"route_id"`
+	RouteSequence  int64       `xmlrpc:"route_sequence"`
+	Sequence       int64       `xmlrpc:"sequence"`
+	WarehouseId    Many2One    `xmlrpc:"warehouse_id"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type StockLocationPathNil struct {

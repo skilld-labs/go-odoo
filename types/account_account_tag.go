@@ -5,17 +5,17 @@ import (
 )
 
 type AccountAccountTag struct {
-	Active        bool      `xmlrpc:"active"`
-	Applicability string    `xmlrpc:"applicability"`
-	Color         int64     `xmlrpc:"color"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	Name          string    `xmlrpc:"name"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	Active        bool        `xmlrpc:"active"`
+	Applicability interface{} `xmlrpc:"applicability"`
+	Color         int64       `xmlrpc:"color"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	Name          string      `xmlrpc:"name"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountAccountTagNil struct {

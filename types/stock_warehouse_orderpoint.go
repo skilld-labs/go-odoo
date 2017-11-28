@@ -5,26 +5,26 @@ import (
 )
 
 type StockWarehouseOrderpoint struct {
-	Active        bool      `xmlrpc:"active"`
-	CompanyId     Many2One  `xmlrpc:"company_id"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	GroupId       Many2One  `xmlrpc:"group_id"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	LeadDays      int64     `xmlrpc:"lead_days"`
-	LeadType      string    `xmlrpc:"lead_type"`
-	LocationId    Many2One  `xmlrpc:"location_id"`
-	Name          string    `xmlrpc:"name"`
-	ProductId     Many2One  `xmlrpc:"product_id"`
-	ProductMaxQty float64   `xmlrpc:"product_max_qty"`
-	ProductMinQty float64   `xmlrpc:"product_min_qty"`
-	ProductUom    Many2One  `xmlrpc:"product_uom"`
-	QtyMultiple   float64   `xmlrpc:"qty_multiple"`
-	WarehouseId   Many2One  `xmlrpc:"warehouse_id"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	Active        bool        `xmlrpc:"active"`
+	CompanyId     Many2One    `xmlrpc:"company_id"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	GroupId       Many2One    `xmlrpc:"group_id"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	LeadDays      int64       `xmlrpc:"lead_days"`
+	LeadType      interface{} `xmlrpc:"lead_type"`
+	LocationId    Many2One    `xmlrpc:"location_id"`
+	Name          string      `xmlrpc:"name"`
+	ProductId     Many2One    `xmlrpc:"product_id"`
+	ProductMaxQty float64     `xmlrpc:"product_max_qty"`
+	ProductMinQty float64     `xmlrpc:"product_min_qty"`
+	ProductUom    Many2One    `xmlrpc:"product_uom"`
+	QtyMultiple   float64     `xmlrpc:"qty_multiple"`
+	WarehouseId   Many2One    `xmlrpc:"warehouse_id"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type StockWarehouseOrderpointNil struct {

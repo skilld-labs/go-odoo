@@ -5,27 +5,27 @@ import (
 )
 
 type AccountReconcileModelTemplate struct {
-	AccountId        Many2One  `xmlrpc:"account_id"`
-	Amount           float64   `xmlrpc:"amount"`
-	AmountType       string    `xmlrpc:"amount_type"`
-	ChartTemplateId  Many2One  `xmlrpc:"chart_template_id"`
-	CreateDate       time.Time `xmlrpc:"create_date"`
-	CreateUid        Many2One  `xmlrpc:"create_uid"`
-	DisplayName      string    `xmlrpc:"display_name"`
-	HasSecondLine    bool      `xmlrpc:"has_second_line"`
-	Id               int64     `xmlrpc:"id"`
-	Label            string    `xmlrpc:"label"`
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
-	Name             string    `xmlrpc:"name"`
-	SecondAccountId  Many2One  `xmlrpc:"second_account_id"`
-	SecondAmount     float64   `xmlrpc:"second_amount"`
-	SecondAmountType string    `xmlrpc:"second_amount_type"`
-	SecondLabel      string    `xmlrpc:"second_label"`
-	SecondTaxId      Many2One  `xmlrpc:"second_tax_id"`
-	Sequence         int64     `xmlrpc:"sequence"`
-	TaxId            Many2One  `xmlrpc:"tax_id"`
-	WriteDate        time.Time `xmlrpc:"write_date"`
-	WriteUid         Many2One  `xmlrpc:"write_uid"`
+	AccountId        Many2One    `xmlrpc:"account_id"`
+	Amount           float64     `xmlrpc:"amount"`
+	AmountType       interface{} `xmlrpc:"amount_type"`
+	ChartTemplateId  Many2One    `xmlrpc:"chart_template_id"`
+	CreateDate       time.Time   `xmlrpc:"create_date"`
+	CreateUid        Many2One    `xmlrpc:"create_uid"`
+	DisplayName      string      `xmlrpc:"display_name"`
+	HasSecondLine    bool        `xmlrpc:"has_second_line"`
+	Id               int64       `xmlrpc:"id"`
+	Label            string      `xmlrpc:"label"`
+	LastUpdate       time.Time   `xmlrpc:"__last_update"`
+	Name             string      `xmlrpc:"name"`
+	SecondAccountId  Many2One    `xmlrpc:"second_account_id"`
+	SecondAmount     float64     `xmlrpc:"second_amount"`
+	SecondAmountType interface{} `xmlrpc:"second_amount_type"`
+	SecondLabel      string      `xmlrpc:"second_label"`
+	SecondTaxId      Many2One    `xmlrpc:"second_tax_id"`
+	Sequence         int64       `xmlrpc:"sequence"`
+	TaxId            Many2One    `xmlrpc:"tax_id"`
+	WriteDate        time.Time   `xmlrpc:"write_date"`
+	WriteUid         Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountReconcileModelTemplateNil struct {

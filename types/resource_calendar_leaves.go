@@ -5,21 +5,21 @@ import (
 )
 
 type ResourceCalendarLeaves struct {
-	CalendarId  Many2One  `xmlrpc:"calendar_id"`
-	CompanyId   Many2One  `xmlrpc:"company_id"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DateFrom    time.Time `xmlrpc:"date_from"`
-	DateTo      time.Time `xmlrpc:"date_to"`
-	DisplayName string    `xmlrpc:"display_name"`
-	HolidayId   Many2One  `xmlrpc:"holiday_id"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Name        string    `xmlrpc:"name"`
-	ResourceId  Many2One  `xmlrpc:"resource_id"`
-	Tz          string    `xmlrpc:"tz"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CalendarId  Many2One    `xmlrpc:"calendar_id"`
+	CompanyId   Many2One    `xmlrpc:"company_id"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DateFrom    time.Time   `xmlrpc:"date_from"`
+	DateTo      time.Time   `xmlrpc:"date_to"`
+	DisplayName string      `xmlrpc:"display_name"`
+	HolidayId   Many2One    `xmlrpc:"holiday_id"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Name        string      `xmlrpc:"name"`
+	ResourceId  Many2One    `xmlrpc:"resource_id"`
+	Tz          interface{} `xmlrpc:"tz"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type ResourceCalendarLeavesNil struct {
