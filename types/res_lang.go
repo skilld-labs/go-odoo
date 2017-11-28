@@ -5,24 +5,24 @@ import (
 )
 
 type ResLang struct {
-	Active       bool      `xmlrpc:"active"`
-	Code         string    `xmlrpc:"code"`
-	CreateDate   time.Time `xmlrpc:"create_date"`
-	CreateUid    Many2One  `xmlrpc:"create_uid"`
-	DateFormat   string    `xmlrpc:"date_format"`
-	DecimalPoint string    `xmlrpc:"decimal_point"`
-	Direction    string    `xmlrpc:"direction"`
-	DisplayName  string    `xmlrpc:"display_name"`
-	Grouping     string    `xmlrpc:"grouping"`
-	Id           int64     `xmlrpc:"id"`
-	IsoCode      string    `xmlrpc:"iso_code"`
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
-	Name         string    `xmlrpc:"name"`
-	ThousandsSep string    `xmlrpc:"thousands_sep"`
-	TimeFormat   string    `xmlrpc:"time_format"`
-	Translatable bool      `xmlrpc:"translatable"`
-	WriteDate    time.Time `xmlrpc:"write_date"`
-	WriteUid     Many2One  `xmlrpc:"write_uid"`
+	Active       bool        `xmlrpc:"active"`
+	Code         string      `xmlrpc:"code"`
+	CreateDate   time.Time   `xmlrpc:"create_date"`
+	CreateUid    Many2One    `xmlrpc:"create_uid"`
+	DateFormat   string      `xmlrpc:"date_format"`
+	DecimalPoint string      `xmlrpc:"decimal_point"`
+	Direction    interface{} `xmlrpc:"direction"`
+	DisplayName  string      `xmlrpc:"display_name"`
+	Grouping     string      `xmlrpc:"grouping"`
+	Id           int64       `xmlrpc:"id"`
+	IsoCode      string      `xmlrpc:"iso_code"`
+	LastUpdate   time.Time   `xmlrpc:"__last_update"`
+	Name         string      `xmlrpc:"name"`
+	ThousandsSep string      `xmlrpc:"thousands_sep"`
+	TimeFormat   string      `xmlrpc:"time_format"`
+	Translatable bool        `xmlrpc:"translatable"`
+	WriteDate    time.Time   `xmlrpc:"write_date"`
+	WriteUid     Many2One    `xmlrpc:"write_uid"`
 }
 
 type ResLangNil struct {

@@ -5,26 +5,26 @@ import (
 )
 
 type IrSequence struct {
-	Active           bool      `xmlrpc:"active"`
-	Code             string    `xmlrpc:"code"`
-	CompanyId        Many2One  `xmlrpc:"company_id"`
-	CreateDate       time.Time `xmlrpc:"create_date"`
-	CreateUid        Many2One  `xmlrpc:"create_uid"`
-	DateRangeIds     []int64   `xmlrpc:"date_range_ids"`
-	DisplayName      string    `xmlrpc:"display_name"`
-	Id               int64     `xmlrpc:"id"`
-	Implementation   string    `xmlrpc:"implementation"`
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
-	Name             string    `xmlrpc:"name"`
-	NumberIncrement  int64     `xmlrpc:"number_increment"`
-	NumberNext       int64     `xmlrpc:"number_next"`
-	NumberNextActual int64     `xmlrpc:"number_next_actual"`
-	Padding          int64     `xmlrpc:"padding"`
-	Prefix           string    `xmlrpc:"prefix"`
-	Suffix           string    `xmlrpc:"suffix"`
-	UseDateRange     bool      `xmlrpc:"use_date_range"`
-	WriteDate        time.Time `xmlrpc:"write_date"`
-	WriteUid         Many2One  `xmlrpc:"write_uid"`
+	Active           bool        `xmlrpc:"active"`
+	Code             string      `xmlrpc:"code"`
+	CompanyId        Many2One    `xmlrpc:"company_id"`
+	CreateDate       time.Time   `xmlrpc:"create_date"`
+	CreateUid        Many2One    `xmlrpc:"create_uid"`
+	DateRangeIds     []int64     `xmlrpc:"date_range_ids"`
+	DisplayName      string      `xmlrpc:"display_name"`
+	Id               int64       `xmlrpc:"id"`
+	Implementation   interface{} `xmlrpc:"implementation"`
+	LastUpdate       time.Time   `xmlrpc:"__last_update"`
+	Name             string      `xmlrpc:"name"`
+	NumberIncrement  int64       `xmlrpc:"number_increment"`
+	NumberNext       int64       `xmlrpc:"number_next"`
+	NumberNextActual int64       `xmlrpc:"number_next_actual"`
+	Padding          int64       `xmlrpc:"padding"`
+	Prefix           string      `xmlrpc:"prefix"`
+	Suffix           string      `xmlrpc:"suffix"`
+	UseDateRange     bool        `xmlrpc:"use_date_range"`
+	WriteDate        time.Time   `xmlrpc:"write_date"`
+	WriteUid         Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrSequenceNil struct {

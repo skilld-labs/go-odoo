@@ -5,20 +5,20 @@ import (
 )
 
 type AccountPrintJournal struct {
-	AmountCurrency bool      `xmlrpc:"amount_currency"`
-	CompanyId      Many2One  `xmlrpc:"company_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DateFrom       time.Time `xmlrpc:"date_from"`
-	DateTo         time.Time `xmlrpc:"date_to"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	JournalIds     []int64   `xmlrpc:"journal_ids"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	SortSelection  string    `xmlrpc:"sort_selection"`
-	TargetMove     string    `xmlrpc:"target_move"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	AmountCurrency bool        `xmlrpc:"amount_currency"`
+	CompanyId      Many2One    `xmlrpc:"company_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DateFrom       time.Time   `xmlrpc:"date_from"`
+	DateTo         time.Time   `xmlrpc:"date_to"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	JournalIds     []int64     `xmlrpc:"journal_ids"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	SortSelection  interface{} `xmlrpc:"sort_selection"`
+	TargetMove     interface{} `xmlrpc:"target_move"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountPrintJournalNil struct {

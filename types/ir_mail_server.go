@@ -5,22 +5,22 @@ import (
 )
 
 type IrMailServer struct {
-	Active         bool      `xmlrpc:"active"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Name           string    `xmlrpc:"name"`
-	Sequence       int64     `xmlrpc:"sequence"`
-	SmtpDebug      bool      `xmlrpc:"smtp_debug"`
-	SmtpEncryption string    `xmlrpc:"smtp_encryption"`
-	SmtpHost       string    `xmlrpc:"smtp_host"`
-	SmtpPass       string    `xmlrpc:"smtp_pass"`
-	SmtpPort       int64     `xmlrpc:"smtp_port"`
-	SmtpUser       string    `xmlrpc:"smtp_user"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	Active         bool        `xmlrpc:"active"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Name           string      `xmlrpc:"name"`
+	Sequence       int64       `xmlrpc:"sequence"`
+	SmtpDebug      bool        `xmlrpc:"smtp_debug"`
+	SmtpEncryption interface{} `xmlrpc:"smtp_encryption"`
+	SmtpHost       string      `xmlrpc:"smtp_host"`
+	SmtpPass       string      `xmlrpc:"smtp_pass"`
+	SmtpPort       int64       `xmlrpc:"smtp_port"`
+	SmtpUser       string      `xmlrpc:"smtp_user"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrMailServerNil struct {

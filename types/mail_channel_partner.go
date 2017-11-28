@@ -5,20 +5,20 @@ import (
 )
 
 type MailChannelPartner struct {
-	ChannelId     Many2One  `xmlrpc:"channel_id"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	FoldState     string    `xmlrpc:"fold_state"`
-	Id            int64     `xmlrpc:"id"`
-	IsMinimized   bool      `xmlrpc:"is_minimized"`
-	IsPinned      bool      `xmlrpc:"is_pinned"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	PartnerEmail  string    `xmlrpc:"partner_email"`
-	PartnerId     Many2One  `xmlrpc:"partner_id"`
-	SeenMessageId Many2One  `xmlrpc:"seen_message_id"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	ChannelId     Many2One    `xmlrpc:"channel_id"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	FoldState     interface{} `xmlrpc:"fold_state"`
+	Id            int64       `xmlrpc:"id"`
+	IsMinimized   bool        `xmlrpc:"is_minimized"`
+	IsPinned      bool        `xmlrpc:"is_pinned"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	PartnerEmail  string      `xmlrpc:"partner_email"`
+	PartnerId     Many2One    `xmlrpc:"partner_id"`
+	SeenMessageId Many2One    `xmlrpc:"seen_message_id"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailChannelPartnerNil struct {

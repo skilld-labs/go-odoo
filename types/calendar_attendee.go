@@ -5,20 +5,20 @@ import (
 )
 
 type CalendarAttendee struct {
-	AccessToken  string    `xmlrpc:"access_token"`
-	Availability string    `xmlrpc:"availability"`
-	CommonName   string    `xmlrpc:"common_name"`
-	CreateDate   time.Time `xmlrpc:"create_date"`
-	CreateUid    Many2One  `xmlrpc:"create_uid"`
-	DisplayName  string    `xmlrpc:"display_name"`
-	Email        string    `xmlrpc:"email"`
-	EventId      Many2One  `xmlrpc:"event_id"`
-	Id           int64     `xmlrpc:"id"`
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
-	PartnerId    Many2One  `xmlrpc:"partner_id"`
-	State        string    `xmlrpc:"state"`
-	WriteDate    time.Time `xmlrpc:"write_date"`
-	WriteUid     Many2One  `xmlrpc:"write_uid"`
+	AccessToken  string      `xmlrpc:"access_token"`
+	Availability interface{} `xmlrpc:"availability"`
+	CommonName   string      `xmlrpc:"common_name"`
+	CreateDate   time.Time   `xmlrpc:"create_date"`
+	CreateUid    Many2One    `xmlrpc:"create_uid"`
+	DisplayName  string      `xmlrpc:"display_name"`
+	Email        string      `xmlrpc:"email"`
+	EventId      Many2One    `xmlrpc:"event_id"`
+	Id           int64       `xmlrpc:"id"`
+	LastUpdate   time.Time   `xmlrpc:"__last_update"`
+	PartnerId    Many2One    `xmlrpc:"partner_id"`
+	State        interface{} `xmlrpc:"state"`
+	WriteDate    time.Time   `xmlrpc:"write_date"`
+	WriteUid     Many2One    `xmlrpc:"write_uid"`
 }
 
 type CalendarAttendeeNil struct {

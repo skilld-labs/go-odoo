@@ -5,19 +5,19 @@ import (
 )
 
 type ImLivechatChannelRule struct {
-	Action         string    `xmlrpc:"action"`
-	AutoPopupTimer int64     `xmlrpc:"auto_popup_timer"`
-	ChannelId      Many2One  `xmlrpc:"channel_id"`
-	CountryIds     []int64   `xmlrpc:"country_ids"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	RegexUrl       string    `xmlrpc:"regex_url"`
-	Sequence       int64     `xmlrpc:"sequence"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	Action         interface{} `xmlrpc:"action"`
+	AutoPopupTimer int64       `xmlrpc:"auto_popup_timer"`
+	ChannelId      Many2One    `xmlrpc:"channel_id"`
+	CountryIds     []int64     `xmlrpc:"country_ids"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	RegexUrl       string      `xmlrpc:"regex_url"`
+	Sequence       int64       `xmlrpc:"sequence"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type ImLivechatChannelRuleNil struct {

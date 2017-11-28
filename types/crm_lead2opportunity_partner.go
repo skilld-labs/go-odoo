@@ -5,19 +5,19 @@ import (
 )
 
 type CrmLead2opportunityPartner struct {
-	Action         string    `xmlrpc:"action"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Name           string    `xmlrpc:"name"`
-	OpportunityIds []int64   `xmlrpc:"opportunity_ids"`
-	PartnerId      Many2One  `xmlrpc:"partner_id"`
-	TeamId         Many2One  `xmlrpc:"team_id"`
-	UserId         Many2One  `xmlrpc:"user_id"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	Action         interface{} `xmlrpc:"action"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Name           interface{} `xmlrpc:"name"`
+	OpportunityIds []int64     `xmlrpc:"opportunity_ids"`
+	PartnerId      Many2One    `xmlrpc:"partner_id"`
+	TeamId         Many2One    `xmlrpc:"team_id"`
+	UserId         Many2One    `xmlrpc:"user_id"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type CrmLead2opportunityPartnerNil struct {

@@ -5,21 +5,21 @@ import (
 )
 
 type ProductPricelist struct {
-	Active          bool      `xmlrpc:"active"`
-	CompanyId       Many2One  `xmlrpc:"company_id"`
-	CountryGroupIds []int64   `xmlrpc:"country_group_ids"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	CurrencyId      Many2One  `xmlrpc:"currency_id"`
-	DiscountPolicy  string    `xmlrpc:"discount_policy"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	Id              int64     `xmlrpc:"id"`
-	ItemIds         []int64   `xmlrpc:"item_ids"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	Name            string    `xmlrpc:"name"`
-	Sequence        int64     `xmlrpc:"sequence"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	Active          bool        `xmlrpc:"active"`
+	CompanyId       Many2One    `xmlrpc:"company_id"`
+	CountryGroupIds []int64     `xmlrpc:"country_group_ids"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	CurrencyId      Many2One    `xmlrpc:"currency_id"`
+	DiscountPolicy  interface{} `xmlrpc:"discount_policy"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	Id              int64       `xmlrpc:"id"`
+	ItemIds         []int64     `xmlrpc:"item_ids"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	Name            string      `xmlrpc:"name"`
+	Sequence        int64       `xmlrpc:"sequence"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type ProductPricelistNil struct {

@@ -5,22 +5,22 @@ import (
 )
 
 type MailAlias struct {
-	AliasContact        string    `xmlrpc:"alias_contact"`
-	AliasDefaults       string    `xmlrpc:"alias_defaults"`
-	AliasDomain         string    `xmlrpc:"alias_domain"`
-	AliasForceThreadId  int64     `xmlrpc:"alias_force_thread_id"`
-	AliasModelId        Many2One  `xmlrpc:"alias_model_id"`
-	AliasName           string    `xmlrpc:"alias_name"`
-	AliasParentModelId  Many2One  `xmlrpc:"alias_parent_model_id"`
-	AliasParentThreadId int64     `xmlrpc:"alias_parent_thread_id"`
-	AliasUserId         Many2One  `xmlrpc:"alias_user_id"`
-	CreateDate          time.Time `xmlrpc:"create_date"`
-	CreateUid           Many2One  `xmlrpc:"create_uid"`
-	DisplayName         string    `xmlrpc:"display_name"`
-	Id                  int64     `xmlrpc:"id"`
-	LastUpdate          time.Time `xmlrpc:"__last_update"`
-	WriteDate           time.Time `xmlrpc:"write_date"`
-	WriteUid            Many2One  `xmlrpc:"write_uid"`
+	AliasContact        interface{} `xmlrpc:"alias_contact"`
+	AliasDefaults       string      `xmlrpc:"alias_defaults"`
+	AliasDomain         string      `xmlrpc:"alias_domain"`
+	AliasForceThreadId  int64       `xmlrpc:"alias_force_thread_id"`
+	AliasModelId        Many2One    `xmlrpc:"alias_model_id"`
+	AliasName           string      `xmlrpc:"alias_name"`
+	AliasParentModelId  Many2One    `xmlrpc:"alias_parent_model_id"`
+	AliasParentThreadId int64       `xmlrpc:"alias_parent_thread_id"`
+	AliasUserId         Many2One    `xmlrpc:"alias_user_id"`
+	CreateDate          time.Time   `xmlrpc:"create_date"`
+	CreateUid           Many2One    `xmlrpc:"create_uid"`
+	DisplayName         string      `xmlrpc:"display_name"`
+	Id                  int64       `xmlrpc:"id"`
+	LastUpdate          time.Time   `xmlrpc:"__last_update"`
+	WriteDate           time.Time   `xmlrpc:"write_date"`
+	WriteUid            Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailAliasNil struct {

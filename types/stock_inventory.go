@@ -5,29 +5,29 @@ import (
 )
 
 type StockInventory struct {
-	AccountingDate time.Time `xmlrpc:"accounting_date"`
-	CategoryId     Many2One  `xmlrpc:"category_id"`
-	CompanyId      Many2One  `xmlrpc:"company_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	Date           time.Time `xmlrpc:"date"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Exhausted      bool      `xmlrpc:"exhausted"`
-	Filter         string    `xmlrpc:"filter"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	LineIds        []int64   `xmlrpc:"line_ids"`
-	LocationId     Many2One  `xmlrpc:"location_id"`
-	LotId          Many2One  `xmlrpc:"lot_id"`
-	MoveIds        []int64   `xmlrpc:"move_ids"`
-	Name           string    `xmlrpc:"name"`
-	PackageId      Many2One  `xmlrpc:"package_id"`
-	PartnerId      Many2One  `xmlrpc:"partner_id"`
-	ProductId      Many2One  `xmlrpc:"product_id"`
-	State          string    `xmlrpc:"state"`
-	TotalQty       float64   `xmlrpc:"total_qty"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	AccountingDate time.Time   `xmlrpc:"accounting_date"`
+	CategoryId     Many2One    `xmlrpc:"category_id"`
+	CompanyId      Many2One    `xmlrpc:"company_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	Date           time.Time   `xmlrpc:"date"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Exhausted      bool        `xmlrpc:"exhausted"`
+	Filter         interface{} `xmlrpc:"filter"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	LineIds        []int64     `xmlrpc:"line_ids"`
+	LocationId     Many2One    `xmlrpc:"location_id"`
+	LotId          Many2One    `xmlrpc:"lot_id"`
+	MoveIds        []int64     `xmlrpc:"move_ids"`
+	Name           string      `xmlrpc:"name"`
+	PackageId      Many2One    `xmlrpc:"package_id"`
+	PartnerId      Many2One    `xmlrpc:"partner_id"`
+	ProductId      Many2One    `xmlrpc:"product_id"`
+	State          interface{} `xmlrpc:"state"`
+	TotalQty       float64     `xmlrpc:"total_qty"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type StockInventoryNil struct {

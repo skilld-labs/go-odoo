@@ -5,16 +5,16 @@ import (
 )
 
 type BaseLanguageInstall struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Id          int64     `xmlrpc:"id"`
-	Lang        string    `xmlrpc:"lang"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Overwrite   bool      `xmlrpc:"overwrite"`
-	State       string    `xmlrpc:"state"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Id          int64       `xmlrpc:"id"`
+	Lang        interface{} `xmlrpc:"lang"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Overwrite   bool        `xmlrpc:"overwrite"`
+	State       interface{} `xmlrpc:"state"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type BaseLanguageInstallNil struct {

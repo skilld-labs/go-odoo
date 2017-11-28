@@ -5,21 +5,21 @@ import (
 )
 
 type IrLogging struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   int64     `xmlrpc:"create_uid"`
-	Dbname      string    `xmlrpc:"dbname"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Func        string    `xmlrpc:"func"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Level       string    `xmlrpc:"level"`
-	Line        string    `xmlrpc:"line"`
-	Message     string    `xmlrpc:"message"`
-	Name        string    `xmlrpc:"name"`
-	Path        string    `xmlrpc:"path"`
-	Type        string    `xmlrpc:"type"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   int64       `xmlrpc:"create_uid"`
+	Dbname      string      `xmlrpc:"dbname"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Func        string      `xmlrpc:"func"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Level       string      `xmlrpc:"level"`
+	Line        string      `xmlrpc:"line"`
+	Message     string      `xmlrpc:"message"`
+	Name        string      `xmlrpc:"name"`
+	Path        string      `xmlrpc:"path"`
+	Type        interface{} `xmlrpc:"type"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrLoggingNil struct {

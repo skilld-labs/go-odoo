@@ -5,15 +5,15 @@ import (
 )
 
 type StockQuantityHistory struct {
-	ComputeAtDate string    `xmlrpc:"compute_at_date"`
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	Date          time.Time `xmlrpc:"date"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	ComputeAtDate interface{} `xmlrpc:"compute_at_date"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	Date          time.Time   `xmlrpc:"date"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type StockQuantityHistoryNil struct {

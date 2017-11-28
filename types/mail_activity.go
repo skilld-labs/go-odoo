@@ -5,30 +5,30 @@ import (
 )
 
 type MailActivity struct {
-	ActivityCategory          string    `xmlrpc:"activity_category"`
-	ActivityTypeId            Many2One  `xmlrpc:"activity_type_id"`
-	CalendarEventId           Many2One  `xmlrpc:"calendar_event_id"`
-	CreateDate                time.Time `xmlrpc:"create_date"`
-	CreateUid                 Many2One  `xmlrpc:"create_uid"`
-	DateDeadline              time.Time `xmlrpc:"date_deadline"`
-	DisplayName               string    `xmlrpc:"display_name"`
-	Feedback                  string    `xmlrpc:"feedback"`
-	HasRecommendedActivities  bool      `xmlrpc:"has_recommended_activities"`
-	Icon                      string    `xmlrpc:"icon"`
-	Id                        int64     `xmlrpc:"id"`
-	LastUpdate                time.Time `xmlrpc:"__last_update"`
-	Note                      string    `xmlrpc:"note"`
-	PreviousActivityTypeId    Many2One  `xmlrpc:"previous_activity_type_id"`
-	RecommendedActivityTypeId Many2One  `xmlrpc:"recommended_activity_type_id"`
-	ResId                     int64     `xmlrpc:"res_id"`
-	ResModel                  string    `xmlrpc:"res_model"`
-	ResModelId                Many2One  `xmlrpc:"res_model_id"`
-	ResName                   string    `xmlrpc:"res_name"`
-	State                     string    `xmlrpc:"state"`
-	Summary                   string    `xmlrpc:"summary"`
-	UserId                    Many2One  `xmlrpc:"user_id"`
-	WriteDate                 time.Time `xmlrpc:"write_date"`
-	WriteUid                  Many2One  `xmlrpc:"write_uid"`
+	ActivityCategory          interface{} `xmlrpc:"activity_category"`
+	ActivityTypeId            Many2One    `xmlrpc:"activity_type_id"`
+	CalendarEventId           Many2One    `xmlrpc:"calendar_event_id"`
+	CreateDate                time.Time   `xmlrpc:"create_date"`
+	CreateUid                 Many2One    `xmlrpc:"create_uid"`
+	DateDeadline              time.Time   `xmlrpc:"date_deadline"`
+	DisplayName               string      `xmlrpc:"display_name"`
+	Feedback                  string      `xmlrpc:"feedback"`
+	HasRecommendedActivities  bool        `xmlrpc:"has_recommended_activities"`
+	Icon                      string      `xmlrpc:"icon"`
+	Id                        int64       `xmlrpc:"id"`
+	LastUpdate                time.Time   `xmlrpc:"__last_update"`
+	Note                      string      `xmlrpc:"note"`
+	PreviousActivityTypeId    Many2One    `xmlrpc:"previous_activity_type_id"`
+	RecommendedActivityTypeId Many2One    `xmlrpc:"recommended_activity_type_id"`
+	ResId                     int64       `xmlrpc:"res_id"`
+	ResModel                  string      `xmlrpc:"res_model"`
+	ResModelId                Many2One    `xmlrpc:"res_model_id"`
+	ResName                   string      `xmlrpc:"res_name"`
+	State                     interface{} `xmlrpc:"state"`
+	Summary                   string      `xmlrpc:"summary"`
+	UserId                    Many2One    `xmlrpc:"user_id"`
+	WriteDate                 time.Time   `xmlrpc:"write_date"`
+	WriteUid                  Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailActivityNil struct {

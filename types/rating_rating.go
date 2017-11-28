@@ -5,30 +5,30 @@ import (
 )
 
 type RatingRating struct {
-	AccessToken      string    `xmlrpc:"access_token"`
-	Consumed         bool      `xmlrpc:"consumed"`
-	CreateDate       time.Time `xmlrpc:"create_date"`
-	CreateUid        Many2One  `xmlrpc:"create_uid"`
-	DisplayName      string    `xmlrpc:"display_name"`
-	Feedback         string    `xmlrpc:"feedback"`
-	Id               int64     `xmlrpc:"id"`
-	LastUpdate       time.Time `xmlrpc:"__last_update"`
-	MessageId        Many2One  `xmlrpc:"message_id"`
-	ParentResId      int64     `xmlrpc:"parent_res_id"`
-	ParentResModel   string    `xmlrpc:"parent_res_model"`
-	ParentResModelId Many2One  `xmlrpc:"parent_res_model_id"`
-	ParentResName    string    `xmlrpc:"parent_res_name"`
-	PartnerId        Many2One  `xmlrpc:"partner_id"`
-	RatedPartnerId   Many2One  `xmlrpc:"rated_partner_id"`
-	Rating           float64   `xmlrpc:"rating"`
-	RatingImage      string    `xmlrpc:"rating_image"`
-	RatingText       string    `xmlrpc:"rating_text"`
-	ResId            int64     `xmlrpc:"res_id"`
-	ResModel         string    `xmlrpc:"res_model"`
-	ResModelId       Many2One  `xmlrpc:"res_model_id"`
-	ResName          string    `xmlrpc:"res_name"`
-	WriteDate        time.Time `xmlrpc:"write_date"`
-	WriteUid         Many2One  `xmlrpc:"write_uid"`
+	AccessToken      string      `xmlrpc:"access_token"`
+	Consumed         bool        `xmlrpc:"consumed"`
+	CreateDate       time.Time   `xmlrpc:"create_date"`
+	CreateUid        Many2One    `xmlrpc:"create_uid"`
+	DisplayName      string      `xmlrpc:"display_name"`
+	Feedback         string      `xmlrpc:"feedback"`
+	Id               int64       `xmlrpc:"id"`
+	LastUpdate       time.Time   `xmlrpc:"__last_update"`
+	MessageId        Many2One    `xmlrpc:"message_id"`
+	ParentResId      int64       `xmlrpc:"parent_res_id"`
+	ParentResModel   string      `xmlrpc:"parent_res_model"`
+	ParentResModelId Many2One    `xmlrpc:"parent_res_model_id"`
+	ParentResName    string      `xmlrpc:"parent_res_name"`
+	PartnerId        Many2One    `xmlrpc:"partner_id"`
+	RatedPartnerId   Many2One    `xmlrpc:"rated_partner_id"`
+	Rating           float64     `xmlrpc:"rating"`
+	RatingImage      string      `xmlrpc:"rating_image"`
+	RatingText       interface{} `xmlrpc:"rating_text"`
+	ResId            int64       `xmlrpc:"res_id"`
+	ResModel         string      `xmlrpc:"res_model"`
+	ResModelId       Many2One    `xmlrpc:"res_model_id"`
+	ResName          string      `xmlrpc:"res_name"`
+	WriteDate        time.Time   `xmlrpc:"write_date"`
+	WriteUid         Many2One    `xmlrpc:"write_uid"`
 }
 
 type RatingRatingNil struct {

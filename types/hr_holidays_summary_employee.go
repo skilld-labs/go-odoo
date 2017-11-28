@@ -5,16 +5,16 @@ import (
 )
 
 type HrHolidaysSummaryEmployee struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DateFrom    time.Time `xmlrpc:"date_from"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Emp         []int64   `xmlrpc:"emp"`
-	HolidayType string    `xmlrpc:"holiday_type"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DateFrom    time.Time   `xmlrpc:"date_from"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Emp         []int64     `xmlrpc:"emp"`
+	HolidayType interface{} `xmlrpc:"holiday_type"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type HrHolidaysSummaryEmployeeNil struct {

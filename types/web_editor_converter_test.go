@@ -5,25 +5,25 @@ import (
 )
 
 type WebEditorConverterTest struct {
-	Binary       string    `xmlrpc:"binary"`
-	Char         string    `xmlrpc:"char"`
-	CreateDate   time.Time `xmlrpc:"create_date"`
-	CreateUid    Many2One  `xmlrpc:"create_uid"`
-	Date         time.Time `xmlrpc:"date"`
-	Datetime     time.Time `xmlrpc:"datetime"`
-	DisplayName  string    `xmlrpc:"display_name"`
-	Float        float64   `xmlrpc:"float"`
-	Html         string    `xmlrpc:"html"`
-	Id           int64     `xmlrpc:"id"`
-	Integer      int64     `xmlrpc:"integer"`
-	LastUpdate   time.Time `xmlrpc:"__last_update"`
-	Many2one     Many2One  `xmlrpc:"many2one"`
-	Numeric      float64   `xmlrpc:"numeric"`
-	Selection    string    `xmlrpc:"selection"`
-	SelectionStr string    `xmlrpc:"selection_str"`
-	Text         string    `xmlrpc:"text"`
-	WriteDate    time.Time `xmlrpc:"write_date"`
-	WriteUid     Many2One  `xmlrpc:"write_uid"`
+	Binary       string      `xmlrpc:"binary"`
+	Char         string      `xmlrpc:"char"`
+	CreateDate   time.Time   `xmlrpc:"create_date"`
+	CreateUid    Many2One    `xmlrpc:"create_uid"`
+	Date         time.Time   `xmlrpc:"date"`
+	Datetime     time.Time   `xmlrpc:"datetime"`
+	DisplayName  string      `xmlrpc:"display_name"`
+	Float        float64     `xmlrpc:"float"`
+	Html         string      `xmlrpc:"html"`
+	Id           int64       `xmlrpc:"id"`
+	Integer      int64       `xmlrpc:"integer"`
+	LastUpdate   time.Time   `xmlrpc:"__last_update"`
+	Many2one     Many2One    `xmlrpc:"many2one"`
+	Numeric      float64     `xmlrpc:"numeric"`
+	Selection    interface{} `xmlrpc:"selection"`
+	SelectionStr interface{} `xmlrpc:"selection_str"`
+	Text         string      `xmlrpc:"text"`
+	WriteDate    time.Time   `xmlrpc:"write_date"`
+	WriteUid     Many2One    `xmlrpc:"write_uid"`
 }
 
 type WebEditorConverterTestNil struct {

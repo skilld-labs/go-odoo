@@ -5,18 +5,18 @@ import (
 )
 
 type AccountCashRounding struct {
-	AccountId      Many2One  `xmlrpc:"account_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Name           string    `xmlrpc:"name"`
-	Rounding       float64   `xmlrpc:"rounding"`
-	RoundingMethod string    `xmlrpc:"rounding_method"`
-	Strategy       string    `xmlrpc:"strategy"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	AccountId      Many2One    `xmlrpc:"account_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Name           string      `xmlrpc:"name"`
+	Rounding       float64     `xmlrpc:"rounding"`
+	RoundingMethod interface{} `xmlrpc:"rounding_method"`
+	Strategy       interface{} `xmlrpc:"strategy"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountCashRoundingNil struct {

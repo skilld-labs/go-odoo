@@ -5,31 +5,31 @@ import (
 )
 
 type MailMailStatistics struct {
-	Bounced               time.Time `xmlrpc:"bounced"`
-	Clicked               time.Time `xmlrpc:"clicked"`
-	CreateDate            time.Time `xmlrpc:"create_date"`
-	CreateUid             Many2One  `xmlrpc:"create_uid"`
-	DisplayName           string    `xmlrpc:"display_name"`
-	Exception             time.Time `xmlrpc:"exception"`
-	Id                    int64     `xmlrpc:"id"`
-	LastUpdate            time.Time `xmlrpc:"__last_update"`
-	LinksClickIds         []int64   `xmlrpc:"links_click_ids"`
-	MailMailId            Many2One  `xmlrpc:"mail_mail_id"`
-	MailMailIdInt         int64     `xmlrpc:"mail_mail_id_int"`
-	MassMailingCampaignId Many2One  `xmlrpc:"mass_mailing_campaign_id"`
-	MassMailingId         Many2One  `xmlrpc:"mass_mailing_id"`
-	MessageId             string    `xmlrpc:"message_id"`
-	Model                 string    `xmlrpc:"model"`
-	Opened                time.Time `xmlrpc:"opened"`
-	Recipient             string    `xmlrpc:"recipient"`
-	Replied               time.Time `xmlrpc:"replied"`
-	ResId                 int64     `xmlrpc:"res_id"`
-	Scheduled             time.Time `xmlrpc:"scheduled"`
-	Sent                  time.Time `xmlrpc:"sent"`
-	State                 string    `xmlrpc:"state"`
-	StateUpdate           time.Time `xmlrpc:"state_update"`
-	WriteDate             time.Time `xmlrpc:"write_date"`
-	WriteUid              Many2One  `xmlrpc:"write_uid"`
+	Bounced               time.Time   `xmlrpc:"bounced"`
+	Clicked               time.Time   `xmlrpc:"clicked"`
+	CreateDate            time.Time   `xmlrpc:"create_date"`
+	CreateUid             Many2One    `xmlrpc:"create_uid"`
+	DisplayName           string      `xmlrpc:"display_name"`
+	Exception             time.Time   `xmlrpc:"exception"`
+	Id                    int64       `xmlrpc:"id"`
+	LastUpdate            time.Time   `xmlrpc:"__last_update"`
+	LinksClickIds         []int64     `xmlrpc:"links_click_ids"`
+	MailMailId            Many2One    `xmlrpc:"mail_mail_id"`
+	MailMailIdInt         int64       `xmlrpc:"mail_mail_id_int"`
+	MassMailingCampaignId Many2One    `xmlrpc:"mass_mailing_campaign_id"`
+	MassMailingId         Many2One    `xmlrpc:"mass_mailing_id"`
+	MessageId             string      `xmlrpc:"message_id"`
+	Model                 string      `xmlrpc:"model"`
+	Opened                time.Time   `xmlrpc:"opened"`
+	Recipient             string      `xmlrpc:"recipient"`
+	Replied               time.Time   `xmlrpc:"replied"`
+	ResId                 int64       `xmlrpc:"res_id"`
+	Scheduled             time.Time   `xmlrpc:"scheduled"`
+	Sent                  time.Time   `xmlrpc:"sent"`
+	State                 interface{} `xmlrpc:"state"`
+	StateUpdate           time.Time   `xmlrpc:"state_update"`
+	WriteDate             time.Time   `xmlrpc:"write_date"`
+	WriteUid              Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailMailStatisticsNil struct {

@@ -5,22 +5,22 @@ import (
 )
 
 type MailActivityType struct {
-	Category        string    `xmlrpc:"category"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	Days            int64     `xmlrpc:"days"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	Icon            string    `xmlrpc:"icon"`
-	Id              int64     `xmlrpc:"id"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	Name            string    `xmlrpc:"name"`
-	NextTypeIds     []int64   `xmlrpc:"next_type_ids"`
-	PreviousTypeIds []int64   `xmlrpc:"previous_type_ids"`
-	ResModelId      Many2One  `xmlrpc:"res_model_id"`
-	Sequence        int64     `xmlrpc:"sequence"`
-	Summary         string    `xmlrpc:"summary"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	Category        interface{} `xmlrpc:"category"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	Days            int64       `xmlrpc:"days"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	Icon            string      `xmlrpc:"icon"`
+	Id              int64       `xmlrpc:"id"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	Name            string      `xmlrpc:"name"`
+	NextTypeIds     []int64     `xmlrpc:"next_type_ids"`
+	PreviousTypeIds []int64     `xmlrpc:"previous_type_ids"`
+	ResModelId      Many2One    `xmlrpc:"res_model_id"`
+	Sequence        int64       `xmlrpc:"sequence"`
+	Summary         string      `xmlrpc:"summary"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailActivityTypeNil struct {

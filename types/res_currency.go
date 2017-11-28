@@ -5,24 +5,24 @@ import (
 )
 
 type ResCurrency struct {
-	Active               bool      `xmlrpc:"active"`
-	CreateDate           time.Time `xmlrpc:"create_date"`
-	CreateUid            Many2One  `xmlrpc:"create_uid"`
-	CurrencySubunitLabel string    `xmlrpc:"currency_subunit_label"`
-	CurrencyUnitLabel    string    `xmlrpc:"currency_unit_label"`
-	Date                 time.Time `xmlrpc:"date"`
-	DecimalPlaces        int64     `xmlrpc:"decimal_places"`
-	DisplayName          string    `xmlrpc:"display_name"`
-	Id                   int64     `xmlrpc:"id"`
-	LastUpdate           time.Time `xmlrpc:"__last_update"`
-	Name                 string    `xmlrpc:"name"`
-	Position             string    `xmlrpc:"position"`
-	Rate                 float64   `xmlrpc:"rate"`
-	RateIds              []int64   `xmlrpc:"rate_ids"`
-	Rounding             float64   `xmlrpc:"rounding"`
-	Symbol               string    `xmlrpc:"symbol"`
-	WriteDate            time.Time `xmlrpc:"write_date"`
-	WriteUid             Many2One  `xmlrpc:"write_uid"`
+	Active               bool        `xmlrpc:"active"`
+	CreateDate           time.Time   `xmlrpc:"create_date"`
+	CreateUid            Many2One    `xmlrpc:"create_uid"`
+	CurrencySubunitLabel string      `xmlrpc:"currency_subunit_label"`
+	CurrencyUnitLabel    string      `xmlrpc:"currency_unit_label"`
+	Date                 time.Time   `xmlrpc:"date"`
+	DecimalPlaces        int64       `xmlrpc:"decimal_places"`
+	DisplayName          string      `xmlrpc:"display_name"`
+	Id                   int64       `xmlrpc:"id"`
+	LastUpdate           time.Time   `xmlrpc:"__last_update"`
+	Name                 string      `xmlrpc:"name"`
+	Position             interface{} `xmlrpc:"position"`
+	Rate                 float64     `xmlrpc:"rate"`
+	RateIds              []int64     `xmlrpc:"rate_ids"`
+	Rounding             float64     `xmlrpc:"rounding"`
+	Symbol               string      `xmlrpc:"symbol"`
+	WriteDate            time.Time   `xmlrpc:"write_date"`
+	WriteUid             Many2One    `xmlrpc:"write_uid"`
 }
 
 type ResCurrencyNil struct {

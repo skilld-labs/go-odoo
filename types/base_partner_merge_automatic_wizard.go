@@ -5,27 +5,27 @@ import (
 )
 
 type BasePartnerMergeAutomaticWizard struct {
-	CreateDate         time.Time `xmlrpc:"create_date"`
-	CreateUid          Many2One  `xmlrpc:"create_uid"`
-	CurrentLineId      Many2One  `xmlrpc:"current_line_id"`
-	DisplayName        string    `xmlrpc:"display_name"`
-	DstPartnerId       Many2One  `xmlrpc:"dst_partner_id"`
-	ExcludeContact     bool      `xmlrpc:"exclude_contact"`
-	ExcludeJournalItem bool      `xmlrpc:"exclude_journal_item"`
-	GroupByEmail       bool      `xmlrpc:"group_by_email"`
-	GroupByIsCompany   bool      `xmlrpc:"group_by_is_company"`
-	GroupByName        bool      `xmlrpc:"group_by_name"`
-	GroupByParentId    bool      `xmlrpc:"group_by_parent_id"`
-	GroupByVat         bool      `xmlrpc:"group_by_vat"`
-	Id                 int64     `xmlrpc:"id"`
-	LastUpdate         time.Time `xmlrpc:"__last_update"`
-	LineIds            []int64   `xmlrpc:"line_ids"`
-	MaximumGroup       int64     `xmlrpc:"maximum_group"`
-	NumberGroup        int64     `xmlrpc:"number_group"`
-	PartnerIds         []int64   `xmlrpc:"partner_ids"`
-	State              string    `xmlrpc:"state"`
-	WriteDate          time.Time `xmlrpc:"write_date"`
-	WriteUid           Many2One  `xmlrpc:"write_uid"`
+	CreateDate         time.Time   `xmlrpc:"create_date"`
+	CreateUid          Many2One    `xmlrpc:"create_uid"`
+	CurrentLineId      Many2One    `xmlrpc:"current_line_id"`
+	DisplayName        string      `xmlrpc:"display_name"`
+	DstPartnerId       Many2One    `xmlrpc:"dst_partner_id"`
+	ExcludeContact     bool        `xmlrpc:"exclude_contact"`
+	ExcludeJournalItem bool        `xmlrpc:"exclude_journal_item"`
+	GroupByEmail       bool        `xmlrpc:"group_by_email"`
+	GroupByIsCompany   bool        `xmlrpc:"group_by_is_company"`
+	GroupByName        bool        `xmlrpc:"group_by_name"`
+	GroupByParentId    bool        `xmlrpc:"group_by_parent_id"`
+	GroupByVat         bool        `xmlrpc:"group_by_vat"`
+	Id                 int64       `xmlrpc:"id"`
+	LastUpdate         time.Time   `xmlrpc:"__last_update"`
+	LineIds            []int64     `xmlrpc:"line_ids"`
+	MaximumGroup       int64       `xmlrpc:"maximum_group"`
+	NumberGroup        int64       `xmlrpc:"number_group"`
+	PartnerIds         []int64     `xmlrpc:"partner_ids"`
+	State              interface{} `xmlrpc:"state"`
+	WriteDate          time.Time   `xmlrpc:"write_date"`
+	WriteUid           Many2One    `xmlrpc:"write_uid"`
 }
 
 type BasePartnerMergeAutomaticWizardNil struct {

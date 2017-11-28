@@ -5,31 +5,31 @@ import (
 )
 
 type AccountReconcileModel struct {
-	AccountId               Many2One  `xmlrpc:"account_id"`
-	Amount                  float64   `xmlrpc:"amount"`
-	AmountType              string    `xmlrpc:"amount_type"`
-	AnalyticAccountId       Many2One  `xmlrpc:"analytic_account_id"`
-	CompanyId               Many2One  `xmlrpc:"company_id"`
-	CreateDate              time.Time `xmlrpc:"create_date"`
-	CreateUid               Many2One  `xmlrpc:"create_uid"`
-	DisplayName             string    `xmlrpc:"display_name"`
-	HasSecondLine           bool      `xmlrpc:"has_second_line"`
-	Id                      int64     `xmlrpc:"id"`
-	JournalId               Many2One  `xmlrpc:"journal_id"`
-	Label                   string    `xmlrpc:"label"`
-	LastUpdate              time.Time `xmlrpc:"__last_update"`
-	Name                    string    `xmlrpc:"name"`
-	SecondAccountId         Many2One  `xmlrpc:"second_account_id"`
-	SecondAmount            float64   `xmlrpc:"second_amount"`
-	SecondAmountType        string    `xmlrpc:"second_amount_type"`
-	SecondAnalyticAccountId Many2One  `xmlrpc:"second_analytic_account_id"`
-	SecondJournalId         Many2One  `xmlrpc:"second_journal_id"`
-	SecondLabel             string    `xmlrpc:"second_label"`
-	SecondTaxId             Many2One  `xmlrpc:"second_tax_id"`
-	Sequence                int64     `xmlrpc:"sequence"`
-	TaxId                   Many2One  `xmlrpc:"tax_id"`
-	WriteDate               time.Time `xmlrpc:"write_date"`
-	WriteUid                Many2One  `xmlrpc:"write_uid"`
+	AccountId               Many2One    `xmlrpc:"account_id"`
+	Amount                  float64     `xmlrpc:"amount"`
+	AmountType              interface{} `xmlrpc:"amount_type"`
+	AnalyticAccountId       Many2One    `xmlrpc:"analytic_account_id"`
+	CompanyId               Many2One    `xmlrpc:"company_id"`
+	CreateDate              time.Time   `xmlrpc:"create_date"`
+	CreateUid               Many2One    `xmlrpc:"create_uid"`
+	DisplayName             string      `xmlrpc:"display_name"`
+	HasSecondLine           bool        `xmlrpc:"has_second_line"`
+	Id                      int64       `xmlrpc:"id"`
+	JournalId               Many2One    `xmlrpc:"journal_id"`
+	Label                   string      `xmlrpc:"label"`
+	LastUpdate              time.Time   `xmlrpc:"__last_update"`
+	Name                    string      `xmlrpc:"name"`
+	SecondAccountId         Many2One    `xmlrpc:"second_account_id"`
+	SecondAmount            float64     `xmlrpc:"second_amount"`
+	SecondAmountType        interface{} `xmlrpc:"second_amount_type"`
+	SecondAnalyticAccountId Many2One    `xmlrpc:"second_analytic_account_id"`
+	SecondJournalId         Many2One    `xmlrpc:"second_journal_id"`
+	SecondLabel             string      `xmlrpc:"second_label"`
+	SecondTaxId             Many2One    `xmlrpc:"second_tax_id"`
+	Sequence                int64       `xmlrpc:"sequence"`
+	TaxId                   Many2One    `xmlrpc:"tax_id"`
+	WriteDate               time.Time   `xmlrpc:"write_date"`
+	WriteUid                Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountReconcileModelNil struct {

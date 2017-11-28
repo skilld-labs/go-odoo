@@ -5,24 +5,24 @@ import (
 )
 
 type IrProperty struct {
-	CompanyId      Many2One  `xmlrpc:"company_id"`
-	CreateDate     time.Time `xmlrpc:"create_date"`
-	CreateUid      Many2One  `xmlrpc:"create_uid"`
-	DisplayName    string    `xmlrpc:"display_name"`
-	FieldsId       Many2One  `xmlrpc:"fields_id"`
-	Id             int64     `xmlrpc:"id"`
-	LastUpdate     time.Time `xmlrpc:"__last_update"`
-	Name           string    `xmlrpc:"name"`
-	ResId          string    `xmlrpc:"res_id"`
-	Type           string    `xmlrpc:"type"`
-	ValueBinary    string    `xmlrpc:"value_binary"`
-	ValueDatetime  time.Time `xmlrpc:"value_datetime"`
-	ValueFloat     float64   `xmlrpc:"value_float"`
-	ValueInteger   int64     `xmlrpc:"value_integer"`
-	ValueReference string    `xmlrpc:"value_reference"`
-	ValueText      string    `xmlrpc:"value_text"`
-	WriteDate      time.Time `xmlrpc:"write_date"`
-	WriteUid       Many2One  `xmlrpc:"write_uid"`
+	CompanyId      Many2One    `xmlrpc:"company_id"`
+	CreateDate     time.Time   `xmlrpc:"create_date"`
+	CreateUid      Many2One    `xmlrpc:"create_uid"`
+	DisplayName    string      `xmlrpc:"display_name"`
+	FieldsId       Many2One    `xmlrpc:"fields_id"`
+	Id             int64       `xmlrpc:"id"`
+	LastUpdate     time.Time   `xmlrpc:"__last_update"`
+	Name           string      `xmlrpc:"name"`
+	ResId          string      `xmlrpc:"res_id"`
+	Type           interface{} `xmlrpc:"type"`
+	ValueBinary    string      `xmlrpc:"value_binary"`
+	ValueDatetime  time.Time   `xmlrpc:"value_datetime"`
+	ValueFloat     float64     `xmlrpc:"value_float"`
+	ValueInteger   int64       `xmlrpc:"value_integer"`
+	ValueReference string      `xmlrpc:"value_reference"`
+	ValueText      string      `xmlrpc:"value_text"`
+	WriteDate      time.Time   `xmlrpc:"write_date"`
+	WriteUid       Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrPropertyNil struct {

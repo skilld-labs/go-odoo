@@ -5,18 +5,18 @@ import (
 )
 
 type IrActionsActWindowView struct {
-	ActWindowId Many2One  `xmlrpc:"act_window_id"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	Multi       bool      `xmlrpc:"multi"`
-	Sequence    int64     `xmlrpc:"sequence"`
-	ViewId      Many2One  `xmlrpc:"view_id"`
-	ViewMode    string    `xmlrpc:"view_mode"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	ActWindowId Many2One    `xmlrpc:"act_window_id"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	Multi       bool        `xmlrpc:"multi"`
+	Sequence    int64       `xmlrpc:"sequence"`
+	ViewId      Many2One    `xmlrpc:"view_id"`
+	ViewMode    interface{} `xmlrpc:"view_mode"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrActionsActWindowViewNil struct {

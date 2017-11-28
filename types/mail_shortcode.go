@@ -5,18 +5,18 @@ import (
 )
 
 type MailShortcode struct {
-	CreateDate    time.Time `xmlrpc:"create_date"`
-	CreateUid     Many2One  `xmlrpc:"create_uid"`
-	Description   string    `xmlrpc:"description"`
-	DisplayName   string    `xmlrpc:"display_name"`
-	Id            int64     `xmlrpc:"id"`
-	LastUpdate    time.Time `xmlrpc:"__last_update"`
-	ShortcodeType string    `xmlrpc:"shortcode_type"`
-	Source        string    `xmlrpc:"source"`
-	Substitution  string    `xmlrpc:"substitution"`
-	UnicodeSource string    `xmlrpc:"unicode_source"`
-	WriteDate     time.Time `xmlrpc:"write_date"`
-	WriteUid      Many2One  `xmlrpc:"write_uid"`
+	CreateDate    time.Time   `xmlrpc:"create_date"`
+	CreateUid     Many2One    `xmlrpc:"create_uid"`
+	Description   string      `xmlrpc:"description"`
+	DisplayName   string      `xmlrpc:"display_name"`
+	Id            int64       `xmlrpc:"id"`
+	LastUpdate    time.Time   `xmlrpc:"__last_update"`
+	ShortcodeType interface{} `xmlrpc:"shortcode_type"`
+	Source        string      `xmlrpc:"source"`
+	Substitution  string      `xmlrpc:"substitution"`
+	UnicodeSource string      `xmlrpc:"unicode_source"`
+	WriteDate     time.Time   `xmlrpc:"write_date"`
+	WriteUid      Many2One    `xmlrpc:"write_uid"`
 }
 
 type MailShortcodeNil struct {

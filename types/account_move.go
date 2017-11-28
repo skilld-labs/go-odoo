@@ -5,28 +5,28 @@ import (
 )
 
 type AccountMove struct {
-	Amount            float64   `xmlrpc:"amount"`
-	CompanyId         Many2One  `xmlrpc:"company_id"`
-	CreateDate        time.Time `xmlrpc:"create_date"`
-	CreateUid         Many2One  `xmlrpc:"create_uid"`
-	CurrencyId        Many2One  `xmlrpc:"currency_id"`
-	Date              time.Time `xmlrpc:"date"`
-	DisplayName       string    `xmlrpc:"display_name"`
-	DummyAccountId    Many2One  `xmlrpc:"dummy_account_id"`
-	Id                int64     `xmlrpc:"id"`
-	JournalId         Many2One  `xmlrpc:"journal_id"`
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
-	LineIds           []int64   `xmlrpc:"line_ids"`
-	MatchedPercentage float64   `xmlrpc:"matched_percentage"`
-	Name              string    `xmlrpc:"name"`
-	Narration         string    `xmlrpc:"narration"`
-	PartnerId         Many2One  `xmlrpc:"partner_id"`
-	Ref               string    `xmlrpc:"ref"`
-	State             string    `xmlrpc:"state"`
-	StockMoveId       Many2One  `xmlrpc:"stock_move_id"`
-	TaxCashBasisRecId Many2One  `xmlrpc:"tax_cash_basis_rec_id"`
-	WriteDate         time.Time `xmlrpc:"write_date"`
-	WriteUid          Many2One  `xmlrpc:"write_uid"`
+	Amount            float64     `xmlrpc:"amount"`
+	CompanyId         Many2One    `xmlrpc:"company_id"`
+	CreateDate        time.Time   `xmlrpc:"create_date"`
+	CreateUid         Many2One    `xmlrpc:"create_uid"`
+	CurrencyId        Many2One    `xmlrpc:"currency_id"`
+	Date              time.Time   `xmlrpc:"date"`
+	DisplayName       string      `xmlrpc:"display_name"`
+	DummyAccountId    Many2One    `xmlrpc:"dummy_account_id"`
+	Id                int64       `xmlrpc:"id"`
+	JournalId         Many2One    `xmlrpc:"journal_id"`
+	LastUpdate        time.Time   `xmlrpc:"__last_update"`
+	LineIds           []int64     `xmlrpc:"line_ids"`
+	MatchedPercentage float64     `xmlrpc:"matched_percentage"`
+	Name              string      `xmlrpc:"name"`
+	Narration         string      `xmlrpc:"narration"`
+	PartnerId         Many2One    `xmlrpc:"partner_id"`
+	Ref               string      `xmlrpc:"ref"`
+	State             interface{} `xmlrpc:"state"`
+	StockMoveId       Many2One    `xmlrpc:"stock_move_id"`
+	TaxCashBasisRecId Many2One    `xmlrpc:"tax_cash_basis_rec_id"`
+	WriteDate         time.Time   `xmlrpc:"write_date"`
+	WriteUid          Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountMoveNil struct {

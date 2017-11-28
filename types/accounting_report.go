@@ -5,25 +5,25 @@ import (
 )
 
 type AccountingReport struct {
-	AccountReportId Many2One  `xmlrpc:"account_report_id"`
-	CompanyId       Many2One  `xmlrpc:"company_id"`
-	CreateDate      time.Time `xmlrpc:"create_date"`
-	CreateUid       Many2One  `xmlrpc:"create_uid"`
-	DateFrom        time.Time `xmlrpc:"date_from"`
-	DateFromCmp     time.Time `xmlrpc:"date_from_cmp"`
-	DateTo          time.Time `xmlrpc:"date_to"`
-	DateToCmp       time.Time `xmlrpc:"date_to_cmp"`
-	DebitCredit     bool      `xmlrpc:"debit_credit"`
-	DisplayName     string    `xmlrpc:"display_name"`
-	EnableFilter    bool      `xmlrpc:"enable_filter"`
-	FilterCmp       string    `xmlrpc:"filter_cmp"`
-	Id              int64     `xmlrpc:"id"`
-	JournalIds      []int64   `xmlrpc:"journal_ids"`
-	LabelFilter     string    `xmlrpc:"label_filter"`
-	LastUpdate      time.Time `xmlrpc:"__last_update"`
-	TargetMove      string    `xmlrpc:"target_move"`
-	WriteDate       time.Time `xmlrpc:"write_date"`
-	WriteUid        Many2One  `xmlrpc:"write_uid"`
+	AccountReportId Many2One    `xmlrpc:"account_report_id"`
+	CompanyId       Many2One    `xmlrpc:"company_id"`
+	CreateDate      time.Time   `xmlrpc:"create_date"`
+	CreateUid       Many2One    `xmlrpc:"create_uid"`
+	DateFrom        time.Time   `xmlrpc:"date_from"`
+	DateFromCmp     time.Time   `xmlrpc:"date_from_cmp"`
+	DateTo          time.Time   `xmlrpc:"date_to"`
+	DateToCmp       time.Time   `xmlrpc:"date_to_cmp"`
+	DebitCredit     bool        `xmlrpc:"debit_credit"`
+	DisplayName     string      `xmlrpc:"display_name"`
+	EnableFilter    bool        `xmlrpc:"enable_filter"`
+	FilterCmp       interface{} `xmlrpc:"filter_cmp"`
+	Id              int64       `xmlrpc:"id"`
+	JournalIds      []int64     `xmlrpc:"journal_ids"`
+	LabelFilter     string      `xmlrpc:"label_filter"`
+	LastUpdate      time.Time   `xmlrpc:"__last_update"`
+	TargetMove      interface{} `xmlrpc:"target_move"`
+	WriteDate       time.Time   `xmlrpc:"write_date"`
+	WriteUid        Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountingReportNil struct {

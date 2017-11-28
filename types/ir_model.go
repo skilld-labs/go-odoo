@@ -5,25 +5,25 @@ import (
 )
 
 type IrModel struct {
-	AccessIds         []int64   `xmlrpc:"access_ids"`
-	Count             int64     `xmlrpc:"count"`
-	CreateDate        time.Time `xmlrpc:"create_date"`
-	CreateUid         Many2One  `xmlrpc:"create_uid"`
-	DisplayName       string    `xmlrpc:"display_name"`
-	FieldId           []int64   `xmlrpc:"field_id"`
-	Id                int64     `xmlrpc:"id"`
-	Info              string    `xmlrpc:"info"`
-	InheritedModelIds []int64   `xmlrpc:"inherited_model_ids"`
-	IsMailThread      bool      `xmlrpc:"is_mail_thread"`
-	LastUpdate        time.Time `xmlrpc:"__last_update"`
-	Model             string    `xmlrpc:"model"`
-	Modules           string    `xmlrpc:"modules"`
-	Name              string    `xmlrpc:"name"`
-	State             string    `xmlrpc:"state"`
-	Transient         bool      `xmlrpc:"transient"`
-	ViewIds           []int64   `xmlrpc:"view_ids"`
-	WriteDate         time.Time `xmlrpc:"write_date"`
-	WriteUid          Many2One  `xmlrpc:"write_uid"`
+	AccessIds         []int64     `xmlrpc:"access_ids"`
+	Count             int64       `xmlrpc:"count"`
+	CreateDate        time.Time   `xmlrpc:"create_date"`
+	CreateUid         Many2One    `xmlrpc:"create_uid"`
+	DisplayName       string      `xmlrpc:"display_name"`
+	FieldId           []int64     `xmlrpc:"field_id"`
+	Id                int64       `xmlrpc:"id"`
+	Info              string      `xmlrpc:"info"`
+	InheritedModelIds []int64     `xmlrpc:"inherited_model_ids"`
+	IsMailThread      bool        `xmlrpc:"is_mail_thread"`
+	LastUpdate        time.Time   `xmlrpc:"__last_update"`
+	Model             string      `xmlrpc:"model"`
+	Modules           string      `xmlrpc:"modules"`
+	Name              string      `xmlrpc:"name"`
+	State             interface{} `xmlrpc:"state"`
+	Transient         bool        `xmlrpc:"transient"`
+	ViewIds           []int64     `xmlrpc:"view_ids"`
+	WriteDate         time.Time   `xmlrpc:"write_date"`
+	WriteUid          Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrModelNil struct {

@@ -5,22 +5,22 @@ import (
 )
 
 type IrFilters struct {
-	ActionId    Many2One  `xmlrpc:"action_id"`
-	Active      bool      `xmlrpc:"active"`
-	Context     string    `xmlrpc:"context"`
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DisplayName string    `xmlrpc:"display_name"`
-	Domain      string    `xmlrpc:"domain"`
-	Id          int64     `xmlrpc:"id"`
-	IsDefault   bool      `xmlrpc:"is_default"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	ModelId     string    `xmlrpc:"model_id"`
-	Name        string    `xmlrpc:"name"`
-	Sort        string    `xmlrpc:"sort"`
-	UserId      Many2One  `xmlrpc:"user_id"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	ActionId    Many2One    `xmlrpc:"action_id"`
+	Active      bool        `xmlrpc:"active"`
+	Context     string      `xmlrpc:"context"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DisplayName string      `xmlrpc:"display_name"`
+	Domain      string      `xmlrpc:"domain"`
+	Id          int64       `xmlrpc:"id"`
+	IsDefault   bool        `xmlrpc:"is_default"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	ModelId     interface{} `xmlrpc:"model_id"`
+	Name        string      `xmlrpc:"name"`
+	Sort        string      `xmlrpc:"sort"`
+	UserId      Many2One    `xmlrpc:"user_id"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type IrFiltersNil struct {

@@ -5,18 +5,18 @@ import (
 )
 
 type AccountFrFec struct {
-	CreateDate  time.Time `xmlrpc:"create_date"`
-	CreateUid   Many2One  `xmlrpc:"create_uid"`
-	DateFrom    time.Time `xmlrpc:"date_from"`
-	DateTo      time.Time `xmlrpc:"date_to"`
-	DisplayName string    `xmlrpc:"display_name"`
-	ExportType  string    `xmlrpc:"export_type"`
-	FecData     string    `xmlrpc:"fec_data"`
-	Filename    string    `xmlrpc:"filename"`
-	Id          int64     `xmlrpc:"id"`
-	LastUpdate  time.Time `xmlrpc:"__last_update"`
-	WriteDate   time.Time `xmlrpc:"write_date"`
-	WriteUid    Many2One  `xmlrpc:"write_uid"`
+	CreateDate  time.Time   `xmlrpc:"create_date"`
+	CreateUid   Many2One    `xmlrpc:"create_uid"`
+	DateFrom    time.Time   `xmlrpc:"date_from"`
+	DateTo      time.Time   `xmlrpc:"date_to"`
+	DisplayName string      `xmlrpc:"display_name"`
+	ExportType  interface{} `xmlrpc:"export_type"`
+	FecData     string      `xmlrpc:"fec_data"`
+	Filename    string      `xmlrpc:"filename"`
+	Id          int64       `xmlrpc:"id"`
+	LastUpdate  time.Time   `xmlrpc:"__last_update"`
+	WriteDate   time.Time   `xmlrpc:"write_date"`
+	WriteUid    Many2One    `xmlrpc:"write_uid"`
 }
 
 type AccountFrFecNil struct {
