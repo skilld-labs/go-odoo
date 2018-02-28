@@ -4,62 +4,87 @@ import (
 	"net/http"
 	"reflect"
 
+	"../types"
 	"github.com/kolo/xmlrpc"
-	"github.com/skilld-labs/go-odoo/types"
 )
 
-type Client struct {
-	client    *xmlrpc.Client
+type Config struct {
+	DbName    string
+	Admin     string
+	Password  string
 	URI       string
 	Transport http.RoundTripper
-	Session   struct {
-		DbName   string
-		Admin    string
-		Password string
-		UID      int
-	}
 }
 
-func NewClient(uri string, transport http.RoundTripper) (*Client, error) {
-	c, err := xmlrpc.NewClient(uri+"/xmlrpc/2/object", transport)
+type Client struct {
+	CommonClient *xmlrpc.Client
+	ObjectClient *xmlrpc.Client
+	DbClient     *xmlrpc.Client
+	ReportClient *xmlrpc.Client
+	Session      *Session
+}
+
+type Session struct {
+	DbName   string
+	Admin    string
+	Password string
+	UID      int
+}
+
+func (config *Config) NewClient() (*Client, error) {
+	commonClient, err := GetCommonClient(config.URI, config.Transport)
 	if err != nil {
 		return nil, err
 	}
-	client := &Client{client: c, URI: uri, Transport: transport}
-	return client, err
+	objectClient, err := GetObjectClient(config.URI, config.Transport)
+	if err != nil {
+		return nil, err
+	}
+	dbClient, err := GetDbClient(config.URI, config.Transport)
+	if err != nil {
+		return nil, err
+	}
+	reportClient, err := GetObjectClient(config.URI, config.Transport)
+	if err != nil {
+		return nil, err
+	}
+	return &Client{
+		CommonClient: commonClient,
+		ObjectClient: objectClient,
+		DbClient:     dbClient,
+		ReportClient: reportClient,
+		Session: &Session{
+			Admin:    config.Admin,
+			Password: config.Password,
+			DbName:   config.DbName,
+		},
+	}, err
 }
 
-func (c *Client) Login(dbName string, admin string, password string) error {
+func (c *Client) CompleteSession() error {
 	var uid int
-	uriTemp := c.URI + "/xmlrpc/2/common"
-	cTemp, err := xmlrpc.NewClient(uriTemp, c.Transport)
+	err := c.CommonClient.Call("authenticate", []interface{}{c.Session.DbName, c.Session.Admin, c.Session.Password, ""}, &uid)
 	if err != nil {
 		return err
 	}
-	clientTemp := &Client{client: cTemp, URI: uriTemp, Transport: c.Transport}
-	err = clientTemp.client.Call("authenticate", []interface{}{dbName, admin, password, ""}, &uid)
-	if err != nil {
-		return err
-	}
-	c.Session.DbName = dbName
-	c.Session.Admin = admin
-	c.Session.Password = password
 	c.Session.UID = uid
-	return err
+	return nil
 }
 
-func (c *Client) GetReport(model string, ids []int64) (map[string]interface{}, error) {
-	client, err := xmlrpc.NewClient(c.URI+"/xmlrpc/2/report", c.Transport)
-	if err != nil {
-		return nil, err
-	}
-	var report map[string]interface{}
-	reportService := NewIrActionsReportService(c)
-	fields, err := reportService.GetByField("model", model)
-	if err != nil {
-		return nil, err
-	}
-	return report, client.Call("render_report", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, (*fields)[0].ReportName, ids}, &report)
+func GetObjectClient(uri string, transport http.RoundTripper) (*xmlrpc.Client, error) {
+	return xmlrpc.NewClient(uri+"/xmlrpc/2/object", transport)
+}
+
+func GetCommonClient(uri string, transport http.RoundTripper) (*xmlrpc.Client, error) {
+	return xmlrpc.NewClient(uri+"/xmlrpc/2/common", transport)
+}
+
+func GetDbClient(uri string, transport http.RoundTripper) (*xmlrpc.Client, error) {
+	return xmlrpc.NewClient(uri+"/xmlrpc/2/db", transport)
+}
+
+func GetReportClient(uri string, transport http.RoundTripper) (*xmlrpc.Client, error) {
+	return xmlrpc.NewClient(uri+"/xmlrpc/2/report", transport)
 }
 
 func (c *Client) Create(model string, args []interface{}, elem interface{}) error {
@@ -101,7 +126,7 @@ func (c *Client) SearchCount(model string, args []interface{}, elem interface{})
 }
 
 func (c *Client) DoRequest(method string, model string, args []interface{}, options interface{}, elem interface{}) error {
-	return c.client.Call("execute_kw", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, model, method, args, options}, elem)
+	return c.ObjectClient.Call("execute_kw", []interface{}{c.Session.DbName, c.Session.UID, c.Session.Password, model, method, args, options}, elem)
 }
 
 func (c *Client) getIdsByName(model string, name string) ([]int64, error) {
@@ -149,4 +174,21 @@ func (c *Client) update(model string, ids []int64, fields map[string]interface{}
 
 func (c *Client) delete(model string, ids []int64) error {
 	return c.Delete(model, []interface{}{ids})
+}
+
+func (c *Client) GetAllModels() ([]string, error) {
+	var content []map[string]interface{}
+	err := c.DoRequest("search_read", "ir.model", []interface{}{[]interface{}{}}, nil, &content)
+	if err != nil {
+		return []string{}, err
+	}
+	models := make([]string, len(content))
+	for i, modelFields := range content {
+		for field, model := range modelFields {
+			if field == "model" {
+				models[i] = model.(string)
+			}
+		}
+	}
+	return models, err
 }
