@@ -61,6 +61,7 @@ type ResPartner struct {
 	Lang                          interface{} `xmlrpc:"lang"`
 	LastTimeEntriesChecked        time.Time   `xmlrpc:"last_time_entries_checked"`
 	LastUpdate                    time.Time   `xmlrpc:"__last_update"`
+	LineUid				          string      `xmlrpc:"line_uid"`
 	MachineCompanyName            string      `xmlrpc:"machine_company_name"`
 	MeetingCount                  int64       `xmlrpc:"meeting_count"`
 	MeetingIds                    []int64     `xmlrpc:"meeting_ids"`
@@ -195,6 +196,7 @@ type ResPartnerNil struct {
 	Lang                          interface{} `xmlrpc:"lang"`
 	LastTimeEntriesChecked        interface{} `xmlrpc:"last_time_entries_checked"`
 	LastUpdate                    interface{} `xmlrpc:"__last_update"`
+	LineUid				          interface{} `xmlrpc:"line_uid"`
 	MachineCompanyName            interface{} `xmlrpc:"machine_company_name"`
 	MeetingCount                  interface{} `xmlrpc:"meeting_count"`
 	MeetingIds                    interface{} `xmlrpc:"meeting_ids"`
