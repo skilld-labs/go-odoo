@@ -73,7 +73,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/skilld-labs/go-odoo/api"
+	"github.com/morezig/go-odoo/api"
 )
 
 func main() {
@@ -96,17 +96,3 @@ func main() {
 }
 ```
 
-## ToDo
-
-- Tests
-- New Odoo API functions (ex: report printing)
-
-## Issues
-
-- If you have an issue, please report it on the [issue tracker](https://github.com/skilld-labs/go-odoo/issues)
-
-## Contributors
-
-Antoine Huret (<huret.antoine@yahoo.fr>)
-
-Jean-Baptiste Guerraz (<jbguerraz@gmail.com>)
