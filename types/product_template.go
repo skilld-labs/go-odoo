@@ -38,6 +38,7 @@ type ProductTemplate struct {
 	InvoicePolicy                          interface{} `xmlrpc:"invoice_policy"`
 	ItemIds                                []int64     `xmlrpc:"item_ids"`
 	LastUpdate                             time.Time   `xmlrpc:"__last_update"`
+	LiffId                                 string      `xmlrpc:"liffid"`
 	ListPrice                              float64     `xmlrpc:"list_price"`
 	LocationId                             Many2One    `xmlrpc:"location_id"`
 	LstPrice                               float64     `xmlrpc:"lst_price"`
@@ -145,6 +146,7 @@ type ProductTemplateNil struct {
 	ItemIds                                interface{} `xmlrpc:"item_ids"`
 	LastUpdate                             interface{} `xmlrpc:"__last_update"`
 	ListPrice                              interface{} `xmlrpc:"list_price"`
+	LiffId                                 interface{} `xmlrpc:"liffid"`
 	LocationId                             interface{} `xmlrpc:"location_id"`
 	LstPrice                               interface{} `xmlrpc:"lst_price"`
 	MessageChannelIds                      interface{} `xmlrpc:"message_channel_ids"`
