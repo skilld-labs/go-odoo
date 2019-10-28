@@ -1,7 +1,7 @@
 package api
 
 import (
-	"github.com/skilld-labs/go-odoo/types"
+	"github.com/morezig/go-odoo/types"
 )
 
 type CrmLostReasonService struct {

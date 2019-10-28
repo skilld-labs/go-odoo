@@ -84,7 +84,7 @@ for row in input_file:
         model = row['model']
         content = ''
         imports = []
-        imports.append("github.com/skilld-labs/go-odoo/types")
+        imports.append("github.com/morezig/go-odoo/types")
         struct = 'type ' + camelcase(model) + ' struct {\n'
         nil_struct  = 'type ' + camelcase(model) + 'Nil struct {\n'
 content += type_model(model)

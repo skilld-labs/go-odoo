@@ -5,7 +5,7 @@ import (
 	"reflect"
 
 	"github.com/kolo/xmlrpc"
-	"github.com/skilld-labs/go-odoo/types"
+	"github.com/morezig/go-odoo/types"
 )
 
 type Client struct {
