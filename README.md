@@ -2,6 +2,11 @@
 
 An Odoo API client enabling Go programs to interact with Odoo in a simple and uniform way.
 
+[![GitHub license](https://img.shields.io/github/license/ahuret/go-odoo.svg)](https://github.com/ahuret/go-odoo/blob/master/LICENSE)
+[![GoDoc](https://godoc.org/github.com/ahuret/go-odoo?status.svg)](https://pkg.go.dev/github.com/ahuret/go-odoo?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ahuret/go-odoo)](https://goreportcard.com/report/github.com/ahuret/go-odoo)
+[![GitHub issues](https://img.shields.io/github/issues/ahuret/go-odoo.svg)](https://github.com/ahuret/go-odoo/issues)
+
 ## Usage
 
 ### Generate your models
