@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./cmd"
+	"github.com/ahuret/go-odoo/generator/cmd"
 )
 
 func main() {
