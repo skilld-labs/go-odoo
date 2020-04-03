@@ -13,7 +13,8 @@ An Odoo API client enabling Go programs to interact with Odoo in a simple and un
 
 
 Define the environment variables to be able to connect to your odoo instance :
-If you don't set `ODOO_MODELS` all models will be generated.
+
+(Don't set `ODOO_MODELS` if you want all your models to be generated)
 
 ```
 export ODOO_ADMIN=admin
@@ -21,7 +22,11 @@ export ODOO_PASSWORD=password
 export ODOO_DATABASE=odoo
 export ODOO_URL=http://localhost:8069
 export ODOO_MODELS="crm.lead"
-export ODOO_REPO_PATH=$GOPATH/src/github.com/ahuret/go-odoo
+```
+
+`ODOO_REPO_PATH` is the path where the repository will be downloaded :
+```
+export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/ahuret/go-odoo
 ```
 
 Download library and generate models :
