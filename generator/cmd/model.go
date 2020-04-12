@@ -26,22 +26,22 @@ var odooToType = map[string]string{
 	"reference":          "*String",
 }
 
-type Model struct {
+type model struct {
 	Name       string
 	StructName string
 	VarName    string
 	VarsName   string
-	Fields     []*ModelField
+	Fields     []*modelField
 }
 
-type ModelField struct {
+type modelField struct {
 	Name    string
 	VarName string
 	Type    string
 }
 
-func NewModel(name string, mfs []*ModelField) *Model {
-	m := &Model{Name: name}
+func newModel(name string, mfs []*modelField) *model {
+	m := &model{Name: name}
 	m.StructName = strcase.ToCamel(m.Name)
 	pp := strings.Split(m.Name, ".")
 	for _, p := range pp {
@@ -55,8 +55,8 @@ func NewModel(name string, mfs []*ModelField) *Model {
 	return m
 }
 
-func NewModelField(name string, odooType string) *ModelField {
-	mf := &ModelField{Name: name}
+func newModelField(name string, odooType string) *modelField {
+	mf := &modelField{Name: name}
 	mf.VarName = strcase.ToCamel(mf.Name)
 	if modelType, ok := odooToType[odooType]; ok {
 		mf.Type = modelType

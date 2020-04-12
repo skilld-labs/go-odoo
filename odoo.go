@@ -1,3 +1,4 @@
+//Package odoo contains client code of library
 //go:generate ./generator/generator -u $ODOO_ADMIN -p $ODOO_PASSWORD -d $ODOO_DATABASE --url $ODOO_URL -o $ODOO_REPO_PATH --models $ODOO_MODELS
 package odoo
 
@@ -8,10 +9,11 @@ import (
 )
 
 var (
-	ErrClientConfigurationInvalid = errors.New("client configuration is invalid")
-	ErrClientNotAuthenticate      = errors.New("client is not authenticate")
+	errClientConfigurationInvalid = errors.New("client configuration is invalid")
+	errClientNotAuthenticate      = errors.New("client is not authenticate")
 )
 
+// ClientConfig is the configuration to create a new *Client by givin connection infomations.
 type ClientConfig struct {
 	Database string
 	Admin    string
@@ -26,6 +28,7 @@ func (c *ClientConfig) valid() bool {
 		c.URL != ""
 }
 
+// Client provides high and low level functions to interact with odoo
 type Client struct {
 	common *xmlrpc.Client
 	object *xmlrpc.Client
@@ -34,9 +37,10 @@ type Client struct {
 	auth   bool
 }
 
+// NewClient creates a new *Client.
 func NewClient(cfg *ClientConfig) (*Client, error) {
 	if !cfg.valid() {
-		return nil, ErrClientConfigurationInvalid
+		return nil, errClientConfigurationInvalid
 	}
 	c := &Client{
 		cfg:    cfg,
@@ -44,12 +48,13 @@ func NewClient(cfg *ClientConfig) (*Client, error) {
 		object: &xmlrpc.Client{},
 		auth:   false,
 	}
-	if err := c.Authenticate(); err != nil {
+	if err := c.authenticate(); err != nil {
 		return nil, err
 	}
 	return c, nil
 }
 
+// Close closes all opened client connections.
 func (c *Client) Close() {
 	if c.common != nil {
 		c.common.Close()
@@ -59,52 +64,65 @@ func (c *Client) Close() {
 	}
 }
 
+// Version get informations about your odoo instance version.
 func (c *Client) Version() (Version, error) {
 	v := Version{}
 	reply, err := c.commonCall("version", nil)
 	if err != nil {
 		return Version{}, err
 	}
-	ConvertFromDynamicToStatic(reply, &v)
+	convertFromDynamicToStatic(reply, &v)
 	return v, nil
 }
 
-type Criterion []interface{}
-type Criteria []*Criterion
+type criterion []interface{}
 
-func NewCriteria(criterions ...*Criterion) *Criteria {
-	cc := Criteria{}
-	for _, c := range criterions {
-		cc = append(cc, c)
-	}
-	return &cc
+/*
+Criteria is a set of criterion, each criterion is a triple (field_name, operator, value).
+It allow you to search models.
+see documentation: https://www.odoo.com/documentation/13.0/reference/orm.html#reference-orm-domains
+*/
+type Criteria []*criterion
+
+// NewCriteria creates a new *Criteria.
+func NewCriteria() *Criteria {
+	return &Criteria{}
 }
 
-func NewCriterion(field, operator string, value interface{}) *Criterion {
-	c := Criterion(newTuple(field, operator, value))
+func newCriterion(field, operator string, value interface{}) *criterion {
+	c := criterion(newTuple(field, operator, value))
 	return &c
 }
 
+// Add a new criterion to a *Criteria.
 func (c *Criteria) Add(field, operator string, value interface{}) *Criteria {
-	*c = append(*c, NewCriterion(field, operator, value))
+	*c = append(*c, newCriterion(field, operator, value))
 	return c
 }
 
+// Options allow you to filter search results.
 type Options map[string]interface{}
 
+// NewOptions creates a new *Options
 func NewOptions() *Options {
 	opt := Options(make(map[string]interface{}))
 	return &opt
 }
 
+// Offset adds the offset options.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#pagination
 func (o *Options) Offset(offset int) *Options {
 	return o.Add("offset", offset)
 }
 
+// Limit adds the limit options.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#pagination
 func (o *Options) Limit(limit int) *Options {
 	return o.Add("limit", limit)
 }
 
+// FetchFields allow you to precise the model fields you want odoo to return.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#search-and-read
 func (o *Options) FetchFields(fields ...string) *Options {
 	ff := []string{}
 	for _, f := range fields {
@@ -113,6 +131,9 @@ func (o *Options) FetchFields(fields ...string) *Options {
 	return o.Add("fields", ff)
 }
 
+// AllFields is useful for FieldsGet function. It represents the fields to document
+// you want odoo to return.
+// https://www.odoo.com/documentation/13.0/reference/orm.html#fields-views
 func (o *Options) AllFields(fields ...string) *Options {
 	ff := []string{}
 	for _, f := range fields {
@@ -121,6 +142,9 @@ func (o *Options) AllFields(fields ...string) *Options {
 	return o.Add("allfields", ff)
 }
 
+// Attributes is useful for FieldsGet function. It represents the attributes to document
+// you want odoo to return.
+// https://www.odoo.com/documentation/13.0/reference/orm.html#fields-views
 func (o *Options) Attributes(attributes ...string) *Options {
 	aa := []string{}
 	for _, a := range attributes {
@@ -129,6 +153,7 @@ func (o *Options) Attributes(attributes ...string) *Options {
 	return o.Add("attributes", aa)
 }
 
+// Add on option by providing option name and value.
 func (o *Options) Add(opt string, v interface{}) *Options {
 	(*o)[opt] = v
 	return o
@@ -139,10 +164,12 @@ func getValuesFromInterface(v interface{}) map[string]interface{} {
 	case map[string]interface{}:
 		return v.(map[string]interface{})
 	default:
-		return ConvertFromStaticToDynamic(v)
+		return convertFromStaticToDynamic(v)
 	}
 }
 
+// Create a new model.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#create-records
 func (c *Client) Create(model string, values interface{}) (int64, error) {
 	v := getValuesFromInterface(values)
 	resp, err := c.ExecuteKw("create", model, []interface{}{v}, nil)
@@ -152,6 +179,8 @@ func (c *Client) Create(model string, values interface{}) (int64, error) {
 	return resp.(int64), nil
 }
 
+// Update existing model row(s).
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#update-records
 func (c *Client) Update(model string, ids []int64, values interface{}) error {
 	v := getValuesFromInterface(values)
 	_, err := c.ExecuteKw("write", model, []interface{}{ids, v}, nil)
@@ -161,6 +190,8 @@ func (c *Client) Update(model string, ids []int64, values interface{}) error {
 	return nil
 }
 
+// Delete existing model row(s).
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#delete-records
 func (c *Client) Delete(model string, ids []int64) error {
 	_, err := c.ExecuteKw("unlink", model, []interface{}{ids}, nil)
 	if err != nil {
@@ -169,28 +200,34 @@ func (c *Client) Delete(model string, ids []int64) error {
 	return nil
 }
 
+// SearchRead search model records matching with *Criteria and read it.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#search-and-read
 func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, elem interface{}) error {
 	resp, err := c.ExecuteKw("search_read", model, argsFromCriteria(criteria), options)
 	if err != nil {
 		return err
 	}
-	if err := ConvertFromDynamicToStatic(resp, elem); err != nil {
+	if err := convertFromDynamicToStatic(resp, elem); err != nil {
 		return err
 	}
 	return nil
 }
 
+// Read model records matching with ids.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#read-records
 func (c *Client) Read(model string, ids []int64, options *Options, elem interface{}) error {
 	resp, err := c.ExecuteKw("read", model, []interface{}{ids}, options)
 	if err != nil {
 		return err
 	}
-	if err := ConvertFromDynamicToStatic(resp, elem); err != nil {
+	if err := convertFromDynamicToStatic(resp, elem); err != nil {
 		return err
 	}
 	return nil
 }
 
+// Count model records matching with *Criteria.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#count-records
 func (c *Client) Count(model string, criteria *Criteria, options *Options) (int64, error) {
 	resp, err := c.ExecuteKw("search_count", model, argsFromCriteria(criteria), options)
 	if err != nil {
@@ -199,14 +236,18 @@ func (c *Client) Count(model string, criteria *Criteria, options *Options) (int6
 	return resp.(int64), nil
 }
 
+// Search model record ids matching with *Criteria.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#list-records
 func (c *Client) Search(model string, criteria *Criteria, options *Options) ([]int64, error) {
 	resp, err := c.ExecuteKw("search", model, argsFromCriteria(criteria), options)
 	if err != nil {
 		return []int64{}, err
 	}
-	return SliceInterfaceToInt64Slice(resp.([]interface{})), nil
+	return sliceInterfaceToInt64Slice(resp.([]interface{})), nil
 }
 
+// FieldsGet inspect model fields.
+// https://www.odoo.com/documentation/13.0/webservices/odoo.html#listing-record-fields
 func (c *Client) FieldsGet(model string, options *Options) (map[string]interface{}, error) {
 	resp, err := c.ExecuteKw("fields_get", model, nil, options)
 	if err != nil {
@@ -215,6 +256,8 @@ func (c *Client) FieldsGet(model string, options *Options) (map[string]interface
 	return resp.(map[string]interface{}), nil
 }
 
+// ExecuteKw is a RPC function. The lowest library function. It is use for all
+// function related to "xmlrpc/2/object" endpoint.
 func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Options) (interface{}, error) {
 	if err := c.checkForAuthentication(); err != nil {
 		return nil, err
@@ -226,7 +269,7 @@ func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Op
 	return resp, nil
 }
 
-func (c *Client) Authenticate() error {
+func (c *Client) authenticate() error {
 	if !c.isAuthenticate() {
 		resp, err := c.commonCall("authenticate", []interface{}{c.cfg.Database, c.cfg.Admin, c.cfg.Password, ""})
 		if err != nil {
@@ -278,18 +321,18 @@ func (c *Client) loadObjectClient() error {
 
 func (c *Client) loadXmlrpcClient(x *xmlrpc.Client, path string) error {
 	if x.Client == nil {
-		if newClient, err := xmlrpc.NewClient(c.cfg.URL+path, nil); err != nil {
+		newClient, err := xmlrpc.NewClient(c.cfg.URL+path, nil)
+		if err != nil {
 			return err
-		} else {
-			*x = *newClient
 		}
+		*x = *newClient
 	}
 	return nil
 }
 
 func (c *Client) checkForAuthentication() error {
 	if !c.isAuthenticate() {
-		return ErrClientNotAuthenticate
+		return errClientNotAuthenticate
 	}
 	return nil
 }

@@ -24,7 +24,7 @@ export ODOO_URL=http://localhost:8069
 export ODOO_MODELS="crm.lead"
 ```
 
-`ODOO_REPO_PATH` is the path where the repository will be downloaded :
+`ODOO_REPO_PATH` is the path where the repository will be downloaded (by default its GOPATH):
 ```
 export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/ahuret/go-odoo
 ```
@@ -72,7 +72,7 @@ func main() {
 
 ## Models
 
-Generated models contains high level functions for interact with models in an easy and golang way.
+Generated models contains high level functions to interact with models in an easy and golang way.
 It covers the most common usage and contains for each models those functions :
 
 ### Create
@@ -99,7 +99,7 @@ func (c *Client) GetCrmLeads(ids []int64) (*CrmLeads, error) {}
 ```
 
 ### Find
-Find is powerful and allow you to query a model and filtering results by given [Criteria and Options](#criteria-and-options)
+Find is powerful and allow you to query a model and filter results. [Criteria and Options](#criteria-and-options)
 
 ```go
 func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, error) {}
@@ -140,7 +140,7 @@ func (m *Many2One) Get() int64 {}
 func NewRelation() *Relation {}
 func (r *Relation) Get() []int64 {}
 ```
-one2many and many2many are represented by the `Relation` type and allow you to execute special actions as define [here](https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write).
+one2many and many2many are represented by the `Relation` type and allow you to execute special actions as defined [here](https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write).
 
 ### Criteria and Options
 
@@ -158,7 +158,7 @@ All high level functions are based on basic odoo webservices functions.
 
 These functions give you more flexibility but less usability. We recommand you to use models functions (high level).
 
-Here are disponible low level functions :
+Here are available low level functions :
 
 ```go
 func (c *Client) Create(model string, values interface{}) (int64, error) {}

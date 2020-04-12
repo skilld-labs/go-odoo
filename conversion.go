@@ -1,7 +1,6 @@
 package odoo
 
 import (
-	"errors"
 	"fmt"
 	"reflect"
 	"strings"
@@ -14,7 +13,7 @@ const (
 	tagName        = "xmlrpc"
 )
 
-func ConvertFromStaticToDynamic(static interface{}) map[string]interface{} {
+func convertFromStaticToDynamic(static interface{}) map[string]interface{} {
 	var dynamic = make(map[string]interface{})
 	sv := reflect.ValueOf(static).Elem()
 	st := reflect.TypeOf(static).Elem()
@@ -56,18 +55,18 @@ func convertFromStaticToDynamicValue(staticValue interface{}) interface{} {
 	return v
 }
 
-func ConvertFromDynamicToStatic(dynamic interface{}, static interface{}) error {
+func convertFromDynamicToStatic(dynamic interface{}, static interface{}) error {
 	model := reflect.TypeOf(static).Elem()
 	var sv reflect.Value
 	switch dynamic.(type) {
 	case []interface{}:
 		if model.Kind() != reflect.Slice {
-			return errors.New(fmt.Sprintf("cannot convert dynamic model to static model %s", model.Name()))
+			return fmt.Errorf("cannot convert dynamic model to static model %s", model.Name())
 		}
 		sv = convertFromDynamicToStaticSlice(dynamic.([]interface{}), model)
 	default:
 		if model.Kind() == reflect.Slice {
-			return errors.New(fmt.Sprintf("cannot convert dynamic model to static model %s", model.Name()))
+			return fmt.Errorf("cannot convert dynamic model to static model %s", model.Name())
 		}
 		sv = convertFromDynamicToStaticOne(dynamic.(map[string]interface{}), model)
 	}
@@ -89,15 +88,18 @@ func convertFromDynamicToStaticOne(dynamic map[string]interface{}, oneModel refl
 	staticValues := scanStaticModelValues(oneModel, s)
 	for key, dynamicValue := range dynamic {
 		if _, ok := staticValues[key]; ok {
-			convertFromDynamicToStaticValue(staticValues[key], dynamicValue)
+			staticField := staticValues[key]
+			staticValue := convertFromDynamicToStaticValue(staticField.Type(), dynamicValue)
+			if staticValue != nil {
+				staticField.Set(reflect.ValueOf(staticValue))
+			}
 		}
 	}
 	return s
 }
 
-func convertFromDynamicToStaticValue(staticField reflect.Value, dynamicValue interface{}) {
+func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue interface{}) interface{} {
 	var staticValue interface{}
-	staticType := staticField.Type()
 	if staticType.Kind() == reflect.Ptr {
 		staticType = staticType.Elem()
 	}
@@ -123,16 +125,14 @@ func convertFromDynamicToStaticValue(staticField reflect.Value, dynamicValue int
 			staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), dynamicValue.([]interface{})[1].(string))
 		case "Relation":
 			staticValue = NewRelation()
-			staticValue.(*Relation).ids = SliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
+			staticValue.(*Relation).ids = sliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
 		case "Bool":
 			staticValue = NewBool(dynamicValue.(bool))
 		default:
 			staticValue = dynamicValue
 		}
 	}
-	if staticValue != nil {
-		staticField.Set(reflect.ValueOf(staticValue))
-	}
+	return staticValue
 }
 
 func scanStaticModelValues(typ reflect.Type, s reflect.Value) map[string]reflect.Value {
@@ -145,7 +145,7 @@ func scanStaticModelValues(typ reflect.Type, s reflect.Value) map[string]reflect
 	return fields
 }
 
-func SliceInterfaceToInt64Slice(s []interface{}) []int64 {
+func sliceInterfaceToInt64Slice(s []interface{}) []int64 {
 	i64 := make([]int64, len(s))
 	for i := 0; i < len(s); i++ {
 		i64[i] = s[i].(int64)

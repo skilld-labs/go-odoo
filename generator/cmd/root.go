@@ -24,7 +24,7 @@ You can provide models name as arguments to specify what models to generate. By 
 			if models != "" {
 				mm = strings.Split(models, ",")
 			}
-			if err := g.HandleModels(mm); err != nil {
+			if err := g.handleModels(mm); err != nil {
 				handleError(err)
 			}
 		},
@@ -38,9 +38,10 @@ You can provide models name as arguments to specify what models to generate. By 
 	models     string
 	c          *odoo.Client
 	t          *template.Template
-	g          *Generator
+	g          *generator
 )
 
+// Execute executes the root command.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		handleError(err)

@@ -10,6 +10,8 @@ import (
 	odoo "github.com/ahuret/go-odoo"
 )
 
+// GeneratorConfiguration is the configuration to create a new *generator by injecting
+// its dependencies.
 type GeneratorConfiguration struct {
 	Odoo          *odoo.Client
 	ModelTemplate *template.Template
@@ -17,18 +19,19 @@ type GeneratorConfiguration struct {
 	DestFolder    string
 }
 
-type Generator struct {
+type generator struct {
 	odoo         *odoo.Client
 	tmpl         *template.Template
 	destFolder   string
 	formatModels bool
 }
 
-func NewGenerator(cfg GeneratorConfiguration) *Generator {
-	return &Generator{odoo: cfg.Odoo, tmpl: cfg.ModelTemplate, formatModels: cfg.FormatModels, destFolder: cfg.DestFolder}
+// NewGenerator creates a new *generator.
+func NewGenerator(cfg GeneratorConfiguration) *generator {
+	return &generator{odoo: cfg.Odoo, tmpl: cfg.ModelTemplate, formatModels: cfg.FormatModels, destFolder: cfg.DestFolder}
 }
 
-func (g *Generator) HandleModels(models []string) error {
+func (g *generator) handleModels(models []string) error {
 	mm, err := g.getModels(models)
 	if err != nil {
 		return err
@@ -39,17 +42,17 @@ func (g *Generator) HandleModels(models []string) error {
 	return nil
 }
 
-func (g *Generator) getModels(models []string) ([]*Model, error) {
+func (g *generator) getModels(models []string) ([]*model, error) {
 	if len(models) == 0 {
 		var err error
-		models, err = g.GetAllModelsName()
+		models, err = g.getAllModelsName()
 		if err != nil {
 			return nil, err
 		}
 	}
-	var mm []*Model
+	var mm []*model
 	for _, model := range models {
-		mfs, err := g.ModelFieldsFromModel(model)
+		mfs, err := g.modelFieldsFromModel(model)
 		if err != nil {
 			return nil, err
 		}
@@ -57,12 +60,12 @@ func (g *Generator) getModels(models []string) ([]*Model, error) {
 			fmt.Printf("error: cannot find fields for model %s, cannot generate it.\n", model)
 			continue
 		}
-		mm = append(mm, NewModel(model, mfs))
+		mm = append(mm, newModel(model, mfs))
 	}
 	return mm, nil
 }
 
-func (g *Generator) GetAllModelsName() ([]string, error) {
+func (g *generator) getAllModelsName() ([]string, error) {
 	ims, err := g.odoo.FindIrModels(nil, nil)
 	if err != nil || ims == nil {
 		return []string{}, nil
@@ -74,23 +77,23 @@ func (g *Generator) GetAllModelsName() ([]string, error) {
 	return models, nil
 }
 
-func (g *Generator) ModelFieldsFromModel(model string) ([]*ModelField, error) {
+func (g *generator) modelFieldsFromModel(model string) ([]*modelField, error) {
 	imfs, err := g.odoo.FindIrModelFieldss(odoo.NewCriteria().Add("model", "=", model), nil)
 	if err != nil {
 		return nil, err
 	}
-	return g.IrModelFieldsToModelFields(imfs), nil
+	return g.irModelFieldsToModelFields(imfs), nil
 }
 
-func (g *Generator) IrModelFieldsToModelFields(imfs *odoo.IrModelFieldss) []*ModelField {
-	var mfs []*ModelField
+func (g *generator) irModelFieldsToModelFields(imfs *odoo.IrModelFieldss) []*modelField {
+	var mfs []*modelField
 	for _, imf := range *imfs {
-		mfs = append(mfs, NewModelField(imf.Name.Get(), imf.Ttype.Get().(string)))
+		mfs = append(mfs, newModelField(imf.Name.Get(), imf.Ttype.Get().(string)))
 	}
 	return mfs
 }
 
-func (g *Generator) generateModels(models []*Model) error {
+func (g *generator) generateModels(models []*model) error {
 	for _, m := range models {
 		filePath := g.destFolder + "/" + strings.Replace(m.Name, ".", "_", -1) + ".go"
 		output, err := os.Create(filePath)
