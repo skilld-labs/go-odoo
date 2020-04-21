@@ -160,11 +160,11 @@ func (o *Options) Add(opt string, v interface{}) *Options {
 }
 
 func getValuesFromInterface(v interface{}) map[string]interface{} {
-	switch v.(type) {
+	switch sv := v.(type) {
 	case map[string]interface{}:
-		return v.(map[string]interface{})
+		return sv
 	default:
-		return convertFromStaticToDynamic(v)
+		return convertFromStaticToDynamic(sv)
 	}
 }
 

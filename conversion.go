@@ -1,6 +1,7 @@
 package odoo
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"strings"
@@ -32,23 +33,23 @@ func convertFromStaticToDynamic(static interface{}) map[string]interface{} {
 
 func convertFromStaticToDynamicValue(staticValue interface{}) interface{} {
 	var v interface{}
-	switch staticValue.(type) {
+	switch sv := staticValue.(type) {
 	case *String:
-		v = staticValue.(*String).v
+		v = sv.v
 	case *Int:
-		v = staticValue.(*Int).v
+		v = sv.v
 	case *Bool:
-		v = staticValue.(*Bool).v
+		v = sv.v
 	case *Selection:
-		v = staticValue.(*Selection).v
+		v = sv.v
 	case *Time:
-		v = staticValue.(*Time).v.Format(datetimeFormat)
+		v = sv.v
 	case *Float:
-		v = staticValue.(*Float).v
+		v = sv.v
 	case *Many2One:
-		v = staticValue.(*Many2One).ID
+		v = sv.ID
 	case *Relation:
-		v = staticValue.(*Relation).v
+		v = sv.v
 	default:
 		v = staticValue
 	}
@@ -58,17 +59,19 @@ func convertFromStaticToDynamicValue(staticValue interface{}) interface{} {
 func convertFromDynamicToStatic(dynamic interface{}, static interface{}) error {
 	model := reflect.TypeOf(static).Elem()
 	var sv reflect.Value
-	switch dynamic.(type) {
+	switch d := dynamic.(type) {
 	case []interface{}:
 		if model.Kind() != reflect.Slice {
 			return fmt.Errorf("cannot convert dynamic model to static model %s", model.Name())
 		}
-		sv = convertFromDynamicToStaticSlice(dynamic.([]interface{}), model)
-	default:
+		sv = convertFromDynamicToStaticSlice(d, model)
+	case map[string]interface{}:
 		if model.Kind() == reflect.Slice {
 			return fmt.Errorf("cannot convert dynamic model to static model %s", model.Name())
 		}
-		sv = convertFromDynamicToStaticOne(dynamic.(map[string]interface{}), model)
+		sv = convertFromDynamicToStaticOne(d, model)
+	default:
+		return errors.New("cannot convert dynamic of this type")
 	}
 	reflect.ValueOf(static).Elem().Set(sv)
 	return nil
