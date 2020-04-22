@@ -184,6 +184,6 @@ func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Op
 
 ## Contributors
 
-Antoine Huret (<skilld-labs@skilld.cloud>)
+Antoine Huret (https://github.com/ahuret)
 
-Jean-Baptiste Guerraz (<jbguerraz@skilld.cloud>)
+Jean-Baptiste Guerraz (https://github.com/jbguerraz)
