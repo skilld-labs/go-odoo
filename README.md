@@ -2,10 +2,10 @@
 
 An Odoo API client enabling Go programs to interact with Odoo in a simple and uniform way.
 
-[![GitHub license](https://img.shields.io/github/license/ahuret/go-odoo.svg)](https://github.com/ahuret/go-odoo/blob/master/LICENSE)
-[![GoDoc](https://godoc.org/github.com/ahuret/go-odoo?status.svg)](https://pkg.go.dev/github.com/ahuret/go-odoo?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/ahuret/go-odoo)](https://goreportcard.com/report/github.com/ahuret/go-odoo)
-[![GitHub issues](https://img.shields.io/github/issues/ahuret/go-odoo.svg)](https://github.com/ahuret/go-odoo/issues)
+[![GitHub license](https://img.shields.io/github/license/skilld-labs/go-odoo.svg)](https://github.com/skilld-labs/go-odoo/blob/master/LICENSE)
+[![GoDoc](https://godoc.org/github.com/skilld-labs/go-odoo?status.svg)](https://pkg.go.dev/github.com/skilld-labs/go-odoo?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/skilld-labs/go-odoo)](https://goreportcard.com/report/github.com/skilld-labs/go-odoo)
+[![GitHub issues](https://img.shields.io/github/issues/skilld-labs/go-odoo.svg)](https://github.com/skilld-labs/go-odoo/issues)
 
 ## Usage
 
@@ -26,12 +26,12 @@ export ODOO_MODELS="crm.lead"
 
 `ODOO_REPO_PATH` is the path where the repository will be downloaded (by default its GOPATH):
 ```
-export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/ahuret/go-odoo
+export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/skilld-labs/go-odoo
 ```
 
 Download library and generate models :
 ```
-go get github.com/ahuret/go-odoo
+go get github.com/skilld-labs/go-odoo
 cd $ODOO_REPO_PATH
 ls | grep -v "conversion.go\|generator\|go.mod\|go-odoo-generator\|go.sum\|ir_model_fields.go\|ir_model.go\|LICENSE\|odoo.go\|README.md\|types.go\|version.go" // keep only go-odoo core files
 go generate
@@ -47,7 +47,7 @@ That's it ! Your models have been generated !
 package main
 	
 import (
-	odoo "github.com/ahuret/go-odoo"
+	odoo "github.com/skilld-labs/go-odoo"
 )
 
 func main() {
@@ -180,10 +180,10 @@ func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Op
 
 ## Issues
 
-- If you have an issue, please report it on the [issue tracker](https://github.com/ahuret/go-odoo/issues)
+- If you have an issue, please report it on the [issue tracker](https://github.com/skilld-labs/go-odoo/issues)
 
 ## Contributors
 
-Antoine Huret (<ahuret@skilld.cloud>)
+Antoine Huret (<skilld-labs@skilld.cloud>)
 
 Jean-Baptiste Guerraz (<jbguerraz@skilld.cloud>)
