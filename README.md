@@ -33,6 +33,7 @@ Download library and generate models :
 ```
 go get github.com/ahuret/go-odoo
 cd $ODOO_REPO_PATH
+ls | grep -v "conversion.go\|generator\|go.mod\|go-odoo-generator\|go.sum\|ir_model_fields.go\|ir_model.go\|LICENSE\|odoo.go\|README.md\|types.go\|version.go" // keep only go-odoo core files
 go generate
 ```
 
