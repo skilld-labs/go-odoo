@@ -41,7 +41,7 @@ func (c *Client) CreateAccountAccount(aa *AccountAccount) (int64, error) {
 	return c.Create(AccountAccountModel, aa)
 }
 
-// UpdateAccountAccount pdates an existing account.account record.
+// UpdateAccountAccount updates an existing account.account record.
 func (c *Client) UpdateAccountAccount(aa *AccountAccount) error {
 	return c.UpdateAccountAccounts([]int64{aa.Id.Get()}, aa)
 }
@@ -81,6 +81,18 @@ func (c *Client) GetAccountAccounts(ids []int64) (*AccountAccounts, error) {
 		return nil, err
 	}
 	return aas, nil
+}
+
+// FindAccountAccount finds account.account record by querying it with criteria
+func (c *Client) FindAccountAccount(criteria *Criteria) (*AccountAccount, error) {
+	aas := &AccountAccounts{}
+	if err := c.SearchRead(AccountAccountModel, criteria, NewOptions().Limit(1), aas); err != nil {
+		return nil, err
+	}
+	if aas != nil && len(*aas) > 0 {
+		return &((*aas)[0]), nil
+	}
+	return nil, fmt.Errorf("account.account was not found")
 }
 
 // FindAccountAccounts finds account.account records by querying it

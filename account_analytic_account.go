@@ -53,7 +53,7 @@ func (c *Client) CreateAccountAnalyticAccount(aaa *AccountAnalyticAccount) (int6
 	return c.Create(AccountAnalyticAccountModel, aaa)
 }
 
-// UpdateAccountAnalyticAccount pdates an existing account.analytic.account record.
+// UpdateAccountAnalyticAccount updates an existing account.analytic.account record.
 func (c *Client) UpdateAccountAnalyticAccount(aaa *AccountAnalyticAccount) error {
 	return c.UpdateAccountAnalyticAccounts([]int64{aaa.Id.Get()}, aaa)
 }
@@ -93,6 +93,18 @@ func (c *Client) GetAccountAnalyticAccounts(ids []int64) (*AccountAnalyticAccoun
 		return nil, err
 	}
 	return aaas, nil
+}
+
+// FindAccountAnalyticAccount finds account.analytic.account record by querying it with criteria
+func (c *Client) FindAccountAnalyticAccount(criteria *Criteria) (*AccountAnalyticAccount, error) {
+	aaas := &AccountAnalyticAccounts{}
+	if err := c.SearchRead(AccountAnalyticAccountModel, criteria, NewOptions().Limit(1), aaas); err != nil {
+		return nil, err
+	}
+	if aaas != nil && len(*aaas) > 0 {
+		return &((*aaas)[0]), nil
+	}
+	return nil, fmt.Errorf("account.analytic.account was not found")
 }
 
 // FindAccountAnalyticAccounts finds account.analytic.account records by querying it

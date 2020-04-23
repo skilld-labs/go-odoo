@@ -103,6 +103,7 @@ func (c *Client) GetCrmLeads(ids []int64) (*CrmLeads, error) {}
 Find is powerful and allow you to query a model and filter results. [Criteria and Options](#criteria-and-options)
 
 ```go
+func (c *Client) FindCrmLead(criteria *Criteria) (*CrmLead, error) {}
 func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, error) {}
 ```
 

@@ -150,7 +150,7 @@ func (c *Client) CreateResPartner(rp *ResPartner) (int64, error) {
 	return c.Create(ResPartnerModel, rp)
 }
 
-// UpdateResPartner pdates an existing res.partner record.
+// UpdateResPartner updates an existing res.partner record.
 func (c *Client) UpdateResPartner(rp *ResPartner) error {
 	return c.UpdateResPartners([]int64{rp.Id.Get()}, rp)
 }
@@ -190,6 +190,18 @@ func (c *Client) GetResPartners(ids []int64) (*ResPartners, error) {
 		return nil, err
 	}
 	return rps, nil
+}
+
+// FindResPartner finds res.partner record by querying it with criteria
+func (c *Client) FindResPartner(criteria *Criteria) (*ResPartner, error) {
+	rps := &ResPartners{}
+	if err := c.SearchRead(ResPartnerModel, criteria, NewOptions().Limit(1), rps); err != nil {
+		return nil, err
+	}
+	if rps != nil && len(*rps) > 0 {
+		return &((*rps)[0]), nil
+	}
+	return nil, fmt.Errorf("res.partner was not found")
 }
 
 // FindResPartners finds res.partner records by querying it

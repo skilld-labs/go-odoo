@@ -176,7 +176,7 @@ func (c *Client) CreateResUsers(ru *ResUsers) (int64, error) {
 	return c.Create(ResUsersModel, ru)
 }
 
-// UpdateResUsers pdates an existing res.users record.
+// UpdateResUsers updates an existing res.users record.
 func (c *Client) UpdateResUsers(ru *ResUsers) error {
 	return c.UpdateResUserss([]int64{ru.Id.Get()}, ru)
 }
@@ -216,6 +216,18 @@ func (c *Client) GetResUserss(ids []int64) (*ResUserss, error) {
 		return nil, err
 	}
 	return rus, nil
+}
+
+// FindResUsers finds res.users record by querying it with criteria
+func (c *Client) FindResUsers(criteria *Criteria) (*ResUsers, error) {
+	rus := &ResUserss{}
+	if err := c.SearchRead(ResUsersModel, criteria, NewOptions().Limit(1), rus); err != nil {
+		return nil, err
+	}
+	if rus != nil && len(*rus) > 0 {
+		return &((*rus)[0]), nil
+	}
+	return nil, fmt.Errorf("res.users was not found")
 }
 
 // FindResUserss finds res.users records by querying it

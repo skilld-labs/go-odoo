@@ -20,7 +20,7 @@ func (c *Client) Create{{.StructName}}({{.VarName}} *{{.StructName}}) (int64, er
 	return c.Create({{.StructName}}Model, {{.VarName}})
 }
 
-// Update{{.StructName}} pdates an existing {{ .Name }} record.
+// Update{{.StructName}} updates an existing {{ .Name }} record.
 func (c *Client) Update{{.StructName}}({{.VarName}} *{{.StructName}}) error {
 	return c.Update{{.StructName}}s([]int64{ {{.VarName}}.Id.Get() }, {{.VarName}})
 }
@@ -60,6 +60,18 @@ func (c *Client) Get{{.StructName}}s(ids []int64) (*{{.StructName}}s, error) {
 		return nil, err
 	}
 	return {{.VarsName}}, nil
+}
+
+// Find{{.StructName}} finds {{ .Name }} record by querying it with criteria
+func (c *Client) Find{{.StructName}}(criteria *Criteria) (*{{.StructName}}, error) {
+	{{.VarsName}} := &{{.StructName}}s{}
+	if err := c.SearchRead({{.StructName}}Model, criteria, NewOptions().Limit(1), {{.VarsName}}); err != nil {
+		return nil, err
+	}
+	if {{.VarsName}} != nil && len(*{{.VarsName}}) > 0 {
+		return &((*{{.VarsName}})[0]), nil
+	}
+	return nil, fmt.Errorf("{{ .Name }} was not found")
 }
 
 // Find{{.StructName}}s finds {{ .Name }} records by querying it 

@@ -41,7 +41,7 @@ func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, erro
 	return c.Create(ProductSupplierinfoModel, ps)
 }
 
-// UpdateProductSupplierinfo pdates an existing product.supplierinfo record.
+// UpdateProductSupplierinfo updates an existing product.supplierinfo record.
 func (c *Client) UpdateProductSupplierinfo(ps *ProductSupplierinfo) error {
 	return c.UpdateProductSupplierinfos([]int64{ps.Id.Get()}, ps)
 }
@@ -81,6 +81,18 @@ func (c *Client) GetProductSupplierinfos(ids []int64) (*ProductSupplierinfos, er
 		return nil, err
 	}
 	return pss, nil
+}
+
+// FindProductSupplierinfo finds product.supplierinfo record by querying it with criteria
+func (c *Client) FindProductSupplierinfo(criteria *Criteria) (*ProductSupplierinfo, error) {
+	pss := &ProductSupplierinfos{}
+	if err := c.SearchRead(ProductSupplierinfoModel, criteria, NewOptions().Limit(1), pss); err != nil {
+		return nil, err
+	}
+	if pss != nil && len(*pss) > 0 {
+		return &((*pss)[0]), nil
+	}
+	return nil, fmt.Errorf("product.supplierinfo was not found")
 }
 
 // FindProductSupplierinfos finds product.supplierinfo records by querying it

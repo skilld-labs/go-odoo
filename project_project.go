@@ -84,7 +84,7 @@ func (c *Client) CreateProjectProject(pp *ProjectProject) (int64, error) {
 	return c.Create(ProjectProjectModel, pp)
 }
 
-// UpdateProjectProject pdates an existing project.project record.
+// UpdateProjectProject updates an existing project.project record.
 func (c *Client) UpdateProjectProject(pp *ProjectProject) error {
 	return c.UpdateProjectProjects([]int64{pp.Id.Get()}, pp)
 }
@@ -124,6 +124,18 @@ func (c *Client) GetProjectProjects(ids []int64) (*ProjectProjects, error) {
 		return nil, err
 	}
 	return pps, nil
+}
+
+// FindProjectProject finds project.project record by querying it with criteria
+func (c *Client) FindProjectProject(criteria *Criteria) (*ProjectProject, error) {
+	pps := &ProjectProjects{}
+	if err := c.SearchRead(ProjectProjectModel, criteria, NewOptions().Limit(1), pps); err != nil {
+		return nil, err
+	}
+	if pps != nil && len(*pps) > 0 {
+		return &((*pps)[0]), nil
+	}
+	return nil, fmt.Errorf("project.project was not found")
 }
 
 // FindProjectProjects finds project.project records by querying it
