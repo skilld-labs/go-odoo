@@ -79,6 +79,11 @@ type ProjectProjects []ProjectProject
 // ProjectProjectModel is the odoo model name
 const ProjectProjectModel = "project.project"
 
+// Many2One convert ProjectProject to *Many2One.
+func (pp *ProjectProject) Many2One() *Many2One {
+	return NewMany2One(pp.Id.Get(), "")
+}
+
 // CreateProjectProject creates a new project.project model and returns its id.
 func (c *Client) CreateProjectProject(pp *ProjectProject) (int64, error) {
 	return c.Create(ProjectProjectModel, pp)

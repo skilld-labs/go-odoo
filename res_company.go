@@ -101,6 +101,11 @@ type ResCompanys []ResCompany
 // ResCompanyModel is the odoo model name
 const ResCompanyModel = "res.company"
 
+// Many2One convert ResCompany to *Many2One.
+func (rc *ResCompany) Many2One() *Many2One {
+	return NewMany2One(rc.Id.Get(), "")
+}
+
 // CreateResCompany creates a new res.company model and returns its id.
 func (c *Client) CreateResCompany(rc *ResCompany) (int64, error) {
 	return c.Create(ResCompanyModel, rc)

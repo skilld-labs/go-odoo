@@ -107,6 +107,12 @@ func (c *Client) FindCrmLead(criteria *Criteria) (*CrmLead, error) {}
 func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, error) {}
 ```
 
+### Conversion
+Generated models can be converted to `Many2One` easily.
+```go
+func (cl *CrmLead) Many2One() *Many2One {}
+```
+
 ## Types
 
 The library contains custom types to improve the usability :

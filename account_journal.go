@@ -55,6 +55,11 @@ type AccountJournals []AccountJournal
 // AccountJournalModel is the odoo model name
 const AccountJournalModel = "account.journal"
 
+// Many2One convert AccountJournal to *Many2One.
+func (aj *AccountJournal) Many2One() *Many2One {
+	return NewMany2One(aj.Id.Get(), "")
+}
+
 // CreateAccountJournal creates a new account.journal model and returns its id.
 func (c *Client) CreateAccountJournal(aj *AccountJournal) (int64, error) {
 	return c.Create(AccountJournalModel, aj)

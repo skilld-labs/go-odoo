@@ -132,6 +132,11 @@ type ProductProducts []ProductProduct
 // ProductProductModel is the odoo model name
 const ProductProductModel = "product.product"
 
+// Many2One convert ProductProduct to *Many2One.
+func (pp *ProductProduct) Many2One() *Many2One {
+	return NewMany2One(pp.Id.Get(), "")
+}
+
 // CreateProductProduct creates a new product.product model and returns its id.
 func (c *Client) CreateProductProduct(pp *ProductProduct) (int64, error) {
 	return c.Create(ProductProductModel, pp)

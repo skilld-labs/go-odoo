@@ -15,6 +15,11 @@ type {{.StructName}}s []{{.StructName}}
 // {{.StructName}}Model is the odoo model name 
 const {{.StructName}}Model = "{{ .Name }}"
 
+// Many2One convert {{.StructName}} to *Many2One.
+func ({{.VarName}} *{{.StructName}}) Many2One() *Many2One {
+	return NewMany2One({{.VarName}}.Id.Get(), "")
+}
+
 // Create{{.StructName}} creates a new {{ .Name }} model and returns its id.
 func (c *Client) Create{{.StructName}}({{.VarName}} *{{.StructName}}) (int64, error) {
 	return c.Create({{.StructName}}Model, {{.VarName}})

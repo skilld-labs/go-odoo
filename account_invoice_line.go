@@ -48,6 +48,11 @@ type AccountInvoiceLines []AccountInvoiceLine
 // AccountInvoiceLineModel is the odoo model name
 const AccountInvoiceLineModel = "account.invoice.line"
 
+// Many2One convert AccountInvoiceLine to *Many2One.
+func (ail *AccountInvoiceLine) Many2One() *Many2One {
+	return NewMany2One(ail.Id.Get(), "")
+}
+
 // CreateAccountInvoiceLine creates a new account.invoice.line model and returns its id.
 func (c *Client) CreateAccountInvoiceLine(ail *AccountInvoiceLine) (int64, error) {
 	return c.Create(AccountInvoiceLineModel, ail)

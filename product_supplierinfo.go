@@ -36,6 +36,11 @@ type ProductSupplierinfos []ProductSupplierinfo
 // ProductSupplierinfoModel is the odoo model name
 const ProductSupplierinfoModel = "product.supplierinfo"
 
+// Many2One convert ProductSupplierinfo to *Many2One.
+func (ps *ProductSupplierinfo) Many2One() *Many2One {
+	return NewMany2One(ps.Id.Get(), "")
+}
+
 // CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
 func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, error) {
 	return c.Create(ProductSupplierinfoModel, ps)

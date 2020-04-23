@@ -48,6 +48,11 @@ type AccountAnalyticAccounts []AccountAnalyticAccount
 // AccountAnalyticAccountModel is the odoo model name
 const AccountAnalyticAccountModel = "account.analytic.account"
 
+// Many2One convert AccountAnalyticAccount to *Many2One.
+func (aaa *AccountAnalyticAccount) Many2One() *Many2One {
+	return NewMany2One(aaa.Id.Get(), "")
+}
+
 // CreateAccountAnalyticAccount creates a new account.analytic.account model and returns its id.
 func (c *Client) CreateAccountAnalyticAccount(aaa *AccountAnalyticAccount) (int64, error) {
 	return c.Create(AccountAnalyticAccountModel, aaa)

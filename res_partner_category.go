@@ -29,6 +29,11 @@ type ResPartnerCategorys []ResPartnerCategory
 // ResPartnerCategoryModel is the odoo model name
 const ResPartnerCategoryModel = "res.partner.category"
 
+// Many2One convert ResPartnerCategory to *Many2One.
+func (rpc *ResPartnerCategory) Many2One() *Many2One {
+	return NewMany2One(rpc.Id.Get(), "")
+}
+
 // CreateResPartnerCategory creates a new res.partner.category model and returns its id.
 func (c *Client) CreateResPartnerCategory(rpc *ResPartnerCategory) (int64, error) {
 	return c.Create(ResPartnerCategoryModel, rpc)

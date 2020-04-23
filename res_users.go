@@ -171,6 +171,11 @@ type ResUserss []ResUsers
 // ResUsersModel is the odoo model name
 const ResUsersModel = "res.users"
 
+// Many2One convert ResUsers to *Many2One.
+func (ru *ResUsers) Many2One() *Many2One {
+	return NewMany2One(ru.Id.Get(), "")
+}
+
 // CreateResUsers creates a new res.users model and returns its id.
 func (c *Client) CreateResUsers(ru *ResUsers) (int64, error) {
 	return c.Create(ResUsersModel, ru)

@@ -36,6 +36,11 @@ type AccountAccounts []AccountAccount
 // AccountAccountModel is the odoo model name
 const AccountAccountModel = "account.account"
 
+// Many2One convert AccountAccount to *Many2One.
+func (aa *AccountAccount) Many2One() *Many2One {
+	return NewMany2One(aa.Id.Get(), "")
+}
+
 // CreateAccountAccount creates a new account.account model and returns its id.
 func (c *Client) CreateAccountAccount(aa *AccountAccount) (int64, error) {
 	return c.Create(AccountAccountModel, aa)

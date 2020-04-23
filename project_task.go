@@ -86,6 +86,11 @@ type ProjectTasks []ProjectTask
 // ProjectTaskModel is the odoo model name
 const ProjectTaskModel = "project.task"
 
+// Many2One convert ProjectTask to *Many2One.
+func (pt *ProjectTask) Many2One() *Many2One {
+	return NewMany2One(pt.Id.Get(), "")
+}
+
 // CreateProjectTask creates a new project.task model and returns its id.
 func (c *Client) CreateProjectTask(pt *ProjectTask) (int64, error) {
 	return c.Create(ProjectTaskModel, pt)

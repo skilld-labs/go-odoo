@@ -145,6 +145,11 @@ type ResPartners []ResPartner
 // ResPartnerModel is the odoo model name
 const ResPartnerModel = "res.partner"
 
+// Many2One convert ResPartner to *Many2One.
+func (rp *ResPartner) Many2One() *Many2One {
+	return NewMany2One(rp.Id.Get(), "")
+}
+
 // CreateResPartner creates a new res.partner model and returns its id.
 func (c *Client) CreateResPartner(rp *ResPartner) (int64, error) {
 	return c.Create(ResPartnerModel, rp)

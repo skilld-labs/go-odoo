@@ -49,6 +49,11 @@ type AccountAnalyticLines []AccountAnalyticLine
 // AccountAnalyticLineModel is the odoo model name
 const AccountAnalyticLineModel = "account.analytic.line"
 
+// Many2One convert AccountAnalyticLine to *Many2One.
+func (aal *AccountAnalyticLine) Many2One() *Many2One {
+	return NewMany2One(aal.Id.Get(), "")
+}
+
 // CreateAccountAnalyticLine creates a new account.analytic.line model and returns its id.
 func (c *Client) CreateAccountAnalyticLine(aal *AccountAnalyticLine) (int64, error) {
 	return c.Create(AccountAnalyticLineModel, aal)

@@ -102,6 +102,11 @@ type AccountInvoices []AccountInvoice
 // AccountInvoiceModel is the odoo model name
 const AccountInvoiceModel = "account.invoice"
 
+// Many2One convert AccountInvoice to *Many2One.
+func (ai *AccountInvoice) Many2One() *Many2One {
+	return NewMany2One(ai.Id.Get(), "")
+}
+
 // CreateAccountInvoice creates a new account.invoice model and returns its id.
 func (c *Client) CreateAccountInvoice(ai *AccountInvoice) (int64, error) {
 	return c.Create(AccountInvoiceModel, ai)
