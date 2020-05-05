@@ -175,7 +175,7 @@ func (r *Relation) RemoveRecord(record int64) {
 
 // AddRecord is an helper to add an existing record of one2many or many2many.
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
-func (r *Relation) AddRecord(record int) {
+func (r *Relation) AddRecord(record int64) {
 	r.v = append(r.v, newTuple(4, record, 0))
 }
 
