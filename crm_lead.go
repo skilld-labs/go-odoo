@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// CrmLead represents crm.lead model
+// CrmLead represents crm.lead model.
 type CrmLead struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
 	Active                   *Bool      `xmlrpc:"active,omptempty"`
@@ -87,10 +87,10 @@ type CrmLead struct {
 	Zip                      *String    `xmlrpc:"zip,omptempty"`
 }
 
-// CrmLeads represents array of crm.lead model
+// CrmLeads represents array of crm.lead model.
 type CrmLeads []CrmLead
 
-// CrmLeadModel is the odoo model name
+// CrmLeadModel is the odoo model name.
 const CrmLeadModel = "crm.lead"
 
 // Many2One convert CrmLead to *Many2One.
@@ -133,7 +133,7 @@ func (c *Client) GetCrmLead(id int64) (*CrmLead, error) {
 	if cls != nil && len(*cls) > 0 {
 		return &((*cls)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, CrmLeadModel)
+	return nil, fmt.Errorf("id %v of crm.lead was not found", id)
 }
 
 // GetCrmLeads gets crm.lead existing records.
@@ -145,7 +145,7 @@ func (c *Client) GetCrmLeads(ids []int64) (*CrmLeads, error) {
 	return cls, nil
 }
 
-// FindCrmLead finds crm.lead record by querying it with criteria
+// FindCrmLead finds crm.lead record by querying it with criteria.
 func (c *Client) FindCrmLead(criteria *Criteria) (*CrmLead, error) {
 	cls := &CrmLeads{}
 	if err := c.SearchRead(CrmLeadModel, criteria, NewOptions().Limit(1), cls); err != nil {
@@ -165,4 +165,26 @@ func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, 
 		return nil, err
 	}
 	return cls, nil
+}
+
+// FindCrmLeadIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindCrmLeadIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(CrmLeadModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindCrmLeadId finds record id by querying it with criteria.
+func (c *Client) FindCrmLeadId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(CrmLeadModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("crm.lead was not found")
 }

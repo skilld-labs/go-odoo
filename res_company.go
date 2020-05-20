@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ResCompany represents res.company model
+// ResCompany represents res.company model.
 type ResCompany struct {
 	LastUpdate                        *Time      `xmlrpc:"__last_update,omptempty"`
 	AccountInInvoiceNote              *String    `xmlrpc:"account_in_invoice_note,omptempty"`
@@ -95,10 +95,10 @@ type ResCompany struct {
 	Zip                               *String    `xmlrpc:"zip,omptempty"`
 }
 
-// ResCompanys represents array of res.company model
+// ResCompanys represents array of res.company model.
 type ResCompanys []ResCompany
 
-// ResCompanyModel is the odoo model name
+// ResCompanyModel is the odoo model name.
 const ResCompanyModel = "res.company"
 
 // Many2One convert ResCompany to *Many2One.
@@ -141,7 +141,7 @@ func (c *Client) GetResCompany(id int64) (*ResCompany, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ResCompanyModel)
+	return nil, fmt.Errorf("id %v of res.company was not found", id)
 }
 
 // GetResCompanys gets res.company existing records.
@@ -153,7 +153,7 @@ func (c *Client) GetResCompanys(ids []int64) (*ResCompanys, error) {
 	return rcs, nil
 }
 
-// FindResCompany finds res.company record by querying it with criteria
+// FindResCompany finds res.company record by querying it with criteria.
 func (c *Client) FindResCompany(criteria *Criteria) (*ResCompany, error) {
 	rcs := &ResCompanys{}
 	if err := c.SearchRead(ResCompanyModel, criteria, NewOptions().Limit(1), rcs); err != nil {
@@ -173,4 +173,26 @@ func (c *Client) FindResCompanys(criteria *Criteria, options *Options) (*ResComp
 		return nil, err
 	}
 	return rcs, nil
+}
+
+// FindResCompanyIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindResCompanyIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ResCompanyModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindResCompanyId finds record id by querying it with criteria.
+func (c *Client) FindResCompanyId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ResCompanyModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("res.company was not found")
 }

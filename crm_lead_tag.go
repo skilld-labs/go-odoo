@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// CrmLeadTag represents crm.lead.tag model
+// CrmLeadTag represents crm.lead.tag model.
 type CrmLeadTag struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
 	Color       *Int      `xmlrpc:"color,omptempty"`
@@ -17,10 +17,10 @@ type CrmLeadTag struct {
 	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
-// CrmLeadTags represents array of crm.lead.tag model
+// CrmLeadTags represents array of crm.lead.tag model.
 type CrmLeadTags []CrmLeadTag
 
-// CrmLeadTagModel is the odoo model name
+// CrmLeadTagModel is the odoo model name.
 const CrmLeadTagModel = "crm.lead.tag"
 
 // Many2One convert CrmLeadTag to *Many2One.
@@ -63,7 +63,7 @@ func (c *Client) GetCrmLeadTag(id int64) (*CrmLeadTag, error) {
 	if clts != nil && len(*clts) > 0 {
 		return &((*clts)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, CrmLeadTagModel)
+	return nil, fmt.Errorf("id %v of crm.lead.tag was not found", id)
 }
 
 // GetCrmLeadTags gets crm.lead.tag existing records.
@@ -75,7 +75,7 @@ func (c *Client) GetCrmLeadTags(ids []int64) (*CrmLeadTags, error) {
 	return clts, nil
 }
 
-// FindCrmLeadTag finds crm.lead.tag record by querying it with criteria
+// FindCrmLeadTag finds crm.lead.tag record by querying it with criteria.
 func (c *Client) FindCrmLeadTag(criteria *Criteria) (*CrmLeadTag, error) {
 	clts := &CrmLeadTags{}
 	if err := c.SearchRead(CrmLeadTagModel, criteria, NewOptions().Limit(1), clts); err != nil {
@@ -95,4 +95,26 @@ func (c *Client) FindCrmLeadTags(criteria *Criteria, options *Options) (*CrmLead
 		return nil, err
 	}
 	return clts, nil
+}
+
+// FindCrmLeadTagIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindCrmLeadTagIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(CrmLeadTagModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindCrmLeadTagId finds record id by querying it with criteria.
+func (c *Client) FindCrmLeadTagId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(CrmLeadTagModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("crm.lead.tag was not found")
 }

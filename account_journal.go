@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountJournal represents account.journal model
+// AccountJournal represents account.journal model.
 type AccountJournal struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
 	AccountControlIds        *Relation  `xmlrpc:"account_control_ids,omptempty"`
@@ -49,10 +49,10 @@ type AccountJournal struct {
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountJournals represents array of account.journal model
+// AccountJournals represents array of account.journal model.
 type AccountJournals []AccountJournal
 
-// AccountJournalModel is the odoo model name
+// AccountJournalModel is the odoo model name.
 const AccountJournalModel = "account.journal"
 
 // Many2One convert AccountJournal to *Many2One.
@@ -95,7 +95,7 @@ func (c *Client) GetAccountJournal(id int64) (*AccountJournal, error) {
 	if ajs != nil && len(*ajs) > 0 {
 		return &((*ajs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountJournalModel)
+	return nil, fmt.Errorf("id %v of account.journal was not found", id)
 }
 
 // GetAccountJournals gets account.journal existing records.
@@ -107,7 +107,7 @@ func (c *Client) GetAccountJournals(ids []int64) (*AccountJournals, error) {
 	return ajs, nil
 }
 
-// FindAccountJournal finds account.journal record by querying it with criteria
+// FindAccountJournal finds account.journal record by querying it with criteria.
 func (c *Client) FindAccountJournal(criteria *Criteria) (*AccountJournal, error) {
 	ajs := &AccountJournals{}
 	if err := c.SearchRead(AccountJournalModel, criteria, NewOptions().Limit(1), ajs); err != nil {
@@ -127,4 +127,26 @@ func (c *Client) FindAccountJournals(criteria *Criteria, options *Options) (*Acc
 		return nil, err
 	}
 	return ajs, nil
+}
+
+// FindAccountJournalIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountJournalIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountJournalModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountJournalId finds record id by querying it with criteria.
+func (c *Client) FindAccountJournalId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountJournalModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.journal was not found")
 }

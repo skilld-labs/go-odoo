@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ResPartner represents res.partner model
+// ResPartner represents res.partner model.
 type ResPartner struct {
 	LastUpdate                    *Time      `xmlrpc:"__last_update,omptempty"`
 	Active                        *Bool      `xmlrpc:"active,omptempty"`
@@ -139,10 +139,10 @@ type ResPartner struct {
 	Zip                           *String    `xmlrpc:"zip,omptempty"`
 }
 
-// ResPartners represents array of res.partner model
+// ResPartners represents array of res.partner model.
 type ResPartners []ResPartner
 
-// ResPartnerModel is the odoo model name
+// ResPartnerModel is the odoo model name.
 const ResPartnerModel = "res.partner"
 
 // Many2One convert ResPartner to *Many2One.
@@ -185,7 +185,7 @@ func (c *Client) GetResPartner(id int64) (*ResPartner, error) {
 	if rps != nil && len(*rps) > 0 {
 		return &((*rps)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ResPartnerModel)
+	return nil, fmt.Errorf("id %v of res.partner was not found", id)
 }
 
 // GetResPartners gets res.partner existing records.
@@ -197,7 +197,7 @@ func (c *Client) GetResPartners(ids []int64) (*ResPartners, error) {
 	return rps, nil
 }
 
-// FindResPartner finds res.partner record by querying it with criteria
+// FindResPartner finds res.partner record by querying it with criteria.
 func (c *Client) FindResPartner(criteria *Criteria) (*ResPartner, error) {
 	rps := &ResPartners{}
 	if err := c.SearchRead(ResPartnerModel, criteria, NewOptions().Limit(1), rps); err != nil {
@@ -217,4 +217,26 @@ func (c *Client) FindResPartners(criteria *Criteria, options *Options) (*ResPart
 		return nil, err
 	}
 	return rps, nil
+}
+
+// FindResPartnerIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindResPartnerIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ResPartnerModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindResPartnerId finds record id by querying it with criteria.
+func (c *Client) FindResPartnerId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ResPartnerModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("res.partner was not found")
 }

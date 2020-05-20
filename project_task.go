@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ProjectTask represents project.task model
+// ProjectTask represents project.task model.
 type ProjectTask struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
 	Active                   *Bool      `xmlrpc:"active,omptempty"`
@@ -80,10 +80,10 @@ type ProjectTask struct {
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
-// ProjectTasks represents array of project.task model
+// ProjectTasks represents array of project.task model.
 type ProjectTasks []ProjectTask
 
-// ProjectTaskModel is the odoo model name
+// ProjectTaskModel is the odoo model name.
 const ProjectTaskModel = "project.task"
 
 // Many2One convert ProjectTask to *Many2One.
@@ -126,7 +126,7 @@ func (c *Client) GetProjectTask(id int64) (*ProjectTask, error) {
 	if pts != nil && len(*pts) > 0 {
 		return &((*pts)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ProjectTaskModel)
+	return nil, fmt.Errorf("id %v of project.task was not found", id)
 }
 
 // GetProjectTasks gets project.task existing records.
@@ -138,7 +138,7 @@ func (c *Client) GetProjectTasks(ids []int64) (*ProjectTasks, error) {
 	return pts, nil
 }
 
-// FindProjectTask finds project.task record by querying it with criteria
+// FindProjectTask finds project.task record by querying it with criteria.
 func (c *Client) FindProjectTask(criteria *Criteria) (*ProjectTask, error) {
 	pts := &ProjectTasks{}
 	if err := c.SearchRead(ProjectTaskModel, criteria, NewOptions().Limit(1), pts); err != nil {
@@ -158,4 +158,26 @@ func (c *Client) FindProjectTasks(criteria *Criteria, options *Options) (*Projec
 		return nil, err
 	}
 	return pts, nil
+}
+
+// FindProjectTaskIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindProjectTaskIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ProjectTaskModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindProjectTaskId finds record id by querying it with criteria.
+func (c *Client) FindProjectTaskId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ProjectTaskModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("project.task was not found")
 }

@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountInvoice represents account.invoice model
+// AccountInvoice represents account.invoice model.
 type AccountInvoice struct {
 	LastUpdate                     *Time      `xmlrpc:"__last_update,omptempty"`
 	AccessToken                    *String    `xmlrpc:"access_token,omptempty"`
@@ -96,10 +96,10 @@ type AccountInvoice struct {
 	WriteUid                       *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountInvoices represents array of account.invoice model
+// AccountInvoices represents array of account.invoice model.
 type AccountInvoices []AccountInvoice
 
-// AccountInvoiceModel is the odoo model name
+// AccountInvoiceModel is the odoo model name.
 const AccountInvoiceModel = "account.invoice"
 
 // Many2One convert AccountInvoice to *Many2One.
@@ -142,7 +142,7 @@ func (c *Client) GetAccountInvoice(id int64) (*AccountInvoice, error) {
 	if ais != nil && len(*ais) > 0 {
 		return &((*ais)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountInvoiceModel)
+	return nil, fmt.Errorf("id %v of account.invoice was not found", id)
 }
 
 // GetAccountInvoices gets account.invoice existing records.
@@ -154,7 +154,7 @@ func (c *Client) GetAccountInvoices(ids []int64) (*AccountInvoices, error) {
 	return ais, nil
 }
 
-// FindAccountInvoice finds account.invoice record by querying it with criteria
+// FindAccountInvoice finds account.invoice record by querying it with criteria.
 func (c *Client) FindAccountInvoice(criteria *Criteria) (*AccountInvoice, error) {
 	ais := &AccountInvoices{}
 	if err := c.SearchRead(AccountInvoiceModel, criteria, NewOptions().Limit(1), ais); err != nil {
@@ -174,4 +174,26 @@ func (c *Client) FindAccountInvoices(criteria *Criteria, options *Options) (*Acc
 		return nil, err
 	}
 	return ais, nil
+}
+
+// FindAccountInvoiceIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountInvoiceIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountInvoiceModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountInvoiceId finds record id by querying it with criteria.
+func (c *Client) FindAccountInvoiceId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountInvoiceModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.invoice was not found")
 }

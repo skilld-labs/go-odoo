@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ResUsers represents res.users model
+// ResUsers represents res.users model.
 type ResUsers struct {
 	LastUpdate                    *Time      `xmlrpc:"__last_update,omptempty"`
 	ActionId                      *Many2One  `xmlrpc:"action_id,omptempty"`
@@ -165,10 +165,10 @@ type ResUsers struct {
 	Zip                           *String    `xmlrpc:"zip,omptempty"`
 }
 
-// ResUserss represents array of res.users model
+// ResUserss represents array of res.users model.
 type ResUserss []ResUsers
 
-// ResUsersModel is the odoo model name
+// ResUsersModel is the odoo model name.
 const ResUsersModel = "res.users"
 
 // Many2One convert ResUsers to *Many2One.
@@ -211,7 +211,7 @@ func (c *Client) GetResUsers(id int64) (*ResUsers, error) {
 	if rus != nil && len(*rus) > 0 {
 		return &((*rus)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ResUsersModel)
+	return nil, fmt.Errorf("id %v of res.users was not found", id)
 }
 
 // GetResUserss gets res.users existing records.
@@ -223,7 +223,7 @@ func (c *Client) GetResUserss(ids []int64) (*ResUserss, error) {
 	return rus, nil
 }
 
-// FindResUsers finds res.users record by querying it with criteria
+// FindResUsers finds res.users record by querying it with criteria.
 func (c *Client) FindResUsers(criteria *Criteria) (*ResUsers, error) {
 	rus := &ResUserss{}
 	if err := c.SearchRead(ResUsersModel, criteria, NewOptions().Limit(1), rus); err != nil {
@@ -243,4 +243,26 @@ func (c *Client) FindResUserss(criteria *Criteria, options *Options) (*ResUserss
 		return nil, err
 	}
 	return rus, nil
+}
+
+// FindResUsersIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindResUsersIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ResUsersModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindResUsersId finds record id by querying it with criteria.
+func (c *Client) FindResUsersId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ResUsersModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("res.users was not found")
 }

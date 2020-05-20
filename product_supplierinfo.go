@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ProductSupplierinfo represents product.supplierinfo model
+// ProductSupplierinfo represents product.supplierinfo model.
 type ProductSupplierinfo struct {
 	LastUpdate          *Time     `xmlrpc:"__last_update,omptempty"`
 	CompanyId           *Many2One `xmlrpc:"company_id,omptempty"`
@@ -30,10 +30,10 @@ type ProductSupplierinfo struct {
 	WriteUid            *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
-// ProductSupplierinfos represents array of product.supplierinfo model
+// ProductSupplierinfos represents array of product.supplierinfo model.
 type ProductSupplierinfos []ProductSupplierinfo
 
-// ProductSupplierinfoModel is the odoo model name
+// ProductSupplierinfoModel is the odoo model name.
 const ProductSupplierinfoModel = "product.supplierinfo"
 
 // Many2One convert ProductSupplierinfo to *Many2One.
@@ -76,7 +76,7 @@ func (c *Client) GetProductSupplierinfo(id int64) (*ProductSupplierinfo, error) 
 	if pss != nil && len(*pss) > 0 {
 		return &((*pss)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ProductSupplierinfoModel)
+	return nil, fmt.Errorf("id %v of product.supplierinfo was not found", id)
 }
 
 // GetProductSupplierinfos gets product.supplierinfo existing records.
@@ -88,7 +88,7 @@ func (c *Client) GetProductSupplierinfos(ids []int64) (*ProductSupplierinfos, er
 	return pss, nil
 }
 
-// FindProductSupplierinfo finds product.supplierinfo record by querying it with criteria
+// FindProductSupplierinfo finds product.supplierinfo record by querying it with criteria.
 func (c *Client) FindProductSupplierinfo(criteria *Criteria) (*ProductSupplierinfo, error) {
 	pss := &ProductSupplierinfos{}
 	if err := c.SearchRead(ProductSupplierinfoModel, criteria, NewOptions().Limit(1), pss); err != nil {
@@ -108,4 +108,26 @@ func (c *Client) FindProductSupplierinfos(criteria *Criteria, options *Options) 
 		return nil, err
 	}
 	return pss, nil
+}
+
+// FindProductSupplierinfoIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindProductSupplierinfoIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ProductSupplierinfoModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindProductSupplierinfoId finds record id by querying it with criteria.
+func (c *Client) FindProductSupplierinfoId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ProductSupplierinfoModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("product.supplierinfo was not found")
 }

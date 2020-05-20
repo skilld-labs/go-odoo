@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// ProjectProject represents project.project model
+// ProjectProject represents project.project model.
 type ProjectProject struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
 	Active                   *Bool      `xmlrpc:"active,omptempty"`
@@ -73,10 +73,10 @@ type ProjectProject struct {
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
-// ProjectProjects represents array of project.project model
+// ProjectProjects represents array of project.project model.
 type ProjectProjects []ProjectProject
 
-// ProjectProjectModel is the odoo model name
+// ProjectProjectModel is the odoo model name.
 const ProjectProjectModel = "project.project"
 
 // Many2One convert ProjectProject to *Many2One.
@@ -119,7 +119,7 @@ func (c *Client) GetProjectProject(id int64) (*ProjectProject, error) {
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, ProjectProjectModel)
+	return nil, fmt.Errorf("id %v of project.project was not found", id)
 }
 
 // GetProjectProjects gets project.project existing records.
@@ -131,7 +131,7 @@ func (c *Client) GetProjectProjects(ids []int64) (*ProjectProjects, error) {
 	return pps, nil
 }
 
-// FindProjectProject finds project.project record by querying it with criteria
+// FindProjectProject finds project.project record by querying it with criteria.
 func (c *Client) FindProjectProject(criteria *Criteria) (*ProjectProject, error) {
 	pps := &ProjectProjects{}
 	if err := c.SearchRead(ProjectProjectModel, criteria, NewOptions().Limit(1), pps); err != nil {
@@ -151,4 +151,26 @@ func (c *Client) FindProjectProjects(criteria *Criteria, options *Options) (*Pro
 		return nil, err
 	}
 	return pps, nil
+}
+
+// FindProjectProjectIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindProjectProjectIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(ProjectProjectModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindProjectProjectId finds record id by querying it with criteria.
+func (c *Client) FindProjectProjectId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(ProjectProjectModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("project.project was not found")
 }

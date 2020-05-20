@@ -4,15 +4,15 @@ import (
 	"fmt"
 )
 
-// {{.StructName}} represents {{ .Name }} model
+// {{.StructName}} represents {{ .Name }} model.
 type {{.StructName}} struct { {{range .Fields}}
 	{{.VarName}} {{.Type}} `xmlrpc:"{{.Name}},omptempty"`{{end }}
 }
 
-// {{.StructName}}s represents array of {{ .Name }} model
+// {{.StructName}}s represents array of {{ .Name }} model.
 type {{.StructName}}s []{{.StructName}}
 
-// {{.StructName}}Model is the odoo model name 
+// {{.StructName}}Model is the odoo model name.
 const {{.StructName}}Model = "{{ .Name }}"
 
 // Many2One convert {{.StructName}} to *Many2One.
@@ -55,7 +55,7 @@ func (c *Client) Get{{.StructName}}(id int64) (*{{.StructName}}, error) {
 	if {{.VarsName}} != nil && len(*{{.VarsName}}) > 0 {
 		return &((*{{.VarsName}})[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, {{.StructName}}Model)
+	return nil, fmt.Errorf("id %v of {{ .Name }} was not found", id)
 }
 
 // Get{{.StructName}}s gets {{ .Name }} existing records.
@@ -67,7 +67,7 @@ func (c *Client) Get{{.StructName}}s(ids []int64) (*{{.StructName}}s, error) {
 	return {{.VarsName}}, nil
 }
 
-// Find{{.StructName}} finds {{ .Name }} record by querying it with criteria
+// Find{{.StructName}} finds {{ .Name }} record by querying it with criteria.
 func (c *Client) Find{{.StructName}}(criteria *Criteria) (*{{.StructName}}, error) {
 	{{.VarsName}} := &{{.StructName}}s{}
 	if err := c.SearchRead({{.StructName}}Model, criteria, NewOptions().Limit(1), {{.VarsName}}); err != nil {
@@ -87,4 +87,26 @@ func (c *Client) Find{{.StructName}}s(criteria *Criteria, options *Options) (*{{
 		return nil, err
 	}
 	return {{.VarsName}}, nil
+}
+
+// Find{{.StructName}}Ids finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) Find{{.StructName}}Ids(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search({{.StructName}}Model, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// Find{{.StructName}}Id finds record id by querying it with criteria.
+func (c *Client) Find{{.StructName}}Id(criteria *Criteria) (int64, error) {
+	ids, err := c.Search({{.StructName}}Model, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("{{ .Name }} was not found")
 }

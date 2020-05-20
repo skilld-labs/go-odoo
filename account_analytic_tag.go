@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountAnalyticTag represents account.analytic.tag model
+// AccountAnalyticTag represents account.analytic.tag model.
 type AccountAnalyticTag struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
 	Active      *Bool     `xmlrpc:"active,omptempty"`
@@ -18,10 +18,10 @@ type AccountAnalyticTag struct {
 	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountAnalyticTags represents array of account.analytic.tag model
+// AccountAnalyticTags represents array of account.analytic.tag model.
 type AccountAnalyticTags []AccountAnalyticTag
 
-// AccountAnalyticTagModel is the odoo model name
+// AccountAnalyticTagModel is the odoo model name.
 const AccountAnalyticTagModel = "account.analytic.tag"
 
 // Many2One convert AccountAnalyticTag to *Many2One.
@@ -64,7 +64,7 @@ func (c *Client) GetAccountAnalyticTag(id int64) (*AccountAnalyticTag, error) {
 	if aats != nil && len(*aats) > 0 {
 		return &((*aats)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountAnalyticTagModel)
+	return nil, fmt.Errorf("id %v of account.analytic.tag was not found", id)
 }
 
 // GetAccountAnalyticTags gets account.analytic.tag existing records.
@@ -76,7 +76,7 @@ func (c *Client) GetAccountAnalyticTags(ids []int64) (*AccountAnalyticTags, erro
 	return aats, nil
 }
 
-// FindAccountAnalyticTag finds account.analytic.tag record by querying it with criteria
+// FindAccountAnalyticTag finds account.analytic.tag record by querying it with criteria.
 func (c *Client) FindAccountAnalyticTag(criteria *Criteria) (*AccountAnalyticTag, error) {
 	aats := &AccountAnalyticTags{}
 	if err := c.SearchRead(AccountAnalyticTagModel, criteria, NewOptions().Limit(1), aats); err != nil {
@@ -96,4 +96,26 @@ func (c *Client) FindAccountAnalyticTags(criteria *Criteria, options *Options) (
 		return nil, err
 	}
 	return aats, nil
+}
+
+// FindAccountAnalyticTagIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountAnalyticTagIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountAnalyticTagModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountAnalyticTagId finds record id by querying it with criteria.
+func (c *Client) FindAccountAnalyticTagId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountAnalyticTagModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.analytic.tag was not found")
 }

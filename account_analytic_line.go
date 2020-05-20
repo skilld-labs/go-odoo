@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountAnalyticLine represents account.analytic.line model
+// AccountAnalyticLine represents account.analytic.line model.
 type AccountAnalyticLine struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
 	AccountId              *Many2One  `xmlrpc:"account_id,omptempty"`
@@ -43,10 +43,10 @@ type AccountAnalyticLine struct {
 	WriteUid               *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountAnalyticLines represents array of account.analytic.line model
+// AccountAnalyticLines represents array of account.analytic.line model.
 type AccountAnalyticLines []AccountAnalyticLine
 
-// AccountAnalyticLineModel is the odoo model name
+// AccountAnalyticLineModel is the odoo model name.
 const AccountAnalyticLineModel = "account.analytic.line"
 
 // Many2One convert AccountAnalyticLine to *Many2One.
@@ -89,7 +89,7 @@ func (c *Client) GetAccountAnalyticLine(id int64) (*AccountAnalyticLine, error) 
 	if aals != nil && len(*aals) > 0 {
 		return &((*aals)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountAnalyticLineModel)
+	return nil, fmt.Errorf("id %v of account.analytic.line was not found", id)
 }
 
 // GetAccountAnalyticLines gets account.analytic.line existing records.
@@ -101,7 +101,7 @@ func (c *Client) GetAccountAnalyticLines(ids []int64) (*AccountAnalyticLines, er
 	return aals, nil
 }
 
-// FindAccountAnalyticLine finds account.analytic.line record by querying it with criteria
+// FindAccountAnalyticLine finds account.analytic.line record by querying it with criteria.
 func (c *Client) FindAccountAnalyticLine(criteria *Criteria) (*AccountAnalyticLine, error) {
 	aals := &AccountAnalyticLines{}
 	if err := c.SearchRead(AccountAnalyticLineModel, criteria, NewOptions().Limit(1), aals); err != nil {
@@ -121,4 +121,26 @@ func (c *Client) FindAccountAnalyticLines(criteria *Criteria, options *Options) 
 		return nil, err
 	}
 	return aals, nil
+}
+
+// FindAccountAnalyticLineIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountAnalyticLineIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountAnalyticLineModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountAnalyticLineId finds record id by querying it with criteria.
+func (c *Client) FindAccountAnalyticLineId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountAnalyticLineModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.analytic.line was not found")
 }

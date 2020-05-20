@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountInvoiceLine represents account.invoice.line model
+// AccountInvoiceLine represents account.invoice.line model.
 type AccountInvoiceLine struct {
 	LastUpdate             *Time     `xmlrpc:"__last_update,omptempty"`
 	AccountAnalyticId      *Many2One `xmlrpc:"account_analytic_id,omptempty"`
@@ -42,10 +42,10 @@ type AccountInvoiceLine struct {
 	WriteUid               *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountInvoiceLines represents array of account.invoice.line model
+// AccountInvoiceLines represents array of account.invoice.line model.
 type AccountInvoiceLines []AccountInvoiceLine
 
-// AccountInvoiceLineModel is the odoo model name
+// AccountInvoiceLineModel is the odoo model name.
 const AccountInvoiceLineModel = "account.invoice.line"
 
 // Many2One convert AccountInvoiceLine to *Many2One.
@@ -88,7 +88,7 @@ func (c *Client) GetAccountInvoiceLine(id int64) (*AccountInvoiceLine, error) {
 	if ails != nil && len(*ails) > 0 {
 		return &((*ails)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountInvoiceLineModel)
+	return nil, fmt.Errorf("id %v of account.invoice.line was not found", id)
 }
 
 // GetAccountInvoiceLines gets account.invoice.line existing records.
@@ -100,7 +100,7 @@ func (c *Client) GetAccountInvoiceLines(ids []int64) (*AccountInvoiceLines, erro
 	return ails, nil
 }
 
-// FindAccountInvoiceLine finds account.invoice.line record by querying it with criteria
+// FindAccountInvoiceLine finds account.invoice.line record by querying it with criteria.
 func (c *Client) FindAccountInvoiceLine(criteria *Criteria) (*AccountInvoiceLine, error) {
 	ails := &AccountInvoiceLines{}
 	if err := c.SearchRead(AccountInvoiceLineModel, criteria, NewOptions().Limit(1), ails); err != nil {
@@ -120,4 +120,26 @@ func (c *Client) FindAccountInvoiceLines(criteria *Criteria, options *Options) (
 		return nil, err
 	}
 	return ails, nil
+}
+
+// FindAccountInvoiceLineIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountInvoiceLineIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountInvoiceLineModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountInvoiceLineId finds record id by querying it with criteria.
+func (c *Client) FindAccountInvoiceLineId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountInvoiceLineModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.invoice.line was not found")
 }

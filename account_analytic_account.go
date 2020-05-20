@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-// AccountAnalyticAccount represents account.analytic.account model
+// AccountAnalyticAccount represents account.analytic.account model.
 type AccountAnalyticAccount struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
 	Active                   *Bool     `xmlrpc:"active,omptempty"`
@@ -42,10 +42,10 @@ type AccountAnalyticAccount struct {
 	WriteUid                 *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
-// AccountAnalyticAccounts represents array of account.analytic.account model
+// AccountAnalyticAccounts represents array of account.analytic.account model.
 type AccountAnalyticAccounts []AccountAnalyticAccount
 
-// AccountAnalyticAccountModel is the odoo model name
+// AccountAnalyticAccountModel is the odoo model name.
 const AccountAnalyticAccountModel = "account.analytic.account"
 
 // Many2One convert AccountAnalyticAccount to *Many2One.
@@ -88,7 +88,7 @@ func (c *Client) GetAccountAnalyticAccount(id int64) (*AccountAnalyticAccount, e
 	if aaas != nil && len(*aaas) > 0 {
 		return &((*aaas)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, AccountAnalyticAccountModel)
+	return nil, fmt.Errorf("id %v of account.analytic.account was not found", id)
 }
 
 // GetAccountAnalyticAccounts gets account.analytic.account existing records.
@@ -100,7 +100,7 @@ func (c *Client) GetAccountAnalyticAccounts(ids []int64) (*AccountAnalyticAccoun
 	return aaas, nil
 }
 
-// FindAccountAnalyticAccount finds account.analytic.account record by querying it with criteria
+// FindAccountAnalyticAccount finds account.analytic.account record by querying it with criteria.
 func (c *Client) FindAccountAnalyticAccount(criteria *Criteria) (*AccountAnalyticAccount, error) {
 	aaas := &AccountAnalyticAccounts{}
 	if err := c.SearchRead(AccountAnalyticAccountModel, criteria, NewOptions().Limit(1), aaas); err != nil {
@@ -120,4 +120,26 @@ func (c *Client) FindAccountAnalyticAccounts(criteria *Criteria, options *Option
 		return nil, err
 	}
 	return aaas, nil
+}
+
+// FindAccountAnalyticAccountIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindAccountAnalyticAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(AccountAnalyticAccountModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindAccountAnalyticAccountId finds record id by querying it with criteria.
+func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria) (int64, error) {
+	ids, err := c.Search(AccountAnalyticAccountModel, criteria, NewOptions().Limit(1))
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("account.analytic.account was not found")
 }
