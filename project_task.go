@@ -126,7 +126,7 @@ func (c *Client) GetProjectTask(id int64) (*ProjectTask, error) {
 	if pts != nil && len(*pts) > 0 {
 		return &((*pts)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of project.task was not found", id)
+	return nil, fmt.Errorf("id %v of project.task not found", id)
 }
 
 // GetProjectTasks gets project.task existing records.
@@ -171,8 +171,8 @@ func (c *Client) FindProjectTaskIds(criteria *Criteria, options *Options) ([]int
 }
 
 // FindProjectTaskId finds record id by querying it with criteria.
-func (c *Client) FindProjectTaskId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ProjectTaskModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindProjectTaskId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ProjectTaskModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

@@ -211,7 +211,7 @@ func (c *Client) GetResUsers(id int64) (*ResUsers, error) {
 	if rus != nil && len(*rus) > 0 {
 		return &((*rus)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of res.users was not found", id)
+	return nil, fmt.Errorf("id %v of res.users not found", id)
 }
 
 // GetResUserss gets res.users existing records.
@@ -256,8 +256,8 @@ func (c *Client) FindResUsersIds(criteria *Criteria, options *Options) ([]int64,
 }
 
 // FindResUsersId finds record id by querying it with criteria.
-func (c *Client) FindResUsersId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ResUsersModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindResUsersId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ResUsersModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

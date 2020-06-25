@@ -89,7 +89,7 @@ func (c *Client) GetAccountAnalyticLine(id int64) (*AccountAnalyticLine, error) 
 	if aals != nil && len(*aals) > 0 {
 		return &((*aals)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.analytic.line was not found", id)
+	return nil, fmt.Errorf("id %v of account.analytic.line not found", id)
 }
 
 // GetAccountAnalyticLines gets account.analytic.line existing records.
@@ -134,8 +134,8 @@ func (c *Client) FindAccountAnalyticLineIds(criteria *Criteria, options *Options
 }
 
 // FindAccountAnalyticLineId finds record id by querying it with criteria.
-func (c *Client) FindAccountAnalyticLineId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountAnalyticLineModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountAnalyticLineId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountAnalyticLineModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

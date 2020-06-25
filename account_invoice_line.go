@@ -88,7 +88,7 @@ func (c *Client) GetAccountInvoiceLine(id int64) (*AccountInvoiceLine, error) {
 	if ails != nil && len(*ails) > 0 {
 		return &((*ails)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.invoice.line was not found", id)
+	return nil, fmt.Errorf("id %v of account.invoice.line not found", id)
 }
 
 // GetAccountInvoiceLines gets account.invoice.line existing records.
@@ -133,8 +133,8 @@ func (c *Client) FindAccountInvoiceLineIds(criteria *Criteria, options *Options)
 }
 
 // FindAccountInvoiceLineId finds record id by querying it with criteria.
-func (c *Client) FindAccountInvoiceLineId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountInvoiceLineModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountInvoiceLineId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountInvoiceLineModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

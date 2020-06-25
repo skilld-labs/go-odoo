@@ -119,7 +119,7 @@ func (c *Client) GetProjectProject(id int64) (*ProjectProject, error) {
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of project.project was not found", id)
+	return nil, fmt.Errorf("id %v of project.project not found", id)
 }
 
 // GetProjectProjects gets project.project existing records.
@@ -164,8 +164,8 @@ func (c *Client) FindProjectProjectIds(criteria *Criteria, options *Options) ([]
 }
 
 // FindProjectProjectId finds record id by querying it with criteria.
-func (c *Client) FindProjectProjectId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ProjectProjectModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindProjectProjectId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ProjectProjectModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

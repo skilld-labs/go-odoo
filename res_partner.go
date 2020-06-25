@@ -185,7 +185,7 @@ func (c *Client) GetResPartner(id int64) (*ResPartner, error) {
 	if rps != nil && len(*rps) > 0 {
 		return &((*rps)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of res.partner was not found", id)
+	return nil, fmt.Errorf("id %v of res.partner not found", id)
 }
 
 // GetResPartners gets res.partner existing records.
@@ -230,8 +230,8 @@ func (c *Client) FindResPartnerIds(criteria *Criteria, options *Options) ([]int6
 }
 
 // FindResPartnerId finds record id by querying it with criteria.
-func (c *Client) FindResPartnerId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ResPartnerModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindResPartnerId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ResPartnerModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

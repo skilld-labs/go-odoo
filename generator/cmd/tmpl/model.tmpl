@@ -1,4 +1,4 @@
-package odoo 
+package odoo
 
 import (
 	"fmt"
@@ -55,7 +55,7 @@ func (c *Client) Get{{.StructName}}(id int64) (*{{.StructName}}, error) {
 	if {{.VarsName}} != nil && len(*{{.VarsName}}) > 0 {
 		return &((*{{.VarsName}})[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of {{ .Name }} was not found", id)
+	return nil, fmt.Errorf("id %v of {{.Name}} not found", id)
 }
 
 // Get{{.StructName}}s gets {{ .Name }} existing records.
@@ -79,7 +79,7 @@ func (c *Client) Find{{.StructName}}(criteria *Criteria) (*{{.StructName}}, erro
 	return nil, fmt.Errorf("{{ .Name }} was not found")
 }
 
-// Find{{.StructName}}s finds {{ .Name }} records by querying it 
+// Find{{.StructName}}s finds {{ .Name }} records by querying it
 // and filtering it with criteria and options.
 func (c *Client) Find{{.StructName}}s(criteria *Criteria, options *Options) (*{{.StructName}}s, error) {
 	{{.VarsName}} := &{{.StructName}}s{}
@@ -100,8 +100,8 @@ func (c *Client) Find{{.StructName}}Ids(criteria *Criteria, options *Options) ([
 }
 
 // Find{{.StructName}}Id finds record id by querying it with criteria.
-func (c *Client) Find{{.StructName}}Id(criteria *Criteria) (int64, error) {
-	ids, err := c.Search({{.StructName}}Model, criteria, NewOptions().Limit(1))
+func (c *Client) Find{{.StructName}}Id(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search({{.StructName}}Model, criteria, options)
 	if err != nil {
 		return -1, err
 	}

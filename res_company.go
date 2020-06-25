@@ -141,7 +141,7 @@ func (c *Client) GetResCompany(id int64) (*ResCompany, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of res.company was not found", id)
+	return nil, fmt.Errorf("id %v of res.company not found", id)
 }
 
 // GetResCompanys gets res.company existing records.
@@ -186,8 +186,8 @@ func (c *Client) FindResCompanyIds(criteria *Criteria, options *Options) ([]int6
 }
 
 // FindResCompanyId finds record id by querying it with criteria.
-func (c *Client) FindResCompanyId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ResCompanyModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindResCompanyId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ResCompanyModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

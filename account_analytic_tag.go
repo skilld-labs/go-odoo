@@ -64,7 +64,7 @@ func (c *Client) GetAccountAnalyticTag(id int64) (*AccountAnalyticTag, error) {
 	if aats != nil && len(*aats) > 0 {
 		return &((*aats)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.analytic.tag was not found", id)
+	return nil, fmt.Errorf("id %v of account.analytic.tag not found", id)
 }
 
 // GetAccountAnalyticTags gets account.analytic.tag existing records.
@@ -109,8 +109,8 @@ func (c *Client) FindAccountAnalyticTagIds(criteria *Criteria, options *Options)
 }
 
 // FindAccountAnalyticTagId finds record id by querying it with criteria.
-func (c *Client) FindAccountAnalyticTagId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountAnalyticTagModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountAnalyticTagId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountAnalyticTagModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

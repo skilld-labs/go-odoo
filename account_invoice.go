@@ -142,7 +142,7 @@ func (c *Client) GetAccountInvoice(id int64) (*AccountInvoice, error) {
 	if ais != nil && len(*ais) > 0 {
 		return &((*ais)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.invoice was not found", id)
+	return nil, fmt.Errorf("id %v of account.invoice not found", id)
 }
 
 // GetAccountInvoices gets account.invoice existing records.
@@ -187,8 +187,8 @@ func (c *Client) FindAccountInvoiceIds(criteria *Criteria, options *Options) ([]
 }
 
 // FindAccountInvoiceId finds record id by querying it with criteria.
-func (c *Client) FindAccountInvoiceId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountInvoiceModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountInvoiceId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountInvoiceModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

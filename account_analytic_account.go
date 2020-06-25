@@ -88,7 +88,7 @@ func (c *Client) GetAccountAnalyticAccount(id int64) (*AccountAnalyticAccount, e
 	if aaas != nil && len(*aaas) > 0 {
 		return &((*aaas)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.analytic.account was not found", id)
+	return nil, fmt.Errorf("id %v of account.analytic.account not found", id)
 }
 
 // GetAccountAnalyticAccounts gets account.analytic.account existing records.
@@ -133,8 +133,8 @@ func (c *Client) FindAccountAnalyticAccountIds(criteria *Criteria, options *Opti
 }
 
 // FindAccountAnalyticAccountId finds record id by querying it with criteria.
-func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountAnalyticAccountModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountAnalyticAccountModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

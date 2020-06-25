@@ -4,6 +4,7 @@ package odoo
 
 import (
 	"errors"
+	"log"
 
 	"github.com/kolo/xmlrpc"
 )
@@ -56,6 +57,11 @@ func NewClient(cfg *ClientConfig) (*Client, error) {
 
 // Close closes all opened client connections.
 func (c *Client) Close() {
+	defer func() {
+		if r := recover(); r != nil {
+			log.Print("connections were already closed")
+		}
+	}()
 	if c.common != nil {
 		c.common.Close()
 	}

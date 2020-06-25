@@ -133,7 +133,7 @@ func (c *Client) GetCrmLead(id int64) (*CrmLead, error) {
 	if cls != nil && len(*cls) > 0 {
 		return &((*cls)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of crm.lead was not found", id)
+	return nil, fmt.Errorf("id %v of crm.lead not found", id)
 }
 
 // GetCrmLeads gets crm.lead existing records.
@@ -178,8 +178,8 @@ func (c *Client) FindCrmLeadIds(criteria *Criteria, options *Options) ([]int64, 
 }
 
 // FindCrmLeadId finds record id by querying it with criteria.
-func (c *Client) FindCrmLeadId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(CrmLeadModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindCrmLeadId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(CrmLeadModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

@@ -172,7 +172,7 @@ func (c *Client) GetProductProduct(id int64) (*ProductProduct, error) {
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of product.product was not found", id)
+	return nil, fmt.Errorf("id %v of product.product not found", id)
 }
 
 // GetProductProducts gets product.product existing records.
@@ -217,8 +217,8 @@ func (c *Client) FindProductProductIds(criteria *Criteria, options *Options) ([]
 }
 
 // FindProductProductId finds record id by querying it with criteria.
-func (c *Client) FindProductProductId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ProductProductModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindProductProductId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ProductProductModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

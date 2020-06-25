@@ -95,7 +95,7 @@ func (c *Client) GetAccountJournal(id int64) (*AccountJournal, error) {
 	if ajs != nil && len(*ajs) > 0 {
 		return &((*ajs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.journal was not found", id)
+	return nil, fmt.Errorf("id %v of account.journal not found", id)
 }
 
 // GetAccountJournals gets account.journal existing records.
@@ -140,8 +140,8 @@ func (c *Client) FindAccountJournalIds(criteria *Criteria, options *Options) ([]
 }
 
 // FindAccountJournalId finds record id by querying it with criteria.
-func (c *Client) FindAccountJournalId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountJournalModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountJournalId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountJournalModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

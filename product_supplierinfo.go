@@ -76,7 +76,7 @@ func (c *Client) GetProductSupplierinfo(id int64) (*ProductSupplierinfo, error) 
 	if pss != nil && len(*pss) > 0 {
 		return &((*pss)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of product.supplierinfo was not found", id)
+	return nil, fmt.Errorf("id %v of product.supplierinfo not found", id)
 }
 
 // GetProductSupplierinfos gets product.supplierinfo existing records.
@@ -121,8 +121,8 @@ func (c *Client) FindProductSupplierinfoIds(criteria *Criteria, options *Options
 }
 
 // FindProductSupplierinfoId finds record id by querying it with criteria.
-func (c *Client) FindProductSupplierinfoId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ProductSupplierinfoModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindProductSupplierinfoId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ProductSupplierinfoModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

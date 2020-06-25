@@ -63,7 +63,7 @@ func (c *Client) GetCrmLeadTag(id int64) (*CrmLeadTag, error) {
 	if clts != nil && len(*clts) > 0 {
 		return &((*clts)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of crm.lead.tag was not found", id)
+	return nil, fmt.Errorf("id %v of crm.lead.tag not found", id)
 }
 
 // GetCrmLeadTags gets crm.lead.tag existing records.
@@ -108,8 +108,8 @@ func (c *Client) FindCrmLeadTagIds(criteria *Criteria, options *Options) ([]int6
 }
 
 // FindCrmLeadTagId finds record id by querying it with criteria.
-func (c *Client) FindCrmLeadTagId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(CrmLeadTagModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindCrmLeadTagId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(CrmLeadTagModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

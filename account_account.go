@@ -76,7 +76,7 @@ func (c *Client) GetAccountAccount(id int64) (*AccountAccount, error) {
 	if aas != nil && len(*aas) > 0 {
 		return &((*aas)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of account.account was not found", id)
+	return nil, fmt.Errorf("id %v of account.account not found", id)
 }
 
 // GetAccountAccounts gets account.account existing records.
@@ -121,8 +121,8 @@ func (c *Client) FindAccountAccountIds(criteria *Criteria, options *Options) ([]
 }
 
 // FindAccountAccountId finds record id by querying it with criteria.
-func (c *Client) FindAccountAccountId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(AccountAccountModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindAccountAccountId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(AccountAccountModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}

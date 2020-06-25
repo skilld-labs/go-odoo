@@ -69,7 +69,7 @@ func (c *Client) GetResPartnerCategory(id int64) (*ResPartnerCategory, error) {
 	if rpcs != nil && len(*rpcs) > 0 {
 		return &((*rpcs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of res.partner.category was not found", id)
+	return nil, fmt.Errorf("id %v of res.partner.category not found", id)
 }
 
 // GetResPartnerCategorys gets res.partner.category existing records.
@@ -114,8 +114,8 @@ func (c *Client) FindResPartnerCategoryIds(criteria *Criteria, options *Options)
 }
 
 // FindResPartnerCategoryId finds record id by querying it with criteria.
-func (c *Client) FindResPartnerCategoryId(criteria *Criteria) (int64, error) {
-	ids, err := c.Search(ResPartnerCategoryModel, criteria, NewOptions().Limit(1))
+func (c *Client) FindResPartnerCategoryId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(ResPartnerCategoryModel, criteria, options)
 	if err != nil {
 		return -1, err
 	}
