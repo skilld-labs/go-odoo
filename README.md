@@ -11,13 +11,14 @@ An Odoo API client enabling Go programs to interact with Odoo in a simple and un
 
 ### Generate your models
 
+**Note: Generating models require to follow instructions in GOPATH mode. Refactoring for go modules will come soon.**
 
 Define the environment variables to be able to connect to your odoo instance :
 
 (Don't set `ODOO_MODELS` if you want all your models to be generated)
 
 ```
-export ODOO_ADMIN=admin
+export ODOO_ADMIN=admin // ensure the user has sufficient permissions to generate models
 export ODOO_PASSWORD=password
 export ODOO_DATABASE=odoo
 export ODOO_URL=http://localhost:8069
