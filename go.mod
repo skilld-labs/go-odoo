@@ -1,4 +1,4 @@
-module github.com/skilld-labs/go-odoo
+module github.com/futurehomeno/go-odoo
 
 go 1.14
 
