@@ -4,6 +4,7 @@ package odoo
 
 import (
 	"errors"
+	"fmt"
 	"log"
 
 	"github.com/kolo/xmlrpc"
@@ -281,9 +282,8 @@ func (c *Client) authenticate() error {
 		if err != nil {
 			return err
 		}
-		if auth, ok := resp.(bool); ok {
-			c.auth = auth
-			return nil
+		if _, ok := resp.(bool); ok {
+			return fmt.Errorf("client authentication error: please verify client configuration")
 		}
 		c.uid = resp.(int64)
 		c.auth = true
