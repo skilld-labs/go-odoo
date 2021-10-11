@@ -281,6 +281,10 @@ func (c *Client) authenticate() error {
 		if err != nil {
 			return err
 		}
+		if auth, ok := resp.(bool); ok {
+			c.auth = auth
+			return nil
+		}
 		c.uid = resp.(int64)
 		c.auth = true
 	}
