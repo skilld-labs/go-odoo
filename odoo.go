@@ -12,6 +12,7 @@ import (
 var (
 	errClientConfigurationInvalid = errors.New("client configuration is invalid")
 	errClientNotAuthenticate      = errors.New("client is not authenticate")
+	errClientAuthentication       = errors.New("client authentication error: please verify client configuration")
 )
 
 // ClientConfig is the configuration to create a new *Client by givin connection infomations.
@@ -280,6 +281,9 @@ func (c *Client) authenticate() error {
 		resp, err := c.commonCall("authenticate", []interface{}{c.cfg.Database, c.cfg.Admin, c.cfg.Password, ""})
 		if err != nil {
 			return err
+		}
+		if _, ok := resp.(bool); ok {
+			return errClientAuthentication
 		}
 		c.uid = resp.(int64)
 		c.auth = true
