@@ -32,10 +32,10 @@ export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com
 
 Download library and generate models :
 ```
-go get github.com/skilld-labs/go-odoo
+GO111MODULE="off" go get github.com/skilld-labs/go-odoo
 cd $ODOO_REPO_PATH
 ls | grep -v "conversion.go\|generator\|go.mod\|go-odoo-generator\|go.sum\|ir_model_fields.go\|ir_model.go\|LICENSE\|odoo.go\|README.md\|types.go\|version.go" // keep only go-odoo core files
-go generate
+GO111MODULE="off" go generate
 ```
 
 That's it ! Your models have been generated !
