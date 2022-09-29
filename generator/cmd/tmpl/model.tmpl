@@ -6,7 +6,7 @@ import (
 
 // {{.StructName}} represents {{ .Name }} model.
 type {{.StructName}} struct { {{range .Fields}}
-	{{.VarName}} {{.Type}} `xmlrpc:"{{.Name}},omptempty"`{{end }}
+	{{.VarName}} {{.Type}} `xmlrpc:"{{.Name}},omitempty"`{{end }}
 }
 
 // {{.StructName}}s represents array of {{ .Name }} model.
