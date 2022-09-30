@@ -203,9 +203,3 @@ func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Op
 ## Issues
 
 - If you have an issue, please report it on the [issue tracker](https://github.com/skilld-labs/go-odoo/issues)
-
-## Contributors
-
-Antoine Huret (https://github.com/ahuret)
-
-Jean-Baptiste Guerraz (https://github.com/jbguerraz)
