@@ -6,25 +6,13 @@ An Odoo API client enabling Go programs to interact with Odoo in a simple and un
 
 ### Generate your models
 
-Define the environment variables to be able to connect to your odoo instance :
-
-(Don't set `ODOO_MODELS` if you want all your models to be generated)
-
-```
-export ODOO_ADMIN=admin@xiatech.co.uk // This is the admin email you use to login to Odoo
-export ODOO_PASSWORD=password
-export ODOO_DATABASE=odoo
-export ODOO_URL=http://localhost:8069
-export ODOO_MODELS="crm.lead"
-```
-
 Make sure the generator binary is compiled
 
 `cd generator && go build`
 
-Generate models from the root:
+Now you can generate your models:
 
-`go generate`
+`./generator -u nick@xiatech.co.uk -p test -d big_test --url http://localhost:8069`
 
 That's it ! Your models have been generated !
 

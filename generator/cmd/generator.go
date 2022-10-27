@@ -50,6 +50,7 @@ func (g *generator) getModels(models []string) ([]*model, error) {
 			return nil, err
 		}
 	}
+
 	var mm []*model
 	for _, model := range models {
 		mfs, err := g.modelFieldsFromModel(model)
@@ -62,6 +63,7 @@ func (g *generator) getModels(models []string) ([]*model, error) {
 		}
 		mm = append(mm, newModel(model, mfs))
 	}
+
 	return mm, nil
 }
 
@@ -95,7 +97,8 @@ func (g *generator) irModelFieldsToModelFields(imfs *odoo.IrModelFieldss) []*mod
 
 func (g *generator) generateModels(models []*model) error {
 	for _, m := range models {
-		filePath := g.destFolder + "/" + strings.Replace(m.Name, ".", "_", -1) + ".go"
+		filePath := "../" + strings.Replace(m.Name, ".", "_", -1) + ".go"
+		fmt.Printf("creating file %s", filePath)
 		output, err := os.Create(filePath)
 		if err != nil {
 			return err
