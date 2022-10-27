@@ -15,7 +15,7 @@ var (
 	errClientAuthentication       = errors.New("client authentication error: please verify client configuration")
 )
 
-// ClientConfig is the configuration to create a new *Client by givin connection infomations.
+// ClientConfig is the configuration to create a new *Client by giving connection information.
 type ClientConfig struct {
 	Database string
 	Admin    string

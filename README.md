@@ -18,10 +18,13 @@ export ODOO_URL=http://localhost:8069
 export ODOO_MODELS="crm.lead"
 ```
 
-Download library and generate models :
-```
- go generate
-```
+Make sure the generator binary is compiled
+
+`cd generator && go build`
+
+Generate models from the root:
+
+`go generate`
 
 That's it ! Your models have been generated !
 
@@ -42,7 +45,7 @@ It is **highly recommanded** to not remove them, since you would not be able to 
 package main
 
 import (
-	odoo "github.com/skilld-labs/go-odoo"
+	odoo "github.com/xiatechs/go-odoo"
 )
 
 func main() {

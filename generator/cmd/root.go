@@ -77,7 +77,7 @@ func initOdoo() {
 
 func initTemplate() {
 	var err error
-	if t, err = template.New("model.tmpl").ParseFiles("./generator/cmd/tmpl/model.tmpl"); err != nil {
+	if t, err = template.New("model.tmpl").ParseFiles("./cmd/tmpl/model.tmpl"); err != nil {
 		handleError(err)
 	}
 }
