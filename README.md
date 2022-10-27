@@ -12,7 +12,7 @@ Make sure the generator binary is compiled
 
 Now you can generate your models:
 
-`./generator -u nick@xiatech.co.uk -p test -d big_test --url http://localhost:8069`
+`./generator -u nick@xiatech.co.uk -p password -d database_name --url http://localhost:8069`
 
 That's it ! Your models have been generated !
 
@@ -22,8 +22,7 @@ That's it ! Your models have been generated !
 
 Core models are `ir_model.go` and `ir_model_fields.go` since there are used to generate models.
 
-It is **highly recommanded** to not remove them, since you would not be able to generate models again.
-
+It is **highly recommended** to not remove them, since you would not be able to generate models again.
 
 ### Enjoy coding!
 
@@ -63,29 +62,34 @@ Generated models contains high level functions to interact with models in an eas
 It covers the most common usage and contains for each models those functions :
 
 ### Create
+
 ```go
 func (c *Client) CreateCrmLead(cl *CrmLead) (int64, error) {}
 ```
 
 ### Update
+
 ```go
 func (c *Client) UpdateCrmLead(cl *CrmLead) error {}
 func (c *Client) UpdateCrmLeads(ids []int64, cl *CrmLead) error {}
 ```
 
 ### Delete
+
 ```go
 func (c *Client) DeleteCrmLead(id int64) error {}
 func (c *Client) DeleteCrmLeads(ids []int64) error {}
 ```
 
 ### Get
+
 ```go
 func (c *Client) GetCrmLead(id int64) (*CrmLead, error) {}
 func (c *Client) GetCrmLeads(ids []int64) (*CrmLeads, error) {}
 ```
 
 ### Find
+
 Find is powerful and allow you to query a model and filter results. [Criteria and Options](#criteria-and-options)
 
 ```go
@@ -94,7 +98,9 @@ func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, 
 ```
 
 ### Conversion
+
 Generated models can be converted to `Many2One` easily.
+
 ```go
 func (cl *CrmLead) Many2One() *Many2One {}
 ```
@@ -134,11 +140,14 @@ func (m *Many2One) Get() int64 {}
 func NewRelation() *Relation {}
 func (r *Relation) Get() []int64 {}
 ```
-one2many and many2many are represented by the `Relation` type and allow you to execute special actions as defined [here](https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write).
+
+one2many and many2many are represented by the `Relation` type and allow you to execute special actions as
+defined [here](https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write).
 
 ### Criteria and Options
 
-`Criteria` is a set of criterion and allow you to query models. [More informations](https://www.odoo.com/documentation/13.0/reference/orm.html#search-domains)
+`Criteria` is a set of criterion and allow you to query
+models. [More informations](https://www.odoo.com/documentation/13.0/reference/orm.html#search-domains)
 
 `Options` allow you to filter results.
 
@@ -150,7 +159,7 @@ cls, err := c.FindCrmLeads(odoo.NewCriteria().Add("user_id.name", "=", "John Doe
 
 All high level functions are based on basic odoo webservices functions.
 
-These functions give you more flexibility but less usability. We recommand you to use models functions (high level).
+These functions give you more flexibility but less usability. We recommend you to use models functions (high level).
 
 Here are available low level functions :
 
