@@ -6,7 +6,7 @@ import (
 	"strings"
 	"text/template"
 
-	odoo "github.com/skilld-labs/go-odoo"
+	"github.com/xiatechs/go-odoo"
 
 	"github.com/spf13/cobra"
 )
@@ -55,7 +55,6 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&admin, "admin", "u", "admin", "the admin username")
 	rootCmd.PersistentFlags().StringVarP(&password, "password", "p", "admin", "the admin password")
 	rootCmd.PersistentFlags().StringVar(&url, "url", "http://localhost:8069", "the url of your odoo instance")
-	rootCmd.PersistentFlags().StringVarP(&destFolder, "dest", "o", "", "the destination of generated models")
 	rootCmd.PersistentFlags().StringVarP(&models, "models", "m", "", "the models you want to generate, separated by commas, empty means generate all")
 	rootCmd.PersistentFlags().BoolVar(&noFmt, "no-fmt", false, "specify if you want to disable auto format of generated models")
 }

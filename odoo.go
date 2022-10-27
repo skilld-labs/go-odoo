@@ -1,5 +1,5 @@
 //Package odoo contains client code of library
-//go:generate ./generator/generator -u $ODOO_ADMIN -p $ODOO_PASSWORD -d $ODOO_DATABASE --url $ODOO_URL -o $ODOO_REPO_PATH --models $ODOO_MODELS
+//go:generate ./generator/generator -u $ODOO_ADMIN -p $ODOO_PASSWORD -d $ODOO_DATABASE --url $ODOO_URL --models $ODOO_MODELS
 package odoo
 
 import (
@@ -71,7 +71,7 @@ func (c *Client) Close() {
 	}
 }
 
-// Version get informations about your odoo instance version.
+// Version get information about your odoo instance version.
 func (c *Client) Version() (Version, error) {
 	v := Version{}
 	reply, err := c.commonCall("version", nil)
@@ -86,7 +86,7 @@ type criterion []interface{}
 
 /*
 Criteria is a set of criterion, each criterion is a triple (field_name, operator, value).
-It allow you to search models.
+It allows you to search models.
 see documentation: https://www.odoo.com/documentation/13.0/reference/orm.html#reference-orm-domains
 */
 type Criteria []*criterion

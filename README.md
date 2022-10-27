@@ -2,40 +2,25 @@
 
 An Odoo API client enabling Go programs to interact with Odoo in a simple and uniform way.
 
-[![GitHub license](https://img.shields.io/github/license/skilld-labs/go-odoo.svg)](https://github.com/skilld-labs/go-odoo/blob/master/LICENSE)
-[![GoDoc](https://godoc.org/github.com/skilld-labs/go-odoo?status.svg)](https://pkg.go.dev/github.com/skilld-labs/go-odoo?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/skilld-labs/go-odoo)](https://goreportcard.com/report/github.com/skilld-labs/go-odoo)
-[![GitHub issues](https://img.shields.io/github/issues/skilld-labs/go-odoo.svg)](https://github.com/skilld-labs/go-odoo/issues)
-
 ## Usage
 
 ### Generate your models
-
-**Note: Generating models require to follow instructions in GOPATH mode. Refactoring for go modules will come soon.**
 
 Define the environment variables to be able to connect to your odoo instance :
 
 (Don't set `ODOO_MODELS` if you want all your models to be generated)
 
 ```
-export ODOO_ADMIN=admin // ensure the user has sufficient permissions to generate models
+export ODOO_ADMIN=admin@xiatech.co.uk // This is the admin email you use to login to Odoo
 export ODOO_PASSWORD=password
 export ODOO_DATABASE=odoo
 export ODOO_URL=http://localhost:8069
 export ODOO_MODELS="crm.lead"
 ```
 
-`ODOO_REPO_PATH` is the path where the repository will be downloaded (by default its GOPATH):
-```
-export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/skilld-labs/go-odoo
-```
-
 Download library and generate models :
 ```
-GO111MODULE="off" go get github.com/skilld-labs/go-odoo
-cd $ODOO_REPO_PATH
-ls | grep -v "conversion.go\|generator\|go.mod\|go-odoo-generator\|go.sum\|ir_model_fields.go\|ir_model.go\|LICENSE\|odoo.go\|README.md\|types.go\|version.go" // keep only go-odoo core files
-GO111MODULE="off" go generate
+ go generate
 ```
 
 That's it ! Your models have been generated !
@@ -48,15 +33,10 @@ Core models are `ir_model.go` and `ir_model_fields.go` since there are used to g
 
 It is **highly recommanded** to not remove them, since you would not be able to generate models again.
 
-#### Custom skilld-labs models
-
-All others models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 11**. (note that models structure changed between odoo major versions).
-
-If you're ok to work with those models, you can use this library instance, if not you should fork the repository and generate you own models by following steps above.
 
 ### Enjoy coding!
 
-(All exemples on this README are based on model `crm.lead`)
+(All examples on this README are based on model `crm.lead`)
 
 ```go
 package main
@@ -194,12 +174,3 @@ func (c *Client) Search(model string, criteria *Criteria, options *Options) ([]i
 func (c *Client) FieldsGet(model string, options *Options) (map[string]interface{}, error) {}
 func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Options) (interface{}, error) {}
 ```
-
-## Todo
-
-- Tests
-- Modular template
-
-## Issues
-
-- If you have an issue, please report it on the [issue tracker](https://github.com/skilld-labs/go-odoo/issues)

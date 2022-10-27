@@ -102,6 +102,15 @@ func convertFromDynamicToStaticOne(dynamic map[string]interface{}, oneModel refl
 }
 
 func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue interface{}) interface{} {
+	// For some reason when querying Odoo the last element is a zero length []interface slice.
+	// Which breaks the type logic below. If we find an empty interface array just return.
+	dv, ok := dynamicValue.([]interface{})
+	if ok {
+		if len(dv) == 0 {
+			return nil
+		}
+	}
+
 	var staticValue interface{}
 	if staticType.Kind() == reflect.Ptr {
 		staticType = staticType.Elem()
