@@ -3,6 +3,7 @@ module github.com/xiatechs/go-odoo
 go 1.18
 
 require (
+	github.com/davecgh/go-spew v1.1.1
 	github.com/iancoleman/strcase v0.2.0
 	github.com/kolo/xmlrpc v0.0.0-20201022064351-38db28db192b
 	github.com/spf13/cobra v1.5.0

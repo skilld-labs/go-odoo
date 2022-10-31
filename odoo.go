@@ -3,6 +3,7 @@
 package odoo
 
 import (
+	"encoding/json"
 	"errors"
 	"log"
 
@@ -218,6 +219,18 @@ func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, 
 		return err
 	}
 	return nil
+}
+
+// SearchReadJSON search model records matching with *Criteria and reads it.
+// This method returns a JSON encoded byte slice. This makes it simple within XFuze to unmarshal the JSON into a
+// []map[string]interface which is the standard format used for documents within XFuze.
+func (c *Client) SearchReadJSON(model string, criteria *Criteria, options *Options) ([]byte, error) {
+	resp, err := c.ExecuteKw("search_read", model, argsFromCriteria(criteria), options)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(resp)
 }
 
 // Read model records matching with ids.
