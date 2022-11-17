@@ -6,21 +6,21 @@ import (
 
 // ResPartnerCategory represents res.partner.category model.
 type ResPartnerCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	ChildIds    *Relation `xmlrpc:"child_ids,omptempty"`
-	Color       *Int      `xmlrpc:"color,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omptempty"`
-	ParentLeft  *Int      `xmlrpc:"parent_left,omptempty"`
-	ParentRight *Int      `xmlrpc:"parent_right,omptempty"`
-	PartnerIds  *Relation `xmlrpc:"partner_ids,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
+	Color       *Int      `xmlrpc:"color,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
+	ParentLeft  *Int      `xmlrpc:"parent_left,omitempty"`
+	ParentRight *Int      `xmlrpc:"parent_right,omitempty"`
+	PartnerIds  *Relation `xmlrpc:"partner_ids,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResPartnerCategorys represents array of res.partner.category model.
@@ -90,7 +90,7 @@ func (c *Client) FindResPartnerCategory(criteria *Criteria) (*ResPartnerCategory
 	if rpcs != nil && len(*rpcs) > 0 {
 		return &((*rpcs)[0]), nil
 	}
-	return nil, fmt.Errorf("res.partner.category was not found")
+	return nil, fmt.Errorf("no res.partner.category was found with criteria %v", criteria)
 }
 
 // FindResPartnerCategorys finds res.partner.category records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindResPartnerCategoryId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("res.partner.category was not found")
+	return -1, fmt.Errorf("no res.partner.category was found with criteria %v and options %v", criteria, options)
 }

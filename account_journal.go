@@ -6,47 +6,47 @@ import (
 
 // AccountJournal represents account.journal model.
 type AccountJournal struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountControlIds        *Relation  `xmlrpc:"account_control_ids,omptempty"`
-	AccountSetupBankDataDone *Bool      `xmlrpc:"account_setup_bank_data_done,omptempty"`
-	Active                   *Bool      `xmlrpc:"active,omptempty"`
-	AtLeastOneInbound        *Bool      `xmlrpc:"at_least_one_inbound,omptempty"`
-	AtLeastOneOutbound       *Bool      `xmlrpc:"at_least_one_outbound,omptempty"`
-	BankAccNumber            *String    `xmlrpc:"bank_acc_number,omptempty"`
-	BankAccountId            *Many2One  `xmlrpc:"bank_account_id,omptempty"`
-	BankId                   *Many2One  `xmlrpc:"bank_id,omptempty"`
-	BankStatementsSource     *Selection `xmlrpc:"bank_statements_source,omptempty"`
-	BelongsToCompany         *Bool      `xmlrpc:"belongs_to_company,omptempty"`
-	Code                     *String    `xmlrpc:"code,omptempty"`
-	Color                    *Int       `xmlrpc:"color,omptempty"`
-	CompanyId                *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId               *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DefaultCreditAccountId   *Many2One  `xmlrpc:"default_credit_account_id,omptempty"`
-	DefaultDebitAccountId    *Many2One  `xmlrpc:"default_debit_account_id,omptempty"`
-	DisplayName              *String    `xmlrpc:"display_name,omptempty"`
-	GroupInvoiceLines        *Bool      `xmlrpc:"group_invoice_lines,omptempty"`
-	Id                       *Int       `xmlrpc:"id,omptempty"`
-	InboundPaymentMethodIds  *Relation  `xmlrpc:"inbound_payment_method_ids,omptempty"`
-	KanbanDashboard          *String    `xmlrpc:"kanban_dashboard,omptempty"`
-	KanbanDashboardGraph     *String    `xmlrpc:"kanban_dashboard_graph,omptempty"`
-	LossAccountId            *Many2One  `xmlrpc:"loss_account_id,omptempty"`
-	Name                     *String    `xmlrpc:"name,omptempty"`
-	OutboundPaymentMethodIds *Relation  `xmlrpc:"outbound_payment_method_ids,omptempty"`
-	ProfitAccountId          *Many2One  `xmlrpc:"profit_account_id,omptempty"`
-	RefundSequence           *Bool      `xmlrpc:"refund_sequence,omptempty"`
-	RefundSequenceId         *Many2One  `xmlrpc:"refund_sequence_id,omptempty"`
-	RefundSequenceNumberNext *Int       `xmlrpc:"refund_sequence_number_next,omptempty"`
-	Sequence                 *Int       `xmlrpc:"sequence,omptempty"`
-	SequenceId               *Many2One  `xmlrpc:"sequence_id,omptempty"`
-	SequenceNumberNext       *Int       `xmlrpc:"sequence_number_next,omptempty"`
-	ShowOnDashboard          *Bool      `xmlrpc:"show_on_dashboard,omptempty"`
-	Type                     *Selection `xmlrpc:"type,omptempty"`
-	TypeControlIds           *Relation  `xmlrpc:"type_control_ids,omptempty"`
-	UpdatePosted             *Bool      `xmlrpc:"update_posted,omptempty"`
-	WriteDate                *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountControlIds        *Relation  `xmlrpc:"account_control_ids,omitempty"`
+	AccountSetupBankDataDone *Bool      `xmlrpc:"account_setup_bank_data_done,omitempty"`
+	Active                   *Bool      `xmlrpc:"active,omitempty"`
+	AtLeastOneInbound        *Bool      `xmlrpc:"at_least_one_inbound,omitempty"`
+	AtLeastOneOutbound       *Bool      `xmlrpc:"at_least_one_outbound,omitempty"`
+	BankAccNumber            *String    `xmlrpc:"bank_acc_number,omitempty"`
+	BankAccountId            *Many2One  `xmlrpc:"bank_account_id,omitempty"`
+	BankId                   *Many2One  `xmlrpc:"bank_id,omitempty"`
+	BankStatementsSource     *Selection `xmlrpc:"bank_statements_source,omitempty"`
+	BelongsToCompany         *Bool      `xmlrpc:"belongs_to_company,omitempty"`
+	Code                     *String    `xmlrpc:"code,omitempty"`
+	Color                    *Int       `xmlrpc:"color,omitempty"`
+	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId               *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DefaultCreditAccountId   *Many2One  `xmlrpc:"default_credit_account_id,omitempty"`
+	DefaultDebitAccountId    *Many2One  `xmlrpc:"default_debit_account_id,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	GroupInvoiceLines        *Bool      `xmlrpc:"group_invoice_lines,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	InboundPaymentMethodIds  *Relation  `xmlrpc:"inbound_payment_method_ids,omitempty"`
+	KanbanDashboard          *String    `xmlrpc:"kanban_dashboard,omitempty"`
+	KanbanDashboardGraph     *String    `xmlrpc:"kanban_dashboard_graph,omitempty"`
+	LossAccountId            *Many2One  `xmlrpc:"loss_account_id,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	OutboundPaymentMethodIds *Relation  `xmlrpc:"outbound_payment_method_ids,omitempty"`
+	ProfitAccountId          *Many2One  `xmlrpc:"profit_account_id,omitempty"`
+	RefundSequence           *Bool      `xmlrpc:"refund_sequence,omitempty"`
+	RefundSequenceId         *Many2One  `xmlrpc:"refund_sequence_id,omitempty"`
+	RefundSequenceNumberNext *Int       `xmlrpc:"refund_sequence_number_next,omitempty"`
+	Sequence                 *Int       `xmlrpc:"sequence,omitempty"`
+	SequenceId               *Many2One  `xmlrpc:"sequence_id,omitempty"`
+	SequenceNumberNext       *Int       `xmlrpc:"sequence_number_next,omitempty"`
+	ShowOnDashboard          *Bool      `xmlrpc:"show_on_dashboard,omitempty"`
+	Type                     *Selection `xmlrpc:"type,omitempty"`
+	TypeControlIds           *Relation  `xmlrpc:"type_control_ids,omitempty"`
+	UpdatePosted             *Bool      `xmlrpc:"update_posted,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountJournals represents array of account.journal model.
@@ -116,7 +116,7 @@ func (c *Client) FindAccountJournal(criteria *Criteria) (*AccountJournal, error)
 	if ajs != nil && len(*ajs) > 0 {
 		return &((*ajs)[0]), nil
 	}
-	return nil, fmt.Errorf("account.journal was not found")
+	return nil, fmt.Errorf("no account.journal was found with criteria %v", criteria)
 }
 
 // FindAccountJournals finds account.journal records by querying it
@@ -148,5 +148,5 @@ func (c *Client) FindAccountJournalId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("account.journal was not found")
+	return -1, fmt.Errorf("no account.journal was found with criteria %v and options %v", criteria, options)
 }

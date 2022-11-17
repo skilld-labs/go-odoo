@@ -6,16 +6,16 @@ import (
 
 // AccountAnalyticTag represents account.analytic.tag model.
 type AccountAnalyticTag struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	Color       *Int      `xmlrpc:"color,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	Color       *Int      `xmlrpc:"color,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAnalyticTags represents array of account.analytic.tag model.
@@ -85,7 +85,7 @@ func (c *Client) FindAccountAnalyticTag(criteria *Criteria) (*AccountAnalyticTag
 	if aats != nil && len(*aats) > 0 {
 		return &((*aats)[0]), nil
 	}
-	return nil, fmt.Errorf("account.analytic.tag was not found")
+	return nil, fmt.Errorf("no account.analytic.tag was found with criteria %v", criteria)
 }
 
 // FindAccountAnalyticTags finds account.analytic.tag records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindAccountAnalyticTagId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("account.analytic.tag was not found")
+	return -1, fmt.Errorf("no account.analytic.tag was found with criteria %v and options %v", criteria, options)
 }

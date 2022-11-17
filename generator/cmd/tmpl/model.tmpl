@@ -76,7 +76,7 @@ func (c *Client) Find{{.StructName}}(criteria *Criteria) (*{{.StructName}}, erro
 	if {{.VarsName}} != nil && len(*{{.VarsName}}) > 0 {
 		return &((*{{.VarsName}})[0]), nil
 	}
-	return nil, fmt.Errorf("{{ .Name }} was not found")
+	return nil, fmt.Errorf("no {{ .Name }} was found with criteria %v", criteria)
 }
 
 // Find{{.StructName}}s finds {{ .Name }} records by querying it
@@ -108,5 +108,5 @@ func (c *Client) Find{{.StructName}}Id(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("{{ .Name }} was not found")
+	return -1, fmt.Errorf("no {{ .Name }} was found with criteria %v and options %v", criteria, options)
 }
