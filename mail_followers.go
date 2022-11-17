@@ -83,7 +83,7 @@ func (c *Client) FindMailFollowers(criteria *Criteria) (*MailFollowers, error) {
 	if mfs != nil && len(*mfs) > 0 {
 		return &((*mfs)[0]), nil
 	}
-	return nil, fmt.Errorf("mail.followers was not found")
+	return nil, fmt.Errorf("no mail.followers was found with criteria %v", criteria)
 }
 
 // FindMailFollowerss finds mail.followers records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindMailFollowersId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("mail.followers was not found")
+	return -1, fmt.Errorf("no mail.followers was found with criteria %v and options %v", criteria, options)
 }

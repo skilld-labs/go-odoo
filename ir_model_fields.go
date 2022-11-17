@@ -4,61 +4,65 @@ import (
 	"fmt"
 )
 
-// IrModelFields represents ir.model.fields model
+// IrModelFields represents ir.model.fields model.
 type IrModelFields struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
-	Column1          *String    `xmlrpc:"column1,omptempty"`
-	Column2          *String    `xmlrpc:"column2,omptempty"`
-	CompleteName     *String    `xmlrpc:"complete_name,omptempty"`
-	Compute          *String    `xmlrpc:"compute,omptempty"`
-	Copied           *Bool      `xmlrpc:"copied,omptempty"`
-	CreateDate       *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Depends          *String    `xmlrpc:"depends,omptempty"`
-	DisplayName      *String    `xmlrpc:"display_name,omptempty"`
-	Domain           *String    `xmlrpc:"domain,omptempty"`
-	FieldDescription *String    `xmlrpc:"field_description,omptempty"`
-	Groups           *Relation  `xmlrpc:"groups,omptempty"`
-	Help             *String    `xmlrpc:"help,omptempty"`
-	Id               *Int       `xmlrpc:"id,omptempty"`
-	Index            *Bool      `xmlrpc:"index,omptempty"`
-	Model            *String    `xmlrpc:"model,omptempty"`
-	ModelId          *Many2One  `xmlrpc:"model_id,omptempty"`
-	Modules          *String    `xmlrpc:"modules,omptempty"`
-	Name             *String    `xmlrpc:"name,omptempty"`
-	OnDelete         *Selection `xmlrpc:"on_delete,omptempty"`
-	Readonly         *Bool      `xmlrpc:"readonly,omptempty"`
-	Related          *String    `xmlrpc:"related,omptempty"`
-	RelatedFieldId   *Many2One  `xmlrpc:"related_field_id,omptempty"`
-	Relation         *String    `xmlrpc:"relation,omptempty"`
-	RelationField    *String    `xmlrpc:"relation_field,omptempty"`
-	RelationFieldId  *Many2One  `xmlrpc:"relation_field_id,omptempty"`
-	RelationTable    *String    `xmlrpc:"relation_table,omptempty"`
-	Required         *Bool      `xmlrpc:"required,omptempty"`
-	Selectable       *Bool      `xmlrpc:"selectable,omptempty"`
-	Selection        *String    `xmlrpc:"selection,omptempty"`
-	SelectionIds     *Relation  `xmlrpc:"selection_ids,omptempty"`
-	Size             *Int       `xmlrpc:"size,omptempty"`
-	State            *Selection `xmlrpc:"state,omptempty"`
-	Store            *Bool      `xmlrpc:"store,omptempty"`
-	Translate        *Bool      `xmlrpc:"translate,omptempty"`
-	Ttype            *Selection `xmlrpc:"ttype,omptempty"`
-	WriteDate        *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
+	Column1              *String    `xmlrpc:"column1,omitempty"`
+	Column2              *String    `xmlrpc:"column2,omitempty"`
+	CompleteName         *String    `xmlrpc:"complete_name,omitempty"`
+	Compute              *String    `xmlrpc:"compute,omitempty"`
+	Copy                 *Bool      `xmlrpc:"copy,omitempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Depends              *String    `xmlrpc:"depends,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	Domain               *String    `xmlrpc:"domain,omitempty"`
+	FieldDescription     *String    `xmlrpc:"field_description,omitempty"`
+	Groups               *Relation  `xmlrpc:"groups,omitempty"`
+	Help                 *String    `xmlrpc:"help,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
+	Index                *Bool      `xmlrpc:"index,omitempty"`
+	Model                *String    `xmlrpc:"model,omitempty"`
+	ModelId              *Many2One  `xmlrpc:"model_id,omitempty"`
+	Modules              *String    `xmlrpc:"modules,omitempty"`
+	Name                 *String    `xmlrpc:"name,omitempty"`
+	OnDelete             *Selection `xmlrpc:"on_delete,omitempty"`
+	Readonly             *Bool      `xmlrpc:"readonly,omitempty"`
+	Related              *String    `xmlrpc:"related,omitempty"`
+	Relation             *String    `xmlrpc:"relation,omitempty"`
+	RelationField        *String    `xmlrpc:"relation_field,omitempty"`
+	RelationTable        *String    `xmlrpc:"relation_table,omitempty"`
+	Required             *Bool      `xmlrpc:"required,omitempty"`
+	Selectable           *Bool      `xmlrpc:"selectable,omitempty"`
+	Selection            *String    `xmlrpc:"selection,omitempty"`
+	SerializationFieldId *Many2One  `xmlrpc:"serialization_field_id,omitempty"`
+	Size                 *Int       `xmlrpc:"size,omitempty"`
+	State                *Selection `xmlrpc:"state,omitempty"`
+	Store                *Bool      `xmlrpc:"store,omitempty"`
+	TrackVisibility      *Selection `xmlrpc:"track_visibility,omitempty"`
+	Translate            *Bool      `xmlrpc:"translate,omitempty"`
+	Ttype                *Selection `xmlrpc:"ttype,omitempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
-// IrModelFieldss represents array of ir.model.fields model
+// IrModelFieldss represents array of ir.model.fields model.
 type IrModelFieldss []IrModelFields
 
-// IrModelFieldsModel is the odoo model name
+// IrModelFieldsModel is the odoo model name.
 const IrModelFieldsModel = "ir.model.fields"
+
+// Many2One convert IrModelFields to *Many2One.
+func (imf *IrModelFields) Many2One() *Many2One {
+	return NewMany2One(imf.Id.Get(), "")
+}
 
 // CreateIrModelFields creates a new ir.model.fields model and returns its id.
 func (c *Client) CreateIrModelFields(imf *IrModelFields) (int64, error) {
 	return c.Create(IrModelFieldsModel, imf)
 }
 
-// UpdateIrModelFields pdates an existing ir.model.fields record.
+// UpdateIrModelFields updates an existing ir.model.fields record.
 func (c *Client) UpdateIrModelFields(imf *IrModelFields) error {
 	return c.UpdateIrModelFieldss([]int64{imf.Id.Get()}, imf)
 }
@@ -88,7 +92,7 @@ func (c *Client) GetIrModelFields(id int64) (*IrModelFields, error) {
 	if imfs != nil && len(*imfs) > 0 {
 		return &((*imfs)[0]), nil
 	}
-	return nil, fmt.Errorf("id %v of %s not found", id, IrModelFieldsModel)
+	return nil, fmt.Errorf("id %v of ir.model.fields not found", id)
 }
 
 // GetIrModelFieldss gets ir.model.fields existing records.
@@ -100,6 +104,18 @@ func (c *Client) GetIrModelFieldss(ids []int64) (*IrModelFieldss, error) {
 	return imfs, nil
 }
 
+// FindIrModelFields finds ir.model.fields record by querying it with criteria.
+func (c *Client) FindIrModelFields(criteria *Criteria) (*IrModelFields, error) {
+	imfs := &IrModelFieldss{}
+	if err := c.SearchRead(IrModelFieldsModel, criteria, NewOptions().Limit(1), imfs); err != nil {
+		return nil, err
+	}
+	if imfs != nil && len(*imfs) > 0 {
+		return &((*imfs)[0]), nil
+	}
+	return nil, fmt.Errorf("no ir.model.fields was found with criteria %v", criteria)
+}
+
 // FindIrModelFieldss finds ir.model.fields records by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelFieldss(criteria *Criteria, options *Options) (*IrModelFieldss, error) {
@@ -108,4 +124,26 @@ func (c *Client) FindIrModelFieldss(criteria *Criteria, options *Options) (*IrMo
 		return nil, err
 	}
 	return imfs, nil
+}
+
+// FindIrModelFieldsIds finds records ids by querying it
+// and filtering it with criteria and options.
+func (c *Client) FindIrModelFieldsIds(criteria *Criteria, options *Options) ([]int64, error) {
+	ids, err := c.Search(IrModelFieldsModel, criteria, options)
+	if err != nil {
+		return []int64{}, err
+	}
+	return ids, nil
+}
+
+// FindIrModelFieldsId finds record id by querying it with criteria.
+func (c *Client) FindIrModelFieldsId(criteria *Criteria, options *Options) (int64, error) {
+	ids, err := c.Search(IrModelFieldsModel, criteria, options)
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) > 0 {
+		return ids[0], nil
+	}
+	return -1, fmt.Errorf("no ir.model.fields was found with criteria %v and options %v", criteria, options)
 }

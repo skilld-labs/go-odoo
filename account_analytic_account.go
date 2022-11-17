@@ -6,40 +6,40 @@ import (
 
 // AccountAnalyticAccount represents account.analytic.account model.
 type AccountAnalyticAccount struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
-	Active                   *Bool     `xmlrpc:"active,omptempty"`
-	Balance                  *Float    `xmlrpc:"balance,omptempty"`
-	Code                     *String   `xmlrpc:"code,omptempty"`
-	CompanyId                *Many2One `xmlrpc:"company_id,omptempty"`
-	CompanyUomId             *Many2One `xmlrpc:"company_uom_id,omptempty"`
-	CreateDate               *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid                *Many2One `xmlrpc:"create_uid,omptempty"`
-	Credit                   *Float    `xmlrpc:"credit,omptempty"`
-	CurrencyId               *Many2One `xmlrpc:"currency_id,omptempty"`
-	Debit                    *Float    `xmlrpc:"debit,omptempty"`
-	DisplayName              *String   `xmlrpc:"display_name,omptempty"`
-	Id                       *Int      `xmlrpc:"id,omptempty"`
-	LineIds                  *Relation `xmlrpc:"line_ids,omptempty"`
-	MachineProjectName       *String   `xmlrpc:"machine_project_name,omptempty"`
-	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omptempty"`
-	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omptempty"`
-	MessageIds               *Relation `xmlrpc:"message_ids,omptempty"`
-	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omptempty"`
-	MessageLastPost          *Time     `xmlrpc:"message_last_post,omptempty"`
-	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omptempty"`
-	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omptempty"`
-	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omptempty"`
-	MessageUnread            *Bool     `xmlrpc:"message_unread,omptempty"`
-	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omptempty"`
-	Name                     *String   `xmlrpc:"name,omptempty"`
-	PartnerId                *Many2One `xmlrpc:"partner_id,omptempty"`
-	ProjectCount             *Int      `xmlrpc:"project_count,omptempty"`
-	ProjectCreated           *Bool     `xmlrpc:"project_created,omptempty"`
-	ProjectIds               *Relation `xmlrpc:"project_ids,omptempty"`
-	TagIds                   *Relation `xmlrpc:"tag_ids,omptempty"`
-	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omptempty"`
-	WriteDate                *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid                 *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
+	Active                   *Bool     `xmlrpc:"active,omitempty"`
+	Balance                  *Float    `xmlrpc:"balance,omitempty"`
+	Code                     *String   `xmlrpc:"code,omitempty"`
+	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
+	CompanyUomId             *Many2One `xmlrpc:"company_uom_id,omitempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	Credit                   *Float    `xmlrpc:"credit,omitempty"`
+	CurrencyId               *Many2One `xmlrpc:"currency_id,omitempty"`
+	Debit                    *Float    `xmlrpc:"debit,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	LineIds                  *Relation `xmlrpc:"line_ids,omitempty"`
+	MachineProjectName       *String   `xmlrpc:"machine_project_name,omitempty"`
+	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omitempty"`
+	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
+	MessageLastPost          *Time     `xmlrpc:"message_last_post,omitempty"`
+	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread            *Bool     `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omitempty"`
+	Name                     *String   `xmlrpc:"name,omitempty"`
+	PartnerId                *Many2One `xmlrpc:"partner_id,omitempty"`
+	ProjectCount             *Int      `xmlrpc:"project_count,omitempty"`
+	ProjectCreated           *Bool     `xmlrpc:"project_created,omitempty"`
+	ProjectIds               *Relation `xmlrpc:"project_ids,omitempty"`
+	TagIds                   *Relation `xmlrpc:"tag_ids,omitempty"`
+	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAnalyticAccounts represents array of account.analytic.account model.
@@ -109,7 +109,7 @@ func (c *Client) FindAccountAnalyticAccount(criteria *Criteria) (*AccountAnalyti
 	if aaas != nil && len(*aaas) > 0 {
 		return &((*aaas)[0]), nil
 	}
-	return nil, fmt.Errorf("account.analytic.account was not found")
+	return nil, fmt.Errorf("no account.analytic.account was found with criteria %v", criteria)
 }
 
 // FindAccountAnalyticAccounts finds account.analytic.account records by querying it
@@ -141,5 +141,5 @@ func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("account.analytic.account was not found")
+	return -1, fmt.Errorf("no account.analytic.account was found with criteria %v and options %v", criteria, options)
 }
