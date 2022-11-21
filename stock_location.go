@@ -6,35 +6,35 @@ import (
 
 // StockLocation represents stock.location model.
 type StockLocation struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
-	Active                *Bool      `xmlrpc:"active,omitempty"`
-	Barcode               *String    `xmlrpc:"barcode,omitempty"`
-	ChildIds              *Relation  `xmlrpc:"child_ids,omitempty"`
-	Comment               *String    `xmlrpc:"comment,omitempty"`
-	CompanyId             *Many2One  `xmlrpc:"company_id,omitempty"`
-	CompleteName          *String    `xmlrpc:"complete_name,omitempty"`
-	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
-	Id                    *Int       `xmlrpc:"id,omitempty"`
-	LocationId            *Many2One  `xmlrpc:"location_id,omitempty"`
-	Name                  *String    `xmlrpc:"name,omitempty"`
-	ParentLeft            *Int       `xmlrpc:"parent_left,omitempty"`
-	ParentRight           *Int       `xmlrpc:"parent_right,omitempty"`
-	PartnerId             *Many2One  `xmlrpc:"partner_id,omitempty"`
-	Posx                  *Int       `xmlrpc:"posx,omitempty"`
-	Posy                  *Int       `xmlrpc:"posy,omitempty"`
-	Posz                  *Int       `xmlrpc:"posz,omitempty"`
-	PutawayStrategyId     *Many2One  `xmlrpc:"putaway_strategy_id,omitempty"`
-	QuantIds              *Relation  `xmlrpc:"quant_ids,omitempty"`
-	RemovalStrategyId     *Many2One  `xmlrpc:"removal_strategy_id,omitempty"`
-	ReturnLocation        *Bool      `xmlrpc:"return_location,omitempty"`
-	ScrapLocation         *Bool      `xmlrpc:"scrap_location,omitempty"`
-	Usage                 *Selection `xmlrpc:"usage,omitempty"`
-	ValuationInAccountId  *Many2One  `xmlrpc:"valuation_in_account_id,omitempty"`
-	ValuationOutAccountId *Many2One  `xmlrpc:"valuation_out_account_id,omitempty"`
-	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
+	Active                *Bool      `xmlrpc:"active,omptempty"`
+	Barcode               *String    `xmlrpc:"barcode,omptempty"`
+	ChildIds              *Relation  `xmlrpc:"child_ids,omptempty"`
+	Comment               *String    `xmlrpc:"comment,omptempty"`
+	CompanyId             *Many2One  `xmlrpc:"company_id,omptempty"`
+	CompleteName          *String    `xmlrpc:"complete_name,omptempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omptempty"`
+	Id                    *Int       `xmlrpc:"id,omptempty"`
+	LocationId            *Many2One  `xmlrpc:"location_id,omptempty"`
+	Name                  *String    `xmlrpc:"name,omptempty"`
+	ParentLeft            *Int       `xmlrpc:"parent_left,omptempty"`
+	ParentRight           *Int       `xmlrpc:"parent_right,omptempty"`
+	PartnerId             *Many2One  `xmlrpc:"partner_id,omptempty"`
+	Posx                  *Int       `xmlrpc:"posx,omptempty"`
+	Posy                  *Int       `xmlrpc:"posy,omptempty"`
+	Posz                  *Int       `xmlrpc:"posz,omptempty"`
+	PutawayStrategyId     *Many2One  `xmlrpc:"putaway_strategy_id,omptempty"`
+	QuantIds              *Relation  `xmlrpc:"quant_ids,omptempty"`
+	RemovalStrategyId     *Many2One  `xmlrpc:"removal_strategy_id,omptempty"`
+	ReturnLocation        *Bool      `xmlrpc:"return_location,omptempty"`
+	ScrapLocation         *Bool      `xmlrpc:"scrap_location,omptempty"`
+	Usage                 *Selection `xmlrpc:"usage,omptempty"`
+	ValuationInAccountId  *Many2One  `xmlrpc:"valuation_in_account_id,omptempty"`
+	ValuationOutAccountId *Many2One  `xmlrpc:"valuation_out_account_id,omptempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // StockLocations represents array of stock.location model.

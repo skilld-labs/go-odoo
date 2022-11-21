@@ -6,19 +6,19 @@ import (
 
 // SaleAdvancePaymentInv represents sale.advance.payment.inv model.
 type SaleAdvancePaymentInv struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
-	AdvancePaymentMethod *Selection `xmlrpc:"advance_payment_method,omitempty"`
-	Amount               *Float     `xmlrpc:"amount,omitempty"`
-	Count                *Int       `xmlrpc:"count,omitempty"`
-	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DepositAccountId     *Many2One  `xmlrpc:"deposit_account_id,omitempty"`
-	DepositTaxesId       *Relation  `xmlrpc:"deposit_taxes_id,omitempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
-	Id                   *Int       `xmlrpc:"id,omitempty"`
-	ProductId            *Many2One  `xmlrpc:"product_id,omitempty"`
-	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
+	AdvancePaymentMethod *Selection `xmlrpc:"advance_payment_method,omptempty"`
+	Amount               *Float     `xmlrpc:"amount,omptempty"`
+	Count                *Int       `xmlrpc:"count,omptempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DepositAccountId     *Many2One  `xmlrpc:"deposit_account_id,omptempty"`
+	DepositTaxesId       *Relation  `xmlrpc:"deposit_taxes_id,omptempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omptempty"`
+	Id                   *Int       `xmlrpc:"id,omptempty"`
+	ProductId            *Many2One  `xmlrpc:"product_id,omptempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // SaleAdvancePaymentInvs represents array of sale.advance.payment.inv model.

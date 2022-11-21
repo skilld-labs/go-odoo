@@ -6,25 +6,25 @@ import (
 
 // AccountFinancialReport represents account.financial.report model.
 type AccountFinancialReport struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	AccountIds      *Relation  `xmlrpc:"account_ids,omitempty"`
-	AccountReportId *Many2One  `xmlrpc:"account_report_id,omitempty"`
-	AccountTypeIds  *Relation  `xmlrpc:"account_type_ids,omitempty"`
-	ChildrenIds     *Relation  `xmlrpc:"children_ids,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayDetail   *Selection `xmlrpc:"display_detail,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	Level           *Int       `xmlrpc:"level,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	ParentId        *Many2One  `xmlrpc:"parent_id,omitempty"`
-	Sequence        *Int       `xmlrpc:"sequence,omitempty"`
-	Sign            *Selection `xmlrpc:"sign,omitempty"`
-	StyleOverwrite  *Selection `xmlrpc:"style_overwrite,omitempty"`
-	Type            *Selection `xmlrpc:"type,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
+	AccountIds      *Relation  `xmlrpc:"account_ids,omptempty"`
+	AccountReportId *Many2One  `xmlrpc:"account_report_id,omptempty"`
+	AccountTypeIds  *Relation  `xmlrpc:"account_type_ids,omptempty"`
+	ChildrenIds     *Relation  `xmlrpc:"children_ids,omptempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayDetail   *Selection `xmlrpc:"display_detail,omptempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
+	Id              *Int       `xmlrpc:"id,omptempty"`
+	Level           *Int       `xmlrpc:"level,omptempty"`
+	Name            *String    `xmlrpc:"name,omptempty"`
+	ParentId        *Many2One  `xmlrpc:"parent_id,omptempty"`
+	Sequence        *Int       `xmlrpc:"sequence,omptempty"`
+	Sign            *Selection `xmlrpc:"sign,omptempty"`
+	StyleOverwrite  *Selection `xmlrpc:"style_overwrite,omptempty"`
+	Type            *Selection `xmlrpc:"type,omptempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountFinancialReports represents array of account.financial.report model.

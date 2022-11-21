@@ -6,25 +6,25 @@ import (
 
 // StockQuantPackage represents stock.quant.package model.
 type StockQuantPackage struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId                    *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrentDestinationLocationId *Many2One `xmlrpc:"current_destination_location_id,omitempty"`
-	CurrentPickingId             *Bool     `xmlrpc:"current_picking_id,omitempty"`
-	CurrentPickingMoveLineIds    *Relation `xmlrpc:"current_picking_move_line_ids,omitempty"`
-	CurrentSourceLocationId      *Many2One `xmlrpc:"current_source_location_id,omitempty"`
-	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
-	Id                           *Int      `xmlrpc:"id,omitempty"`
-	IsProcessed                  *Bool     `xmlrpc:"is_processed,omitempty"`
-	LocationId                   *Many2One `xmlrpc:"location_id,omitempty"`
-	MoveLineIds                  *Relation `xmlrpc:"move_line_ids,omitempty"`
-	Name                         *String   `xmlrpc:"name,omitempty"`
-	OwnerId                      *Many2One `xmlrpc:"owner_id,omitempty"`
-	PackagingId                  *Many2One `xmlrpc:"packaging_id,omitempty"`
-	QuantIds                     *Relation `xmlrpc:"quant_ids,omitempty"`
-	WriteDate                    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                     *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                   *Time     `xmlrpc:"__last_update,omptempty"`
+	CompanyId                    *Many2One `xmlrpc:"company_id,omptempty"`
+	CreateDate                   *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid                    *Many2One `xmlrpc:"create_uid,omptempty"`
+	CurrentDestinationLocationId *Many2One `xmlrpc:"current_destination_location_id,omptempty"`
+	CurrentPickingId             *Bool     `xmlrpc:"current_picking_id,omptempty"`
+	CurrentPickingMoveLineIds    *Relation `xmlrpc:"current_picking_move_line_ids,omptempty"`
+	CurrentSourceLocationId      *Many2One `xmlrpc:"current_source_location_id,omptempty"`
+	DisplayName                  *String   `xmlrpc:"display_name,omptempty"`
+	Id                           *Int      `xmlrpc:"id,omptempty"`
+	IsProcessed                  *Bool     `xmlrpc:"is_processed,omptempty"`
+	LocationId                   *Many2One `xmlrpc:"location_id,omptempty"`
+	MoveLineIds                  *Relation `xmlrpc:"move_line_ids,omptempty"`
+	Name                         *String   `xmlrpc:"name,omptempty"`
+	OwnerId                      *Many2One `xmlrpc:"owner_id,omptempty"`
+	PackagingId                  *Many2One `xmlrpc:"packaging_id,omptempty"`
+	QuantIds                     *Relation `xmlrpc:"quant_ids,omptempty"`
+	WriteDate                    *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid                     *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // StockQuantPackages represents array of stock.quant.package model.

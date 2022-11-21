@@ -6,16 +6,16 @@ import (
 
 // HrHolidaysSummaryEmployee represents hr.holidays.summary.employee model.
 type HrHolidaysSummaryEmployee struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFrom    *Time      `xmlrpc:"date_from,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Emp         *Relation  `xmlrpc:"emp,omitempty"`
-	HolidayType *Selection `xmlrpc:"holiday_type,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DateFrom    *Time      `xmlrpc:"date_from,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Emp         *Relation  `xmlrpc:"emp,omptempty"`
+	HolidayType *Selection `xmlrpc:"holiday_type,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // HrHolidaysSummaryEmployees represents array of hr.holidays.summary.employee model.

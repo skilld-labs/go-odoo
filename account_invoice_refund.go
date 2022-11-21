@@ -6,18 +6,18 @@ import (
 
 // AccountInvoiceRefund represents account.invoice.refund model.
 type AccountInvoiceRefund struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Date         *Time      `xmlrpc:"date,omitempty"`
-	DateInvoice  *Time      `xmlrpc:"date_invoice,omitempty"`
-	Description  *String    `xmlrpc:"description,omitempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
-	FilterRefund *Selection `xmlrpc:"filter_refund,omitempty"`
-	Id           *Int       `xmlrpc:"id,omitempty"`
-	RefundOnly   *Bool      `xmlrpc:"refund_only,omitempty"`
-	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
+	CreateDate   *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid    *Many2One  `xmlrpc:"create_uid,omptempty"`
+	Date         *Time      `xmlrpc:"date,omptempty"`
+	DateInvoice  *Time      `xmlrpc:"date_invoice,omptempty"`
+	Description  *String    `xmlrpc:"description,omptempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omptempty"`
+	FilterRefund *Selection `xmlrpc:"filter_refund,omptempty"`
+	Id           *Int       `xmlrpc:"id,omptempty"`
+	RefundOnly   *Bool      `xmlrpc:"refund_only,omptempty"`
+	WriteDate    *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid     *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountInvoiceRefunds represents array of account.invoice.refund model.

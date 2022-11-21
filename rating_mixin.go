@@ -6,14 +6,14 @@ import (
 
 // RatingMixin represents rating.mixin model.
 type RatingMixin struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
-	Id                 *Int      `xmlrpc:"id,omitempty"`
-	RatingCount        *Int      `xmlrpc:"rating_count,omitempty"`
-	RatingIds          *Relation `xmlrpc:"rating_ids,omitempty"`
-	RatingLastFeedback *String   `xmlrpc:"rating_last_feedback,omitempty"`
-	RatingLastImage    *String   `xmlrpc:"rating_last_image,omitempty"`
-	RatingLastValue    *Float    `xmlrpc:"rating_last_value,omitempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
+	Id                 *Int      `xmlrpc:"id,omptempty"`
+	RatingCount        *Int      `xmlrpc:"rating_count,omptempty"`
+	RatingIds          *Relation `xmlrpc:"rating_ids,omptempty"`
+	RatingLastFeedback *String   `xmlrpc:"rating_last_feedback,omptempty"`
+	RatingLastImage    *String   `xmlrpc:"rating_last_image,omptempty"`
+	RatingLastValue    *Float    `xmlrpc:"rating_last_value,omptempty"`
 }
 
 // RatingMixins represents array of rating.mixin model.

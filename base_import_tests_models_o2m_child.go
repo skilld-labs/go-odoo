@@ -6,15 +6,15 @@ import (
 
 // BaseImportTestsModelsO2MChild represents base_import.tests.models.o2m.child model.
 type BaseImportTestsModelsO2MChild struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
-	Value       *Int      `xmlrpc:"value,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	ParentId    *Many2One `xmlrpc:"parent_id,omptempty"`
+	Value       *Int      `xmlrpc:"value,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // BaseImportTestsModelsO2MChilds represents array of base_import.tests.models.o2m.child model.

@@ -6,14 +6,14 @@ import (
 
 // MailNotification represents mail.notification model.
 type MailNotification struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	EmailStatus   *Selection `xmlrpc:"email_status,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	IsEmail       *Bool      `xmlrpc:"is_email,omitempty"`
-	IsRead        *Bool      `xmlrpc:"is_read,omitempty"`
-	MailMessageId *Many2One  `xmlrpc:"mail_message_id,omitempty"`
-	ResPartnerId  *Many2One  `xmlrpc:"res_partner_id,omitempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
+	EmailStatus   *Selection `xmlrpc:"email_status,omptempty"`
+	Id            *Int       `xmlrpc:"id,omptempty"`
+	IsEmail       *Bool      `xmlrpc:"is_email,omptempty"`
+	IsRead        *Bool      `xmlrpc:"is_read,omptempty"`
+	MailMessageId *Many2One  `xmlrpc:"mail_message_id,omptempty"`
+	ResPartnerId  *Many2One  `xmlrpc:"res_partner_id,omptempty"`
 }
 
 // MailNotifications represents array of mail.notification model.

@@ -6,15 +6,15 @@ import (
 
 // ProductPutaway represents product.putaway model.
 type ProductPutaway struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
-	FixedLocationIds *Relation `xmlrpc:"fixed_location_ids,omitempty"`
-	Id               *Int      `xmlrpc:"id,omitempty"`
-	Name             *String   `xmlrpc:"name,omitempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
+	FixedLocationIds *Relation `xmlrpc:"fixed_location_ids,omptempty"`
+	Id               *Int      `xmlrpc:"id,omptempty"`
+	Name             *String   `xmlrpc:"name,omptempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // ProductPutaways represents array of product.putaway model.

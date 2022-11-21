@@ -6,26 +6,26 @@ import (
 
 // StockWarehouseOrderpoint represents stock.warehouse.orderpoint model.
 type StockWarehouseOrderpoint struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	Active        *Bool      `xmlrpc:"active,omitempty"`
-	CompanyId     *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	GroupId       *Many2One  `xmlrpc:"group_id,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	LeadDays      *Int       `xmlrpc:"lead_days,omitempty"`
-	LeadType      *Selection `xmlrpc:"lead_type,omitempty"`
-	LocationId    *Many2One  `xmlrpc:"location_id,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	ProductId     *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductMaxQty *Float     `xmlrpc:"product_max_qty,omitempty"`
-	ProductMinQty *Float     `xmlrpc:"product_min_qty,omitempty"`
-	ProductUom    *Many2One  `xmlrpc:"product_uom,omitempty"`
-	QtyMultiple   *Float     `xmlrpc:"qty_multiple,omitempty"`
-	WarehouseId   *Many2One  `xmlrpc:"warehouse_id,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
+	Active        *Bool      `xmlrpc:"active,omptempty"`
+	CompanyId     *Many2One  `xmlrpc:"company_id,omptempty"`
+	CreateDate    *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid     *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
+	GroupId       *Many2One  `xmlrpc:"group_id,omptempty"`
+	Id            *Int       `xmlrpc:"id,omptempty"`
+	LeadDays      *Int       `xmlrpc:"lead_days,omptempty"`
+	LeadType      *Selection `xmlrpc:"lead_type,omptempty"`
+	LocationId    *Many2One  `xmlrpc:"location_id,omptempty"`
+	Name          *String    `xmlrpc:"name,omptempty"`
+	ProductId     *Many2One  `xmlrpc:"product_id,omptempty"`
+	ProductMaxQty *Float     `xmlrpc:"product_max_qty,omptempty"`
+	ProductMinQty *Float     `xmlrpc:"product_min_qty,omptempty"`
+	ProductUom    *Many2One  `xmlrpc:"product_uom,omptempty"`
+	QtyMultiple   *Float     `xmlrpc:"qty_multiple,omptempty"`
+	WarehouseId   *Many2One  `xmlrpc:"warehouse_id,omptempty"`
+	WriteDate     *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid      *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // StockWarehouseOrderpoints represents array of stock.warehouse.orderpoint model.

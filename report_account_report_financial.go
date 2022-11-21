@@ -6,9 +6,9 @@ import (
 
 // ReportAccountReportFinancial represents report.account.report_financial model.
 type ReportAccountReportFinancial struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // ReportAccountReportFinancials represents array of report.account.report_financial model.

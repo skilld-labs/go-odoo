@@ -6,21 +6,21 @@ import (
 
 // ProductPricelist represents product.pricelist model.
 type ProductPricelist struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	Active          *Bool      `xmlrpc:"active,omitempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
-	CountryGroupIds *Relation  `xmlrpc:"country_group_ids,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId      *Many2One  `xmlrpc:"currency_id,omitempty"`
-	DiscountPolicy  *Selection `xmlrpc:"discount_policy,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	ItemIds         *Relation  `xmlrpc:"item_ids,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	Sequence        *Int       `xmlrpc:"sequence,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
+	Active          *Bool      `xmlrpc:"active,omptempty"`
+	CompanyId       *Many2One  `xmlrpc:"company_id,omptempty"`
+	CountryGroupIds *Relation  `xmlrpc:"country_group_ids,omptempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
+	CurrencyId      *Many2One  `xmlrpc:"currency_id,omptempty"`
+	DiscountPolicy  *Selection `xmlrpc:"discount_policy,omptempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
+	Id              *Int       `xmlrpc:"id,omptempty"`
+	ItemIds         *Relation  `xmlrpc:"item_ids,omptempty"`
+	Name            *String    `xmlrpc:"name,omptempty"`
+	Sequence        *Int       `xmlrpc:"sequence,omptempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // ProductPricelists represents array of product.pricelist model.

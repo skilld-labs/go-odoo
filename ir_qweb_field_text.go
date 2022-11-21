@@ -6,9 +6,9 @@ import (
 
 // IrQwebFieldText represents ir.qweb.field.text model.
 type IrQwebFieldText struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // IrQwebFieldTexts represents array of ir.qweb.field.text model.

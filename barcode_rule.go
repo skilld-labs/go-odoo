@@ -6,20 +6,20 @@ import (
 
 // BarcodeRule represents barcode.rule model.
 type BarcodeRule struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
-	Alias                 *String    `xmlrpc:"alias,omitempty"`
-	BarcodeNomenclatureId *Many2One  `xmlrpc:"barcode_nomenclature_id,omitempty"`
-	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
-	Encoding              *Selection `xmlrpc:"encoding,omitempty"`
-	Id                    *Int       `xmlrpc:"id,omitempty"`
-	Name                  *String    `xmlrpc:"name,omitempty"`
-	Pattern               *String    `xmlrpc:"pattern,omitempty"`
-	Sequence              *Int       `xmlrpc:"sequence,omitempty"`
-	Type                  *Selection `xmlrpc:"type,omitempty"`
-	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
+	Alias                 *String    `xmlrpc:"alias,omptempty"`
+	BarcodeNomenclatureId *Many2One  `xmlrpc:"barcode_nomenclature_id,omptempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omptempty"`
+	Encoding              *Selection `xmlrpc:"encoding,omptempty"`
+	Id                    *Int       `xmlrpc:"id,omptempty"`
+	Name                  *String    `xmlrpc:"name,omptempty"`
+	Pattern               *String    `xmlrpc:"pattern,omptempty"`
+	Sequence              *Int       `xmlrpc:"sequence,omptempty"`
+	Type                  *Selection `xmlrpc:"type,omptempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // BarcodeRules represents array of barcode.rule model.

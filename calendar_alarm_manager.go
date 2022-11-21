@@ -6,9 +6,9 @@ import (
 
 // CalendarAlarmManager represents calendar.alarm_manager model.
 type CalendarAlarmManager struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // CalendarAlarmManagers represents array of calendar.alarm_manager model.

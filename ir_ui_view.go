@@ -6,31 +6,31 @@ import (
 
 // IrUiView represents ir.ui.view model.
 type IrUiView struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
-	Active             *Bool      `xmlrpc:"active,omitempty"`
-	Arch               *String    `xmlrpc:"arch,omitempty"`
-	ArchBase           *String    `xmlrpc:"arch_base,omitempty"`
-	ArchDb             *String    `xmlrpc:"arch_db,omitempty"`
-	ArchFs             *String    `xmlrpc:"arch_fs,omitempty"`
-	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
-	FieldParent        *String    `xmlrpc:"field_parent,omitempty"`
-	GroupsId           *Relation  `xmlrpc:"groups_id,omitempty"`
-	Id                 *Int       `xmlrpc:"id,omitempty"`
-	InheritChildrenIds *Relation  `xmlrpc:"inherit_children_ids,omitempty"`
-	InheritId          *Many2One  `xmlrpc:"inherit_id,omitempty"`
-	Key                *String    `xmlrpc:"key,omitempty"`
-	Mode               *Selection `xmlrpc:"mode,omitempty"`
-	Model              *String    `xmlrpc:"model,omitempty"`
-	ModelDataId        *Many2One  `xmlrpc:"model_data_id,omitempty"`
-	ModelIds           *Relation  `xmlrpc:"model_ids,omitempty"`
-	Name               *String    `xmlrpc:"name,omitempty"`
-	Priority           *Int       `xmlrpc:"priority,omitempty"`
-	Type               *Selection `xmlrpc:"type,omitempty"`
-	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId              *String    `xmlrpc:"xml_id,omitempty"`
+	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
+	Active             *Bool      `xmlrpc:"active,omptempty"`
+	Arch               *String    `xmlrpc:"arch,omptempty"`
+	ArchBase           *String    `xmlrpc:"arch_base,omptempty"`
+	ArchDb             *String    `xmlrpc:"arch_db,omptempty"`
+	ArchFs             *String    `xmlrpc:"arch_fs,omptempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omptempty"`
+	FieldParent        *String    `xmlrpc:"field_parent,omptempty"`
+	GroupsId           *Relation  `xmlrpc:"groups_id,omptempty"`
+	Id                 *Int       `xmlrpc:"id,omptempty"`
+	InheritChildrenIds *Relation  `xmlrpc:"inherit_children_ids,omptempty"`
+	InheritId          *Many2One  `xmlrpc:"inherit_id,omptempty"`
+	Key                *String    `xmlrpc:"key,omptempty"`
+	Mode               *Selection `xmlrpc:"mode,omptempty"`
+	Model              *String    `xmlrpc:"model,omptempty"`
+	ModelDataId        *Many2One  `xmlrpc:"model_data_id,omptempty"`
+	ModelIds           *Relation  `xmlrpc:"model_ids,omptempty"`
+	Name               *String    `xmlrpc:"name,omptempty"`
+	Priority           *Int       `xmlrpc:"priority,omptempty"`
+	Type               *Selection `xmlrpc:"type,omptempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omptempty"`
+	XmlId              *String    `xmlrpc:"xml_id,omptempty"`
 }
 
 // IrUiViews represents array of ir.ui.view model.

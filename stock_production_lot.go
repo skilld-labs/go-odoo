@@ -6,30 +6,30 @@ import (
 
 // StockProductionLot represents stock.production.lot model.
 type StockProductionLot struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
-	Id                       *Int      `xmlrpc:"id,omitempty"`
-	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omitempty"`
-	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omitempty"`
-	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
-	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageLastPost          *Time     `xmlrpc:"message_last_post,omitempty"`
-	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
-	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
-	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
-	MessageUnread            *Bool     `xmlrpc:"message_unread,omitempty"`
-	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omitempty"`
-	Name                     *String   `xmlrpc:"name,omitempty"`
-	ProductId                *Many2One `xmlrpc:"product_id,omitempty"`
-	ProductQty               *Float    `xmlrpc:"product_qty,omitempty"`
-	ProductUomId             *Many2One `xmlrpc:"product_uom_id,omitempty"`
-	QuantIds                 *Relation `xmlrpc:"quant_ids,omitempty"`
-	Ref                      *String   `xmlrpc:"ref,omitempty"`
-	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
-	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omptempty"`
+	Id                       *Int      `xmlrpc:"id,omptempty"`
+	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omptempty"`
+	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omptempty"`
+	MessageIds               *Relation `xmlrpc:"message_ids,omptempty"`
+	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omptempty"`
+	MessageLastPost          *Time     `xmlrpc:"message_last_post,omptempty"`
+	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omptempty"`
+	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omptempty"`
+	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omptempty"`
+	MessageUnread            *Bool     `xmlrpc:"message_unread,omptempty"`
+	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omptempty"`
+	Name                     *String   `xmlrpc:"name,omptempty"`
+	ProductId                *Many2One `xmlrpc:"product_id,omptempty"`
+	ProductQty               *Float    `xmlrpc:"product_qty,omptempty"`
+	ProductUomId             *Many2One `xmlrpc:"product_uom_id,omptempty"`
+	QuantIds                 *Relation `xmlrpc:"quant_ids,omptempty"`
+	Ref                      *String   `xmlrpc:"ref,omptempty"`
+	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omptempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // StockProductionLots represents array of stock.production.lot model.

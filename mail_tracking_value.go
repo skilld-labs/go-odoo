@@ -6,29 +6,29 @@ import (
 
 // MailTrackingValue represents mail.tracking.value model.
 type MailTrackingValue struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
-	Field            *String   `xmlrpc:"field,omitempty"`
-	FieldDesc        *String   `xmlrpc:"field_desc,omitempty"`
-	FieldType        *String   `xmlrpc:"field_type,omitempty"`
-	Id               *Int      `xmlrpc:"id,omitempty"`
-	MailMessageId    *Many2One `xmlrpc:"mail_message_id,omitempty"`
-	NewValueChar     *String   `xmlrpc:"new_value_char,omitempty"`
-	NewValueDatetime *Time     `xmlrpc:"new_value_datetime,omitempty"`
-	NewValueFloat    *Float    `xmlrpc:"new_value_float,omitempty"`
-	NewValueInteger  *Int      `xmlrpc:"new_value_integer,omitempty"`
-	NewValueMonetary *Float    `xmlrpc:"new_value_monetary,omitempty"`
-	NewValueText     *String   `xmlrpc:"new_value_text,omitempty"`
-	OldValueChar     *String   `xmlrpc:"old_value_char,omitempty"`
-	OldValueDatetime *Time     `xmlrpc:"old_value_datetime,omitempty"`
-	OldValueFloat    *Float    `xmlrpc:"old_value_float,omitempty"`
-	OldValueInteger  *Int      `xmlrpc:"old_value_integer,omitempty"`
-	OldValueMonetary *Float    `xmlrpc:"old_value_monetary,omitempty"`
-	OldValueText     *String   `xmlrpc:"old_value_text,omitempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
+	Field            *String   `xmlrpc:"field,omptempty"`
+	FieldDesc        *String   `xmlrpc:"field_desc,omptempty"`
+	FieldType        *String   `xmlrpc:"field_type,omptempty"`
+	Id               *Int      `xmlrpc:"id,omptempty"`
+	MailMessageId    *Many2One `xmlrpc:"mail_message_id,omptempty"`
+	NewValueChar     *String   `xmlrpc:"new_value_char,omptempty"`
+	NewValueDatetime *Time     `xmlrpc:"new_value_datetime,omptempty"`
+	NewValueFloat    *Float    `xmlrpc:"new_value_float,omptempty"`
+	NewValueInteger  *Int      `xmlrpc:"new_value_integer,omptempty"`
+	NewValueMonetary *Float    `xmlrpc:"new_value_monetary,omptempty"`
+	NewValueText     *String   `xmlrpc:"new_value_text,omptempty"`
+	OldValueChar     *String   `xmlrpc:"old_value_char,omptempty"`
+	OldValueDatetime *Time     `xmlrpc:"old_value_datetime,omptempty"`
+	OldValueFloat    *Float    `xmlrpc:"old_value_float,omptempty"`
+	OldValueInteger  *Int      `xmlrpc:"old_value_integer,omptempty"`
+	OldValueMonetary *Float    `xmlrpc:"old_value_monetary,omptempty"`
+	OldValueText     *String   `xmlrpc:"old_value_text,omptempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // MailTrackingValues represents array of mail.tracking.value model.

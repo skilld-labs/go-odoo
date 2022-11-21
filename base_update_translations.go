@@ -6,14 +6,14 @@ import (
 
 // BaseUpdateTranslations represents base.update.translations model.
 type BaseUpdateTranslations struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Lang        *Selection `xmlrpc:"lang,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	Lang        *Selection `xmlrpc:"lang,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // BaseUpdateTranslationss represents array of base.update.translations model.

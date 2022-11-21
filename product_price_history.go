@@ -6,17 +6,17 @@ import (
 
 // ProductPriceHistory represents product.price.history model.
 type ProductPriceHistory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
-	Cost        *Float    `xmlrpc:"cost,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	Datetime    *Time     `xmlrpc:"datetime,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CompanyId   *Many2One `xmlrpc:"company_id,omptempty"`
+	Cost        *Float    `xmlrpc:"cost,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	Datetime    *Time     `xmlrpc:"datetime,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	ProductId   *Many2One `xmlrpc:"product_id,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // ProductPriceHistorys represents array of product.price.history model.

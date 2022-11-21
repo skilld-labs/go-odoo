@@ -6,9 +6,9 @@ import (
 
 // IrQwebFieldDuration represents ir.qweb.field.duration model.
 type IrQwebFieldDuration struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // IrQwebFieldDurations represents array of ir.qweb.field.duration model.

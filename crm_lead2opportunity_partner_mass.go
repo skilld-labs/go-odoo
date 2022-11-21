@@ -6,22 +6,22 @@ import (
 
 // CrmLead2OpportunityPartnerMass represents crm.lead2opportunity.partner.mass model.
 type CrmLead2OpportunityPartnerMass struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
-	Action           *Selection `xmlrpc:"action,omitempty"`
-	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Deduplicate      *Bool      `xmlrpc:"deduplicate,omitempty"`
-	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
-	ForceAssignation *Bool      `xmlrpc:"force_assignation,omitempty"`
-	Id               *Int       `xmlrpc:"id,omitempty"`
-	Name             *Selection `xmlrpc:"name,omitempty"`
-	OpportunityIds   *Relation  `xmlrpc:"opportunity_ids,omitempty"`
-	PartnerId        *Many2One  `xmlrpc:"partner_id,omitempty"`
-	TeamId           *Many2One  `xmlrpc:"team_id,omitempty"`
-	UserId           *Many2One  `xmlrpc:"user_id,omitempty"`
-	UserIds          *Relation  `xmlrpc:"user_ids,omitempty"`
-	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
+	Action           *Selection `xmlrpc:"action,omptempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omptempty"`
+	Deduplicate      *Bool      `xmlrpc:"deduplicate,omptempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omptempty"`
+	ForceAssignation *Bool      `xmlrpc:"force_assignation,omptempty"`
+	Id               *Int       `xmlrpc:"id,omptempty"`
+	Name             *Selection `xmlrpc:"name,omptempty"`
+	OpportunityIds   *Relation  `xmlrpc:"opportunity_ids,omptempty"`
+	PartnerId        *Many2One  `xmlrpc:"partner_id,omptempty"`
+	TeamId           *Many2One  `xmlrpc:"team_id,omptempty"`
+	UserId           *Many2One  `xmlrpc:"user_id,omptempty"`
+	UserIds          *Relation  `xmlrpc:"user_ids,omptempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // CrmLead2OpportunityPartnerMasss represents array of crm.lead2opportunity.partner.mass model.

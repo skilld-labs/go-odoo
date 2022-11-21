@@ -6,12 +6,12 @@ import (
 
 // UtmMixin represents utm.mixin model.
 type UtmMixin struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CampaignId  *Many2One `xmlrpc:"campaign_id,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	MediumId    *Many2One `xmlrpc:"medium_id,omitempty"`
-	SourceId    *Many2One `xmlrpc:"source_id,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CampaignId  *Many2One `xmlrpc:"campaign_id,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	MediumId    *Many2One `xmlrpc:"medium_id,omptempty"`
+	SourceId    *Many2One `xmlrpc:"source_id,omptempty"`
 }
 
 // UtmMixins represents array of utm.mixin model.

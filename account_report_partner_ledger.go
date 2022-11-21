@@ -6,21 +6,21 @@ import (
 
 // AccountReportPartnerLedger represents account.report.partner.ledger model.
 type AccountReportPartnerLedger struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	AmountCurrency  *Bool      `xmlrpc:"amount_currency,omitempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFrom        *Time      `xmlrpc:"date_from,omitempty"`
-	DateTo          *Time      `xmlrpc:"date_to,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	JournalIds      *Relation  `xmlrpc:"journal_ids,omitempty"`
-	Reconciled      *Bool      `xmlrpc:"reconciled,omitempty"`
-	ResultSelection *Selection `xmlrpc:"result_selection,omitempty"`
-	TargetMove      *Selection `xmlrpc:"target_move,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
+	AmountCurrency  *Bool      `xmlrpc:"amount_currency,omptempty"`
+	CompanyId       *Many2One  `xmlrpc:"company_id,omptempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DateFrom        *Time      `xmlrpc:"date_from,omptempty"`
+	DateTo          *Time      `xmlrpc:"date_to,omptempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
+	Id              *Int       `xmlrpc:"id,omptempty"`
+	JournalIds      *Relation  `xmlrpc:"journal_ids,omptempty"`
+	Reconciled      *Bool      `xmlrpc:"reconciled,omptempty"`
+	ResultSelection *Selection `xmlrpc:"result_selection,omptempty"`
+	TargetMove      *Selection `xmlrpc:"target_move,omptempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountReportPartnerLedgers represents array of account.report.partner.ledger model.

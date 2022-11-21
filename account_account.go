@@ -6,28 +6,28 @@ import (
 
 // AccountAccount represents account.account model.
 type AccountAccount struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
-	Code                   *String    `xmlrpc:"code,omitempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId             *Many2One  `xmlrpc:"currency_id,omitempty"`
-	Deprecated             *Bool      `xmlrpc:"deprecated,omitempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
-	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
-	Id                     *Int       `xmlrpc:"id,omitempty"`
-	InternalType           *Selection `xmlrpc:"internal_type,omitempty"`
-	LastTimeEntriesChecked *Time      `xmlrpc:"last_time_entries_checked,omitempty"`
-	Name                   *String    `xmlrpc:"name,omitempty"`
-	Note                   *String    `xmlrpc:"note,omitempty"`
-	OpeningCredit          *Float     `xmlrpc:"opening_credit,omitempty"`
-	OpeningDebit           *Float     `xmlrpc:"opening_debit,omitempty"`
-	Reconcile              *Bool      `xmlrpc:"reconcile,omitempty"`
-	TagIds                 *Relation  `xmlrpc:"tag_ids,omitempty"`
-	TaxIds                 *Relation  `xmlrpc:"tax_ids,omitempty"`
-	UserTypeId             *Many2One  `xmlrpc:"user_type_id,omitempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
+	Code                   *String    `xmlrpc:"code,omptempty"`
+	CompanyId              *Many2One  `xmlrpc:"company_id,omptempty"`
+	CreateDate             *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid              *Many2One  `xmlrpc:"create_uid,omptempty"`
+	CurrencyId             *Many2One  `xmlrpc:"currency_id,omptempty"`
+	Deprecated             *Bool      `xmlrpc:"deprecated,omptempty"`
+	DisplayName            *String    `xmlrpc:"display_name,omptempty"`
+	GroupId                *Many2One  `xmlrpc:"group_id,omptempty"`
+	Id                     *Int       `xmlrpc:"id,omptempty"`
+	InternalType           *Selection `xmlrpc:"internal_type,omptempty"`
+	LastTimeEntriesChecked *Time      `xmlrpc:"last_time_entries_checked,omptempty"`
+	Name                   *String    `xmlrpc:"name,omptempty"`
+	Note                   *String    `xmlrpc:"note,omptempty"`
+	OpeningCredit          *Float     `xmlrpc:"opening_credit,omptempty"`
+	OpeningDebit           *Float     `xmlrpc:"opening_debit,omptempty"`
+	Reconcile              *Bool      `xmlrpc:"reconcile,omptempty"`
+	TagIds                 *Relation  `xmlrpc:"tag_ids,omptempty"`
+	TaxIds                 *Relation  `xmlrpc:"tax_ids,omptempty"`
+	UserTypeId             *Many2One  `xmlrpc:"user_type_id,omptempty"`
+	WriteDate              *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid               *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountAccounts represents array of account.account model.

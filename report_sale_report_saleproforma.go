@@ -6,9 +6,9 @@ import (
 
 // ReportSaleReportSaleproforma represents report.sale.report_saleproforma model.
 type ReportSaleReportSaleproforma struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // ReportSaleReportSaleproformas represents array of report.sale.report_saleproforma model.

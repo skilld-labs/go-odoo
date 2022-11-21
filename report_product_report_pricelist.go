@@ -6,9 +6,9 @@ import (
 
 // ReportProductReportPricelist represents report.product.report_pricelist model.
 type ReportProductReportPricelist struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // ReportProductReportPricelists represents array of report.product.report_pricelist model.

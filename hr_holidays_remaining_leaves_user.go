@@ -6,13 +6,13 @@ import (
 
 // HrHolidaysRemainingLeavesUser represents hr.holidays.remaining.leaves.user model.
 type HrHolidaysRemainingLeavesUser struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	LeaveType   *String   `xmlrpc:"leave_type,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	NoOfLeaves  *Int      `xmlrpc:"no_of_leaves,omitempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	LeaveType   *String   `xmlrpc:"leave_type,omptempty"`
+	Name        *String   `xmlrpc:"name,omptempty"`
+	NoOfLeaves  *Int      `xmlrpc:"no_of_leaves,omptempty"`
+	UserId      *Many2One `xmlrpc:"user_id,omptempty"`
 }
 
 // HrHolidaysRemainingLeavesUsers represents array of hr.holidays.remaining.leaves.user model.

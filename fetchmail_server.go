@@ -6,31 +6,31 @@ import (
 
 // FetchmailServer represents fetchmail.server model.
 type FetchmailServer struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	ActionId      *Many2One  `xmlrpc:"action_id,omitempty"`
-	Active        *Bool      `xmlrpc:"active,omitempty"`
-	Attach        *Bool      `xmlrpc:"attach,omitempty"`
-	Configuration *String    `xmlrpc:"configuration,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Date          *Time      `xmlrpc:"date,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	IsSsl         *Bool      `xmlrpc:"is_ssl,omitempty"`
-	MessageIds    *Relation  `xmlrpc:"message_ids,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	ObjectId      *Many2One  `xmlrpc:"object_id,omitempty"`
-	Original      *Bool      `xmlrpc:"original,omitempty"`
-	Password      *String    `xmlrpc:"password,omitempty"`
-	Port          *Int       `xmlrpc:"port,omitempty"`
-	Priority      *Int       `xmlrpc:"priority,omitempty"`
-	Script        *String    `xmlrpc:"script,omitempty"`
-	Server        *String    `xmlrpc:"server,omitempty"`
-	State         *Selection `xmlrpc:"state,omitempty"`
-	Type          *Selection `xmlrpc:"type,omitempty"`
-	User          *String    `xmlrpc:"user,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
+	ActionId      *Many2One  `xmlrpc:"action_id,omptempty"`
+	Active        *Bool      `xmlrpc:"active,omptempty"`
+	Attach        *Bool      `xmlrpc:"attach,omptempty"`
+	Configuration *String    `xmlrpc:"configuration,omptempty"`
+	CreateDate    *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid     *Many2One  `xmlrpc:"create_uid,omptempty"`
+	Date          *Time      `xmlrpc:"date,omptempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
+	Id            *Int       `xmlrpc:"id,omptempty"`
+	IsSsl         *Bool      `xmlrpc:"is_ssl,omptempty"`
+	MessageIds    *Relation  `xmlrpc:"message_ids,omptempty"`
+	Name          *String    `xmlrpc:"name,omptempty"`
+	ObjectId      *Many2One  `xmlrpc:"object_id,omptempty"`
+	Original      *Bool      `xmlrpc:"original,omptempty"`
+	Password      *String    `xmlrpc:"password,omptempty"`
+	Port          *Int       `xmlrpc:"port,omptempty"`
+	Priority      *Int       `xmlrpc:"priority,omptempty"`
+	Script        *String    `xmlrpc:"script,omptempty"`
+	Server        *String    `xmlrpc:"server,omptempty"`
+	State         *Selection `xmlrpc:"state,omptempty"`
+	Type          *Selection `xmlrpc:"type,omptempty"`
+	User          *String    `xmlrpc:"user,omptempty"`
+	WriteDate     *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid      *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // FetchmailServers represents array of fetchmail.server model.

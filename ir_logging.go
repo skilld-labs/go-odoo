@@ -6,21 +6,21 @@ import (
 
 // IrLogging represents ir.logging model.
 type IrLogging struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Int       `xmlrpc:"create_uid,omitempty"`
-	Dbname      *String    `xmlrpc:"dbname,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Func        *String    `xmlrpc:"func,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Level       *String    `xmlrpc:"level,omitempty"`
-	Line        *String    `xmlrpc:"line,omitempty"`
-	Message     *String    `xmlrpc:"message,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	Path        *String    `xmlrpc:"path,omitempty"`
-	Type        *Selection `xmlrpc:"type,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Int       `xmlrpc:"create_uid,omptempty"`
+	Dbname      *String    `xmlrpc:"dbname,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Func        *String    `xmlrpc:"func,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	Level       *String    `xmlrpc:"level,omptempty"`
+	Line        *String    `xmlrpc:"line,omptempty"`
+	Message     *String    `xmlrpc:"message,omptempty"`
+	Name        *String    `xmlrpc:"name,omptempty"`
+	Path        *String    `xmlrpc:"path,omptempty"`
+	Type        *Selection `xmlrpc:"type,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrLoggings represents array of ir.logging model.

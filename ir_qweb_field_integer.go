@@ -6,9 +6,9 @@ import (
 
 // IrQwebFieldInteger represents ir.qweb.field.integer model.
 type IrQwebFieldInteger struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // IrQwebFieldIntegers represents array of ir.qweb.field.integer model.

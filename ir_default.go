@@ -6,18 +6,18 @@ import (
 
 // IrDefault represents ir.default model.
 type IrDefault struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
-	Condition   *String   `xmlrpc:"condition,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	FieldId     *Many2One `xmlrpc:"field_id,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	JsonValue   *String   `xmlrpc:"json_value,omitempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CompanyId   *Many2One `xmlrpc:"company_id,omptempty"`
+	Condition   *String   `xmlrpc:"condition,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	FieldId     *Many2One `xmlrpc:"field_id,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	JsonValue   *String   `xmlrpc:"json_value,omptempty"`
+	UserId      *Many2One `xmlrpc:"user_id,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrDefaults represents array of ir.default model.

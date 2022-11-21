@@ -6,16 +6,16 @@ import (
 
 // CashBoxIn represents cash.box.in model.
 type CashBoxIn struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	Amount      *Float    `xmlrpc:"amount,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	Ref         *String   `xmlrpc:"ref,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	Amount      *Float    `xmlrpc:"amount,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	Name        *String   `xmlrpc:"name,omptempty"`
+	Ref         *String   `xmlrpc:"ref,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // CashBoxIns represents array of cash.box.in model.

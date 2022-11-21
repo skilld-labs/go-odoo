@@ -6,18 +6,18 @@ import (
 
 // AccountGroup represents account.group model.
 type AccountGroup struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CodePrefix  *String   `xmlrpc:"code_prefix,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentLeft  *Int      `xmlrpc:"parent_left,omitempty"`
-	ParentRight *Int      `xmlrpc:"parent_right,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CodePrefix  *String   `xmlrpc:"code_prefix,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	Name        *String   `xmlrpc:"name,omptempty"`
+	ParentId    *Many2One `xmlrpc:"parent_id,omptempty"`
+	ParentLeft  *Int      `xmlrpc:"parent_left,omptempty"`
+	ParentRight *Int      `xmlrpc:"parent_right,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountGroups represents array of account.group model.

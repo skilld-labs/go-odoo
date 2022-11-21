@@ -6,28 +6,28 @@ import (
 
 // ImLivechatChannel represents im_livechat.channel model.
 type ImLivechatChannel struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
-	AreYouInside                 *Bool     `xmlrpc:"are_you_inside,omitempty"`
-	ButtonText                   *String   `xmlrpc:"button_text,omitempty"`
-	ChannelIds                   *Relation `xmlrpc:"channel_ids,omitempty"`
-	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DefaultMessage               *String   `xmlrpc:"default_message,omitempty"`
-	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
-	Id                           *Int      `xmlrpc:"id,omitempty"`
-	Image                        *String   `xmlrpc:"image,omitempty"`
-	ImageMedium                  *String   `xmlrpc:"image_medium,omitempty"`
-	ImageSmall                   *String   `xmlrpc:"image_small,omitempty"`
-	InputPlaceholder             *String   `xmlrpc:"input_placeholder,omitempty"`
-	Name                         *String   `xmlrpc:"name,omitempty"`
-	NbrChannel                   *Int      `xmlrpc:"nbr_channel,omitempty"`
-	RatingPercentageSatisfaction *Int      `xmlrpc:"rating_percentage_satisfaction,omitempty"`
-	RuleIds                      *Relation `xmlrpc:"rule_ids,omitempty"`
-	ScriptExternal               *String   `xmlrpc:"script_external,omitempty"`
-	UserIds                      *Relation `xmlrpc:"user_ids,omitempty"`
-	WebPage                      *String   `xmlrpc:"web_page,omitempty"`
-	WriteDate                    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                     *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                   *Time     `xmlrpc:"__last_update,omptempty"`
+	AreYouInside                 *Bool     `xmlrpc:"are_you_inside,omptempty"`
+	ButtonText                   *String   `xmlrpc:"button_text,omptempty"`
+	ChannelIds                   *Relation `xmlrpc:"channel_ids,omptempty"`
+	CreateDate                   *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid                    *Many2One `xmlrpc:"create_uid,omptempty"`
+	DefaultMessage               *String   `xmlrpc:"default_message,omptempty"`
+	DisplayName                  *String   `xmlrpc:"display_name,omptempty"`
+	Id                           *Int      `xmlrpc:"id,omptempty"`
+	Image                        *String   `xmlrpc:"image,omptempty"`
+	ImageMedium                  *String   `xmlrpc:"image_medium,omptempty"`
+	ImageSmall                   *String   `xmlrpc:"image_small,omptempty"`
+	InputPlaceholder             *String   `xmlrpc:"input_placeholder,omptempty"`
+	Name                         *String   `xmlrpc:"name,omptempty"`
+	NbrChannel                   *Int      `xmlrpc:"nbr_channel,omptempty"`
+	RatingPercentageSatisfaction *Int      `xmlrpc:"rating_percentage_satisfaction,omptempty"`
+	RuleIds                      *Relation `xmlrpc:"rule_ids,omptempty"`
+	ScriptExternal               *String   `xmlrpc:"script_external,omptempty"`
+	UserIds                      *Relation `xmlrpc:"user_ids,omptempty"`
+	WebPage                      *String   `xmlrpc:"web_page,omptempty"`
+	WriteDate                    *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid                     *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // ImLivechatChannels represents array of im_livechat.channel model.

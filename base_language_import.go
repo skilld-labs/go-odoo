@@ -6,18 +6,18 @@ import (
 
 // BaseLanguageImport represents base.language.import model.
 type BaseLanguageImport struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	Code        *String   `xmlrpc:"code,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	Data        *String   `xmlrpc:"data,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Filename    *String   `xmlrpc:"filename,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	Overwrite   *Bool     `xmlrpc:"overwrite,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	Code        *String   `xmlrpc:"code,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	Data        *String   `xmlrpc:"data,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Filename    *String   `xmlrpc:"filename,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	Name        *String   `xmlrpc:"name,omptempty"`
+	Overwrite   *Bool     `xmlrpc:"overwrite,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // BaseLanguageImports represents array of base.language.import model.

@@ -6,22 +6,22 @@ import (
 
 // TaxAdjustmentsWizard represents tax.adjustments.wizard model.
 type TaxAdjustmentsWizard struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
-	AdjustmentType    *Selection `xmlrpc:"adjustment_type,omitempty"`
-	Amount            *Float     `xmlrpc:"amount,omitempty"`
-	CompanyCurrencyId *Many2One  `xmlrpc:"company_currency_id,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CreditAccountId   *Many2One  `xmlrpc:"credit_account_id,omitempty"`
-	Date              *Time      `xmlrpc:"date,omitempty"`
-	DebitAccountId    *Many2One  `xmlrpc:"debit_account_id,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
-	Reason            *String    `xmlrpc:"reason,omitempty"`
-	TaxId             *Many2One  `xmlrpc:"tax_id,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
+	AdjustmentType    *Selection `xmlrpc:"adjustment_type,omptempty"`
+	Amount            *Float     `xmlrpc:"amount,omptempty"`
+	CompanyCurrencyId *Many2One  `xmlrpc:"company_currency_id,omptempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omptempty"`
+	CreditAccountId   *Many2One  `xmlrpc:"credit_account_id,omptempty"`
+	Date              *Time      `xmlrpc:"date,omptempty"`
+	DebitAccountId    *Many2One  `xmlrpc:"debit_account_id,omptempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
+	Id                *Int       `xmlrpc:"id,omptempty"`
+	JournalId         *Many2One  `xmlrpc:"journal_id,omptempty"`
+	Reason            *String    `xmlrpc:"reason,omptempty"`
+	TaxId             *Many2One  `xmlrpc:"tax_id,omptempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // TaxAdjustmentsWizards represents array of tax.adjustments.wizard model.

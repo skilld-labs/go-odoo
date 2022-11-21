@@ -6,21 +6,21 @@ import (
 
 // IrModelAccess represents ir.model.access model.
 type IrModelAccess struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	Active      *Bool     `xmlrpc:"active,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	GroupId     *Many2One `xmlrpc:"group_id,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	ModelId     *Many2One `xmlrpc:"model_id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	PermCreate  *Bool     `xmlrpc:"perm_create,omitempty"`
-	PermRead    *Bool     `xmlrpc:"perm_read,omitempty"`
-	PermUnlink  *Bool     `xmlrpc:"perm_unlink,omitempty"`
-	PermWrite   *Bool     `xmlrpc:"perm_write,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	Active      *Bool     `xmlrpc:"active,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	GroupId     *Many2One `xmlrpc:"group_id,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	ModelId     *Many2One `xmlrpc:"model_id,omptempty"`
+	Name        *String   `xmlrpc:"name,omptempty"`
+	PermCreate  *Bool     `xmlrpc:"perm_create,omptempty"`
+	PermRead    *Bool     `xmlrpc:"perm_read,omptempty"`
+	PermUnlink  *Bool     `xmlrpc:"perm_unlink,omptempty"`
+	PermWrite   *Bool     `xmlrpc:"perm_write,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrModelAccesss represents array of ir.model.access model.

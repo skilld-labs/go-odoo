@@ -6,9 +6,9 @@ import (
 
 // ReportAccountReportPartnerledger represents report.account.report_partnerledger model.
 type ReportAccountReportPartnerledger struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // ReportAccountReportPartnerledgers represents array of report.account.report_partnerledger model.

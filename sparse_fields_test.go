@@ -6,20 +6,20 @@ import (
 
 // SparseFieldsTest represents sparse_fields.test model.
 type SparseFieldsTest struct {
-	LastUpdate  *Time       `xmlrpc:"__last_update,omitempty"`
-	Boolean     *Bool       `xmlrpc:"boolean,omitempty"`
-	Char        *String     `xmlrpc:"char,omitempty"`
-	CreateDate  *Time       `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One   `xmlrpc:"create_uid,omitempty"`
-	Data        interface{} `xmlrpc:"data,omitempty"`
-	DisplayName *String     `xmlrpc:"display_name,omitempty"`
-	Float       *Float      `xmlrpc:"float,omitempty"`
-	Id          *Int        `xmlrpc:"id,omitempty"`
-	Integer     *Int        `xmlrpc:"integer,omitempty"`
-	Partner     *Many2One   `xmlrpc:"partner,omitempty"`
-	Selection   *Selection  `xmlrpc:"selection,omitempty"`
-	WriteDate   *Time       `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One   `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time       `xmlrpc:"__last_update,omptempty"`
+	Boolean     *Bool       `xmlrpc:"boolean,omptempty"`
+	Char        *String     `xmlrpc:"char,omptempty"`
+	CreateDate  *Time       `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One   `xmlrpc:"create_uid,omptempty"`
+	Data        interface{} `xmlrpc:"data,omptempty"`
+	DisplayName *String     `xmlrpc:"display_name,omptempty"`
+	Float       *Float      `xmlrpc:"float,omptempty"`
+	Id          *Int        `xmlrpc:"id,omptempty"`
+	Integer     *Int        `xmlrpc:"integer,omptempty"`
+	Partner     *Many2One   `xmlrpc:"partner,omptempty"`
+	Selection   *Selection  `xmlrpc:"selection,omptempty"`
+	WriteDate   *Time       `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One   `xmlrpc:"write_uid,omptempty"`
 }
 
 // SparseFieldsTests represents array of sparse_fields.test model.

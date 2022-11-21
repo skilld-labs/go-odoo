@@ -6,26 +6,26 @@ import (
 
 // AccountInvoiceTax represents account.invoice.tax model.
 type AccountInvoiceTax struct {
-	LastUpdate        *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountAnalyticId *Many2One `xmlrpc:"account_analytic_id,omitempty"`
-	AccountId         *Many2One `xmlrpc:"account_id,omitempty"`
-	Amount            *Float    `xmlrpc:"amount,omitempty"`
-	AmountRounding    *Float    `xmlrpc:"amount_rounding,omitempty"`
-	AmountTotal       *Float    `xmlrpc:"amount_total,omitempty"`
-	Base              *Float    `xmlrpc:"base,omitempty"`
-	CompanyId         *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate        *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId        *Many2One `xmlrpc:"currency_id,omitempty"`
-	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
-	Id                *Int      `xmlrpc:"id,omitempty"`
-	InvoiceId         *Many2One `xmlrpc:"invoice_id,omitempty"`
-	Manual            *Bool     `xmlrpc:"manual,omitempty"`
-	Name              *String   `xmlrpc:"name,omitempty"`
-	Sequence          *Int      `xmlrpc:"sequence,omitempty"`
-	TaxId             *Many2One `xmlrpc:"tax_id,omitempty"`
-	WriteDate         *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
+	AccountAnalyticId *Many2One `xmlrpc:"account_analytic_id,omptempty"`
+	AccountId         *Many2One `xmlrpc:"account_id,omptempty"`
+	Amount            *Float    `xmlrpc:"amount,omptempty"`
+	AmountRounding    *Float    `xmlrpc:"amount_rounding,omptempty"`
+	AmountTotal       *Float    `xmlrpc:"amount_total,omptempty"`
+	Base              *Float    `xmlrpc:"base,omptempty"`
+	CompanyId         *Many2One `xmlrpc:"company_id,omptempty"`
+	CreateDate        *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid         *Many2One `xmlrpc:"create_uid,omptempty"`
+	CurrencyId        *Many2One `xmlrpc:"currency_id,omptempty"`
+	DisplayName       *String   `xmlrpc:"display_name,omptempty"`
+	Id                *Int      `xmlrpc:"id,omptempty"`
+	InvoiceId         *Many2One `xmlrpc:"invoice_id,omptempty"`
+	Manual            *Bool     `xmlrpc:"manual,omptempty"`
+	Name              *String   `xmlrpc:"name,omptempty"`
+	Sequence          *Int      `xmlrpc:"sequence,omptempty"`
+	TaxId             *Many2One `xmlrpc:"tax_id,omptempty"`
+	WriteDate         *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid          *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountInvoiceTaxs represents array of account.invoice.tax model.

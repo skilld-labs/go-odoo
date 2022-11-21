@@ -6,25 +6,25 @@ import (
 
 // IrUiMenu represents ir.ui.menu model.
 type IrUiMenu struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
-	Action       *String   `xmlrpc:"action,omitempty"`
-	Active       *Bool     `xmlrpc:"active,omitempty"`
-	ChildId      *Relation `xmlrpc:"child_id,omitempty"`
-	CompleteName *String   `xmlrpc:"complete_name,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	GroupsId     *Relation `xmlrpc:"groups_id,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	Name         *String   `xmlrpc:"name,omitempty"`
-	ParentId     *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentLeft   *Int      `xmlrpc:"parent_left,omitempty"`
-	ParentRight  *Int      `xmlrpc:"parent_right,omitempty"`
-	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
-	WebIcon      *String   `xmlrpc:"web_icon,omitempty"`
-	WebIconData  *String   `xmlrpc:"web_icon_data,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
+	Action       *String   `xmlrpc:"action,omptempty"`
+	Active       *Bool     `xmlrpc:"active,omptempty"`
+	ChildId      *Relation `xmlrpc:"child_id,omptempty"`
+	CompleteName *String   `xmlrpc:"complete_name,omptempty"`
+	CreateDate   *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid    *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName  *String   `xmlrpc:"display_name,omptempty"`
+	GroupsId     *Relation `xmlrpc:"groups_id,omptempty"`
+	Id           *Int      `xmlrpc:"id,omptempty"`
+	Name         *String   `xmlrpc:"name,omptempty"`
+	ParentId     *Many2One `xmlrpc:"parent_id,omptempty"`
+	ParentLeft   *Int      `xmlrpc:"parent_left,omptempty"`
+	ParentRight  *Int      `xmlrpc:"parent_right,omptempty"`
+	Sequence     *Int      `xmlrpc:"sequence,omptempty"`
+	WebIcon      *String   `xmlrpc:"web_icon,omptempty"`
+	WebIconData  *String   `xmlrpc:"web_icon_data,omptempty"`
+	WriteDate    *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid     *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrUiMenus represents array of ir.ui.menu model.

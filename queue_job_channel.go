@@ -6,17 +6,17 @@ import (
 
 // QueueJobChannel represents queue.job.channel model.
 type QueueJobChannel struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	CompleteName   *String   `xmlrpc:"complete_name,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	JobFunctionIds *Relation `xmlrpc:"job_function_ids,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	ParentId       *Many2One `xmlrpc:"parent_id,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate     *Time     `xmlrpc:"__last_update,omptempty"`
+	CompleteName   *String   `xmlrpc:"complete_name,omptempty"`
+	CreateDate     *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid      *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName    *String   `xmlrpc:"display_name,omptempty"`
+	Id             *Int      `xmlrpc:"id,omptempty"`
+	JobFunctionIds *Relation `xmlrpc:"job_function_ids,omptempty"`
+	Name           *String   `xmlrpc:"name,omptempty"`
+	ParentId       *Many2One `xmlrpc:"parent_id,omptempty"`
+	WriteDate      *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid       *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // QueueJobChannels represents array of queue.job.channel model.

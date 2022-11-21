@@ -6,17 +6,17 @@ import (
 
 // BaseImportImport represents base_import.import model.
 type BaseImportImport struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	File        *String   `xmlrpc:"file,omitempty"`
-	FileName    *String   `xmlrpc:"file_name,omitempty"`
-	FileType    *String   `xmlrpc:"file_type,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	ResModel    *String   `xmlrpc:"res_model,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	File        *String   `xmlrpc:"file,omptempty"`
+	FileName    *String   `xmlrpc:"file_name,omptempty"`
+	FileType    *String   `xmlrpc:"file_type,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	ResModel    *String   `xmlrpc:"res_model,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // BaseImportImports represents array of base_import.import model.

@@ -6,19 +6,19 @@ import (
 
 // BaseLanguageExport represents base.language.export model.
 type BaseLanguageExport struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Data        *String    `xmlrpc:"data,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Format      *Selection `xmlrpc:"format,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Lang        *Selection `xmlrpc:"lang,omitempty"`
-	Modules     *Relation  `xmlrpc:"modules,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	State       *Selection `xmlrpc:"state,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
+	Data        *String    `xmlrpc:"data,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Format      *Selection `xmlrpc:"format,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	Lang        *Selection `xmlrpc:"lang,omptempty"`
+	Modules     *Relation  `xmlrpc:"modules,omptempty"`
+	Name        *String    `xmlrpc:"name,omptempty"`
+	State       *Selection `xmlrpc:"state,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // BaseLanguageExports represents array of base.language.export model.

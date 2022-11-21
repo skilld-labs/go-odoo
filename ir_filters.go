@@ -6,22 +6,22 @@ import (
 
 // IrFilters represents ir.filters model.
 type IrFilters struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	ActionId    *Many2One  `xmlrpc:"action_id,omitempty"`
-	Active      *Bool      `xmlrpc:"active,omitempty"`
-	Context     *String    `xmlrpc:"context,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Domain      *String    `xmlrpc:"domain,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	IsDefault   *Bool      `xmlrpc:"is_default,omitempty"`
-	ModelId     *Selection `xmlrpc:"model_id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	Sort        *String    `xmlrpc:"sort,omitempty"`
-	UserId      *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	ActionId    *Many2One  `xmlrpc:"action_id,omptempty"`
+	Active      *Bool      `xmlrpc:"active,omptempty"`
+	Context     *String    `xmlrpc:"context,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Domain      *String    `xmlrpc:"domain,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	IsDefault   *Bool      `xmlrpc:"is_default,omptempty"`
+	ModelId     *Selection `xmlrpc:"model_id,omptempty"`
+	Name        *String    `xmlrpc:"name,omptempty"`
+	Sort        *String    `xmlrpc:"sort,omptempty"`
+	UserId      *Many2One  `xmlrpc:"user_id,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrFilterss represents array of ir.filters model.

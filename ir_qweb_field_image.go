@@ -6,9 +6,9 @@ import (
 
 // IrQwebFieldImage represents ir.qweb.field.image model.
 type IrQwebFieldImage struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
+	DisplayName *String `xmlrpc:"display_name,omptempty"`
+	Id          *Int    `xmlrpc:"id,omptempty"`
 }
 
 // IrQwebFieldImages represents array of ir.qweb.field.image model.

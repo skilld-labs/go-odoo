@@ -6,16 +6,16 @@ import (
 
 // AccountFiscalPositionAccountTemplate represents account.fiscal.position.account.template model.
 type AccountFiscalPositionAccountTemplate struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountDestId *Many2One `xmlrpc:"account_dest_id,omitempty"`
-	AccountSrcId  *Many2One `xmlrpc:"account_src_id,omitempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
-	Id            *Int      `xmlrpc:"id,omitempty"`
-	PositionId    *Many2One `xmlrpc:"position_id,omitempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
+	AccountDestId *Many2One `xmlrpc:"account_dest_id,omptempty"`
+	AccountSrcId  *Many2One `xmlrpc:"account_src_id,omptempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
+	Id            *Int      `xmlrpc:"id,omptempty"`
+	PositionId    *Many2One `xmlrpc:"position_id,omptempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountFiscalPositionAccountTemplates represents array of account.fiscal.position.account.template model.

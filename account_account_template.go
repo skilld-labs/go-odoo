@@ -6,24 +6,24 @@ import (
 
 // AccountAccountTemplate represents account.account.template model.
 type AccountAccountTemplate struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
-	ChartTemplateId *Many2One `xmlrpc:"chart_template_id,omitempty"`
-	Code            *String   `xmlrpc:"code,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId      *Many2One `xmlrpc:"currency_id,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	GroupId         *Many2One `xmlrpc:"group_id,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	Name            *String   `xmlrpc:"name,omitempty"`
-	Nocreate        *Bool     `xmlrpc:"nocreate,omitempty"`
-	Note            *String   `xmlrpc:"note,omitempty"`
-	Reconcile       *Bool     `xmlrpc:"reconcile,omitempty"`
-	TagIds          *Relation `xmlrpc:"tag_ids,omitempty"`
-	TaxIds          *Relation `xmlrpc:"tax_ids,omitempty"`
-	UserTypeId      *Many2One `xmlrpc:"user_type_id,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
+	ChartTemplateId *Many2One `xmlrpc:"chart_template_id,omptempty"`
+	Code            *String   `xmlrpc:"code,omptempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omptempty"`
+	CurrencyId      *Many2One `xmlrpc:"currency_id,omptempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omptempty"`
+	GroupId         *Many2One `xmlrpc:"group_id,omptempty"`
+	Id              *Int      `xmlrpc:"id,omptempty"`
+	Name            *String   `xmlrpc:"name,omptempty"`
+	Nocreate        *Bool     `xmlrpc:"nocreate,omptempty"`
+	Note            *String   `xmlrpc:"note,omptempty"`
+	Reconcile       *Bool     `xmlrpc:"reconcile,omptempty"`
+	TagIds          *Relation `xmlrpc:"tag_ids,omptempty"`
+	TaxIds          *Relation `xmlrpc:"tax_ids,omptempty"`
+	UserTypeId      *Many2One `xmlrpc:"user_type_id,omptempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // AccountAccountTemplates represents array of account.account.template model.

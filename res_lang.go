@@ -6,24 +6,24 @@ import (
 
 // ResLang represents res.lang model.
 type ResLang struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
-	Active       *Bool      `xmlrpc:"active,omitempty"`
-	Code         *String    `xmlrpc:"code,omitempty"`
-	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFormat   *String    `xmlrpc:"date_format,omitempty"`
-	DecimalPoint *String    `xmlrpc:"decimal_point,omitempty"`
-	Direction    *Selection `xmlrpc:"direction,omitempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
-	Grouping     *String    `xmlrpc:"grouping,omitempty"`
-	Id           *Int       `xmlrpc:"id,omitempty"`
-	IsoCode      *String    `xmlrpc:"iso_code,omitempty"`
-	Name         *String    `xmlrpc:"name,omitempty"`
-	ThousandsSep *String    `xmlrpc:"thousands_sep,omitempty"`
-	TimeFormat   *String    `xmlrpc:"time_format,omitempty"`
-	Translatable *Bool      `xmlrpc:"translatable,omitempty"`
-	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
+	Active       *Bool      `xmlrpc:"active,omptempty"`
+	Code         *String    `xmlrpc:"code,omptempty"`
+	CreateDate   *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid    *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DateFormat   *String    `xmlrpc:"date_format,omptempty"`
+	DecimalPoint *String    `xmlrpc:"decimal_point,omptempty"`
+	Direction    *Selection `xmlrpc:"direction,omptempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omptempty"`
+	Grouping     *String    `xmlrpc:"grouping,omptempty"`
+	Id           *Int       `xmlrpc:"id,omptempty"`
+	IsoCode      *String    `xmlrpc:"iso_code,omptempty"`
+	Name         *String    `xmlrpc:"name,omptempty"`
+	ThousandsSep *String    `xmlrpc:"thousands_sep,omptempty"`
+	TimeFormat   *String    `xmlrpc:"time_format,omptempty"`
+	Translatable *Bool      `xmlrpc:"translatable,omptempty"`
+	WriteDate    *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid     *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // ResLangs represents array of res.lang model.

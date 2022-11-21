@@ -6,17 +6,17 @@ import (
 
 // IrActionsTodo represents ir.actions.todo model.
 type IrActionsTodo struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	ActionId    *Many2One  `xmlrpc:"action_id,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	Sequence    *Int       `xmlrpc:"sequence,omitempty"`
-	State       *Selection `xmlrpc:"state,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
+	ActionId    *Many2One  `xmlrpc:"action_id,omptempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName *String    `xmlrpc:"display_name,omptempty"`
+	Id          *Int       `xmlrpc:"id,omptempty"`
+	Name        *String    `xmlrpc:"name,omptempty"`
+	Sequence    *Int       `xmlrpc:"sequence,omptempty"`
+	State       *Selection `xmlrpc:"state,omptempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrActionsTodos represents array of ir.actions.todo model.

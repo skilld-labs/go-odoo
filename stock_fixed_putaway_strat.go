@@ -6,17 +6,17 @@ import (
 
 // StockFixedPutawayStrat represents stock.fixed.putaway.strat model.
 type StockFixedPutawayStrat struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
-	CategoryId      *Many2One `xmlrpc:"category_id,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	FixedLocationId *Many2One `xmlrpc:"fixed_location_id,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	PutawayId       *Many2One `xmlrpc:"putaway_id,omitempty"`
-	Sequence        *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
+	CategoryId      *Many2One `xmlrpc:"category_id,omptempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omptempty"`
+	FixedLocationId *Many2One `xmlrpc:"fixed_location_id,omptempty"`
+	Id              *Int      `xmlrpc:"id,omptempty"`
+	PutawayId       *Many2One `xmlrpc:"putaway_id,omptempty"`
+	Sequence        *Int      `xmlrpc:"sequence,omptempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // StockFixedPutawayStrats represents array of stock.fixed.putaway.strat model.

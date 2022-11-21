@@ -6,30 +6,30 @@ import (
 
 // MailActivity represents mail.activity model.
 type MailActivity struct {
-	LastUpdate                *Time      `xmlrpc:"__last_update,omitempty"`
-	ActivityCategory          *Selection `xmlrpc:"activity_category,omitempty"`
-	ActivityTypeId            *Many2One  `xmlrpc:"activity_type_id,omitempty"`
-	CalendarEventId           *Many2One  `xmlrpc:"calendar_event_id,omitempty"`
-	CreateDate                *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid                 *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateDeadline              *Time      `xmlrpc:"date_deadline,omitempty"`
-	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
-	Feedback                  *String    `xmlrpc:"feedback,omitempty"`
-	HasRecommendedActivities  *Bool      `xmlrpc:"has_recommended_activities,omitempty"`
-	Icon                      *String    `xmlrpc:"icon,omitempty"`
-	Id                        *Int       `xmlrpc:"id,omitempty"`
-	Note                      *String    `xmlrpc:"note,omitempty"`
-	PreviousActivityTypeId    *Many2One  `xmlrpc:"previous_activity_type_id,omitempty"`
-	RecommendedActivityTypeId *Many2One  `xmlrpc:"recommended_activity_type_id,omitempty"`
-	ResId                     *Int       `xmlrpc:"res_id,omitempty"`
-	ResModel                  *String    `xmlrpc:"res_model,omitempty"`
-	ResModelId                *Many2One  `xmlrpc:"res_model_id,omitempty"`
-	ResName                   *String    `xmlrpc:"res_name,omitempty"`
-	State                     *Selection `xmlrpc:"state,omitempty"`
-	Summary                   *String    `xmlrpc:"summary,omitempty"`
-	UserId                    *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate                 *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid                  *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                *Time      `xmlrpc:"__last_update,omptempty"`
+	ActivityCategory          *Selection `xmlrpc:"activity_category,omptempty"`
+	ActivityTypeId            *Many2One  `xmlrpc:"activity_type_id,omptempty"`
+	CalendarEventId           *Many2One  `xmlrpc:"calendar_event_id,omptempty"`
+	CreateDate                *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid                 *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DateDeadline              *Time      `xmlrpc:"date_deadline,omptempty"`
+	DisplayName               *String    `xmlrpc:"display_name,omptempty"`
+	Feedback                  *String    `xmlrpc:"feedback,omptempty"`
+	HasRecommendedActivities  *Bool      `xmlrpc:"has_recommended_activities,omptempty"`
+	Icon                      *String    `xmlrpc:"icon,omptempty"`
+	Id                        *Int       `xmlrpc:"id,omptempty"`
+	Note                      *String    `xmlrpc:"note,omptempty"`
+	PreviousActivityTypeId    *Many2One  `xmlrpc:"previous_activity_type_id,omptempty"`
+	RecommendedActivityTypeId *Many2One  `xmlrpc:"recommended_activity_type_id,omptempty"`
+	ResId                     *Int       `xmlrpc:"res_id,omptempty"`
+	ResModel                  *String    `xmlrpc:"res_model,omptempty"`
+	ResModelId                *Many2One  `xmlrpc:"res_model_id,omptempty"`
+	ResName                   *String    `xmlrpc:"res_name,omptempty"`
+	State                     *Selection `xmlrpc:"state,omptempty"`
+	Summary                   *String    `xmlrpc:"summary,omptempty"`
+	UserId                    *Many2One  `xmlrpc:"user_id,omptempty"`
+	WriteDate                 *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid                  *Many2One  `xmlrpc:"write_uid,omptempty"`
 }
 
 // MailActivitys represents array of mail.activity model.

@@ -6,19 +6,19 @@ import (
 
 // IrActionsActions represents ir.actions.actions model.
 type IrActionsActions struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType    *Selection `xmlrpc:"binding_type,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Help           *String    `xmlrpc:"help,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Type           *String    `xmlrpc:"type,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId          *String    `xmlrpc:"xml_id,omitempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
+	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omptempty"`
+	BindingType    *Selection `xmlrpc:"binding_type,omptempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
+	Help           *String    `xmlrpc:"help,omptempty"`
+	Id             *Int       `xmlrpc:"id,omptempty"`
+	Name           *String    `xmlrpc:"name,omptempty"`
+	Type           *String    `xmlrpc:"type,omptempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	XmlId          *String    `xmlrpc:"xml_id,omptempty"`
 }
 
 // IrActionsActionss represents array of ir.actions.actions model.

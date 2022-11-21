@@ -6,19 +6,19 @@ import (
 
 // MailStatisticsReport represents mail.statistics.report model.
 type MailStatisticsReport struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	Bounced       *Int       `xmlrpc:"bounced,omitempty"`
-	Campaign      *String    `xmlrpc:"campaign,omitempty"`
-	Delivered     *Int       `xmlrpc:"delivered,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	EmailFrom     *String    `xmlrpc:"email_from,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	Opened        *Int       `xmlrpc:"opened,omitempty"`
-	Replied       *Int       `xmlrpc:"replied,omitempty"`
-	ScheduledDate *Time      `xmlrpc:"scheduled_date,omitempty"`
-	Sent          *Int       `xmlrpc:"sent,omitempty"`
-	State         *Selection `xmlrpc:"state,omitempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
+	Bounced       *Int       `xmlrpc:"bounced,omptempty"`
+	Campaign      *String    `xmlrpc:"campaign,omptempty"`
+	Delivered     *Int       `xmlrpc:"delivered,omptempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
+	EmailFrom     *String    `xmlrpc:"email_from,omptempty"`
+	Id            *Int       `xmlrpc:"id,omptempty"`
+	Name          *String    `xmlrpc:"name,omptempty"`
+	Opened        *Int       `xmlrpc:"opened,omptempty"`
+	Replied       *Int       `xmlrpc:"replied,omptempty"`
+	ScheduledDate *Time      `xmlrpc:"scheduled_date,omptempty"`
+	Sent          *Int       `xmlrpc:"sent,omptempty"`
+	State         *Selection `xmlrpc:"state,omptempty"`
 }
 
 // MailStatisticsReports represents array of mail.statistics.report model.

@@ -6,26 +6,26 @@ import (
 
 // AccountFiscalPositionTemplate represents account.fiscal.position.template model.
 type AccountFiscalPositionTemplate struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountIds      *Relation `xmlrpc:"account_ids,omitempty"`
-	AutoApply       *Bool     `xmlrpc:"auto_apply,omitempty"`
-	ChartTemplateId *Many2One `xmlrpc:"chart_template_id,omitempty"`
-	CountryGroupId  *Many2One `xmlrpc:"country_group_id,omitempty"`
-	CountryId       *Many2One `xmlrpc:"country_id,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	Name            *String   `xmlrpc:"name,omitempty"`
-	Note            *String   `xmlrpc:"note,omitempty"`
-	Sequence        *Int      `xmlrpc:"sequence,omitempty"`
-	StateIds        *Relation `xmlrpc:"state_ids,omitempty"`
-	TaxIds          *Relation `xmlrpc:"tax_ids,omitempty"`
-	VatRequired     *Bool     `xmlrpc:"vat_required,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
-	ZipFrom         *Int      `xmlrpc:"zip_from,omitempty"`
-	ZipTo           *Int      `xmlrpc:"zip_to,omitempty"`
+	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
+	AccountIds      *Relation `xmlrpc:"account_ids,omptempty"`
+	AutoApply       *Bool     `xmlrpc:"auto_apply,omptempty"`
+	ChartTemplateId *Many2One `xmlrpc:"chart_template_id,omptempty"`
+	CountryGroupId  *Many2One `xmlrpc:"country_group_id,omptempty"`
+	CountryId       *Many2One `xmlrpc:"country_id,omptempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omptempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omptempty"`
+	Id              *Int      `xmlrpc:"id,omptempty"`
+	Name            *String   `xmlrpc:"name,omptempty"`
+	Note            *String   `xmlrpc:"note,omptempty"`
+	Sequence        *Int      `xmlrpc:"sequence,omptempty"`
+	StateIds        *Relation `xmlrpc:"state_ids,omptempty"`
+	TaxIds          *Relation `xmlrpc:"tax_ids,omptempty"`
+	VatRequired     *Bool     `xmlrpc:"vat_required,omptempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omptempty"`
+	ZipFrom         *Int      `xmlrpc:"zip_from,omptempty"`
+	ZipTo           *Int      `xmlrpc:"zip_to,omptempty"`
 }
 
 // AccountFiscalPositionTemplates represents array of account.fiscal.position.template model.

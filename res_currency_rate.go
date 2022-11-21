@@ -6,17 +6,17 @@ import (
 
 // ResCurrencyRate represents res.currency.rate model.
 type ResCurrencyRate struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId  *Many2One `xmlrpc:"currency_id,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *Time     `xmlrpc:"name,omitempty"`
-	Rate        *Float    `xmlrpc:"rate,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
+	CompanyId   *Many2One `xmlrpc:"company_id,omptempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
+	CurrencyId  *Many2One `xmlrpc:"currency_id,omptempty"`
+	DisplayName *String   `xmlrpc:"display_name,omptempty"`
+	Id          *Int      `xmlrpc:"id,omptempty"`
+	Name        *Time     `xmlrpc:"name,omptempty"`
+	Rate        *Float    `xmlrpc:"rate,omptempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
 }
 
 // ResCurrencyRates represents array of res.currency.rate model.
