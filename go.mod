@@ -1,4 +1,4 @@
-module github.com/xiatechs/go-odoo
+module github.com/xiatechs/go-odoo/v2
 
 go 1.18
 
