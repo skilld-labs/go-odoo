@@ -48,7 +48,7 @@ func (c *Client) UpdateResBank(rb *ResBank) error {
 }
 
 // UpdateResBanks updates existing res.bank records.
-// All records (represented by ids) will be updated by rb values.
+// All records (represented by IDs) will be updated by rb values.
 func (c *Client) UpdateResBanks(ids []int64, rb *ResBank) error {
 	return c.Update(ResBankModel, ids, rb)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindResBanks(criteria *Criteria, options *Options) (*ResBanks, 
 	return rbs, nil
 }
 
-// FindResBankIds finds records ids by querying it
+// FindResBankIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResBankIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResBankModel, criteria, options)

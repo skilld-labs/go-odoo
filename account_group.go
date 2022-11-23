@@ -43,7 +43,7 @@ func (c *Client) UpdateAccountGroup(ag *AccountGroup) error {
 }
 
 // UpdateAccountGroups updates existing account.group records.
-// All records (represented by ids) will be updated by ag values.
+// All records (represented by IDs) will be updated by ag values.
 func (c *Client) UpdateAccountGroups(ids []int64, ag *AccountGroup) error {
 	return c.Update(AccountGroupModel, ids, ag)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindAccountGroups(criteria *Criteria, options *Options) (*Accou
 	return ags, nil
 }
 
-// FindAccountGroupIds finds records ids by querying it
+// FindAccountGroupIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountGroupModel, criteria, options)

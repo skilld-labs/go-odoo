@@ -43,7 +43,7 @@ func (c *Client) UpdateMailActivityMixin(mam *MailActivityMixin) error {
 }
 
 // UpdateMailActivityMixins updates existing mail.activity.mixin records.
-// All records (represented by ids) will be updated by mam values.
+// All records (represented by IDs) will be updated by mam values.
 func (c *Client) UpdateMailActivityMixins(ids []int64, mam *MailActivityMixin) error {
 	return c.Update(MailActivityMixinModel, ids, mam)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindMailActivityMixins(criteria *Criteria, options *Options) (*
 	return mams, nil
 }
 
-// FindMailActivityMixinIds finds records ids by querying it
+// FindMailActivityMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailActivityMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailActivityMixinModel, criteria, options)

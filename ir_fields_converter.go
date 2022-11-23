@@ -33,7 +33,7 @@ func (c *Client) UpdateIrFieldsConverter(ifc *IrFieldsConverter) error {
 }
 
 // UpdateIrFieldsConverters updates existing ir.fields.converter records.
-// All records (represented by ids) will be updated by ifc values.
+// All records (represented by IDs) will be updated by ifc values.
 func (c *Client) UpdateIrFieldsConverters(ids []int64, ifc *IrFieldsConverter) error {
 	return c.Update(IrFieldsConverterModel, ids, ifc)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrFieldsConverters(criteria *Criteria, options *Options) (*
 	return ifcs, nil
 }
 
-// FindIrFieldsConverterIds finds records ids by querying it
+// FindIrFieldsConverterIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrFieldsConverterIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrFieldsConverterModel, criteria, options)

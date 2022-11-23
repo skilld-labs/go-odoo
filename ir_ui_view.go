@@ -57,7 +57,7 @@ func (c *Client) UpdateIrUiView(iuv *IrUiView) error {
 }
 
 // UpdateIrUiViews updates existing ir.ui.view records.
-// All records (represented by ids) will be updated by iuv values.
+// All records (represented by IDs) will be updated by iuv values.
 func (c *Client) UpdateIrUiViews(ids []int64, iuv *IrUiView) error {
 	return c.Update(IrUiViewModel, ids, iuv)
 }
@@ -115,7 +115,7 @@ func (c *Client) FindIrUiViews(criteria *Criteria, options *Options) (*IrUiViews
 	return iuvs, nil
 }
 
-// FindIrUiViewIds finds records ids by querying it
+// FindIrUiViewIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrUiViewIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrUiViewModel, criteria, options)

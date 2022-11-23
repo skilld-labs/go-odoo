@@ -38,7 +38,7 @@ func (c *Client) UpdateUtmSource(us *UtmSource) error {
 }
 
 // UpdateUtmSources updates existing utm.source records.
-// All records (represented by ids) will be updated by us values.
+// All records (represented by IDs) will be updated by us values.
 func (c *Client) UpdateUtmSources(ids []int64, us *UtmSource) error {
 	return c.Update(UtmSourceModel, ids, us)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindUtmSources(criteria *Criteria, options *Options) (*UtmSourc
 	return uss, nil
 }
 
-// FindUtmSourceIds finds records ids by querying it
+// FindUtmSourceIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmSourceIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UtmSourceModel, criteria, options)

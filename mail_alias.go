@@ -47,7 +47,7 @@ func (c *Client) UpdateMailAlias(ma *MailAlias) error {
 }
 
 // UpdateMailAliass updates existing mail.alias records.
-// All records (represented by ids) will be updated by ma values.
+// All records (represented by IDs) will be updated by ma values.
 func (c *Client) UpdateMailAliass(ids []int64, ma *MailAlias) error {
 	return c.Update(MailAliasModel, ids, ma)
 }
@@ -105,7 +105,7 @@ func (c *Client) FindMailAliass(criteria *Criteria, options *Options) (*MailAlia
 	return mas, nil
 }
 
-// FindMailAliasIds finds records ids by querying it
+// FindMailAliasIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailAliasIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailAliasModel, criteria, options)

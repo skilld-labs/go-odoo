@@ -50,7 +50,7 @@ func (c *Client) UpdateResGroups(rg *ResGroups) error {
 }
 
 // UpdateResGroupss updates existing res.groups records.
-// All records (represented by ids) will be updated by rg values.
+// All records (represented by IDs) will be updated by rg values.
 func (c *Client) UpdateResGroupss(ids []int64, rg *ResGroups) error {
 	return c.Update(ResGroupsModel, ids, rg)
 }
@@ -108,7 +108,7 @@ func (c *Client) FindResGroupss(criteria *Criteria, options *Options) (*ResGroup
 	return rgs, nil
 }
 
-// FindResGroupsIds finds records ids by querying it
+// FindResGroupsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResGroupsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResGroupsModel, criteria, options)

@@ -66,7 +66,7 @@ func (c *Client) UpdateSaleReport(sr *SaleReport) error {
 }
 
 // UpdateSaleReports updates existing sale.report records.
-// All records (represented by ids) will be updated by sr values.
+// All records (represented by IDs) will be updated by sr values.
 func (c *Client) UpdateSaleReports(ids []int64, sr *SaleReport) error {
 	return c.Update(SaleReportModel, ids, sr)
 }
@@ -124,7 +124,7 @@ func (c *Client) FindSaleReports(criteria *Criteria, options *Options) (*SaleRep
 	return srs, nil
 }
 
-// FindSaleReportIds finds records ids by querying it
+// FindSaleReportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleReportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SaleReportModel, criteria, options)

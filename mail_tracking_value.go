@@ -55,7 +55,7 @@ func (c *Client) UpdateMailTrackingValue(mtv *MailTrackingValue) error {
 }
 
 // UpdateMailTrackingValues updates existing mail.tracking.value records.
-// All records (represented by ids) will be updated by mtv values.
+// All records (represented by IDs) will be updated by mtv values.
 func (c *Client) UpdateMailTrackingValues(ids []int64, mtv *MailTrackingValue) error {
 	return c.Update(MailTrackingValueModel, ids, mtv)
 }
@@ -113,7 +113,7 @@ func (c *Client) FindMailTrackingValues(criteria *Criteria, options *Options) (*
 	return mtvs, nil
 }
 
-// FindMailTrackingValueIds finds records ids by querying it
+// FindMailTrackingValueIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTrackingValueIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailTrackingValueModel, criteria, options)

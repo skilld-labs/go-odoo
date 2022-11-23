@@ -43,7 +43,7 @@ func (c *Client) UpdateSmsTemplatePreview(stp *SmsTemplatePreview) error {
 }
 
 // UpdateSmsTemplatePreviews updates existing sms.template.preview records.
-// All records (represented by ids) will be updated by stp values.
+// All records (represented by IDs) will be updated by stp values.
 func (c *Client) UpdateSmsTemplatePreviews(ids []int64, stp *SmsTemplatePreview) error {
 	return c.Update(SmsTemplatePreviewModel, ids, stp)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindSmsTemplatePreviews(criteria *Criteria, options *Options) (
 	return stps, nil
 }
 
-// FindSmsTemplatePreviewIds finds records ids by querying it
+// FindSmsTemplatePreviewIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsTemplatePreviewIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SmsTemplatePreviewModel, criteria, options)

@@ -39,7 +39,7 @@ func (c *Client) UpdateIrConfigParameter(ic *IrConfigParameter) error {
 }
 
 // UpdateIrConfigParameters updates existing ir.config_parameter records.
-// All records (represented by ids) will be updated by ic values.
+// All records (represented by IDs) will be updated by ic values.
 func (c *Client) UpdateIrConfigParameters(ids []int64, ic *IrConfigParameter) error {
 	return c.Update(IrConfigParameterModel, ids, ic)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindIrConfigParameters(criteria *Criteria, options *Options) (*
 	return ics, nil
 }
 
-// FindIrConfigParameterIds finds records ids by querying it
+// FindIrConfigParameterIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrConfigParameterIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrConfigParameterModel, criteria, options)

@@ -47,7 +47,7 @@ func (c *Client) UpdateIrRule(ir *IrRule) error {
 }
 
 // UpdateIrRules updates existing ir.rule records.
-// All records (represented by ids) will be updated by ir values.
+// All records (represented by IDs) will be updated by ir values.
 func (c *Client) UpdateIrRules(ids []int64, ir *IrRule) error {
 	return c.Update(IrRuleModel, ids, ir)
 }
@@ -105,7 +105,7 @@ func (c *Client) FindIrRules(criteria *Criteria, options *Options) (*IrRules, er
 	return irs, nil
 }
 
-// FindIrRuleIds finds records ids by querying it
+// FindIrRuleIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrRuleIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrRuleModel, criteria, options)

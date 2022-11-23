@@ -48,7 +48,7 @@ func (c *Client) UpdateSmsTemplate(st *SmsTemplate) error {
 }
 
 // UpdateSmsTemplates updates existing sms.template records.
-// All records (represented by ids) will be updated by st values.
+// All records (represented by IDs) will be updated by st values.
 func (c *Client) UpdateSmsTemplates(ids []int64, st *SmsTemplate) error {
 	return c.Update(SmsTemplateModel, ids, st)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindSmsTemplates(criteria *Criteria, options *Options) (*SmsTem
 	return sts, nil
 }
 
-// FindSmsTemplateIds finds records ids by querying it
+// FindSmsTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SmsTemplateModel, criteria, options)

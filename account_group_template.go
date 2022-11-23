@@ -42,7 +42,7 @@ func (c *Client) UpdateAccountGroupTemplate(agt *AccountGroupTemplate) error {
 }
 
 // UpdateAccountGroupTemplates updates existing account.group.template records.
-// All records (represented by ids) will be updated by agt values.
+// All records (represented by IDs) will be updated by agt values.
 func (c *Client) UpdateAccountGroupTemplates(ids []int64, agt *AccountGroupTemplate) error {
 	return c.Update(AccountGroupTemplateModel, ids, agt)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAccountGroupTemplates(criteria *Criteria, options *Options)
 	return agts, nil
 }
 
-// FindAccountGroupTemplateIds finds records ids by querying it
+// FindAccountGroupTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountGroupTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountGroupTemplateModel, criteria, options)

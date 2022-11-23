@@ -44,7 +44,7 @@ func (c *Client) UpdateResourceCalendarLeaves(rcl *ResourceCalendarLeaves) error
 }
 
 // UpdateResourceCalendarLeavess updates existing resource.calendar.leaves records.
-// All records (represented by ids) will be updated by rcl values.
+// All records (represented by IDs) will be updated by rcl values.
 func (c *Client) UpdateResourceCalendarLeavess(ids []int64, rcl *ResourceCalendarLeaves) error {
 	return c.Update(ResourceCalendarLeavesModel, ids, rcl)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindResourceCalendarLeavess(criteria *Criteria, options *Option
 	return rcls, nil
 }
 
-// FindResourceCalendarLeavesIds finds records ids by querying it
+// FindResourceCalendarLeavesIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceCalendarLeavesIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResourceCalendarLeavesModel, criteria, options)

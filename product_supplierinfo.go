@@ -52,7 +52,7 @@ func (c *Client) UpdateProductSupplierinfo(ps *ProductSupplierinfo) error {
 }
 
 // UpdateProductSupplierinfos updates existing product.supplierinfo records.
-// All records (represented by ids) will be updated by ps values.
+// All records (represented by IDs) will be updated by ps values.
 func (c *Client) UpdateProductSupplierinfos(ids []int64, ps *ProductSupplierinfo) error {
 	return c.Update(ProductSupplierinfoModel, ids, ps)
 }
@@ -110,7 +110,7 @@ func (c *Client) FindProductSupplierinfos(criteria *Criteria, options *Options) 
 	return pss, nil
 }
 
-// FindProductSupplierinfoIds finds records ids by querying it
+// FindProductSupplierinfoIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductSupplierinfoIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductSupplierinfoModel, criteria, options)

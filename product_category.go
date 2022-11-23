@@ -45,7 +45,7 @@ func (c *Client) UpdateProductCategory(pc *ProductCategory) error {
 }
 
 // UpdateProductCategorys updates existing product.category records.
-// All records (represented by ids) will be updated by pc values.
+// All records (represented by IDs) will be updated by pc values.
 func (c *Client) UpdateProductCategorys(ids []int64, pc *ProductCategory) error {
 	return c.Update(ProductCategoryModel, ids, pc)
 }
@@ -103,7 +103,7 @@ func (c *Client) FindProductCategorys(criteria *Criteria, options *Options) (*Pr
 	return pcs, nil
 }
 
-// FindProductCategoryIds finds records ids by querying it
+// FindProductCategoryIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductCategoryModel, criteria, options)

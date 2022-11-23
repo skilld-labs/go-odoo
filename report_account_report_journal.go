@@ -33,7 +33,7 @@ func (c *Client) UpdateReportAccountReportJournal(rar *ReportAccountReportJourna
 }
 
 // UpdateReportAccountReportJournals updates existing report.account.report_journal records.
-// All records (represented by ids) will be updated by rar values.
+// All records (represented by IDs) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportJournals(ids []int64, rar *ReportAccountReportJournal) error {
 	return c.Update(ReportAccountReportJournalModel, ids, rar)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindReportAccountReportJournals(criteria *Criteria, options *Op
 	return rars, nil
 }
 
-// FindReportAccountReportJournalIds finds records ids by querying it
+// FindReportAccountReportJournalIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportJournalIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportAccountReportJournalModel, criteria, options)

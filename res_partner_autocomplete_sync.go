@@ -39,7 +39,7 @@ func (c *Client) UpdateResPartnerAutocompleteSync(rpas *ResPartnerAutocompleteSy
 }
 
 // UpdateResPartnerAutocompleteSyncs updates existing res.partner.autocomplete.sync records.
-// All records (represented by ids) will be updated by rpas values.
+// All records (represented by IDs) will be updated by rpas values.
 func (c *Client) UpdateResPartnerAutocompleteSyncs(ids []int64, rpas *ResPartnerAutocompleteSync) error {
 	return c.Update(ResPartnerAutocompleteSyncModel, ids, rpas)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindResPartnerAutocompleteSyncs(criteria *Criteria, options *Op
 	return rpass, nil
 }
 
-// FindResPartnerAutocompleteSyncIds finds records ids by querying it
+// FindResPartnerAutocompleteSyncIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerAutocompleteSyncIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResPartnerAutocompleteSyncModel, criteria, options)

@@ -43,7 +43,7 @@ func (c *Client) UpdateAccountCommonJournalReport(acjr *AccountCommonJournalRepo
 }
 
 // UpdateAccountCommonJournalReports updates existing account.common.journal.report records.
-// All records (represented by ids) will be updated by acjr values.
+// All records (represented by IDs) will be updated by acjr values.
 func (c *Client) UpdateAccountCommonJournalReports(ids []int64, acjr *AccountCommonJournalReport) error {
 	return c.Update(AccountCommonJournalReportModel, ids, acjr)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindAccountCommonJournalReports(criteria *Criteria, options *Op
 	return acjrs, nil
 }
 
-// FindAccountCommonJournalReportIds finds records ids by querying it
+// FindAccountCommonJournalReportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountCommonJournalReportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountCommonJournalReportModel, criteria, options)

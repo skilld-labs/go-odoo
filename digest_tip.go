@@ -42,7 +42,7 @@ func (c *Client) UpdateDigestTip(dt *DigestTip) error {
 }
 
 // UpdateDigestTips updates existing digest.tip records.
-// All records (represented by ids) will be updated by dt values.
+// All records (represented by IDs) will be updated by dt values.
 func (c *Client) UpdateDigestTips(ids []int64, dt *DigestTip) error {
 	return c.Update(DigestTipModel, ids, dt)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindDigestTips(criteria *Criteria, options *Options) (*DigestTi
 	return dts, nil
 }
 
-// FindDigestTipIds finds records ids by querying it
+// FindDigestTipIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindDigestTipIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(DigestTipModel, criteria, options)

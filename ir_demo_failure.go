@@ -40,7 +40,7 @@ func (c *Client) UpdateIrDemoFailure(ID *IrDemoFailure) error {
 }
 
 // UpdateIrDemoFailures updates existing ir.demo_failure records.
-// All records (represented by ids) will be updated by ID values.
+// All records (represented by IDs) will be updated by ID values.
 func (c *Client) UpdateIrDemoFailures(ids []int64, ID *IrDemoFailure) error {
 	return c.Update(IrDemoFailureModel, ids, ID)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindIrDemoFailures(criteria *Criteria, options *Options) (*IrDe
 	return IDs, nil
 }
 
-// FindIrDemoFailureIds finds records ids by querying it
+// FindIrDemoFailureIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrDemoFailureIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrDemoFailureModel, criteria, options)

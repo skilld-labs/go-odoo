@@ -41,7 +41,7 @@ func (c *Client) UpdateAccountJournalGroup(ajg *AccountJournalGroup) error {
 }
 
 // UpdateAccountJournalGroups updates existing account.journal.group records.
-// All records (represented by ids) will be updated by ajg values.
+// All records (represented by IDs) will be updated by ajg values.
 func (c *Client) UpdateAccountJournalGroups(ids []int64, ajg *AccountJournalGroup) error {
 	return c.Update(AccountJournalGroupModel, ids, ajg)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindAccountJournalGroups(criteria *Criteria, options *Options) 
 	return ajgs, nil
 }
 
-// FindAccountJournalGroupIds finds records ids by querying it
+// FindAccountJournalGroupIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountJournalGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountJournalGroupModel, criteria, options)

@@ -44,7 +44,7 @@ func (c *Client) UpdateResPartnerCategory(rpc *ResPartnerCategory) error {
 }
 
 // UpdateResPartnerCategorys updates existing res.partner.category records.
-// All records (represented by ids) will be updated by rpc values.
+// All records (represented by IDs) will be updated by rpc values.
 func (c *Client) UpdateResPartnerCategorys(ids []int64, rpc *ResPartnerCategory) error {
 	return c.Update(ResPartnerCategoryModel, ids, rpc)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindResPartnerCategorys(criteria *Criteria, options *Options) (
 	return rpcs, nil
 }
 
-// FindResPartnerCategoryIds finds records ids by querying it
+// FindResPartnerCategoryIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResPartnerCategoryModel, criteria, options)

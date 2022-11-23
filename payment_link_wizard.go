@@ -48,7 +48,7 @@ func (c *Client) UpdatePaymentLinkWizard(plw *PaymentLinkWizard) error {
 }
 
 // UpdatePaymentLinkWizards updates existing payment.link.wizard records.
-// All records (represented by ids) will be updated by plw values.
+// All records (represented by IDs) will be updated by plw values.
 func (c *Client) UpdatePaymentLinkWizards(ids []int64, plw *PaymentLinkWizard) error {
 	return c.Update(PaymentLinkWizardModel, ids, plw)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindPaymentLinkWizards(criteria *Criteria, options *Options) (*
 	return plws, nil
 }
 
-// FindPaymentLinkWizardIds finds records ids by querying it
+// FindPaymentLinkWizardIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentLinkWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PaymentLinkWizardModel, criteria, options)

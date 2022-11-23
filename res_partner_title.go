@@ -39,7 +39,7 @@ func (c *Client) UpdateResPartnerTitle(rpt *ResPartnerTitle) error {
 }
 
 // UpdateResPartnerTitles updates existing res.partner.title records.
-// All records (represented by ids) will be updated by rpt values.
+// All records (represented by IDs) will be updated by rpt values.
 func (c *Client) UpdateResPartnerTitles(ids []int64, rpt *ResPartnerTitle) error {
 	return c.Update(ResPartnerTitleModel, ids, rpt)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindResPartnerTitles(criteria *Criteria, options *Options) (*Re
 	return rpts, nil
 }
 
-// FindResPartnerTitleIds finds records ids by querying it
+// FindResPartnerTitleIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerTitleIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResPartnerTitleModel, criteria, options)

@@ -43,7 +43,7 @@ func (c *Client) UpdateMailWizardInvite(mwi *MailWizardInvite) error {
 }
 
 // UpdateMailWizardInvites updates existing mail.wizard.invite records.
-// All records (represented by ids) will be updated by mwi values.
+// All records (represented by IDs) will be updated by mwi values.
 func (c *Client) UpdateMailWizardInvites(ids []int64, mwi *MailWizardInvite) error {
 	return c.Update(MailWizardInviteModel, ids, mwi)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindMailWizardInvites(criteria *Criteria, options *Options) (*M
 	return mwis, nil
 }
 
-// FindMailWizardInviteIds finds records ids by querying it
+// FindMailWizardInviteIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailWizardInviteIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailWizardInviteModel, criteria, options)

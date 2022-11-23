@@ -44,7 +44,7 @@ func (c *Client) UpdateIrActionsActions(iaa *IrActionsActions) error {
 }
 
 // UpdateIrActionsActionss updates existing ir.actions.actions records.
-// All records (represented by ids) will be updated by iaa values.
+// All records (represented by IDs) will be updated by iaa values.
 func (c *Client) UpdateIrActionsActionss(ids []int64, iaa *IrActionsActions) error {
 	return c.Update(IrActionsActionsModel, ids, iaa)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindIrActionsActionss(criteria *Criteria, options *Options) (*I
 	return iaas, nil
 }
 
-// FindIrActionsActionsIds finds records ids by querying it
+// FindIrActionsActionsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActionsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrActionsActionsModel, criteria, options)

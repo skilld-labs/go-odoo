@@ -43,7 +43,7 @@ func (c *Client) UpdateBaseLanguageExport(ble *BaseLanguageExport) error {
 }
 
 // UpdateBaseLanguageExports updates existing base.language.export records.
-// All records (represented by ids) will be updated by ble values.
+// All records (represented by IDs) will be updated by ble values.
 func (c *Client) UpdateBaseLanguageExports(ids []int64, ble *BaseLanguageExport) error {
 	return c.Update(BaseLanguageExportModel, ids, ble)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindBaseLanguageExports(criteria *Criteria, options *Options) (
 	return bles, nil
 }
 
-// FindBaseLanguageExportIds finds records ids by querying it
+// FindBaseLanguageExportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseLanguageExportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseLanguageExportModel, criteria, options)

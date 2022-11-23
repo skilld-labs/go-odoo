@@ -39,7 +39,7 @@ func (c *Client) UpdateSnailmailLetterFormatError(slfe *SnailmailLetterFormatErr
 }
 
 // UpdateSnailmailLetterFormatErrors updates existing snailmail.letter.format.error records.
-// All records (represented by ids) will be updated by slfe values.
+// All records (represented by IDs) will be updated by slfe values.
 func (c *Client) UpdateSnailmailLetterFormatErrors(ids []int64, slfe *SnailmailLetterFormatError) error {
 	return c.Update(SnailmailLetterFormatErrorModel, ids, slfe)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindSnailmailLetterFormatErrors(criteria *Criteria, options *Op
 	return slfes, nil
 }
 
-// FindSnailmailLetterFormatErrorIds finds records ids by querying it
+// FindSnailmailLetterFormatErrorIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSnailmailLetterFormatErrorIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SnailmailLetterFormatErrorModel, criteria, options)

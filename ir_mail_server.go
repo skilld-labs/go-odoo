@@ -46,7 +46,7 @@ func (c *Client) UpdateIrMailServer(im *IrMailServer) error {
 }
 
 // UpdateIrMailServers updates existing ir.mail_server records.
-// All records (represented by ids) will be updated by im values.
+// All records (represented by IDs) will be updated by im values.
 func (c *Client) UpdateIrMailServers(ids []int64, im *IrMailServer) error {
 	return c.Update(IrMailServerModel, ids, im)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindIrMailServers(criteria *Criteria, options *Options) (*IrMai
 	return ims, nil
 }
 
-// FindIrMailServerIds finds records ids by querying it
+// FindIrMailServerIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrMailServerIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrMailServerModel, criteria, options)

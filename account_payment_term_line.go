@@ -44,7 +44,7 @@ func (c *Client) UpdateAccountPaymentTermLine(aptl *AccountPaymentTermLine) erro
 }
 
 // UpdateAccountPaymentTermLines updates existing account.payment.term.line records.
-// All records (represented by ids) will be updated by aptl values.
+// All records (represented by IDs) will be updated by aptl values.
 func (c *Client) UpdateAccountPaymentTermLines(ids []int64, aptl *AccountPaymentTermLine) error {
 	return c.Update(AccountPaymentTermLineModel, ids, aptl)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindAccountPaymentTermLines(criteria *Criteria, options *Option
 	return aptls, nil
 }
 
-// FindAccountPaymentTermLineIds finds records ids by querying it
+// FindAccountPaymentTermLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentTermLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountPaymentTermLineModel, criteria, options)

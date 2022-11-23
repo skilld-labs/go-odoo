@@ -39,7 +39,7 @@ func (c *Client) UpdateCrmTag(ct *CrmTag) error {
 }
 
 // UpdateCrmTags updates existing crm.tag records.
-// All records (represented by ids) will be updated by ct values.
+// All records (represented by IDs) will be updated by ct values.
 func (c *Client) UpdateCrmTags(ids []int64, ct *CrmTag) error {
 	return c.Update(CrmTagModel, ids, ct)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindCrmTags(criteria *Criteria, options *Options) (*CrmTags, er
 	return cts, nil
 }
 
-// FindCrmTagIds finds records ids by querying it
+// FindCrmTagIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmTagIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(CrmTagModel, criteria, options)

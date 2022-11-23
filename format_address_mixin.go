@@ -33,7 +33,7 @@ func (c *Client) UpdateFormatAddressMixin(fam *FormatAddressMixin) error {
 }
 
 // UpdateFormatAddressMixins updates existing format.address.mixin records.
-// All records (represented by ids) will be updated by fam values.
+// All records (represented by IDs) will be updated by fam values.
 func (c *Client) UpdateFormatAddressMixins(ids []int64, fam *FormatAddressMixin) error {
 	return c.Update(FormatAddressMixinModel, ids, fam)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindFormatAddressMixins(criteria *Criteria, options *Options) (
 	return fams, nil
 }
 
-// FindFormatAddressMixinIds finds records ids by querying it
+// FindFormatAddressMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindFormatAddressMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(FormatAddressMixinModel, criteria, options)

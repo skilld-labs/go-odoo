@@ -44,7 +44,7 @@ func (c *Client) UpdateAccountAnalyticGroup(aag *AccountAnalyticGroup) error {
 }
 
 // UpdateAccountAnalyticGroups updates existing account.analytic.group records.
-// All records (represented by ids) will be updated by aag values.
+// All records (represented by IDs) will be updated by aag values.
 func (c *Client) UpdateAccountAnalyticGroups(ids []int64, aag *AccountAnalyticGroup) error {
 	return c.Update(AccountAnalyticGroupModel, ids, aag)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindAccountAnalyticGroups(criteria *Criteria, options *Options)
 	return aags, nil
 }
 
-// FindAccountAnalyticGroupIds finds records ids by querying it
+// FindAccountAnalyticGroupIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountAnalyticGroupModel, criteria, options)

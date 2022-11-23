@@ -39,7 +39,7 @@ func (c *Client) UpdateSaleOrderCancel(soc *SaleOrderCancel) error {
 }
 
 // UpdateSaleOrderCancels updates existing sale.order.cancel records.
-// All records (represented by ids) will be updated by soc values.
+// All records (represented by IDs) will be updated by soc values.
 func (c *Client) UpdateSaleOrderCancels(ids []int64, soc *SaleOrderCancel) error {
 	return c.Update(SaleOrderCancelModel, ids, soc)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindSaleOrderCancels(criteria *Criteria, options *Options) (*Sa
 	return socs, nil
 }
 
-// FindSaleOrderCancelIds finds records ids by querying it
+// FindSaleOrderCancelIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleOrderCancelIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SaleOrderCancelModel, criteria, options)

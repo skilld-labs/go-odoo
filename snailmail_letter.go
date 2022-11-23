@@ -61,7 +61,7 @@ func (c *Client) UpdateSnailmailLetter(sl *SnailmailLetter) error {
 }
 
 // UpdateSnailmailLetters updates existing snailmail.letter records.
-// All records (represented by ids) will be updated by sl values.
+// All records (represented by IDs) will be updated by sl values.
 func (c *Client) UpdateSnailmailLetters(ids []int64, sl *SnailmailLetter) error {
 	return c.Update(SnailmailLetterModel, ids, sl)
 }
@@ -119,7 +119,7 @@ func (c *Client) FindSnailmailLetters(criteria *Criteria, options *Options) (*Sn
 	return sls, nil
 }
 
-// FindSnailmailLetterIds finds records ids by querying it
+// FindSnailmailLetterIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSnailmailLetterIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SnailmailLetterModel, criteria, options)

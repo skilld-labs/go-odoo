@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQweb(iq *IrQweb) error {
 }
 
 // UpdateIrQwebs updates existing ir.qweb records.
-// All records (represented by ids) will be updated by iq values.
+// All records (represented by IDs) will be updated by iq values.
 func (c *Client) UpdateIrQwebs(ids []int64, iq *IrQweb) error {
 	return c.Update(IrQwebModel, ids, iq)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebs(criteria *Criteria, options *Options) (*IrQwebs, er
 	return iqs, nil
 }
 
-// FindIrQwebIds finds records ids by querying it
+// FindIrQwebIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebModel, criteria, options)

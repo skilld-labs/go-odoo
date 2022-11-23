@@ -39,7 +39,7 @@ func (c *Client) UpdateAccountEdiFormat(aef *AccountEdiFormat) error {
 }
 
 // UpdateAccountEdiFormats updates existing account.edi.format records.
-// All records (represented by ids) will be updated by aef values.
+// All records (represented by IDs) will be updated by aef values.
 func (c *Client) UpdateAccountEdiFormats(ids []int64, aef *AccountEdiFormat) error {
 	return c.Update(AccountEdiFormatModel, ids, aef)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindAccountEdiFormats(criteria *Criteria, options *Options) (*A
 	return aefs, nil
 }
 
-// FindAccountEdiFormatIds finds records ids by querying it
+// FindAccountEdiFormatIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountEdiFormatIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountEdiFormatModel, criteria, options)

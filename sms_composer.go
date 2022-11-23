@@ -60,7 +60,7 @@ func (c *Client) UpdateSmsComposer(sc *SmsComposer) error {
 }
 
 // UpdateSmsComposers updates existing sms.composer records.
-// All records (represented by ids) will be updated by sc values.
+// All records (represented by IDs) will be updated by sc values.
 func (c *Client) UpdateSmsComposers(ids []int64, sc *SmsComposer) error {
 	return c.Update(SmsComposerModel, ids, sc)
 }
@@ -118,7 +118,7 @@ func (c *Client) FindSmsComposers(criteria *Criteria, options *Options) (*SmsCom
 	return scs, nil
 }
 
-// FindSmsComposerIds finds records ids by querying it
+// FindSmsComposerIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsComposerIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SmsComposerModel, criteria, options)

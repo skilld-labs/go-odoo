@@ -40,7 +40,7 @@ func (c *Client) UpdateIrExports(ie *IrExports) error {
 }
 
 // UpdateIrExportss updates existing ir.exports records.
-// All records (represented by ids) will be updated by ie values.
+// All records (represented by IDs) will be updated by ie values.
 func (c *Client) UpdateIrExportss(ids []int64, ie *IrExports) error {
 	return c.Update(IrExportsModel, ids, ie)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindIrExportss(criteria *Criteria, options *Options) (*IrExport
 	return ies, nil
 }
 
-// FindIrExportsIds finds records ids by querying it
+// FindIrExportsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrExportsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrExportsModel, criteria, options)

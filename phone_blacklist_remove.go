@@ -39,7 +39,7 @@ func (c *Client) UpdatePhoneBlacklistRemove(pbr *PhoneBlacklistRemove) error {
 }
 
 // UpdatePhoneBlacklistRemoves updates existing phone.blacklist.remove records.
-// All records (represented by ids) will be updated by pbr values.
+// All records (represented by IDs) will be updated by pbr values.
 func (c *Client) UpdatePhoneBlacklistRemoves(ids []int64, pbr *PhoneBlacklistRemove) error {
 	return c.Update(PhoneBlacklistRemoveModel, ids, pbr)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindPhoneBlacklistRemoves(criteria *Criteria, options *Options)
 	return pbrs, nil
 }
 
-// FindPhoneBlacklistRemoveIds finds records ids by querying it
+// FindPhoneBlacklistRemoveIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPhoneBlacklistRemoveIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PhoneBlacklistRemoveModel, criteria, options)

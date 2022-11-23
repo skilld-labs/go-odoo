@@ -45,7 +45,7 @@ func (c *Client) UpdateProductPricelist(pp *ProductPricelist) error {
 }
 
 // UpdateProductPricelists updates existing product.pricelist records.
-// All records (represented by ids) will be updated by pp values.
+// All records (represented by IDs) will be updated by pp values.
 func (c *Client) UpdateProductPricelists(ids []int64, pp *ProductPricelist) error {
 	return c.Update(ProductPricelistModel, ids, pp)
 }
@@ -103,7 +103,7 @@ func (c *Client) FindProductPricelists(criteria *Criteria, options *Options) (*P
 	return pps, nil
 }
 
-// FindProductPricelistIds finds records ids by querying it
+// FindProductPricelistIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductPricelistIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductPricelistModel, criteria, options)

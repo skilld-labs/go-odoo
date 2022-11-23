@@ -38,7 +38,7 @@ func (c *Client) UpdateBaseImportTestsModelsM2ORequiredRelated(btmmrr *BaseImpor
 }
 
 // UpdateBaseImportTestsModelsM2ORequiredRelateds updates existing base_import.tests.models.m2o.required.related records.
-// All records (represented by ids) will be updated by btmmrr values.
+// All records (represented by IDs) will be updated by btmmrr values.
 func (c *Client) UpdateBaseImportTestsModelsM2ORequiredRelateds(ids []int64, btmmrr *BaseImportTestsModelsM2ORequiredRelated) error {
 	return c.Update(BaseImportTestsModelsM2ORequiredRelatedModel, ids, btmmrr)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORequiredRelateds(criteria *Criteria
 	return btmmrrs, nil
 }
 
-// FindBaseImportTestsModelsM2ORequiredRelatedIds finds records ids by querying it
+// FindBaseImportTestsModelsM2ORequiredRelatedIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsM2ORequiredRelatedIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsM2ORequiredRelatedModel, criteria, options)

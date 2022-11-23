@@ -38,7 +38,7 @@ func (c *Client) UpdateBaseImportTestsModelsCharNoreadonly(btmcn *BaseImportTest
 }
 
 // UpdateBaseImportTestsModelsCharNoreadonlys updates existing base_import.tests.models.char.noreadonly records.
-// All records (represented by ids) will be updated by btmcn values.
+// All records (represented by IDs) will be updated by btmcn values.
 func (c *Client) UpdateBaseImportTestsModelsCharNoreadonlys(ids []int64, btmcn *BaseImportTestsModelsCharNoreadonly) error {
 	return c.Update(BaseImportTestsModelsCharNoreadonlyModel, ids, btmcn)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindBaseImportTestsModelsCharNoreadonlys(criteria *Criteria, op
 	return btmcns, nil
 }
 
-// FindBaseImportTestsModelsCharNoreadonlyIds finds records ids by querying it
+// FindBaseImportTestsModelsCharNoreadonlyIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsCharNoreadonlyIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsCharNoreadonlyModel, criteria, options)

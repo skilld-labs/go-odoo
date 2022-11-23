@@ -40,7 +40,7 @@ func (c *Client) UpdateBaseImportTestsModelsFloat(btmf *BaseImportTestsModelsFlo
 }
 
 // UpdateBaseImportTestsModelsFloats updates existing base_import.tests.models.float records.
-// All records (represented by ids) will be updated by btmf values.
+// All records (represented by IDs) will be updated by btmf values.
 func (c *Client) UpdateBaseImportTestsModelsFloats(ids []int64, btmf *BaseImportTestsModelsFloat) error {
 	return c.Update(BaseImportTestsModelsFloatModel, ids, btmf)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindBaseImportTestsModelsFloats(criteria *Criteria, options *Op
 	return btmfs, nil
 }
 
-// FindBaseImportTestsModelsFloatIds finds records ids by querying it
+// FindBaseImportTestsModelsFloatIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsFloatIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsFloatModel, criteria, options)

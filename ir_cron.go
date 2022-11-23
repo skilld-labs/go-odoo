@@ -80,7 +80,7 @@ func (c *Client) UpdateIrCron(ic *IrCron) error {
 }
 
 // UpdateIrCrons updates existing ir.cron records.
-// All records (represented by ids) will be updated by ic values.
+// All records (represented by IDs) will be updated by ic values.
 func (c *Client) UpdateIrCrons(ids []int64, ic *IrCron) error {
 	return c.Update(IrCronModel, ids, ic)
 }
@@ -138,7 +138,7 @@ func (c *Client) FindIrCrons(criteria *Criteria, options *Options) (*IrCrons, er
 	return ics, nil
 }
 
-// FindIrCronIds finds records ids by querying it
+// FindIrCronIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrCronIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrCronModel, criteria, options)

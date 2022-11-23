@@ -37,7 +37,7 @@ func (c *Client) UpdateResourceMixin(rm *ResourceMixin) error {
 }
 
 // UpdateResourceMixins updates existing resource.mixin records.
-// All records (represented by ids) will be updated by rm values.
+// All records (represented by IDs) will be updated by rm values.
 func (c *Client) UpdateResourceMixins(ids []int64, rm *ResourceMixin) error {
 	return c.Update(ResourceMixinModel, ids, rm)
 }
@@ -95,7 +95,7 @@ func (c *Client) FindResourceMixins(criteria *Criteria, options *Options) (*Reso
 	return rms, nil
 }
 
-// FindResourceMixinIds finds records ids by querying it
+// FindResourceMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResourceMixinModel, criteria, options)

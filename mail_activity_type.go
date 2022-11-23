@@ -58,7 +58,7 @@ func (c *Client) UpdateMailActivityType(mat *MailActivityType) error {
 }
 
 // UpdateMailActivityTypes updates existing mail.activity.type records.
-// All records (represented by ids) will be updated by mat values.
+// All records (represented by IDs) will be updated by mat values.
 func (c *Client) UpdateMailActivityTypes(ids []int64, mat *MailActivityType) error {
 	return c.Update(MailActivityTypeModel, ids, mat)
 }
@@ -116,7 +116,7 @@ func (c *Client) FindMailActivityTypes(criteria *Criteria, options *Options) (*M
 	return mats, nil
 }
 
-// FindMailActivityTypeIds finds records ids by querying it
+// FindMailActivityTypeIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailActivityTypeIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailActivityTypeModel, criteria, options)

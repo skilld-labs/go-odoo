@@ -37,7 +37,7 @@ func (c *Client) UpdateResUsersApikeys(rua *ResUsersApikeys) error {
 }
 
 // UpdateResUsersApikeyss updates existing res.users.apikeys records.
-// All records (represented by ids) will be updated by rua values.
+// All records (represented by IDs) will be updated by rua values.
 func (c *Client) UpdateResUsersApikeyss(ids []int64, rua *ResUsersApikeys) error {
 	return c.Update(ResUsersApikeysModel, ids, rua)
 }
@@ -95,7 +95,7 @@ func (c *Client) FindResUsersApikeyss(criteria *Criteria, options *Options) (*Re
 	return ruas, nil
 }
 
-// FindResUsersApikeysIds finds records ids by querying it
+// FindResUsersApikeysIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersApikeysIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResUsersApikeysModel, criteria, options)

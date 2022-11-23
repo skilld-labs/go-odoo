@@ -39,7 +39,7 @@ func (c *Client) UpdateResUsersIdentitycheck(rui *ResUsersIdentitycheck) error {
 }
 
 // UpdateResUsersIdentitychecks updates existing res.users.identitycheck records.
-// All records (represented by ids) will be updated by rui values.
+// All records (represented by IDs) will be updated by rui values.
 func (c *Client) UpdateResUsersIdentitychecks(ids []int64, rui *ResUsersIdentitycheck) error {
 	return c.Update(ResUsersIdentitycheckModel, ids, rui)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindResUsersIdentitychecks(criteria *Criteria, options *Options
 	return ruis, nil
 }
 
-// FindResUsersIdentitycheckIds finds records ids by querying it
+// FindResUsersIdentitycheckIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersIdentitycheckIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResUsersIdentitycheckModel, criteria, options)

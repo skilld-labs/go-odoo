@@ -38,7 +38,7 @@ func (c *Client) UpdateChangePasswordWizard(cpw *ChangePasswordWizard) error {
 }
 
 // UpdateChangePasswordWizards updates existing change.password.wizard records.
-// All records (represented by ids) will be updated by cpw values.
+// All records (represented by IDs) will be updated by cpw values.
 func (c *Client) UpdateChangePasswordWizards(ids []int64, cpw *ChangePasswordWizard) error {
 	return c.Update(ChangePasswordWizardModel, ids, cpw)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindChangePasswordWizards(criteria *Criteria, options *Options)
 	return cpws, nil
 }
 
-// FindChangePasswordWizardIds finds records ids by querying it
+// FindChangePasswordWizardIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindChangePasswordWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ChangePasswordWizardModel, criteria, options)

@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) error {
 }
 
 // UpdateIrQwebFieldBarcodes updates existing ir.qweb.field.barcode records.
-// All records (represented by ids) will be updated by iqfb values.
+// All records (represented by IDs) will be updated by iqfb values.
 func (c *Client) UpdateIrQwebFieldBarcodes(ids []int64, iqfb *IrQwebFieldBarcode) error {
 	return c.Update(IrQwebFieldBarcodeModel, ids, iqfb)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldBarcodes(criteria *Criteria, options *Options) (
 	return iqfbs, nil
 }
 
-// FindIrQwebFieldBarcodeIds finds records ids by querying it
+// FindIrQwebFieldBarcodeIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldBarcodeIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldBarcodeModel, criteria, options)

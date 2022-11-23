@@ -33,7 +33,7 @@ func (c *Client) UpdateReportProductReportPricelist(rpr *ReportProductReportPric
 }
 
 // UpdateReportProductReportPricelists updates existing report.product.report_pricelist records.
-// All records (represented by ids) will be updated by rpr values.
+// All records (represented by IDs) will be updated by rpr values.
 func (c *Client) UpdateReportProductReportPricelists(ids []int64, rpr *ReportProductReportPricelist) error {
 	return c.Update(ReportProductReportPricelistModel, ids, rpr)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindReportProductReportPricelists(criteria *Criteria, options *
 	return rprs, nil
 }
 
-// FindReportProductReportPricelistIds finds records ids by querying it
+// FindReportProductReportPricelistIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportProductReportPricelistIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportProductReportPricelistModel, criteria, options)

@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldFloat(iqff *IrQwebFieldFloat) error {
 }
 
 // UpdateIrQwebFieldFloats updates existing ir.qweb.field.float records.
-// All records (represented by ids) will be updated by iqff values.
+// All records (represented by IDs) will be updated by iqff values.
 func (c *Client) UpdateIrQwebFieldFloats(ids []int64, iqff *IrQwebFieldFloat) error {
 	return c.Update(IrQwebFieldFloatModel, ids, iqff)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldFloats(criteria *Criteria, options *Options) (*I
 	return iqffs, nil
 }
 
-// FindIrQwebFieldFloatIds finds records ids by querying it
+// FindIrQwebFieldFloatIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldFloatIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldFloatModel, criteria, options)

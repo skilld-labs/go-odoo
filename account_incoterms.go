@@ -40,7 +40,7 @@ func (c *Client) UpdateAccountIncoterms(ai *AccountIncoterms) error {
 }
 
 // UpdateAccountIncotermss updates existing account.incoterms records.
-// All records (represented by ids) will be updated by ai values.
+// All records (represented by IDs) will be updated by ai values.
 func (c *Client) UpdateAccountIncotermss(ids []int64, ai *AccountIncoterms) error {
 	return c.Update(AccountIncotermsModel, ids, ai)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindAccountIncotermss(criteria *Criteria, options *Options) (*A
 	return ais, nil
 }
 
-// FindAccountIncotermsIds finds records ids by querying it
+// FindAccountIncotermsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountIncotermsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountIncotermsModel, criteria, options)

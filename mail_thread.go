@@ -48,7 +48,7 @@ func (c *Client) UpdateMailThread(mt *MailThread) error {
 }
 
 // UpdateMailThreads updates existing mail.thread records.
-// All records (represented by ids) will be updated by mt values.
+// All records (represented by IDs) will be updated by mt values.
 func (c *Client) UpdateMailThreads(ids []int64, mt *MailThread) error {
 	return c.Update(MailThreadModel, ids, mt)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindMailThreads(criteria *Criteria, options *Options) (*MailThr
 	return mts, nil
 }
 
-// FindMailThreadIds finds records ids by querying it
+// FindMailThreadIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailThreadIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailThreadModel, criteria, options)

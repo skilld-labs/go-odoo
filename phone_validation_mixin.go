@@ -33,7 +33,7 @@ func (c *Client) UpdatePhoneValidationMixin(pvm *PhoneValidationMixin) error {
 }
 
 // UpdatePhoneValidationMixins updates existing phone.validation.mixin records.
-// All records (represented by ids) will be updated by pvm values.
+// All records (represented by IDs) will be updated by pvm values.
 func (c *Client) UpdatePhoneValidationMixins(ids []int64, pvm *PhoneValidationMixin) error {
 	return c.Update(PhoneValidationMixinModel, ids, pvm)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindPhoneValidationMixins(criteria *Criteria, options *Options)
 	return pvms, nil
 }
 
-// FindPhoneValidationMixinIds finds records ids by querying it
+// FindPhoneValidationMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPhoneValidationMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PhoneValidationMixinModel, criteria, options)

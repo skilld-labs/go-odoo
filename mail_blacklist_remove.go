@@ -39,7 +39,7 @@ func (c *Client) UpdateMailBlacklistRemove(mbr *MailBlacklistRemove) error {
 }
 
 // UpdateMailBlacklistRemoves updates existing mail.blacklist.remove records.
-// All records (represented by ids) will be updated by mbr values.
+// All records (represented by IDs) will be updated by mbr values.
 func (c *Client) UpdateMailBlacklistRemoves(ids []int64, mbr *MailBlacklistRemove) error {
 	return c.Update(MailBlacklistRemoveModel, ids, mbr)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindMailBlacklistRemoves(criteria *Criteria, options *Options) 
 	return mbrs, nil
 }
 
-// FindMailBlacklistRemoveIds finds records ids by querying it
+// FindMailBlacklistRemoveIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailBlacklistRemoveIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailBlacklistRemoveModel, criteria, options)

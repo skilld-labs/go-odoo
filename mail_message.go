@@ -77,7 +77,7 @@ func (c *Client) UpdateMailMessage(mm *MailMessage) error {
 }
 
 // UpdateMailMessages updates existing mail.message records.
-// All records (represented by ids) will be updated by mm values.
+// All records (represented by IDs) will be updated by mm values.
 func (c *Client) UpdateMailMessages(ids []int64, mm *MailMessage) error {
 	return c.Update(MailMessageModel, ids, mm)
 }
@@ -135,7 +135,7 @@ func (c *Client) FindMailMessages(criteria *Criteria, options *Options) (*MailMe
 	return mms, nil
 }
 
-// FindMailMessageIds finds records ids by querying it
+// FindMailMessageIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMessageIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailMessageModel, criteria, options)

@@ -50,7 +50,7 @@ func (c *Client) UpdateIrSequence(is *IrSequence) error {
 }
 
 // UpdateIrSequences updates existing ir.sequence records.
-// All records (represented by ids) will be updated by is values.
+// All records (represented by IDs) will be updated by is values.
 func (c *Client) UpdateIrSequences(ids []int64, is *IrSequence) error {
 	return c.Update(IrSequenceModel, ids, is)
 }
@@ -108,7 +108,7 @@ func (c *Client) FindIrSequences(criteria *Criteria, options *Options) (*IrSeque
 	return iss, nil
 }
 
-// FindIrSequenceIds finds records ids by querying it
+// FindIrSequenceIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrSequenceIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrSequenceModel, criteria, options)

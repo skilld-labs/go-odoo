@@ -38,7 +38,7 @@ func (c *Client) UpdateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub
 }
 
 // UpdateWebEditorConverterTestSubs updates existing web_editor.converter.test.sub records.
-// All records (represented by ids) will be updated by wcts values.
+// All records (represented by IDs) will be updated by wcts values.
 func (c *Client) UpdateWebEditorConverterTestSubs(ids []int64, wcts *WebEditorConverterTestSub) error {
 	return c.Update(WebEditorConverterTestSubModel, ids, wcts)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindWebEditorConverterTestSubs(criteria *Criteria, options *Opt
 	return wctss, nil
 }
 
-// FindWebEditorConverterTestSubIds finds records ids by querying it
+// FindWebEditorConverterTestSubIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebEditorConverterTestSubIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(WebEditorConverterTestSubModel, criteria, options)

@@ -33,7 +33,7 @@ func (c *Client) UpdateUnknown(_ *Unknown) error {
 }
 
 // UpdateUnknowns updates existing _unknown records.
-// All records (represented by ids) will be updated by _ values.
+// All records (represented by IDs) will be updated by _ values.
 func (c *Client) UpdateUnknowns(ids []int64, _ *Unknown) error {
 	return c.Update(UnknownModel, ids, _)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindUnknowns(criteria *Criteria, options *Options) (*Unknowns, 
 	return _s, nil
 }
 
-// FindUnknownIds finds records ids by querying it
+// FindUnknownIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUnknownIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UnknownModel, criteria, options)

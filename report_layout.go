@@ -42,7 +42,7 @@ func (c *Client) UpdateReportLayout(rl *ReportLayout) error {
 }
 
 // UpdateReportLayouts updates existing report.layout records.
-// All records (represented by ids) will be updated by rl values.
+// All records (represented by IDs) will be updated by rl values.
 func (c *Client) UpdateReportLayouts(ids []int64, rl *ReportLayout) error {
 	return c.Update(ReportLayoutModel, ids, rl)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindReportLayouts(criteria *Criteria, options *Options) (*Repor
 	return rls, nil
 }
 
-// FindReportLayoutIds finds records ids by querying it
+// FindReportLayoutIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportLayoutIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportLayoutModel, criteria, options)

@@ -48,7 +48,7 @@ func (c *Client) UpdateIrProperty(ip *IrProperty) error {
 }
 
 // UpdateIrPropertys updates existing ir.property records.
-// All records (represented by ids) will be updated by ip values.
+// All records (represented by IDs) will be updated by ip values.
 func (c *Client) UpdateIrPropertys(ids []int64, ip *IrProperty) error {
 	return c.Update(IrPropertyModel, ids, ip)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindIrPropertys(criteria *Criteria, options *Options) (*IrPrope
 	return ips, nil
 }
 
-// FindIrPropertyIds finds records ids by querying it
+// FindIrPropertyIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrPropertyIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrPropertyModel, criteria, options)

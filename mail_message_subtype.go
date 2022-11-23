@@ -46,7 +46,7 @@ func (c *Client) UpdateMailMessageSubtype(mms *MailMessageSubtype) error {
 }
 
 // UpdateMailMessageSubtypes updates existing mail.message.subtype records.
-// All records (represented by ids) will be updated by mms values.
+// All records (represented by IDs) will be updated by mms values.
 func (c *Client) UpdateMailMessageSubtypes(ids []int64, mms *MailMessageSubtype) error {
 	return c.Update(MailMessageSubtypeModel, ids, mms)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindMailMessageSubtypes(criteria *Criteria, options *Options) (
 	return mmss, nil
 }
 
-// FindMailMessageSubtypeIds finds records ids by querying it
+// FindMailMessageSubtypeIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMessageSubtypeIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailMessageSubtypeModel, criteria, options)

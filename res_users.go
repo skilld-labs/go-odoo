@@ -191,7 +191,7 @@ func (c *Client) UpdateResUsers(ru *ResUsers) error {
 }
 
 // UpdateResUserss updates existing res.users records.
-// All records (represented by ids) will be updated by ru values.
+// All records (represented by IDs) will be updated by ru values.
 func (c *Client) UpdateResUserss(ids []int64, ru *ResUsers) error {
 	return c.Update(ResUsersModel, ids, ru)
 }
@@ -249,7 +249,7 @@ func (c *Client) FindResUserss(criteria *Criteria, options *Options) (*ResUserss
 	return rus, nil
 }
 
-// FindResUsersIds finds records ids by querying it
+// FindResUsersIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResUsersModel, criteria, options)

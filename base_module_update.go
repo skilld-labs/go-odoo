@@ -40,7 +40,7 @@ func (c *Client) UpdateBaseModuleUpdate(bmu *BaseModuleUpdate) error {
 }
 
 // UpdateBaseModuleUpdates updates existing base.module.update records.
-// All records (represented by ids) will be updated by bmu values.
+// All records (represented by IDs) will be updated by bmu values.
 func (c *Client) UpdateBaseModuleUpdates(ids []int64, bmu *BaseModuleUpdate) error {
 	return c.Update(BaseModuleUpdateModel, ids, bmu)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindBaseModuleUpdates(criteria *Criteria, options *Options) (*B
 	return bmus, nil
 }
 
-// FindBaseModuleUpdateIds finds records ids by querying it
+// FindBaseModuleUpdateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseModuleUpdateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseModuleUpdateModel, criteria, options)

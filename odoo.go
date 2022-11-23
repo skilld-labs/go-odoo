@@ -233,7 +233,7 @@ func (c *Client) SearchReadJSON(model string, criteria *Criteria, options *Optio
 	return json.Marshal(resp)
 }
 
-// Read model records matching with ids.
+// Read model records matching with IDs.
 // https://www.odoo.com/documentation/13.0/webservices/odoo.html#read-records
 func (c *Client) Read(model string, ids []int64, options *Options, elem interface{}) error {
 	resp, err := c.ExecuteKw("read", model, []interface{}{ids}, options)
@@ -256,7 +256,7 @@ func (c *Client) Count(model string, criteria *Criteria, options *Options) (int6
 	return resp.(int64), nil
 }
 
-// Search model record ids matching with *Criteria.
+// Search model record IDs matching with *Criteria.
 // https://www.odoo.com/documentation/13.0/webservices/odoo.html#list-records
 func (c *Client) Search(model string, criteria *Criteria, options *Options) ([]int64, error) {
 	resp, err := c.ExecuteKw("search", model, argsFromCriteria(criteria), options)

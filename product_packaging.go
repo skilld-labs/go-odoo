@@ -44,7 +44,7 @@ func (c *Client) UpdateProductPackaging(pp *ProductPackaging) error {
 }
 
 // UpdateProductPackagings updates existing product.packaging records.
-// All records (represented by ids) will be updated by pp values.
+// All records (represented by IDs) will be updated by pp values.
 func (c *Client) UpdateProductPackagings(ids []int64, pp *ProductPackaging) error {
 	return c.Update(ProductPackagingModel, ids, pp)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindProductPackagings(criteria *Criteria, options *Options) (*P
 	return pps, nil
 }
 
-// FindProductPackagingIds finds records ids by querying it
+// FindProductPackagingIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductPackagingIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductPackagingModel, criteria, options)

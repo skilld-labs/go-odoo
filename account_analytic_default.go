@@ -47,7 +47,7 @@ func (c *Client) UpdateAccountAnalyticDefault(aad *AccountAnalyticDefault) error
 }
 
 // UpdateAccountAnalyticDefaults updates existing account.analytic.default records.
-// All records (represented by ids) will be updated by aad values.
+// All records (represented by IDs) will be updated by aad values.
 func (c *Client) UpdateAccountAnalyticDefaults(ids []int64, aad *AccountAnalyticDefault) error {
 	return c.Update(AccountAnalyticDefaultModel, ids, aad)
 }
@@ -105,7 +105,7 @@ func (c *Client) FindAccountAnalyticDefaults(criteria *Criteria, options *Option
 	return aads, nil
 }
 
-// FindAccountAnalyticDefaultIds finds records ids by querying it
+// FindAccountAnalyticDefaultIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticDefaultIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountAnalyticDefaultModel, criteria, options)

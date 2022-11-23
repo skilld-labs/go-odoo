@@ -54,7 +54,7 @@ func (c *Client) UpdatePhoneBlacklist(pb *PhoneBlacklist) error {
 }
 
 // UpdatePhoneBlacklists updates existing phone.blacklist records.
-// All records (represented by ids) will be updated by pb values.
+// All records (represented by IDs) will be updated by pb values.
 func (c *Client) UpdatePhoneBlacklists(ids []int64, pb *PhoneBlacklist) error {
 	return c.Update(PhoneBlacklistModel, ids, pb)
 }
@@ -112,7 +112,7 @@ func (c *Client) FindPhoneBlacklists(criteria *Criteria, options *Options) (*Pho
 	return pbs, nil
 }
 
-// FindPhoneBlacklistIds finds records ids by querying it
+// FindPhoneBlacklistIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPhoneBlacklistIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PhoneBlacklistModel, criteria, options)

@@ -43,7 +43,7 @@ func (c *Client) UpdateAccountPaymentTerm(apt *AccountPaymentTerm) error {
 }
 
 // UpdateAccountPaymentTerms updates existing account.payment.term records.
-// All records (represented by ids) will be updated by apt values.
+// All records (represented by IDs) will be updated by apt values.
 func (c *Client) UpdateAccountPaymentTerms(ids []int64, apt *AccountPaymentTerm) error {
 	return c.Update(AccountPaymentTermModel, ids, apt)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindAccountPaymentTerms(criteria *Criteria, options *Options) (
 	return apts, nil
 }
 
-// FindAccountPaymentTermIds finds records ids by querying it
+// FindAccountPaymentTermIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentTermIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountPaymentTermModel, criteria, options)

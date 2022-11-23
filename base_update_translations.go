@@ -38,7 +38,7 @@ func (c *Client) UpdateBaseUpdateTranslations(but *BaseUpdateTranslations) error
 }
 
 // UpdateBaseUpdateTranslationss updates existing base.update.translations records.
-// All records (represented by ids) will be updated by but values.
+// All records (represented by IDs) will be updated by but values.
 func (c *Client) UpdateBaseUpdateTranslationss(ids []int64, but *BaseUpdateTranslations) error {
 	return c.Update(BaseUpdateTranslationsModel, ids, but)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindBaseUpdateTranslationss(criteria *Criteria, options *Option
 	return buts, nil
 }
 
-// FindBaseUpdateTranslationsIds finds records ids by querying it
+// FindBaseUpdateTranslationsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseUpdateTranslationsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseUpdateTranslationsModel, criteria, options)

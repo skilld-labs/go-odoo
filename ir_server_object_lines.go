@@ -42,7 +42,7 @@ func (c *Client) UpdateIrServerObjectLines(isol *IrServerObjectLines) error {
 }
 
 // UpdateIrServerObjectLiness updates existing ir.server.object.lines records.
-// All records (represented by ids) will be updated by isol values.
+// All records (represented by IDs) will be updated by isol values.
 func (c *Client) UpdateIrServerObjectLiness(ids []int64, isol *IrServerObjectLines) error {
 	return c.Update(IrServerObjectLinesModel, ids, isol)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindIrServerObjectLiness(criteria *Criteria, options *Options) 
 	return isols, nil
 }
 
-// FindIrServerObjectLinesIds finds records ids by querying it
+// FindIrServerObjectLinesIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrServerObjectLinesIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrServerObjectLinesModel, criteria, options)

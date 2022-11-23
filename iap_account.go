@@ -40,7 +40,7 @@ func (c *Client) UpdateIapAccount(ia *IapAccount) error {
 }
 
 // UpdateIapAccounts updates existing iap.account records.
-// All records (represented by ids) will be updated by ia values.
+// All records (represented by IDs) will be updated by ia values.
 func (c *Client) UpdateIapAccounts(ids []int64, ia *IapAccount) error {
 	return c.Update(IapAccountModel, ids, ia)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindIapAccounts(criteria *Criteria, options *Options) (*IapAcco
 	return ias, nil
 }
 
-// FindIapAccountIds finds records ids by querying it
+// FindIapAccountIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIapAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IapAccountModel, criteria, options)

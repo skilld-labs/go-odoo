@@ -36,7 +36,7 @@ func (c *Client) UpdateUtmMixin(um *UtmMixin) error {
 }
 
 // UpdateUtmMixins updates existing utm.mixin records.
-// All records (represented by ids) will be updated by um values.
+// All records (represented by IDs) will be updated by um values.
 func (c *Client) UpdateUtmMixins(ids []int64, um *UtmMixin) error {
 	return c.Update(UtmMixinModel, ids, um)
 }
@@ -94,7 +94,7 @@ func (c *Client) FindUtmMixins(criteria *Criteria, options *Options) (*UtmMixins
 	return ums, nil
 }
 
-// FindUtmMixinIds finds records ids by querying it
+// FindUtmMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UtmMixinModel, criteria, options)

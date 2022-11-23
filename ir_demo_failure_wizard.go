@@ -39,7 +39,7 @@ func (c *Client) UpdateIrDemoFailureWizard(idw *IrDemoFailureWizard) error {
 }
 
 // UpdateIrDemoFailureWizards updates existing ir.demo_failure.wizard records.
-// All records (represented by ids) will be updated by idw values.
+// All records (represented by IDs) will be updated by idw values.
 func (c *Client) UpdateIrDemoFailureWizards(ids []int64, idw *IrDemoFailureWizard) error {
 	return c.Update(IrDemoFailureWizardModel, ids, idw)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindIrDemoFailureWizards(criteria *Criteria, options *Options) 
 	return idws, nil
 }
 
-// FindIrDemoFailureWizardIds finds records ids by querying it
+// FindIrDemoFailureWizardIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrDemoFailureWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrDemoFailureWizardModel, criteria, options)

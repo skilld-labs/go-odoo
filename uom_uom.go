@@ -44,7 +44,7 @@ func (c *Client) UpdateUomUom(uu *UomUom) error {
 }
 
 // UpdateUomUoms updates existing uom.uom records.
-// All records (represented by ids) will be updated by uu values.
+// All records (represented by IDs) will be updated by uu values.
 func (c *Client) UpdateUomUoms(ids []int64, uu *UomUom) error {
 	return c.Update(UomUomModel, ids, uu)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindUomUoms(criteria *Criteria, options *Options) (*UomUoms, er
 	return uus, nil
 }
 
-// FindUomUomIds finds records ids by querying it
+// FindUomUomIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUomUomIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UomUomModel, criteria, options)

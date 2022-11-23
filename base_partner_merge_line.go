@@ -40,7 +40,7 @@ func (c *Client) UpdateBasePartnerMergeLine(bpml *BasePartnerMergeLine) error {
 }
 
 // UpdateBasePartnerMergeLines updates existing base.partner.merge.line records.
-// All records (represented by ids) will be updated by bpml values.
+// All records (represented by IDs) will be updated by bpml values.
 func (c *Client) UpdateBasePartnerMergeLines(ids []int64, bpml *BasePartnerMergeLine) error {
 	return c.Update(BasePartnerMergeLineModel, ids, bpml)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindBasePartnerMergeLines(criteria *Criteria, options *Options)
 	return bpmls, nil
 }
 
-// FindBasePartnerMergeLineIds finds records ids by querying it
+// FindBasePartnerMergeLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBasePartnerMergeLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BasePartnerMergeLineModel, criteria, options)

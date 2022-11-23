@@ -44,7 +44,7 @@ func (c *Client) UpdateIrModelData(imd *IrModelData) error {
 }
 
 // UpdateIrModelDatas updates existing ir.model.data records.
-// All records (represented by ids) will be updated by imd values.
+// All records (represented by IDs) will be updated by imd values.
 func (c *Client) UpdateIrModelDatas(ids []int64, imd *IrModelData) error {
 	return c.Update(IrModelDataModel, ids, imd)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindIrModelDatas(criteria *Criteria, options *Options) (*IrMode
 	return imds, nil
 }
 
-// FindIrModelDataIds finds records ids by querying it
+// FindIrModelDataIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelDataIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrModelDataModel, criteria, options)

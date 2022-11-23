@@ -54,7 +54,7 @@ func (c *Client) UpdateAccountReconcileModelLine(arml *AccountReconcileModelLine
 }
 
 // UpdateAccountReconcileModelLines updates existing account.reconcile.model.line records.
-// All records (represented by ids) will be updated by arml values.
+// All records (represented by IDs) will be updated by arml values.
 func (c *Client) UpdateAccountReconcileModelLines(ids []int64, arml *AccountReconcileModelLine) error {
 	return c.Update(AccountReconcileModelLineModel, ids, arml)
 }
@@ -112,7 +112,7 @@ func (c *Client) FindAccountReconcileModelLines(criteria *Criteria, options *Opt
 	return armls, nil
 }
 
-// FindAccountReconcileModelLineIds finds records ids by querying it
+// FindAccountReconcileModelLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountReconcileModelLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountReconcileModelLineModel, criteria, options)

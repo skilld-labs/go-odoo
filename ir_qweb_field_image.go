@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldImage(iqfi *IrQwebFieldImage) error {
 }
 
 // UpdateIrQwebFieldImages updates existing ir.qweb.field.image records.
-// All records (represented by ids) will be updated by iqfi values.
+// All records (represented by IDs) will be updated by iqfi values.
 func (c *Client) UpdateIrQwebFieldImages(ids []int64, iqfi *IrQwebFieldImage) error {
 	return c.Update(IrQwebFieldImageModel, ids, iqfi)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldImages(criteria *Criteria, options *Options) (*I
 	return iqfis, nil
 }
 
-// FindIrQwebFieldImageIds finds records ids by querying it
+// FindIrQwebFieldImageIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldImageIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldImageModel, criteria, options)

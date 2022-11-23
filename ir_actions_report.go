@@ -55,7 +55,7 @@ func (c *Client) UpdateIrActionsReport(iar *IrActionsReport) error {
 }
 
 // UpdateIrActionsReports updates existing ir.actions.report records.
-// All records (represented by ids) will be updated by iar values.
+// All records (represented by IDs) will be updated by iar values.
 func (c *Client) UpdateIrActionsReports(ids []int64, iar *IrActionsReport) error {
 	return c.Update(IrActionsReportModel, ids, iar)
 }
@@ -113,7 +113,7 @@ func (c *Client) FindIrActionsReports(criteria *Criteria, options *Options) (*Ir
 	return iars, nil
 }
 
-// FindIrActionsReportIds finds records ids by querying it
+// FindIrActionsReportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsReportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrActionsReportModel, criteria, options)

@@ -42,7 +42,7 @@ func (c *Client) UpdateIrDefault(ID *IrDefault) error {
 }
 
 // UpdateIrDefaults updates existing ir.default records.
-// All records (represented by ids) will be updated by ID values.
+// All records (represented by IDs) will be updated by ID values.
 func (c *Client) UpdateIrDefaults(ids []int64, ID *IrDefault) error {
 	return c.Update(IrDefaultModel, ids, ID)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindIrDefaults(criteria *Criteria, options *Options) (*IrDefaul
 	return IDs, nil
 }
 
-// FindIrDefaultIds finds records ids by querying it
+// FindIrDefaultIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrDefaultIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrDefaultModel, criteria, options)

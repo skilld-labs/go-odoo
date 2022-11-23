@@ -39,7 +39,7 @@ func (c *Client) UpdateCashBoxOut(cbo *CashBoxOut) error {
 }
 
 // UpdateCashBoxOuts updates existing cash.box.out records.
-// All records (represented by ids) will be updated by cbo values.
+// All records (represented by IDs) will be updated by cbo values.
 func (c *Client) UpdateCashBoxOuts(ids []int64, cbo *CashBoxOut) error {
 	return c.Update(CashBoxOutModel, ids, cbo)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindCashBoxOuts(criteria *Criteria, options *Options) (*CashBox
 	return cbos, nil
 }
 
-// FindCashBoxOutIds finds records ids by querying it
+// FindCashBoxOutIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCashBoxOutIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(CashBoxOutModel, criteria, options)

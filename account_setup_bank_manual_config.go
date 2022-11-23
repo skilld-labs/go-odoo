@@ -55,7 +55,7 @@ func (c *Client) UpdateAccountSetupBankManualConfig(asbmc *AccountSetupBankManua
 }
 
 // UpdateAccountSetupBankManualConfigs updates existing account.setup.bank.manual.config records.
-// All records (represented by ids) will be updated by asbmc values.
+// All records (represented by IDs) will be updated by asbmc values.
 func (c *Client) UpdateAccountSetupBankManualConfigs(ids []int64, asbmc *AccountSetupBankManualConfig) error {
 	return c.Update(AccountSetupBankManualConfigModel, ids, asbmc)
 }
@@ -113,7 +113,7 @@ func (c *Client) FindAccountSetupBankManualConfigs(criteria *Criteria, options *
 	return asbmcs, nil
 }
 
-// FindAccountSetupBankManualConfigIds finds records ids by querying it
+// FindAccountSetupBankManualConfigIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountSetupBankManualConfigIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountSetupBankManualConfigModel, criteria, options)

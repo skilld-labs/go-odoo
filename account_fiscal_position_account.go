@@ -41,7 +41,7 @@ func (c *Client) UpdateAccountFiscalPositionAccount(afpa *AccountFiscalPositionA
 }
 
 // UpdateAccountFiscalPositionAccounts updates existing account.fiscal.position.account records.
-// All records (represented by ids) will be updated by afpa values.
+// All records (represented by IDs) will be updated by afpa values.
 func (c *Client) UpdateAccountFiscalPositionAccounts(ids []int64, afpa *AccountFiscalPositionAccount) error {
 	return c.Update(AccountFiscalPositionAccountModel, ids, afpa)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindAccountFiscalPositionAccounts(criteria *Criteria, options *
 	return afpas, nil
 }
 
-// FindAccountFiscalPositionAccountIds finds records ids by querying it
+// FindAccountFiscalPositionAccountIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFiscalPositionAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountFiscalPositionAccountModel, criteria, options)

@@ -59,7 +59,7 @@ func (c *Client) UpdateIrActionsActWindow(iaa *IrActionsActWindow) error {
 }
 
 // UpdateIrActionsActWindows updates existing ir.actions.act_window records.
-// All records (represented by ids) will be updated by iaa values.
+// All records (represented by IDs) will be updated by iaa values.
 func (c *Client) UpdateIrActionsActWindows(ids []int64, iaa *IrActionsActWindow) error {
 	return c.Update(IrActionsActWindowModel, ids, iaa)
 }
@@ -117,7 +117,7 @@ func (c *Client) FindIrActionsActWindows(criteria *Criteria, options *Options) (
 	return iaas, nil
 }
 
-// FindIrActionsActWindowIds finds records ids by querying it
+// FindIrActionsActWindowIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActWindowIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrActionsActWindowModel, criteria, options)

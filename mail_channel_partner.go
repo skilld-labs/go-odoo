@@ -46,7 +46,7 @@ func (c *Client) UpdateMailChannelPartner(mcp *MailChannelPartner) error {
 }
 
 // UpdateMailChannelPartners updates existing mail.channel.partner records.
-// All records (represented by ids) will be updated by mcp values.
+// All records (represented by IDs) will be updated by mcp values.
 func (c *Client) UpdateMailChannelPartners(ids []int64, mcp *MailChannelPartner) error {
 	return c.Update(MailChannelPartnerModel, ids, mcp)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindMailChannelPartners(criteria *Criteria, options *Options) (
 	return mcps, nil
 }
 
-// FindMailChannelPartnerIds finds records ids by querying it
+// FindMailChannelPartnerIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailChannelPartnerIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailChannelPartnerModel, criteria, options)

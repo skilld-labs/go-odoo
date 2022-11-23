@@ -162,7 +162,7 @@ func (c *Client) UpdateResPartner(rp *ResPartner) error {
 }
 
 // UpdateResPartners updates existing res.partner records.
-// All records (represented by ids) will be updated by rp values.
+// All records (represented by IDs) will be updated by rp values.
 func (c *Client) UpdateResPartners(ids []int64, rp *ResPartner) error {
 	return c.Update(ResPartnerModel, ids, rp)
 }
@@ -220,7 +220,7 @@ func (c *Client) FindResPartners(criteria *Criteria, options *Options) (*ResPart
 	return rps, nil
 }
 
-// FindResPartnerIds finds records ids by querying it
+// FindResPartnerIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResPartnerModel, criteria, options)

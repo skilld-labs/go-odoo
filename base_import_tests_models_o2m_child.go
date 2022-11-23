@@ -39,7 +39,7 @@ func (c *Client) UpdateBaseImportTestsModelsO2MChild(btmoc *BaseImportTestsModel
 }
 
 // UpdateBaseImportTestsModelsO2MChilds updates existing base_import.tests.models.o2m.child records.
-// All records (represented by ids) will be updated by btmoc values.
+// All records (represented by IDs) will be updated by btmoc values.
 func (c *Client) UpdateBaseImportTestsModelsO2MChilds(ids []int64, btmoc *BaseImportTestsModelsO2MChild) error {
 	return c.Update(BaseImportTestsModelsO2MChildModel, ids, btmoc)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindBaseImportTestsModelsO2MChilds(criteria *Criteria, options 
 	return btmocs, nil
 }
 
-// FindBaseImportTestsModelsO2MChildIds finds records ids by querying it
+// FindBaseImportTestsModelsO2MChildIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsO2MChildIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsO2MChildModel, criteria, options)

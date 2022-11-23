@@ -47,7 +47,7 @@ func (c *Client) UpdateIrModuleCategory(imc *IrModuleCategory) error {
 }
 
 // UpdateIrModuleCategorys updates existing ir.module.category records.
-// All records (represented by ids) will be updated by imc values.
+// All records (represented by IDs) will be updated by imc values.
 func (c *Client) UpdateIrModuleCategorys(ids []int64, imc *IrModuleCategory) error {
 	return c.Update(IrModuleCategoryModel, ids, imc)
 }
@@ -105,7 +105,7 @@ func (c *Client) FindIrModuleCategorys(criteria *Criteria, options *Options) (*I
 	return imcs, nil
 }
 
-// FindIrModuleCategoryIds finds records ids by querying it
+// FindIrModuleCategoryIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModuleCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrModuleCategoryModel, criteria, options)

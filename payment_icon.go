@@ -41,7 +41,7 @@ func (c *Client) UpdatePaymentIcon(pi *PaymentIcon) error {
 }
 
 // UpdatePaymentIcons updates existing payment.icon records.
-// All records (represented by ids) will be updated by pi values.
+// All records (represented by IDs) will be updated by pi values.
 func (c *Client) UpdatePaymentIcons(ids []int64, pi *PaymentIcon) error {
 	return c.Update(PaymentIconModel, ids, pi)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindPaymentIcons(criteria *Criteria, options *Options) (*Paymen
 	return pis, nil
 }
 
-// FindPaymentIconIds finds records ids by querying it
+// FindPaymentIconIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentIconIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PaymentIconModel, criteria, options)

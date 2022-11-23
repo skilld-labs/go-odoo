@@ -42,7 +42,7 @@ func (c *Client) UpdatePortalWizardUser(pwu *PortalWizardUser) error {
 }
 
 // UpdatePortalWizardUsers updates existing portal.wizard.user records.
-// All records (represented by ids) will be updated by pwu values.
+// All records (represented by IDs) will be updated by pwu values.
 func (c *Client) UpdatePortalWizardUsers(ids []int64, pwu *PortalWizardUser) error {
 	return c.Update(PortalWizardUserModel, ids, pwu)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindPortalWizardUsers(criteria *Criteria, options *Options) (*P
 	return pwus, nil
 }
 
-// FindPortalWizardUserIds finds records ids by querying it
+// FindPortalWizardUserIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPortalWizardUserIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PortalWizardUserModel, criteria, options)

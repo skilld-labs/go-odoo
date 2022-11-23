@@ -71,7 +71,7 @@ func (c *Client) UpdateAccountReconcileModel(arm *AccountReconcileModel) error {
 }
 
 // UpdateAccountReconcileModels updates existing account.reconcile.model records.
-// All records (represented by ids) will be updated by arm values.
+// All records (represented by IDs) will be updated by arm values.
 func (c *Client) UpdateAccountReconcileModels(ids []int64, arm *AccountReconcileModel) error {
 	return c.Update(AccountReconcileModelModel, ids, arm)
 }
@@ -129,7 +129,7 @@ func (c *Client) FindAccountReconcileModels(criteria *Criteria, options *Options
 	return arms, nil
 }
 
-// FindAccountReconcileModelIds finds records ids by querying it
+// FindAccountReconcileModelIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountReconcileModelIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountReconcileModelModel, criteria, options)

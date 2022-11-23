@@ -39,7 +39,7 @@ func (c *Client) UpdateMailRenderMixin(mrm *MailRenderMixin) error {
 }
 
 // UpdateMailRenderMixins updates existing mail.render.mixin records.
-// All records (represented by ids) will be updated by mrm values.
+// All records (represented by IDs) will be updated by mrm values.
 func (c *Client) UpdateMailRenderMixins(ids []int64, mrm *MailRenderMixin) error {
 	return c.Update(MailRenderMixinModel, ids, mrm)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindMailRenderMixins(criteria *Criteria, options *Options) (*Ma
 	return mrms, nil
 }
 
-// FindMailRenderMixinIds finds records ids by querying it
+// FindMailRenderMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailRenderMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailRenderMixinModel, criteria, options)

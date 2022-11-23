@@ -40,7 +40,7 @@ func (c *Client) UpdateResPartnerIndustry(rpi *ResPartnerIndustry) error {
 }
 
 // UpdateResPartnerIndustrys updates existing res.partner.industry records.
-// All records (represented by ids) will be updated by rpi values.
+// All records (represented by IDs) will be updated by rpi values.
 func (c *Client) UpdateResPartnerIndustrys(ids []int64, rpi *ResPartnerIndustry) error {
 	return c.Update(ResPartnerIndustryModel, ids, rpi)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindResPartnerIndustrys(criteria *Criteria, options *Options) (
 	return rpis, nil
 }
 
-// FindResPartnerIndustryIds finds records ids by querying it
+// FindResPartnerIndustryIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerIndustryIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResPartnerIndustryModel, criteria, options)

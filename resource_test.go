@@ -42,7 +42,7 @@ func (c *Client) UpdateResourceTest(rt *ResourceTest) error {
 }
 
 // UpdateResourceTests updates existing resource.test records.
-// All records (represented by ids) will be updated by rt values.
+// All records (represented by IDs) will be updated by rt values.
 func (c *Client) UpdateResourceTests(ids []int64, rt *ResourceTest) error {
 	return c.Update(ResourceTestModel, ids, rt)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindResourceTests(criteria *Criteria, options *Options) (*Resou
 	return rts, nil
 }
 
-// FindResourceTestIds finds records ids by querying it
+// FindResourceTestIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceTestIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResourceTestModel, criteria, options)

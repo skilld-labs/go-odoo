@@ -51,7 +51,7 @@ func (c *Client) UpdateMailThreadBlacklist(mtb *MailThreadBlacklist) error {
 }
 
 // UpdateMailThreadBlacklists updates existing mail.thread.blacklist records.
-// All records (represented by ids) will be updated by mtb values.
+// All records (represented by IDs) will be updated by mtb values.
 func (c *Client) UpdateMailThreadBlacklists(ids []int64, mtb *MailThreadBlacklist) error {
 	return c.Update(MailThreadBlacklistModel, ids, mtb)
 }
@@ -109,7 +109,7 @@ func (c *Client) FindMailThreadBlacklists(criteria *Criteria, options *Options) 
 	return mtbs, nil
 }
 
-// FindMailThreadBlacklistIds finds records ids by querying it
+// FindMailThreadBlacklistIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailThreadBlacklistIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailThreadBlacklistModel, criteria, options)

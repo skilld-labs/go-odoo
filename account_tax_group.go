@@ -42,7 +42,7 @@ func (c *Client) UpdateAccountTaxGroup(atg *AccountTaxGroup) error {
 }
 
 // UpdateAccountTaxGroups updates existing account.tax.group records.
-// All records (represented by ids) will be updated by atg values.
+// All records (represented by IDs) will be updated by atg values.
 func (c *Client) UpdateAccountTaxGroups(ids []int64, atg *AccountTaxGroup) error {
 	return c.Update(AccountTaxGroupModel, ids, atg)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAccountTaxGroups(criteria *Criteria, options *Options) (*Ac
 	return atgs, nil
 }
 
-// FindAccountTaxGroupIds finds records ids by querying it
+// FindAccountTaxGroupIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTaxGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountTaxGroupModel, criteria, options)

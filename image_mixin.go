@@ -38,7 +38,7 @@ func (c *Client) UpdateImageMixin(im *ImageMixin) error {
 }
 
 // UpdateImageMixins updates existing image.mixin records.
-// All records (represented by ids) will be updated by im values.
+// All records (represented by IDs) will be updated by im values.
 func (c *Client) UpdateImageMixins(ids []int64, im *ImageMixin) error {
 	return c.Update(ImageMixinModel, ids, im)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindImageMixins(criteria *Criteria, options *Options) (*ImageMi
 	return ims, nil
 }
 
-// FindImageMixinIds finds records ids by querying it
+// FindImageMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindImageMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ImageMixinModel, criteria, options)

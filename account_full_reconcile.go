@@ -41,7 +41,7 @@ func (c *Client) UpdateAccountFullReconcile(afr *AccountFullReconcile) error {
 }
 
 // UpdateAccountFullReconciles updates existing account.full.reconcile records.
-// All records (represented by ids) will be updated by afr values.
+// All records (represented by IDs) will be updated by afr values.
 func (c *Client) UpdateAccountFullReconciles(ids []int64, afr *AccountFullReconcile) error {
 	return c.Update(AccountFullReconcileModel, ids, afr)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindAccountFullReconciles(criteria *Criteria, options *Options)
 	return afrs, nil
 }
 
-// FindAccountFullReconcileIds finds records ids by querying it
+// FindAccountFullReconcileIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFullReconcileIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountFullReconcileModel, criteria, options)

@@ -43,7 +43,7 @@ func (c *Client) UpdatePortalShare(ps *PortalShare) error {
 }
 
 // UpdatePortalShares updates existing portal.share records.
-// All records (represented by ids) will be updated by ps values.
+// All records (represented by IDs) will be updated by ps values.
 func (c *Client) UpdatePortalShares(ids []int64, ps *PortalShare) error {
 	return c.Update(PortalShareModel, ids, ps)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindPortalShares(criteria *Criteria, options *Options) (*Portal
 	return pss, nil
 }
 
-// FindPortalShareIds finds records ids by querying it
+// FindPortalShareIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPortalShareIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PortalShareModel, criteria, options)

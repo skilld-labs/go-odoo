@@ -41,7 +41,7 @@ func (c *Client) UpdateIrModelFieldsSelection(imfs *IrModelFieldsSelection) erro
 }
 
 // UpdateIrModelFieldsSelections updates existing ir.model.fields.selection records.
-// All records (represented by ids) will be updated by imfs values.
+// All records (represented by IDs) will be updated by imfs values.
 func (c *Client) UpdateIrModelFieldsSelections(ids []int64, imfs *IrModelFieldsSelection) error {
 	return c.Update(IrModelFieldsSelectionModel, ids, imfs)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindIrModelFieldsSelections(criteria *Criteria, options *Option
 	return imfss, nil
 }
 
-// FindIrModelFieldsSelectionIds finds records ids by querying it
+// FindIrModelFieldsSelectionIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelFieldsSelectionIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrModelFieldsSelectionModel, criteria, options)

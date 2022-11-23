@@ -46,7 +46,7 @@ func (c *Client) UpdateSaleOrderTemplateLine(sotl *SaleOrderTemplateLine) error 
 }
 
 // UpdateSaleOrderTemplateLines updates existing sale.order.template.line records.
-// All records (represented by ids) will be updated by sotl values.
+// All records (represented by IDs) will be updated by sotl values.
 func (c *Client) UpdateSaleOrderTemplateLines(ids []int64, sotl *SaleOrderTemplateLine) error {
 	return c.Update(SaleOrderTemplateLineModel, ids, sotl)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindSaleOrderTemplateLines(criteria *Criteria, options *Options
 	return sotls, nil
 }
 
-// FindSaleOrderTemplateLineIds finds records ids by querying it
+// FindSaleOrderTemplateLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleOrderTemplateLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SaleOrderTemplateLineModel, criteria, options)

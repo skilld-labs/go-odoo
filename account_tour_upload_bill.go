@@ -66,7 +66,7 @@ func (c *Client) UpdateAccountTourUploadBill(atub *AccountTourUploadBill) error 
 }
 
 // UpdateAccountTourUploadBills updates existing account.tour.upload.bill records.
-// All records (represented by ids) will be updated by atub values.
+// All records (represented by IDs) will be updated by atub values.
 func (c *Client) UpdateAccountTourUploadBills(ids []int64, atub *AccountTourUploadBill) error {
 	return c.Update(AccountTourUploadBillModel, ids, atub)
 }
@@ -124,7 +124,7 @@ func (c *Client) FindAccountTourUploadBills(criteria *Criteria, options *Options
 	return atubs, nil
 }
 
-// FindAccountTourUploadBillIds finds records ids by querying it
+// FindAccountTourUploadBillIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTourUploadBillIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountTourUploadBillModel, criteria, options)

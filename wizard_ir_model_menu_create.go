@@ -39,7 +39,7 @@ func (c *Client) UpdateWizardIrModelMenuCreate(wimmc *WizardIrModelMenuCreate) e
 }
 
 // UpdateWizardIrModelMenuCreates updates existing wizard.ir.model.menu.create records.
-// All records (represented by ids) will be updated by wimmc values.
+// All records (represented by IDs) will be updated by wimmc values.
 func (c *Client) UpdateWizardIrModelMenuCreates(ids []int64, wimmc *WizardIrModelMenuCreate) error {
 	return c.Update(WizardIrModelMenuCreateModel, ids, wimmc)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindWizardIrModelMenuCreates(criteria *Criteria, options *Optio
 	return wimmcs, nil
 }
 
-// FindWizardIrModelMenuCreateIds finds records ids by querying it
+// FindWizardIrModelMenuCreateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWizardIrModelMenuCreateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(WizardIrModelMenuCreateModel, criteria, options)

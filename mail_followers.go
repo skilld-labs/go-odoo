@@ -41,7 +41,7 @@ func (c *Client) UpdateMailFollowers(mf *MailFollowers) error {
 }
 
 // UpdateMailFollowerss updates existing mail.followers records.
-// All records (represented by ids) will be updated by mf values.
+// All records (represented by IDs) will be updated by mf values.
 func (c *Client) UpdateMailFollowerss(ids []int64, mf *MailFollowers) error {
 	return c.Update(MailFollowersModel, ids, mf)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindMailFollowerss(criteria *Criteria, options *Options) (*Mail
 	return mfs, nil
 }
 
-// FindMailFollowersIds finds records ids by querying it
+// FindMailFollowersIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailFollowersIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailFollowersModel, criteria, options)

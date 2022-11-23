@@ -40,7 +40,7 @@ func (c *Client) UpdateMailModeration(mm *MailModeration) error {
 }
 
 // UpdateMailModerations updates existing mail.moderation records.
-// All records (represented by ids) will be updated by mm values.
+// All records (represented by IDs) will be updated by mm values.
 func (c *Client) UpdateMailModerations(ids []int64, mm *MailModeration) error {
 	return c.Update(MailModerationModel, ids, mm)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindMailModerations(criteria *Criteria, options *Options) (*Mai
 	return mms, nil
 }
 
-// FindMailModerationIds finds records ids by querying it
+// FindMailModerationIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailModerationIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailModerationModel, criteria, options)

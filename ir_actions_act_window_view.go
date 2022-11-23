@@ -42,7 +42,7 @@ func (c *Client) UpdateIrActionsActWindowView(iaav *IrActionsActWindowView) erro
 }
 
 // UpdateIrActionsActWindowViews updates existing ir.actions.act_window.view records.
-// All records (represented by ids) will be updated by iaav values.
+// All records (represented by IDs) will be updated by iaav values.
 func (c *Client) UpdateIrActionsActWindowViews(ids []int64, iaav *IrActionsActWindowView) error {
 	return c.Update(IrActionsActWindowViewModel, ids, iaav)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindIrActionsActWindowViews(criteria *Criteria, options *Option
 	return iaavs, nil
 }
 
-// FindIrActionsActWindowViewIds finds records ids by querying it
+// FindIrActionsActWindowViewIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActWindowViewIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrActionsActWindowViewModel, criteria, options)

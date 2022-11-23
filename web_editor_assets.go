@@ -33,7 +33,7 @@ func (c *Client) UpdateWebEditorAssets(wa *WebEditorAssets) error {
 }
 
 // UpdateWebEditorAssetss updates existing web_editor.assets records.
-// All records (represented by ids) will be updated by wa values.
+// All records (represented by IDs) will be updated by wa values.
 func (c *Client) UpdateWebEditorAssetss(ids []int64, wa *WebEditorAssets) error {
 	return c.Update(WebEditorAssetsModel, ids, wa)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindWebEditorAssetss(criteria *Criteria, options *Options) (*We
 	return was, nil
 }
 
-// FindWebEditorAssetsIds finds records ids by querying it
+// FindWebEditorAssetsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebEditorAssetsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(WebEditorAssetsModel, criteria, options)

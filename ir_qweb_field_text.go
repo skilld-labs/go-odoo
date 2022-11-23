@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldText(iqft *IrQwebFieldText) error {
 }
 
 // UpdateIrQwebFieldTexts updates existing ir.qweb.field.text records.
-// All records (represented by ids) will be updated by iqft values.
+// All records (represented by IDs) will be updated by iqft values.
 func (c *Client) UpdateIrQwebFieldTexts(ids []int64, iqft *IrQwebFieldText) error {
 	return c.Update(IrQwebFieldTextModel, ids, iqft)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldTexts(criteria *Criteria, options *Options) (*Ir
 	return iqfts, nil
 }
 
-// FindIrQwebFieldTextIds finds records ids by querying it
+// FindIrQwebFieldTextIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldTextIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldTextModel, criteria, options)

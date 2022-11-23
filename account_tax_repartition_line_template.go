@@ -46,7 +46,7 @@ func (c *Client) UpdateAccountTaxRepartitionLineTemplate(atrlt *AccountTaxRepart
 }
 
 // UpdateAccountTaxRepartitionLineTemplates updates existing account.tax.repartition.line.template records.
-// All records (represented by ids) will be updated by atrlt values.
+// All records (represented by IDs) will be updated by atrlt values.
 func (c *Client) UpdateAccountTaxRepartitionLineTemplates(ids []int64, atrlt *AccountTaxRepartitionLineTemplate) error {
 	return c.Update(AccountTaxRepartitionLineTemplateModel, ids, atrlt)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindAccountTaxRepartitionLineTemplates(criteria *Criteria, opti
 	return atrlts, nil
 }
 
-// FindAccountTaxRepartitionLineTemplateIds finds records ids by querying it
+// FindAccountTaxRepartitionLineTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTaxRepartitionLineTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountTaxRepartitionLineTemplateModel, criteria, options)

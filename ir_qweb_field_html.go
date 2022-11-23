@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldHtml(iqfh *IrQwebFieldHtml) error {
 }
 
 // UpdateIrQwebFieldHtmls updates existing ir.qweb.field.html records.
-// All records (represented by ids) will be updated by iqfh values.
+// All records (represented by IDs) will be updated by iqfh values.
 func (c *Client) UpdateIrQwebFieldHtmls(ids []int64, iqfh *IrQwebFieldHtml) error {
 	return c.Update(IrQwebFieldHtmlModel, ids, iqfh)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldHtmls(criteria *Criteria, options *Options) (*Ir
 	return iqfhs, nil
 }
 
-// FindIrQwebFieldHtmlIds finds records ids by querying it
+// FindIrQwebFieldHtmlIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldHtmlIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldHtmlModel, criteria, options)

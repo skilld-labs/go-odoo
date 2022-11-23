@@ -42,7 +42,7 @@ func (c *Client) UpdateAccountBankStatementCashbox(absc *AccountBankStatementCas
 }
 
 // UpdateAccountBankStatementCashboxs updates existing account.bank.statement.cashbox records.
-// All records (represented by ids) will be updated by absc values.
+// All records (represented by IDs) will be updated by absc values.
 func (c *Client) UpdateAccountBankStatementCashboxs(ids []int64, absc *AccountBankStatementCashbox) error {
 	return c.Update(AccountBankStatementCashboxModel, ids, absc)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAccountBankStatementCashboxs(criteria *Criteria, options *O
 	return abscs, nil
 }
 
-// FindAccountBankStatementCashboxIds finds records ids by querying it
+// FindAccountBankStatementCashboxIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementCashboxIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountBankStatementCashboxModel, criteria, options)

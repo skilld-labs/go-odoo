@@ -47,7 +47,7 @@ func (c *Client) UpdateUtmCampaign(uc *UtmCampaign) error {
 }
 
 // UpdateUtmCampaigns updates existing utm.campaign records.
-// All records (represented by ids) will be updated by uc values.
+// All records (represented by IDs) will be updated by uc values.
 func (c *Client) UpdateUtmCampaigns(ids []int64, uc *UtmCampaign) error {
 	return c.Update(UtmCampaignModel, ids, uc)
 }
@@ -105,7 +105,7 @@ func (c *Client) FindUtmCampaigns(criteria *Criteria, options *Options) (*UtmCam
 	return ucs, nil
 }
 
-// FindUtmCampaignIds finds records ids by querying it
+// FindUtmCampaignIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmCampaignIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UtmCampaignModel, criteria, options)

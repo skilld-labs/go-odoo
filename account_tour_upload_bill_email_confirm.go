@@ -38,7 +38,7 @@ func (c *Client) UpdateAccountTourUploadBillEmailConfirm(atubec *AccountTourUplo
 }
 
 // UpdateAccountTourUploadBillEmailConfirms updates existing account.tour.upload.bill.email.confirm records.
-// All records (represented by ids) will be updated by atubec values.
+// All records (represented by IDs) will be updated by atubec values.
 func (c *Client) UpdateAccountTourUploadBillEmailConfirms(ids []int64, atubec *AccountTourUploadBillEmailConfirm) error {
 	return c.Update(AccountTourUploadBillEmailConfirmModel, ids, atubec)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindAccountTourUploadBillEmailConfirms(criteria *Criteria, opti
 	return atubecs, nil
 }
 
-// FindAccountTourUploadBillEmailConfirmIds finds records ids by querying it
+// FindAccountTourUploadBillEmailConfirmIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTourUploadBillEmailConfirmIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountTourUploadBillEmailConfirmModel, criteria, options)

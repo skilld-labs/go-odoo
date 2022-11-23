@@ -33,7 +33,7 @@ func (c *Client) UpdateReportAccountReportInvoiceWithPayments(rar *ReportAccount
 }
 
 // UpdateReportAccountReportInvoiceWithPaymentss updates existing report.account.report_invoice_with_payments records.
-// All records (represented by ids) will be updated by rar values.
+// All records (represented by IDs) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportInvoiceWithPaymentss(ids []int64, rar *ReportAccountReportInvoiceWithPayments) error {
 	return c.Update(ReportAccountReportInvoiceWithPaymentsModel, ids, rar)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindReportAccountReportInvoiceWithPaymentss(criteria *Criteria,
 	return rars, nil
 }
 
-// FindReportAccountReportInvoiceWithPaymentsIds finds records ids by querying it
+// FindReportAccountReportInvoiceWithPaymentsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportInvoiceWithPaymentsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportAccountReportInvoiceWithPaymentsModel, criteria, options)

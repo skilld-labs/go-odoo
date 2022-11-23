@@ -38,7 +38,7 @@ func (c *Client) UpdateBaseImportTestsModelsCharStillreadonly(btmcs *BaseImportT
 }
 
 // UpdateBaseImportTestsModelsCharStillreadonlys updates existing base_import.tests.models.char.stillreadonly records.
-// All records (represented by ids) will be updated by btmcs values.
+// All records (represented by IDs) will be updated by btmcs values.
 func (c *Client) UpdateBaseImportTestsModelsCharStillreadonlys(ids []int64, btmcs *BaseImportTestsModelsCharStillreadonly) error {
 	return c.Update(BaseImportTestsModelsCharStillreadonlyModel, ids, btmcs)
 }
@@ -96,7 +96,7 @@ func (c *Client) FindBaseImportTestsModelsCharStillreadonlys(criteria *Criteria,
 	return btmcss, nil
 }
 
-// FindBaseImportTestsModelsCharStillreadonlyIds finds records ids by querying it
+// FindBaseImportTestsModelsCharStillreadonlyIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsCharStillreadonlyIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsCharStillreadonlyModel, criteria, options)

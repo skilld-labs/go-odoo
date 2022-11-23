@@ -131,7 +131,7 @@ func (c *Client) UpdateProductProduct(pp *ProductProduct) error {
 }
 
 // UpdateProductProducts updates existing product.product records.
-// All records (represented by ids) will be updated by pp values.
+// All records (represented by IDs) will be updated by pp values.
 func (c *Client) UpdateProductProducts(ids []int64, pp *ProductProduct) error {
 	return c.Update(ProductProductModel, ids, pp)
 }
@@ -189,7 +189,7 @@ func (c *Client) FindProductProducts(criteria *Criteria, options *Options) (*Pro
 	return pps, nil
 }
 
-// FindProductProductIds finds records ids by querying it
+// FindProductProductIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductProductIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductProductModel, criteria, options)

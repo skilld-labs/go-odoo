@@ -42,7 +42,7 @@ func (c *Client) UpdateAccountCommonReport(acr *AccountCommonReport) error {
 }
 
 // UpdateAccountCommonReports updates existing account.common.report records.
-// All records (represented by ids) will be updated by acr values.
+// All records (represented by IDs) will be updated by acr values.
 func (c *Client) UpdateAccountCommonReports(ids []int64, acr *AccountCommonReport) error {
 	return c.Update(AccountCommonReportModel, ids, acr)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAccountCommonReports(criteria *Criteria, options *Options) 
 	return acrs, nil
 }
 
-// FindAccountCommonReportIds finds records ids by querying it
+// FindAccountCommonReportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountCommonReportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountCommonReportModel, criteria, options)

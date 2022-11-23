@@ -40,7 +40,7 @@ func (c *Client) UpdateBaseLanguageInstall(bli *BaseLanguageInstall) error {
 }
 
 // UpdateBaseLanguageInstalls updates existing base.language.install records.
-// All records (represented by ids) will be updated by bli values.
+// All records (represented by IDs) will be updated by bli values.
 func (c *Client) UpdateBaseLanguageInstalls(ids []int64, bli *BaseLanguageInstall) error {
 	return c.Update(BaseLanguageInstallModel, ids, bli)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindBaseLanguageInstalls(criteria *Criteria, options *Options) 
 	return blis, nil
 }
 
-// FindBaseLanguageInstallIds finds records ids by querying it
+// FindBaseLanguageInstallIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseLanguageInstallIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseLanguageInstallModel, criteria, options)

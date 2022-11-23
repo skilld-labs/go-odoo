@@ -37,7 +37,7 @@ func (c *Client) UpdateAccountBankStatementClosebalance(absc *AccountBankStateme
 }
 
 // UpdateAccountBankStatementClosebalances updates existing account.bank.statement.closebalance records.
-// All records (represented by ids) will be updated by absc values.
+// All records (represented by IDs) will be updated by absc values.
 func (c *Client) UpdateAccountBankStatementClosebalances(ids []int64, absc *AccountBankStatementClosebalance) error {
 	return c.Update(AccountBankStatementClosebalanceModel, ids, absc)
 }
@@ -95,7 +95,7 @@ func (c *Client) FindAccountBankStatementClosebalances(criteria *Criteria, optio
 	return abscs, nil
 }
 
-// FindAccountBankStatementClosebalanceIds finds records ids by querying it
+// FindAccountBankStatementClosebalanceIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementClosebalanceIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountBankStatementClosebalanceModel, criteria, options)

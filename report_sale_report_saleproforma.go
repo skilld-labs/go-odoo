@@ -33,7 +33,7 @@ func (c *Client) UpdateReportSaleReportSaleproforma(rsr *ReportSaleReportSalepro
 }
 
 // UpdateReportSaleReportSaleproformas updates existing report.sale.report_saleproforma records.
-// All records (represented by ids) will be updated by rsr values.
+// All records (represented by IDs) will be updated by rsr values.
 func (c *Client) UpdateReportSaleReportSaleproformas(ids []int64, rsr *ReportSaleReportSaleproforma) error {
 	return c.Update(ReportSaleReportSaleproformaModel, ids, rsr)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindReportSaleReportSaleproformas(criteria *Criteria, options *
 	return rsrs, nil
 }
 
-// FindReportSaleReportSaleproformaIds finds records ids by querying it
+// FindReportSaleReportSaleproformaIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportSaleReportSaleproformaIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportSaleReportSaleproformaModel, criteria, options)

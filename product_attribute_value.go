@@ -45,7 +45,7 @@ func (c *Client) UpdateProductAttributeValue(pav *ProductAttributeValue) error {
 }
 
 // UpdateProductAttributeValues updates existing product.attribute.value records.
-// All records (represented by ids) will be updated by pav values.
+// All records (represented by IDs) will be updated by pav values.
 func (c *Client) UpdateProductAttributeValues(ids []int64, pav *ProductAttributeValue) error {
 	return c.Update(ProductAttributeValueModel, ids, pav)
 }
@@ -103,7 +103,7 @@ func (c *Client) FindProductAttributeValues(criteria *Criteria, options *Options
 	return pavs, nil
 }
 
-// FindProductAttributeValueIds finds records ids by querying it
+// FindProductAttributeValueIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductAttributeValueIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductAttributeValueModel, criteria, options)

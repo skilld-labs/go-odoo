@@ -39,7 +39,7 @@ func (c *Client) UpdateDecimalPrecision(dp *DecimalPrecision) error {
 }
 
 // UpdateDecimalPrecisions updates existing decimal.precision records.
-// All records (represented by ids) will be updated by dp values.
+// All records (represented by IDs) will be updated by dp values.
 func (c *Client) UpdateDecimalPrecisions(ids []int64, dp *DecimalPrecision) error {
 	return c.Update(DecimalPrecisionModel, ids, dp)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindDecimalPrecisions(criteria *Criteria, options *Options) (*D
 	return dps, nil
 }
 
-// FindDecimalPrecisionIds finds records ids by querying it
+// FindDecimalPrecisionIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindDecimalPrecisionIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(DecimalPrecisionModel, criteria, options)

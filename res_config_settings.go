@@ -172,7 +172,7 @@ func (c *Client) UpdateResConfigSettings(rcs *ResConfigSettings) error {
 }
 
 // UpdateResConfigSettingss updates existing res.config.settings records.
-// All records (represented by ids) will be updated by rcs values.
+// All records (represented by IDs) will be updated by rcs values.
 func (c *Client) UpdateResConfigSettingss(ids []int64, rcs *ResConfigSettings) error {
 	return c.Update(ResConfigSettingsModel, ids, rcs)
 }
@@ -230,7 +230,7 @@ func (c *Client) FindResConfigSettingss(criteria *Criteria, options *Options) (*
 	return rcss, nil
 }
 
-// FindResConfigSettingsIds finds records ids by querying it
+// FindResConfigSettingsIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResConfigSettingsIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResConfigSettingsModel, criteria, options)

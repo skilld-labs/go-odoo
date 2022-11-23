@@ -160,7 +160,7 @@ func (c *Client) UpdateAccountBankStatementLine(absl *AccountBankStatementLine) 
 }
 
 // UpdateAccountBankStatementLines updates existing account.bank.statement.line records.
-// All records (represented by ids) will be updated by absl values.
+// All records (represented by IDs) will be updated by absl values.
 func (c *Client) UpdateAccountBankStatementLines(ids []int64, absl *AccountBankStatementLine) error {
 	return c.Update(AccountBankStatementLineModel, ids, absl)
 }
@@ -218,7 +218,7 @@ func (c *Client) FindAccountBankStatementLines(criteria *Criteria, options *Opti
 	return absls, nil
 }
 
-// FindAccountBankStatementLineIds finds records ids by querying it
+// FindAccountBankStatementLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountBankStatementLineModel, criteria, options)

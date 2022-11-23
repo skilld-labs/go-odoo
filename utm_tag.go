@@ -39,7 +39,7 @@ func (c *Client) UpdateUtmTag(ut *UtmTag) error {
 }
 
 // UpdateUtmTags updates existing utm.tag records.
-// All records (represented by ids) will be updated by ut values.
+// All records (represented by IDs) will be updated by ut values.
 func (c *Client) UpdateUtmTags(ids []int64, ut *UtmTag) error {
 	return c.Update(UtmTagModel, ids, ut)
 }
@@ -97,7 +97,7 @@ func (c *Client) FindUtmTags(criteria *Criteria, options *Options) (*UtmTags, er
 	return uts, nil
 }
 
-// FindUtmTagIds finds records ids by querying it
+// FindUtmTagIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmTagIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(UtmTagModel, criteria, options)

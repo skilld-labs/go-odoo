@@ -40,7 +40,7 @@ func (c *Client) UpdateIrUiViewCustom(iuvc *IrUiViewCustom) error {
 }
 
 // UpdateIrUiViewCustoms updates existing ir.ui.view.custom records.
-// All records (represented by ids) will be updated by iuvc values.
+// All records (represented by IDs) will be updated by iuvc values.
 func (c *Client) UpdateIrUiViewCustoms(ids []int64, iuvc *IrUiViewCustom) error {
 	return c.Update(IrUiViewCustomModel, ids, iuvc)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindIrUiViewCustoms(criteria *Criteria, options *Options) (*IrU
 	return iuvcs, nil
 }
 
-// FindIrUiViewCustomIds finds records ids by querying it
+// FindIrUiViewCustomIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrUiViewCustomIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrUiViewCustomModel, criteria, options)

@@ -35,7 +35,7 @@ func (c *Client) UpdateWebTourTour(wt *WebTourTour) error {
 }
 
 // UpdateWebTourTours updates existing web_tour.tour records.
-// All records (represented by ids) will be updated by wt values.
+// All records (represented by IDs) will be updated by wt values.
 func (c *Client) UpdateWebTourTours(ids []int64, wt *WebTourTour) error {
 	return c.Update(WebTourTourModel, ids, wt)
 }
@@ -93,7 +93,7 @@ func (c *Client) FindWebTourTours(criteria *Criteria, options *Options) (*WebTou
 	return wts, nil
 }
 
-// FindWebTourTourIds finds records ids by querying it
+// FindWebTourTourIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebTourTourIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(WebTourTourModel, criteria, options)

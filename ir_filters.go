@@ -46,7 +46,7 @@ func (c *Client) UpdateIrFilters(IF *IrFilters) error {
 }
 
 // UpdateIrFilterss updates existing ir.filters records.
-// All records (represented by ids) will be updated by IF values.
+// All records (represented by IDs) will be updated by IF values.
 func (c *Client) UpdateIrFilterss(ids []int64, IF *IrFilters) error {
 	return c.Update(IrFiltersModel, ids, IF)
 }
@@ -104,7 +104,7 @@ func (c *Client) FindIrFilterss(criteria *Criteria, options *Options) (*IrFilter
 	return IFs, nil
 }
 
-// FindIrFiltersIds finds records ids by querying it
+// FindIrFiltersIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrFiltersIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrFiltersModel, criteria, options)

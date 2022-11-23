@@ -42,7 +42,7 @@ func (c *Client) UpdateAccountCashboxLine(acl *AccountCashboxLine) error {
 }
 
 // UpdateAccountCashboxLines updates existing account.cashbox.line records.
-// All records (represented by ids) will be updated by acl values.
+// All records (represented by IDs) will be updated by acl values.
 func (c *Client) UpdateAccountCashboxLines(ids []int64, acl *AccountCashboxLine) error {
 	return c.Update(AccountCashboxLineModel, ids, acl)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAccountCashboxLines(criteria *Criteria, options *Options) (
 	return acls, nil
 }
 
-// FindAccountCashboxLineIds finds records ids by querying it
+// FindAccountCashboxLineIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountCashboxLineIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountCashboxLineModel, criteria, options)

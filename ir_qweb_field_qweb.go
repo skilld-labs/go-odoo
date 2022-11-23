@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldQweb(iqfq *IrQwebFieldQweb) error {
 }
 
 // UpdateIrQwebFieldQwebs updates existing ir.qweb.field.qweb records.
-// All records (represented by ids) will be updated by iqfq values.
+// All records (represented by IDs) will be updated by iqfq values.
 func (c *Client) UpdateIrQwebFieldQwebs(ids []int64, iqfq *IrQwebFieldQweb) error {
 	return c.Update(IrQwebFieldQwebModel, ids, iqfq)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldQwebs(criteria *Criteria, options *Options) (*Ir
 	return iqfqs, nil
 }
 
-// FindIrQwebFieldQwebIds finds records ids by querying it
+// FindIrQwebFieldQwebIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldQwebIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldQwebModel, criteria, options)

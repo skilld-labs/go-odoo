@@ -45,7 +45,7 @@ func (c *Client) UpdateIrModelAccess(ima *IrModelAccess) error {
 }
 
 // UpdateIrModelAccesss updates existing ir.model.access records.
-// All records (represented by ids) will be updated by ima values.
+// All records (represented by IDs) will be updated by ima values.
 func (c *Client) UpdateIrModelAccesss(ids []int64, ima *IrModelAccess) error {
 	return c.Update(IrModelAccessModel, ids, ima)
 }
@@ -103,7 +103,7 @@ func (c *Client) FindIrModelAccesss(criteria *Criteria, options *Options) (*IrMo
 	return imas, nil
 }
 
-// FindIrModelAccessIds finds records ids by querying it
+// FindIrModelAccessIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelAccessIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrModelAccessModel, criteria, options)

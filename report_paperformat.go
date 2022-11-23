@@ -53,7 +53,7 @@ func (c *Client) UpdateReportPaperformat(rp *ReportPaperformat) error {
 }
 
 // UpdateReportPaperformats updates existing report.paperformat records.
-// All records (represented by ids) will be updated by rp values.
+// All records (represented by IDs) will be updated by rp values.
 func (c *Client) UpdateReportPaperformats(ids []int64, rp *ReportPaperformat) error {
 	return c.Update(ReportPaperformatModel, ids, rp)
 }
@@ -111,7 +111,7 @@ func (c *Client) FindReportPaperformats(criteria *Criteria, options *Options) (*
 	return rps, nil
 }
 
-// FindReportPaperformatIds finds records ids by querying it
+// FindReportPaperformatIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportPaperformatIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportPaperformatModel, criteria, options)

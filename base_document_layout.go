@@ -59,7 +59,7 @@ func (c *Client) UpdateBaseDocumentLayout(bdl *BaseDocumentLayout) error {
 }
 
 // UpdateBaseDocumentLayouts updates existing base.document.layout records.
-// All records (represented by ids) will be updated by bdl values.
+// All records (represented by IDs) will be updated by bdl values.
 func (c *Client) UpdateBaseDocumentLayouts(ids []int64, bdl *BaseDocumentLayout) error {
 	return c.Update(BaseDocumentLayoutModel, ids, bdl)
 }
@@ -117,7 +117,7 @@ func (c *Client) FindBaseDocumentLayouts(criteria *Criteria, options *Options) (
 	return bdls, nil
 }
 
-// FindBaseDocumentLayoutIds finds records ids by querying it
+// FindBaseDocumentLayoutIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseDocumentLayoutIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseDocumentLayoutModel, criteria, options)

@@ -49,7 +49,7 @@ func (c *Client) UpdatePaymentAcquirerOnboardingWizard(paow *PaymentAcquirerOnbo
 }
 
 // UpdatePaymentAcquirerOnboardingWizards updates existing payment.acquirer.onboarding.wizard records.
-// All records (represented by ids) will be updated by paow values.
+// All records (represented by IDs) will be updated by paow values.
 func (c *Client) UpdatePaymentAcquirerOnboardingWizards(ids []int64, paow *PaymentAcquirerOnboardingWizard) error {
 	return c.Update(PaymentAcquirerOnboardingWizardModel, ids, paow)
 }
@@ -107,7 +107,7 @@ func (c *Client) FindPaymentAcquirerOnboardingWizards(criteria *Criteria, option
 	return paows, nil
 }
 
-// FindPaymentAcquirerOnboardingWizardIds finds records ids by querying it
+// FindPaymentAcquirerOnboardingWizardIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentAcquirerOnboardingWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PaymentAcquirerOnboardingWizardModel, criteria, options)

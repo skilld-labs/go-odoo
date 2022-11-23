@@ -40,7 +40,7 @@ func (c *Client) UpdateIrModelRelation(imr *IrModelRelation) error {
 }
 
 // UpdateIrModelRelations updates existing ir.model.relation records.
-// All records (represented by ids) will be updated by imr values.
+// All records (represented by IDs) will be updated by imr values.
 func (c *Client) UpdateIrModelRelations(ids []int64, imr *IrModelRelation) error {
 	return c.Update(IrModelRelationModel, ids, imr)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindIrModelRelations(criteria *Criteria, options *Options) (*Ir
 	return imrs, nil
 }
 
-// FindIrModelRelationIds finds records ids by querying it
+// FindIrModelRelationIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelRelationIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrModelRelationModel, criteria, options)

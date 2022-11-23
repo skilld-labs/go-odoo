@@ -44,7 +44,7 @@ func (c *Client) UpdateAccountAccountTag(aat *AccountAccountTag) error {
 }
 
 // UpdateAccountAccountTags updates existing account.account.tag records.
-// All records (represented by ids) will be updated by aat values.
+// All records (represented by IDs) will be updated by aat values.
 func (c *Client) UpdateAccountAccountTags(ids []int64, aat *AccountAccountTag) error {
 	return c.Update(AccountAccountTagModel, ids, aat)
 }
@@ -102,7 +102,7 @@ func (c *Client) FindAccountAccountTags(criteria *Criteria, options *Options) (*
 	return aats, nil
 }
 
-// FindAccountAccountTagIds finds records ids by querying it
+// FindAccountAccountTagIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAccountTagIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountAccountTagModel, criteria, options)

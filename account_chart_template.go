@@ -68,7 +68,7 @@ func (c *Client) UpdateAccountChartTemplate(act *AccountChartTemplate) error {
 }
 
 // UpdateAccountChartTemplates updates existing account.chart.template records.
-// All records (represented by ids) will be updated by act values.
+// All records (represented by IDs) will be updated by act values.
 func (c *Client) UpdateAccountChartTemplates(ids []int64, act *AccountChartTemplate) error {
 	return c.Update(AccountChartTemplateModel, ids, act)
 }
@@ -126,7 +126,7 @@ func (c *Client) FindAccountChartTemplates(criteria *Criteria, options *Options)
 	return acts, nil
 }
 
-// FindAccountChartTemplateIds finds records ids by querying it
+// FindAccountChartTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountChartTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountChartTemplateModel, criteria, options)

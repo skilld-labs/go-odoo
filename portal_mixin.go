@@ -36,7 +36,7 @@ func (c *Client) UpdatePortalMixin(pm *PortalMixin) error {
 }
 
 // UpdatePortalMixins updates existing portal.mixin records.
-// All records (represented by ids) will be updated by pm values.
+// All records (represented by IDs) will be updated by pm values.
 func (c *Client) UpdatePortalMixins(ids []int64, pm *PortalMixin) error {
 	return c.Update(PortalMixinModel, ids, pm)
 }
@@ -94,7 +94,7 @@ func (c *Client) FindPortalMixins(criteria *Criteria, options *Options) (*Portal
 	return pms, nil
 }
 
-// FindPortalMixinIds finds records ids by querying it
+// FindPortalMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPortalMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PortalMixinModel, criteria, options)

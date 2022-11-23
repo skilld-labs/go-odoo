@@ -33,7 +33,7 @@ func (c *Client) UpdateReportBaseReportIrmodulereference(rbr *ReportBaseReportIr
 }
 
 // UpdateReportBaseReportIrmodulereferences updates existing report.base.report_irmodulereference records.
-// All records (represented by ids) will be updated by rbr values.
+// All records (represented by IDs) will be updated by rbr values.
 func (c *Client) UpdateReportBaseReportIrmodulereferences(ids []int64, rbr *ReportBaseReportIrmodulereference) error {
 	return c.Update(ReportBaseReportIrmodulereferenceModel, ids, rbr)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindReportBaseReportIrmodulereferences(criteria *Criteria, opti
 	return rbrs, nil
 }
 
-// FindReportBaseReportIrmodulereferenceIds finds records ids by querying it
+// FindReportBaseReportIrmodulereferenceIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportBaseReportIrmodulereferenceIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportBaseReportIrmodulereferenceModel, criteria, options)

@@ -58,7 +58,7 @@ func (c *Client) UpdateAccountTax(at *AccountTax) error {
 }
 
 // UpdateAccountTaxs updates existing account.tax records.
-// All records (represented by ids) will be updated by at values.
+// All records (represented by IDs) will be updated by at values.
 func (c *Client) UpdateAccountTaxs(ids []int64, at *AccountTax) error {
 	return c.Update(AccountTaxModel, ids, at)
 }
@@ -116,7 +116,7 @@ func (c *Client) FindAccountTaxs(criteria *Criteria, options *Options) (*Account
 	return ats, nil
 }
 
-// FindAccountTaxIds finds records ids by querying it
+// FindAccountTaxIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTaxIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountTaxModel, criteria, options)

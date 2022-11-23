@@ -148,7 +148,7 @@ func (c *Client) UpdateAccountMove(am *AccountMove) error {
 }
 
 // UpdateAccountMoves updates existing account.move records.
-// All records (represented by ids) will be updated by am values.
+// All records (represented by IDs) will be updated by am values.
 func (c *Client) UpdateAccountMoves(ids []int64, am *AccountMove) error {
 	return c.Update(AccountMoveModel, ids, am)
 }
@@ -206,7 +206,7 @@ func (c *Client) FindAccountMoves(criteria *Criteria, options *Options) (*Accoun
 	return ams, nil
 }
 
-// FindAccountMoveIds finds records ids by querying it
+// FindAccountMoveIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountMoveIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountMoveModel, criteria, options)

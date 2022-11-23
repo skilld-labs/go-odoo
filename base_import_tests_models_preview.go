@@ -40,7 +40,7 @@ func (c *Client) UpdateBaseImportTestsModelsPreview(btmp *BaseImportTestsModelsP
 }
 
 // UpdateBaseImportTestsModelsPreviews updates existing base_import.tests.models.preview records.
-// All records (represented by ids) will be updated by btmp values.
+// All records (represented by IDs) will be updated by btmp values.
 func (c *Client) UpdateBaseImportTestsModelsPreviews(ids []int64, btmp *BaseImportTestsModelsPreview) error {
 	return c.Update(BaseImportTestsModelsPreviewModel, ids, btmp)
 }
@@ -98,7 +98,7 @@ func (c *Client) FindBaseImportTestsModelsPreviews(criteria *Criteria, options *
 	return btmps, nil
 }
 
-// FindBaseImportTestsModelsPreviewIds finds records ids by querying it
+// FindBaseImportTestsModelsPreviewIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsPreviewIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsPreviewModel, criteria, options)

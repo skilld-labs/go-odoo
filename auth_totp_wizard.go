@@ -42,7 +42,7 @@ func (c *Client) UpdateAuthTotpWizard(aw *AuthTotpWizard) error {
 }
 
 // UpdateAuthTotpWizards updates existing auth_totp.wizard records.
-// All records (represented by ids) will be updated by aw values.
+// All records (represented by IDs) will be updated by aw values.
 func (c *Client) UpdateAuthTotpWizards(ids []int64, aw *AuthTotpWizard) error {
 	return c.Update(AuthTotpWizardModel, ids, aw)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindAuthTotpWizards(criteria *Criteria, options *Options) (*Aut
 	return aws, nil
 }
 
-// FindAuthTotpWizardIds finds records ids by querying it
+// FindAuthTotpWizardIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAuthTotpWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AuthTotpWizardModel, criteria, options)

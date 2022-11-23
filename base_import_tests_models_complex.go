@@ -43,7 +43,7 @@ func (c *Client) UpdateBaseImportTestsModelsComplex(btmc *BaseImportTestsModelsC
 }
 
 // UpdateBaseImportTestsModelsComplexs updates existing base_import.tests.models.complex records.
-// All records (represented by ids) will be updated by btmc values.
+// All records (represented by IDs) will be updated by btmc values.
 func (c *Client) UpdateBaseImportTestsModelsComplexs(ids []int64, btmc *BaseImportTestsModelsComplex) error {
 	return c.Update(BaseImportTestsModelsComplexModel, ids, btmc)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindBaseImportTestsModelsComplexs(criteria *Criteria, options *
 	return btmcs, nil
 }
 
-// FindBaseImportTestsModelsComplexIds finds records ids by querying it
+// FindBaseImportTestsModelsComplexIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsComplexIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportTestsModelsComplexModel, criteria, options)

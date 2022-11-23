@@ -37,7 +37,7 @@ func (c *Client) UpdateIrDemo(ID *IrDemo) error {
 }
 
 // UpdateIrDemos updates existing ir.demo records.
-// All records (represented by ids) will be updated by ID values.
+// All records (represented by IDs) will be updated by ID values.
 func (c *Client) UpdateIrDemos(ids []int64, ID *IrDemo) error {
 	return c.Update(IrDemoModel, ids, ID)
 }
@@ -95,7 +95,7 @@ func (c *Client) FindIrDemos(criteria *Criteria, options *Options) (*IrDemos, er
 	return IDs, nil
 }
 
-// FindIrDemoIds finds records ids by querying it
+// FindIrDemoIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrDemoIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrDemoModel, criteria, options)

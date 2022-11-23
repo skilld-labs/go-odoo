@@ -52,7 +52,7 @@ func (c *Client) UpdateMailTemplatePreview(mtp *MailTemplatePreview) error {
 }
 
 // UpdateMailTemplatePreviews updates existing mail.template.preview records.
-// All records (represented by ids) will be updated by mtp values.
+// All records (represented by IDs) will be updated by mtp values.
 func (c *Client) UpdateMailTemplatePreviews(ids []int64, mtp *MailTemplatePreview) error {
 	return c.Update(MailTemplatePreviewModel, ids, mtp)
 }
@@ -110,7 +110,7 @@ func (c *Client) FindMailTemplatePreviews(criteria *Criteria, options *Options) 
 	return mtps, nil
 }
 
-// FindMailTemplatePreviewIds finds records ids by querying it
+// FindMailTemplatePreviewIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTemplatePreviewIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailTemplatePreviewModel, criteria, options)

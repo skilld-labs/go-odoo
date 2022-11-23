@@ -88,7 +88,7 @@ func (c *Client) UpdateMailChannel(mc *MailChannel) error {
 }
 
 // UpdateMailChannels updates existing mail.channel records.
-// All records (represented by ids) will be updated by mc values.
+// All records (represented by IDs) will be updated by mc values.
 func (c *Client) UpdateMailChannels(ids []int64, mc *MailChannel) error {
 	return c.Update(MailChannelModel, ids, mc)
 }
@@ -146,7 +146,7 @@ func (c *Client) FindMailChannels(criteria *Criteria, options *Options) (*MailCh
 	return mcs, nil
 }
 
-// FindMailChannelIds finds records ids by querying it
+// FindMailChannelIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailChannelIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailChannelModel, criteria, options)

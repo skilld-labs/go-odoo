@@ -50,7 +50,7 @@ func (c *Client) UpdateAccountFiscalPositionTemplate(afpt *AccountFiscalPosition
 }
 
 // UpdateAccountFiscalPositionTemplates updates existing account.fiscal.position.template records.
-// All records (represented by ids) will be updated by afpt values.
+// All records (represented by IDs) will be updated by afpt values.
 func (c *Client) UpdateAccountFiscalPositionTemplates(ids []int64, afpt *AccountFiscalPositionTemplate) error {
 	return c.Update(AccountFiscalPositionTemplateModel, ids, afpt)
 }
@@ -108,7 +108,7 @@ func (c *Client) FindAccountFiscalPositionTemplates(criteria *Criteria, options 
 	return afpts, nil
 }
 
-// FindAccountFiscalPositionTemplateIds finds records ids by querying it
+// FindAccountFiscalPositionTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFiscalPositionTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountFiscalPositionTemplateModel, criteria, options)

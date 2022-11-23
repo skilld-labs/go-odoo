@@ -58,7 +58,7 @@ func (c *Client) UpdateMailActivity(ma *MailActivity) error {
 }
 
 // UpdateMailActivitys updates existing mail.activity records.
-// All records (represented by ids) will be updated by ma values.
+// All records (represented by IDs) will be updated by ma values.
 func (c *Client) UpdateMailActivitys(ids []int64, ma *MailActivity) error {
 	return c.Update(MailActivityModel, ids, ma)
 }
@@ -116,7 +116,7 @@ func (c *Client) FindMailActivitys(criteria *Criteria, options *Options) (*MailA
 	return mas, nil
 }
 
-// FindMailActivityIds finds records ids by querying it
+// FindMailActivityIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailActivityIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailActivityModel, criteria, options)

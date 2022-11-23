@@ -33,7 +33,7 @@ func (c *Client) UpdateBase(b *Base) error {
 }
 
 // UpdateBases updates existing base records.
-// All records (represented by ids) will be updated by b values.
+// All records (represented by IDs) will be updated by b values.
 func (c *Client) UpdateBases(ids []int64, b *Base) error {
 	return c.Update(BaseModel, ids, b)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindBases(criteria *Criteria, options *Options) (*Bases, error)
 	return bs, nil
 }
 
-// FindBaseIds finds records ids by querying it
+// FindBaseIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseModel, criteria, options)

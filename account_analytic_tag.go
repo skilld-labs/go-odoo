@@ -43,7 +43,7 @@ func (c *Client) UpdateAccountAnalyticTag(aat *AccountAnalyticTag) error {
 }
 
 // UpdateAccountAnalyticTags updates existing account.analytic.tag records.
-// All records (represented by ids) will be updated by aat values.
+// All records (represented by IDs) will be updated by aat values.
 func (c *Client) UpdateAccountAnalyticTags(ids []int64, aat *AccountAnalyticTag) error {
 	return c.Update(AccountAnalyticTagModel, ids, aat)
 }
@@ -101,7 +101,7 @@ func (c *Client) FindAccountAnalyticTags(criteria *Criteria, options *Options) (
 	return aats, nil
 }
 
-// FindAccountAnalyticTagIds finds records ids by querying it
+// FindAccountAnalyticTagIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticTagIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountAnalyticTagModel, criteria, options)

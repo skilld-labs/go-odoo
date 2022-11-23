@@ -37,7 +37,7 @@ func (c *Client) UpdateResUsersLog(rul *ResUsersLog) error {
 }
 
 // UpdateResUsersLogs updates existing res.users.log records.
-// All records (represented by ids) will be updated by rul values.
+// All records (represented by IDs) will be updated by rul values.
 func (c *Client) UpdateResUsersLogs(ids []int64, rul *ResUsersLog) error {
 	return c.Update(ResUsersLogModel, ids, rul)
 }
@@ -95,7 +95,7 @@ func (c *Client) FindResUsersLogs(criteria *Criteria, options *Options) (*ResUse
 	return ruls, nil
 }
 
-// FindResUsersLogIds finds records ids by querying it
+// FindResUsersLogIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersLogIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ResUsersLogModel, criteria, options)

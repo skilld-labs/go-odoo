@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldSelection(iqfs *IrQwebFieldSelection) error {
 }
 
 // UpdateIrQwebFieldSelections updates existing ir.qweb.field.selection records.
-// All records (represented by ids) will be updated by iqfs values.
+// All records (represented by IDs) will be updated by iqfs values.
 func (c *Client) UpdateIrQwebFieldSelections(ids []int64, iqfs *IrQwebFieldSelection) error {
 	return c.Update(IrQwebFieldSelectionModel, ids, iqfs)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldSelections(criteria *Criteria, options *Options)
 	return iqfss, nil
 }
 
-// FindIrQwebFieldSelectionIds finds records ids by querying it
+// FindIrQwebFieldSelectionIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldSelectionIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldSelectionModel, criteria, options)

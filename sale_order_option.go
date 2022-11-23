@@ -48,7 +48,7 @@ func (c *Client) UpdateSaleOrderOption(soo *SaleOrderOption) error {
 }
 
 // UpdateSaleOrderOptions updates existing sale.order.option records.
-// All records (represented by ids) will be updated by soo values.
+// All records (represented by IDs) will be updated by soo values.
 func (c *Client) UpdateSaleOrderOptions(ids []int64, soo *SaleOrderOption) error {
 	return c.Update(SaleOrderOptionModel, ids, soo)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindSaleOrderOptions(criteria *Criteria, options *Options) (*Sa
 	return soos, nil
 }
 
-// FindSaleOrderOptionIds finds records ids by querying it
+// FindSaleOrderOptionIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleOrderOptionIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SaleOrderOptionModel, criteria, options)

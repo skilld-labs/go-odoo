@@ -42,7 +42,7 @@ func (c *Client) UpdateSmsResend(sr *SmsResend) error {
 }
 
 // UpdateSmsResends updates existing sms.resend records.
-// All records (represented by ids) will be updated by sr values.
+// All records (represented by IDs) will be updated by sr values.
 func (c *Client) UpdateSmsResends(ids []int64, sr *SmsResend) error {
 	return c.Update(SmsResendModel, ids, sr)
 }
@@ -100,7 +100,7 @@ func (c *Client) FindSmsResends(criteria *Criteria, options *Options) (*SmsResen
 	return srs, nil
 }
 
-// FindSmsResendIds finds records ids by querying it
+// FindSmsResendIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsResendIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(SmsResendModel, criteria, options)

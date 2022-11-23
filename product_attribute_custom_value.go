@@ -41,7 +41,7 @@ func (c *Client) UpdateProductAttributeCustomValue(pacv *ProductAttributeCustomV
 }
 
 // UpdateProductAttributeCustomValues updates existing product.attribute.custom.value records.
-// All records (represented by ids) will be updated by pacv values.
+// All records (represented by IDs) will be updated by pacv values.
 func (c *Client) UpdateProductAttributeCustomValues(ids []int64, pacv *ProductAttributeCustomValue) error {
 	return c.Update(ProductAttributeCustomValueModel, ids, pacv)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindProductAttributeCustomValues(criteria *Criteria, options *O
 	return pacvs, nil
 }
 
-// FindProductAttributeCustomValueIds finds records ids by querying it
+// FindProductAttributeCustomValueIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductAttributeCustomValueIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ProductAttributeCustomValueModel, criteria, options)

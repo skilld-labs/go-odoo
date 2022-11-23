@@ -41,7 +41,7 @@ func (c *Client) UpdateBaseImportImport(bi *BaseImportImport) error {
 }
 
 // UpdateBaseImportImports updates existing base_import.import records.
-// All records (represented by ids) will be updated by bi values.
+// All records (represented by IDs) will be updated by bi values.
 func (c *Client) UpdateBaseImportImports(ids []int64, bi *BaseImportImport) error {
 	return c.Update(BaseImportImportModel, ids, bi)
 }
@@ -99,7 +99,7 @@ func (c *Client) FindBaseImportImports(criteria *Criteria, options *Options) (*B
 	return bis, nil
 }
 
-// FindBaseImportImportIds finds records ids by querying it
+// FindBaseImportImportIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportImportIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(BaseImportImportModel, criteria, options)

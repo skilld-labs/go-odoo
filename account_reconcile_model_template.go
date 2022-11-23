@@ -66,7 +66,7 @@ func (c *Client) UpdateAccountReconcileModelTemplate(armt *AccountReconcileModel
 }
 
 // UpdateAccountReconcileModelTemplates updates existing account.reconcile.model.template records.
-// All records (represented by ids) will be updated by armt values.
+// All records (represented by IDs) will be updated by armt values.
 func (c *Client) UpdateAccountReconcileModelTemplates(ids []int64, armt *AccountReconcileModelTemplate) error {
 	return c.Update(AccountReconcileModelTemplateModel, ids, armt)
 }
@@ -124,7 +124,7 @@ func (c *Client) FindAccountReconcileModelTemplates(criteria *Criteria, options 
 	return armts, nil
 }
 
-// FindAccountReconcileModelTemplateIds finds records ids by querying it
+// FindAccountReconcileModelTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountReconcileModelTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountReconcileModelTemplateModel, criteria, options)

@@ -35,21 +35,21 @@ func convertFromStaticToDynamicValue(staticValue interface{}) interface{} {
 	var v interface{}
 	switch sv := staticValue.(type) {
 	case *String:
-		v = sv.v
+		v = sv.V
 	case *Int:
-		v = sv.v
+		v = sv.V
 	case *Bool:
-		v = sv.v
+		v = sv.V
 	case *Selection:
-		v = sv.v
+		v = sv.V
 	case *Time:
-		v = sv.v.Format(datetimeFormat)
+		v = sv.V.Format(datetimeFormat)
 	case *Float:
-		v = sv.v
+		v = sv.V
 	case *Many2One:
 		v = sv.ID
 	case *Relation:
-		v = sv.v
+		v = sv.V
 	default:
 		v = staticValue
 	}
@@ -137,7 +137,7 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 			staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), dynamicValue.([]interface{})[1].(string))
 		case "Relation":
 			staticValue = NewRelation()
-			staticValue.(*Relation).ids = sliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
+			staticValue.(*Relation).IDs = sliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
 		case "Bool":
 			staticValue = NewBool(dynamicValue.(bool))
 		default:

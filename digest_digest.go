@@ -54,7 +54,7 @@ func (c *Client) UpdateDigestDigest(dd *DigestDigest) error {
 }
 
 // UpdateDigestDigests updates existing digest.digest records.
-// All records (represented by ids) will be updated by dd values.
+// All records (represented by IDs) will be updated by dd values.
 func (c *Client) UpdateDigestDigests(ids []int64, dd *DigestDigest) error {
 	return c.Update(DigestDigestModel, ids, dd)
 }
@@ -112,7 +112,7 @@ func (c *Client) FindDigestDigests(criteria *Criteria, options *Options) (*Diges
 	return dds, nil
 }
 
-// FindDigestDigestIds finds records ids by querying it
+// FindDigestDigestIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindDigestDigestIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(DigestDigestModel, criteria, options)

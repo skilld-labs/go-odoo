@@ -48,7 +48,7 @@ func (c *Client) UpdateMailAliasMixin(mam *MailAliasMixin) error {
 }
 
 // UpdateMailAliasMixins updates existing mail.alias.mixin records.
-// All records (represented by ids) will be updated by mam values.
+// All records (represented by IDs) will be updated by mam values.
 func (c *Client) UpdateMailAliasMixins(ids []int64, mam *MailAliasMixin) error {
 	return c.Update(MailAliasMixinModel, ids, mam)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindMailAliasMixins(criteria *Criteria, options *Options) (*Mai
 	return mams, nil
 }
 
-// FindMailAliasMixinIds finds records ids by querying it
+// FindMailAliasMixinIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailAliasMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailAliasMixinModel, criteria, options)

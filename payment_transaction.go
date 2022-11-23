@@ -70,7 +70,7 @@ func (c *Client) UpdatePaymentTransaction(pt *PaymentTransaction) error {
 }
 
 // UpdatePaymentTransactions updates existing payment.transaction records.
-// All records (represented by ids) will be updated by pt values.
+// All records (represented by IDs) will be updated by pt values.
 func (c *Client) UpdatePaymentTransactions(ids []int64, pt *PaymentTransaction) error {
 	return c.Update(PaymentTransactionModel, ids, pt)
 }
@@ -128,7 +128,7 @@ func (c *Client) FindPaymentTransactions(criteria *Criteria, options *Options) (
 	return pts, nil
 }
 
-// FindPaymentTransactionIds finds records ids by querying it
+// FindPaymentTransactionIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentTransactionIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(PaymentTransactionModel, criteria, options)

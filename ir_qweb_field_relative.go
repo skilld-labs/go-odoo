@@ -33,7 +33,7 @@ func (c *Client) UpdateIrQwebFieldRelative(iqfr *IrQwebFieldRelative) error {
 }
 
 // UpdateIrQwebFieldRelatives updates existing ir.qweb.field.relative records.
-// All records (represented by ids) will be updated by iqfr values.
+// All records (represented by IDs) will be updated by iqfr values.
 func (c *Client) UpdateIrQwebFieldRelatives(ids []int64, iqfr *IrQwebFieldRelative) error {
 	return c.Update(IrQwebFieldRelativeModel, ids, iqfr)
 }
@@ -91,7 +91,7 @@ func (c *Client) FindIrQwebFieldRelatives(criteria *Criteria, options *Options) 
 	return iqfrs, nil
 }
 
-// FindIrQwebFieldRelativeIds finds records ids by querying it
+// FindIrQwebFieldRelativeIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldRelativeIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrQwebFieldRelativeModel, criteria, options)

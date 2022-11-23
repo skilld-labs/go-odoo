@@ -61,7 +61,7 @@ func (c *Client) UpdateMailTemplate(mt *MailTemplate) error {
 }
 
 // UpdateMailTemplates updates existing mail.template records.
-// All records (represented by ids) will be updated by mt values.
+// All records (represented by IDs) will be updated by mt values.
 func (c *Client) UpdateMailTemplates(ids []int64, mt *MailTemplate) error {
 	return c.Update(MailTemplateModel, ids, mt)
 }
@@ -119,7 +119,7 @@ func (c *Client) FindMailTemplates(criteria *Criteria, options *Options) (*MailT
 	return mts, nil
 }
 
-// FindMailTemplateIds finds records ids by querying it
+// FindMailTemplateIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(MailTemplateModel, criteria, options)

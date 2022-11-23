@@ -63,7 +63,7 @@ func (c *Client) UpdateAccountAnalyticAccount(aaa *AccountAnalyticAccount) error
 }
 
 // UpdateAccountAnalyticAccounts updates existing account.analytic.account records.
-// All records (represented by ids) will be updated by aaa values.
+// All records (represented by IDs) will be updated by aaa values.
 func (c *Client) UpdateAccountAnalyticAccounts(ids []int64, aaa *AccountAnalyticAccount) error {
 	return c.Update(AccountAnalyticAccountModel, ids, aaa)
 }
@@ -121,7 +121,7 @@ func (c *Client) FindAccountAnalyticAccounts(criteria *Criteria, options *Option
 	return aaas, nil
 }
 
-// FindAccountAnalyticAccountIds finds records ids by querying it
+// FindAccountAnalyticAccountIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(AccountAnalyticAccountModel, criteria, options)

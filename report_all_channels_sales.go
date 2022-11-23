@@ -48,7 +48,7 @@ func (c *Client) UpdateReportAllChannelsSales(racs *ReportAllChannelsSales) erro
 }
 
 // UpdateReportAllChannelsSaless updates existing report.all.channels.sales records.
-// All records (represented by ids) will be updated by racs values.
+// All records (represented by IDs) will be updated by racs values.
 func (c *Client) UpdateReportAllChannelsSaless(ids []int64, racs *ReportAllChannelsSales) error {
 	return c.Update(ReportAllChannelsSalesModel, ids, racs)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindReportAllChannelsSaless(criteria *Criteria, options *Option
 	return racss, nil
 }
 
-// FindReportAllChannelsSalesIds finds records ids by querying it
+// FindReportAllChannelsSalesIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAllChannelsSalesIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(ReportAllChannelsSalesModel, criteria, options)

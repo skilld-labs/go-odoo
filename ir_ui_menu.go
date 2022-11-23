@@ -48,7 +48,7 @@ func (c *Client) UpdateIrUiMenu(ium *IrUiMenu) error {
 }
 
 // UpdateIrUiMenus updates existing ir.ui.menu records.
-// All records (represented by ids) will be updated by ium values.
+// All records (represented by IDs) will be updated by ium values.
 func (c *Client) UpdateIrUiMenus(ids []int64, ium *IrUiMenu) error {
 	return c.Update(IrUiMenuModel, ids, ium)
 }
@@ -106,7 +106,7 @@ func (c *Client) FindIrUiMenus(criteria *Criteria, options *Options) (*IrUiMenus
 	return iums, nil
 }
 
-// FindIrUiMenuIds finds records ids by querying it
+// FindIrUiMenuIds finds records IDs by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrUiMenuIds(criteria *Criteria, options *Options) ([]int64, error) {
 	ids, err := c.Search(IrUiMenuModel, criteria, options)
