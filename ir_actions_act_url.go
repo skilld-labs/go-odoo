@@ -90,7 +90,7 @@ func (c *Client) FindIrActionsActUrl(criteria *Criteria) (*IrActionsActUrl, erro
 	if iaas != nil && len(*iaas) > 0 {
 		return &((*iaas)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.actions.act_url was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.actions.act_url was not found with criteria %v", criteria)
 }
 
 // FindIrActionsActUrls finds ir.actions.act_url records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindIrActionsActUrlId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.actions.act_url was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.actions.act_url was not found with criteria %v and options %v", criteria, options)
 }

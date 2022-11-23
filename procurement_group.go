@@ -86,7 +86,7 @@ func (c *Client) FindProcurementGroup(criteria *Criteria) (*ProcurementGroup, er
 	if pgs != nil && len(*pgs) > 0 {
 		return &((*pgs)[0]), nil
 	}
-	return nil, fmt.Errorf("no procurement.group was found with criteria %v", criteria)
+	return nil, fmt.Errorf("procurement.group was not found with criteria %v", criteria)
 }
 
 // FindProcurementGroups finds procurement.group records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindProcurementGroupId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no procurement.group was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("procurement.group was not found with criteria %v and options %v", criteria, options)
 }

@@ -126,7 +126,7 @@ func (c *Client) FindMailChannel(criteria *Criteria) (*MailChannel, error) {
 	if mcs != nil && len(*mcs) > 0 {
 		return &((*mcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.channel was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.channel was not found with criteria %v", criteria)
 }
 
 // FindMailChannels finds mail.channel records by querying it
@@ -158,5 +158,5 @@ func (c *Client) FindMailChannelId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.channel was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.channel was not found with criteria %v and options %v", criteria, options)
 }

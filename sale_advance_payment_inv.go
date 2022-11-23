@@ -88,7 +88,7 @@ func (c *Client) FindSaleAdvancePaymentInv(criteria *Criteria) (*SaleAdvancePaym
 	if sapis != nil && len(*sapis) > 0 {
 		return &((*sapis)[0]), nil
 	}
-	return nil, fmt.Errorf("no sale.advance.payment.inv was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sale.advance.payment.inv was not found with criteria %v", criteria)
 }
 
 // FindSaleAdvancePaymentInvs finds sale.advance.payment.inv records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindSaleAdvancePaymentInvId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sale.advance.payment.inv was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sale.advance.payment.inv was not found with criteria %v and options %v", criteria, options)
 }

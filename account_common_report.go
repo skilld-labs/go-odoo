@@ -87,7 +87,7 @@ func (c *Client) FindAccountCommonReport(criteria *Criteria) (*AccountCommonRepo
 	if acrs != nil && len(*acrs) > 0 {
 		return &((*acrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.common.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.common.report was not found with criteria %v", criteria)
 }
 
 // FindAccountCommonReports finds account.common.report records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindAccountCommonReportId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.common.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.common.report was not found with criteria %v and options %v", criteria, options)
 }

@@ -96,7 +96,7 @@ func (c *Client) FindBasePartnerMergeAutomaticWizard(criteria *Criteria) (*BaseP
 	if bpmaws != nil && len(*bpmaws) > 0 {
 		return &((*bpmaws)[0]), nil
 	}
-	return nil, fmt.Errorf("no base.partner.merge.automatic.wizard was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base.partner.merge.automatic.wizard was not found with criteria %v", criteria)
 }
 
 // FindBasePartnerMergeAutomaticWizards finds base.partner.merge.automatic.wizard records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindBasePartnerMergeAutomaticWizardId(criteria *Criteria, optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base.partner.merge.automatic.wizard was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base.partner.merge.automatic.wizard was not found with criteria %v and options %v", criteria, options)
 }

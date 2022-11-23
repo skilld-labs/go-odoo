@@ -84,7 +84,7 @@ func (c *Client) FindAccountBankStatementImport(criteria *Criteria) (*AccountBan
 	if absis != nil && len(*absis) > 0 {
 		return &((*absis)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.statement.import was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.statement.import was not found with criteria %v", criteria)
 }
 
 // FindAccountBankStatementImports finds account.bank.statement.import records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindAccountBankStatementImportId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.statement.import was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.statement.import was not found with criteria %v and options %v", criteria, options)
 }

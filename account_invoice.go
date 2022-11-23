@@ -161,7 +161,7 @@ func (c *Client) FindAccountInvoice(criteria *Criteria) (*AccountInvoice, error)
 	if ais != nil && len(*ais) > 0 {
 		return &((*ais)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.invoice was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.invoice was not found with criteria %v", criteria)
 }
 
 // FindAccountInvoices finds account.invoice records by querying it
@@ -193,5 +193,5 @@ func (c *Client) FindAccountInvoiceId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.invoice was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.invoice was not found with criteria %v and options %v", criteria, options)
 }

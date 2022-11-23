@@ -82,7 +82,7 @@ func (c *Client) FindResUsersLog(criteria *Criteria) (*ResUsersLog, error) {
 	if ruls != nil && len(*ruls) > 0 {
 		return &((*ruls)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.users.log was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.users.log was not found with criteria %v", criteria)
 }
 
 // FindResUsersLogs finds res.users.log records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindResUsersLogId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.users.log was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.users.log was not found with criteria %v and options %v", criteria, options)
 }

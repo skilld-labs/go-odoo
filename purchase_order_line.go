@@ -108,7 +108,7 @@ func (c *Client) FindPurchaseOrderLine(criteria *Criteria) (*PurchaseOrderLine, 
 	if pols != nil && len(*pols) > 0 {
 		return &((*pols)[0]), nil
 	}
-	return nil, fmt.Errorf("no purchase.order.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("purchase.order.line was not found with criteria %v", criteria)
 }
 
 // FindPurchaseOrderLines finds purchase.order.line records by querying it
@@ -140,5 +140,5 @@ func (c *Client) FindPurchaseOrderLineId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no purchase.order.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("purchase.order.line was not found with criteria %v and options %v", criteria, options)
 }

@@ -85,7 +85,7 @@ func (c *Client) FindCalendarContacts(criteria *Criteria) (*CalendarContacts, er
 	if ccs != nil && len(*ccs) > 0 {
 		return &((*ccs)[0]), nil
 	}
-	return nil, fmt.Errorf("no calendar.contacts was found with criteria %v", criteria)
+	return nil, fmt.Errorf("calendar.contacts was not found with criteria %v", criteria)
 }
 
 // FindCalendarContactss finds calendar.contacts records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindCalendarContactsId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no calendar.contacts was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("calendar.contacts was not found with criteria %v and options %v", criteria, options)
 }

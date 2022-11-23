@@ -87,7 +87,7 @@ func (c *Client) FindProductPackaging(criteria *Criteria) (*ProductPackaging, er
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.packaging was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.packaging was not found with criteria %v", criteria)
 }
 
 // FindProductPackagings finds product.packaging records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindProductPackagingId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.packaging was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.packaging was not found with criteria %v and options %v", criteria, options)
 }

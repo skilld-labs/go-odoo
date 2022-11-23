@@ -94,7 +94,7 @@ func (c *Client) FindIrActionsClient(criteria *Criteria) (*IrActionsClient, erro
 	if iacs != nil && len(*iacs) > 0 {
 		return &((*iacs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.actions.client was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.actions.client was not found with criteria %v", criteria)
 }
 
 // FindIrActionsClients finds ir.actions.client records by querying it
@@ -126,5 +126,5 @@ func (c *Client) FindIrActionsClientId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.actions.client was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.actions.client was not found with criteria %v and options %v", criteria, options)
 }

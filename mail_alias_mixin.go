@@ -92,7 +92,7 @@ func (c *Client) FindMailAliasMixin(criteria *Criteria) (*MailAliasMixin, error)
 	if mams != nil && len(*mams) > 0 {
 		return &((*mams)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.alias.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.alias.mixin was not found with criteria %v", criteria)
 }
 
 // FindMailAliasMixins finds mail.alias.mixin records by querying it
@@ -124,5 +124,5 @@ func (c *Client) FindMailAliasMixinId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.alias.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.alias.mixin was not found with criteria %v and options %v", criteria, options)
 }

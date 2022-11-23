@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldMany2One(criteria *Criteria) (*IrQwebFieldMany2O
 	if iqfms != nil && len(*iqfms) > 0 {
 		return &((*iqfms)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.many2one was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.many2one was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldMany2Ones finds ir.qweb.field.many2one records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldMany2OneId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.many2one was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.many2one was not found with criteria %v and options %v", criteria, options)
 }

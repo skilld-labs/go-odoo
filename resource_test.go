@@ -86,7 +86,7 @@ func (c *Client) FindResourceTest(criteria *Criteria) (*ResourceTest, error) {
 	if rts != nil && len(*rts) > 0 {
 		return &((*rts)[0]), nil
 	}
-	return nil, fmt.Errorf("no resource.test was found with criteria %v", criteria)
+	return nil, fmt.Errorf("resource.test was not found with criteria %v", criteria)
 }
 
 // FindResourceTests finds resource.test records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindResourceTestId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no resource.test was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("resource.test was not found with criteria %v and options %v", criteria, options)
 }

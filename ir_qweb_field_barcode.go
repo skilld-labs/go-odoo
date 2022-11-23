@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldBarcode(criteria *Criteria) (*IrQwebFieldBarcode
 	if iqfbs != nil && len(*iqfbs) > 0 {
 		return &((*iqfbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.barcode was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.barcode was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldBarcodes finds ir.qweb.field.barcode records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldBarcodeId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.barcode was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.barcode was not found with criteria %v and options %v", criteria, options)
 }

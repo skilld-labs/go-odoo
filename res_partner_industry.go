@@ -85,7 +85,7 @@ func (c *Client) FindResPartnerIndustry(criteria *Criteria) (*ResPartnerIndustry
 	if rpis != nil && len(*rpis) > 0 {
 		return &((*rpis)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.partner.industry was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.partner.industry was not found with criteria %v", criteria)
 }
 
 // FindResPartnerIndustrys finds res.partner.industry records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindResPartnerIndustryId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.partner.industry was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.partner.industry was not found with criteria %v and options %v", criteria, options)
 }

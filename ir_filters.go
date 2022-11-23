@@ -91,7 +91,7 @@ func (c *Client) FindIrFilters(criteria *Criteria) (*IrFilters, error) {
 	if IFs != nil && len(*IFs) > 0 {
 		return &((*IFs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.filters was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.filters was not found with criteria %v", criteria)
 }
 
 // FindIrFilterss finds ir.filters records by querying it
@@ -123,5 +123,5 @@ func (c *Client) FindIrFiltersId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.filters was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.filters was not found with criteria %v and options %v", criteria, options)
 }

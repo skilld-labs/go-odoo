@@ -78,7 +78,7 @@ func (c *Client) FindReportAccountReportTrialbalance(criteria *Criteria) (*Repor
 	if rars != nil && len(*rars) > 0 {
 		return &((*rars)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.account.report_trialbalance was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.account.report_trialbalance was not found with criteria %v", criteria)
 }
 
 // FindReportAccountReportTrialbalances finds report.account.report_trialbalance records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportAccountReportTrialbalanceId(criteria *Criteria, optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.account.report_trialbalance was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.account.report_trialbalance was not found with criteria %v and options %v", criteria, options)
 }

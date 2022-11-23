@@ -104,7 +104,7 @@ func (c *Client) FindStockLocation(criteria *Criteria) (*StockLocation, error) {
 	if sls != nil && len(*sls) > 0 {
 		return &((*sls)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.location was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.location was not found with criteria %v", criteria)
 }
 
 // FindStockLocations finds stock.location records by querying it
@@ -136,5 +136,5 @@ func (c *Client) FindStockLocationId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.location was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.location was not found with criteria %v and options %v", criteria, options)
 }

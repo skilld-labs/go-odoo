@@ -78,7 +78,7 @@ func (c *Client) FindReportProductReportPricelist(criteria *Criteria) (*ReportPr
 	if rprs != nil && len(*rprs) > 0 {
 		return &((*rprs)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.product.report_pricelist was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.product.report_pricelist was not found with criteria %v", criteria)
 }
 
 // FindReportProductReportPricelists finds report.product.report_pricelist records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportProductReportPricelistId(criteria *Criteria, options 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.product.report_pricelist was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.product.report_pricelist was not found with criteria %v and options %v", criteria, options)
 }

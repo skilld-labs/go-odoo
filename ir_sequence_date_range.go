@@ -87,7 +87,7 @@ func (c *Client) FindIrSequenceDateRange(criteria *Criteria) (*IrSequenceDateRan
 	if isds != nil && len(*isds) > 0 {
 		return &((*isds)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.sequence.date_range was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.sequence.date_range was not found with criteria %v", criteria)
 }
 
 // FindIrSequenceDateRanges finds ir.sequence.date_range records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindIrSequenceDateRangeId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.sequence.date_range was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.sequence.date_range was not found with criteria %v and options %v", criteria, options)
 }

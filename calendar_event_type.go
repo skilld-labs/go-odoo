@@ -83,7 +83,7 @@ func (c *Client) FindCalendarEventType(criteria *Criteria) (*CalendarEventType, 
 	if cets != nil && len(*cets) > 0 {
 		return &((*cets)[0]), nil
 	}
-	return nil, fmt.Errorf("no calendar.event.type was found with criteria %v", criteria)
+	return nil, fmt.Errorf("calendar.event.type was not found with criteria %v", criteria)
 }
 
 // FindCalendarEventTypes finds calendar.event.type records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindCalendarEventTypeId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no calendar.event.type was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("calendar.event.type was not found with criteria %v and options %v", criteria, options)
 }

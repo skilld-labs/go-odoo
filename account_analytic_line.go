@@ -110,7 +110,7 @@ func (c *Client) FindAccountAnalyticLine(criteria *Criteria) (*AccountAnalyticLi
 	if aals != nil && len(*aals) > 0 {
 		return &((*aals)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.analytic.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.analytic.line was not found with criteria %v", criteria)
 }
 
 // FindAccountAnalyticLines finds account.analytic.line records by querying it
@@ -142,5 +142,5 @@ func (c *Client) FindAccountAnalyticLineId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.analytic.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.analytic.line was not found with criteria %v and options %v", criteria, options)
 }

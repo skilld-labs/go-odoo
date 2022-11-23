@@ -85,7 +85,7 @@ func (c *Client) FindCashBoxIn(criteria *Criteria) (*CashBoxIn, error) {
 	if cbis != nil && len(*cbis) > 0 {
 		return &((*cbis)[0]), nil
 	}
-	return nil, fmt.Errorf("no cash.box.in was found with criteria %v", criteria)
+	return nil, fmt.Errorf("cash.box.in was not found with criteria %v", criteria)
 }
 
 // FindCashBoxIns finds cash.box.in records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindCashBoxInId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no cash.box.in was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("cash.box.in was not found with criteria %v and options %v", criteria, options)
 }

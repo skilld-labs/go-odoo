@@ -96,7 +96,7 @@ func (c *Client) FindResGroups(criteria *Criteria) (*ResGroups, error) {
 	if rgs != nil && len(*rgs) > 0 {
 		return &((*rgs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.groups was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.groups was not found with criteria %v", criteria)
 }
 
 // FindResGroupss finds res.groups records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindResGroupsId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.groups was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.groups was not found with criteria %v and options %v", criteria, options)
 }

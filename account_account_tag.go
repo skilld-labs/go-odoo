@@ -86,7 +86,7 @@ func (c *Client) FindAccountAccountTag(criteria *Criteria) (*AccountAccountTag, 
 	if aats != nil && len(*aats) > 0 {
 		return &((*aats)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.account.tag was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.account.tag was not found with criteria %v", criteria)
 }
 
 // FindAccountAccountTags finds account.account.tag records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindAccountAccountTagId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.account.tag was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.account.tag was not found with criteria %v and options %v", criteria, options)
 }

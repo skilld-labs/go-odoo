@@ -90,7 +90,7 @@ func (c *Client) FindIrModelAccess(criteria *Criteria) (*IrModelAccess, error) {
 	if imas != nil && len(*imas) > 0 {
 		return &((*imas)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.model.access was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.model.access was not found with criteria %v", criteria)
 }
 
 // FindIrModelAccesss finds ir.model.access records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindIrModelAccessId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.model.access was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.model.access was not found with criteria %v and options %v", criteria, options)
 }

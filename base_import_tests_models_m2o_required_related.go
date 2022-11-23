@@ -83,7 +83,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORequiredRelated(criteria *Criteria)
 	if btmmrrs != nil && len(*btmmrrs) > 0 {
 		return &((*btmmrrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.m2o.required.related was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.m2o.required.related was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsM2ORequiredRelateds finds base_import.tests.models.m2o.required.related records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindBaseImportTestsModelsM2ORequiredRelatedId(criteria *Criteri
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.m2o.required.related was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.m2o.required.related was not found with criteria %v and options %v", criteria, options)
 }

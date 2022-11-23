@@ -99,7 +99,7 @@ func (c *Client) FindRatingRating(criteria *Criteria) (*RatingRating, error) {
 	if rrs != nil && len(*rrs) > 0 {
 		return &((*rrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no rating.rating was found with criteria %v", criteria)
+	return nil, fmt.Errorf("rating.rating was not found with criteria %v", criteria)
 }
 
 // FindRatingRatings finds rating.rating records by querying it
@@ -131,5 +131,5 @@ func (c *Client) FindRatingRatingId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no rating.rating was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("rating.rating was not found with criteria %v and options %v", criteria, options)
 }

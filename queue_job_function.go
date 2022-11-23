@@ -81,7 +81,7 @@ func (c *Client) FindQueueJobFunction(criteria *Criteria) (*QueueJobFunction, er
 	if qjfs != nil && len(*qjfs) > 0 {
 		return &((*qjfs)[0]), nil
 	}
-	return nil, fmt.Errorf("no queue.job.function was found with criteria %v", criteria)
+	return nil, fmt.Errorf("queue.job.function was not found with criteria %v", criteria)
 }
 
 // FindQueueJobFunctions finds queue.job.function records by querying it
@@ -113,5 +113,5 @@ func (c *Client) FindQueueJobFunctionId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no queue.job.function was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("queue.job.function was not found with criteria %v and options %v", criteria, options)
 }

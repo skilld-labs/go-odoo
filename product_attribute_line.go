@@ -85,7 +85,7 @@ func (c *Client) FindProductAttributeLine(criteria *Criteria) (*ProductAttribute
 	if pals != nil && len(*pals) > 0 {
 		return &((*pals)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.attribute.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.attribute.line was not found with criteria %v", criteria)
 }
 
 // FindProductAttributeLines finds product.attribute.line records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindProductAttributeLineId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.attribute.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.attribute.line was not found with criteria %v and options %v", criteria, options)
 }

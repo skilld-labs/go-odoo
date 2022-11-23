@@ -85,7 +85,7 @@ func (c *Client) FindAccountFiscalPositionTaxTemplate(criteria *Criteria) (*Acco
 	if afptts != nil && len(*afptts) > 0 {
 		return &((*afptts)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.fiscal.position.tax.template was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.fiscal.position.tax.template was not found with criteria %v", criteria)
 }
 
 // FindAccountFiscalPositionTaxTemplates finds account.fiscal.position.tax.template records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindAccountFiscalPositionTaxTemplateId(criteria *Criteria, opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.fiscal.position.tax.template was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.fiscal.position.tax.template was not found with criteria %v and options %v", criteria, options)
 }

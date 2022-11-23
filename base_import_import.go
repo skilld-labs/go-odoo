@@ -86,7 +86,7 @@ func (c *Client) FindBaseImportImport(criteria *Criteria) (*BaseImportImport, er
 	if bis != nil && len(*bis) > 0 {
 		return &((*bis)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.import was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.import was not found with criteria %v", criteria)
 }
 
 // FindBaseImportImports finds base_import.import records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindBaseImportImportId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.import was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.import was not found with criteria %v and options %v", criteria, options)
 }

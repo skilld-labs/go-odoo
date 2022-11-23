@@ -95,7 +95,7 @@ func (c *Client) FindStockLocationPath(criteria *Criteria) (*StockLocationPath, 
 	if slps != nil && len(*slps) > 0 {
 		return &((*slps)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.location.path was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.location.path was not found with criteria %v", criteria)
 }
 
 // FindStockLocationPaths finds stock.location.path records by querying it
@@ -127,5 +127,5 @@ func (c *Client) FindStockLocationPathId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.location.path was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.location.path was not found with criteria %v and options %v", criteria, options)
 }

@@ -147,7 +147,7 @@ func (c *Client) FindStockMove(criteria *Criteria) (*StockMove, error) {
 	if sms != nil && len(*sms) > 0 {
 		return &((*sms)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.move was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.move was not found with criteria %v", criteria)
 }
 
 // FindStockMoves finds stock.move records by querying it
@@ -179,5 +179,5 @@ func (c *Client) FindStockMoveId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.move was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.move was not found with criteria %v and options %v", criteria, options)
 }

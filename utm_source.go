@@ -83,7 +83,7 @@ func (c *Client) FindUtmSource(criteria *Criteria) (*UtmSource, error) {
 	if uss != nil && len(*uss) > 0 {
 		return &((*uss)[0]), nil
 	}
-	return nil, fmt.Errorf("no utm.source was found with criteria %v", criteria)
+	return nil, fmt.Errorf("utm.source was not found with criteria %v", criteria)
 }
 
 // FindUtmSources finds utm.source records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindUtmSourceId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no utm.source was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("utm.source was not found with criteria %v and options %v", criteria, options)
 }

@@ -134,7 +134,7 @@ func (c *Client) FindCrmTeam(criteria *Criteria) (*CrmTeam, error) {
 	if cts != nil && len(*cts) > 0 {
 		return &((*cts)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.team was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.team was not found with criteria %v", criteria)
 }
 
 // FindCrmTeams finds crm.team records by querying it
@@ -166,5 +166,5 @@ func (c *Client) FindCrmTeamId(criteria *Criteria, options *Options) (int64, err
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.team was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.team was not found with criteria %v and options %v", criteria, options)
 }

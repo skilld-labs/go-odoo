@@ -88,7 +88,7 @@ func (c *Client) FindBaseLanguageExport(criteria *Criteria) (*BaseLanguageExport
 	if bles != nil && len(*bles) > 0 {
 		return &((*bles)[0]), nil
 	}
-	return nil, fmt.Errorf("no base.language.export was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base.language.export was not found with criteria %v", criteria)
 }
 
 // FindBaseLanguageExports finds base.language.export records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindBaseLanguageExportId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base.language.export was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base.language.export was not found with criteria %v and options %v", criteria, options)
 }

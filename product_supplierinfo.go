@@ -97,7 +97,7 @@ func (c *Client) FindProductSupplierinfo(criteria *Criteria) (*ProductSupplierin
 	if pss != nil && len(*pss) > 0 {
 		return &((*pss)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.supplierinfo was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.supplierinfo was not found with criteria %v", criteria)
 }
 
 // FindProductSupplierinfos finds product.supplierinfo records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindProductSupplierinfoId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.supplierinfo was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.supplierinfo was not found with criteria %v and options %v", criteria, options)
 }

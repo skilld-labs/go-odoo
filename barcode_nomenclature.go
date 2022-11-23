@@ -85,7 +85,7 @@ func (c *Client) FindBarcodeNomenclature(criteria *Criteria) (*BarcodeNomenclatu
 	if bns != nil && len(*bns) > 0 {
 		return &((*bns)[0]), nil
 	}
-	return nil, fmt.Errorf("no barcode.nomenclature was found with criteria %v", criteria)
+	return nil, fmt.Errorf("barcode.nomenclature was not found with criteria %v", criteria)
 }
 
 // FindBarcodeNomenclatures finds barcode.nomenclature records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindBarcodeNomenclatureId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no barcode.nomenclature was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("barcode.nomenclature was not found with criteria %v and options %v", criteria, options)
 }

@@ -85,7 +85,7 @@ func (c *Client) FindStockChangeStandardPrice(criteria *Criteria) (*StockChangeS
 	if scsps != nil && len(*scsps) > 0 {
 		return &((*scsps)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.change.standard.price was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.change.standard.price was not found with criteria %v", criteria)
 }
 
 // FindStockChangeStandardPrices finds stock.change.standard.price records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindStockChangeStandardPriceId(criteria *Criteria, options *Opt
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.change.standard.price was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.change.standard.price was not found with criteria %v and options %v", criteria, options)
 }

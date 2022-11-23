@@ -124,7 +124,7 @@ func (c *Client) FindSaleOrderLine(criteria *Criteria) (*SaleOrderLine, error) {
 	if sols != nil && len(*sols) > 0 {
 		return &((*sols)[0]), nil
 	}
-	return nil, fmt.Errorf("no sale.order.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sale.order.line was not found with criteria %v", criteria)
 }
 
 // FindSaleOrderLines finds sale.order.line records by querying it
@@ -156,5 +156,5 @@ func (c *Client) FindSaleOrderLineId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sale.order.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sale.order.line was not found with criteria %v and options %v", criteria, options)
 }

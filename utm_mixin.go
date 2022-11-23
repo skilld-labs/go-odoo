@@ -81,7 +81,7 @@ func (c *Client) FindUtmMixin(criteria *Criteria) (*UtmMixin, error) {
 	if ums != nil && len(*ums) > 0 {
 		return &((*ums)[0]), nil
 	}
-	return nil, fmt.Errorf("no utm.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("utm.mixin was not found with criteria %v", criteria)
 }
 
 // FindUtmMixins finds utm.mixin records by querying it
@@ -113,5 +113,5 @@ func (c *Client) FindUtmMixinId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no utm.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("utm.mixin was not found with criteria %v and options %v", criteria, options)
 }

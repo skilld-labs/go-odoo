@@ -97,7 +97,7 @@ func (c *Client) FindStockScrap(criteria *Criteria) (*StockScrap, error) {
 	if sss != nil && len(*sss) > 0 {
 		return &((*sss)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.scrap was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.scrap was not found with criteria %v", criteria)
 }
 
 // FindStockScraps finds stock.scrap records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindStockScrapId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.scrap was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.scrap was not found with criteria %v and options %v", criteria, options)
 }

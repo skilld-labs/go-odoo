@@ -83,7 +83,7 @@ func (c *Client) FindReportStockForecast(criteria *Criteria) (*ReportStockForeca
 	if rsfs != nil && len(*rsfs) > 0 {
 		return &((*rsfs)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.stock.forecast was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.stock.forecast was not found with criteria %v", criteria)
 }
 
 // FindReportStockForecasts finds report.stock.forecast records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindReportStockForecastId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.stock.forecast was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.stock.forecast was not found with criteria %v and options %v", criteria, options)
 }

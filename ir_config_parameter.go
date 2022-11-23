@@ -84,7 +84,7 @@ func (c *Client) FindIrConfigParameter(criteria *Criteria) (*IrConfigParameter, 
 	if ics != nil && len(*ics) > 0 {
 		return &((*ics)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.config_parameter was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.config_parameter was not found with criteria %v", criteria)
 }
 
 // FindIrConfigParameters finds ir.config_parameter records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindIrConfigParameterId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.config_parameter was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.config_parameter was not found with criteria %v and options %v", criteria, options)
 }

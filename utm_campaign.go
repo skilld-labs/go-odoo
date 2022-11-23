@@ -83,7 +83,7 @@ func (c *Client) FindUtmCampaign(criteria *Criteria) (*UtmCampaign, error) {
 	if ucs != nil && len(*ucs) > 0 {
 		return &((*ucs)[0]), nil
 	}
-	return nil, fmt.Errorf("no utm.campaign was found with criteria %v", criteria)
+	return nil, fmt.Errorf("utm.campaign was not found with criteria %v", criteria)
 }
 
 // FindUtmCampaigns finds utm.campaign records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindUtmCampaignId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no utm.campaign was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("utm.campaign was not found with criteria %v and options %v", criteria, options)
 }

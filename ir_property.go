@@ -93,7 +93,7 @@ func (c *Client) FindIrProperty(criteria *Criteria) (*IrProperty, error) {
 	if ips != nil && len(*ips) > 0 {
 		return &((*ips)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.property was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.property was not found with criteria %v", criteria)
 }
 
 // FindIrPropertys finds ir.property records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindIrPropertyId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.property was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.property was not found with criteria %v and options %v", criteria, options)
 }

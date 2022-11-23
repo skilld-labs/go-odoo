@@ -89,7 +89,7 @@ func (c *Client) FindResourceCalendarAttendance(criteria *Criteria) (*ResourceCa
 	if rcas != nil && len(*rcas) > 0 {
 		return &((*rcas)[0]), nil
 	}
-	return nil, fmt.Errorf("no resource.calendar.attendance was found with criteria %v", criteria)
+	return nil, fmt.Errorf("resource.calendar.attendance was not found with criteria %v", criteria)
 }
 
 // FindResourceCalendarAttendances finds resource.calendar.attendance records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindResourceCalendarAttendanceId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no resource.calendar.attendance was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("resource.calendar.attendance was not found with criteria %v and options %v", criteria, options)
 }

@@ -82,7 +82,7 @@ func (c *Client) FindResConfig(criteria *Criteria) (*ResConfig, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.config was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.config was not found with criteria %v", criteria)
 }
 
 // FindResConfigs finds res.config records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindResConfigId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.config was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.config was not found with criteria %v and options %v", criteria, options)
 }

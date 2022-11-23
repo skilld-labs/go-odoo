@@ -82,7 +82,7 @@ func (c *Client) FindAccountBankStatementClosebalance(criteria *Criteria) (*Acco
 	if abscs != nil && len(*abscs) > 0 {
 		return &((*abscs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.statement.closebalance was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.statement.closebalance was not found with criteria %v", criteria)
 }
 
 // FindAccountBankStatementClosebalances finds account.bank.statement.closebalance records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindAccountBankStatementClosebalanceId(criteria *Criteria, opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.statement.closebalance was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.statement.closebalance was not found with criteria %v and options %v", criteria, options)
 }

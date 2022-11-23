@@ -98,7 +98,7 @@ func (c *Client) FindLinkTracker(criteria *Criteria) (*LinkTracker, error) {
 	if lts != nil && len(*lts) > 0 {
 		return &((*lts)[0]), nil
 	}
-	return nil, fmt.Errorf("no link.tracker was found with criteria %v", criteria)
+	return nil, fmt.Errorf("link.tracker was not found with criteria %v", criteria)
 }
 
 // FindLinkTrackers finds link.tracker records by querying it
@@ -130,5 +130,5 @@ func (c *Client) FindLinkTrackerId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no link.tracker was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("link.tracker was not found with criteria %v and options %v", criteria, options)
 }

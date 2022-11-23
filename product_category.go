@@ -101,7 +101,7 @@ func (c *Client) FindProductCategory(criteria *Criteria) (*ProductCategory, erro
 	if pcs != nil && len(*pcs) > 0 {
 		return &((*pcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.category was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.category was not found with criteria %v", criteria)
 }
 
 // FindProductCategorys finds product.category records by querying it
@@ -133,5 +133,5 @@ func (c *Client) FindProductCategoryId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.category was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.category was not found with criteria %v and options %v", criteria, options)
 }

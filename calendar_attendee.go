@@ -89,7 +89,7 @@ func (c *Client) FindCalendarAttendee(criteria *Criteria) (*CalendarAttendee, er
 	if cas != nil && len(*cas) > 0 {
 		return &((*cas)[0]), nil
 	}
-	return nil, fmt.Errorf("no calendar.attendee was found with criteria %v", criteria)
+	return nil, fmt.Errorf("calendar.attendee was not found with criteria %v", criteria)
 }
 
 // FindCalendarAttendees finds calendar.attendee records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindCalendarAttendeeId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no calendar.attendee was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("calendar.attendee was not found with criteria %v and options %v", criteria, options)
 }

@@ -116,7 +116,7 @@ func (c *Client) FindAccountJournal(criteria *Criteria) (*AccountJournal, error)
 	if ajs != nil && len(*ajs) > 0 {
 		return &((*ajs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.journal was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.journal was not found with criteria %v", criteria)
 }
 
 // FindAccountJournals finds account.journal records by querying it
@@ -148,5 +148,5 @@ func (c *Client) FindAccountJournalId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.journal was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.journal was not found with criteria %v and options %v", criteria, options)
 }

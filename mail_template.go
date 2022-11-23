@@ -107,7 +107,7 @@ func (c *Client) FindMailTemplate(criteria *Criteria) (*MailTemplate, error) {
 	if mts != nil && len(*mts) > 0 {
 		return &((*mts)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.template was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.template was not found with criteria %v", criteria)
 }
 
 // FindMailTemplates finds mail.template records by querying it
@@ -139,5 +139,5 @@ func (c *Client) FindMailTemplateId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.template was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.template was not found with criteria %v and options %v", criteria, options)
 }

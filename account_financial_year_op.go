@@ -88,7 +88,7 @@ func (c *Client) FindAccountFinancialYearOp(criteria *Criteria) (*AccountFinanci
 	if afyos != nil && len(*afyos) > 0 {
 		return &((*afyos)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.financial.year.op was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.financial.year.op was not found with criteria %v", criteria)
 }
 
 // FindAccountFinancialYearOps finds account.financial.year.op records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindAccountFinancialYearOpId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.financial.year.op was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.financial.year.op was not found with criteria %v and options %v", criteria, options)
 }

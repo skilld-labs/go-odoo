@@ -82,7 +82,7 @@ func (c *Client) FindAccountInvoiceConfirm(criteria *Criteria) (*AccountInvoiceC
 	if aics != nil && len(*aics) > 0 {
 		return &((*aics)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.invoice.confirm was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.invoice.confirm was not found with criteria %v", criteria)
 }
 
 // FindAccountInvoiceConfirms finds account.invoice.confirm records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindAccountInvoiceConfirmId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.invoice.confirm was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.invoice.confirm was not found with criteria %v and options %v", criteria, options)
 }

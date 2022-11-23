@@ -85,7 +85,7 @@ func (c *Client) FindAccountPaymentMethod(criteria *Criteria) (*AccountPaymentMe
 	if apms != nil && len(*apms) > 0 {
 		return &((*apms)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.payment.method was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.payment.method was not found with criteria %v", criteria)
 }
 
 // FindAccountPaymentMethods finds account.payment.method records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindAccountPaymentMethodId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.payment.method was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.payment.method was not found with criteria %v and options %v", criteria, options)
 }

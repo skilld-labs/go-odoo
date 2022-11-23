@@ -84,7 +84,7 @@ func (c *Client) FindStockQuantityHistory(criteria *Criteria) (*StockQuantityHis
 	if sqhs != nil && len(*sqhs) > 0 {
 		return &((*sqhs)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.quantity.history was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.quantity.history was not found with criteria %v", criteria)
 }
 
 // FindStockQuantityHistorys finds stock.quantity.history records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindStockQuantityHistoryId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.quantity.history was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.quantity.history was not found with criteria %v and options %v", criteria, options)
 }

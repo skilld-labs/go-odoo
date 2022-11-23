@@ -90,7 +90,7 @@ func (c *Client) FindAccountReportGeneralLedger(criteria *Criteria) (*AccountRep
 	if argls != nil && len(*argls) > 0 {
 		return &((*argls)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.report.general.ledger was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.report.general.ledger was not found with criteria %v", criteria)
 }
 
 // FindAccountReportGeneralLedgers finds account.report.general.ledger records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindAccountReportGeneralLedgerId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.report.general.ledger was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.report.general.ledger was not found with criteria %v and options %v", criteria, options)
 }

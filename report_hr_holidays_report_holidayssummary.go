@@ -78,7 +78,7 @@ func (c *Client) FindReportHrHolidaysReportHolidayssummary(criteria *Criteria) (
 	if rhrs != nil && len(*rhrs) > 0 {
 		return &((*rhrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.hr_holidays.report_holidayssummary was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.hr_holidays.report_holidayssummary was not found with criteria %v", criteria)
 }
 
 // FindReportHrHolidaysReportHolidayssummarys finds report.hr_holidays.report_holidayssummary records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportHrHolidaysReportHolidayssummaryId(criteria *Criteria,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.hr_holidays.report_holidayssummary was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.hr_holidays.report_holidayssummary was not found with criteria %v and options %v", criteria, options)
 }

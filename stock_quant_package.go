@@ -94,7 +94,7 @@ func (c *Client) FindStockQuantPackage(criteria *Criteria) (*StockQuantPackage, 
 	if sqps != nil && len(*sqps) > 0 {
 		return &((*sqps)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.quant.package was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.quant.package was not found with criteria %v", criteria)
 }
 
 // FindStockQuantPackages finds stock.quant.package records by querying it
@@ -126,5 +126,5 @@ func (c *Client) FindStockQuantPackageId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.quant.package was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.quant.package was not found with criteria %v and options %v", criteria, options)
 }

@@ -91,7 +91,7 @@ func (c *Client) FindCrmLead2OpportunityPartnerMass(criteria *Criteria) (*CrmLea
 	if clpms != nil && len(*clpms) > 0 {
 		return &((*clpms)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.lead2opportunity.partner.mass was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.lead2opportunity.partner.mass was not found with criteria %v", criteria)
 }
 
 // FindCrmLead2OpportunityPartnerMasss finds crm.lead2opportunity.partner.mass records by querying it
@@ -123,5 +123,5 @@ func (c *Client) FindCrmLead2OpportunityPartnerMassId(criteria *Criteria, option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.lead2opportunity.partner.mass was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.lead2opportunity.partner.mass was not found with criteria %v and options %v", criteria, options)
 }

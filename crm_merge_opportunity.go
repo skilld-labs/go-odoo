@@ -85,7 +85,7 @@ func (c *Client) FindCrmMergeOpportunity(criteria *Criteria) (*CrmMergeOpportuni
 	if cmos != nil && len(*cmos) > 0 {
 		return &((*cmos)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.merge.opportunity was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.merge.opportunity was not found with criteria %v", criteria)
 }
 
 // FindCrmMergeOpportunitys finds crm.merge.opportunity records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindCrmMergeOpportunityId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.merge.opportunity was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.merge.opportunity was not found with criteria %v and options %v", criteria, options)
 }

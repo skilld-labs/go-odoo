@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldSelection(criteria *Criteria) (*IrQwebFieldSelec
 	if iqfss != nil && len(*iqfss) > 0 {
 		return &((*iqfss)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.selection was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.selection was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldSelections finds ir.qweb.field.selection records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldSelectionId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.selection was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.selection was not found with criteria %v and options %v", criteria, options)
 }

@@ -113,7 +113,7 @@ func (c *Client) FindIrModelFields(criteria *Criteria) (*IrModelFields, error) {
 	if imfs != nil && len(*imfs) > 0 {
 		return &((*imfs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.model.fields was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.model.fields was not found with criteria %v", criteria)
 }
 
 // FindIrModelFieldss finds ir.model.fields records by querying it
@@ -145,5 +145,5 @@ func (c *Client) FindIrModelFieldsId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.model.fields was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.model.fields was not found with criteria %v and options %v", criteria, options)
 }

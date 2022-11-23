@@ -84,7 +84,7 @@ func (c *Client) FindProductPutaway(criteria *Criteria) (*ProductPutaway, error)
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.putaway was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.putaway was not found with criteria %v", criteria)
 }
 
 // FindProductPutaways finds product.putaway records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindProductPutawayId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.putaway was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.putaway was not found with criteria %v and options %v", criteria, options)
 }

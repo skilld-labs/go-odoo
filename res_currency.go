@@ -93,7 +93,7 @@ func (c *Client) FindResCurrency(criteria *Criteria) (*ResCurrency, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.currency was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.currency was not found with criteria %v", criteria)
 }
 
 // FindResCurrencys finds res.currency records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindResCurrencyId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.currency was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.currency was not found with criteria %v and options %v", criteria, options)
 }

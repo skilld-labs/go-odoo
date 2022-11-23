@@ -82,7 +82,7 @@ func (c *Client) FindResConfigInstaller(criteria *Criteria) (*ResConfigInstaller
 	if rcis != nil && len(*rcis) > 0 {
 		return &((*rcis)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.config.installer was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.config.installer was not found with criteria %v", criteria)
 }
 
 // FindResConfigInstallers finds res.config.installer records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindResConfigInstallerId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.config.installer was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.config.installer was not found with criteria %v and options %v", criteria, options)
 }

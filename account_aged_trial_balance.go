@@ -89,7 +89,7 @@ func (c *Client) FindAccountAgedTrialBalance(criteria *Criteria) (*AccountAgedTr
 	if aatbs != nil && len(*aatbs) > 0 {
 		return &((*aatbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.aged.trial.balance was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.aged.trial.balance was not found with criteria %v", criteria)
 }
 
 // FindAccountAgedTrialBalances finds account.aged.trial.balance records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindAccountAgedTrialBalanceId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.aged.trial.balance was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.aged.trial.balance was not found with criteria %v and options %v", criteria, options)
 }

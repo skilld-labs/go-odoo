@@ -92,7 +92,7 @@ func (c *Client) FindIrRule(criteria *Criteria) (*IrRule, error) {
 	if irs != nil && len(*irs) > 0 {
 		return &((*irs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.rule was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.rule was not found with criteria %v", criteria)
 }
 
 // FindIrRules finds ir.rule records by querying it
@@ -124,5 +124,5 @@ func (c *Client) FindIrRuleId(criteria *Criteria, options *Options) (int64, erro
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.rule was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.rule was not found with criteria %v and options %v", criteria, options)
 }

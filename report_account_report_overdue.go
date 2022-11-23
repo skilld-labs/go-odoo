@@ -78,7 +78,7 @@ func (c *Client) FindReportAccountReportOverdue(criteria *Criteria) (*ReportAcco
 	if rars != nil && len(*rars) > 0 {
 		return &((*rars)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.account.report_overdue was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.account.report_overdue was not found with criteria %v", criteria)
 }
 
 // FindReportAccountReportOverdues finds report.account.report_overdue records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportAccountReportOverdueId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.account.report_overdue was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.account.report_overdue was not found with criteria %v and options %v", criteria, options)
 }

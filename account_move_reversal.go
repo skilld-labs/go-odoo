@@ -84,7 +84,7 @@ func (c *Client) FindAccountMoveReversal(criteria *Criteria) (*AccountMoveRevers
 	if amrs != nil && len(*amrs) > 0 {
 		return &((*amrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.move.reversal was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.move.reversal was not found with criteria %v", criteria)
 }
 
 // FindAccountMoveReversals finds account.move.reversal records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindAccountMoveReversalId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.move.reversal was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.move.reversal was not found with criteria %v and options %v", criteria, options)
 }

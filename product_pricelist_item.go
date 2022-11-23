@@ -104,7 +104,7 @@ func (c *Client) FindProductPricelistItem(criteria *Criteria) (*ProductPricelist
 	if ppis != nil && len(*ppis) > 0 {
 		return &((*ppis)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.pricelist.item was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.pricelist.item was not found with criteria %v", criteria)
 }
 
 // FindProductPricelistItems finds product.pricelist.item records by querying it
@@ -136,5 +136,5 @@ func (c *Client) FindProductPricelistItemId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.pricelist.item was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.pricelist.item was not found with criteria %v and options %v", criteria, options)
 }

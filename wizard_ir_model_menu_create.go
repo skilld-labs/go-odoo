@@ -84,7 +84,7 @@ func (c *Client) FindWizardIrModelMenuCreate(criteria *Criteria) (*WizardIrModel
 	if wimmcs != nil && len(*wimmcs) > 0 {
 		return &((*wimmcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no wizard.ir.model.menu.create was found with criteria %v", criteria)
+	return nil, fmt.Errorf("wizard.ir.model.menu.create was not found with criteria %v", criteria)
 }
 
 // FindWizardIrModelMenuCreates finds wizard.ir.model.menu.create records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindWizardIrModelMenuCreateId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no wizard.ir.model.menu.create was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("wizard.ir.model.menu.create was not found with criteria %v and options %v", criteria, options)
 }

@@ -90,7 +90,7 @@ func (c *Client) FindCrmStage(criteria *Criteria) (*CrmStage, error) {
 	if css != nil && len(*css) > 0 {
 		return &((*css)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.stage was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.stage was not found with criteria %v", criteria)
 }
 
 // FindCrmStages finds crm.stage records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindCrmStageId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.stage was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.stage was not found with criteria %v and options %v", criteria, options)
 }

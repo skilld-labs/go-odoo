@@ -84,7 +84,7 @@ func (c *Client) FindResPartnerTitle(criteria *Criteria) (*ResPartnerTitle, erro
 	if rpts != nil && len(*rpts) > 0 {
 		return &((*rpts)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.partner.title was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.partner.title was not found with criteria %v", criteria)
 }
 
 // FindResPartnerTitles finds res.partner.title records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindResPartnerTitleId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.partner.title was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.partner.title was not found with criteria %v and options %v", criteria, options)
 }

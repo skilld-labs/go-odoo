@@ -87,7 +87,7 @@ func (c *Client) FindAccountMoveLineReconcileWriteoff(criteria *Criteria) (*Acco
 	if amlrws != nil && len(*amlrws) > 0 {
 		return &((*amlrws)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.move.line.reconcile.writeoff was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.move.line.reconcile.writeoff was not found with criteria %v", criteria)
 }
 
 // FindAccountMoveLineReconcileWriteoffs finds account.move.line.reconcile.writeoff records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindAccountMoveLineReconcileWriteoffId(criteria *Criteria, opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.move.line.reconcile.writeoff was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.move.line.reconcile.writeoff was not found with criteria %v and options %v", criteria, options)
 }

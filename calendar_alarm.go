@@ -87,7 +87,7 @@ func (c *Client) FindCalendarAlarm(criteria *Criteria) (*CalendarAlarm, error) {
 	if cas != nil && len(*cas) > 0 {
 		return &((*cas)[0]), nil
 	}
-	return nil, fmt.Errorf("no calendar.alarm was found with criteria %v", criteria)
+	return nil, fmt.Errorf("calendar.alarm was not found with criteria %v", criteria)
 }
 
 // FindCalendarAlarms finds calendar.alarm records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindCalendarAlarmId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no calendar.alarm was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("calendar.alarm was not found with criteria %v and options %v", criteria, options)
 }

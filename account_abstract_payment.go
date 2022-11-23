@@ -90,7 +90,7 @@ func (c *Client) FindAccountAbstractPayment(criteria *Criteria) (*AccountAbstrac
 	if aaps != nil && len(*aaps) > 0 {
 		return &((*aaps)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.abstract.payment was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.abstract.payment was not found with criteria %v", criteria)
 }
 
 // FindAccountAbstractPayments finds account.abstract.payment records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindAccountAbstractPaymentId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.abstract.payment was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.abstract.payment was not found with criteria %v and options %v", criteria, options)
 }

@@ -108,7 +108,7 @@ func (c *Client) FindPaymentTransaction(criteria *Criteria) (*PaymentTransaction
 	if pts != nil && len(*pts) > 0 {
 		return &((*pts)[0]), nil
 	}
-	return nil, fmt.Errorf("no payment.transaction was found with criteria %v", criteria)
+	return nil, fmt.Errorf("payment.transaction was not found with criteria %v", criteria)
 }
 
 // FindPaymentTransactions finds payment.transaction records by querying it
@@ -140,5 +140,5 @@ func (c *Client) FindPaymentTransactionId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no payment.transaction was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("payment.transaction was not found with criteria %v and options %v", criteria, options)
 }

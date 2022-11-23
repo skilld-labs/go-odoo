@@ -78,7 +78,7 @@ func (c *Client) FindReportSaleReportSaleproforma(criteria *Criteria) (*ReportSa
 	if rsrs != nil && len(*rsrs) > 0 {
 		return &((*rsrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.sale.report_saleproforma was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.sale.report_saleproforma was not found with criteria %v", criteria)
 }
 
 // FindReportSaleReportSaleproformas finds report.sale.report_saleproforma records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportSaleReportSaleproformaId(criteria *Criteria, options 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.sale.report_saleproforma was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.sale.report_saleproforma was not found with criteria %v and options %v", criteria, options)
 }

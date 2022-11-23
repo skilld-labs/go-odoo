@@ -78,7 +78,7 @@ func (c *Client) FindSmsApi(criteria *Criteria) (*SmsApi, error) {
 	if sas != nil && len(*sas) > 0 {
 		return &((*sas)[0]), nil
 	}
-	return nil, fmt.Errorf("no sms.api was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sms.api was not found with criteria %v", criteria)
 }
 
 // FindSmsApis finds sms.api records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindSmsApiId(criteria *Criteria, options *Options) (int64, erro
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sms.api was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sms.api was not found with criteria %v and options %v", criteria, options)
 }

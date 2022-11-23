@@ -93,7 +93,7 @@ func (c *Client) FindReportAllChannelsSales(criteria *Criteria) (*ReportAllChann
 	if racss != nil && len(*racss) > 0 {
 		return &((*racss)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.all.channels.sales was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.all.channels.sales was not found with criteria %v", criteria)
 }
 
 // FindReportAllChannelsSaless finds report.all.channels.sales records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindReportAllChannelsSalesId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.all.channels.sales was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.all.channels.sales was not found with criteria %v and options %v", criteria, options)
 }

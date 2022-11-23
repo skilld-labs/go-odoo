@@ -81,7 +81,7 @@ func (c *Client) FindResourceMixin(criteria *Criteria) (*ResourceMixin, error) {
 	if rms != nil && len(*rms) > 0 {
 		return &((*rms)[0]), nil
 	}
-	return nil, fmt.Errorf("no resource.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("resource.mixin was not found with criteria %v", criteria)
 }
 
 // FindResourceMixins finds resource.mixin records by querying it
@@ -113,5 +113,5 @@ func (c *Client) FindResourceMixinId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no resource.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("resource.mixin was not found with criteria %v and options %v", criteria, options)
 }

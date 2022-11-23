@@ -100,7 +100,7 @@ func (c *Client) FindProcurementRule(criteria *Criteria) (*ProcurementRule, erro
 	if prs != nil && len(*prs) > 0 {
 		return &((*prs)[0]), nil
 	}
-	return nil, fmt.Errorf("no procurement.rule was found with criteria %v", criteria)
+	return nil, fmt.Errorf("procurement.rule was not found with criteria %v", criteria)
 }
 
 // FindProcurementRules finds procurement.rule records by querying it
@@ -132,5 +132,5 @@ func (c *Client) FindProcurementRuleId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no procurement.rule was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("procurement.rule was not found with criteria %v and options %v", criteria, options)
 }

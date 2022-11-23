@@ -85,7 +85,7 @@ func (c *Client) FindIapAccount(criteria *Criteria) (*IapAccount, error) {
 	if ias != nil && len(*ias) > 0 {
 		return &((*ias)[0]), nil
 	}
-	return nil, fmt.Errorf("no iap.account was found with criteria %v", criteria)
+	return nil, fmt.Errorf("iap.account was not found with criteria %v", criteria)
 }
 
 // FindIapAccounts finds iap.account records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindIapAccountId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no iap.account was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("iap.account was not found with criteria %v and options %v", criteria, options)
 }

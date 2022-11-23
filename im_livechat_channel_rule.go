@@ -88,7 +88,7 @@ func (c *Client) FindImLivechatChannelRule(criteria *Criteria) (*ImLivechatChann
 	if icrs != nil && len(*icrs) > 0 {
 		return &((*icrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no im_livechat.channel.rule was found with criteria %v", criteria)
+	return nil, fmt.Errorf("im_livechat.channel.rule was not found with criteria %v", criteria)
 }
 
 // FindImLivechatChannelRules finds im_livechat.channel.rule records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindImLivechatChannelRuleId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no im_livechat.channel.rule was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("im_livechat.channel.rule was not found with criteria %v and options %v", criteria, options)
 }

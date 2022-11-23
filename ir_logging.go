@@ -90,7 +90,7 @@ func (c *Client) FindIrLogging(criteria *Criteria) (*IrLogging, error) {
 	if ils != nil && len(*ils) > 0 {
 		return &((*ils)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.logging was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.logging was not found with criteria %v", criteria)
 }
 
 // FindIrLoggings finds ir.logging records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindIrLoggingId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.logging was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.logging was not found with criteria %v and options %v", criteria, options)
 }

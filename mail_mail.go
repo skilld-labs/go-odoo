@@ -126,7 +126,7 @@ func (c *Client) FindMailMail(criteria *Criteria) (*MailMail, error) {
 	if mms != nil && len(*mms) > 0 {
 		return &((*mms)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.mail was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.mail was not found with criteria %v", criteria)
 }
 
 // FindMailMails finds mail.mail records by querying it
@@ -158,5 +158,5 @@ func (c *Client) FindMailMailId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.mail was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.mail was not found with criteria %v and options %v", criteria, options)
 }

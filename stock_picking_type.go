@@ -107,7 +107,7 @@ func (c *Client) FindStockPickingType(criteria *Criteria) (*StockPickingType, er
 	if spts != nil && len(*spts) > 0 {
 		return &((*spts)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.picking.type was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.picking.type was not found with criteria %v", criteria)
 }
 
 // FindStockPickingTypes finds stock.picking.type records by querying it
@@ -139,5 +139,5 @@ func (c *Client) FindStockPickingTypeId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.picking.type was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.picking.type was not found with criteria %v and options %v", criteria, options)
 }

@@ -88,7 +88,7 @@ func (c *Client) FindAccountBalanceReport(criteria *Criteria) (*AccountBalanceRe
 	if abrs != nil && len(*abrs) > 0 {
 		return &((*abrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.balance.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.balance.report was not found with criteria %v", criteria)
 }
 
 // FindAccountBalanceReports finds account.balance.report records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindAccountBalanceReportId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.balance.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.balance.report was not found with criteria %v and options %v", criteria, options)
 }

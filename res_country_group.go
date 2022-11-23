@@ -85,7 +85,7 @@ func (c *Client) FindResCountryGroup(criteria *Criteria) (*ResCountryGroup, erro
 	if rcgs != nil && len(*rcgs) > 0 {
 		return &((*rcgs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.country.group was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.country.group was not found with criteria %v", criteria)
 }
 
 // FindResCountryGroups finds res.country.group records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindResCountryGroupId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.country.group was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.country.group was not found with criteria %v and options %v", criteria, options)
 }

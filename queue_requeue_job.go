@@ -83,7 +83,7 @@ func (c *Client) FindQueueRequeueJob(criteria *Criteria) (*QueueRequeueJob, erro
 	if qrjs != nil && len(*qrjs) > 0 {
 		return &((*qrjs)[0]), nil
 	}
-	return nil, fmt.Errorf("no queue.requeue.job was found with criteria %v", criteria)
+	return nil, fmt.Errorf("queue.requeue.job was not found with criteria %v", criteria)
 }
 
 // FindQueueRequeueJobs finds queue.requeue.job records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindQueueRequeueJobId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no queue.requeue.job was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("queue.requeue.job was not found with criteria %v and options %v", criteria, options)
 }

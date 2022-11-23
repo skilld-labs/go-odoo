@@ -86,7 +86,7 @@ func (c *Client) FindAccountCashboxLine(criteria *Criteria) (*AccountCashboxLine
 	if acls != nil && len(*acls) > 0 {
 		return &((*acls)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.cashbox.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.cashbox.line was not found with criteria %v", criteria)
 }
 
 // FindAccountCashboxLines finds account.cashbox.line records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindAccountCashboxLineId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.cashbox.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.cashbox.line was not found with criteria %v and options %v", criteria, options)
 }

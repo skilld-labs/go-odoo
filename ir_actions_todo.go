@@ -86,7 +86,7 @@ func (c *Client) FindIrActionsTodo(criteria *Criteria) (*IrActionsTodo, error) {
 	if iats != nil && len(*iats) > 0 {
 		return &((*iats)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.actions.todo was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.actions.todo was not found with criteria %v", criteria)
 }
 
 // FindIrActionsTodos finds ir.actions.todo records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindIrActionsTodoId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.actions.todo was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.actions.todo was not found with criteria %v and options %v", criteria, options)
 }

@@ -100,7 +100,7 @@ func (c *Client) FindReportProjectTaskUser(criteria *Criteria) (*ReportProjectTa
 	if rptus != nil && len(*rptus) > 0 {
 		return &((*rptus)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.project.task.user was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.project.task.user was not found with criteria %v", criteria)
 }
 
 // FindReportProjectTaskUsers finds report.project.task.user records by querying it
@@ -132,5 +132,5 @@ func (c *Client) FindReportProjectTaskUserId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.project.task.user was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.project.task.user was not found with criteria %v and options %v", criteria, options)
 }

@@ -83,7 +83,7 @@ func (c *Client) FindCrmLeadLost(criteria *Criteria) (*CrmLeadLost, error) {
 	if clls != nil && len(*clls) > 0 {
 		return &((*clls)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.lead.lost was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.lead.lost was not found with criteria %v", criteria)
 }
 
 // FindCrmLeadLosts finds crm.lead.lost records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindCrmLeadLostId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.lead.lost was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.lead.lost was not found with criteria %v and options %v", criteria, options)
 }

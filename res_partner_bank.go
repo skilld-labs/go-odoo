@@ -93,7 +93,7 @@ func (c *Client) FindResPartnerBank(criteria *Criteria) (*ResPartnerBank, error)
 	if rpbs != nil && len(*rpbs) > 0 {
 		return &((*rpbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.partner.bank was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.partner.bank was not found with criteria %v", criteria)
 }
 
 // FindResPartnerBanks finds res.partner.bank records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindResPartnerBankId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.partner.bank was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.partner.bank was not found with criteria %v and options %v", criteria, options)
 }

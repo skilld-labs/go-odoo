@@ -140,7 +140,7 @@ func (c *Client) FindProjectProject(criteria *Criteria) (*ProjectProject, error)
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("no project.project was found with criteria %v", criteria)
+	return nil, fmt.Errorf("project.project was not found with criteria %v", criteria)
 }
 
 // FindProjectProjects finds project.project records by querying it
@@ -172,5 +172,5 @@ func (c *Client) FindProjectProjectId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no project.project was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("project.project was not found with criteria %v and options %v", criteria, options)
 }

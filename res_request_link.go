@@ -85,7 +85,7 @@ func (c *Client) FindResRequestLink(criteria *Criteria) (*ResRequestLink, error)
 	if rrls != nil && len(*rrls) > 0 {
 		return &((*rrls)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.request.link was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.request.link was not found with criteria %v", criteria)
 }
 
 // FindResRequestLinks finds res.request.link records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindResRequestLinkId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.request.link was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.request.link was not found with criteria %v and options %v", criteria, options)
 }

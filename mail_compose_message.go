@@ -123,7 +123,7 @@ func (c *Client) FindMailComposeMessage(criteria *Criteria) (*MailComposeMessage
 	if mcms != nil && len(*mcms) > 0 {
 		return &((*mcms)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.compose.message was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.compose.message was not found with criteria %v", criteria)
 }
 
 // FindMailComposeMessages finds mail.compose.message records by querying it
@@ -155,5 +155,5 @@ func (c *Client) FindMailComposeMessageId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.compose.message was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.compose.message was not found with criteria %v and options %v", criteria, options)
 }

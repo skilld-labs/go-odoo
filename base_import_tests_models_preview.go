@@ -85,7 +85,7 @@ func (c *Client) FindBaseImportTestsModelsPreview(criteria *Criteria) (*BaseImpo
 	if btmps != nil && len(*btmps) > 0 {
 		return &((*btmps)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.preview was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.preview was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsPreviews finds base_import.tests.models.preview records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindBaseImportTestsModelsPreviewId(criteria *Criteria, options 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.preview was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.preview was not found with criteria %v and options %v", criteria, options)
 }

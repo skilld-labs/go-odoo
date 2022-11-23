@@ -79,7 +79,7 @@ func (c *Client) FindBarcodesBarcodeEventsMixin(criteria *Criteria) (*BarcodesBa
 	if bbs != nil && len(*bbs) > 0 {
 		return &((*bbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no barcodes.barcode_events_mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("barcodes.barcode_events_mixin was not found with criteria %v", criteria)
 }
 
 // FindBarcodesBarcodeEventsMixins finds barcodes.barcode_events_mixin records by querying it
@@ -111,5 +111,5 @@ func (c *Client) FindBarcodesBarcodeEventsMixinId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no barcodes.barcode_events_mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("barcodes.barcode_events_mixin was not found with criteria %v and options %v", criteria, options)
 }

@@ -88,7 +88,7 @@ func (c *Client) FindIrTranslation(criteria *Criteria) (*IrTranslation, error) {
 	if its != nil && len(*its) > 0 {
 		return &((*its)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.translation was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.translation was not found with criteria %v", criteria)
 }
 
 // FindIrTranslations finds ir.translation records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindIrTranslationId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.translation was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.translation was not found with criteria %v and options %v", criteria, options)
 }

@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldDuration(criteria *Criteria) (*IrQwebFieldDurati
 	if iqfds != nil && len(*iqfds) > 0 {
 		return &((*iqfds)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.duration was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.duration was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldDurations finds ir.qweb.field.duration records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldDurationId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.duration was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.duration was not found with criteria %v and options %v", criteria, options)
 }

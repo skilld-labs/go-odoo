@@ -88,7 +88,7 @@ func (c *Client) FindStockReturnPicking(criteria *Criteria) (*StockReturnPicking
 	if srps != nil && len(*srps) > 0 {
 		return &((*srps)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.return.picking was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.return.picking was not found with criteria %v", criteria)
 }
 
 // FindStockReturnPickings finds stock.return.picking records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindStockReturnPickingId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.return.picking was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.return.picking was not found with criteria %v and options %v", criteria, options)
 }

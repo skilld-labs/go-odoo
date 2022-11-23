@@ -83,7 +83,7 @@ func (c *Client) FindBaseModuleUpgrade(criteria *Criteria) (*BaseModuleUpgrade, 
 	if bmus != nil && len(*bmus) > 0 {
 		return &((*bmus)[0]), nil
 	}
-	return nil, fmt.Errorf("no base.module.upgrade was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base.module.upgrade was not found with criteria %v", criteria)
 }
 
 // FindBaseModuleUpgrades finds base.module.upgrade records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindBaseModuleUpgradeId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base.module.upgrade was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base.module.upgrade was not found with criteria %v and options %v", criteria, options)
 }

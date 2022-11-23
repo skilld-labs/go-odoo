@@ -88,7 +88,7 @@ func (c *Client) FindStockChangeProductQty(criteria *Criteria) (*StockChangeProd
 	if scpqs != nil && len(*scpqs) > 0 {
 		return &((*scpqs)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.change.product.qty was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.change.product.qty was not found with criteria %v", criteria)
 }
 
 // FindStockChangeProductQtys finds stock.change.product.qty records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindStockChangeProductQtyId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.change.product.qty was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.change.product.qty was not found with criteria %v and options %v", criteria, options)
 }

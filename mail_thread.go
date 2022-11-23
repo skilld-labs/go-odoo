@@ -89,7 +89,7 @@ func (c *Client) FindMailThread(criteria *Criteria) (*MailThread, error) {
 	if mts != nil && len(*mts) > 0 {
 		return &((*mts)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.thread was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.thread was not found with criteria %v", criteria)
 }
 
 // FindMailThreads finds mail.thread records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindMailThreadId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.thread was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.thread was not found with criteria %v and options %v", criteria, options)
 }

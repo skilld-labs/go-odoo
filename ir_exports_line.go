@@ -84,7 +84,7 @@ func (c *Client) FindIrExportsLine(criteria *Criteria) (*IrExportsLine, error) {
 	if iels != nil && len(*iels) > 0 {
 		return &((*iels)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.exports.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.exports.line was not found with criteria %v", criteria)
 }
 
 // FindIrExportsLines finds ir.exports.line records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindIrExportsLineId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.exports.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.exports.line was not found with criteria %v and options %v", criteria, options)
 }

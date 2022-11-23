@@ -89,7 +89,7 @@ func (c *Client) FindImLivechatReportChannel(criteria *Criteria) (*ImLivechatRep
 	if ircs != nil && len(*ircs) > 0 {
 		return &((*ircs)[0]), nil
 	}
-	return nil, fmt.Errorf("no im_livechat.report.channel was found with criteria %v", criteria)
+	return nil, fmt.Errorf("im_livechat.report.channel was not found with criteria %v", criteria)
 }
 
 // FindImLivechatReportChannels finds im_livechat.report.channel records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindImLivechatReportChannelId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no im_livechat.report.channel was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("im_livechat.report.channel was not found with criteria %v and options %v", criteria, options)
 }

@@ -88,7 +88,7 @@ func (c *Client) FindMailStatisticsReport(criteria *Criteria) (*MailStatisticsRe
 	if msrs != nil && len(*msrs) > 0 {
 		return &((*msrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.statistics.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.statistics.report was not found with criteria %v", criteria)
 }
 
 // FindMailStatisticsReports finds mail.statistics.report records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindMailStatisticsReportId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.statistics.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.statistics.report was not found with criteria %v and options %v", criteria, options)
 }

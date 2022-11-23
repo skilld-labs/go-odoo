@@ -100,7 +100,7 @@ func (c *Client) FindIrUiView(criteria *Criteria) (*IrUiView, error) {
 	if iuvs != nil && len(*iuvs) > 0 {
 		return &((*iuvs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.ui.view was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.ui.view was not found with criteria %v", criteria)
 }
 
 // FindIrUiViews finds ir.ui.view records by querying it
@@ -132,5 +132,5 @@ func (c *Client) FindIrUiViewId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.ui.view was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.ui.view was not found with criteria %v and options %v", criteria, options)
 }

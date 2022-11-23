@@ -108,7 +108,7 @@ func (c *Client) FindAccountInvoiceReport(criteria *Criteria) (*AccountInvoiceRe
 	if airs != nil && len(*airs) > 0 {
 		return &((*airs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.invoice.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.invoice.report was not found with criteria %v", criteria)
 }
 
 // FindAccountInvoiceReports finds account.invoice.report records by querying it
@@ -140,5 +140,5 @@ func (c *Client) FindAccountInvoiceReportId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.invoice.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.invoice.report was not found with criteria %v and options %v", criteria, options)
 }

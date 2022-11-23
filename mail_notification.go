@@ -83,7 +83,7 @@ func (c *Client) FindMailNotification(criteria *Criteria) (*MailNotification, er
 	if mns != nil && len(*mns) > 0 {
 		return &((*mns)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.notification was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.notification was not found with criteria %v", criteria)
 }
 
 // FindMailNotifications finds mail.notification records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindMailNotificationId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.notification was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.notification was not found with criteria %v and options %v", criteria, options)
 }

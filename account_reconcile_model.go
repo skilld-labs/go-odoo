@@ -100,7 +100,7 @@ func (c *Client) FindAccountReconcileModel(criteria *Criteria) (*AccountReconcil
 	if arms != nil && len(*arms) > 0 {
 		return &((*arms)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.reconcile.model was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.reconcile.model was not found with criteria %v", criteria)
 }
 
 // FindAccountReconcileModels finds account.reconcile.model records by querying it
@@ -132,5 +132,5 @@ func (c *Client) FindAccountReconcileModelId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.reconcile.model was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.reconcile.model was not found with criteria %v and options %v", criteria, options)
 }

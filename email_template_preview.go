@@ -109,7 +109,7 @@ func (c *Client) FindEmailTemplatePreview(criteria *Criteria) (*EmailTemplatePre
 	if eps != nil && len(*eps) > 0 {
 		return &((*eps)[0]), nil
 	}
-	return nil, fmt.Errorf("no email_template.preview was found with criteria %v", criteria)
+	return nil, fmt.Errorf("email_template.preview was not found with criteria %v", criteria)
 }
 
 // FindEmailTemplatePreviews finds email_template.preview records by querying it
@@ -141,5 +141,5 @@ func (c *Client) FindEmailTemplatePreviewId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no email_template.preview was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("email_template.preview was not found with criteria %v and options %v", criteria, options)
 }

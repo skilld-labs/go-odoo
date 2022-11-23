@@ -78,7 +78,7 @@ func (c *Client) FindFormatAddressMixin(criteria *Criteria) (*FormatAddressMixin
 	if fams != nil && len(*fams) > 0 {
 		return &((*fams)[0]), nil
 	}
-	return nil, fmt.Errorf("no format.address.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("format.address.mixin was not found with criteria %v", criteria)
 }
 
 // FindFormatAddressMixins finds format.address.mixin records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindFormatAddressMixinId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no format.address.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("format.address.mixin was not found with criteria %v and options %v", criteria, options)
 }

@@ -91,7 +91,7 @@ func (c *Client) FindIrMailServer(criteria *Criteria) (*IrMailServer, error) {
 	if ims != nil && len(*ims) > 0 {
 		return &((*ims)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.mail_server was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.mail_server was not found with criteria %v", criteria)
 }
 
 // FindIrMailServers finds ir.mail_server records by querying it
@@ -123,5 +123,5 @@ func (c *Client) FindIrMailServerId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.mail_server was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.mail_server was not found with criteria %v and options %v", criteria, options)
 }

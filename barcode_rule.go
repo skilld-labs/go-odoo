@@ -89,7 +89,7 @@ func (c *Client) FindBarcodeRule(criteria *Criteria) (*BarcodeRule, error) {
 	if brs != nil && len(*brs) > 0 {
 		return &((*brs)[0]), nil
 	}
-	return nil, fmt.Errorf("no barcode.rule was found with criteria %v", criteria)
+	return nil, fmt.Errorf("barcode.rule was not found with criteria %v", criteria)
 }
 
 // FindBarcodeRules finds barcode.rule records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindBarcodeRuleId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no barcode.rule was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("barcode.rule was not found with criteria %v and options %v", criteria, options)
 }

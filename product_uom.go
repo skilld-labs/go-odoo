@@ -89,7 +89,7 @@ func (c *Client) FindProductUom(criteria *Criteria) (*ProductUom, error) {
 	if pus != nil && len(*pus) > 0 {
 		return &((*pus)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.uom was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.uom was not found with criteria %v", criteria)
 }
 
 // FindProductUoms finds product.uom records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindProductUomId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.uom was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.uom was not found with criteria %v and options %v", criteria, options)
 }

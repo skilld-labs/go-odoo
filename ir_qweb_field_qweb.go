@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldQweb(criteria *Criteria) (*IrQwebFieldQweb, erro
 	if iqfqs != nil && len(*iqfqs) > 0 {
 		return &((*iqfqs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.qweb was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.qweb was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldQwebs finds ir.qweb.field.qweb records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldQwebId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.qweb was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.qweb was not found with criteria %v and options %v", criteria, options)
 }

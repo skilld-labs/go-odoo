@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldFloat(criteria *Criteria) (*IrQwebFieldFloat, er
 	if iqffs != nil && len(*iqffs) > 0 {
 		return &((*iqffs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.float was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.float was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldFloats finds ir.qweb.field.float records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldFloatId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.float was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.float was not found with criteria %v and options %v", criteria, options)
 }

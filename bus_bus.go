@@ -84,7 +84,7 @@ func (c *Client) FindBusBus(criteria *Criteria) (*BusBus, error) {
 	if bbs != nil && len(*bbs) > 0 {
 		return &((*bbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no bus.bus was found with criteria %v", criteria)
+	return nil, fmt.Errorf("bus.bus was not found with criteria %v", criteria)
 }
 
 // FindBusBuss finds bus.bus records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindBusBusId(criteria *Criteria, options *Options) (int64, erro
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no bus.bus was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("bus.bus was not found with criteria %v and options %v", criteria, options)
 }

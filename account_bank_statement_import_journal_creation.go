@@ -117,7 +117,7 @@ func (c *Client) FindAccountBankStatementImportJournalCreation(criteria *Criteri
 	if absijcs != nil && len(*absijcs) > 0 {
 		return &((*absijcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.statement.import.journal.creation was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.statement.import.journal.creation was not found with criteria %v", criteria)
 }
 
 // FindAccountBankStatementImportJournalCreations finds account.bank.statement.import.journal.creation records by querying it
@@ -149,5 +149,5 @@ func (c *Client) FindAccountBankStatementImportJournalCreationId(criteria *Crite
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.statement.import.journal.creation was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.statement.import.journal.creation was not found with criteria %v and options %v", criteria, options)
 }

@@ -84,7 +84,7 @@ func (c *Client) FindProductRemoval(criteria *Criteria) (*ProductRemoval, error)
 	if prs != nil && len(*prs) > 0 {
 		return &((*prs)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.removal was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.removal was not found with criteria %v", criteria)
 }
 
 // FindProductRemovals finds product.removal records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindProductRemovalId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.removal was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.removal was not found with criteria %v and options %v", criteria, options)
 }

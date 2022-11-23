@@ -94,7 +94,7 @@ func (c *Client) FindIrUiMenu(criteria *Criteria) (*IrUiMenu, error) {
 	if iums != nil && len(*iums) > 0 {
 		return &((*iums)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.ui.menu was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.ui.menu was not found with criteria %v", criteria)
 }
 
 // FindIrUiMenus finds ir.ui.menu records by querying it
@@ -126,5 +126,5 @@ func (c *Client) FindIrUiMenuId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.ui.menu was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.ui.menu was not found with criteria %v and options %v", criteria, options)
 }

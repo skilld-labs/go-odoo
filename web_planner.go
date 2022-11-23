@@ -90,7 +90,7 @@ func (c *Client) FindWebPlanner(criteria *Criteria) (*WebPlanner, error) {
 	if wps != nil && len(*wps) > 0 {
 		return &((*wps)[0]), nil
 	}
-	return nil, fmt.Errorf("no web.planner was found with criteria %v", criteria)
+	return nil, fmt.Errorf("web.planner was not found with criteria %v", criteria)
 }
 
 // FindWebPlanners finds web.planner records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindWebPlannerId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no web.planner was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("web.planner was not found with criteria %v and options %v", criteria, options)
 }

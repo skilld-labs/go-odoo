@@ -83,7 +83,7 @@ func (c *Client) FindWebEditorConverterTestSub(criteria *Criteria) (*WebEditorCo
 	if wctss != nil && len(*wctss) > 0 {
 		return &((*wctss)[0]), nil
 	}
-	return nil, fmt.Errorf("no web_editor.converter.test.sub was found with criteria %v", criteria)
+	return nil, fmt.Errorf("web_editor.converter.test.sub was not found with criteria %v", criteria)
 }
 
 // FindWebEditorConverterTestSubs finds web_editor.converter.test.sub records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindWebEditorConverterTestSubId(criteria *Criteria, options *Op
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no web_editor.converter.test.sub was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("web_editor.converter.test.sub was not found with criteria %v and options %v", criteria, options)
 }

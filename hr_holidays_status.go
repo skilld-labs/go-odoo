@@ -96,7 +96,7 @@ func (c *Client) FindHrHolidaysStatus(criteria *Criteria) (*HrHolidaysStatus, er
 	if hhss != nil && len(*hhss) > 0 {
 		return &((*hhss)[0]), nil
 	}
-	return nil, fmt.Errorf("no hr.holidays.status was found with criteria %v", criteria)
+	return nil, fmt.Errorf("hr.holidays.status was not found with criteria %v", criteria)
 }
 
 // FindHrHolidaysStatuss finds hr.holidays.status records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindHrHolidaysStatusId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no hr.holidays.status was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("hr.holidays.status was not found with criteria %v and options %v", criteria, options)
 }

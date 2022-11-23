@@ -88,7 +88,7 @@ func (c *Client) FindMailWizardInvite(criteria *Criteria) (*MailWizardInvite, er
 	if mwis != nil && len(*mwis) > 0 {
 		return &((*mwis)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.wizard.invite was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.wizard.invite was not found with criteria %v", criteria)
 }
 
 // FindMailWizardInvites finds mail.wizard.invite records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindMailWizardInviteId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.wizard.invite was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.wizard.invite was not found with criteria %v and options %v", criteria, options)
 }

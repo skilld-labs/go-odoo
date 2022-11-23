@@ -87,7 +87,7 @@ func (c *Client) FindBaseLanguageImport(criteria *Criteria) (*BaseLanguageImport
 	if blis != nil && len(*blis) > 0 {
 		return &((*blis)[0]), nil
 	}
-	return nil, fmt.Errorf("no base.language.import was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base.language.import was not found with criteria %v", criteria)
 }
 
 // FindBaseLanguageImports finds base.language.import records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindBaseLanguageImportId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base.language.import was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base.language.import was not found with criteria %v and options %v", criteria, options)
 }

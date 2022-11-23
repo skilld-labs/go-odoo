@@ -86,7 +86,7 @@ func (c *Client) FindAccountFullReconcile(criteria *Criteria) (*AccountFullRecon
 	if afrs != nil && len(*afrs) > 0 {
 		return &((*afrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.full.reconcile was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.full.reconcile was not found with criteria %v", criteria)
 }
 
 // FindAccountFullReconciles finds account.full.reconcile records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindAccountFullReconcileId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.full.reconcile was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.full.reconcile was not found with criteria %v and options %v", criteria, options)
 }

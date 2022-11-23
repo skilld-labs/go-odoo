@@ -109,7 +109,7 @@ func (c *Client) FindAccountAnalyticAccount(criteria *Criteria) (*AccountAnalyti
 	if aaas != nil && len(*aaas) > 0 {
 		return &((*aaas)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.analytic.account was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.analytic.account was not found with criteria %v", criteria)
 }
 
 // FindAccountAnalyticAccounts finds account.analytic.account records by querying it
@@ -141,5 +141,5 @@ func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.analytic.account was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.analytic.account was not found with criteria %v and options %v", criteria, options)
 }

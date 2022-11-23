@@ -86,7 +86,7 @@ func (c *Client) FindQueueJobChannel(criteria *Criteria) (*QueueJobChannel, erro
 	if qjcs != nil && len(*qjcs) > 0 {
 		return &((*qjcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no queue.job.channel was found with criteria %v", criteria)
+	return nil, fmt.Errorf("queue.job.channel was not found with criteria %v", criteria)
 }
 
 // FindQueueJobChannels finds queue.job.channel records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindQueueJobChannelId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no queue.job.channel was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("queue.job.channel was not found with criteria %v and options %v", criteria, options)
 }

@@ -121,7 +121,7 @@ func (c *Client) FindAccountPayment(criteria *Criteria) (*AccountPayment, error)
 	if aps != nil && len(*aps) > 0 {
 		return &((*aps)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.payment was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.payment was not found with criteria %v", criteria)
 }
 
 // FindAccountPayments finds account.payment records by querying it
@@ -153,5 +153,5 @@ func (c *Client) FindAccountPaymentId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.payment was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.payment was not found with criteria %v and options %v", criteria, options)
 }

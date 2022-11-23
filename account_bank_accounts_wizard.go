@@ -86,7 +86,7 @@ func (c *Client) FindAccountBankAccountsWizard(criteria *Criteria) (*AccountBank
 	if abaws != nil && len(*abaws) > 0 {
 		return &((*abaws)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.accounts.wizard was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.accounts.wizard was not found with criteria %v", criteria)
 }
 
 // FindAccountBankAccountsWizards finds account.bank.accounts.wizard records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindAccountBankAccountsWizardId(criteria *Criteria, options *Op
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.accounts.wizard was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.accounts.wizard was not found with criteria %v and options %v", criteria, options)
 }

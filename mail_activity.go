@@ -99,7 +99,7 @@ func (c *Client) FindMailActivity(criteria *Criteria) (*MailActivity, error) {
 	if mas != nil && len(*mas) > 0 {
 		return &((*mas)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.activity was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.activity was not found with criteria %v", criteria)
 }
 
 // FindMailActivitys finds mail.activity records by querying it
@@ -131,5 +131,5 @@ func (c *Client) FindMailActivityId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.activity was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.activity was not found with criteria %v and options %v", criteria, options)
 }

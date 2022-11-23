@@ -85,7 +85,7 @@ func (c *Client) FindIrExports(criteria *Criteria) (*IrExports, error) {
 	if ies != nil && len(*ies) > 0 {
 		return &((*ies)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.exports was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.exports was not found with criteria %v", criteria)
 }
 
 // FindIrExportss finds ir.exports records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindIrExportsId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.exports was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.exports was not found with criteria %v and options %v", criteria, options)
 }

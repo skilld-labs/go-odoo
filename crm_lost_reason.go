@@ -84,7 +84,7 @@ func (c *Client) FindCrmLostReason(criteria *Criteria) (*CrmLostReason, error) {
 	if clrs != nil && len(*clrs) > 0 {
 		return &((*clrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.lost.reason was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.lost.reason was not found with criteria %v", criteria)
 }
 
 // FindCrmLostReasons finds crm.lost.reason records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindCrmLostReasonId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.lost.reason was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.lost.reason was not found with criteria %v and options %v", criteria, options)
 }

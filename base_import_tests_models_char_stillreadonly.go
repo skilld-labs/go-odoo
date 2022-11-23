@@ -83,7 +83,7 @@ func (c *Client) FindBaseImportTestsModelsCharStillreadonly(criteria *Criteria) 
 	if btmcss != nil && len(*btmcss) > 0 {
 		return &((*btmcss)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.char.stillreadonly was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.char.stillreadonly was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsCharStillreadonlys finds base_import.tests.models.char.stillreadonly records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindBaseImportTestsModelsCharStillreadonlyId(criteria *Criteria
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.char.stillreadonly was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.char.stillreadonly was not found with criteria %v and options %v", criteria, options)
 }

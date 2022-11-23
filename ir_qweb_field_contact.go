@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldContact(criteria *Criteria) (*IrQwebFieldContact
 	if iqfcs != nil && len(*iqfcs) > 0 {
 		return &((*iqfcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.contact was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.contact was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldContacts finds ir.qweb.field.contact records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldContactId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.contact was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.contact was not found with criteria %v and options %v", criteria, options)
 }

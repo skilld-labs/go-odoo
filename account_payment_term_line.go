@@ -88,7 +88,7 @@ func (c *Client) FindAccountPaymentTermLine(criteria *Criteria) (*AccountPayment
 	if aptls != nil && len(*aptls) > 0 {
 		return &((*aptls)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.payment.term.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.payment.term.line was not found with criteria %v", criteria)
 }
 
 // FindAccountPaymentTermLines finds account.payment.term.line records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindAccountPaymentTermLineId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.payment.term.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.payment.term.line was not found with criteria %v and options %v", criteria, options)
 }

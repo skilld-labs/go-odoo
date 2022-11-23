@@ -85,7 +85,7 @@ func (c *Client) FindHrEmployeeCategory(criteria *Criteria) (*HrEmployeeCategory
 	if hecs != nil && len(*hecs) > 0 {
 		return &((*hecs)[0]), nil
 	}
-	return nil, fmt.Errorf("no hr.employee.category was found with criteria %v", criteria)
+	return nil, fmt.Errorf("hr.employee.category was not found with criteria %v", criteria)
 }
 
 // FindHrEmployeeCategorys finds hr.employee.category records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindHrEmployeeCategoryId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no hr.employee.category was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("hr.employee.category was not found with criteria %v and options %v", criteria, options)
 }

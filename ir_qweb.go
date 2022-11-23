@@ -78,7 +78,7 @@ func (c *Client) FindIrQweb(criteria *Criteria) (*IrQweb, error) {
 	if iqs != nil && len(*iqs) > 0 {
 		return &((*iqs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb was not found with criteria %v", criteria)
 }
 
 // FindIrQwebs finds ir.qweb records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebId(criteria *Criteria, options *Options) (int64, erro
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb was not found with criteria %v and options %v", criteria, options)
 }

@@ -144,7 +144,7 @@ func (c *Client) FindCalendarEvent(criteria *Criteria) (*CalendarEvent, error) {
 	if ces != nil && len(*ces) > 0 {
 		return &((*ces)[0]), nil
 	}
-	return nil, fmt.Errorf("no calendar.event was found with criteria %v", criteria)
+	return nil, fmt.Errorf("calendar.event was not found with criteria %v", criteria)
 }
 
 // FindCalendarEvents finds calendar.event records by querying it
@@ -176,5 +176,5 @@ func (c *Client) FindCalendarEventId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no calendar.event was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("calendar.event was not found with criteria %v and options %v", criteria, options)
 }

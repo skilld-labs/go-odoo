@@ -106,7 +106,7 @@ func (c *Client) FindCrmOpportunityReport(criteria *Criteria) (*CrmOpportunityRe
 	if cors != nil && len(*cors) > 0 {
 		return &((*cors)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.opportunity.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.opportunity.report was not found with criteria %v", criteria)
 }
 
 // FindCrmOpportunityReports finds crm.opportunity.report records by querying it
@@ -138,5 +138,5 @@ func (c *Client) FindCrmOpportunityReportId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.opportunity.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.opportunity.report was not found with criteria %v and options %v", criteria, options)
 }

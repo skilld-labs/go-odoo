@@ -232,7 +232,7 @@ func (c *Client) FindResUsers(criteria *Criteria) (*ResUsers, error) {
 	if rus != nil && len(*rus) > 0 {
 		return &((*rus)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.users was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.users was not found with criteria %v", criteria)
 }
 
 // FindResUserss finds res.users records by querying it
@@ -264,5 +264,5 @@ func (c *Client) FindResUsersId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.users was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.users was not found with criteria %v and options %v", criteria, options)
 }

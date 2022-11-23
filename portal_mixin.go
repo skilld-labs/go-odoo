@@ -79,7 +79,7 @@ func (c *Client) FindPortalMixin(criteria *Criteria) (*PortalMixin, error) {
 	if pms != nil && len(*pms) > 0 {
 		return &((*pms)[0]), nil
 	}
-	return nil, fmt.Errorf("no portal.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("portal.mixin was not found with criteria %v", criteria)
 }
 
 // FindPortalMixins finds portal.mixin records by querying it
@@ -111,5 +111,5 @@ func (c *Client) FindPortalMixinId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no portal.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("portal.mixin was not found with criteria %v and options %v", criteria, options)
 }

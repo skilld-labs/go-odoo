@@ -88,7 +88,7 @@ func (c *Client) FindProductAttributeValue(criteria *Criteria) (*ProductAttribut
 	if pavs != nil && len(*pavs) > 0 {
 		return &((*pavs)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.attribute.value was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.attribute.value was not found with criteria %v", criteria)
 }
 
 // FindProductAttributeValues finds product.attribute.value records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindProductAttributeValueId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.attribute.value was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.attribute.value was not found with criteria %v and options %v", criteria, options)
 }

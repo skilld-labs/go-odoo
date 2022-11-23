@@ -78,7 +78,7 @@ func (c *Client) FindReportBaseReportIrmodulereference(criteria *Criteria) (*Rep
 	if rbrs != nil && len(*rbrs) > 0 {
 		return &((*rbrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.base.report_irmodulereference was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.base.report_irmodulereference was not found with criteria %v", criteria)
 }
 
 // FindReportBaseReportIrmodulereferences finds report.base.report_irmodulereference records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindReportBaseReportIrmodulereferenceId(criteria *Criteria, opt
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.base.report_irmodulereference was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.base.report_irmodulereference was not found with criteria %v and options %v", criteria, options)
 }

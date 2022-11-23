@@ -90,7 +90,7 @@ func (c *Client) FindResPartnerCategory(criteria *Criteria) (*ResPartnerCategory
 	if rpcs != nil && len(*rpcs) > 0 {
 		return &((*rpcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.partner.category was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.partner.category was not found with criteria %v", criteria)
 }
 
 // FindResPartnerCategorys finds res.partner.category records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindResPartnerCategoryId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.partner.category was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.partner.category was not found with criteria %v and options %v", criteria, options)
 }

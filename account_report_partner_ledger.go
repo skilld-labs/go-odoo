@@ -90,7 +90,7 @@ func (c *Client) FindAccountReportPartnerLedger(criteria *Criteria) (*AccountRep
 	if arpls != nil && len(*arpls) > 0 {
 		return &((*arpls)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.report.partner.ledger was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.report.partner.ledger was not found with criteria %v", criteria)
 }
 
 // FindAccountReportPartnerLedgers finds account.report.partner.ledger records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindAccountReportPartnerLedgerId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.report.partner.ledger was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.report.partner.ledger was not found with criteria %v and options %v", criteria, options)
 }

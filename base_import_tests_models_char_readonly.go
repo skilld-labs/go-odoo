@@ -83,7 +83,7 @@ func (c *Client) FindBaseImportTestsModelsCharReadonly(criteria *Criteria) (*Bas
 	if btmcrs != nil && len(*btmcrs) > 0 {
 		return &((*btmcrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.char.readonly was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.char.readonly was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsCharReadonlys finds base_import.tests.models.char.readonly records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindBaseImportTestsModelsCharReadonlyId(criteria *Criteria, opt
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.char.readonly was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.char.readonly was not found with criteria %v and options %v", criteria, options)
 }

@@ -136,7 +136,7 @@ func (c *Client) FindStockPicking(criteria *Criteria) (*StockPicking, error) {
 	if sps != nil && len(*sps) > 0 {
 		return &((*sps)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.picking was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.picking was not found with criteria %v", criteria)
 }
 
 // FindStockPickings finds stock.picking records by querying it
@@ -168,5 +168,5 @@ func (c *Client) FindStockPickingId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.picking was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.picking was not found with criteria %v and options %v", criteria, options)
 }

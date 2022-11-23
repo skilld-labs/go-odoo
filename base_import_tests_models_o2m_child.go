@@ -84,7 +84,7 @@ func (c *Client) FindBaseImportTestsModelsO2MChild(criteria *Criteria) (*BaseImp
 	if btmocs != nil && len(*btmocs) > 0 {
 		return &((*btmocs)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.o2m.child was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.o2m.child was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsO2MChilds finds base_import.tests.models.o2m.child records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindBaseImportTestsModelsO2MChildId(criteria *Criteria, options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.o2m.child was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.o2m.child was not found with criteria %v and options %v", criteria, options)
 }

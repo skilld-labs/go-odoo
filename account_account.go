@@ -97,7 +97,7 @@ func (c *Client) FindAccountAccount(criteria *Criteria) (*AccountAccount, error)
 	if aas != nil && len(*aas) > 0 {
 		return &((*aas)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.account was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.account was not found with criteria %v", criteria)
 }
 
 // FindAccountAccounts finds account.account records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindAccountAccountId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.account was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.account was not found with criteria %v and options %v", criteria, options)
 }

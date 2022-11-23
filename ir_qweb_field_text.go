@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldText(criteria *Criteria) (*IrQwebFieldText, erro
 	if iqfts != nil && len(*iqfts) > 0 {
 		return &((*iqfts)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.text was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.text was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldTexts finds ir.qweb.field.text records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldTextId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.text was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.text was not found with criteria %v and options %v", criteria, options)
 }

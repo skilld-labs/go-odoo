@@ -78,7 +78,7 @@ func (c *Client) FindBoardBoard(criteria *Criteria) (*BoardBoard, error) {
 	if bbs != nil && len(*bbs) > 0 {
 		return &((*bbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no board.board was found with criteria %v", criteria)
+	return nil, fmt.Errorf("board.board was not found with criteria %v", criteria)
 }
 
 // FindBoardBoards finds board.board records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindBoardBoardId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no board.board was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("board.board was not found with criteria %v and options %v", criteria, options)
 }

@@ -84,7 +84,7 @@ func (c *Client) FindMailActivityMixin(criteria *Criteria) (*MailActivityMixin, 
 	if mams != nil && len(*mams) > 0 {
 		return &((*mams)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.activity.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.activity.mixin was not found with criteria %v", criteria)
 }
 
 // FindMailActivityMixins finds mail.activity.mixin records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindMailActivityMixinId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.activity.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.activity.mixin was not found with criteria %v and options %v", criteria, options)
 }

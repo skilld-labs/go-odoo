@@ -104,7 +104,7 @@ func (c *Client) FindPurchaseReport(criteria *Criteria) (*PurchaseReport, error)
 	if prs != nil && len(*prs) > 0 {
 		return &((*prs)[0]), nil
 	}
-	return nil, fmt.Errorf("no purchase.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("purchase.report was not found with criteria %v", criteria)
 }
 
 // FindPurchaseReports finds purchase.report records by querying it
@@ -136,5 +136,5 @@ func (c *Client) FindPurchaseReportId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no purchase.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("purchase.report was not found with criteria %v and options %v", criteria, options)
 }

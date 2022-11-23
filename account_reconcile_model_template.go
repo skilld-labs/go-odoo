@@ -96,7 +96,7 @@ func (c *Client) FindAccountReconcileModelTemplate(criteria *Criteria) (*Account
 	if armts != nil && len(*armts) > 0 {
 		return &((*armts)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.reconcile.model.template was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.reconcile.model.template was not found with criteria %v", criteria)
 }
 
 // FindAccountReconcileModelTemplates finds account.reconcile.model.template records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindAccountReconcileModelTemplateId(criteria *Criteria, options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.reconcile.model.template was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.reconcile.model.template was not found with criteria %v and options %v", criteria, options)
 }

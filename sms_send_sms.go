@@ -84,7 +84,7 @@ func (c *Client) FindSmsSendSms(criteria *Criteria) (*SmsSendSms, error) {
 	if sss != nil && len(*sss) > 0 {
 		return &((*sss)[0]), nil
 	}
-	return nil, fmt.Errorf("no sms.send_sms was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sms.send_sms was not found with criteria %v", criteria)
 }
 
 // FindSmsSendSmss finds sms.send_sms records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindSmsSendSmsId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sms.send_sms was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sms.send_sms was not found with criteria %v and options %v", criteria, options)
 }

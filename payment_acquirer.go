@@ -117,7 +117,7 @@ func (c *Client) FindPaymentAcquirer(criteria *Criteria) (*PaymentAcquirer, erro
 	if pas != nil && len(*pas) > 0 {
 		return &((*pas)[0]), nil
 	}
-	return nil, fmt.Errorf("no payment.acquirer was found with criteria %v", criteria)
+	return nil, fmt.Errorf("payment.acquirer was not found with criteria %v", criteria)
 }
 
 // FindPaymentAcquirers finds payment.acquirer records by querying it
@@ -149,5 +149,5 @@ func (c *Client) FindPaymentAcquirerId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no payment.acquirer was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("payment.acquirer was not found with criteria %v and options %v", criteria, options)
 }

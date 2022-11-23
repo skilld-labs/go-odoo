@@ -98,7 +98,7 @@ func (c *Client) FindMailTrackingValue(criteria *Criteria) (*MailTrackingValue, 
 	if mtvs != nil && len(*mtvs) > 0 {
 		return &((*mtvs)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.tracking.value was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.tracking.value was not found with criteria %v", criteria)
 }
 
 // FindMailTrackingValues finds mail.tracking.value records by querying it
@@ -130,5 +130,5 @@ func (c *Client) FindMailTrackingValueId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.tracking.value was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.tracking.value was not found with criteria %v and options %v", criteria, options)
 }

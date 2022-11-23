@@ -97,7 +97,7 @@ func (c *Client) FindAccountMove(criteria *Criteria) (*AccountMove, error) {
 	if ams != nil && len(*ams) > 0 {
 		return &((*ams)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.move was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.move was not found with criteria %v", criteria)
 }
 
 // FindAccountMoves finds account.move records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindAccountMoveId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.move was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.move was not found with criteria %v and options %v", criteria, options)
 }

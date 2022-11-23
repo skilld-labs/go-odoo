@@ -86,7 +86,7 @@ func (c *Client) FindIrServerObjectLines(criteria *Criteria) (*IrServerObjectLin
 	if isols != nil && len(*isols) > 0 {
 		return &((*isols)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.server.object.lines was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.server.object.lines was not found with criteria %v", criteria)
 }
 
 // FindIrServerObjectLiness finds ir.server.object.lines records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindIrServerObjectLinesId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.server.object.lines was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.server.object.lines was not found with criteria %v and options %v", criteria, options)
 }

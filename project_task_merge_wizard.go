@@ -88,7 +88,7 @@ func (c *Client) FindProjectTaskMergeWizard(criteria *Criteria) (*ProjectTaskMer
 	if ptmws != nil && len(*ptmws) > 0 {
 		return &((*ptmws)[0]), nil
 	}
-	return nil, fmt.Errorf("no project.task.merge.wizard was found with criteria %v", criteria)
+	return nil, fmt.Errorf("project.task.merge.wizard was not found with criteria %v", criteria)
 }
 
 // FindProjectTaskMergeWizards finds project.task.merge.wizard records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindProjectTaskMergeWizardId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no project.task.merge.wizard was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("project.task.merge.wizard was not found with criteria %v and options %v", criteria, options)
 }

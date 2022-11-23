@@ -82,7 +82,7 @@ func (c *Client) FindStockSchedulerCompute(criteria *Criteria) (*StockSchedulerC
 	if sscs != nil && len(*sscs) > 0 {
 		return &((*sscs)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.scheduler.compute was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.scheduler.compute was not found with criteria %v", criteria)
 }
 
 // FindStockSchedulerComputes finds stock.scheduler.compute records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindStockSchedulerComputeId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.scheduler.compute was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.scheduler.compute was not found with criteria %v and options %v", criteria, options)
 }

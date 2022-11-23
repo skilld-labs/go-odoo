@@ -80,7 +80,7 @@ func (c *Client) FindWebTourTour(criteria *Criteria) (*WebTourTour, error) {
 	if wts != nil && len(*wts) > 0 {
 		return &((*wts)[0]), nil
 	}
-	return nil, fmt.Errorf("no web_tour.tour was found with criteria %v", criteria)
+	return nil, fmt.Errorf("web_tour.tour was not found with criteria %v", criteria)
 }
 
 // FindWebTourTours finds web_tour.tour records by querying it
@@ -112,5 +112,5 @@ func (c *Client) FindWebTourTourId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no web_tour.tour was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("web_tour.tour was not found with criteria %v and options %v", criteria, options)
 }

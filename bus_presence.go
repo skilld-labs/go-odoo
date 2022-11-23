@@ -82,7 +82,7 @@ func (c *Client) FindBusPresence(criteria *Criteria) (*BusPresence, error) {
 	if bps != nil && len(*bps) > 0 {
 		return &((*bps)[0]), nil
 	}
-	return nil, fmt.Errorf("no bus.presence was found with criteria %v", criteria)
+	return nil, fmt.Errorf("bus.presence was not found with criteria %v", criteria)
 }
 
 // FindBusPresences finds bus.presence records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindBusPresenceId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no bus.presence was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("bus.presence was not found with criteria %v and options %v", criteria, options)
 }

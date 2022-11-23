@@ -84,7 +84,7 @@ func (c *Client) FindStockOverprocessedTransfer(criteria *Criteria) (*StockOverp
 	if sots != nil && len(*sots) > 0 {
 		return &((*sots)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.overprocessed.transfer was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.overprocessed.transfer was not found with criteria %v", criteria)
 }
 
 // FindStockOverprocessedTransfers finds stock.overprocessed.transfer records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindStockOverprocessedTransferId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.overprocessed.transfer was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.overprocessed.transfer was not found with criteria %v and options %v", criteria, options)
 }

@@ -96,7 +96,7 @@ func (c *Client) FindAccountRegisterPayments(criteria *Criteria) (*AccountRegist
 	if arps != nil && len(*arps) > 0 {
 		return &((*arps)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.register.payments was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.register.payments was not found with criteria %v", criteria)
 }
 
 // FindAccountRegisterPaymentss finds account.register.payments records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindAccountRegisterPaymentsId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.register.payments was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.register.payments was not found with criteria %v and options %v", criteria, options)
 }

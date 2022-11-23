@@ -83,7 +83,7 @@ func (c *Client) FindBaseImportTestsModelsChar(criteria *Criteria) (*BaseImportT
 	if btmcs != nil && len(*btmcs) > 0 {
 		return &((*btmcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no base_import.tests.models.char was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base_import.tests.models.char was not found with criteria %v", criteria)
 }
 
 // FindBaseImportTestsModelsChars finds base_import.tests.models.char records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindBaseImportTestsModelsCharId(criteria *Criteria, options *Op
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base_import.tests.models.char was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base_import.tests.models.char was not found with criteria %v and options %v", criteria, options)
 }

@@ -89,7 +89,7 @@ func (c *Client) FindMailChannelPartner(criteria *Criteria) (*MailChannelPartner
 	if mcps != nil && len(*mcps) > 0 {
 		return &((*mcps)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.channel.partner was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.channel.partner was not found with criteria %v", criteria)
 }
 
 // FindMailChannelPartners finds mail.channel.partner records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindMailChannelPartnerId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.channel.partner was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.channel.partner was not found with criteria %v and options %v", criteria, options)
 }

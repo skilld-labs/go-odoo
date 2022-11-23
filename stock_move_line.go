@@ -108,7 +108,7 @@ func (c *Client) FindStockMoveLine(criteria *Criteria) (*StockMoveLine, error) {
 	if smls != nil && len(*smls) > 0 {
 		return &((*smls)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.move.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.move.line was not found with criteria %v", criteria)
 }
 
 // FindStockMoveLines finds stock.move.line records by querying it
@@ -140,5 +140,5 @@ func (c *Client) FindStockMoveLineId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.move.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.move.line was not found with criteria %v and options %v", criteria, options)
 }

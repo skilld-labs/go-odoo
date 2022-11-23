@@ -97,7 +97,7 @@ func (c *Client) FindAccountFiscalPosition(criteria *Criteria) (*AccountFiscalPo
 	if afps != nil && len(*afps) > 0 {
 		return &((*afps)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.fiscal.position was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.fiscal.position was not found with criteria %v", criteria)
 }
 
 // FindAccountFiscalPositions finds account.fiscal.position records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindAccountFiscalPositionId(criteria *Criteria, options *Option
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.fiscal.position was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.fiscal.position was not found with criteria %v and options %v", criteria, options)
 }

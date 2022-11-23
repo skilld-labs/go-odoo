@@ -84,7 +84,7 @@ func (c *Client) FindUtmMedium(criteria *Criteria) (*UtmMedium, error) {
 	if ums != nil && len(*ums) > 0 {
 		return &((*ums)[0]), nil
 	}
-	return nil, fmt.Errorf("no utm.medium was found with criteria %v", criteria)
+	return nil, fmt.Errorf("utm.medium was not found with criteria %v", criteria)
 }
 
 // FindUtmMediums finds utm.medium records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindUtmMediumId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no utm.medium was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("utm.medium was not found with criteria %v and options %v", criteria, options)
 }

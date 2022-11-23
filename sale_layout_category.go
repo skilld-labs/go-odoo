@@ -86,7 +86,7 @@ func (c *Client) FindSaleLayoutCategory(criteria *Criteria) (*SaleLayoutCategory
 	if sls != nil && len(*sls) > 0 {
 		return &((*sls)[0]), nil
 	}
-	return nil, fmt.Errorf("no sale.layout_category was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sale.layout_category was not found with criteria %v", criteria)
 }
 
 // FindSaleLayoutCategorys finds sale.layout_category records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindSaleLayoutCategoryId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sale.layout_category was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sale.layout_category was not found with criteria %v and options %v", criteria, options)
 }

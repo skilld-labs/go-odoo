@@ -96,7 +96,7 @@ func (c *Client) FindReportPaperformat(criteria *Criteria) (*ReportPaperformat, 
 	if rps != nil && len(*rps) > 0 {
 		return &((*rps)[0]), nil
 	}
-	return nil, fmt.Errorf("no report.paperformat was found with criteria %v", criteria)
+	return nil, fmt.Errorf("report.paperformat was not found with criteria %v", criteria)
 }
 
 // FindReportPaperformats finds report.paperformat records by querying it
@@ -128,5 +128,5 @@ func (c *Client) FindReportPaperformatId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no report.paperformat was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("report.paperformat was not found with criteria %v and options %v", criteria, options)
 }

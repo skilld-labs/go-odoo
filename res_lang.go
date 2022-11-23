@@ -93,7 +93,7 @@ func (c *Client) FindResLang(criteria *Criteria) (*ResLang, error) {
 	if rls != nil && len(*rls) > 0 {
 		return &((*rls)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.lang was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.lang was not found with criteria %v", criteria)
 }
 
 // FindResLangs finds res.lang records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindResLangId(criteria *Criteria, options *Options) (int64, err
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.lang was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.lang was not found with criteria %v and options %v", criteria, options)
 }

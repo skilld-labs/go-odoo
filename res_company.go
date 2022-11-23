@@ -160,7 +160,7 @@ func (c *Client) FindResCompany(criteria *Criteria) (*ResCompany, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.company was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.company was not found with criteria %v", criteria)
 }
 
 // FindResCompanys finds res.company records by querying it
@@ -192,5 +192,5 @@ func (c *Client) FindResCompanyId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.company was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.company was not found with criteria %v and options %v", criteria, options)
 }

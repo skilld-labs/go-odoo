@@ -87,7 +87,7 @@ func (c *Client) FindAccountGroup(criteria *Criteria) (*AccountGroup, error) {
 	if ags != nil && len(*ags) > 0 {
 		return &((*ags)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.group was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.group was not found with criteria %v", criteria)
 }
 
 // FindAccountGroups finds account.group records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindAccountGroupId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.group was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.group was not found with criteria %v and options %v", criteria, options)
 }

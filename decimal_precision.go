@@ -84,7 +84,7 @@ func (c *Client) FindDecimalPrecision(criteria *Criteria) (*DecimalPrecision, er
 	if dps != nil && len(*dps) > 0 {
 		return &((*dps)[0]), nil
 	}
-	return nil, fmt.Errorf("no decimal.precision was found with criteria %v", criteria)
+	return nil, fmt.Errorf("decimal.precision was not found with criteria %v", criteria)
 }
 
 // FindDecimalPrecisions finds decimal.precision records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindDecimalPrecisionId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no decimal.precision was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("decimal.precision was not found with criteria %v and options %v", criteria, options)
 }

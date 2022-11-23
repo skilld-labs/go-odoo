@@ -78,7 +78,7 @@ func (c *Client) FindPublisherWarrantyContract(criteria *Criteria) (*PublisherWa
 	if pcs != nil && len(*pcs) > 0 {
 		return &((*pcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no publisher_warranty.contract was found with criteria %v", criteria)
+	return nil, fmt.Errorf("publisher_warranty.contract was not found with criteria %v", criteria)
 }
 
 // FindPublisherWarrantyContracts finds publisher_warranty.contract records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindPublisherWarrantyContractId(criteria *Criteria, options *Op
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no publisher_warranty.contract was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("publisher_warranty.contract was not found with criteria %v and options %v", criteria, options)
 }

@@ -82,7 +82,7 @@ func (c *Client) FindAccountUnreconcile(criteria *Criteria) (*AccountUnreconcile
 	if aus != nil && len(*aus) > 0 {
 		return &((*aus)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.unreconcile was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.unreconcile was not found with criteria %v", criteria)
 }
 
 // FindAccountUnreconciles finds account.unreconcile records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindAccountUnreconcileId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.unreconcile was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.unreconcile was not found with criteria %v and options %v", criteria, options)
 }

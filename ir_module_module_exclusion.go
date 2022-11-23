@@ -86,7 +86,7 @@ func (c *Client) FindIrModuleModuleExclusion(criteria *Criteria) (*IrModuleModul
 	if immes != nil && len(*immes) > 0 {
 		return &((*immes)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.module.module.exclusion was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.module.module.exclusion was not found with criteria %v", criteria)
 }
 
 // FindIrModuleModuleExclusions finds ir.module.module.exclusion records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindIrModuleModuleExclusionId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.module.module.exclusion was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.module.module.exclusion was not found with criteria %v and options %v", criteria, options)
 }

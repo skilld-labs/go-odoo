@@ -102,7 +102,7 @@ func (c *Client) FindAccountBankStatementLine(criteria *Criteria) (*AccountBankS
 	if absls != nil && len(*absls) > 0 {
 		return &((*absls)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.statement.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.statement.line was not found with criteria %v", criteria)
 }
 
 // FindAccountBankStatementLines finds account.bank.statement.line records by querying it
@@ -134,5 +134,5 @@ func (c *Client) FindAccountBankStatementLineId(criteria *Criteria, options *Opt
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.statement.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.statement.line was not found with criteria %v and options %v", criteria, options)
 }

@@ -89,7 +89,7 @@ func (c *Client) FindAccountPrintJournal(criteria *Criteria) (*AccountPrintJourn
 	if apjs != nil && len(*apjs) > 0 {
 		return &((*apjs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.print.journal was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.print.journal was not found with criteria %v", criteria)
 }
 
 // FindAccountPrintJournals finds account.print.journal records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindAccountPrintJournalId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.print.journal was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.print.journal was not found with criteria %v and options %v", criteria, options)
 }

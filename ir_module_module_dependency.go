@@ -86,7 +86,7 @@ func (c *Client) FindIrModuleModuleDependency(criteria *Criteria) (*IrModuleModu
 	if immds != nil && len(*immds) > 0 {
 		return &((*immds)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.module.module.dependency was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.module.module.dependency was not found with criteria %v", criteria)
 }
 
 // FindIrModuleModuleDependencys finds ir.module.module.dependency records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindIrModuleModuleDependencyId(criteria *Criteria, options *Opt
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.module.module.dependency was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.module.module.dependency was not found with criteria %v and options %v", criteria, options)
 }

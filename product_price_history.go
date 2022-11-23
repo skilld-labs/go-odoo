@@ -86,7 +86,7 @@ func (c *Client) FindProductPriceHistory(criteria *Criteria) (*ProductPriceHisto
 	if pphs != nil && len(*pphs) > 0 {
 		return &((*pphs)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.price.history was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.price.history was not found with criteria %v", criteria)
 }
 
 // FindProductPriceHistorys finds product.price.history records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindProductPriceHistoryId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.price.history was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.price.history was not found with criteria %v and options %v", criteria, options)
 }

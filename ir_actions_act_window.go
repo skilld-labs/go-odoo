@@ -107,7 +107,7 @@ func (c *Client) FindIrActionsActWindow(criteria *Criteria) (*IrActionsActWindow
 	if iaas != nil && len(*iaas) > 0 {
 		return &((*iaas)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.actions.act_window was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.actions.act_window was not found with criteria %v", criteria)
 }
 
 // FindIrActionsActWindows finds ir.actions.act_window records by querying it
@@ -139,5 +139,5 @@ func (c *Client) FindIrActionsActWindowId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.actions.act_window was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.actions.act_window was not found with criteria %v and options %v", criteria, options)
 }

@@ -106,7 +106,7 @@ func (c *Client) FindSaleReport(criteria *Criteria) (*SaleReport, error) {
 	if srs != nil && len(*srs) > 0 {
 		return &((*srs)[0]), nil
 	}
-	return nil, fmt.Errorf("no sale.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sale.report was not found with criteria %v", criteria)
 }
 
 // FindSaleReports finds sale.report records by querying it
@@ -138,5 +138,5 @@ func (c *Client) FindSaleReportId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sale.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sale.report was not found with criteria %v and options %v", criteria, options)
 }

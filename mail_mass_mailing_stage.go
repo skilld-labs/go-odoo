@@ -84,7 +84,7 @@ func (c *Client) FindMailMassMailingStage(criteria *Criteria) (*MailMassMailingS
 	if mmss != nil && len(*mmss) > 0 {
 		return &((*mmss)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.mass_mailing.stage was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.mass_mailing.stage was not found with criteria %v", criteria)
 }
 
 // FindMailMassMailingStages finds mail.mass_mailing.stage records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindMailMassMailingStageId(criteria *Criteria, options *Options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.mass_mailing.stage was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.mass_mailing.stage was not found with criteria %v and options %v", criteria, options)
 }

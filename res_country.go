@@ -93,7 +93,7 @@ func (c *Client) FindResCountry(criteria *Criteria) (*ResCountry, error) {
 	if rcs != nil && len(*rcs) > 0 {
 		return &((*rcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no res.country was found with criteria %v", criteria)
+	return nil, fmt.Errorf("res.country was not found with criteria %v", criteria)
 }
 
 // FindResCountrys finds res.country records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindResCountryId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no res.country was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("res.country was not found with criteria %v and options %v", criteria, options)
 }

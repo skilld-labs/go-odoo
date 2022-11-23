@@ -86,7 +86,7 @@ func (c *Client) FindStockWarnInsufficientQtyScrap(criteria *Criteria) (*StockWa
 	if swiqss != nil && len(*swiqss) > 0 {
 		return &((*swiqss)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.warn.insufficient.qty.scrap was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.warn.insufficient.qty.scrap was not found with criteria %v", criteria)
 }
 
 // FindStockWarnInsufficientQtyScraps finds stock.warn.insufficient.qty.scrap records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindStockWarnInsufficientQtyScrapId(criteria *Criteria, options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.warn.insufficient.qty.scrap was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.warn.insufficient.qty.scrap was not found with criteria %v and options %v", criteria, options)
 }

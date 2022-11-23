@@ -93,7 +93,7 @@ func (c *Client) FindCrmActivityReport(criteria *Criteria) (*CrmActivityReport, 
 	if cars != nil && len(*cars) > 0 {
 		return &((*cars)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.activity.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.activity.report was not found with criteria %v", criteria)
 }
 
 // FindCrmActivityReports finds crm.activity.report records by querying it
@@ -125,5 +125,5 @@ func (c *Client) FindCrmActivityReportId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.activity.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.activity.report was not found with criteria %v and options %v", criteria, options)
 }

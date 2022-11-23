@@ -87,7 +87,7 @@ func (c *Client) FindAutosalesConfigLine(criteria *Criteria) (*AutosalesConfigLi
 	if acls != nil && len(*acls) > 0 {
 		return &((*acls)[0]), nil
 	}
-	return nil, fmt.Errorf("no autosales.config.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("autosales.config.line was not found with criteria %v", criteria)
 }
 
 // FindAutosalesConfigLines finds autosales.config.line records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindAutosalesConfigLineId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no autosales.config.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("autosales.config.line was not found with criteria %v and options %v", criteria, options)
 }

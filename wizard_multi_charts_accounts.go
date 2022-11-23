@@ -97,7 +97,7 @@ func (c *Client) FindWizardMultiChartsAccounts(criteria *Criteria) (*WizardMulti
 	if wmcas != nil && len(*wmcas) > 0 {
 		return &((*wmcas)[0]), nil
 	}
-	return nil, fmt.Errorf("no wizard.multi.charts.accounts was found with criteria %v", criteria)
+	return nil, fmt.Errorf("wizard.multi.charts.accounts was not found with criteria %v", criteria)
 }
 
 // FindWizardMultiChartsAccountss finds wizard.multi.charts.accounts records by querying it
@@ -129,5 +129,5 @@ func (c *Client) FindWizardMultiChartsAccountsId(criteria *Criteria, options *Op
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no wizard.multi.charts.accounts was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("wizard.multi.charts.accounts was not found with criteria %v and options %v", criteria, options)
 }

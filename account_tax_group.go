@@ -84,7 +84,7 @@ func (c *Client) FindAccountTaxGroup(criteria *Criteria) (*AccountTaxGroup, erro
 	if atgs != nil && len(*atgs) > 0 {
 		return &((*atgs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.tax.group was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.tax.group was not found with criteria %v", criteria)
 }
 
 // FindAccountTaxGroups finds account.tax.group records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindAccountTaxGroupId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.tax.group was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.tax.group was not found with criteria %v and options %v", criteria, options)
 }

@@ -82,7 +82,7 @@ func (c *Client) FindHrHolidaysRemainingLeavesUser(criteria *Criteria) (*HrHolid
 	if hhrlus != nil && len(*hhrlus) > 0 {
 		return &((*hhrlus)[0]), nil
 	}
-	return nil, fmt.Errorf("no hr.holidays.remaining.leaves.user was found with criteria %v", criteria)
+	return nil, fmt.Errorf("hr.holidays.remaining.leaves.user was not found with criteria %v", criteria)
 }
 
 // FindHrHolidaysRemainingLeavesUsers finds hr.holidays.remaining.leaves.user records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindHrHolidaysRemainingLeavesUserId(criteria *Criteria, options
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no hr.holidays.remaining.leaves.user was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("hr.holidays.remaining.leaves.user was not found with criteria %v and options %v", criteria, options)
 }

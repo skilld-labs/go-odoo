@@ -86,7 +86,7 @@ func (c *Client) FindPaymentIcon(criteria *Criteria) (*PaymentIcon, error) {
 	if pis != nil && len(*pis) > 0 {
 		return &((*pis)[0]), nil
 	}
-	return nil, fmt.Errorf("no payment.icon was found with criteria %v", criteria)
+	return nil, fmt.Errorf("payment.icon was not found with criteria %v", criteria)
 }
 
 // FindPaymentIcons finds payment.icon records by querying it
@@ -118,5 +118,5 @@ func (c *Client) FindPaymentIconId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no payment.icon was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("payment.icon was not found with criteria %v and options %v", criteria, options)
 }

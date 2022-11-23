@@ -83,7 +83,7 @@ func (c *Client) FindRatingMixin(criteria *Criteria) (*RatingMixin, error) {
 	if rms != nil && len(*rms) > 0 {
 		return &((*rms)[0]), nil
 	}
-	return nil, fmt.Errorf("no rating.mixin was found with criteria %v", criteria)
+	return nil, fmt.Errorf("rating.mixin was not found with criteria %v", criteria)
 }
 
 // FindRatingMixins finds rating.mixin records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindRatingMixinId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no rating.mixin was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("rating.mixin was not found with criteria %v and options %v", criteria, options)
 }

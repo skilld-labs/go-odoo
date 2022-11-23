@@ -94,7 +94,7 @@ func (c *Client) FindAccountFinancialReport(criteria *Criteria) (*AccountFinanci
 	if afrs != nil && len(*afrs) > 0 {
 		return &((*afrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.financial.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.financial.report was not found with criteria %v", criteria)
 }
 
 // FindAccountFinancialReports finds account.financial.report records by querying it
@@ -126,5 +126,5 @@ func (c *Client) FindAccountFinancialReportId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.financial.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.financial.report was not found with criteria %v and options %v", criteria, options)
 }

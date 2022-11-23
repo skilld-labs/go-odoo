@@ -85,7 +85,7 @@ func (c *Client) FindMailMassMailingList(criteria *Criteria) (*MailMassMailingLi
 	if mmls != nil && len(*mmls) > 0 {
 		return &((*mmls)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.mass_mailing.list was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.mass_mailing.list was not found with criteria %v", criteria)
 }
 
 // FindMailMassMailingLists finds mail.mass_mailing.list records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindMailMassMailingListId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.mass_mailing.list was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.mass_mailing.list was not found with criteria %v and options %v", criteria, options)
 }

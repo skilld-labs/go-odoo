@@ -92,7 +92,7 @@ func (c *Client) FindProjectTaskType(criteria *Criteria) (*ProjectTaskType, erro
 	if ptts != nil && len(*ptts) > 0 {
 		return &((*ptts)[0]), nil
 	}
-	return nil, fmt.Errorf("no project.task.type was found with criteria %v", criteria)
+	return nil, fmt.Errorf("project.task.type was not found with criteria %v", criteria)
 }
 
 // FindProjectTaskTypes finds project.task.type records by querying it
@@ -124,5 +124,5 @@ func (c *Client) FindProjectTaskTypeId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no project.task.type was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("project.task.type was not found with criteria %v and options %v", criteria, options)
 }

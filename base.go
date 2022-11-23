@@ -78,7 +78,7 @@ func (c *Client) FindBase(criteria *Criteria) (*Base, error) {
 	if bs != nil && len(*bs) > 0 {
 		return &((*bs)[0]), nil
 	}
-	return nil, fmt.Errorf("no base was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base was not found with criteria %v", criteria)
 }
 
 // FindBases finds base records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindBaseId(criteria *Criteria, options *Options) (int64, error)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base was not found with criteria %v and options %v", criteria, options)
 }

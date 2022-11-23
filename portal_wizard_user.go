@@ -87,7 +87,7 @@ func (c *Client) FindPortalWizardUser(criteria *Criteria) (*PortalWizardUser, er
 	if pwus != nil && len(*pwus) > 0 {
 		return &((*pwus)[0]), nil
 	}
-	return nil, fmt.Errorf("no portal.wizard.user was found with criteria %v", criteria)
+	return nil, fmt.Errorf("portal.wizard.user was not found with criteria %v", criteria)
 }
 
 // FindPortalWizardUsers finds portal.wizard.user records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindPortalWizardUserId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no portal.wizard.user was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("portal.wizard.user was not found with criteria %v and options %v", criteria, options)
 }

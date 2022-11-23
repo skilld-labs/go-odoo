@@ -90,7 +90,7 @@ func (c *Client) FindPaymentToken(criteria *Criteria) (*PaymentToken, error) {
 	if pts != nil && len(*pts) > 0 {
 		return &((*pts)[0]), nil
 	}
-	return nil, fmt.Errorf("no payment.token was found with criteria %v", criteria)
+	return nil, fmt.Errorf("payment.token was not found with criteria %v", criteria)
 }
 
 // FindPaymentTokens finds payment.token records by querying it
@@ -122,5 +122,5 @@ func (c *Client) FindPaymentTokenId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no payment.token was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("payment.token was not found with criteria %v and options %v", criteria, options)
 }

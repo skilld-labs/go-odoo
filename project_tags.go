@@ -84,7 +84,7 @@ func (c *Client) FindProjectTags(criteria *Criteria) (*ProjectTags, error) {
 	if pts != nil && len(*pts) > 0 {
 		return &((*pts)[0]), nil
 	}
-	return nil, fmt.Errorf("no project.tags was found with criteria %v", criteria)
+	return nil, fmt.Errorf("project.tags was not found with criteria %v", criteria)
 }
 
 // FindProjectTagss finds project.tags records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindProjectTagsId(criteria *Criteria, options *Options) (int64,
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no project.tags was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("project.tags was not found with criteria %v and options %v", criteria, options)
 }

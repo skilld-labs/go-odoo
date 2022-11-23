@@ -82,7 +82,7 @@ func (c *Client) FindValidateAccountMove(criteria *Criteria) (*ValidateAccountMo
 	if vams != nil && len(*vams) > 0 {
 		return &((*vams)[0]), nil
 	}
-	return nil, fmt.Errorf("no validate.account.move was found with criteria %v", criteria)
+	return nil, fmt.Errorf("validate.account.move was not found with criteria %v", criteria)
 }
 
 // FindValidateAccountMoves finds validate.account.move records by querying it
@@ -114,5 +114,5 @@ func (c *Client) FindValidateAccountMoveId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no validate.account.move was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("validate.account.move was not found with criteria %v and options %v", criteria, options)
 }

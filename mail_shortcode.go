@@ -87,7 +87,7 @@ func (c *Client) FindMailShortcode(criteria *Criteria) (*MailShortcode, error) {
 	if mss != nil && len(*mss) > 0 {
 		return &((*mss)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.shortcode was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.shortcode was not found with criteria %v", criteria)
 }
 
 // FindMailShortcodes finds mail.shortcode records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindMailShortcodeId(criteria *Criteria, options *Options) (int6
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.shortcode was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.shortcode was not found with criteria %v and options %v", criteria, options)
 }

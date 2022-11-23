@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldInteger(criteria *Criteria) (*IrQwebFieldInteger
 	if iqfis != nil && len(*iqfis) > 0 {
 		return &((*iqfis)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.integer was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.integer was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldIntegers finds ir.qweb.field.integer records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldIntegerId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.integer was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.integer was not found with criteria %v and options %v", criteria, options)
 }

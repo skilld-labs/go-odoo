@@ -84,7 +84,7 @@ func (c *Client) FindCrmPartnerBinding(criteria *Criteria) (*CrmPartnerBinding, 
 	if cpbs != nil && len(*cpbs) > 0 {
 		return &((*cpbs)[0]), nil
 	}
-	return nil, fmt.Errorf("no crm.partner.binding was found with criteria %v", criteria)
+	return nil, fmt.Errorf("crm.partner.binding was not found with criteria %v", criteria)
 }
 
 // FindCrmPartnerBindings finds crm.partner.binding records by querying it
@@ -116,5 +116,5 @@ func (c *Client) FindCrmPartnerBindingId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no crm.partner.binding was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("crm.partner.binding was not found with criteria %v and options %v", criteria, options)
 }

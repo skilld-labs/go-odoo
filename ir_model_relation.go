@@ -87,7 +87,7 @@ func (c *Client) FindIrModelRelation(criteria *Criteria) (*IrModelRelation, erro
 	if imrs != nil && len(*imrs) > 0 {
 		return &((*imrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.model.relation was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.model.relation was not found with criteria %v", criteria)
 }
 
 // FindIrModelRelations finds ir.model.relation records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindIrModelRelationId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.model.relation was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.model.relation was not found with criteria %v and options %v", criteria, options)
 }

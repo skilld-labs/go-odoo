@@ -98,7 +98,7 @@ func (c *Client) FindIrActionsReport(criteria *Criteria) (*IrActionsReport, erro
 	if iars != nil && len(*iars) > 0 {
 		return &((*iars)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.actions.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.actions.report was not found with criteria %v", criteria)
 }
 
 // FindIrActionsReports finds ir.actions.report records by querying it
@@ -130,5 +130,5 @@ func (c *Client) FindIrActionsReportId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.actions.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.actions.report was not found with criteria %v and options %v", criteria, options)
 }

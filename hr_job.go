@@ -104,7 +104,7 @@ func (c *Client) FindHrJob(criteria *Criteria) (*HrJob, error) {
 	if hjs != nil && len(*hjs) > 0 {
 		return &((*hjs)[0]), nil
 	}
-	return nil, fmt.Errorf("no hr.job was found with criteria %v", criteria)
+	return nil, fmt.Errorf("hr.job was not found with criteria %v", criteria)
 }
 
 // FindHrJobs finds hr.job records by querying it
@@ -136,5 +136,5 @@ func (c *Client) FindHrJobId(criteria *Criteria, options *Options) (int64, error
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no hr.job was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("hr.job was not found with criteria %v and options %v", criteria, options)
 }

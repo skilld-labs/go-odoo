@@ -85,7 +85,7 @@ func (c *Client) FindAutosalesConfig(criteria *Criteria) (*AutosalesConfig, erro
 	if acs != nil && len(*acs) > 0 {
 		return &((*acs)[0]), nil
 	}
-	return nil, fmt.Errorf("no autosales.config was found with criteria %v", criteria)
+	return nil, fmt.Errorf("autosales.config was not found with criteria %v", criteria)
 }
 
 // FindAutosalesConfigs finds autosales.config records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindAutosalesConfigId(criteria *Criteria, options *Options) (in
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no autosales.config was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("autosales.config was not found with criteria %v and options %v", criteria, options)
 }

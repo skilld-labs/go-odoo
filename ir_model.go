@@ -94,7 +94,7 @@ func (c *Client) FindIrModel(criteria *Criteria) (*IrModel, error) {
 	if ims != nil && len(*ims) > 0 {
 		return &((*ims)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.model was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.model was not found with criteria %v", criteria)
 }
 
 // FindIrModels finds ir.model records by querying it
@@ -126,5 +126,5 @@ func (c *Client) FindIrModelId(criteria *Criteria, options *Options) (int64, err
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.model was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.model was not found with criteria %v and options %v", criteria, options)
 }

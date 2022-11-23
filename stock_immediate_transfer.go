@@ -83,7 +83,7 @@ func (c *Client) FindStockImmediateTransfer(criteria *Criteria) (*StockImmediate
 	if sits != nil && len(*sits) > 0 {
 		return &((*sits)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.immediate.transfer was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.immediate.transfer was not found with criteria %v", criteria)
 }
 
 // FindStockImmediateTransfers finds stock.immediate.transfer records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindStockImmediateTransferId(criteria *Criteria, options *Optio
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.immediate.transfer was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.immediate.transfer was not found with criteria %v and options %v", criteria, options)
 }

@@ -150,7 +150,7 @@ func (c *Client) FindSaleOrder(criteria *Criteria) (*SaleOrder, error) {
 	if sos != nil && len(*sos) > 0 {
 		return &((*sos)[0]), nil
 	}
-	return nil, fmt.Errorf("no sale.order was found with criteria %v", criteria)
+	return nil, fmt.Errorf("sale.order was not found with criteria %v", criteria)
 }
 
 // FindSaleOrders finds sale.order records by querying it
@@ -182,5 +182,5 @@ func (c *Client) FindSaleOrderId(criteria *Criteria, options *Options) (int64, e
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no sale.order was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("sale.order was not found with criteria %v and options %v", criteria, options)
 }

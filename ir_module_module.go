@@ -109,7 +109,7 @@ func (c *Client) FindIrModuleModule(criteria *Criteria) (*IrModuleModule, error)
 	if imms != nil && len(*imms) > 0 {
 		return &((*imms)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.module.module was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.module.module was not found with criteria %v", criteria)
 }
 
 // FindIrModuleModules finds ir.module.module records by querying it
@@ -141,5 +141,5 @@ func (c *Client) FindIrModuleModuleId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.module.module was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.module.module was not found with criteria %v and options %v", criteria, options)
 }

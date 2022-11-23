@@ -110,7 +110,7 @@ func (c *Client) FindStockWarehouse(criteria *Criteria) (*StockWarehouse, error)
 	if sws != nil && len(*sws) > 0 {
 		return &((*sws)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.warehouse was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.warehouse was not found with criteria %v", criteria)
 }
 
 // FindStockWarehouses finds stock.warehouse records by querying it
@@ -142,5 +142,5 @@ func (c *Client) FindStockWarehouseId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.warehouse was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.warehouse was not found with criteria %v and options %v", criteria, options)
 }

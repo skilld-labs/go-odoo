@@ -105,7 +105,7 @@ func (c *Client) FindMailTest(criteria *Criteria) (*MailTest, error) {
 	if mts != nil && len(*mts) > 0 {
 		return &((*mts)[0]), nil
 	}
-	return nil, fmt.Errorf("no mail.test was found with criteria %v", criteria)
+	return nil, fmt.Errorf("mail.test was not found with criteria %v", criteria)
 }
 
 // FindMailTests finds mail.test records by querying it
@@ -137,5 +137,5 @@ func (c *Client) FindMailTestId(criteria *Criteria, options *Options) (int64, er
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no mail.test was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("mail.test was not found with criteria %v and options %v", criteria, options)
 }

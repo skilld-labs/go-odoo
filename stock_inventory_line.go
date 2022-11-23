@@ -98,7 +98,7 @@ func (c *Client) FindStockInventoryLine(criteria *Criteria) (*StockInventoryLine
 	if sils != nil && len(*sils) > 0 {
 		return &((*sils)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.inventory.line was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.inventory.line was not found with criteria %v", criteria)
 }
 
 // FindStockInventoryLines finds stock.inventory.line records by querying it
@@ -130,5 +130,5 @@ func (c *Client) FindStockInventoryLineId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.inventory.line was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.inventory.line was not found with criteria %v and options %v", criteria, options)
 }

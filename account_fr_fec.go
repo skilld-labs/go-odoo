@@ -87,7 +87,7 @@ func (c *Client) FindAccountFrFec(criteria *Criteria) (*AccountFrFec, error) {
 	if affs != nil && len(*affs) > 0 {
 		return &((*affs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.fr.fec was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.fr.fec was not found with criteria %v", criteria)
 }
 
 // FindAccountFrFecs finds account.fr.fec records by querying it
@@ -119,5 +119,5 @@ func (c *Client) FindAccountFrFecId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.fr.fec was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.fr.fec was not found with criteria %v and options %v", criteria, options)
 }

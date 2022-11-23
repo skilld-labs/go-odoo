@@ -102,7 +102,7 @@ func (c *Client) FindAccountTaxTemplate(criteria *Criteria) (*AccountTaxTemplate
 	if atts != nil && len(*atts) > 0 {
 		return &((*atts)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.tax.template was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.tax.template was not found with criteria %v", criteria)
 }
 
 // FindAccountTaxTemplates finds account.tax.template records by querying it
@@ -134,5 +134,5 @@ func (c *Client) FindAccountTaxTemplateId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.tax.template was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.tax.template was not found with criteria %v and options %v", criteria, options)
 }

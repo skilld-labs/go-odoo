@@ -85,7 +85,7 @@ func (c *Client) FindPortalWizard(criteria *Criteria) (*PortalWizard, error) {
 	if pws != nil && len(*pws) > 0 {
 		return &((*pws)[0]), nil
 	}
-	return nil, fmt.Errorf("no portal.wizard was found with criteria %v", criteria)
+	return nil, fmt.Errorf("portal.wizard was not found with criteria %v", criteria)
 }
 
 // FindPortalWizards finds portal.wizard records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindPortalWizardId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no portal.wizard was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("portal.wizard was not found with criteria %v and options %v", criteria, options)
 }

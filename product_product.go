@@ -193,7 +193,7 @@ func (c *Client) FindProductProduct(criteria *Criteria) (*ProductProduct, error)
 	if pps != nil && len(*pps) > 0 {
 		return &((*pps)[0]), nil
 	}
-	return nil, fmt.Errorf("no product.product was found with criteria %v", criteria)
+	return nil, fmt.Errorf("product.product was not found with criteria %v", criteria)
 }
 
 // FindProductProducts finds product.product records by querying it
@@ -225,5 +225,5 @@ func (c *Client) FindProductProductId(criteria *Criteria, options *Options) (int
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no product.product was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("product.product was not found with criteria %v and options %v", criteria, options)
 }

@@ -83,7 +83,7 @@ func (c *Client) FindAccountBankStatementCashbox(criteria *Criteria) (*AccountBa
 	if abscs != nil && len(*abscs) > 0 {
 		return &((*abscs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.bank.statement.cashbox was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.bank.statement.cashbox was not found with criteria %v", criteria)
 }
 
 // FindAccountBankStatementCashboxs finds account.bank.statement.cashbox records by querying it
@@ -115,5 +115,5 @@ func (c *Client) FindAccountBankStatementCashboxId(criteria *Criteria, options *
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.bank.statement.cashbox was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.bank.statement.cashbox was not found with criteria %v and options %v", criteria, options)
 }

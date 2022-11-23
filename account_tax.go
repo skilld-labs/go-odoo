@@ -102,7 +102,7 @@ func (c *Client) FindAccountTax(criteria *Criteria) (*AccountTax, error) {
 	if ats != nil && len(*ats) > 0 {
 		return &((*ats)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.tax was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.tax was not found with criteria %v", criteria)
 }
 
 // FindAccountTaxs finds account.tax records by querying it
@@ -134,5 +134,5 @@ func (c *Client) FindAccountTaxId(criteria *Criteria, options *Options) (int64, 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.tax was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.tax was not found with criteria %v and options %v", criteria, options)
 }

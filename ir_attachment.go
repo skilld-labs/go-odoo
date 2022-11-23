@@ -102,7 +102,7 @@ func (c *Client) FindIrAttachment(criteria *Criteria) (*IrAttachment, error) {
 	if ias != nil && len(*ias) > 0 {
 		return &((*ias)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.attachment was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.attachment was not found with criteria %v", criteria)
 }
 
 // FindIrAttachments finds ir.attachment records by querying it
@@ -134,5 +134,5 @@ func (c *Client) FindIrAttachmentId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.attachment was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.attachment was not found with criteria %v and options %v", criteria, options)
 }

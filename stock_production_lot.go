@@ -99,7 +99,7 @@ func (c *Client) FindStockProductionLot(criteria *Criteria) (*StockProductionLot
 	if spls != nil && len(*spls) > 0 {
 		return &((*spls)[0]), nil
 	}
-	return nil, fmt.Errorf("no stock.production.lot was found with criteria %v", criteria)
+	return nil, fmt.Errorf("stock.production.lot was not found with criteria %v", criteria)
 }
 
 // FindStockProductionLots finds stock.production.lot records by querying it
@@ -131,5 +131,5 @@ func (c *Client) FindStockProductionLotId(criteria *Criteria, options *Options) 
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no stock.production.lot was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("stock.production.lot was not found with criteria %v and options %v", criteria, options)
 }

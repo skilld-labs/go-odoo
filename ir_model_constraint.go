@@ -89,7 +89,7 @@ func (c *Client) FindIrModelConstraint(criteria *Criteria) (*IrModelConstraint, 
 	if imcs != nil && len(*imcs) > 0 {
 		return &((*imcs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.model.constraint was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.model.constraint was not found with criteria %v", criteria)
 }
 
 // FindIrModelConstraints finds ir.model.constraint records by querying it
@@ -121,5 +121,5 @@ func (c *Client) FindIrModelConstraintId(criteria *Criteria, options *Options) (
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.model.constraint was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.model.constraint was not found with criteria %v and options %v", criteria, options)
 }

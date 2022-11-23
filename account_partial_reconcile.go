@@ -91,7 +91,7 @@ func (c *Client) FindAccountPartialReconcile(criteria *Criteria) (*AccountPartia
 	if aprs != nil && len(*aprs) > 0 {
 		return &((*aprs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.partial.reconcile was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.partial.reconcile was not found with criteria %v", criteria)
 }
 
 // FindAccountPartialReconciles finds account.partial.reconcile records by querying it
@@ -123,5 +123,5 @@ func (c *Client) FindAccountPartialReconcileId(criteria *Criteria, options *Opti
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.partial.reconcile was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.partial.reconcile was not found with criteria %v and options %v", criteria, options)
 }

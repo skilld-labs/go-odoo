@@ -85,7 +85,7 @@ func (c *Client) FindBaseModuleUpdate(criteria *Criteria) (*BaseModuleUpdate, er
 	if bmus != nil && len(*bmus) > 0 {
 		return &((*bmus)[0]), nil
 	}
-	return nil, fmt.Errorf("no base.module.update was found with criteria %v", criteria)
+	return nil, fmt.Errorf("base.module.update was not found with criteria %v", criteria)
 }
 
 // FindBaseModuleUpdates finds base.module.update records by querying it
@@ -117,5 +117,5 @@ func (c *Client) FindBaseModuleUpdateId(criteria *Criteria, options *Options) (i
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no base.module.update was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("base.module.update was not found with criteria %v and options %v", criteria, options)
 }

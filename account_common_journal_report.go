@@ -88,7 +88,7 @@ func (c *Client) FindAccountCommonJournalReport(criteria *Criteria) (*AccountCom
 	if acjrs != nil && len(*acjrs) > 0 {
 		return &((*acjrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no account.common.journal.report was found with criteria %v", criteria)
+	return nil, fmt.Errorf("account.common.journal.report was not found with criteria %v", criteria)
 }
 
 // FindAccountCommonJournalReports finds account.common.journal.report records by querying it
@@ -120,5 +120,5 @@ func (c *Client) FindAccountCommonJournalReportId(criteria *Criteria, options *O
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no account.common.journal.report was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("account.common.journal.report was not found with criteria %v and options %v", criteria, options)
 }

@@ -78,7 +78,7 @@ func (c *Client) FindIrAutovacuum(criteria *Criteria) (*IrAutovacuum, error) {
 	if ias != nil && len(*ias) > 0 {
 		return &((*ias)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.autovacuum was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.autovacuum was not found with criteria %v", criteria)
 }
 
 // FindIrAutovacuums finds ir.autovacuum records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrAutovacuumId(criteria *Criteria, options *Options) (int64
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.autovacuum was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.autovacuum was not found with criteria %v and options %v", criteria, options)
 }

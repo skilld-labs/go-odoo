@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldDatetime(criteria *Criteria) (*IrQwebFieldDateti
 	if iqfds != nil && len(*iqfds) > 0 {
 		return &((*iqfds)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.datetime was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.datetime was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldDatetimes finds ir.qweb.field.datetime records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldDatetimeId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.datetime was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.datetime was not found with criteria %v and options %v", criteria, options)
 }

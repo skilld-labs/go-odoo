@@ -78,7 +78,7 @@ func (c *Client) FindIrQwebFieldRelative(criteria *Criteria) (*IrQwebFieldRelati
 	if iqfrs != nil && len(*iqfrs) > 0 {
 		return &((*iqfrs)[0]), nil
 	}
-	return nil, fmt.Errorf("no ir.qweb.field.relative was found with criteria %v", criteria)
+	return nil, fmt.Errorf("ir.qweb.field.relative was not found with criteria %v", criteria)
 }
 
 // FindIrQwebFieldRelatives finds ir.qweb.field.relative records by querying it
@@ -110,5 +110,5 @@ func (c *Client) FindIrQwebFieldRelativeId(criteria *Criteria, options *Options)
 	if len(ids) > 0 {
 		return ids[0], nil
 	}
-	return -1, fmt.Errorf("no ir.qweb.field.relative was found with criteria %v and options %v", criteria, options)
+	return -1, fmt.Errorf("ir.qweb.field.relative was not found with criteria %v and options %v", criteria, options)
 }
