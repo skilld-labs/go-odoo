@@ -30,7 +30,7 @@ type Product struct {
 	CanImage1024BeZoomed                 bool          `json:"can_image_1024_be_zoomed"`
 	CanImageVariant1024BeZoomed          bool          `json:"can_image_variant_1024_be_zoomed"`
 	CategId                              []interface{} `json:"categ_id"`
-	Code                                 bool          `json:"code"`
+	Code                                 string        `json:"code"`
 	Color                                int           `json:"color"`
 	CombinationIndices                   string        `json:"combination_indices"`
 	CompanyId                            bool          `json:"company_id"`
@@ -38,21 +38,21 @@ type Product struct {
 	CreateDate                           string        `json:"create_date"`
 	CreateUid                            []interface{} `json:"create_uid"`
 	CurrencyId                           []interface{} `json:"currency_id"`
-	DefaultCode                          bool          `json:"default_code"`
+	DefaultCode                          string        `json:"default_code"`
 	Description                          bool          `json:"description"`
 	DescriptionPurchase                  bool          `json:"description_purchase"`
-	DescriptionSale                      bool          `json:"description_sale"`
+	DescriptionSale                      string        `json:"description_sale"`
 	DetailedType                         string        `json:"detailed_type"`
 	DisplayName                          string        `json:"display_name"`
 	ExpensePolicy                        string        `json:"expense_policy"`
 	HasConfigurableAttributes            bool          `json:"has_configurable_attributes"`
 	HasMessage                           bool          `json:"has_message"`
 	ID                                   int           `json:"id"`
-	Image1024                            bool          `json:"image_1024"`
-	Image128                             bool          `json:"image_128"`
-	Image1920                            bool          `json:"image_1920"`
-	Image256                             bool          `json:"image_256"`
-	Image512                             bool          `json:"image_512"`
+	Image1024                            string        `json:"image_1024"`
+	Image128                             string        `json:"image_128"`
+	Image1920                            string        `json:"image_1920"`
+	Image256                             string        `json:"image_256"`
+	Image512                             string        `json:"image_512"`
 	ImageVariant1024                     bool          `json:"image_variant_1024"`
 	ImageVariant128                      bool          `json:"image_variant_128"`
 	ImageVariant1920                     bool          `json:"image_variant_1920"`
@@ -114,7 +114,7 @@ type Product struct {
 	Volume                               int           `json:"volume"`
 	VolumeUomName                        string        `json:"volume_uom_name"`
 	WebsiteMessageIds                    []interface{} `json:"website_message_ids"`
-	Weight                               int           `json:"weight"`
+	Weight                               float64       `json:"weight"`
 	WeightUomName                        string        `json:"weight_uom_name"`
 	WriteDate                            string        `json:"write_date"`
 	WriteUid                             []interface{} `json:"write_uid"`
@@ -128,6 +128,16 @@ func (c *Client) GetProductsCreatedAfter(t time.Time) ([]byte, error) {
 	log.Printf("Looking for products created after %s", t.Format(dtLayout))
 
 	product, err := c.SearchRead(ProductModelID, List{List{"create_date", ">=", t.Format(dtLayout)}}, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(product)
+}
+
+// GetProduct returns a JSON encoded byte slice of an Odoo product.
+func (c *Client) GetProduct(id int) ([]byte, error) {
+	product, err := c.Read(ProductModelID, []int{id}, nil)
 	if err != nil {
 		return nil, err
 	}
