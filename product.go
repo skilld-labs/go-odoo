@@ -120,12 +120,12 @@ type Product struct {
 	WriteUid                             []interface{} `json:"write_uid"`
 }
 
-// GetProductsCreatedAfter gets all product.product records that have been created after the time passed in.
-// This allows us to run a cron job every x minutes and return new products. We return encoded JSON
-// within this method which makes it easy to use within XFuze.
-func (c *Client) GetProductsCreatedAfter(t time.Time) ([]byte, error) {
+// GetProductsWithinWindow gets all product.product records that have been created within the window value.
+// For example if the window is 5 minutes and the time is 12:00, we fetch all products created from 11:55-12
+// We return encoded JSON within this method which makes it easy to use within XFuze.
+func (c *Client) GetProductsWithinWindow(t time.Time) ([]byte, error) {
 	dtLayout := "2006-01-02 15:04:05"
-	log.Printf("Looking for products created after %s", t.Format(dtLayout))
+	log.Printf("looking for products created between %s & %s", t.Format(dtLayout), time.Now().Format(dtLayout))
 
 	product, err := c.SearchRead(ProductModelID, List{List{"create_date", ">=", t.Format(dtLayout)}}, nil)
 	if err != nil {
