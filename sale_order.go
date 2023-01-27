@@ -29,6 +29,7 @@ type SaleOrder struct {
 	DateOrder                *Time      `xmlrpc:"date_order,omptempty"`
 	DeliveryCount            *Int       `xmlrpc:"delivery_count,omptempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omptempty"`
+	ExpectedDate		 *Time      `xmlrpc:"expected_date,omptempty"`
 	FiscalPositionId         *Many2One  `xmlrpc:"fiscal_position_id,omptempty"`
 	Id                       *Int       `xmlrpc:"id,omptempty"`
 	Incoterm                 *Many2One  `xmlrpc:"incoterm,omptempty"`
