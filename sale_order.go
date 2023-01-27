@@ -23,6 +23,7 @@ type SaleOrder struct {
 	ClientOrderRef           *String    `xmlrpc:"client_order_ref,omptempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omptempty"`
 	ConfirmationDate         *Time      `xmlrpc:"confirmation_date,omptempty"`
+	CommitmentDate		 *Time      `xmlrpc:"commitment_date,omptempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
 	CurrencyId               *Many2One  `xmlrpc:"currency_id,omptempty"`
