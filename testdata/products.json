@@ -1,0 +1,482 @@
+[
+  {
+    "__last_update": "2023-02-01 08:56:57",
+    "active": true,
+    "activity_date_deadline": false,
+    "activity_exception_decoration": false,
+    "activity_exception_icon": false,
+    "activity_ids": [],
+    "activity_state": false,
+    "activity_summary": false,
+    "activity_type_icon": false,
+    "activity_type_id": false,
+    "activity_user_id": false,
+    "attribute_line_ids": [],
+    "barcode": false,
+    "can_image_1024_be_zoomed": false,
+    "can_image_variant_1024_be_zoomed": false,
+    "categ_id": [
+      1,
+      "All"
+    ],
+    "code": false,
+    "color": 0,
+    "combination_indices": "",
+    "company_id": false,
+    "cost_currency_id": [
+      1,
+      "EUR"
+    ],
+    "create_date": "2023-02-01 08:56:57",
+    "create_uid": [
+      2,
+      "Administrator"
+    ],
+    "currency_id": [
+      1,
+      "EUR"
+    ],
+    "default_code": false,
+    "description": false,
+    "description_picking": false,
+    "description_pickingin": false,
+    "description_pickingout": false,
+    "description_purchase": false,
+    "description_sale": false,
+    "display_name": "feb_01_6",
+    "free_qty": 0,
+    "has_available_route_ids": false,
+    "has_configurable_attributes": false,
+    "id": 6,
+    "image_1024": false,
+    "image_128": false,
+    "image_1920": false,
+    "image_256": false,
+    "image_512": false,
+    "image_variant_1024": false,
+    "image_variant_128": false,
+    "image_variant_1920": false,
+    "image_variant_256": false,
+    "image_variant_512": false,
+    "incoming_qty": 0,
+    "is_product_variant": true,
+    "list_price": 1,
+    "location_id": false,
+    "lst_price": 1,
+    "message_attachment_count": 0,
+    "message_channel_ids": [],
+    "message_follower_ids": [
+      14
+    ],
+    "message_has_error": false,
+    "message_has_error_counter": 0,
+    "message_has_sms_error": false,
+    "message_ids": [
+      15
+    ],
+    "message_is_follower": true,
+    "message_main_attachment_id": false,
+    "message_needaction": false,
+    "message_needaction_counter": 0,
+    "message_partner_ids": [
+      3
+    ],
+    "message_unread": false,
+    "message_unread_counter": 0,
+    "my_activity_date_deadline": false,
+    "name": "feb_01_6",
+    "nbr_reordering_rules": 0,
+    "orderpoint_ids": [],
+    "outgoing_qty": 0,
+    "packaging_ids": [],
+    "partner_ref": "feb_01_6",
+    "price": 0,
+    "price_extra": 0,
+    "pricelist_id": false,
+    "pricelist_item_count": 0,
+    "product_template_attribute_value_ids": [],
+    "product_tmpl_id": [
+      6,
+      "feb_01_6"
+    ],
+    "product_variant_count": 1,
+    "product_variant_id": [
+      6,
+      "feb_01_6"
+    ],
+    "product_variant_ids": [
+      6
+    ],
+    "property_stock_inventory": [
+      14,
+      "Virtual Locations/Inventory adjustment"
+    ],
+    "property_stock_production": [
+      15,
+      "Virtual Locations/Production"
+    ],
+    "purchase_ok": true,
+    "putaway_rule_ids": [],
+    "qty_available": 0,
+    "reordering_max_qty": 0,
+    "reordering_min_qty": 0,
+    "responsible_id": [
+      2,
+      "Administrator"
+    ],
+    "route_from_categ_ids": [],
+    "route_ids": [],
+    "sale_delay": 0,
+    "sale_ok": true,
+    "seller_ids": [],
+    "sequence": 1,
+    "standard_price": 0,
+    "stock_move_ids": [],
+    "stock_quant_ids": [],
+    "tracking": "none",
+    "type": "product",
+    "uom_id": [
+      1,
+      "Units"
+    ],
+    "uom_name": "Units",
+    "uom_po_id": [
+      1,
+      "Units"
+    ],
+    "valid_product_template_attribute_line_ids": [],
+    "variant_seller_ids": [],
+    "virtual_available": 0,
+    "volume": 0,
+    "volume_uom_name": "m³",
+    "warehouse_id": false,
+    "website_message_ids": [],
+    "weight": 0,
+    "weight_uom_name": "kg",
+    "write_date": "2023-02-01 08:56:57",
+    "write_uid": [
+      2,
+      "Administrator"
+    ]
+  },
+  {
+    "__last_update": "2023-02-01 08:57:05",
+    "active": true,
+    "activity_date_deadline": false,
+    "activity_exception_decoration": false,
+    "activity_exception_icon": false,
+    "activity_ids": [],
+    "activity_state": false,
+    "activity_summary": false,
+    "activity_type_icon": false,
+    "activity_type_id": false,
+    "activity_user_id": false,
+    "attribute_line_ids": [],
+    "barcode": false,
+    "can_image_1024_be_zoomed": false,
+    "can_image_variant_1024_be_zoomed": false,
+    "categ_id": [
+      1,
+      "All"
+    ],
+    "code": false,
+    "color": 0,
+    "combination_indices": "",
+    "company_id": false,
+    "cost_currency_id": [
+      1,
+      "EUR"
+    ],
+    "create_date": "2023-02-01 08:57:05",
+    "create_uid": [
+      2,
+      "Administrator"
+    ],
+    "currency_id": [
+      1,
+      "EUR"
+    ],
+    "default_code": false,
+    "description": false,
+    "description_picking": false,
+    "description_pickingin": false,
+    "description_pickingout": false,
+    "description_purchase": false,
+    "description_sale": false,
+    "display_name": "feb_01_7",
+    "free_qty": 0,
+    "has_available_route_ids": false,
+    "has_configurable_attributes": false,
+    "id": 7,
+    "image_1024": false,
+    "image_128": false,
+    "image_1920": false,
+    "image_256": false,
+    "image_512": false,
+    "image_variant_1024": false,
+    "image_variant_128": false,
+    "image_variant_1920": false,
+    "image_variant_256": false,
+    "image_variant_512": false,
+    "incoming_qty": 0,
+    "is_product_variant": true,
+    "list_price": 1,
+    "location_id": false,
+    "lst_price": 1,
+    "message_attachment_count": 0,
+    "message_channel_ids": [],
+    "message_follower_ids": [
+      16
+    ],
+    "message_has_error": false,
+    "message_has_error_counter": 0,
+    "message_has_sms_error": false,
+    "message_ids": [
+      17
+    ],
+    "message_is_follower": true,
+    "message_main_attachment_id": false,
+    "message_needaction": false,
+    "message_needaction_counter": 0,
+    "message_partner_ids": [
+      3
+    ],
+    "message_unread": false,
+    "message_unread_counter": 0,
+    "my_activity_date_deadline": false,
+    "name": "feb_01_7",
+    "nbr_reordering_rules": 0,
+    "orderpoint_ids": [],
+    "outgoing_qty": 0,
+    "packaging_ids": [],
+    "partner_ref": "feb_01_7",
+    "price": 0,
+    "price_extra": 0,
+    "pricelist_id": false,
+    "pricelist_item_count": 0,
+    "product_template_attribute_value_ids": [],
+    "product_tmpl_id": [
+      7,
+      "feb_01_7"
+    ],
+    "product_variant_count": 1,
+    "product_variant_id": [
+      7,
+      "feb_01_7"
+    ],
+    "product_variant_ids": [
+      7
+    ],
+    "property_stock_inventory": [
+      14,
+      "Virtual Locations/Inventory adjustment"
+    ],
+    "property_stock_production": [
+      15,
+      "Virtual Locations/Production"
+    ],
+    "purchase_ok": true,
+    "putaway_rule_ids": [],
+    "qty_available": 0,
+    "reordering_max_qty": 0,
+    "reordering_min_qty": 0,
+    "responsible_id": [
+      2,
+      "Administrator"
+    ],
+    "route_from_categ_ids": [],
+    "route_ids": [],
+    "sale_delay": 0,
+    "sale_ok": true,
+    "seller_ids": [],
+    "sequence": 1,
+    "standard_price": 0,
+    "stock_move_ids": [],
+    "stock_quant_ids": [],
+    "tracking": "none",
+    "type": "product",
+    "uom_id": [
+      1,
+      "Units"
+    ],
+    "uom_name": "Units",
+    "uom_po_id": [
+      1,
+      "Units"
+    ],
+    "valid_product_template_attribute_line_ids": [],
+    "variant_seller_ids": [],
+    "virtual_available": 0,
+    "volume": 0,
+    "volume_uom_name": "m³",
+    "warehouse_id": false,
+    "website_message_ids": [],
+    "weight": 0,
+    "weight_uom_name": "kg",
+    "write_date": "2023-02-01 08:57:05",
+    "write_uid": [
+      2,
+      "Administrator"
+    ]
+  },
+  {
+    "__last_update": "2023-02-01 08:57:10",
+    "active": true,
+    "activity_date_deadline": false,
+    "activity_exception_decoration": false,
+    "activity_exception_icon": false,
+    "activity_ids": [],
+    "activity_state": false,
+    "activity_summary": false,
+    "activity_type_icon": false,
+    "activity_type_id": false,
+    "activity_user_id": false,
+    "attribute_line_ids": [],
+    "barcode": false,
+    "can_image_1024_be_zoomed": false,
+    "can_image_variant_1024_be_zoomed": false,
+    "categ_id": [
+      1,
+      "All"
+    ],
+    "code": false,
+    "color": 0,
+    "combination_indices": "",
+    "company_id": false,
+    "cost_currency_id": [
+      1,
+      "EUR"
+    ],
+    "create_date": "2023-02-01 08:57:10",
+    "create_uid": [
+      2,
+      "Administrator"
+    ],
+    "currency_id": [
+      1,
+      "EUR"
+    ],
+    "default_code": false,
+    "description": false,
+    "description_picking": false,
+    "description_pickingin": false,
+    "description_pickingout": false,
+    "description_purchase": false,
+    "description_sale": false,
+    "display_name": "feb_01_8",
+    "free_qty": 0,
+    "has_available_route_ids": false,
+    "has_configurable_attributes": false,
+    "id": 8,
+    "image_1024": false,
+    "image_128": false,
+    "image_1920": false,
+    "image_256": false,
+    "image_512": false,
+    "image_variant_1024": false,
+    "image_variant_128": false,
+    "image_variant_1920": false,
+    "image_variant_256": false,
+    "image_variant_512": false,
+    "incoming_qty": 0,
+    "is_product_variant": true,
+    "list_price": 1,
+    "location_id": false,
+    "lst_price": 1,
+    "message_attachment_count": 0,
+    "message_channel_ids": [],
+    "message_follower_ids": [
+      18
+    ],
+    "message_has_error": false,
+    "message_has_error_counter": 0,
+    "message_has_sms_error": false,
+    "message_ids": [
+      19
+    ],
+    "message_is_follower": true,
+    "message_main_attachment_id": false,
+    "message_needaction": false,
+    "message_needaction_counter": 0,
+    "message_partner_ids": [
+      3
+    ],
+    "message_unread": false,
+    "message_unread_counter": 0,
+    "my_activity_date_deadline": false,
+    "name": "feb_01_8",
+    "nbr_reordering_rules": 0,
+    "orderpoint_ids": [],
+    "outgoing_qty": 0,
+    "packaging_ids": [],
+    "partner_ref": "feb_01_8",
+    "price": 0,
+    "price_extra": 0,
+    "pricelist_id": false,
+    "pricelist_item_count": 0,
+    "product_template_attribute_value_ids": [],
+    "product_tmpl_id": [
+      8,
+      "feb_01_8"
+    ],
+    "product_variant_count": 1,
+    "product_variant_id": [
+      8,
+      "feb_01_8"
+    ],
+    "product_variant_ids": [
+      8
+    ],
+    "property_stock_inventory": [
+      14,
+      "Virtual Locations/Inventory adjustment"
+    ],
+    "property_stock_production": [
+      15,
+      "Virtual Locations/Production"
+    ],
+    "purchase_ok": true,
+    "putaway_rule_ids": [],
+    "qty_available": 0,
+    "reordering_max_qty": 0,
+    "reordering_min_qty": 0,
+    "responsible_id": [
+      2,
+      "Administrator"
+    ],
+    "route_from_categ_ids": [],
+    "route_ids": [],
+    "sale_delay": 0,
+    "sale_ok": true,
+    "seller_ids": [],
+    "sequence": 1,
+    "standard_price": 0,
+    "stock_move_ids": [],
+    "stock_quant_ids": [],
+    "tracking": "none",
+    "type": "product",
+    "uom_id": [
+      1,
+      "Units"
+    ],
+    "uom_name": "Units",
+    "uom_po_id": [
+      1,
+      "Units"
+    ],
+    "valid_product_template_attribute_line_ids": [],
+    "variant_seller_ids": [],
+    "virtual_available": 0,
+    "volume": 0,
+    "volume_uom_name": "m³",
+    "warehouse_id": false,
+    "website_message_ids": [],
+    "weight": 0,
+    "weight_uom_name": "kg",
+    "write_date": "2023-02-01 08:57:10",
+    "write_uid": [
+      2,
+      "Administrator"
+    ]
+  }
+]
