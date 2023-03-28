@@ -1,0 +1,6 @@
+version: 2
+tasks:
+  test:
+    desc: runs all tests
+    cmds:
+      - go test -v -cover -race ./...

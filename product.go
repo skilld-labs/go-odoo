@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"log"
 	"time"
+
+	"github.com/xiatechs/XFuze/pkg/importer/conversion/converter"
 )
 
 // ProductModelID is the model identifier for a product within Odoo.
@@ -143,4 +145,66 @@ func (c *Client) GetProduct(id int) ([]byte, error) {
 	}
 
 	return json.Marshal(product)
+}
+
+// ProductTemplateID is the model identifier for a product template within Odoo.
+const ProductTemplateID = "product.template"
+
+// ProductTemplate is the struct used to create a product within Odoo.
+type ProductTemplate struct {
+	AttributeLineIds        []interface{}   `json:"attribute_line_ids"`
+	Image1920               bool            `json:"image_1920"`
+	LastUpdate              bool            `json:"__last_update"`
+	Name                    string          `json:"name"`
+	SaleOk                  bool            `json:"sale_ok"`
+	PurchaseOk              bool            `json:"purchase_ok"`
+	Active                  bool            `json:"active"`
+	Type                    string          `json:"type"`
+	CategId                 int             `json:"categ_id"`
+	DefaultCode             bool            `json:"default_code"`
+	Barcode                 bool            `json:"barcode"`
+	ListPrice               int             `json:"list_price"`
+	StandardPrice           int             `json:"standard_price"`
+	CompanyId               bool            `json:"company_id"`
+	UomId                   int             `json:"uom_id"`
+	UomPoId                 int             `json:"uom_po_id"`
+	Description             bool            `json:"description"`
+	DescriptionSale         bool            `json:"description_sale"`
+	RouteIds                [][]interface{} `json:"route_ids"`
+	ResponsibleId           bool            `json:"responsible_id"`
+	Weight                  int             `json:"weight"`
+	Volume                  int             `json:"volume"`
+	SaleDelay               int             `json:"sale_delay"`
+	Tracking                string          `json:"tracking"`
+	PropertyStockProduction int             `json:"property_stock_production"`
+	PropertyStockInventory  int             `json:"property_stock_inventory"`
+	PackagingIds            []interface{}   `json:"packaging_ids"`
+	DescriptionPickingout   bool            `json:"description_pickingout"`
+	DescriptionPickingin    bool            `json:"description_pickingin"`
+	DescriptionPicking      bool            `json:"description_picking"`
+	MessageFollowerIds      []interface{}   `json:"message_follower_ids"`
+	ActivityIds             []interface{}   `json:"activity_ids"`
+	MessageIds              []interface{}   `json:"message_ids"`
+}
+
+// CreateProduct creates a new product within Odoo
+func (c *Client) CreateProduct(template ProductTemplate) (int, error) {
+	bytes, err := json.Marshal(template)
+	if err != nil {
+		return 0, err
+	}
+
+	conv := converter.SelectFormat("json")
+
+	mapConversion, err := conv.BytesToMap(bytes)
+	if err != nil {
+		return 0, nil
+	}
+
+	productID, err := c.Create(ProductTemplateID, mapConversion[0])
+	if err != nil {
+		return 0, err
+	}
+
+	return productID, nil
 }

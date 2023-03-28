@@ -1,0 +1,28 @@
+version: '2'
+services:
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+
+  odoo14:
+    image: wbms/odoo14-multiarch
+    depends_on:
+      - db
+    ports:
+      - "8091:8069"
+    volumes:
+      - "./data:/var/lib/odoo"
+      - "./config:/etc/odoo"
+    command: odoo --dev=reload -d xiatech_test -i stock,sale_management
+
+volumes:
+  odoo-odoo14-data:
+  odoo-db-data:
