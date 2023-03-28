@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// nolint:unused // example method
 func example() {
 	client, err := Connect(
 		"base_url",
@@ -47,7 +48,10 @@ func example() {
 
 	var inInterface map[string]interface{}
 	inrec, _ := json.Marshal(saleOrder)
-	json.Unmarshal(inrec, &inInterface)
+	err = json.Unmarshal(inrec, &inInterface)
+	if err != nil {
+		panic(err)
+	}
 
 	id, err := client.Create(SaleOrderModelID, inInterface)
 	if err != nil {

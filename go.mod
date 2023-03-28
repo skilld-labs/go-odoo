@@ -1,6 +1,6 @@
 module github.com/xiatechs/go-odoo/v2
 
-go 1.18
+go 1.20
 
 replace (
 	github.com/cucumber/godog => github.com/laurazard/godog v0.0.0-20220922095256-4c4b17abdae7

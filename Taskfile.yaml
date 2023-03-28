@@ -4,3 +4,9 @@ tasks:
     desc: runs all tests
     cmds:
       - go test -v -cover -race ./...
+
+  lint:
+    desc: run the linter on the code
+    cmds:
+      - command -v golangci-lint > /dev/null || GO111MODULE=off go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+      - golangci-lint run
