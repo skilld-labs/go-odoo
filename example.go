@@ -40,7 +40,6 @@ func example() {
 		PartnerId:        26,
 		DateOrder:        dateOrder.Format("2006-01-02"),
 		PricelistId:      1,
-		CompanyId:        1,
 		OrderLine:        orderLines,
 		PartnerInvoiceId: 26,
 		DisplayName:      "Big Order",

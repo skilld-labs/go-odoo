@@ -5,6 +5,11 @@ tasks:
     cmds:
       - go test -v -cover -race ./...
 
+  int-tests:
+    desc: runs the int tests
+    cmds:
+      - go test -v -race -tags=integration ./...
+
   lint:
     desc: run the linter on the code
     cmds:
