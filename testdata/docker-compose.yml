@@ -13,7 +13,7 @@ services:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
 
   odoo14:
-    image: wbms/odoo14-multiarch
+    image: odoo:14.0
     depends_on:
       - db
     ports:
