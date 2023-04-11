@@ -167,7 +167,19 @@ one2many and many2many are represented by the `Relation` type and allow you to e
 
 ### Criteria and Options
 
-`Criteria` is a set of criterion and allow you to query models. [More informations](https://www.odoo.com/documentation/13.0/reference/orm.html#search-domains)
+`Criteria` is a set of Criterion and allow you to query models. [More informations](https://www.odoo.com/documentation/13.0/reference/orm.html#search-domains)
+
+#### Combined Criterions
+
+Criterions can be combined using AND (arity 2), OR (arity 2) and NOT (arity 1) operators.
+Criteria have And, Or and Not methods to be able to do such query eg:
+
+```go
+c := odoo.NewCriteria().Or(
+	odoo.NewCriterion("user_id.name", "=", "Jane Doe"),
+	odoo.NewCriterion("user_id.name", "=", "John Doe"),
+)
+```
 
 `Options` allow you to filter results.
 

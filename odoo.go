@@ -82,28 +82,74 @@ func (c *Client) Version() (Version, error) {
 	return v, nil
 }
 
-type criterion []interface{}
+type combinedCriterionOperator string
+
+const (
+	and combinedCriterionOperator = "&"
+	or                            = "|"
+	not                           = "!"
+)
+
+type Criterion []interface{}
+
+func (c *Criterion) ToInterface() []interface{} {
+	if c != nil {
+		return ([]interface{})(*c)
+	}
+	return []interface{}{}
+}
+
+type combinedCriterions struct {
+	combinedCriterionOperator
+	Criterions []*Criterion
+}
 
 /*
-Criteria is a set of criterion, each criterion is a triple (field_name, operator, value).
+Criteria is a set of Criterion, each Criterion is a triple (field_name, operator, value).
 It allow you to search models.
 see documentation: https://www.odoo.com/documentation/13.0/reference/orm.html#reference-orm-domains
 */
-type Criteria []*criterion
+type Criteria []interface{}
 
 // NewCriteria creates a new *Criteria.
 func NewCriteria() *Criteria {
 	return &Criteria{}
 }
 
-func newCriterion(field, operator string, value interface{}) *criterion {
-	c := criterion(newTuple(field, operator, value))
+func NewCriterion(field, operator string, value interface{}) *Criterion {
+	c := Criterion(newTuple(field, operator, value))
 	return &c
 }
 
-// Add a new criterion to a *Criteria.
+// Add a new Criterion to a *Criteria.
 func (c *Criteria) Add(field, operator string, value interface{}) *Criteria {
-	*c = append(*c, newCriterion(field, operator, value))
+	*c = append(*c, NewCriterion(field, operator, value).ToInterface())
+	return c
+}
+
+// Add a new Criterion to a *Criteria.
+func (c *Criteria) AddCriterion(cri *Criterion) *Criteria {
+	*c = append(*c, cri.ToInterface())
+	return c
+}
+
+func (c *Criteria) And(c1, c2 *Criterion) *Criteria {
+	return c.combinedCriterions(and, c1, c2)
+}
+
+func (c *Criteria) Or(c1, c2 *Criterion) *Criteria {
+	return c.combinedCriterions(or, c1, c2)
+}
+
+func (c *Criteria) Not(cri *Criterion) *Criteria {
+	return c.combinedCriterions(not, cri)
+}
+
+func (c *Criteria) combinedCriterions(op combinedCriterionOperator, cc ...*Criterion) *Criteria {
+	*c = append(*c, op)
+	for _, cri := range cc {
+		*c = append(*c, cri.ToInterface())
+	}
 	return c
 }
 
