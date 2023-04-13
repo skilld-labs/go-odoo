@@ -227,7 +227,7 @@ func (c *Client) Create(model string, values []interface{}) ([]int64, error) {
 	var args []interface{}
 	if len(values) == 0 {
 		return nil, nil
-	} else if len(values) == 1 {
+	} else if len(values) == 1 { // ensure it works with odoo 11 that doesn't allow to create multiple instances with one API call
 		args = []interface{}{getValuesFromInterface(values[0])}
 	} else {
 		vv := make([]interface{}, len(values))
