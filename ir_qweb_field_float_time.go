@@ -24,7 +24,23 @@ func (iqff *IrQwebFieldFloatTime) Many2One() *Many2One {
 
 // CreateIrQwebFieldFloatTime creates a new ir.qweb.field.float_time model and returns its id.
 func (c *Client) CreateIrQwebFieldFloatTime(iqff *IrQwebFieldFloatTime) (int64, error) {
-	return c.Create(IrQwebFieldFloatTimeModel, iqff)
+	ids, err := c.Create(IrQwebFieldFloatTimeModel, []interface{}{iqff})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldFloatTime creates a new ir.qweb.field.float_time model and returns its id.
+func (c *Client) CreateIrQwebFieldFloatTimes(iqffs []*IrQwebFieldFloatTime) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqffs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldFloatTimeModel, vv)
 }
 
 // UpdateIrQwebFieldFloatTime updates an existing ir.qweb.field.float_time record.

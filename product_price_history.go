@@ -32,7 +32,23 @@ func (pph *ProductPriceHistory) Many2One() *Many2One {
 
 // CreateProductPriceHistory creates a new product.price.history model and returns its id.
 func (c *Client) CreateProductPriceHistory(pph *ProductPriceHistory) (int64, error) {
-	return c.Create(ProductPriceHistoryModel, pph)
+	ids, err := c.Create(ProductPriceHistoryModel, []interface{}{pph})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductPriceHistory creates a new product.price.history model and returns its id.
+func (c *Client) CreateProductPriceHistorys(pphs []*ProductPriceHistory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pphs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductPriceHistoryModel, vv)
 }
 
 // UpdateProductPriceHistory updates an existing product.price.history record.

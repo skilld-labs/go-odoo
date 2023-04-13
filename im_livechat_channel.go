@@ -43,7 +43,23 @@ func (ic *ImLivechatChannel) Many2One() *Many2One {
 
 // CreateImLivechatChannel creates a new im_livechat.channel model and returns its id.
 func (c *Client) CreateImLivechatChannel(ic *ImLivechatChannel) (int64, error) {
-	return c.Create(ImLivechatChannelModel, ic)
+	ids, err := c.Create(ImLivechatChannelModel, []interface{}{ic})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateImLivechatChannel creates a new im_livechat.channel model and returns its id.
+func (c *Client) CreateImLivechatChannels(ics []*ImLivechatChannel) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ics {
+		vv = append(vv, v)
+	}
+	return c.Create(ImLivechatChannelModel, vv)
 }
 
 // UpdateImLivechatChannel updates an existing im_livechat.channel record.

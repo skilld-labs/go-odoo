@@ -62,7 +62,7 @@ type ResPartner struct {
 	JournalItemCount              *Int       `xmlrpc:"journal_item_count,omptempty"`
 	Lang                          *Selection `xmlrpc:"lang,omptempty"`
 	LastTimeEntriesChecked        *Time      `xmlrpc:"last_time_entries_checked,omptempty"`
-	MachineCompanyName            *String    `xmlrpc:"machine_company_name,omptempty"`
+	MachineOrganizationName       *String    `xmlrpc:"machine_organization_name,omptempty"`
 	MeetingCount                  *Int       `xmlrpc:"meeting_count,omptempty"`
 	MeetingIds                    *Relation  `xmlrpc:"meeting_ids,omptempty"`
 	MessageBounce                 *Int       `xmlrpc:"message_bounce,omptempty"`
@@ -152,7 +152,23 @@ func (rp *ResPartner) Many2One() *Many2One {
 
 // CreateResPartner creates a new res.partner model and returns its id.
 func (c *Client) CreateResPartner(rp *ResPartner) (int64, error) {
-	return c.Create(ResPartnerModel, rp)
+	ids, err := c.Create(ResPartnerModel, []interface{}{rp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResPartner creates a new res.partner model and returns its id.
+func (c *Client) CreateResPartners(rps []*ResPartner) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rps {
+		vv = append(vv, v)
+	}
+	return c.Create(ResPartnerModel, vv)
 }
 
 // UpdateResPartner updates an existing res.partner record.

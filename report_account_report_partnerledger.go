@@ -24,7 +24,23 @@ func (rar *ReportAccountReportPartnerledger) Many2One() *Many2One {
 
 // CreateReportAccountReportPartnerledger creates a new report.account.report_partnerledger model and returns its id.
 func (c *Client) CreateReportAccountReportPartnerledger(rar *ReportAccountReportPartnerledger) (int64, error) {
-	return c.Create(ReportAccountReportPartnerledgerModel, rar)
+	ids, err := c.Create(ReportAccountReportPartnerledgerModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportPartnerledger creates a new report.account.report_partnerledger model and returns its id.
+func (c *Client) CreateReportAccountReportPartnerledgers(rars []*ReportAccountReportPartnerledger) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportPartnerledgerModel, vv)
 }
 
 // UpdateReportAccountReportPartnerledger updates an existing report.account.report_partnerledger record.

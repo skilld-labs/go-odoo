@@ -30,7 +30,23 @@ func (mms *MailMassMailingStage) Many2One() *Many2One {
 
 // CreateMailMassMailingStage creates a new mail.mass_mailing.stage model and returns its id.
 func (c *Client) CreateMailMassMailingStage(mms *MailMassMailingStage) (int64, error) {
-	return c.Create(MailMassMailingStageModel, mms)
+	ids, err := c.Create(MailMassMailingStageModel, []interface{}{mms})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailMassMailingStage creates a new mail.mass_mailing.stage model and returns its id.
+func (c *Client) CreateMailMassMailingStages(mmss []*MailMassMailingStage) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mmss {
+		vv = append(vv, v)
+	}
+	return c.Create(MailMassMailingStageModel, vv)
 }
 
 // UpdateMailMassMailingStage updates an existing mail.mass_mailing.stage record.

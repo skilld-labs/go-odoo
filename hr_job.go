@@ -50,7 +50,23 @@ func (hj *HrJob) Many2One() *Many2One {
 
 // CreateHrJob creates a new hr.job model and returns its id.
 func (c *Client) CreateHrJob(hj *HrJob) (int64, error) {
-	return c.Create(HrJobModel, hj)
+	ids, err := c.Create(HrJobModel, []interface{}{hj})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrJob creates a new hr.job model and returns its id.
+func (c *Client) CreateHrJobs(hjs []*HrJob) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hjs {
+		vv = append(vv, v)
+	}
+	return c.Create(HrJobModel, vv)
 }
 
 // UpdateHrJob updates an existing hr.job record.

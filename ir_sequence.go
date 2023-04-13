@@ -41,7 +41,23 @@ func (is *IrSequence) Many2One() *Many2One {
 
 // CreateIrSequence creates a new ir.sequence model and returns its id.
 func (c *Client) CreateIrSequence(is *IrSequence) (int64, error) {
-	return c.Create(IrSequenceModel, is)
+	ids, err := c.Create(IrSequenceModel, []interface{}{is})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrSequence creates a new ir.sequence model and returns its id.
+func (c *Client) CreateIrSequences(iss []*IrSequence) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iss {
+		vv = append(vv, v)
+	}
+	return c.Create(IrSequenceModel, vv)
 }
 
 // UpdateIrSequence updates an existing ir.sequence record.

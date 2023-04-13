@@ -31,7 +31,23 @@ func (aat *AccountAnalyticTag) Many2One() *Many2One {
 
 // CreateAccountAnalyticTag creates a new account.analytic.tag model and returns its id.
 func (c *Client) CreateAccountAnalyticTag(aat *AccountAnalyticTag) (int64, error) {
-	return c.Create(AccountAnalyticTagModel, aat)
+	ids, err := c.Create(AccountAnalyticTagModel, []interface{}{aat})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountAnalyticTag creates a new account.analytic.tag model and returns its id.
+func (c *Client) CreateAccountAnalyticTags(aats []*AccountAnalyticTag) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aats {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountAnalyticTagModel, vv)
 }
 
 // UpdateAccountAnalyticTag updates an existing account.analytic.tag record.

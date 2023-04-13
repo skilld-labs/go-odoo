@@ -21,6 +21,7 @@ type ProductProduct struct {
 	Code                                   *String    `xmlrpc:"code,omptempty"`
 	Color                                  *Int       `xmlrpc:"color,omptempty"`
 	CompanyId                              *Many2One  `xmlrpc:"company_id,omptempty"`
+	CostCurrencyId                         *Many2One  `xmlrpc:"cost_currency_id,omptempty"`
 	CostMethod                             *String    `xmlrpc:"cost_method,omptempty"`
 	CreateDate                             *Time      `xmlrpc:"create_date,omptempty"`
 	CreateUid                              *Many2One  `xmlrpc:"create_uid,omptempty"`
@@ -139,7 +140,23 @@ func (pp *ProductProduct) Many2One() *Many2One {
 
 // CreateProductProduct creates a new product.product model and returns its id.
 func (c *Client) CreateProductProduct(pp *ProductProduct) (int64, error) {
-	return c.Create(ProductProductModel, pp)
+	ids, err := c.Create(ProductProductModel, []interface{}{pp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductProduct creates a new product.product model and returns its id.
+func (c *Client) CreateProductProducts(pps []*ProductProduct) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pps {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductProductModel, vv)
 }
 
 // UpdateProductProduct updates an existing product.product record.

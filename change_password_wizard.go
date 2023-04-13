@@ -29,7 +29,23 @@ func (cpw *ChangePasswordWizard) Many2One() *Many2One {
 
 // CreateChangePasswordWizard creates a new change.password.wizard model and returns its id.
 func (c *Client) CreateChangePasswordWizard(cpw *ChangePasswordWizard) (int64, error) {
-	return c.Create(ChangePasswordWizardModel, cpw)
+	ids, err := c.Create(ChangePasswordWizardModel, []interface{}{cpw})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateChangePasswordWizard creates a new change.password.wizard model and returns its id.
+func (c *Client) CreateChangePasswordWizards(cpws []*ChangePasswordWizard) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cpws {
+		vv = append(vv, v)
+	}
+	return c.Create(ChangePasswordWizardModel, vv)
 }
 
 // UpdateChangePasswordWizard updates an existing change.password.wizard record.

@@ -28,7 +28,23 @@ func (str *StockTraceabilityReport) Many2One() *Many2One {
 
 // CreateStockTraceabilityReport creates a new stock.traceability.report model and returns its id.
 func (c *Client) CreateStockTraceabilityReport(str *StockTraceabilityReport) (int64, error) {
-	return c.Create(StockTraceabilityReportModel, str)
+	ids, err := c.Create(StockTraceabilityReportModel, []interface{}{str})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockTraceabilityReport creates a new stock.traceability.report model and returns its id.
+func (c *Client) CreateStockTraceabilityReports(strs []*StockTraceabilityReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range strs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockTraceabilityReportModel, vv)
 }
 
 // UpdateStockTraceabilityReport updates an existing stock.traceability.report record.

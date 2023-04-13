@@ -10,7 +10,6 @@ type IrCron struct {
 	Active            *Bool      `xmlrpc:"active,omptempty"`
 	BindingModelId    *Many2One  `xmlrpc:"binding_model_id,omptempty"`
 	BindingType       *Selection `xmlrpc:"binding_type,omptempty"`
-	ChannelIds        *Relation  `xmlrpc:"channel_ids,omptempty"`
 	ChildIds          *Relation  `xmlrpc:"child_ids,omptempty"`
 	Code              *String    `xmlrpc:"code,omptempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
@@ -32,11 +31,9 @@ type IrCron struct {
 	Name              *String    `xmlrpc:"name,omptempty"`
 	Nextcall          *Time      `xmlrpc:"nextcall,omptempty"`
 	Numbercall        *Int       `xmlrpc:"numbercall,omptempty"`
-	PartnerIds        *Relation  `xmlrpc:"partner_ids,omptempty"`
 	Priority          *Int       `xmlrpc:"priority,omptempty"`
 	Sequence          *Int       `xmlrpc:"sequence,omptempty"`
 	State             *Selection `xmlrpc:"state,omptempty"`
-	TemplateId        *Many2One  `xmlrpc:"template_id,omptempty"`
 	Type              *String    `xmlrpc:"type,omptempty"`
 	Usage             *Selection `xmlrpc:"usage,omptempty"`
 	UserId            *Many2One  `xmlrpc:"user_id,omptempty"`
@@ -58,7 +55,23 @@ func (ic *IrCron) Many2One() *Many2One {
 
 // CreateIrCron creates a new ir.cron model and returns its id.
 func (c *Client) CreateIrCron(ic *IrCron) (int64, error) {
-	return c.Create(IrCronModel, ic)
+	ids, err := c.Create(IrCronModel, []interface{}{ic})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrCron creates a new ir.cron model and returns its id.
+func (c *Client) CreateIrCrons(ics []*IrCron) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ics {
+		vv = append(vv, v)
+	}
+	return c.Create(IrCronModel, vv)
 }
 
 // UpdateIrCron updates an existing ir.cron record.

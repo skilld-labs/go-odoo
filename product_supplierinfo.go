@@ -43,7 +43,23 @@ func (ps *ProductSupplierinfo) Many2One() *Many2One {
 
 // CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
 func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, error) {
-	return c.Create(ProductSupplierinfoModel, ps)
+	ids, err := c.Create(ProductSupplierinfoModel, []interface{}{ps})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
+func (c *Client) CreateProductSupplierinfos(pss []*ProductSupplierinfo) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pss {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductSupplierinfoModel, vv)
 }
 
 // UpdateProductSupplierinfo updates an existing product.supplierinfo record.

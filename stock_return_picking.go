@@ -34,7 +34,23 @@ func (srp *StockReturnPicking) Many2One() *Many2One {
 
 // CreateStockReturnPicking creates a new stock.return.picking model and returns its id.
 func (c *Client) CreateStockReturnPicking(srp *StockReturnPicking) (int64, error) {
-	return c.Create(StockReturnPickingModel, srp)
+	ids, err := c.Create(StockReturnPickingModel, []interface{}{srp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockReturnPicking creates a new stock.return.picking model and returns its id.
+func (c *Client) CreateStockReturnPickings(srps []*StockReturnPicking) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range srps {
+		vv = append(vv, v)
+	}
+	return c.Create(StockReturnPickingModel, vv)
 }
 
 // UpdateStockReturnPicking updates an existing stock.return.picking record.

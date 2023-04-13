@@ -24,7 +24,23 @@ func (rpr *ReportProductReportPricelist) Many2One() *Many2One {
 
 // CreateReportProductReportPricelist creates a new report.product.report_pricelist model and returns its id.
 func (c *Client) CreateReportProductReportPricelist(rpr *ReportProductReportPricelist) (int64, error) {
-	return c.Create(ReportProductReportPricelistModel, rpr)
+	ids, err := c.Create(ReportProductReportPricelistModel, []interface{}{rpr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportProductReportPricelist creates a new report.product.report_pricelist model and returns its id.
+func (c *Client) CreateReportProductReportPricelists(rprs []*ReportProductReportPricelist) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rprs {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportProductReportPricelistModel, vv)
 }
 
 // UpdateReportProductReportPricelist updates an existing report.product.report_pricelist record.

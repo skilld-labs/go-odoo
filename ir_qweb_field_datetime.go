@@ -24,7 +24,23 @@ func (iqfd *IrQwebFieldDatetime) Many2One() *Many2One {
 
 // CreateIrQwebFieldDatetime creates a new ir.qweb.field.datetime model and returns its id.
 func (c *Client) CreateIrQwebFieldDatetime(iqfd *IrQwebFieldDatetime) (int64, error) {
-	return c.Create(IrQwebFieldDatetimeModel, iqfd)
+	ids, err := c.Create(IrQwebFieldDatetimeModel, []interface{}{iqfd})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldDatetime creates a new ir.qweb.field.datetime model and returns its id.
+func (c *Client) CreateIrQwebFieldDatetimes(iqfds []*IrQwebFieldDatetime) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfds {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldDatetimeModel, vv)
 }
 
 // UpdateIrQwebFieldDatetime updates an existing ir.qweb.field.datetime record.

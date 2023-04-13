@@ -34,7 +34,23 @@ func (abr *AccountBalanceReport) Many2One() *Many2One {
 
 // CreateAccountBalanceReport creates a new account.balance.report model and returns its id.
 func (c *Client) CreateAccountBalanceReport(abr *AccountBalanceReport) (int64, error) {
-	return c.Create(AccountBalanceReportModel, abr)
+	ids, err := c.Create(AccountBalanceReportModel, []interface{}{abr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountBalanceReport creates a new account.balance.report model and returns its id.
+func (c *Client) CreateAccountBalanceReports(abrs []*AccountBalanceReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range abrs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountBalanceReportModel, vv)
 }
 
 // UpdateAccountBalanceReport updates an existing account.balance.report record.

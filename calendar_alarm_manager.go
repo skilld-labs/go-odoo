@@ -24,7 +24,23 @@ func (ca *CalendarAlarmManager) Many2One() *Many2One {
 
 // CreateCalendarAlarmManager creates a new calendar.alarm_manager model and returns its id.
 func (c *Client) CreateCalendarAlarmManager(ca *CalendarAlarmManager) (int64, error) {
-	return c.Create(CalendarAlarmManagerModel, ca)
+	ids, err := c.Create(CalendarAlarmManagerModel, []interface{}{ca})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCalendarAlarmManager creates a new calendar.alarm_manager model and returns its id.
+func (c *Client) CreateCalendarAlarmManagers(cas []*CalendarAlarmManager) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cas {
+		vv = append(vv, v)
+	}
+	return c.Create(CalendarAlarmManagerModel, vv)
 }
 
 // UpdateCalendarAlarmManager updates an existing calendar.alarm_manager record.

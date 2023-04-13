@@ -57,7 +57,23 @@ func (mm *MailMessage) Many2One() *Many2One {
 
 // CreateMailMessage creates a new mail.message model and returns its id.
 func (c *Client) CreateMailMessage(mm *MailMessage) (int64, error) {
-	return c.Create(MailMessageModel, mm)
+	ids, err := c.Create(MailMessageModel, []interface{}{mm})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailMessage creates a new mail.message model and returns its id.
+func (c *Client) CreateMailMessages(mms []*MailMessage) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mms {
+		vv = append(vv, v)
+	}
+	return c.Create(MailMessageModel, vv)
 }
 
 // UpdateMailMessage updates an existing mail.message record.

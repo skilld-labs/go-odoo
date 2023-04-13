@@ -29,7 +29,23 @@ func (btmcr *BaseImportTestsModelsCharReadonly) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsCharReadonly creates a new base_import.tests.models.char.readonly model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharReadonly(btmcr *BaseImportTestsModelsCharReadonly) (int64, error) {
-	return c.Create(BaseImportTestsModelsCharReadonlyModel, btmcr)
+	ids, err := c.Create(BaseImportTestsModelsCharReadonlyModel, []interface{}{btmcr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportTestsModelsCharReadonly creates a new base_import.tests.models.char.readonly model and returns its id.
+func (c *Client) CreateBaseImportTestsModelsCharReadonlys(btmcrs []*BaseImportTestsModelsCharReadonly) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range btmcrs {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportTestsModelsCharReadonlyModel, vv)
 }
 
 // UpdateBaseImportTestsModelsCharReadonly updates an existing base_import.tests.models.char.readonly record.

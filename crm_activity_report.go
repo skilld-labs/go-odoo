@@ -39,7 +39,23 @@ func (car *CrmActivityReport) Many2One() *Many2One {
 
 // CreateCrmActivityReport creates a new crm.activity.report model and returns its id.
 func (c *Client) CreateCrmActivityReport(car *CrmActivityReport) (int64, error) {
-	return c.Create(CrmActivityReportModel, car)
+	ids, err := c.Create(CrmActivityReportModel, []interface{}{car})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmActivityReport creates a new crm.activity.report model and returns its id.
+func (c *Client) CreateCrmActivityReports(cars []*CrmActivityReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cars {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmActivityReportModel, vv)
 }
 
 // UpdateCrmActivityReport updates an existing crm.activity.report record.

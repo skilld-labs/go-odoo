@@ -41,7 +41,23 @@ func (slp *StockLocationPath) Many2One() *Many2One {
 
 // CreateStockLocationPath creates a new stock.location.path model and returns its id.
 func (c *Client) CreateStockLocationPath(slp *StockLocationPath) (int64, error) {
-	return c.Create(StockLocationPathModel, slp)
+	ids, err := c.Create(StockLocationPathModel, []interface{}{slp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockLocationPath creates a new stock.location.path model and returns its id.
+func (c *Client) CreateStockLocationPaths(slps []*StockLocationPath) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range slps {
+		vv = append(vv, v)
+	}
+	return c.Create(StockLocationPathModel, vv)
 }
 
 // UpdateStockLocationPath updates an existing stock.location.path record.

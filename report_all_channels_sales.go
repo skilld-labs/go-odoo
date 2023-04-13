@@ -39,7 +39,23 @@ func (racs *ReportAllChannelsSales) Many2One() *Many2One {
 
 // CreateReportAllChannelsSales creates a new report.all.channels.sales model and returns its id.
 func (c *Client) CreateReportAllChannelsSales(racs *ReportAllChannelsSales) (int64, error) {
-	return c.Create(ReportAllChannelsSalesModel, racs)
+	ids, err := c.Create(ReportAllChannelsSalesModel, []interface{}{racs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAllChannelsSales creates a new report.all.channels.sales model and returns its id.
+func (c *Client) CreateReportAllChannelsSaless(racss []*ReportAllChannelsSales) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range racss {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAllChannelsSalesModel, vv)
 }
 
 // UpdateReportAllChannelsSales updates an existing report.all.channels.sales record.

@@ -33,7 +33,23 @@ func (amlrw *AccountMoveLineReconcileWriteoff) Many2One() *Many2One {
 
 // CreateAccountMoveLineReconcileWriteoff creates a new account.move.line.reconcile.writeoff model and returns its id.
 func (c *Client) CreateAccountMoveLineReconcileWriteoff(amlrw *AccountMoveLineReconcileWriteoff) (int64, error) {
-	return c.Create(AccountMoveLineReconcileWriteoffModel, amlrw)
+	ids, err := c.Create(AccountMoveLineReconcileWriteoffModel, []interface{}{amlrw})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountMoveLineReconcileWriteoff creates a new account.move.line.reconcile.writeoff model and returns its id.
+func (c *Client) CreateAccountMoveLineReconcileWriteoffs(amlrws []*AccountMoveLineReconcileWriteoff) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range amlrws {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountMoveLineReconcileWriteoffModel, vv)
 }
 
 // UpdateAccountMoveLineReconcileWriteoff updates an existing account.move.line.reconcile.writeoff record.

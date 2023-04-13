@@ -29,7 +29,23 @@ func (wcts *WebEditorConverterTestSub) Many2One() *Many2One {
 
 // CreateWebEditorConverterTestSub creates a new web_editor.converter.test.sub model and returns its id.
 func (c *Client) CreateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub) (int64, error) {
-	return c.Create(WebEditorConverterTestSubModel, wcts)
+	ids, err := c.Create(WebEditorConverterTestSubModel, []interface{}{wcts})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateWebEditorConverterTestSub creates a new web_editor.converter.test.sub model and returns its id.
+func (c *Client) CreateWebEditorConverterTestSubs(wctss []*WebEditorConverterTestSub) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range wctss {
+		vv = append(vv, v)
+	}
+	return c.Create(WebEditorConverterTestSubModel, vv)
 }
 
 // UpdateWebEditorConverterTestSub updates an existing web_editor.converter.test.sub record.

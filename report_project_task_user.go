@@ -46,7 +46,23 @@ func (rptu *ReportProjectTaskUser) Many2One() *Many2One {
 
 // CreateReportProjectTaskUser creates a new report.project.task.user model and returns its id.
 func (c *Client) CreateReportProjectTaskUser(rptu *ReportProjectTaskUser) (int64, error) {
-	return c.Create(ReportProjectTaskUserModel, rptu)
+	ids, err := c.Create(ReportProjectTaskUserModel, []interface{}{rptu})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportProjectTaskUser creates a new report.project.task.user model and returns its id.
+func (c *Client) CreateReportProjectTaskUsers(rptus []*ReportProjectTaskUser) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rptus {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportProjectTaskUserModel, vv)
 }
 
 // UpdateReportProjectTaskUser updates an existing report.project.task.user record.

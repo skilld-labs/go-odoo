@@ -31,7 +31,23 @@ func (bpml *BasePartnerMergeLine) Many2One() *Many2One {
 
 // CreateBasePartnerMergeLine creates a new base.partner.merge.line model and returns its id.
 func (c *Client) CreateBasePartnerMergeLine(bpml *BasePartnerMergeLine) (int64, error) {
-	return c.Create(BasePartnerMergeLineModel, bpml)
+	ids, err := c.Create(BasePartnerMergeLineModel, []interface{}{bpml})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBasePartnerMergeLine creates a new base.partner.merge.line model and returns its id.
+func (c *Client) CreateBasePartnerMergeLines(bpmls []*BasePartnerMergeLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bpmls {
+		vv = append(vv, v)
+	}
+	return c.Create(BasePartnerMergeLineModel, vv)
 }
 
 // UpdateBasePartnerMergeLine updates an existing base.partner.merge.line record.

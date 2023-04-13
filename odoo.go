@@ -221,15 +221,24 @@ func getValuesFromInterface(v interface{}) map[string]interface{} {
 	}
 }
 
-// Create a new model.
+// Create new model instances.
 // https://www.odoo.com/documentation/13.0/webservices/odoo.html#create-records
-func (c *Client) Create(model string, values interface{}) (int64, error) {
-	v := getValuesFromInterface(values)
-	resp, err := c.ExecuteKw("create", model, []interface{}{v}, nil)
-	if err != nil {
-		return -1, err
+func (c *Client) Create(model string, values []interface{}) ([]int64, error) {
+	if len(values) == 0 {
+		return nil, nil
 	}
-	return resp.(int64), nil
+	var vv []interface{}
+	for _, v := range values {
+		vv = append(vv, getValuesFromInterface(v))
+	}
+	resp, err := c.ExecuteKw("create", model, vv, nil)
+	if err != nil {
+		return nil, err
+	}
+	if len(values) == 1 {
+		return []int64{resp.(int64)}, nil
+	}
+	return resp.([]int64), nil
 }
 
 // Update existing model row(s).

@@ -29,7 +29,23 @@ func (us *UtmSource) Many2One() *Many2One {
 
 // CreateUtmSource creates a new utm.source model and returns its id.
 func (c *Client) CreateUtmSource(us *UtmSource) (int64, error) {
-	return c.Create(UtmSourceModel, us)
+	ids, err := c.Create(UtmSourceModel, []interface{}{us})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateUtmSource creates a new utm.source model and returns its id.
+func (c *Client) CreateUtmSources(uss []*UtmSource) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range uss {
+		vv = append(vv, v)
+	}
+	return c.Create(UtmSourceModel, vv)
 }
 
 // UpdateUtmSource updates an existing utm.source record.

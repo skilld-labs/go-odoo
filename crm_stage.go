@@ -36,7 +36,23 @@ func (cs *CrmStage) Many2One() *Many2One {
 
 // CreateCrmStage creates a new crm.stage model and returns its id.
 func (c *Client) CreateCrmStage(cs *CrmStage) (int64, error) {
-	return c.Create(CrmStageModel, cs)
+	ids, err := c.Create(CrmStageModel, []interface{}{cs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmStage creates a new crm.stage model and returns its id.
+func (c *Client) CreateCrmStages(css []*CrmStage) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range css {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmStageModel, vv)
 }
 
 // UpdateCrmStage updates an existing crm.stage record.

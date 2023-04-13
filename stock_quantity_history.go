@@ -30,7 +30,23 @@ func (sqh *StockQuantityHistory) Many2One() *Many2One {
 
 // CreateStockQuantityHistory creates a new stock.quantity.history model and returns its id.
 func (c *Client) CreateStockQuantityHistory(sqh *StockQuantityHistory) (int64, error) {
-	return c.Create(StockQuantityHistoryModel, sqh)
+	ids, err := c.Create(StockQuantityHistoryModel, []interface{}{sqh})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockQuantityHistory creates a new stock.quantity.history model and returns its id.
+func (c *Client) CreateStockQuantityHistorys(sqhs []*StockQuantityHistory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sqhs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockQuantityHistoryModel, vv)
 }
 
 // UpdateStockQuantityHistory updates an existing stock.quantity.history record.

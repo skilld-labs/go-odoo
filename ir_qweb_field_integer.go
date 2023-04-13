@@ -24,7 +24,23 @@ func (iqfi *IrQwebFieldInteger) Many2One() *Many2One {
 
 // CreateIrQwebFieldInteger creates a new ir.qweb.field.integer model and returns its id.
 func (c *Client) CreateIrQwebFieldInteger(iqfi *IrQwebFieldInteger) (int64, error) {
-	return c.Create(IrQwebFieldIntegerModel, iqfi)
+	ids, err := c.Create(IrQwebFieldIntegerModel, []interface{}{iqfi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldInteger creates a new ir.qweb.field.integer model and returns its id.
+func (c *Client) CreateIrQwebFieldIntegers(iqfis []*IrQwebFieldInteger) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfis {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldIntegerModel, vv)
 }
 
 // UpdateIrQwebFieldInteger updates an existing ir.qweb.field.integer record.

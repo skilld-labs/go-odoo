@@ -31,7 +31,23 @@ func (cmo *CrmMergeOpportunity) Many2One() *Many2One {
 
 // CreateCrmMergeOpportunity creates a new crm.merge.opportunity model and returns its id.
 func (c *Client) CreateCrmMergeOpportunity(cmo *CrmMergeOpportunity) (int64, error) {
-	return c.Create(CrmMergeOpportunityModel, cmo)
+	ids, err := c.Create(CrmMergeOpportunityModel, []interface{}{cmo})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmMergeOpportunity creates a new crm.merge.opportunity model and returns its id.
+func (c *Client) CreateCrmMergeOpportunitys(cmos []*CrmMergeOpportunity) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cmos {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmMergeOpportunityModel, vv)
 }
 
 // UpdateCrmMergeOpportunity updates an existing crm.merge.opportunity record.

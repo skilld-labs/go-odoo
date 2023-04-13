@@ -100,7 +100,23 @@ func (cl *CrmLead) Many2One() *Many2One {
 
 // CreateCrmLead creates a new crm.lead model and returns its id.
 func (c *Client) CreateCrmLead(cl *CrmLead) (int64, error) {
-	return c.Create(CrmLeadModel, cl)
+	ids, err := c.Create(CrmLeadModel, []interface{}{cl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmLead creates a new crm.lead model and returns its id.
+func (c *Client) CreateCrmLeads(cls []*CrmLead) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cls {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmLeadModel, vv)
 }
 
 // UpdateCrmLead updates an existing crm.lead record.

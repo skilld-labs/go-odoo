@@ -40,7 +40,23 @@ func (sqp *StockQuantPackage) Many2One() *Many2One {
 
 // CreateStockQuantPackage creates a new stock.quant.package model and returns its id.
 func (c *Client) CreateStockQuantPackage(sqp *StockQuantPackage) (int64, error) {
-	return c.Create(StockQuantPackageModel, sqp)
+	ids, err := c.Create(StockQuantPackageModel, []interface{}{sqp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockQuantPackage creates a new stock.quant.package model and returns its id.
+func (c *Client) CreateStockQuantPackages(sqps []*StockQuantPackage) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sqps {
+		vv = append(vv, v)
+	}
+	return c.Create(StockQuantPackageModel, vv)
 }
 
 // UpdateStockQuantPackage updates an existing stock.quant.package record.

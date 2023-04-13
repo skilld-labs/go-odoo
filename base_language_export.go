@@ -34,7 +34,23 @@ func (ble *BaseLanguageExport) Many2One() *Many2One {
 
 // CreateBaseLanguageExport creates a new base.language.export model and returns its id.
 func (c *Client) CreateBaseLanguageExport(ble *BaseLanguageExport) (int64, error) {
-	return c.Create(BaseLanguageExportModel, ble)
+	ids, err := c.Create(BaseLanguageExportModel, []interface{}{ble})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseLanguageExport creates a new base.language.export model and returns its id.
+func (c *Client) CreateBaseLanguageExports(bles []*BaseLanguageExport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bles {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseLanguageExportModel, vv)
 }
 
 // UpdateBaseLanguageExport updates an existing base.language.export record.

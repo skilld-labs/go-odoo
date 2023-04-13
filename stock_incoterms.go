@@ -31,7 +31,23 @@ func (si *StockIncoterms) Many2One() *Many2One {
 
 // CreateStockIncoterms creates a new stock.incoterms model and returns its id.
 func (c *Client) CreateStockIncoterms(si *StockIncoterms) (int64, error) {
-	return c.Create(StockIncotermsModel, si)
+	ids, err := c.Create(StockIncotermsModel, []interface{}{si})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockIncoterms creates a new stock.incoterms model and returns its id.
+func (c *Client) CreateStockIncotermss(sis []*StockIncoterms) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sis {
+		vv = append(vv, v)
+	}
+	return c.Create(StockIncotermsModel, vv)
 }
 
 // UpdateStockIncoterms updates an existing stock.incoterms record.

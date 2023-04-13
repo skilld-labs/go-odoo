@@ -25,7 +25,23 @@ func (bb *BarcodesBarcodeEventsMixin) Many2One() *Many2One {
 
 // CreateBarcodesBarcodeEventsMixin creates a new barcodes.barcode_events_mixin model and returns its id.
 func (c *Client) CreateBarcodesBarcodeEventsMixin(bb *BarcodesBarcodeEventsMixin) (int64, error) {
-	return c.Create(BarcodesBarcodeEventsMixinModel, bb)
+	ids, err := c.Create(BarcodesBarcodeEventsMixinModel, []interface{}{bb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBarcodesBarcodeEventsMixin creates a new barcodes.barcode_events_mixin model and returns its id.
+func (c *Client) CreateBarcodesBarcodeEventsMixins(bbs []*BarcodesBarcodeEventsMixin) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bbs {
+		vv = append(vv, v)
+	}
+	return c.Create(BarcodesBarcodeEventsMixinModel, vv)
 }
 
 // UpdateBarcodesBarcodeEventsMixin updates an existing barcodes.barcode_events_mixin record.

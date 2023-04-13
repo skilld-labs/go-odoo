@@ -39,7 +39,23 @@ func (sq *StockQuant) Many2One() *Many2One {
 
 // CreateStockQuant creates a new stock.quant model and returns its id.
 func (c *Client) CreateStockQuant(sq *StockQuant) (int64, error) {
-	return c.Create(StockQuantModel, sq)
+	ids, err := c.Create(StockQuantModel, []interface{}{sq})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockQuant creates a new stock.quant model and returns its id.
+func (c *Client) CreateStockQuants(sqs []*StockQuant) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sqs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockQuantModel, vv)
 }
 
 // UpdateStockQuant updates an existing stock.quant record.

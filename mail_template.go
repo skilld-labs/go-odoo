@@ -53,7 +53,23 @@ func (mt *MailTemplate) Many2One() *Many2One {
 
 // CreateMailTemplate creates a new mail.template model and returns its id.
 func (c *Client) CreateMailTemplate(mt *MailTemplate) (int64, error) {
-	return c.Create(MailTemplateModel, mt)
+	ids, err := c.Create(MailTemplateModel, []interface{}{mt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailTemplate creates a new mail.template model and returns its id.
+func (c *Client) CreateMailTemplates(mts []*MailTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mts {
+		vv = append(vv, v)
+	}
+	return c.Create(MailTemplateModel, vv)
 }
 
 // UpdateMailTemplate updates an existing mail.template record.

@@ -36,7 +36,23 @@ func (rcl *ResourceCalendarLeaves) Many2One() *Many2One {
 
 // CreateResourceCalendarLeaves creates a new resource.calendar.leaves model and returns its id.
 func (c *Client) CreateResourceCalendarLeaves(rcl *ResourceCalendarLeaves) (int64, error) {
-	return c.Create(ResourceCalendarLeavesModel, rcl)
+	ids, err := c.Create(ResourceCalendarLeavesModel, []interface{}{rcl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResourceCalendarLeaves creates a new resource.calendar.leaves model and returns its id.
+func (c *Client) CreateResourceCalendarLeavess(rcls []*ResourceCalendarLeaves) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcls {
+		vv = append(vv, v)
+	}
+	return c.Create(ResourceCalendarLeavesModel, vv)
 }
 
 // UpdateResourceCalendarLeaves updates an existing resource.calendar.leaves record.

@@ -33,7 +33,23 @@ func (aff *AccountFrFec) Many2One() *Many2One {
 
 // CreateAccountFrFec creates a new account.fr.fec model and returns its id.
 func (c *Client) CreateAccountFrFec(aff *AccountFrFec) (int64, error) {
-	return c.Create(AccountFrFecModel, aff)
+	ids, err := c.Create(AccountFrFecModel, []interface{}{aff})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountFrFec creates a new account.fr.fec model and returns its id.
+func (c *Client) CreateAccountFrFecs(affs []*AccountFrFec) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range affs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountFrFecModel, vv)
 }
 
 // UpdateAccountFrFec updates an existing account.fr.fec record.

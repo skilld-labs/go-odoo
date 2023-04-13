@@ -31,7 +31,23 @@ func (iro *ImLivechatReportOperator) Many2One() *Many2One {
 
 // CreateImLivechatReportOperator creates a new im_livechat.report.operator model and returns its id.
 func (c *Client) CreateImLivechatReportOperator(iro *ImLivechatReportOperator) (int64, error) {
-	return c.Create(ImLivechatReportOperatorModel, iro)
+	ids, err := c.Create(ImLivechatReportOperatorModel, []interface{}{iro})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateImLivechatReportOperator creates a new im_livechat.report.operator model and returns its id.
+func (c *Client) CreateImLivechatReportOperators(iros []*ImLivechatReportOperator) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iros {
+		vv = append(vv, v)
+	}
+	return c.Create(ImLivechatReportOperatorModel, vv)
 }
 
 // UpdateImLivechatReportOperator updates an existing im_livechat.report.operator record.

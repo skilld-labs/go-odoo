@@ -32,7 +32,23 @@ func (iat *IrActionsTodo) Many2One() *Many2One {
 
 // CreateIrActionsTodo creates a new ir.actions.todo model and returns its id.
 func (c *Client) CreateIrActionsTodo(iat *IrActionsTodo) (int64, error) {
-	return c.Create(IrActionsTodoModel, iat)
+	ids, err := c.Create(IrActionsTodoModel, []interface{}{iat})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsTodo creates a new ir.actions.todo model and returns its id.
+func (c *Client) CreateIrActionsTodos(iats []*IrActionsTodo) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iats {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsTodoModel, vv)
 }
 
 // UpdateIrActionsTodo updates an existing ir.actions.todo record.

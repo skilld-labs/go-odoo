@@ -29,7 +29,23 @@ func (absc *AccountBankStatementCashbox) Many2One() *Many2One {
 
 // CreateAccountBankStatementCashbox creates a new account.bank.statement.cashbox model and returns its id.
 func (c *Client) CreateAccountBankStatementCashbox(absc *AccountBankStatementCashbox) (int64, error) {
-	return c.Create(AccountBankStatementCashboxModel, absc)
+	ids, err := c.Create(AccountBankStatementCashboxModel, []interface{}{absc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountBankStatementCashbox creates a new account.bank.statement.cashbox model and returns its id.
+func (c *Client) CreateAccountBankStatementCashboxs(abscs []*AccountBankStatementCashbox) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range abscs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountBankStatementCashboxModel, vv)
 }
 
 // UpdateAccountBankStatementCashbox updates an existing account.bank.statement.cashbox record.

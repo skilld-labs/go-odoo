@@ -29,7 +29,23 @@ func (rm *RatingMixin) Many2One() *Many2One {
 
 // CreateRatingMixin creates a new rating.mixin model and returns its id.
 func (c *Client) CreateRatingMixin(rm *RatingMixin) (int64, error) {
-	return c.Create(RatingMixinModel, rm)
+	ids, err := c.Create(RatingMixinModel, []interface{}{rm})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateRatingMixin creates a new rating.mixin model and returns its id.
+func (c *Client) CreateRatingMixins(rms []*RatingMixin) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rms {
+		vv = append(vv, v)
+	}
+	return c.Create(RatingMixinModel, vv)
 }
 
 // UpdateRatingMixin updates an existing rating.mixin record.

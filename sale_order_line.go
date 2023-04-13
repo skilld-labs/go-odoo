@@ -70,7 +70,23 @@ func (sol *SaleOrderLine) Many2One() *Many2One {
 
 // CreateSaleOrderLine creates a new sale.order.line model and returns its id.
 func (c *Client) CreateSaleOrderLine(sol *SaleOrderLine) (int64, error) {
-	return c.Create(SaleOrderLineModel, sol)
+	ids, err := c.Create(SaleOrderLineModel, []interface{}{sol})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSaleOrderLine creates a new sale.order.line model and returns its id.
+func (c *Client) CreateSaleOrderLines(sols []*SaleOrderLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sols {
+		vv = append(vv, v)
+	}
+	return c.Create(SaleOrderLineModel, vv)
 }
 
 // UpdateSaleOrderLine updates an existing sale.order.line record.

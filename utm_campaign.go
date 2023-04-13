@@ -29,7 +29,23 @@ func (uc *UtmCampaign) Many2One() *Many2One {
 
 // CreateUtmCampaign creates a new utm.campaign model and returns its id.
 func (c *Client) CreateUtmCampaign(uc *UtmCampaign) (int64, error) {
-	return c.Create(UtmCampaignModel, uc)
+	ids, err := c.Create(UtmCampaignModel, []interface{}{uc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateUtmCampaign creates a new utm.campaign model and returns its id.
+func (c *Client) CreateUtmCampaigns(ucs []*UtmCampaign) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ucs {
+		vv = append(vv, v)
+	}
+	return c.Create(UtmCampaignModel, vv)
 }
 
 // UpdateUtmCampaign updates an existing utm.campaign record.

@@ -24,7 +24,23 @@ func (rar *ReportAccountReportTrialbalance) Many2One() *Many2One {
 
 // CreateReportAccountReportTrialbalance creates a new report.account.report_trialbalance model and returns its id.
 func (c *Client) CreateReportAccountReportTrialbalance(rar *ReportAccountReportTrialbalance) (int64, error) {
-	return c.Create(ReportAccountReportTrialbalanceModel, rar)
+	ids, err := c.Create(ReportAccountReportTrialbalanceModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportTrialbalance creates a new report.account.report_trialbalance model and returns its id.
+func (c *Client) CreateReportAccountReportTrialbalances(rars []*ReportAccountReportTrialbalance) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportTrialbalanceModel, vv)
 }
 
 // UpdateReportAccountReportTrialbalance updates an existing report.account.report_trialbalance record.

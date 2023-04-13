@@ -35,7 +35,23 @@ func (ltc *LinkTrackerClick) Many2One() *Many2One {
 
 // CreateLinkTrackerClick creates a new link.tracker.click model and returns its id.
 func (c *Client) CreateLinkTrackerClick(ltc *LinkTrackerClick) (int64, error) {
-	return c.Create(LinkTrackerClickModel, ltc)
+	ids, err := c.Create(LinkTrackerClickModel, []interface{}{ltc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateLinkTrackerClick creates a new link.tracker.click model and returns its id.
+func (c *Client) CreateLinkTrackerClicks(ltcs []*LinkTrackerClick) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ltcs {
+		vv = append(vv, v)
+	}
+	return c.Create(LinkTrackerClickModel, vv)
 }
 
 // UpdateLinkTrackerClick updates an existing link.tracker.click record.

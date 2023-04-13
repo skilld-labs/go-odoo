@@ -34,7 +34,23 @@ func (scpq *StockChangeProductQty) Many2One() *Many2One {
 
 // CreateStockChangeProductQty creates a new stock.change.product.qty model and returns its id.
 func (c *Client) CreateStockChangeProductQty(scpq *StockChangeProductQty) (int64, error) {
-	return c.Create(StockChangeProductQtyModel, scpq)
+	ids, err := c.Create(StockChangeProductQtyModel, []interface{}{scpq})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockChangeProductQty creates a new stock.change.product.qty model and returns its id.
+func (c *Client) CreateStockChangeProductQtys(scpqs []*StockChangeProductQty) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range scpqs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockChangeProductQtyModel, vv)
 }
 
 // UpdateStockChangeProductQty updates an existing stock.change.product.qty record.

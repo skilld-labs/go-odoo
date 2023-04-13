@@ -39,7 +39,23 @@ func (aat *AccountAccountTemplate) Many2One() *Many2One {
 
 // CreateAccountAccountTemplate creates a new account.account.template model and returns its id.
 func (c *Client) CreateAccountAccountTemplate(aat *AccountAccountTemplate) (int64, error) {
-	return c.Create(AccountAccountTemplateModel, aat)
+	ids, err := c.Create(AccountAccountTemplateModel, []interface{}{aat})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountAccountTemplate creates a new account.account.template model and returns its id.
+func (c *Client) CreateAccountAccountTemplates(aats []*AccountAccountTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aats {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountAccountTemplateModel, vv)
 }
 
 // UpdateAccountAccountTemplate updates an existing account.account.template record.

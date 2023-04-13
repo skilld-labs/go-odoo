@@ -34,7 +34,23 @@ func (ptmw *ProjectTaskMergeWizard) Many2One() *Many2One {
 
 // CreateProjectTaskMergeWizard creates a new project.task.merge.wizard model and returns its id.
 func (c *Client) CreateProjectTaskMergeWizard(ptmw *ProjectTaskMergeWizard) (int64, error) {
-	return c.Create(ProjectTaskMergeWizardModel, ptmw)
+	ids, err := c.Create(ProjectTaskMergeWizardModel, []interface{}{ptmw})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProjectTaskMergeWizard creates a new project.task.merge.wizard model and returns its id.
+func (c *Client) CreateProjectTaskMergeWizards(ptmws []*ProjectTaskMergeWizard) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ptmws {
+		vv = append(vv, v)
+	}
+	return c.Create(ProjectTaskMergeWizardModel, vv)
 }
 
 // UpdateProjectTaskMergeWizard updates an existing project.task.merge.wizard record.

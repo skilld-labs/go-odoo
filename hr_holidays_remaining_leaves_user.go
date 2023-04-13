@@ -28,7 +28,23 @@ func (hhrlu *HrHolidaysRemainingLeavesUser) Many2One() *Many2One {
 
 // CreateHrHolidaysRemainingLeavesUser creates a new hr.holidays.remaining.leaves.user model and returns its id.
 func (c *Client) CreateHrHolidaysRemainingLeavesUser(hhrlu *HrHolidaysRemainingLeavesUser) (int64, error) {
-	return c.Create(HrHolidaysRemainingLeavesUserModel, hhrlu)
+	ids, err := c.Create(HrHolidaysRemainingLeavesUserModel, []interface{}{hhrlu})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrHolidaysRemainingLeavesUser creates a new hr.holidays.remaining.leaves.user model and returns its id.
+func (c *Client) CreateHrHolidaysRemainingLeavesUsers(hhrlus []*HrHolidaysRemainingLeavesUser) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hhrlus {
+		vv = append(vv, v)
+	}
+	return c.Create(HrHolidaysRemainingLeavesUserModel, vv)
 }
 
 // UpdateHrHolidaysRemainingLeavesUser updates an existing hr.holidays.remaining.leaves.user record.

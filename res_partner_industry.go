@@ -31,7 +31,23 @@ func (rpi *ResPartnerIndustry) Many2One() *Many2One {
 
 // CreateResPartnerIndustry creates a new res.partner.industry model and returns its id.
 func (c *Client) CreateResPartnerIndustry(rpi *ResPartnerIndustry) (int64, error) {
-	return c.Create(ResPartnerIndustryModel, rpi)
+	ids, err := c.Create(ResPartnerIndustryModel, []interface{}{rpi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResPartnerIndustry creates a new res.partner.industry model and returns its id.
+func (c *Client) CreateResPartnerIndustrys(rpis []*ResPartnerIndustry) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rpis {
+		vv = append(vv, v)
+	}
+	return c.Create(ResPartnerIndustryModel, vv)
 }
 
 // UpdateResPartnerIndustry updates an existing res.partner.industry record.

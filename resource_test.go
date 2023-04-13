@@ -32,7 +32,23 @@ func (rt *ResourceTest) Many2One() *Many2One {
 
 // CreateResourceTest creates a new resource.test model and returns its id.
 func (c *Client) CreateResourceTest(rt *ResourceTest) (int64, error) {
-	return c.Create(ResourceTestModel, rt)
+	ids, err := c.Create(ResourceTestModel, []interface{}{rt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResourceTest creates a new resource.test model and returns its id.
+func (c *Client) CreateResourceTests(rts []*ResourceTest) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rts {
+		vv = append(vv, v)
+	}
+	return c.Create(ResourceTestModel, vv)
 }
 
 // UpdateResourceTest updates an existing resource.test record.

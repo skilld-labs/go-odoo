@@ -22,7 +22,23 @@ func ({{.VarName}} *{{.StructName}}) Many2One() *Many2One {
 
 // Create{{.StructName}} creates a new {{ .Name }} model and returns its id.
 func (c *Client) Create{{.StructName}}({{.VarName}} *{{.StructName}}) (int64, error) {
-	return c.Create({{.StructName}}Model, {{.VarName}})
+	ids, err := c.Create({{.StructName}}Model, []interface{}{ {{.VarName}} })
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// Create{{.StructName}} creates a new {{ .Name }} model and returns its id.
+func (c *Client) Create{{.StructName}}s({{.VarName}}s []*{{.StructName}}) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range {{.VarName}}s {
+		vv = append(vv, v)
+	}
+	return c.Create({{.StructName}}Model, vv)
 }
 
 // Update{{.StructName}} updates an existing {{ .Name }} record.

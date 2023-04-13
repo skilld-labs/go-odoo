@@ -40,7 +40,23 @@ func (im *IrModel) Many2One() *Many2One {
 
 // CreateIrModel creates a new ir.model model and returns its id.
 func (c *Client) CreateIrModel(im *IrModel) (int64, error) {
-	return c.Create(IrModelModel, im)
+	ids, err := c.Create(IrModelModel, []interface{}{im})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrModel creates a new ir.model model and returns its id.
+func (c *Client) CreateIrModels(ims []*IrModel) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ims {
+		vv = append(vv, v)
+	}
+	return c.Create(IrModelModel, vv)
 }
 
 // UpdateIrModel updates an existing ir.model record.

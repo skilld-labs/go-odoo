@@ -28,7 +28,23 @@ func (rc *ResConfig) Many2One() *Many2One {
 
 // CreateResConfig creates a new res.config model and returns its id.
 func (c *Client) CreateResConfig(rc *ResConfig) (int64, error) {
-	return c.Create(ResConfigModel, rc)
+	ids, err := c.Create(ResConfigModel, []interface{}{rc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResConfig creates a new res.config model and returns its id.
+func (c *Client) CreateResConfigs(rcs []*ResConfig) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResConfigModel, vv)
 }
 
 // UpdateResConfig updates an existing res.config record.

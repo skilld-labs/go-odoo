@@ -46,7 +46,23 @@ func (iuv *IrUiView) Many2One() *Many2One {
 
 // CreateIrUiView creates a new ir.ui.view model and returns its id.
 func (c *Client) CreateIrUiView(iuv *IrUiView) (int64, error) {
-	return c.Create(IrUiViewModel, iuv)
+	ids, err := c.Create(IrUiViewModel, []interface{}{iuv})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrUiView creates a new ir.ui.view model and returns its id.
+func (c *Client) CreateIrUiViews(iuvs []*IrUiView) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iuvs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrUiViewModel, vv)
 }
 
 // UpdateIrUiView updates an existing ir.ui.view record.

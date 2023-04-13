@@ -24,7 +24,23 @@ func (b *Base) Many2One() *Many2One {
 
 // CreateBase creates a new base model and returns its id.
 func (c *Client) CreateBase(b *Base) (int64, error) {
-	return c.Create(BaseModel, b)
+	ids, err := c.Create(BaseModel, []interface{}{b})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBase creates a new base model and returns its id.
+func (c *Client) CreateBases(bs []*Base) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bs {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseModel, vv)
 }
 
 // UpdateBase updates an existing base record.

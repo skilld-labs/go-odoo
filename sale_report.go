@@ -52,7 +52,23 @@ func (sr *SaleReport) Many2One() *Many2One {
 
 // CreateSaleReport creates a new sale.report model and returns its id.
 func (c *Client) CreateSaleReport(sr *SaleReport) (int64, error) {
-	return c.Create(SaleReportModel, sr)
+	ids, err := c.Create(SaleReportModel, []interface{}{sr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSaleReport creates a new sale.report model and returns its id.
+func (c *Client) CreateSaleReports(srs []*SaleReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range srs {
+		vv = append(vv, v)
+	}
+	return c.Create(SaleReportModel, vv)
 }
 
 // UpdateSaleReport updates an existing sale.report record.

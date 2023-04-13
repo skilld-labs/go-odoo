@@ -31,7 +31,23 @@ func (bmu *BaseModuleUpdate) Many2One() *Many2One {
 
 // CreateBaseModuleUpdate creates a new base.module.update model and returns its id.
 func (c *Client) CreateBaseModuleUpdate(bmu *BaseModuleUpdate) (int64, error) {
-	return c.Create(BaseModuleUpdateModel, bmu)
+	ids, err := c.Create(BaseModuleUpdateModel, []interface{}{bmu})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseModuleUpdate creates a new base.module.update model and returns its id.
+func (c *Client) CreateBaseModuleUpdates(bmus []*BaseModuleUpdate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bmus {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseModuleUpdateModel, vv)
 }
 
 // UpdateBaseModuleUpdate updates an existing base.module.update record.

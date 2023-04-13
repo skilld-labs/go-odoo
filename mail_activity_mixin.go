@@ -30,7 +30,23 @@ func (mam *MailActivityMixin) Many2One() *Many2One {
 
 // CreateMailActivityMixin creates a new mail.activity.mixin model and returns its id.
 func (c *Client) CreateMailActivityMixin(mam *MailActivityMixin) (int64, error) {
-	return c.Create(MailActivityMixinModel, mam)
+	ids, err := c.Create(MailActivityMixinModel, []interface{}{mam})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailActivityMixin creates a new mail.activity.mixin model and returns its id.
+func (c *Client) CreateMailActivityMixins(mams []*MailActivityMixin) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mams {
+		vv = append(vv, v)
+	}
+	return c.Create(MailActivityMixinModel, vv)
 }
 
 // UpdateMailActivityMixin updates an existing mail.activity.mixin record.

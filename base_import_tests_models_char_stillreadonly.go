@@ -29,7 +29,23 @@ func (btmcs *BaseImportTestsModelsCharStillreadonly) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsCharStillreadonly creates a new base_import.tests.models.char.stillreadonly model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharStillreadonly(btmcs *BaseImportTestsModelsCharStillreadonly) (int64, error) {
-	return c.Create(BaseImportTestsModelsCharStillreadonlyModel, btmcs)
+	ids, err := c.Create(BaseImportTestsModelsCharStillreadonlyModel, []interface{}{btmcs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportTestsModelsCharStillreadonly creates a new base_import.tests.models.char.stillreadonly model and returns its id.
+func (c *Client) CreateBaseImportTestsModelsCharStillreadonlys(btmcss []*BaseImportTestsModelsCharStillreadonly) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range btmcss {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportTestsModelsCharStillreadonlyModel, vv)
 }
 
 // UpdateBaseImportTestsModelsCharStillreadonly updates an existing base_import.tests.models.char.stillreadonly record.

@@ -30,7 +30,23 @@ func (bb *BusBus) Many2One() *Many2One {
 
 // CreateBusBus creates a new bus.bus model and returns its id.
 func (c *Client) CreateBusBus(bb *BusBus) (int64, error) {
-	return c.Create(BusBusModel, bb)
+	ids, err := c.Create(BusBusModel, []interface{}{bb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBusBus creates a new bus.bus model and returns its id.
+func (c *Client) CreateBusBuss(bbs []*BusBus) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bbs {
+		vv = append(vv, v)
+	}
+	return c.Create(BusBusModel, vv)
 }
 
 // UpdateBusBus updates an existing bus.bus record.

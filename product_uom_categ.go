@@ -29,7 +29,23 @@ func (puc *ProductUomCateg) Many2One() *Many2One {
 
 // CreateProductUomCateg creates a new product.uom.categ model and returns its id.
 func (c *Client) CreateProductUomCateg(puc *ProductUomCateg) (int64, error) {
-	return c.Create(ProductUomCategModel, puc)
+	ids, err := c.Create(ProductUomCategModel, []interface{}{puc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductUomCateg creates a new product.uom.categ model and returns its id.
+func (c *Client) CreateProductUomCategs(pucs []*ProductUomCateg) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pucs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductUomCategModel, vv)
 }
 
 // UpdateProductUomCateg updates an existing product.uom.categ record.

@@ -29,7 +29,23 @@ func (btmcs *BaseImportTestsModelsCharStates) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsCharStates creates a new base_import.tests.models.char.states model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharStates(btmcs *BaseImportTestsModelsCharStates) (int64, error) {
-	return c.Create(BaseImportTestsModelsCharStatesModel, btmcs)
+	ids, err := c.Create(BaseImportTestsModelsCharStatesModel, []interface{}{btmcs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportTestsModelsCharStates creates a new base_import.tests.models.char.states model and returns its id.
+func (c *Client) CreateBaseImportTestsModelsCharStatess(btmcss []*BaseImportTestsModelsCharStates) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range btmcss {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportTestsModelsCharStatesModel, vv)
 }
 
 // UpdateBaseImportTestsModelsCharStates updates an existing base_import.tests.models.char.states record.

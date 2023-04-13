@@ -36,7 +36,23 @@ func (argl *AccountReportGeneralLedger) Many2One() *Many2One {
 
 // CreateAccountReportGeneralLedger creates a new account.report.general.ledger model and returns its id.
 func (c *Client) CreateAccountReportGeneralLedger(argl *AccountReportGeneralLedger) (int64, error) {
-	return c.Create(AccountReportGeneralLedgerModel, argl)
+	ids, err := c.Create(AccountReportGeneralLedgerModel, []interface{}{argl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountReportGeneralLedger creates a new account.report.general.ledger model and returns its id.
+func (c *Client) CreateAccountReportGeneralLedgers(argls []*AccountReportGeneralLedger) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range argls {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountReportGeneralLedgerModel, vv)
 }
 
 // UpdateAccountReportGeneralLedger updates an existing account.report.general.ledger record.

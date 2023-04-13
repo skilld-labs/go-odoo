@@ -35,7 +35,23 @@ func (pu *ProductUom) Many2One() *Many2One {
 
 // CreateProductUom creates a new product.uom model and returns its id.
 func (c *Client) CreateProductUom(pu *ProductUom) (int64, error) {
-	return c.Create(ProductUomModel, pu)
+	ids, err := c.Create(ProductUomModel, []interface{}{pu})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductUom creates a new product.uom model and returns its id.
+func (c *Client) CreateProductUoms(pus []*ProductUom) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pus {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductUomModel, vv)
 }
 
 // UpdateProductUom updates an existing product.uom record.

@@ -44,7 +44,23 @@ func (mtv *MailTrackingValue) Many2One() *Many2One {
 
 // CreateMailTrackingValue creates a new mail.tracking.value model and returns its id.
 func (c *Client) CreateMailTrackingValue(mtv *MailTrackingValue) (int64, error) {
-	return c.Create(MailTrackingValueModel, mtv)
+	ids, err := c.Create(MailTrackingValueModel, []interface{}{mtv})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailTrackingValue creates a new mail.tracking.value model and returns its id.
+func (c *Client) CreateMailTrackingValues(mtvs []*MailTrackingValue) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mtvs {
+		vv = append(vv, v)
+	}
+	return c.Create(MailTrackingValueModel, vv)
 }
 
 // UpdateMailTrackingValue updates an existing mail.tracking.value record.

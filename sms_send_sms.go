@@ -30,7 +30,23 @@ func (ss *SmsSendSms) Many2One() *Many2One {
 
 // CreateSmsSendSms creates a new sms.send_sms model and returns its id.
 func (c *Client) CreateSmsSendSms(ss *SmsSendSms) (int64, error) {
-	return c.Create(SmsSendSmsModel, ss)
+	ids, err := c.Create(SmsSendSmsModel, []interface{}{ss})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSmsSendSms creates a new sms.send_sms model and returns its id.
+func (c *Client) CreateSmsSendSmss(sss []*SmsSendSms) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sss {
+		vv = append(vv, v)
+	}
+	return c.Create(SmsSendSmsModel, vv)
 }
 
 // UpdateSmsSendSms updates an existing sms.send_sms record.

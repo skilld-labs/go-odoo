@@ -29,7 +29,23 @@ func (cet *CalendarEventType) Many2One() *Many2One {
 
 // CreateCalendarEventType creates a new calendar.event.type model and returns its id.
 func (c *Client) CreateCalendarEventType(cet *CalendarEventType) (int64, error) {
-	return c.Create(CalendarEventTypeModel, cet)
+	ids, err := c.Create(CalendarEventTypeModel, []interface{}{cet})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCalendarEventType creates a new calendar.event.type model and returns its id.
+func (c *Client) CreateCalendarEventTypes(cets []*CalendarEventType) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cets {
+		vv = append(vv, v)
+	}
+	return c.Create(CalendarEventTypeModel, vv)
 }
 
 // UpdateCalendarEventType updates an existing calendar.event.type record.

@@ -30,7 +30,23 @@ func (rpt *ResPartnerTitle) Many2One() *Many2One {
 
 // CreateResPartnerTitle creates a new res.partner.title model and returns its id.
 func (c *Client) CreateResPartnerTitle(rpt *ResPartnerTitle) (int64, error) {
-	return c.Create(ResPartnerTitleModel, rpt)
+	ids, err := c.Create(ResPartnerTitleModel, []interface{}{rpt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResPartnerTitle creates a new res.partner.title model and returns its id.
+func (c *Client) CreateResPartnerTitles(rpts []*ResPartnerTitle) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rpts {
+		vv = append(vv, v)
+	}
+	return c.Create(ResPartnerTitleModel, vv)
 }
 
 // UpdateResPartnerTitle updates an existing res.partner.title record.

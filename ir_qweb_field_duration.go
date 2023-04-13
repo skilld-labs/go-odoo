@@ -24,7 +24,23 @@ func (iqfd *IrQwebFieldDuration) Many2One() *Many2One {
 
 // CreateIrQwebFieldDuration creates a new ir.qweb.field.duration model and returns its id.
 func (c *Client) CreateIrQwebFieldDuration(iqfd *IrQwebFieldDuration) (int64, error) {
-	return c.Create(IrQwebFieldDurationModel, iqfd)
+	ids, err := c.Create(IrQwebFieldDurationModel, []interface{}{iqfd})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldDuration creates a new ir.qweb.field.duration model and returns its id.
+func (c *Client) CreateIrQwebFieldDurations(iqfds []*IrQwebFieldDuration) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfds {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldDurationModel, vv)
 }
 
 // UpdateIrQwebFieldDuration updates an existing ir.qweb.field.duration record.

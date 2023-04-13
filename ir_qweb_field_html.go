@@ -24,7 +24,23 @@ func (iqfh *IrQwebFieldHtml) Many2One() *Many2One {
 
 // CreateIrQwebFieldHtml creates a new ir.qweb.field.html model and returns its id.
 func (c *Client) CreateIrQwebFieldHtml(iqfh *IrQwebFieldHtml) (int64, error) {
-	return c.Create(IrQwebFieldHtmlModel, iqfh)
+	ids, err := c.Create(IrQwebFieldHtmlModel, []interface{}{iqfh})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldHtml creates a new ir.qweb.field.html model and returns its id.
+func (c *Client) CreateIrQwebFieldHtmls(iqfhs []*IrQwebFieldHtml) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfhs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldHtmlModel, vv)
 }
 
 // UpdateIrQwebFieldHtml updates an existing ir.qweb.field.html record.

@@ -33,7 +33,23 @@ func (amlr *AccountMoveLineReconcile) Many2One() *Many2One {
 
 // CreateAccountMoveLineReconcile creates a new account.move.line.reconcile model and returns its id.
 func (c *Client) CreateAccountMoveLineReconcile(amlr *AccountMoveLineReconcile) (int64, error) {
-	return c.Create(AccountMoveLineReconcileModel, amlr)
+	ids, err := c.Create(AccountMoveLineReconcileModel, []interface{}{amlr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountMoveLineReconcile creates a new account.move.line.reconcile model and returns its id.
+func (c *Client) CreateAccountMoveLineReconciles(amlrs []*AccountMoveLineReconcile) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range amlrs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountMoveLineReconcileModel, vv)
 }
 
 // UpdateAccountMoveLineReconcile updates an existing account.move.line.reconcile record.

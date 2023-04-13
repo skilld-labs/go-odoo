@@ -32,7 +32,23 @@ func (sl *SaleLayoutCategory) Many2One() *Many2One {
 
 // CreateSaleLayoutCategory creates a new sale.layout_category model and returns its id.
 func (c *Client) CreateSaleLayoutCategory(sl *SaleLayoutCategory) (int64, error) {
-	return c.Create(SaleLayoutCategoryModel, sl)
+	ids, err := c.Create(SaleLayoutCategoryModel, []interface{}{sl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSaleLayoutCategory creates a new sale.layout_category model and returns its id.
+func (c *Client) CreateSaleLayoutCategorys(sls []*SaleLayoutCategory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sls {
+		vv = append(vv, v)
+	}
+	return c.Create(SaleLayoutCategoryModel, vv)
 }
 
 // UpdateSaleLayoutCategory updates an existing sale.layout_category record.

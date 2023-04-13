@@ -20,7 +20,7 @@ type IrLogging struct {
 	Path        *String    `xmlrpc:"path,omptempty"`
 	Type        *Selection `xmlrpc:"type,omptempty"`
 	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	WriteUid    *Int       `xmlrpc:"write_uid,omptempty"`
 }
 
 // IrLoggings represents array of ir.logging model.
@@ -36,7 +36,23 @@ func (il *IrLogging) Many2One() *Many2One {
 
 // CreateIrLogging creates a new ir.logging model and returns its id.
 func (c *Client) CreateIrLogging(il *IrLogging) (int64, error) {
-	return c.Create(IrLoggingModel, il)
+	ids, err := c.Create(IrLoggingModel, []interface{}{il})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrLogging creates a new ir.logging model and returns its id.
+func (c *Client) CreateIrLoggings(ils []*IrLogging) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ils {
+		vv = append(vv, v)
+	}
+	return c.Create(IrLoggingModel, vv)
 }
 
 // UpdateIrLogging updates an existing ir.logging record.

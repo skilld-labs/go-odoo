@@ -39,7 +39,23 @@ func (ip *IrProperty) Many2One() *Many2One {
 
 // CreateIrProperty creates a new ir.property model and returns its id.
 func (c *Client) CreateIrProperty(ip *IrProperty) (int64, error) {
-	return c.Create(IrPropertyModel, ip)
+	ids, err := c.Create(IrPropertyModel, []interface{}{ip})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrProperty creates a new ir.property model and returns its id.
+func (c *Client) CreateIrPropertys(ips []*IrProperty) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ips {
+		vv = append(vv, v)
+	}
+	return c.Create(IrPropertyModel, vv)
 }
 
 // UpdateIrProperty updates an existing ir.property record.

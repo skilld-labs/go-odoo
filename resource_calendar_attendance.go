@@ -35,7 +35,23 @@ func (rca *ResourceCalendarAttendance) Many2One() *Many2One {
 
 // CreateResourceCalendarAttendance creates a new resource.calendar.attendance model and returns its id.
 func (c *Client) CreateResourceCalendarAttendance(rca *ResourceCalendarAttendance) (int64, error) {
-	return c.Create(ResourceCalendarAttendanceModel, rca)
+	ids, err := c.Create(ResourceCalendarAttendanceModel, []interface{}{rca})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResourceCalendarAttendance creates a new resource.calendar.attendance model and returns its id.
+func (c *Client) CreateResourceCalendarAttendances(rcas []*ResourceCalendarAttendance) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcas {
+		vv = append(vv, v)
+	}
+	return c.Create(ResourceCalendarAttendanceModel, vv)
 }
 
 // UpdateResourceCalendarAttendance updates an existing resource.calendar.attendance record.

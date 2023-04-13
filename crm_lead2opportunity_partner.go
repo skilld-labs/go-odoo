@@ -34,7 +34,23 @@ func (clp *CrmLead2OpportunityPartner) Many2One() *Many2One {
 
 // CreateCrmLead2OpportunityPartner creates a new crm.lead2opportunity.partner model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartner(clp *CrmLead2OpportunityPartner) (int64, error) {
-	return c.Create(CrmLead2OpportunityPartnerModel, clp)
+	ids, err := c.Create(CrmLead2OpportunityPartnerModel, []interface{}{clp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmLead2OpportunityPartner creates a new crm.lead2opportunity.partner model and returns its id.
+func (c *Client) CreateCrmLead2OpportunityPartners(clps []*CrmLead2OpportunityPartner) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range clps {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmLead2OpportunityPartnerModel, vv)
 }
 
 // UpdateCrmLead2OpportunityPartner updates an existing crm.lead2opportunity.partner record.

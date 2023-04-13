@@ -61,7 +61,23 @@ func (abs *AccountBankStatement) Many2One() *Many2One {
 
 // CreateAccountBankStatement creates a new account.bank.statement model and returns its id.
 func (c *Client) CreateAccountBankStatement(abs *AccountBankStatement) (int64, error) {
-	return c.Create(AccountBankStatementModel, abs)
+	ids, err := c.Create(AccountBankStatementModel, []interface{}{abs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountBankStatement creates a new account.bank.statement model and returns its id.
+func (c *Client) CreateAccountBankStatements(abss []*AccountBankStatement) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range abss {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountBankStatementModel, vv)
 }
 
 // UpdateAccountBankStatement updates an existing account.bank.statement record.

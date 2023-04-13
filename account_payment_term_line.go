@@ -34,7 +34,23 @@ func (aptl *AccountPaymentTermLine) Many2One() *Many2One {
 
 // CreateAccountPaymentTermLine creates a new account.payment.term.line model and returns its id.
 func (c *Client) CreateAccountPaymentTermLine(aptl *AccountPaymentTermLine) (int64, error) {
-	return c.Create(AccountPaymentTermLineModel, aptl)
+	ids, err := c.Create(AccountPaymentTermLineModel, []interface{}{aptl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountPaymentTermLine creates a new account.payment.term.line model and returns its id.
+func (c *Client) CreateAccountPaymentTermLines(aptls []*AccountPaymentTermLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aptls {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountPaymentTermLineModel, vv)
 }
 
 // UpdateAccountPaymentTermLine updates an existing account.payment.term.line record.

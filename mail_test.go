@@ -51,7 +51,23 @@ func (mt *MailTest) Many2One() *Many2One {
 
 // CreateMailTest creates a new mail.test model and returns its id.
 func (c *Client) CreateMailTest(mt *MailTest) (int64, error) {
-	return c.Create(MailTestModel, mt)
+	ids, err := c.Create(MailTestModel, []interface{}{mt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailTest creates a new mail.test model and returns its id.
+func (c *Client) CreateMailTests(mts []*MailTest) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mts {
+		vv = append(vv, v)
+	}
+	return c.Create(MailTestModel, vv)
 }
 
 // UpdateMailTest updates an existing mail.test record.

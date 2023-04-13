@@ -30,7 +30,23 @@ func (clr *CrmLostReason) Many2One() *Many2One {
 
 // CreateCrmLostReason creates a new crm.lost.reason model and returns its id.
 func (c *Client) CreateCrmLostReason(clr *CrmLostReason) (int64, error) {
-	return c.Create(CrmLostReasonModel, clr)
+	ids, err := c.Create(CrmLostReasonModel, []interface{}{clr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmLostReason creates a new crm.lost.reason model and returns its id.
+func (c *Client) CreateCrmLostReasons(clrs []*CrmLostReason) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range clrs {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmLostReasonModel, vv)
 }
 
 // UpdateCrmLostReason updates an existing crm.lost.reason record.

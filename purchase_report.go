@@ -50,7 +50,23 @@ func (pr *PurchaseReport) Many2One() *Many2One {
 
 // CreatePurchaseReport creates a new purchase.report model and returns its id.
 func (c *Client) CreatePurchaseReport(pr *PurchaseReport) (int64, error) {
-	return c.Create(PurchaseReportModel, pr)
+	ids, err := c.Create(PurchaseReportModel, []interface{}{pr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePurchaseReport creates a new purchase.report model and returns its id.
+func (c *Client) CreatePurchaseReports(prs []*PurchaseReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range prs {
+		vv = append(vv, v)
+	}
+	return c.Create(PurchaseReportModel, vv)
 }
 
 // UpdatePurchaseReport updates an existing purchase.report record.

@@ -42,7 +42,23 @@ func (rg *ResGroups) Many2One() *Many2One {
 
 // CreateResGroups creates a new res.groups model and returns its id.
 func (c *Client) CreateResGroups(rg *ResGroups) (int64, error) {
-	return c.Create(ResGroupsModel, rg)
+	ids, err := c.Create(ResGroupsModel, []interface{}{rg})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResGroups creates a new res.groups model and returns its id.
+func (c *Client) CreateResGroupss(rgs []*ResGroups) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rgs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResGroupsModel, vv)
 }
 
 // UpdateResGroups updates an existing res.groups record.

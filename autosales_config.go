@@ -31,7 +31,23 @@ func (ac *AutosalesConfig) Many2One() *Many2One {
 
 // CreateAutosalesConfig creates a new autosales.config model and returns its id.
 func (c *Client) CreateAutosalesConfig(ac *AutosalesConfig) (int64, error) {
-	return c.Create(AutosalesConfigModel, ac)
+	ids, err := c.Create(AutosalesConfigModel, []interface{}{ac})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAutosalesConfig creates a new autosales.config model and returns its id.
+func (c *Client) CreateAutosalesConfigs(acs []*AutosalesConfig) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range acs {
+		vv = append(vv, v)
+	}
+	return c.Create(AutosalesConfigModel, vv)
 }
 
 // UpdateAutosalesConfig updates an existing autosales.config record.

@@ -67,7 +67,23 @@ func (ap *AccountPayment) Many2One() *Many2One {
 
 // CreateAccountPayment creates a new account.payment model and returns its id.
 func (c *Client) CreateAccountPayment(ap *AccountPayment) (int64, error) {
-	return c.Create(AccountPaymentModel, ap)
+	ids, err := c.Create(AccountPaymentModel, []interface{}{ap})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountPayment creates a new account.payment model and returns its id.
+func (c *Client) CreateAccountPayments(aps []*AccountPayment) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aps {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountPaymentModel, vv)
 }
 
 // UpdateAccountPayment updates an existing account.payment record.

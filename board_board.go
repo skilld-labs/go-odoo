@@ -24,7 +24,23 @@ func (bb *BoardBoard) Many2One() *Many2One {
 
 // CreateBoardBoard creates a new board.board model and returns its id.
 func (c *Client) CreateBoardBoard(bb *BoardBoard) (int64, error) {
-	return c.Create(BoardBoardModel, bb)
+	ids, err := c.Create(BoardBoardModel, []interface{}{bb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBoardBoard creates a new board.board model and returns its id.
+func (c *Client) CreateBoardBoards(bbs []*BoardBoard) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bbs {
+		vv = append(vv, v)
+	}
+	return c.Create(BoardBoardModel, vv)
 }
 
 // UpdateBoardBoard updates an existing board.board record.

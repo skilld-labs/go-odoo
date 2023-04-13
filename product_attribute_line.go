@@ -31,7 +31,23 @@ func (pal *ProductAttributeLine) Many2One() *Many2One {
 
 // CreateProductAttributeLine creates a new product.attribute.line model and returns its id.
 func (c *Client) CreateProductAttributeLine(pal *ProductAttributeLine) (int64, error) {
-	return c.Create(ProductAttributeLineModel, pal)
+	ids, err := c.Create(ProductAttributeLineModel, []interface{}{pal})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductAttributeLine creates a new product.attribute.line model and returns its id.
+func (c *Client) CreateProductAttributeLines(pals []*ProductAttributeLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pals {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductAttributeLineModel, vv)
 }
 
 // UpdateProductAttributeLine updates an existing product.attribute.line record.

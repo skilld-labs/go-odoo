@@ -40,7 +40,23 @@ func (ium *IrUiMenu) Many2One() *Many2One {
 
 // CreateIrUiMenu creates a new ir.ui.menu model and returns its id.
 func (c *Client) CreateIrUiMenu(ium *IrUiMenu) (int64, error) {
-	return c.Create(IrUiMenuModel, ium)
+	ids, err := c.Create(IrUiMenuModel, []interface{}{ium})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrUiMenu creates a new ir.ui.menu model and returns its id.
+func (c *Client) CreateIrUiMenus(iums []*IrUiMenu) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iums {
+		vv = append(vv, v)
+	}
+	return c.Create(IrUiMenuModel, vv)
 }
 
 // UpdateIrUiMenu updates an existing ir.ui.menu record.

@@ -52,7 +52,23 @@ func (act *AccountChartTemplate) Many2One() *Many2One {
 
 // CreateAccountChartTemplate creates a new account.chart.template model and returns its id.
 func (c *Client) CreateAccountChartTemplate(act *AccountChartTemplate) (int64, error) {
-	return c.Create(AccountChartTemplateModel, act)
+	ids, err := c.Create(AccountChartTemplateModel, []interface{}{act})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountChartTemplate creates a new account.chart.template model and returns its id.
+func (c *Client) CreateAccountChartTemplates(acts []*AccountChartTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range acts {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountChartTemplateModel, vv)
 }
 
 // UpdateAccountChartTemplate updates an existing account.chart.template record.

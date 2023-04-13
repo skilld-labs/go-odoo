@@ -33,7 +33,23 @@ func (pwu *PortalWizardUser) Many2One() *Many2One {
 
 // CreatePortalWizardUser creates a new portal.wizard.user model and returns its id.
 func (c *Client) CreatePortalWizardUser(pwu *PortalWizardUser) (int64, error) {
-	return c.Create(PortalWizardUserModel, pwu)
+	ids, err := c.Create(PortalWizardUserModel, []interface{}{pwu})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePortalWizardUser creates a new portal.wizard.user model and returns its id.
+func (c *Client) CreatePortalWizardUsers(pwus []*PortalWizardUser) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pwus {
+		vv = append(vv, v)
+	}
+	return c.Create(PortalWizardUserModel, vv)
 }
 
 // UpdatePortalWizardUser updates an existing portal.wizard.user record.

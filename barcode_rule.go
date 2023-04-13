@@ -35,7 +35,23 @@ func (br *BarcodeRule) Many2One() *Many2One {
 
 // CreateBarcodeRule creates a new barcode.rule model and returns its id.
 func (c *Client) CreateBarcodeRule(br *BarcodeRule) (int64, error) {
-	return c.Create(BarcodeRuleModel, br)
+	ids, err := c.Create(BarcodeRuleModel, []interface{}{br})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBarcodeRule creates a new barcode.rule model and returns its id.
+func (c *Client) CreateBarcodeRules(brs []*BarcodeRule) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range brs {
+		vv = append(vv, v)
+	}
+	return c.Create(BarcodeRuleModel, vv)
 }
 
 // UpdateBarcodeRule updates an existing barcode.rule record.

@@ -43,7 +43,23 @@ func (ss *StockScrap) Many2One() *Many2One {
 
 // CreateStockScrap creates a new stock.scrap model and returns its id.
 func (c *Client) CreateStockScrap(ss *StockScrap) (int64, error) {
-	return c.Create(StockScrapModel, ss)
+	ids, err := c.Create(StockScrapModel, []interface{}{ss})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockScrap creates a new stock.scrap model and returns its id.
+func (c *Client) CreateStockScraps(sss []*StockScrap) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sss {
+		vv = append(vv, v)
+	}
+	return c.Create(StockScrapModel, vv)
 }
 
 // UpdateStockScrap updates an existing stock.scrap record.

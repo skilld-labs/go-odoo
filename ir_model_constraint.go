@@ -35,7 +35,23 @@ func (imc *IrModelConstraint) Many2One() *Many2One {
 
 // CreateIrModelConstraint creates a new ir.model.constraint model and returns its id.
 func (c *Client) CreateIrModelConstraint(imc *IrModelConstraint) (int64, error) {
-	return c.Create(IrModelConstraintModel, imc)
+	ids, err := c.Create(IrModelConstraintModel, []interface{}{imc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrModelConstraint creates a new ir.model.constraint model and returns its id.
+func (c *Client) CreateIrModelConstraints(imcs []*IrModelConstraint) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range imcs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrModelConstraintModel, vv)
 }
 
 // UpdateIrModelConstraint updates an existing ir.model.constraint record.

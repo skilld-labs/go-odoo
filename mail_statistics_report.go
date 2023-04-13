@@ -34,7 +34,23 @@ func (msr *MailStatisticsReport) Many2One() *Many2One {
 
 // CreateMailStatisticsReport creates a new mail.statistics.report model and returns its id.
 func (c *Client) CreateMailStatisticsReport(msr *MailStatisticsReport) (int64, error) {
-	return c.Create(MailStatisticsReportModel, msr)
+	ids, err := c.Create(MailStatisticsReportModel, []interface{}{msr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailStatisticsReport creates a new mail.statistics.report model and returns its id.
+func (c *Client) CreateMailStatisticsReports(msrs []*MailStatisticsReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range msrs {
+		vv = append(vv, v)
+	}
+	return c.Create(MailStatisticsReportModel, vv)
 }
 
 // UpdateMailStatisticsReport updates an existing mail.statistics.report record.

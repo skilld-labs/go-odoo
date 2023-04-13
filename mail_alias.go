@@ -37,7 +37,23 @@ func (ma *MailAlias) Many2One() *Many2One {
 
 // CreateMailAlias creates a new mail.alias model and returns its id.
 func (c *Client) CreateMailAlias(ma *MailAlias) (int64, error) {
-	return c.Create(MailAliasModel, ma)
+	ids, err := c.Create(MailAliasModel, []interface{}{ma})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailAlias creates a new mail.alias model and returns its id.
+func (c *Client) CreateMailAliass(mas []*MailAlias) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mas {
+		vv = append(vv, v)
+	}
+	return c.Create(MailAliasModel, vv)
 }
 
 // UpdateMailAlias updates an existing mail.alias record.

@@ -39,7 +39,23 @@ func (rl *ResLang) Many2One() *Many2One {
 
 // CreateResLang creates a new res.lang model and returns its id.
 func (c *Client) CreateResLang(rl *ResLang) (int64, error) {
-	return c.Create(ResLangModel, rl)
+	ids, err := c.Create(ResLangModel, []interface{}{rl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResLang creates a new res.lang model and returns its id.
+func (c *Client) CreateResLangs(rls []*ResLang) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rls {
+		vv = append(vv, v)
+	}
+	return c.Create(ResLangModel, vv)
 }
 
 // UpdateResLang updates an existing res.lang record.

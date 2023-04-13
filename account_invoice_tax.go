@@ -41,7 +41,23 @@ func (ait *AccountInvoiceTax) Many2One() *Many2One {
 
 // CreateAccountInvoiceTax creates a new account.invoice.tax model and returns its id.
 func (c *Client) CreateAccountInvoiceTax(ait *AccountInvoiceTax) (int64, error) {
-	return c.Create(AccountInvoiceTaxModel, ait)
+	ids, err := c.Create(AccountInvoiceTaxModel, []interface{}{ait})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountInvoiceTax creates a new account.invoice.tax model and returns its id.
+func (c *Client) CreateAccountInvoiceTaxs(aits []*AccountInvoiceTax) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aits {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountInvoiceTaxModel, vv)
 }
 
 // UpdateAccountInvoiceTax updates an existing account.invoice.tax record.

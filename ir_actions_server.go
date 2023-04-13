@@ -48,7 +48,23 @@ func (ias *IrActionsServer) Many2One() *Many2One {
 
 // CreateIrActionsServer creates a new ir.actions.server model and returns its id.
 func (c *Client) CreateIrActionsServer(ias *IrActionsServer) (int64, error) {
-	return c.Create(IrActionsServerModel, ias)
+	ids, err := c.Create(IrActionsServerModel, []interface{}{ias})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsServer creates a new ir.actions.server model and returns its id.
+func (c *Client) CreateIrActionsServers(iass []*IrActionsServer) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iass {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsServerModel, vv)
 }
 
 // UpdateIrActionsServer updates an existing ir.actions.server record.

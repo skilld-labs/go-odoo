@@ -63,7 +63,23 @@ func (absijc *AccountBankStatementImportJournalCreation) Many2One() *Many2One {
 
 // CreateAccountBankStatementImportJournalCreation creates a new account.bank.statement.import.journal.creation model and returns its id.
 func (c *Client) CreateAccountBankStatementImportJournalCreation(absijc *AccountBankStatementImportJournalCreation) (int64, error) {
-	return c.Create(AccountBankStatementImportJournalCreationModel, absijc)
+	ids, err := c.Create(AccountBankStatementImportJournalCreationModel, []interface{}{absijc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountBankStatementImportJournalCreation creates a new account.bank.statement.import.journal.creation model and returns its id.
+func (c *Client) CreateAccountBankStatementImportJournalCreations(absijcs []*AccountBankStatementImportJournalCreation) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range absijcs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountBankStatementImportJournalCreationModel, vv)
 }
 
 // UpdateAccountBankStatementImportJournalCreation updates an existing account.bank.statement.import.journal.creation record.

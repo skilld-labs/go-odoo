@@ -35,7 +35,23 @@ func (mcp *MailChannelPartner) Many2One() *Many2One {
 
 // CreateMailChannelPartner creates a new mail.channel.partner model and returns its id.
 func (c *Client) CreateMailChannelPartner(mcp *MailChannelPartner) (int64, error) {
-	return c.Create(MailChannelPartnerModel, mcp)
+	ids, err := c.Create(MailChannelPartnerModel, []interface{}{mcp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailChannelPartner creates a new mail.channel.partner model and returns its id.
+func (c *Client) CreateMailChannelPartners(mcps []*MailChannelPartner) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mcps {
+		vv = append(vv, v)
+	}
+	return c.Create(MailChannelPartnerModel, vv)
 }
 
 // UpdateMailChannelPartner updates an existing mail.channel.partner record.

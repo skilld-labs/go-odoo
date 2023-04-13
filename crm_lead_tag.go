@@ -30,7 +30,23 @@ func (clt *CrmLeadTag) Many2One() *Many2One {
 
 // CreateCrmLeadTag creates a new crm.lead.tag model and returns its id.
 func (c *Client) CreateCrmLeadTag(clt *CrmLeadTag) (int64, error) {
-	return c.Create(CrmLeadTagModel, clt)
+	ids, err := c.Create(CrmLeadTagModel, []interface{}{clt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmLeadTag creates a new crm.lead.tag model and returns its id.
+func (c *Client) CreateCrmLeadTags(clts []*CrmLeadTag) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range clts {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmLeadTagModel, vv)
 }
 
 // UpdateCrmLeadTag updates an existing crm.lead.tag record.

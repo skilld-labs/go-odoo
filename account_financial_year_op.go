@@ -34,7 +34,23 @@ func (afyo *AccountFinancialYearOp) Many2One() *Many2One {
 
 // CreateAccountFinancialYearOp creates a new account.financial.year.op model and returns its id.
 func (c *Client) CreateAccountFinancialYearOp(afyo *AccountFinancialYearOp) (int64, error) {
-	return c.Create(AccountFinancialYearOpModel, afyo)
+	ids, err := c.Create(AccountFinancialYearOpModel, []interface{}{afyo})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountFinancialYearOp creates a new account.financial.year.op model and returns its id.
+func (c *Client) CreateAccountFinancialYearOps(afyos []*AccountFinancialYearOp) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range afyos {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountFinancialYearOpModel, vv)
 }
 
 // UpdateAccountFinancialYearOp updates an existing account.financial.year.op record.

@@ -24,7 +24,23 @@ func (sa *SmsApi) Many2One() *Many2One {
 
 // CreateSmsApi creates a new sms.api model and returns its id.
 func (c *Client) CreateSmsApi(sa *SmsApi) (int64, error) {
-	return c.Create(SmsApiModel, sa)
+	ids, err := c.Create(SmsApiModel, []interface{}{sa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSmsApi creates a new sms.api model and returns its id.
+func (c *Client) CreateSmsApis(sas []*SmsApi) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sas {
+		vv = append(vv, v)
+	}
+	return c.Create(SmsApiModel, vv)
 }
 
 // UpdateSmsApi updates an existing sms.api record.

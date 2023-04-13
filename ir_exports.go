@@ -31,7 +31,23 @@ func (ie *IrExports) Many2One() *Many2One {
 
 // CreateIrExports creates a new ir.exports model and returns its id.
 func (c *Client) CreateIrExports(ie *IrExports) (int64, error) {
-	return c.Create(IrExportsModel, ie)
+	ids, err := c.Create(IrExportsModel, []interface{}{ie})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrExports creates a new ir.exports model and returns its id.
+func (c *Client) CreateIrExportss(ies []*IrExports) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ies {
+		vv = append(vv, v)
+	}
+	return c.Create(IrExportsModel, vv)
 }
 
 // UpdateIrExports updates an existing ir.exports record.

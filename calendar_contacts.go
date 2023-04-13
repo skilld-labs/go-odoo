@@ -31,7 +31,23 @@ func (cc *CalendarContacts) Many2One() *Many2One {
 
 // CreateCalendarContacts creates a new calendar.contacts model and returns its id.
 func (c *Client) CreateCalendarContacts(cc *CalendarContacts) (int64, error) {
-	return c.Create(CalendarContactsModel, cc)
+	ids, err := c.Create(CalendarContactsModel, []interface{}{cc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCalendarContacts creates a new calendar.contacts model and returns its id.
+func (c *Client) CreateCalendarContactss(ccs []*CalendarContacts) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ccs {
+		vv = append(vv, v)
+	}
+	return c.Create(CalendarContactsModel, vv)
 }
 
 // UpdateCalendarContacts updates an existing calendar.contacts record.

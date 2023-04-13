@@ -31,7 +31,23 @@ func (afpa *AccountFiscalPositionAccount) Many2One() *Many2One {
 
 // CreateAccountFiscalPositionAccount creates a new account.fiscal.position.account model and returns its id.
 func (c *Client) CreateAccountFiscalPositionAccount(afpa *AccountFiscalPositionAccount) (int64, error) {
-	return c.Create(AccountFiscalPositionAccountModel, afpa)
+	ids, err := c.Create(AccountFiscalPositionAccountModel, []interface{}{afpa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountFiscalPositionAccount creates a new account.fiscal.position.account model and returns its id.
+func (c *Client) CreateAccountFiscalPositionAccounts(afpas []*AccountFiscalPositionAccount) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range afpas {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountFiscalPositionAccountModel, vv)
 }
 
 // UpdateAccountFiscalPositionAccount updates an existing account.fiscal.position.account record.

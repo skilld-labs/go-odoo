@@ -35,7 +35,23 @@ func (rr *ResourceResource) Many2One() *Many2One {
 
 // CreateResourceResource creates a new resource.resource model and returns its id.
 func (c *Client) CreateResourceResource(rr *ResourceResource) (int64, error) {
-	return c.Create(ResourceResourceModel, rr)
+	ids, err := c.Create(ResourceResourceModel, []interface{}{rr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResourceResource creates a new resource.resource model and returns its id.
+func (c *Client) CreateResourceResources(rrs []*ResourceResource) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rrs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResourceResourceModel, vv)
 }
 
 // UpdateResourceResource updates an existing resource.resource record.

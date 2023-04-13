@@ -34,7 +34,23 @@ func (iaa *IrActionsActWindowClose) Many2One() *Many2One {
 
 // CreateIrActionsActWindowClose creates a new ir.actions.act_window_close model and returns its id.
 func (c *Client) CreateIrActionsActWindowClose(iaa *IrActionsActWindowClose) (int64, error) {
-	return c.Create(IrActionsActWindowCloseModel, iaa)
+	ids, err := c.Create(IrActionsActWindowCloseModel, []interface{}{iaa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsActWindowClose creates a new ir.actions.act_window_close model and returns its id.
+func (c *Client) CreateIrActionsActWindowCloses(iaas []*IrActionsActWindowClose) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iaas {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsActWindowCloseModel, vv)
 }
 
 // UpdateIrActionsActWindowClose updates an existing ir.actions.act_window_close record.

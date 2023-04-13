@@ -33,7 +33,23 @@ func (imr *IrModelRelation) Many2One() *Many2One {
 
 // CreateIrModelRelation creates a new ir.model.relation model and returns its id.
 func (c *Client) CreateIrModelRelation(imr *IrModelRelation) (int64, error) {
-	return c.Create(IrModelRelationModel, imr)
+	ids, err := c.Create(IrModelRelationModel, []interface{}{imr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrModelRelation creates a new ir.model.relation model and returns its id.
+func (c *Client) CreateIrModelRelations(imrs []*IrModelRelation) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range imrs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrModelRelationModel, vv)
 }
 
 // UpdateIrModelRelation updates an existing ir.model.relation record.

@@ -38,7 +38,23 @@ func (ptt *ProjectTaskType) Many2One() *Many2One {
 
 // CreateProjectTaskType creates a new project.task.type model and returns its id.
 func (c *Client) CreateProjectTaskType(ptt *ProjectTaskType) (int64, error) {
-	return c.Create(ProjectTaskTypeModel, ptt)
+	ids, err := c.Create(ProjectTaskTypeModel, []interface{}{ptt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProjectTaskType creates a new project.task.type model and returns its id.
+func (c *Client) CreateProjectTaskTypes(ptts []*ProjectTaskType) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ptts {
+		vv = append(vv, v)
+	}
+	return c.Create(ProjectTaskTypeModel, vv)
 }
 
 // UpdateProjectTaskType updates an existing project.task.type record.

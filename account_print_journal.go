@@ -35,7 +35,23 @@ func (apj *AccountPrintJournal) Many2One() *Many2One {
 
 // CreateAccountPrintJournal creates a new account.print.journal model and returns its id.
 func (c *Client) CreateAccountPrintJournal(apj *AccountPrintJournal) (int64, error) {
-	return c.Create(AccountPrintJournalModel, apj)
+	ids, err := c.Create(AccountPrintJournalModel, []interface{}{apj})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountPrintJournal creates a new account.print.journal model and returns its id.
+func (c *Client) CreateAccountPrintJournals(apjs []*AccountPrintJournal) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range apjs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountPrintJournalModel, vv)
 }
 
 // UpdateAccountPrintJournal updates an existing account.print.journal record.

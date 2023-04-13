@@ -54,7 +54,23 @@ func (hd *HrDepartment) Many2One() *Many2One {
 
 // CreateHrDepartment creates a new hr.department model and returns its id.
 func (c *Client) CreateHrDepartment(hd *HrDepartment) (int64, error) {
-	return c.Create(HrDepartmentModel, hd)
+	ids, err := c.Create(HrDepartmentModel, []interface{}{hd})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrDepartment creates a new hr.department model and returns its id.
+func (c *Client) CreateHrDepartments(hds []*HrDepartment) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hds {
+		vv = append(vv, v)
+	}
+	return c.Create(HrDepartmentModel, vv)
 }
 
 // UpdateHrDepartment updates an existing hr.department record.

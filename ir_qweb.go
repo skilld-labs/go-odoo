@@ -24,7 +24,23 @@ func (iq *IrQweb) Many2One() *Many2One {
 
 // CreateIrQweb creates a new ir.qweb model and returns its id.
 func (c *Client) CreateIrQweb(iq *IrQweb) (int64, error) {
-	return c.Create(IrQwebModel, iq)
+	ids, err := c.Create(IrQwebModel, []interface{}{iq})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQweb creates a new ir.qweb model and returns its id.
+func (c *Client) CreateIrQwebs(iqs []*IrQweb) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebModel, vv)
 }
 
 // UpdateIrQweb updates an existing ir.qweb record.

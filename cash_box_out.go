@@ -30,7 +30,23 @@ func (cbo *CashBoxOut) Many2One() *Many2One {
 
 // CreateCashBoxOut creates a new cash.box.out model and returns its id.
 func (c *Client) CreateCashBoxOut(cbo *CashBoxOut) (int64, error) {
-	return c.Create(CashBoxOutModel, cbo)
+	ids, err := c.Create(CashBoxOutModel, []interface{}{cbo})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCashBoxOut creates a new cash.box.out model and returns its id.
+func (c *Client) CreateCashBoxOuts(cbos []*CashBoxOut) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cbos {
+		vv = append(vv, v)
+	}
+	return c.Create(CashBoxOutModel, vv)
 }
 
 // UpdateCashBoxOut updates an existing cash.box.out record.

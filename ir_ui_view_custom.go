@@ -31,7 +31,23 @@ func (iuvc *IrUiViewCustom) Many2One() *Many2One {
 
 // CreateIrUiViewCustom creates a new ir.ui.view.custom model and returns its id.
 func (c *Client) CreateIrUiViewCustom(iuvc *IrUiViewCustom) (int64, error) {
-	return c.Create(IrUiViewCustomModel, iuvc)
+	ids, err := c.Create(IrUiViewCustomModel, []interface{}{iuvc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrUiViewCustom creates a new ir.ui.view.custom model and returns its id.
+func (c *Client) CreateIrUiViewCustoms(iuvcs []*IrUiViewCustom) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iuvcs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrUiViewCustomModel, vv)
 }
 
 // UpdateIrUiViewCustom updates an existing ir.ui.view.custom record.

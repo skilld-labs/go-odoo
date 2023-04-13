@@ -35,7 +35,23 @@ func (ca *CalendarAttendee) Many2One() *Many2One {
 
 // CreateCalendarAttendee creates a new calendar.attendee model and returns its id.
 func (c *Client) CreateCalendarAttendee(ca *CalendarAttendee) (int64, error) {
-	return c.Create(CalendarAttendeeModel, ca)
+	ids, err := c.Create(CalendarAttendeeModel, []interface{}{ca})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCalendarAttendee creates a new calendar.attendee model and returns its id.
+func (c *Client) CreateCalendarAttendees(cas []*CalendarAttendee) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cas {
+		vv = append(vv, v)
+	}
+	return c.Create(CalendarAttendeeModel, vv)
 }
 
 // UpdateCalendarAttendee updates an existing calendar.attendee record.

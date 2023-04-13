@@ -30,7 +30,23 @@ func (pr *ProductRemoval) Many2One() *Many2One {
 
 // CreateProductRemoval creates a new product.removal model and returns its id.
 func (c *Client) CreateProductRemoval(pr *ProductRemoval) (int64, error) {
-	return c.Create(ProductRemovalModel, pr)
+	ids, err := c.Create(ProductRemovalModel, []interface{}{pr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductRemoval creates a new product.removal model and returns its id.
+func (c *Client) CreateProductRemovals(prs []*ProductRemoval) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range prs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductRemovalModel, vv)
 }
 
 // UpdateProductRemoval updates an existing product.removal record.

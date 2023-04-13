@@ -44,7 +44,23 @@ func (iar *IrActionsReport) Many2One() *Many2One {
 
 // CreateIrActionsReport creates a new ir.actions.report model and returns its id.
 func (c *Client) CreateIrActionsReport(iar *IrActionsReport) (int64, error) {
-	return c.Create(IrActionsReportModel, iar)
+	ids, err := c.Create(IrActionsReportModel, []interface{}{iar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsReport creates a new ir.actions.report model and returns its id.
+func (c *Client) CreateIrActionsReports(iars []*IrActionsReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iars {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsReportModel, vv)
 }
 
 // UpdateIrActionsReport updates an existing ir.actions.report record.

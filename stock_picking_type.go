@@ -53,7 +53,23 @@ func (spt *StockPickingType) Many2One() *Many2One {
 
 // CreateStockPickingType creates a new stock.picking.type model and returns its id.
 func (c *Client) CreateStockPickingType(spt *StockPickingType) (int64, error) {
-	return c.Create(StockPickingTypeModel, spt)
+	ids, err := c.Create(StockPickingTypeModel, []interface{}{spt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockPickingType creates a new stock.picking.type model and returns its id.
+func (c *Client) CreateStockPickingTypes(spts []*StockPickingType) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range spts {
+		vv = append(vv, v)
+	}
+	return c.Create(StockPickingTypeModel, vv)
 }
 
 // UpdateStockPickingType updates an existing stock.picking.type record.

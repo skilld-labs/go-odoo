@@ -34,7 +34,23 @@ func (srpl *StockReturnPickingLine) Many2One() *Many2One {
 
 // CreateStockReturnPickingLine creates a new stock.return.picking.line model and returns its id.
 func (c *Client) CreateStockReturnPickingLine(srpl *StockReturnPickingLine) (int64, error) {
-	return c.Create(StockReturnPickingLineModel, srpl)
+	ids, err := c.Create(StockReturnPickingLineModel, []interface{}{srpl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockReturnPickingLine creates a new stock.return.picking.line model and returns its id.
+func (c *Client) CreateStockReturnPickingLines(srpls []*StockReturnPickingLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range srpls {
+		vv = append(vv, v)
+	}
+	return c.Create(StockReturnPickingLineModel, vv)
 }
 
 // UpdateStockReturnPickingLine updates an existing stock.return.picking.line record.

@@ -72,7 +72,23 @@ func (aml *AccountMoveLine) Many2One() *Many2One {
 
 // CreateAccountMoveLine creates a new account.move.line model and returns its id.
 func (c *Client) CreateAccountMoveLine(aml *AccountMoveLine) (int64, error) {
-	return c.Create(AccountMoveLineModel, aml)
+	ids, err := c.Create(AccountMoveLineModel, []interface{}{aml})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountMoveLine creates a new account.move.line model and returns its id.
+func (c *Client) CreateAccountMoveLines(amls []*AccountMoveLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range amls {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountMoveLineModel, vv)
 }
 
 // UpdateAccountMoveLine updates an existing account.move.line record.

@@ -39,7 +39,23 @@ func (rc *ResCurrency) Many2One() *Many2One {
 
 // CreateResCurrency creates a new res.currency model and returns its id.
 func (c *Client) CreateResCurrency(rc *ResCurrency) (int64, error) {
-	return c.Create(ResCurrencyModel, rc)
+	ids, err := c.Create(ResCurrencyModel, []interface{}{rc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResCurrency creates a new res.currency model and returns its id.
+func (c *Client) CreateResCurrencys(rcs []*ResCurrency) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResCurrencyModel, vv)
 }
 
 // UpdateResCurrency updates an existing res.currency record.

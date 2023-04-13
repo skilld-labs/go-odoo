@@ -20,7 +20,7 @@ type AccountAnalyticAccount struct {
 	DisplayName              *String   `xmlrpc:"display_name,omptempty"`
 	Id                       *Int      `xmlrpc:"id,omptempty"`
 	LineIds                  *Relation `xmlrpc:"line_ids,omptempty"`
-	MachineProjectName       *String   `xmlrpc:"machine_project_name,omptempty"`
+	MachineInitiativeName    *String   `xmlrpc:"machine_initiative_name,omptempty"`
 	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omptempty"`
 	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omptempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omptempty"`
@@ -34,7 +34,6 @@ type AccountAnalyticAccount struct {
 	Name                     *String   `xmlrpc:"name,omptempty"`
 	PartnerId                *Many2One `xmlrpc:"partner_id,omptempty"`
 	ProjectCount             *Int      `xmlrpc:"project_count,omptempty"`
-	ProjectCreated           *Bool     `xmlrpc:"project_created,omptempty"`
 	ProjectIds               *Relation `xmlrpc:"project_ids,omptempty"`
 	TagIds                   *Relation `xmlrpc:"tag_ids,omptempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omptempty"`
@@ -55,7 +54,23 @@ func (aaa *AccountAnalyticAccount) Many2One() *Many2One {
 
 // CreateAccountAnalyticAccount creates a new account.analytic.account model and returns its id.
 func (c *Client) CreateAccountAnalyticAccount(aaa *AccountAnalyticAccount) (int64, error) {
-	return c.Create(AccountAnalyticAccountModel, aaa)
+	ids, err := c.Create(AccountAnalyticAccountModel, []interface{}{aaa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountAnalyticAccount creates a new account.analytic.account model and returns its id.
+func (c *Client) CreateAccountAnalyticAccounts(aaas []*AccountAnalyticAccount) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aaas {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountAnalyticAccountModel, vv)
 }
 
 // UpdateAccountAnalyticAccount updates an existing account.analytic.account record.

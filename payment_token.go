@@ -36,7 +36,23 @@ func (pt *PaymentToken) Many2One() *Many2One {
 
 // CreatePaymentToken creates a new payment.token model and returns its id.
 func (c *Client) CreatePaymentToken(pt *PaymentToken) (int64, error) {
-	return c.Create(PaymentTokenModel, pt)
+	ids, err := c.Create(PaymentTokenModel, []interface{}{pt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePaymentToken creates a new payment.token model and returns its id.
+func (c *Client) CreatePaymentTokens(pts []*PaymentToken) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pts {
+		vv = append(vv, v)
+	}
+	return c.Create(PaymentTokenModel, vv)
 }
 
 // UpdatePaymentToken updates an existing payment.token record.

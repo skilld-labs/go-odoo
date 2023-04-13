@@ -33,7 +33,23 @@ func (isd *IrSequenceDateRange) Many2One() *Many2One {
 
 // CreateIrSequenceDateRange creates a new ir.sequence.date_range model and returns its id.
 func (c *Client) CreateIrSequenceDateRange(isd *IrSequenceDateRange) (int64, error) {
-	return c.Create(IrSequenceDateRangeModel, isd)
+	ids, err := c.Create(IrSequenceDateRangeModel, []interface{}{isd})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrSequenceDateRange creates a new ir.sequence.date_range model and returns its id.
+func (c *Client) CreateIrSequenceDateRanges(isds []*IrSequenceDateRange) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range isds {
+		vv = append(vv, v)
+	}
+	return c.Create(IrSequenceDateRangeModel, vv)
 }
 
 // UpdateIrSequenceDateRange updates an existing ir.sequence.date_range record.

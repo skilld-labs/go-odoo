@@ -33,7 +33,23 @@ func (bli *BaseLanguageImport) Many2One() *Many2One {
 
 // CreateBaseLanguageImport creates a new base.language.import model and returns its id.
 func (c *Client) CreateBaseLanguageImport(bli *BaseLanguageImport) (int64, error) {
-	return c.Create(BaseLanguageImportModel, bli)
+	ids, err := c.Create(BaseLanguageImportModel, []interface{}{bli})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseLanguageImport creates a new base.language.import model and returns its id.
+func (c *Client) CreateBaseLanguageImports(blis []*BaseLanguageImport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range blis {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseLanguageImportModel, vv)
 }
 
 // UpdateBaseLanguageImport updates an existing base.language.import record.

@@ -41,7 +41,23 @@ func (afpt *AccountFiscalPositionTemplate) Many2One() *Many2One {
 
 // CreateAccountFiscalPositionTemplate creates a new account.fiscal.position.template model and returns its id.
 func (c *Client) CreateAccountFiscalPositionTemplate(afpt *AccountFiscalPositionTemplate) (int64, error) {
-	return c.Create(AccountFiscalPositionTemplateModel, afpt)
+	ids, err := c.Create(AccountFiscalPositionTemplateModel, []interface{}{afpt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountFiscalPositionTemplate creates a new account.fiscal.position.template model and returns its id.
+func (c *Client) CreateAccountFiscalPositionTemplates(afpts []*AccountFiscalPositionTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range afpts {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountFiscalPositionTemplateModel, vv)
 }
 
 // UpdateAccountFiscalPositionTemplate updates an existing account.fiscal.position.template record.

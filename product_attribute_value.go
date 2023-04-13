@@ -34,7 +34,23 @@ func (pav *ProductAttributeValue) Many2One() *Many2One {
 
 // CreateProductAttributeValue creates a new product.attribute.value model and returns its id.
 func (c *Client) CreateProductAttributeValue(pav *ProductAttributeValue) (int64, error) {
-	return c.Create(ProductAttributeValueModel, pav)
+	ids, err := c.Create(ProductAttributeValueModel, []interface{}{pav})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductAttributeValue creates a new product.attribute.value model and returns its id.
+func (c *Client) CreateProductAttributeValues(pavs []*ProductAttributeValue) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pavs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductAttributeValueModel, vv)
 }
 
 // UpdateProductAttributeValue updates an existing product.attribute.value record.

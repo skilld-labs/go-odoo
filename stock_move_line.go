@@ -54,7 +54,23 @@ func (sml *StockMoveLine) Many2One() *Many2One {
 
 // CreateStockMoveLine creates a new stock.move.line model and returns its id.
 func (c *Client) CreateStockMoveLine(sml *StockMoveLine) (int64, error) {
-	return c.Create(StockMoveLineModel, sml)
+	ids, err := c.Create(StockMoveLineModel, []interface{}{sml})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockMoveLine creates a new stock.move.line model and returns its id.
+func (c *Client) CreateStockMoveLines(smls []*StockMoveLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range smls {
+		vv = append(vv, v)
+	}
+	return c.Create(StockMoveLineModel, vv)
 }
 
 // UpdateStockMoveLine updates an existing stock.move.line record.

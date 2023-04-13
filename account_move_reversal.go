@@ -30,7 +30,23 @@ func (amr *AccountMoveReversal) Many2One() *Many2One {
 
 // CreateAccountMoveReversal creates a new account.move.reversal model and returns its id.
 func (c *Client) CreateAccountMoveReversal(amr *AccountMoveReversal) (int64, error) {
-	return c.Create(AccountMoveReversalModel, amr)
+	ids, err := c.Create(AccountMoveReversalModel, []interface{}{amr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountMoveReversal creates a new account.move.reversal model and returns its id.
+func (c *Client) CreateAccountMoveReversals(amrs []*AccountMoveReversal) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range amrs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountMoveReversalModel, vv)
 }
 
 // UpdateAccountMoveReversal updates an existing account.move.reversal record.

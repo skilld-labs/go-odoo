@@ -31,7 +31,23 @@ func (rcs *ResCountryState) Many2One() *Many2One {
 
 // CreateResCountryState creates a new res.country.state model and returns its id.
 func (c *Client) CreateResCountryState(rcs *ResCountryState) (int64, error) {
-	return c.Create(ResCountryStateModel, rcs)
+	ids, err := c.Create(ResCountryStateModel, []interface{}{rcs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResCountryState creates a new res.country.state model and returns its id.
+func (c *Client) CreateResCountryStates(rcss []*ResCountryState) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcss {
+		vv = append(vv, v)
+	}
+	return c.Create(ResCountryStateModel, vv)
 }
 
 // UpdateResCountryState updates an existing res.country.state record.

@@ -46,7 +46,23 @@ func (pr *ProcurementRule) Many2One() *Many2One {
 
 // CreateProcurementRule creates a new procurement.rule model and returns its id.
 func (c *Client) CreateProcurementRule(pr *ProcurementRule) (int64, error) {
-	return c.Create(ProcurementRuleModel, pr)
+	ids, err := c.Create(ProcurementRuleModel, []interface{}{pr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProcurementRule creates a new procurement.rule model and returns its id.
+func (c *Client) CreateProcurementRules(prs []*ProcurementRule) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range prs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProcurementRuleModel, vv)
 }
 
 // UpdateProcurementRule updates an existing procurement.rule record.

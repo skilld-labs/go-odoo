@@ -23,6 +23,7 @@ type SaleOrder struct {
 	ClientOrderRef           *String    `xmlrpc:"client_order_ref,omptempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omptempty"`
 	ConfirmationDate         *Time      `xmlrpc:"confirmation_date,omptempty"`
+	ContributionsCreated     *Bool      `xmlrpc:"contributions_created,omptempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
 	CurrencyId               *Many2One  `xmlrpc:"currency_id,omptempty"`
@@ -68,7 +69,6 @@ type SaleOrder struct {
 	State                    *Selection `xmlrpc:"state,omptempty"`
 	TagIds                   *Relation  `xmlrpc:"tag_ids,omptempty"`
 	TasksCount               *Int       `xmlrpc:"tasks_count,omptempty"`
-	TasksCreated             *Bool      `xmlrpc:"tasks_created,omptempty"`
 	TasksIds                 *Relation  `xmlrpc:"tasks_ids,omptempty"`
 	TeamId                   *Many2One  `xmlrpc:"team_id,omptempty"`
 	TimesheetCount           *Float     `xmlrpc:"timesheet_count,omptempty"`
@@ -96,7 +96,23 @@ func (so *SaleOrder) Many2One() *Many2One {
 
 // CreateSaleOrder creates a new sale.order model and returns its id.
 func (c *Client) CreateSaleOrder(so *SaleOrder) (int64, error) {
-	return c.Create(SaleOrderModel, so)
+	ids, err := c.Create(SaleOrderModel, []interface{}{so})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSaleOrder creates a new sale.order model and returns its id.
+func (c *Client) CreateSaleOrders(sos []*SaleOrder) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sos {
+		vv = append(vv, v)
+	}
+	return c.Create(SaleOrderModel, vv)
 }
 
 // UpdateSaleOrder updates an existing sale.order record.

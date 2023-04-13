@@ -48,7 +48,23 @@ func (att *AccountTaxTemplate) Many2One() *Many2One {
 
 // CreateAccountTaxTemplate creates a new account.tax.template model and returns its id.
 func (c *Client) CreateAccountTaxTemplate(att *AccountTaxTemplate) (int64, error) {
-	return c.Create(AccountTaxTemplateModel, att)
+	ids, err := c.Create(AccountTaxTemplateModel, []interface{}{att})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountTaxTemplate creates a new account.tax.template model and returns its id.
+func (c *Client) CreateAccountTaxTemplates(atts []*AccountTaxTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range atts {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountTaxTemplateModel, vv)
 }
 
 // UpdateAccountTaxTemplate updates an existing account.tax.template record.

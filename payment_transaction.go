@@ -20,7 +20,7 @@ type PaymentTransaction struct {
 	DateValidate      *Time      `xmlrpc:"date_validate,omptempty"`
 	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
 	Fees              *Float     `xmlrpc:"fees,omptempty"`
-	Html3ds           *String    `xmlrpc:"html_3ds,omptempty"`
+	Html3Ds           *String    `xmlrpc:"html_3ds,omptempty"`
 	Id                *Int       `xmlrpc:"id,omptempty"`
 	PartnerAddress    *String    `xmlrpc:"partner_address,omptempty"`
 	PartnerCity       *String    `xmlrpc:"partner_city,omptempty"`
@@ -54,7 +54,23 @@ func (pt *PaymentTransaction) Many2One() *Many2One {
 
 // CreatePaymentTransaction creates a new payment.transaction model and returns its id.
 func (c *Client) CreatePaymentTransaction(pt *PaymentTransaction) (int64, error) {
-	return c.Create(PaymentTransactionModel, pt)
+	ids, err := c.Create(PaymentTransactionModel, []interface{}{pt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePaymentTransaction creates a new payment.transaction model and returns its id.
+func (c *Client) CreatePaymentTransactions(pts []*PaymentTransaction) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pts {
+		vv = append(vv, v)
+	}
+	return c.Create(PaymentTransactionModel, vv)
 }
 
 // UpdatePaymentTransaction updates an existing payment.transaction record.

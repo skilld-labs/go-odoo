@@ -24,7 +24,23 @@ func (fam *FormatAddressMixin) Many2One() *Many2One {
 
 // CreateFormatAddressMixin creates a new format.address.mixin model and returns its id.
 func (c *Client) CreateFormatAddressMixin(fam *FormatAddressMixin) (int64, error) {
-	return c.Create(FormatAddressMixinModel, fam)
+	ids, err := c.Create(FormatAddressMixinModel, []interface{}{fam})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateFormatAddressMixin creates a new format.address.mixin model and returns its id.
+func (c *Client) CreateFormatAddressMixins(fams []*FormatAddressMixin) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range fams {
+		vv = append(vv, v)
+	}
+	return c.Create(FormatAddressMixinModel, vv)
 }
 
 // UpdateFormatAddressMixin updates an existing format.address.mixin record.

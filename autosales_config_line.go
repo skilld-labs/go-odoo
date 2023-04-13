@@ -33,7 +33,23 @@ func (acl *AutosalesConfigLine) Many2One() *Many2One {
 
 // CreateAutosalesConfigLine creates a new autosales.config.line model and returns its id.
 func (c *Client) CreateAutosalesConfigLine(acl *AutosalesConfigLine) (int64, error) {
-	return c.Create(AutosalesConfigLineModel, acl)
+	ids, err := c.Create(AutosalesConfigLineModel, []interface{}{acl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAutosalesConfigLine creates a new autosales.config.line model and returns its id.
+func (c *Client) CreateAutosalesConfigLines(acls []*AutosalesConfigLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range acls {
+		vv = append(vv, v)
+	}
+	return c.Create(AutosalesConfigLineModel, vv)
 }
 
 // UpdateAutosalesConfigLine updates an existing autosales.config.line record.

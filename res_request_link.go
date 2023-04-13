@@ -31,7 +31,23 @@ func (rrl *ResRequestLink) Many2One() *Many2One {
 
 // CreateResRequestLink creates a new res.request.link model and returns its id.
 func (c *Client) CreateResRequestLink(rrl *ResRequestLink) (int64, error) {
-	return c.Create(ResRequestLinkModel, rrl)
+	ids, err := c.Create(ResRequestLinkModel, []interface{}{rrl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResRequestLink creates a new res.request.link model and returns its id.
+func (c *Client) CreateResRequestLinks(rrls []*ResRequestLink) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rrls {
+		vv = append(vv, v)
+	}
+	return c.Create(ResRequestLinkModel, vv)
 }
 
 // UpdateResRequestLink updates an existing res.request.link record.

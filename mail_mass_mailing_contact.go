@@ -49,7 +49,23 @@ func (mmc *MailMassMailingContact) Many2One() *Many2One {
 
 // CreateMailMassMailingContact creates a new mail.mass_mailing.contact model and returns its id.
 func (c *Client) CreateMailMassMailingContact(mmc *MailMassMailingContact) (int64, error) {
-	return c.Create(MailMassMailingContactModel, mmc)
+	ids, err := c.Create(MailMassMailingContactModel, []interface{}{mmc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailMassMailingContact creates a new mail.mass_mailing.contact model and returns its id.
+func (c *Client) CreateMailMassMailingContacts(mmcs []*MailMassMailingContact) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mmcs {
+		vv = append(vv, v)
+	}
+	return c.Create(MailMassMailingContactModel, vv)
 }
 
 // UpdateMailMassMailingContact updates an existing mail.mass_mailing.contact record.

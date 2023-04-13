@@ -24,7 +24,23 @@ func (rhr *ReportHrHolidaysReportHolidayssummary) Many2One() *Many2One {
 
 // CreateReportHrHolidaysReportHolidayssummary creates a new report.hr_holidays.report_holidayssummary model and returns its id.
 func (c *Client) CreateReportHrHolidaysReportHolidayssummary(rhr *ReportHrHolidaysReportHolidayssummary) (int64, error) {
-	return c.Create(ReportHrHolidaysReportHolidayssummaryModel, rhr)
+	ids, err := c.Create(ReportHrHolidaysReportHolidayssummaryModel, []interface{}{rhr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportHrHolidaysReportHolidayssummary creates a new report.hr_holidays.report_holidayssummary model and returns its id.
+func (c *Client) CreateReportHrHolidaysReportHolidayssummarys(rhrs []*ReportHrHolidaysReportHolidayssummary) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rhrs {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportHrHolidaysReportHolidayssummaryModel, vv)
 }
 
 // UpdateReportHrHolidaysReportHolidayssummary updates an existing report.hr_holidays.report_holidayssummary record.

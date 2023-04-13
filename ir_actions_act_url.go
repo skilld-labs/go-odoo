@@ -36,7 +36,23 @@ func (iaa *IrActionsActUrl) Many2One() *Many2One {
 
 // CreateIrActionsActUrl creates a new ir.actions.act_url model and returns its id.
 func (c *Client) CreateIrActionsActUrl(iaa *IrActionsActUrl) (int64, error) {
-	return c.Create(IrActionsActUrlModel, iaa)
+	ids, err := c.Create(IrActionsActUrlModel, []interface{}{iaa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsActUrl creates a new ir.actions.act_url model and returns its id.
+func (c *Client) CreateIrActionsActUrls(iaas []*IrActionsActUrl) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iaas {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsActUrlModel, vv)
 }
 
 // UpdateIrActionsActUrl updates an existing ir.actions.act_url record.

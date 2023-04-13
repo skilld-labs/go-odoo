@@ -35,7 +35,23 @@ func (mt *MailThread) Many2One() *Many2One {
 
 // CreateMailThread creates a new mail.thread model and returns its id.
 func (c *Client) CreateMailThread(mt *MailThread) (int64, error) {
-	return c.Create(MailThreadModel, mt)
+	ids, err := c.Create(MailThreadModel, []interface{}{mt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailThread creates a new mail.thread model and returns its id.
+func (c *Client) CreateMailThreads(mts []*MailThread) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mts {
+		vv = append(vv, v)
+	}
+	return c.Create(MailThreadModel, vv)
 }
 
 // UpdateMailThread updates an existing mail.thread record.

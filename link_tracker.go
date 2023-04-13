@@ -44,7 +44,23 @@ func (lt *LinkTracker) Many2One() *Many2One {
 
 // CreateLinkTracker creates a new link.tracker model and returns its id.
 func (c *Client) CreateLinkTracker(lt *LinkTracker) (int64, error) {
-	return c.Create(LinkTrackerModel, lt)
+	ids, err := c.Create(LinkTrackerModel, []interface{}{lt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateLinkTracker creates a new link.tracker model and returns its id.
+func (c *Client) CreateLinkTrackers(lts []*LinkTracker) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range lts {
+		vv = append(vv, v)
+	}
+	return c.Create(LinkTrackerModel, vv)
 }
 
 // UpdateLinkTracker updates an existing link.tracker record.

@@ -31,7 +31,23 @@ func (bn *BarcodeNomenclature) Many2One() *Many2One {
 
 // CreateBarcodeNomenclature creates a new barcode.nomenclature model and returns its id.
 func (c *Client) CreateBarcodeNomenclature(bn *BarcodeNomenclature) (int64, error) {
-	return c.Create(BarcodeNomenclatureModel, bn)
+	ids, err := c.Create(BarcodeNomenclatureModel, []interface{}{bn})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBarcodeNomenclature creates a new barcode.nomenclature model and returns its id.
+func (c *Client) CreateBarcodeNomenclatures(bns []*BarcodeNomenclature) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bns {
+		vv = append(vv, v)
+	}
+	return c.Create(BarcodeNomenclatureModel, vv)
 }
 
 // UpdateBarcodeNomenclature updates an existing barcode.nomenclature record.

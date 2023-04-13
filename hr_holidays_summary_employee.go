@@ -31,7 +31,23 @@ func (hhse *HrHolidaysSummaryEmployee) Many2One() *Many2One {
 
 // CreateHrHolidaysSummaryEmployee creates a new hr.holidays.summary.employee model and returns its id.
 func (c *Client) CreateHrHolidaysSummaryEmployee(hhse *HrHolidaysSummaryEmployee) (int64, error) {
-	return c.Create(HrHolidaysSummaryEmployeeModel, hhse)
+	ids, err := c.Create(HrHolidaysSummaryEmployeeModel, []interface{}{hhse})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrHolidaysSummaryEmployee creates a new hr.holidays.summary.employee model and returns its id.
+func (c *Client) CreateHrHolidaysSummaryEmployees(hhses []*HrHolidaysSummaryEmployee) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hhses {
+		vv = append(vv, v)
+	}
+	return c.Create(HrHolidaysSummaryEmployeeModel, vv)
 }
 
 // UpdateHrHolidaysSummaryEmployee updates an existing hr.holidays.summary.employee record.

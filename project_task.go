@@ -93,7 +93,23 @@ func (pt *ProjectTask) Many2One() *Many2One {
 
 // CreateProjectTask creates a new project.task model and returns its id.
 func (c *Client) CreateProjectTask(pt *ProjectTask) (int64, error) {
-	return c.Create(ProjectTaskModel, pt)
+	ids, err := c.Create(ProjectTaskModel, []interface{}{pt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProjectTask creates a new project.task model and returns its id.
+func (c *Client) CreateProjectTasks(pts []*ProjectTask) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pts {
+		vv = append(vv, v)
+	}
+	return c.Create(ProjectTaskModel, vv)
 }
 
 // UpdateProjectTask updates an existing project.task record.

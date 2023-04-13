@@ -30,7 +30,23 @@ func (pp *ProductPutaway) Many2One() *Many2One {
 
 // CreateProductPutaway creates a new product.putaway model and returns its id.
 func (c *Client) CreateProductPutaway(pp *ProductPutaway) (int64, error) {
-	return c.Create(ProductPutawayModel, pp)
+	ids, err := c.Create(ProductPutawayModel, []interface{}{pp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductPutaway creates a new product.putaway model and returns its id.
+func (c *Client) CreateProductPutaways(pps []*ProductPutaway) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pps {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductPutawayModel, vv)
 }
 
 // UpdateProductPutaway updates an existing product.putaway record.

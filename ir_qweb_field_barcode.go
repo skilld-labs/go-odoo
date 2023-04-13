@@ -24,7 +24,23 @@ func (iqfb *IrQwebFieldBarcode) Many2One() *Many2One {
 
 // CreateIrQwebFieldBarcode creates a new ir.qweb.field.barcode model and returns its id.
 func (c *Client) CreateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) (int64, error) {
-	return c.Create(IrQwebFieldBarcodeModel, iqfb)
+	ids, err := c.Create(IrQwebFieldBarcodeModel, []interface{}{iqfb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldBarcode creates a new ir.qweb.field.barcode model and returns its id.
+func (c *Client) CreateIrQwebFieldBarcodes(iqfbs []*IrQwebFieldBarcode) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfbs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldBarcodeModel, vv)
 }
 
 // UpdateIrQwebFieldBarcode updates an existing ir.qweb.field.barcode record.

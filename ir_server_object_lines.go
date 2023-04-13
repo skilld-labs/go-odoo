@@ -32,7 +32,23 @@ func (isol *IrServerObjectLines) Many2One() *Many2One {
 
 // CreateIrServerObjectLines creates a new ir.server.object.lines model and returns its id.
 func (c *Client) CreateIrServerObjectLines(isol *IrServerObjectLines) (int64, error) {
-	return c.Create(IrServerObjectLinesModel, isol)
+	ids, err := c.Create(IrServerObjectLinesModel, []interface{}{isol})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrServerObjectLines creates a new ir.server.object.lines model and returns its id.
+func (c *Client) CreateIrServerObjectLiness(isols []*IrServerObjectLines) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range isols {
+		vv = append(vv, v)
+	}
+	return c.Create(IrServerObjectLinesModel, vv)
 }
 
 // UpdateIrServerObjectLines updates an existing ir.server.object.lines record.

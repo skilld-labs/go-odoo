@@ -24,7 +24,23 @@ func (rsr *ReportSaleReportSaleproforma) Many2One() *Many2One {
 
 // CreateReportSaleReportSaleproforma creates a new report.sale.report_saleproforma model and returns its id.
 func (c *Client) CreateReportSaleReportSaleproforma(rsr *ReportSaleReportSaleproforma) (int64, error) {
-	return c.Create(ReportSaleReportSaleproformaModel, rsr)
+	ids, err := c.Create(ReportSaleReportSaleproformaModel, []interface{}{rsr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportSaleReportSaleproforma creates a new report.sale.report_saleproforma model and returns its id.
+func (c *Client) CreateReportSaleReportSaleproformas(rsrs []*ReportSaleReportSaleproforma) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rsrs {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportSaleReportSaleproformaModel, vv)
 }
 
 // UpdateReportSaleReportSaleproforma updates an existing report.sale.report_saleproforma record.

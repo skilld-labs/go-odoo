@@ -43,7 +43,23 @@ func (slr *StockLocationRoute) Many2One() *Many2One {
 
 // CreateStockLocationRoute creates a new stock.location.route model and returns its id.
 func (c *Client) CreateStockLocationRoute(slr *StockLocationRoute) (int64, error) {
-	return c.Create(StockLocationRouteModel, slr)
+	ids, err := c.Create(StockLocationRouteModel, []interface{}{slr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockLocationRoute creates a new stock.location.route model and returns its id.
+func (c *Client) CreateStockLocationRoutes(slrs []*StockLocationRoute) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range slrs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockLocationRouteModel, vv)
 }
 
 // UpdateStockLocationRoute updates an existing stock.location.route record.

@@ -106,7 +106,23 @@ func (rc *ResCompany) Many2One() *Many2One {
 
 // CreateResCompany creates a new res.company model and returns its id.
 func (c *Client) CreateResCompany(rc *ResCompany) (int64, error) {
-	return c.Create(ResCompanyModel, rc)
+	ids, err := c.Create(ResCompanyModel, []interface{}{rc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResCompany creates a new res.company model and returns its id.
+func (c *Client) CreateResCompanys(rcs []*ResCompany) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResCompanyModel, vv)
 }
 
 // UpdateResCompany updates an existing res.company record.

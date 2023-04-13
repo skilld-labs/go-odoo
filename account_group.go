@@ -33,7 +33,23 @@ func (ag *AccountGroup) Many2One() *Many2One {
 
 // CreateAccountGroup creates a new account.group model and returns its id.
 func (c *Client) CreateAccountGroup(ag *AccountGroup) (int64, error) {
-	return c.Create(AccountGroupModel, ag)
+	ids, err := c.Create(AccountGroupModel, []interface{}{ag})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountGroup creates a new account.group model and returns its id.
+func (c *Client) CreateAccountGroups(ags []*AccountGroup) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ags {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountGroupModel, vv)
 }
 
 // UpdateAccountGroup updates an existing account.group record.

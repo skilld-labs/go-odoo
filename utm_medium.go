@@ -30,7 +30,23 @@ func (um *UtmMedium) Many2One() *Many2One {
 
 // CreateUtmMedium creates a new utm.medium model and returns its id.
 func (c *Client) CreateUtmMedium(um *UtmMedium) (int64, error) {
-	return c.Create(UtmMediumModel, um)
+	ids, err := c.Create(UtmMediumModel, []interface{}{um})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateUtmMedium creates a new utm.medium model and returns its id.
+func (c *Client) CreateUtmMediums(ums []*UtmMedium) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ums {
+		vv = append(vv, v)
+	}
+	return c.Create(UtmMediumModel, vv)
 }
 
 // UpdateUtmMedium updates an existing utm.medium record.

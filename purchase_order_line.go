@@ -54,7 +54,23 @@ func (pol *PurchaseOrderLine) Many2One() *Many2One {
 
 // CreatePurchaseOrderLine creates a new purchase.order.line model and returns its id.
 func (c *Client) CreatePurchaseOrderLine(pol *PurchaseOrderLine) (int64, error) {
-	return c.Create(PurchaseOrderLineModel, pol)
+	ids, err := c.Create(PurchaseOrderLineModel, []interface{}{pol})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePurchaseOrderLine creates a new purchase.order.line model and returns its id.
+func (c *Client) CreatePurchaseOrderLines(pols []*PurchaseOrderLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pols {
+		vv = append(vv, v)
+	}
+	return c.Create(PurchaseOrderLineModel, vv)
 }
 
 // UpdatePurchaseOrderLine updates an existing purchase.order.line record.

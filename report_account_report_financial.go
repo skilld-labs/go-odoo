@@ -24,7 +24,23 @@ func (rar *ReportAccountReportFinancial) Many2One() *Many2One {
 
 // CreateReportAccountReportFinancial creates a new report.account.report_financial model and returns its id.
 func (c *Client) CreateReportAccountReportFinancial(rar *ReportAccountReportFinancial) (int64, error) {
-	return c.Create(ReportAccountReportFinancialModel, rar)
+	ids, err := c.Create(ReportAccountReportFinancialModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportFinancial creates a new report.account.report_financial model and returns its id.
+func (c *Client) CreateReportAccountReportFinancials(rars []*ReportAccountReportFinancial) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportFinancialModel, vv)
 }
 
 // UpdateReportAccountReportFinancial updates an existing report.account.report_financial record.

@@ -31,7 +31,23 @@ func (btmp *BaseImportTestsModelsPreview) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsPreview creates a new base_import.tests.models.preview model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsPreview(btmp *BaseImportTestsModelsPreview) (int64, error) {
-	return c.Create(BaseImportTestsModelsPreviewModel, btmp)
+	ids, err := c.Create(BaseImportTestsModelsPreviewModel, []interface{}{btmp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportTestsModelsPreview creates a new base_import.tests.models.preview model and returns its id.
+func (c *Client) CreateBaseImportTestsModelsPreviews(btmps []*BaseImportTestsModelsPreview) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range btmps {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportTestsModelsPreviewModel, vv)
 }
 
 // UpdateBaseImportTestsModelsPreview updates an existing base_import.tests.models.preview record.

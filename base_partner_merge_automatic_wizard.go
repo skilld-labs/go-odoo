@@ -42,7 +42,23 @@ func (bpmaw *BasePartnerMergeAutomaticWizard) Many2One() *Many2One {
 
 // CreateBasePartnerMergeAutomaticWizard creates a new base.partner.merge.automatic.wizard model and returns its id.
 func (c *Client) CreateBasePartnerMergeAutomaticWizard(bpmaw *BasePartnerMergeAutomaticWizard) (int64, error) {
-	return c.Create(BasePartnerMergeAutomaticWizardModel, bpmaw)
+	ids, err := c.Create(BasePartnerMergeAutomaticWizardModel, []interface{}{bpmaw})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBasePartnerMergeAutomaticWizard creates a new base.partner.merge.automatic.wizard model and returns its id.
+func (c *Client) CreateBasePartnerMergeAutomaticWizards(bpmaws []*BasePartnerMergeAutomaticWizard) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bpmaws {
+		vv = append(vv, v)
+	}
+	return c.Create(BasePartnerMergeAutomaticWizardModel, vv)
 }
 
 // UpdateBasePartnerMergeAutomaticWizard updates an existing base.partner.merge.automatic.wizard record.

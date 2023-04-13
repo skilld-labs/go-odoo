@@ -77,7 +77,7 @@ type ResConfigSettings struct {
 	LeaveTimesheetProjectId              *Many2One  `xmlrpc:"leave_timesheet_project_id,omptempty"`
 	LeaveTimesheetTaskId                 *Many2One  `xmlrpc:"leave_timesheet_task_id,omptempty"`
 	LockConfirmedPo                      *Bool      `xmlrpc:"lock_confirmed_po,omptempty"`
-	ModuleAccount3wayMatch               *Bool      `xmlrpc:"module_account_3way_match,omptempty"`
+	ModuleAccount3WayMatch               *Bool      `xmlrpc:"module_account_3way_match,omptempty"`
 	ModuleAccountAccountant              *Bool      `xmlrpc:"module_account_accountant,omptempty"`
 	ModuleAccountAsset                   *Bool      `xmlrpc:"module_account_asset,omptempty"`
 	ModuleAccountBankStatementImportCamt *Bool      `xmlrpc:"module_account_bank_statement_import_camt,omptempty"`
@@ -182,7 +182,23 @@ func (rcs *ResConfigSettings) Many2One() *Many2One {
 
 // CreateResConfigSettings creates a new res.config.settings model and returns its id.
 func (c *Client) CreateResConfigSettings(rcs *ResConfigSettings) (int64, error) {
-	return c.Create(ResConfigSettingsModel, rcs)
+	ids, err := c.Create(ResConfigSettingsModel, []interface{}{rcs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResConfigSettings creates a new res.config.settings model and returns its id.
+func (c *Client) CreateResConfigSettingss(rcss []*ResConfigSettings) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcss {
+		vv = append(vv, v)
+	}
+	return c.Create(ResConfigSettingsModel, vv)
 }
 
 // UpdateResConfigSettings updates an existing res.config.settings record.

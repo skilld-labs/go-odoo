@@ -24,7 +24,23 @@ func (rar *ReportAccountReportAgedpartnerbalance) Many2One() *Many2One {
 
 // CreateReportAccountReportAgedpartnerbalance creates a new report.account.report_agedpartnerbalance model and returns its id.
 func (c *Client) CreateReportAccountReportAgedpartnerbalance(rar *ReportAccountReportAgedpartnerbalance) (int64, error) {
-	return c.Create(ReportAccountReportAgedpartnerbalanceModel, rar)
+	ids, err := c.Create(ReportAccountReportAgedpartnerbalanceModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportAgedpartnerbalance creates a new report.account.report_agedpartnerbalance model and returns its id.
+func (c *Client) CreateReportAccountReportAgedpartnerbalances(rars []*ReportAccountReportAgedpartnerbalance) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportAgedpartnerbalanceModel, vv)
 }
 
 // UpdateReportAccountReportAgedpartnerbalance updates an existing report.account.report_agedpartnerbalance record.

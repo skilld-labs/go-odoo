@@ -47,7 +47,23 @@ func (pc *ProductCategory) Many2One() *Many2One {
 
 // CreateProductCategory creates a new product.category model and returns its id.
 func (c *Client) CreateProductCategory(pc *ProductCategory) (int64, error) {
-	return c.Create(ProductCategoryModel, pc)
+	ids, err := c.Create(ProductCategoryModel, []interface{}{pc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductCategory creates a new product.category model and returns its id.
+func (c *Client) CreateProductCategorys(pcs []*ProductCategory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pcs {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductCategoryModel, vv)
 }
 
 // UpdateProductCategory updates an existing product.category record.

@@ -24,7 +24,23 @@ func (pc *PublisherWarrantyContract) Many2One() *Many2One {
 
 // CreatePublisherWarrantyContract creates a new publisher_warranty.contract model and returns its id.
 func (c *Client) CreatePublisherWarrantyContract(pc *PublisherWarrantyContract) (int64, error) {
-	return c.Create(PublisherWarrantyContractModel, pc)
+	ids, err := c.Create(PublisherWarrantyContractModel, []interface{}{pc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePublisherWarrantyContract creates a new publisher_warranty.contract model and returns its id.
+func (c *Client) CreatePublisherWarrantyContracts(pcs []*PublisherWarrantyContract) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pcs {
+		vv = append(vv, v)
+	}
+	return c.Create(PublisherWarrantyContractModel, vv)
 }
 
 // UpdatePublisherWarrantyContract updates an existing publisher_warranty.contract record.

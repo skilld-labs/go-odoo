@@ -38,7 +38,23 @@ func (imc *IrModuleCategory) Many2One() *Many2One {
 
 // CreateIrModuleCategory creates a new ir.module.category model and returns its id.
 func (c *Client) CreateIrModuleCategory(imc *IrModuleCategory) (int64, error) {
-	return c.Create(IrModuleCategoryModel, imc)
+	ids, err := c.Create(IrModuleCategoryModel, []interface{}{imc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrModuleCategory creates a new ir.module.category model and returns its id.
+func (c *Client) CreateIrModuleCategorys(imcs []*IrModuleCategory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range imcs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrModuleCategoryModel, vv)
 }
 
 // UpdateIrModuleCategory updates an existing ir.module.category record.

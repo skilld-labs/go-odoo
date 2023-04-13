@@ -48,7 +48,23 @@ func (ia *IrAttachment) Many2One() *Many2One {
 
 // CreateIrAttachment creates a new ir.attachment model and returns its id.
 func (c *Client) CreateIrAttachment(ia *IrAttachment) (int64, error) {
-	return c.Create(IrAttachmentModel, ia)
+	ids, err := c.Create(IrAttachmentModel, []interface{}{ia})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrAttachment creates a new ir.attachment model and returns its id.
+func (c *Client) CreateIrAttachments(ias []*IrAttachment) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ias {
+		vv = append(vv, v)
+	}
+	return c.Create(IrAttachmentModel, vv)
 }
 
 // UpdateIrAttachment updates an existing ir.attachment record.

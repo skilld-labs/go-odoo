@@ -41,7 +41,23 @@ func (swo *StockWarehouseOrderpoint) Many2One() *Many2One {
 
 // CreateStockWarehouseOrderpoint creates a new stock.warehouse.orderpoint model and returns its id.
 func (c *Client) CreateStockWarehouseOrderpoint(swo *StockWarehouseOrderpoint) (int64, error) {
-	return c.Create(StockWarehouseOrderpointModel, swo)
+	ids, err := c.Create(StockWarehouseOrderpointModel, []interface{}{swo})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockWarehouseOrderpoint creates a new stock.warehouse.orderpoint model and returns its id.
+func (c *Client) CreateStockWarehouseOrderpoints(swos []*StockWarehouseOrderpoint) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range swos {
+		vv = append(vv, v)
+	}
+	return c.Create(StockWarehouseOrderpointModel, vv)
 }
 
 // UpdateStockWarehouseOrderpoint updates an existing stock.warehouse.orderpoint record.

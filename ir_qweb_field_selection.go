@@ -24,7 +24,23 @@ func (iqfs *IrQwebFieldSelection) Many2One() *Many2One {
 
 // CreateIrQwebFieldSelection creates a new ir.qweb.field.selection model and returns its id.
 func (c *Client) CreateIrQwebFieldSelection(iqfs *IrQwebFieldSelection) (int64, error) {
-	return c.Create(IrQwebFieldSelectionModel, iqfs)
+	ids, err := c.Create(IrQwebFieldSelectionModel, []interface{}{iqfs})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldSelection creates a new ir.qweb.field.selection model and returns its id.
+func (c *Client) CreateIrQwebFieldSelections(iqfss []*IrQwebFieldSelection) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfss {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldSelectionModel, vv)
 }
 
 // UpdateIrQwebFieldSelection updates an existing ir.qweb.field.selection record.

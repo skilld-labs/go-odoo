@@ -32,7 +32,23 @@ func (bi *BaseImportImport) Many2One() *Many2One {
 
 // CreateBaseImportImport creates a new base_import.import model and returns its id.
 func (c *Client) CreateBaseImportImport(bi *BaseImportImport) (int64, error) {
-	return c.Create(BaseImportImportModel, bi)
+	ids, err := c.Create(BaseImportImportModel, []interface{}{bi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportImport creates a new base_import.import model and returns its id.
+func (c *Client) CreateBaseImportImports(bis []*BaseImportImport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range bis {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportImportModel, vv)
 }
 
 // UpdateBaseImportImport updates an existing base_import.import record.

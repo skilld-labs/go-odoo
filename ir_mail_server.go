@@ -37,7 +37,23 @@ func (im *IrMailServer) Many2One() *Many2One {
 
 // CreateIrMailServer creates a new ir.mail_server model and returns its id.
 func (c *Client) CreateIrMailServer(im *IrMailServer) (int64, error) {
-	return c.Create(IrMailServerModel, im)
+	ids, err := c.Create(IrMailServerModel, []interface{}{im})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrMailServer creates a new ir.mail_server model and returns its id.
+func (c *Client) CreateIrMailServers(ims []*IrMailServer) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ims {
+		vv = append(vv, v)
+	}
+	return c.Create(IrMailServerModel, vv)
 }
 
 // UpdateIrMailServer updates an existing ir.mail_server record.

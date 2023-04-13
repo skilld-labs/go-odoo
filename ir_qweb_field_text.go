@@ -24,7 +24,23 @@ func (iqft *IrQwebFieldText) Many2One() *Many2One {
 
 // CreateIrQwebFieldText creates a new ir.qweb.field.text model and returns its id.
 func (c *Client) CreateIrQwebFieldText(iqft *IrQwebFieldText) (int64, error) {
-	return c.Create(IrQwebFieldTextModel, iqft)
+	ids, err := c.Create(IrQwebFieldTextModel, []interface{}{iqft})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldText creates a new ir.qweb.field.text model and returns its id.
+func (c *Client) CreateIrQwebFieldTexts(iqfts []*IrQwebFieldText) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfts {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldTextModel, vv)
 }
 
 // UpdateIrQwebFieldText updates an existing ir.qweb.field.text record.

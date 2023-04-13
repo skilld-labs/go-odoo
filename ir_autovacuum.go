@@ -24,7 +24,23 @@ func (ia *IrAutovacuum) Many2One() *Many2One {
 
 // CreateIrAutovacuum creates a new ir.autovacuum model and returns its id.
 func (c *Client) CreateIrAutovacuum(ia *IrAutovacuum) (int64, error) {
-	return c.Create(IrAutovacuumModel, ia)
+	ids, err := c.Create(IrAutovacuumModel, []interface{}{ia})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrAutovacuum creates a new ir.autovacuum model and returns its id.
+func (c *Client) CreateIrAutovacuums(ias []*IrAutovacuum) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ias {
+		vv = append(vv, v)
+	}
+	return c.Create(IrAutovacuumModel, vv)
 }
 
 // UpdateIrAutovacuum updates an existing ir.autovacuum record.

@@ -29,7 +29,23 @@ func (rsf *ReportStockForecast) Many2One() *Many2One {
 
 // CreateReportStockForecast creates a new report.stock.forecast model and returns its id.
 func (c *Client) CreateReportStockForecast(rsf *ReportStockForecast) (int64, error) {
-	return c.Create(ReportStockForecastModel, rsf)
+	ids, err := c.Create(ReportStockForecastModel, []interface{}{rsf})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportStockForecast creates a new report.stock.forecast model and returns its id.
+func (c *Client) CreateReportStockForecasts(rsfs []*ReportStockForecast) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rsfs {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportStockForecastModel, vv)
 }
 
 // UpdateReportStockForecast updates an existing report.stock.forecast record.

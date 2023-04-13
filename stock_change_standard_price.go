@@ -31,7 +31,23 @@ func (scsp *StockChangeStandardPrice) Many2One() *Many2One {
 
 // CreateStockChangeStandardPrice creates a new stock.change.standard.price model and returns its id.
 func (c *Client) CreateStockChangeStandardPrice(scsp *StockChangeStandardPrice) (int64, error) {
-	return c.Create(StockChangeStandardPriceModel, scsp)
+	ids, err := c.Create(StockChangeStandardPriceModel, []interface{}{scsp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockChangeStandardPrice creates a new stock.change.standard.price model and returns its id.
+func (c *Client) CreateStockChangeStandardPrices(scsps []*StockChangeStandardPrice) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range scsps {
+		vv = append(vv, v)
+	}
+	return c.Create(StockChangeStandardPriceModel, vv)
 }
 
 // UpdateStockChangeStandardPrice updates an existing stock.change.standard.price record.

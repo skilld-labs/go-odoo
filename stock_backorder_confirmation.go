@@ -29,7 +29,23 @@ func (sbc *StockBackorderConfirmation) Many2One() *Many2One {
 
 // CreateStockBackorderConfirmation creates a new stock.backorder.confirmation model and returns its id.
 func (c *Client) CreateStockBackorderConfirmation(sbc *StockBackorderConfirmation) (int64, error) {
-	return c.Create(StockBackorderConfirmationModel, sbc)
+	ids, err := c.Create(StockBackorderConfirmationModel, []interface{}{sbc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockBackorderConfirmation creates a new stock.backorder.confirmation model and returns its id.
+func (c *Client) CreateStockBackorderConfirmations(sbcs []*StockBackorderConfirmation) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sbcs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockBackorderConfirmationModel, vv)
 }
 
 // UpdateStockBackorderConfirmation updates an existing stock.backorder.confirmation record.

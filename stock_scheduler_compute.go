@@ -28,7 +28,23 @@ func (ssc *StockSchedulerCompute) Many2One() *Many2One {
 
 // CreateStockSchedulerCompute creates a new stock.scheduler.compute model and returns its id.
 func (c *Client) CreateStockSchedulerCompute(ssc *StockSchedulerCompute) (int64, error) {
-	return c.Create(StockSchedulerComputeModel, ssc)
+	ids, err := c.Create(StockSchedulerComputeModel, []interface{}{ssc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockSchedulerCompute creates a new stock.scheduler.compute model and returns its id.
+func (c *Client) CreateStockSchedulerComputes(sscs []*StockSchedulerCompute) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sscs {
+		vv = append(vv, v)
+	}
+	return c.Create(StockSchedulerComputeModel, vv)
 }
 
 // UpdateStockSchedulerCompute updates an existing stock.scheduler.compute record.

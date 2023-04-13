@@ -29,7 +29,23 @@ func (mf *MailFollowers) Many2One() *Many2One {
 
 // CreateMailFollowers creates a new mail.followers model and returns its id.
 func (c *Client) CreateMailFollowers(mf *MailFollowers) (int64, error) {
-	return c.Create(MailFollowersModel, mf)
+	ids, err := c.Create(MailFollowersModel, []interface{}{mf})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailFollowers creates a new mail.followers model and returns its id.
+func (c *Client) CreateMailFollowerss(mfs []*MailFollowers) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mfs {
+		vv = append(vv, v)
+	}
+	return c.Create(MailFollowersModel, vv)
 }
 
 // UpdateMailFollowers updates an existing mail.followers record.

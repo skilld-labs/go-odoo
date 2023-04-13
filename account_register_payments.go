@@ -42,7 +42,23 @@ func (arp *AccountRegisterPayments) Many2One() *Many2One {
 
 // CreateAccountRegisterPayments creates a new account.register.payments model and returns its id.
 func (c *Client) CreateAccountRegisterPayments(arp *AccountRegisterPayments) (int64, error) {
-	return c.Create(AccountRegisterPaymentsModel, arp)
+	ids, err := c.Create(AccountRegisterPaymentsModel, []interface{}{arp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountRegisterPayments creates a new account.register.payments model and returns its id.
+func (c *Client) CreateAccountRegisterPaymentss(arps []*AccountRegisterPayments) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range arps {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountRegisterPaymentsModel, vv)
 }
 
 // UpdateAccountRegisterPayments updates an existing account.register.payments record.

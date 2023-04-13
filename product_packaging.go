@@ -33,7 +33,23 @@ func (pp *ProductPackaging) Many2One() *Many2One {
 
 // CreateProductPackaging creates a new product.packaging model and returns its id.
 func (c *Client) CreateProductPackaging(pp *ProductPackaging) (int64, error) {
-	return c.Create(ProductPackagingModel, pp)
+	ids, err := c.Create(ProductPackagingModel, []interface{}{pp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductPackaging creates a new product.packaging model and returns its id.
+func (c *Client) CreateProductPackagings(pps []*ProductPackaging) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pps {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductPackagingModel, vv)
 }
 
 // UpdateProductPackaging updates an existing product.packaging record.

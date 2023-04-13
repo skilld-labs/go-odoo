@@ -42,7 +42,23 @@ func (armt *AccountReconcileModelTemplate) Many2One() *Many2One {
 
 // CreateAccountReconcileModelTemplate creates a new account.reconcile.model.template model and returns its id.
 func (c *Client) CreateAccountReconcileModelTemplate(armt *AccountReconcileModelTemplate) (int64, error) {
-	return c.Create(AccountReconcileModelTemplateModel, armt)
+	ids, err := c.Create(AccountReconcileModelTemplateModel, []interface{}{armt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountReconcileModelTemplate creates a new account.reconcile.model.template model and returns its id.
+func (c *Client) CreateAccountReconcileModelTemplates(armts []*AccountReconcileModelTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range armts {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountReconcileModelTemplateModel, vv)
 }
 
 // UpdateAccountReconcileModelTemplate updates an existing account.reconcile.model.template record.

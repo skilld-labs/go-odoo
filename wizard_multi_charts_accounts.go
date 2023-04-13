@@ -43,7 +43,23 @@ func (wmca *WizardMultiChartsAccounts) Many2One() *Many2One {
 
 // CreateWizardMultiChartsAccounts creates a new wizard.multi.charts.accounts model and returns its id.
 func (c *Client) CreateWizardMultiChartsAccounts(wmca *WizardMultiChartsAccounts) (int64, error) {
-	return c.Create(WizardMultiChartsAccountsModel, wmca)
+	ids, err := c.Create(WizardMultiChartsAccountsModel, []interface{}{wmca})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateWizardMultiChartsAccounts creates a new wizard.multi.charts.accounts model and returns its id.
+func (c *Client) CreateWizardMultiChartsAccountss(wmcas []*WizardMultiChartsAccounts) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range wmcas {
+		vv = append(vv, v)
+	}
+	return c.Create(WizardMultiChartsAccountsModel, vv)
 }
 
 // UpdateWizardMultiChartsAccounts updates an existing wizard.multi.charts.accounts record.

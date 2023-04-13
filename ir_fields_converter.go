@@ -24,7 +24,23 @@ func (ifc *IrFieldsConverter) Many2One() *Many2One {
 
 // CreateIrFieldsConverter creates a new ir.fields.converter model and returns its id.
 func (c *Client) CreateIrFieldsConverter(ifc *IrFieldsConverter) (int64, error) {
-	return c.Create(IrFieldsConverterModel, ifc)
+	ids, err := c.Create(IrFieldsConverterModel, []interface{}{ifc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrFieldsConverter creates a new ir.fields.converter model and returns its id.
+func (c *Client) CreateIrFieldsConverters(ifcs []*IrFieldsConverter) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ifcs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrFieldsConverterModel, vv)
 }
 
 // UpdateIrFieldsConverter updates an existing ir.fields.converter record.

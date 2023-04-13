@@ -24,7 +24,23 @@ func (ih *IrHttp) Many2One() *Many2One {
 
 // CreateIrHttp creates a new ir.http model and returns its id.
 func (c *Client) CreateIrHttp(ih *IrHttp) (int64, error) {
-	return c.Create(IrHttpModel, ih)
+	ids, err := c.Create(IrHttpModel, []interface{}{ih})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrHttp creates a new ir.http model and returns its id.
+func (c *Client) CreateIrHttps(ihs []*IrHttp) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ihs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrHttpModel, vv)
 }
 
 // UpdateIrHttp updates an existing ir.http record.

@@ -86,7 +86,23 @@ func (he *HrEmployee) Many2One() *Many2One {
 
 // CreateHrEmployee creates a new hr.employee model and returns its id.
 func (c *Client) CreateHrEmployee(he *HrEmployee) (int64, error) {
-	return c.Create(HrEmployeeModel, he)
+	ids, err := c.Create(HrEmployeeModel, []interface{}{he})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrEmployee creates a new hr.employee model and returns its id.
+func (c *Client) CreateHrEmployees(hes []*HrEmployee) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hes {
+		vv = append(vv, v)
+	}
+	return c.Create(HrEmployeeModel, vv)
 }
 
 // UpdateHrEmployee updates an existing hr.employee record.

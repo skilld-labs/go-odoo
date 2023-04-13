@@ -31,7 +31,23 @@ func (mml *MailMassMailingList) Many2One() *Many2One {
 
 // CreateMailMassMailingList creates a new mail.mass_mailing.list model and returns its id.
 func (c *Client) CreateMailMassMailingList(mml *MailMassMailingList) (int64, error) {
-	return c.Create(MailMassMailingListModel, mml)
+	ids, err := c.Create(MailMassMailingListModel, []interface{}{mml})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailMassMailingList creates a new mail.mass_mailing.list model and returns its id.
+func (c *Client) CreateMailMassMailingLists(mmls []*MailMassMailingList) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mmls {
+		vv = append(vv, v)
+	}
+	return c.Create(MailMassMailingListModel, vv)
 }
 
 // UpdateMailMassMailingList updates an existing mail.mass_mailing.list record.

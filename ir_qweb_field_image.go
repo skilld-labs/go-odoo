@@ -24,7 +24,23 @@ func (iqfi *IrQwebFieldImage) Many2One() *Many2One {
 
 // CreateIrQwebFieldImage creates a new ir.qweb.field.image model and returns its id.
 func (c *Client) CreateIrQwebFieldImage(iqfi *IrQwebFieldImage) (int64, error) {
-	return c.Create(IrQwebFieldImageModel, iqfi)
+	ids, err := c.Create(IrQwebFieldImageModel, []interface{}{iqfi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldImage creates a new ir.qweb.field.image model and returns its id.
+func (c *Client) CreateIrQwebFieldImages(iqfis []*IrQwebFieldImage) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfis {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldImageModel, vv)
 }
 
 // UpdateIrQwebFieldImage updates an existing ir.qweb.field.image record.

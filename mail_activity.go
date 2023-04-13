@@ -45,7 +45,23 @@ func (ma *MailActivity) Many2One() *Many2One {
 
 // CreateMailActivity creates a new mail.activity model and returns its id.
 func (c *Client) CreateMailActivity(ma *MailActivity) (int64, error) {
-	return c.Create(MailActivityModel, ma)
+	ids, err := c.Create(MailActivityModel, []interface{}{ma})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateMailActivity creates a new mail.activity model and returns its id.
+func (c *Client) CreateMailActivitys(mas []*MailActivity) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range mas {
+		vv = append(vv, v)
+	}
+	return c.Create(MailActivityModel, vv)
 }
 
 // UpdateMailActivity updates an existing mail.activity record.

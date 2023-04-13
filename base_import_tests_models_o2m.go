@@ -29,7 +29,23 @@ func (btmo *BaseImportTestsModelsO2M) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsO2M creates a new base_import.tests.models.o2m model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsO2M(btmo *BaseImportTestsModelsO2M) (int64, error) {
-	return c.Create(BaseImportTestsModelsO2MModel, btmo)
+	ids, err := c.Create(BaseImportTestsModelsO2MModel, []interface{}{btmo})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateBaseImportTestsModelsO2M creates a new base_import.tests.models.o2m model and returns its id.
+func (c *Client) CreateBaseImportTestsModelsO2Ms(btmos []*BaseImportTestsModelsO2M) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range btmos {
+		vv = append(vv, v)
+	}
+	return c.Create(BaseImportTestsModelsO2MModel, vv)
 }
 
 // UpdateBaseImportTestsModelsO2M updates an existing base_import.tests.models.o2m record.

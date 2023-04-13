@@ -34,7 +34,23 @@ func (acpr *AccountCommonPartnerReport) Many2One() *Many2One {
 
 // CreateAccountCommonPartnerReport creates a new account.common.partner.report model and returns its id.
 func (c *Client) CreateAccountCommonPartnerReport(acpr *AccountCommonPartnerReport) (int64, error) {
-	return c.Create(AccountCommonPartnerReportModel, acpr)
+	ids, err := c.Create(AccountCommonPartnerReportModel, []interface{}{acpr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountCommonPartnerReport creates a new account.common.partner.report model and returns its id.
+func (c *Client) CreateAccountCommonPartnerReports(acprs []*AccountCommonPartnerReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range acprs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountCommonPartnerReportModel, vv)
 }
 
 // UpdateAccountCommonPartnerReport updates an existing account.common.partner.report record.

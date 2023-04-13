@@ -30,7 +30,23 @@ func (ltc *LinkTrackerCode) Many2One() *Many2One {
 
 // CreateLinkTrackerCode creates a new link.tracker.code model and returns its id.
 func (c *Client) CreateLinkTrackerCode(ltc *LinkTrackerCode) (int64, error) {
-	return c.Create(LinkTrackerCodeModel, ltc)
+	ids, err := c.Create(LinkTrackerCodeModel, []interface{}{ltc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateLinkTrackerCode creates a new link.tracker.code model and returns its id.
+func (c *Client) CreateLinkTrackerCodes(ltcs []*LinkTrackerCode) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ltcs {
+		vv = append(vv, v)
+	}
+	return c.Create(LinkTrackerCodeModel, vv)
 }
 
 // UpdateLinkTrackerCode updates an existing link.tracker.code record.

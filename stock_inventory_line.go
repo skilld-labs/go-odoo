@@ -44,7 +44,23 @@ func (sil *StockInventoryLine) Many2One() *Many2One {
 
 // CreateStockInventoryLine creates a new stock.inventory.line model and returns its id.
 func (c *Client) CreateStockInventoryLine(sil *StockInventoryLine) (int64, error) {
-	return c.Create(StockInventoryLineModel, sil)
+	ids, err := c.Create(StockInventoryLineModel, []interface{}{sil})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockInventoryLine creates a new stock.inventory.line model and returns its id.
+func (c *Client) CreateStockInventoryLines(sils []*StockInventoryLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sils {
+		vv = append(vv, v)
+	}
+	return c.Create(StockInventoryLineModel, vv)
 }
 
 // UpdateStockInventoryLine updates an existing stock.inventory.line record.

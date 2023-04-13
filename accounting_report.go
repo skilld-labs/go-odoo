@@ -40,7 +40,23 @@ func (ar *AccountingReport) Many2One() *Many2One {
 
 // CreateAccountingReport creates a new accounting.report model and returns its id.
 func (c *Client) CreateAccountingReport(ar *AccountingReport) (int64, error) {
-	return c.Create(AccountingReportModel, ar)
+	ids, err := c.Create(AccountingReportModel, []interface{}{ar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountingReport creates a new accounting.report model and returns its id.
+func (c *Client) CreateAccountingReports(ars []*AccountingReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range ars {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountingReportModel, vv)
 }
 
 // UpdateAccountingReport updates an existing accounting.report record.

@@ -24,7 +24,23 @@ func (iqfc *IrQwebFieldContact) Many2One() *Many2One {
 
 // CreateIrQwebFieldContact creates a new ir.qweb.field.contact model and returns its id.
 func (c *Client) CreateIrQwebFieldContact(iqfc *IrQwebFieldContact) (int64, error) {
-	return c.Create(IrQwebFieldContactModel, iqfc)
+	ids, err := c.Create(IrQwebFieldContactModel, []interface{}{iqfc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrQwebFieldContact creates a new ir.qweb.field.contact model and returns its id.
+func (c *Client) CreateIrQwebFieldContacts(iqfcs []*IrQwebFieldContact) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iqfcs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrQwebFieldContactModel, vv)
 }
 
 // UpdateIrQwebFieldContact updates an existing ir.qweb.field.contact record.

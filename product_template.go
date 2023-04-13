@@ -19,6 +19,7 @@ type ProductTemplate struct {
 	CategId                                *Many2One  `xmlrpc:"categ_id,omptempty"`
 	Color                                  *Int       `xmlrpc:"color,omptempty"`
 	CompanyId                              *Many2One  `xmlrpc:"company_id,omptempty"`
+	CostCurrencyId                         *Many2One  `xmlrpc:"cost_currency_id,omptempty"`
 	CostMethod                             *String    `xmlrpc:"cost_method,omptempty"`
 	CreateDate                             *Time      `xmlrpc:"create_date,omptempty"`
 	CreateUid                              *Many2One  `xmlrpc:"create_uid,omptempty"`
@@ -125,7 +126,23 @@ func (pt *ProductTemplate) Many2One() *Many2One {
 
 // CreateProductTemplate creates a new product.template model and returns its id.
 func (c *Client) CreateProductTemplate(pt *ProductTemplate) (int64, error) {
-	return c.Create(ProductTemplateModel, pt)
+	ids, err := c.Create(ProductTemplateModel, []interface{}{pt})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProductTemplate creates a new product.template model and returns its id.
+func (c *Client) CreateProductTemplates(pts []*ProductTemplate) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pts {
+		vv = append(vv, v)
+	}
+	return c.Create(ProductTemplateModel, vv)
 }
 
 // UpdateProductTemplate updates an existing product.template record.

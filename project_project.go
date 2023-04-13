@@ -39,7 +39,7 @@ type ProjectProject struct {
 	IsFavorite               *Bool      `xmlrpc:"is_favorite,omptempty"`
 	LabelTasks               *String    `xmlrpc:"label_tasks,omptempty"`
 	LineIds                  *Relation  `xmlrpc:"line_ids,omptempty"`
-	MachineProjectName       *String    `xmlrpc:"machine_project_name,omptempty"`
+	MachineInitiativeName    *String    `xmlrpc:"machine_initiative_name,omptempty"`
 	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omptempty"`
 	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omptempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omptempty"`
@@ -55,7 +55,6 @@ type ProjectProject struct {
 	PortalUrl                *String    `xmlrpc:"portal_url,omptempty"`
 	PrivacyVisibility        *Selection `xmlrpc:"privacy_visibility,omptempty"`
 	ProjectCount             *Int       `xmlrpc:"project_count,omptempty"`
-	ProjectCreated           *Bool      `xmlrpc:"project_created,omptempty"`
 	ProjectIds               *Relation  `xmlrpc:"project_ids,omptempty"`
 	ResourceCalendarId       *Many2One  `xmlrpc:"resource_calendar_id,omptempty"`
 	SaleLineId               *Many2One  `xmlrpc:"sale_line_id,omptempty"`
@@ -86,7 +85,23 @@ func (pp *ProjectProject) Many2One() *Many2One {
 
 // CreateProjectProject creates a new project.project model and returns its id.
 func (c *Client) CreateProjectProject(pp *ProjectProject) (int64, error) {
-	return c.Create(ProjectProjectModel, pp)
+	ids, err := c.Create(ProjectProjectModel, []interface{}{pp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateProjectProject creates a new project.project model and returns its id.
+func (c *Client) CreateProjectProjects(pps []*ProjectProject) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pps {
+		vv = append(vv, v)
+	}
+	return c.Create(ProjectProjectModel, vv)
 }
 
 // UpdateProjectProject updates an existing project.project record.

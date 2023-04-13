@@ -34,7 +34,23 @@ func (ao *AccountOpening) Many2One() *Many2One {
 
 // CreateAccountOpening creates a new account.opening model and returns its id.
 func (c *Client) CreateAccountOpening(ao *AccountOpening) (int64, error) {
-	return c.Create(AccountOpeningModel, ao)
+	ids, err := c.Create(AccountOpeningModel, []interface{}{ao})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountOpening creates a new account.opening model and returns its id.
+func (c *Client) CreateAccountOpenings(aos []*AccountOpening) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aos {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountOpeningModel, vv)
 }
 
 // UpdateAccountOpening updates an existing account.opening record.

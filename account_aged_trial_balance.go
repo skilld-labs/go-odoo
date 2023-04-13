@@ -35,7 +35,23 @@ func (aatb *AccountAgedTrialBalance) Many2One() *Many2One {
 
 // CreateAccountAgedTrialBalance creates a new account.aged.trial.balance model and returns its id.
 func (c *Client) CreateAccountAgedTrialBalance(aatb *AccountAgedTrialBalance) (int64, error) {
-	return c.Create(AccountAgedTrialBalanceModel, aatb)
+	ids, err := c.Create(AccountAgedTrialBalanceModel, []interface{}{aatb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountAgedTrialBalance creates a new account.aged.trial.balance model and returns its id.
+func (c *Client) CreateAccountAgedTrialBalances(aatbs []*AccountAgedTrialBalance) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range aatbs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountAgedTrialBalanceModel, vv)
 }
 
 // UpdateAccountAgedTrialBalance updates an existing account.aged.trial.balance record.

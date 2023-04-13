@@ -93,7 +93,23 @@ func (sm *StockMove) Many2One() *Many2One {
 
 // CreateStockMove creates a new stock.move model and returns its id.
 func (c *Client) CreateStockMove(sm *StockMove) (int64, error) {
-	return c.Create(StockMoveModel, sm)
+	ids, err := c.Create(StockMoveModel, []interface{}{sm})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockMove creates a new stock.move model and returns its id.
+func (c *Client) CreateStockMoves(sms []*StockMove) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sms {
+		vv = append(vv, v)
+	}
+	return c.Create(StockMoveModel, vv)
 }
 
 // UpdateStockMove updates an existing stock.move record.

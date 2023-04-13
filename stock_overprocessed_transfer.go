@@ -30,7 +30,23 @@ func (sot *StockOverprocessedTransfer) Many2One() *Many2One {
 
 // CreateStockOverprocessedTransfer creates a new stock.overprocessed.transfer model and returns its id.
 func (c *Client) CreateStockOverprocessedTransfer(sot *StockOverprocessedTransfer) (int64, error) {
-	return c.Create(StockOverprocessedTransferModel, sot)
+	ids, err := c.Create(StockOverprocessedTransferModel, []interface{}{sot})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockOverprocessedTransfer creates a new stock.overprocessed.transfer model and returns its id.
+func (c *Client) CreateStockOverprocessedTransfers(sots []*StockOverprocessedTransfer) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sots {
+		vv = append(vv, v)
+	}
+	return c.Create(StockOverprocessedTransferModel, vv)
 }
 
 // UpdateStockOverprocessedTransfer updates an existing stock.overprocessed.transfer record.

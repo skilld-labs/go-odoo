@@ -31,7 +31,23 @@ func (rcg *ResCountryGroup) Many2One() *Many2One {
 
 // CreateResCountryGroup creates a new res.country.group model and returns its id.
 func (c *Client) CreateResCountryGroup(rcg *ResCountryGroup) (int64, error) {
-	return c.Create(ResCountryGroupModel, rcg)
+	ids, err := c.Create(ResCountryGroupModel, []interface{}{rcg})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResCountryGroup creates a new res.country.group model and returns its id.
+func (c *Client) CreateResCountryGroups(rcgs []*ResCountryGroup) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcgs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResCountryGroupModel, vv)
 }
 
 // UpdateResCountryGroup updates an existing res.country.group record.

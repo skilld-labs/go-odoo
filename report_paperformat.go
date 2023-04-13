@@ -42,7 +42,23 @@ func (rp *ReportPaperformat) Many2One() *Many2One {
 
 // CreateReportPaperformat creates a new report.paperformat model and returns its id.
 func (c *Client) CreateReportPaperformat(rp *ReportPaperformat) (int64, error) {
-	return c.Create(ReportPaperformatModel, rp)
+	ids, err := c.Create(ReportPaperformatModel, []interface{}{rp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportPaperformat creates a new report.paperformat model and returns its id.
+func (c *Client) CreateReportPaperformats(rps []*ReportPaperformat) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rps {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportPaperformatModel, vv)
 }
 
 // UpdateReportPaperformat updates an existing report.paperformat record.

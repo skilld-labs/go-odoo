@@ -33,7 +33,23 @@ func (iaav *IrActionsActWindowView) Many2One() *Many2One {
 
 // CreateIrActionsActWindowView creates a new ir.actions.act_window.view model and returns its id.
 func (c *Client) CreateIrActionsActWindowView(iaav *IrActionsActWindowView) (int64, error) {
-	return c.Create(IrActionsActWindowViewModel, iaav)
+	ids, err := c.Create(IrActionsActWindowViewModel, []interface{}{iaav})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsActWindowView creates a new ir.actions.act_window.view model and returns its id.
+func (c *Client) CreateIrActionsActWindowViews(iaavs []*IrActionsActWindowView) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iaavs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsActWindowViewModel, vv)
 }
 
 // UpdateIrActionsActWindowView updates an existing ir.actions.act_window.view record.

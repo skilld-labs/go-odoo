@@ -30,7 +30,23 @@ func (cpb *CrmPartnerBinding) Many2One() *Many2One {
 
 // CreateCrmPartnerBinding creates a new crm.partner.binding model and returns its id.
 func (c *Client) CreateCrmPartnerBinding(cpb *CrmPartnerBinding) (int64, error) {
-	return c.Create(CrmPartnerBindingModel, cpb)
+	ids, err := c.Create(CrmPartnerBindingModel, []interface{}{cpb})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateCrmPartnerBinding creates a new crm.partner.binding model and returns its id.
+func (c *Client) CreateCrmPartnerBindings(cpbs []*CrmPartnerBinding) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range cpbs {
+		vv = append(vv, v)
+	}
+	return c.Create(CrmPartnerBindingModel, vv)
 }
 
 // UpdateCrmPartnerBinding updates an existing crm.partner.binding record.

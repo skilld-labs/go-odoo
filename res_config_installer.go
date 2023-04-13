@@ -28,7 +28,23 @@ func (rci *ResConfigInstaller) Many2One() *Many2One {
 
 // CreateResConfigInstaller creates a new res.config.installer model and returns its id.
 func (c *Client) CreateResConfigInstaller(rci *ResConfigInstaller) (int64, error) {
-	return c.Create(ResConfigInstallerModel, rci)
+	ids, err := c.Create(ResConfigInstallerModel, []interface{}{rci})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResConfigInstaller creates a new res.config.installer model and returns its id.
+func (c *Client) CreateResConfigInstallers(rcis []*ResConfigInstaller) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rcis {
+		vv = append(vv, v)
+	}
+	return c.Create(ResConfigInstallerModel, vv)
 }
 
 // UpdateResConfigInstaller updates an existing res.config.installer record.

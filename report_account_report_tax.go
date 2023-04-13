@@ -24,7 +24,23 @@ func (rar *ReportAccountReportTax) Many2One() *Many2One {
 
 // CreateReportAccountReportTax creates a new report.account.report_tax model and returns its id.
 func (c *Client) CreateReportAccountReportTax(rar *ReportAccountReportTax) (int64, error) {
-	return c.Create(ReportAccountReportTaxModel, rar)
+	ids, err := c.Create(ReportAccountReportTaxModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportTax creates a new report.account.report_tax model and returns its id.
+func (c *Client) CreateReportAccountReportTaxs(rars []*ReportAccountReportTax) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportTaxModel, vv)
 }
 
 // UpdateReportAccountReportTax updates an existing report.account.report_tax record.

@@ -34,7 +34,23 @@ func (acjr *AccountCommonJournalReport) Many2One() *Many2One {
 
 // CreateAccountCommonJournalReport creates a new account.common.journal.report model and returns its id.
 func (c *Client) CreateAccountCommonJournalReport(acjr *AccountCommonJournalReport) (int64, error) {
-	return c.Create(AccountCommonJournalReportModel, acjr)
+	ids, err := c.Create(AccountCommonJournalReportModel, []interface{}{acjr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountCommonJournalReport creates a new account.common.journal.report model and returns its id.
+func (c *Client) CreateAccountCommonJournalReports(acjrs []*AccountCommonJournalReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range acjrs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountCommonJournalReportModel, vv)
 }
 
 // UpdateAccountCommonJournalReport updates an existing account.common.journal.report record.

@@ -36,7 +36,23 @@ func (wp *WebPlanner) Many2One() *Many2One {
 
 // CreateWebPlanner creates a new web.planner model and returns its id.
 func (c *Client) CreateWebPlanner(wp *WebPlanner) (int64, error) {
-	return c.Create(WebPlannerModel, wp)
+	ids, err := c.Create(WebPlannerModel, []interface{}{wp})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateWebPlanner creates a new web.planner model and returns its id.
+func (c *Client) CreateWebPlanners(wps []*WebPlanner) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range wps {
+		vv = append(vv, v)
+	}
+	return c.Create(WebPlannerModel, vv)
 }
 
 // UpdateWebPlanner updates an existing web.planner record.

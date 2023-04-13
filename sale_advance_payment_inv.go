@@ -34,7 +34,23 @@ func (sapi *SaleAdvancePaymentInv) Many2One() *Many2One {
 
 // CreateSaleAdvancePaymentInv creates a new sale.advance.payment.inv model and returns its id.
 func (c *Client) CreateSaleAdvancePaymentInv(sapi *SaleAdvancePaymentInv) (int64, error) {
-	return c.Create(SaleAdvancePaymentInvModel, sapi)
+	ids, err := c.Create(SaleAdvancePaymentInvModel, []interface{}{sapi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateSaleAdvancePaymentInv creates a new sale.advance.payment.inv model and returns its id.
+func (c *Client) CreateSaleAdvancePaymentInvs(sapis []*SaleAdvancePaymentInv) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sapis {
+		vv = append(vv, v)
+	}
+	return c.Create(SaleAdvancePaymentInvModel, vv)
 }
 
 // UpdateSaleAdvancePaymentInv updates an existing sale.advance.payment.inv record.

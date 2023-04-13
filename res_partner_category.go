@@ -36,7 +36,23 @@ func (rpc *ResPartnerCategory) Many2One() *Many2One {
 
 // CreateResPartnerCategory creates a new res.partner.category model and returns its id.
 func (c *Client) CreateResPartnerCategory(rpc *ResPartnerCategory) (int64, error) {
-	return c.Create(ResPartnerCategoryModel, rpc)
+	ids, err := c.Create(ResPartnerCategoryModel, []interface{}{rpc})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResPartnerCategory creates a new res.partner.category model and returns its id.
+func (c *Client) CreateResPartnerCategorys(rpcs []*ResPartnerCategory) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rpcs {
+		vv = append(vv, v)
+	}
+	return c.Create(ResPartnerCategoryModel, vv)
 }
 
 // UpdateResPartnerCategory updates an existing res.partner.category record.

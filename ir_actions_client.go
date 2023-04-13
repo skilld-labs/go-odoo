@@ -40,7 +40,23 @@ func (iac *IrActionsClient) Many2One() *Many2One {
 
 // CreateIrActionsClient creates a new ir.actions.client model and returns its id.
 func (c *Client) CreateIrActionsClient(iac *IrActionsClient) (int64, error) {
-	return c.Create(IrActionsClientModel, iac)
+	ids, err := c.Create(IrActionsClientModel, []interface{}{iac})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrActionsClient creates a new ir.actions.client model and returns its id.
+func (c *Client) CreateIrActionsClients(iacs []*IrActionsClient) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iacs {
+		vv = append(vv, v)
+	}
+	return c.Create(IrActionsClientModel, vv)
 }
 
 // UpdateIrActionsClient updates an existing ir.actions.client record.

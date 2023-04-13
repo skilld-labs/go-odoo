@@ -30,7 +30,23 @@ func (iel *IrExportsLine) Many2One() *Many2One {
 
 // CreateIrExportsLine creates a new ir.exports.line model and returns its id.
 func (c *Client) CreateIrExportsLine(iel *IrExportsLine) (int64, error) {
-	return c.Create(IrExportsLineModel, iel)
+	ids, err := c.Create(IrExportsLineModel, []interface{}{iel})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateIrExportsLine creates a new ir.exports.line model and returns its id.
+func (c *Client) CreateIrExportsLines(iels []*IrExportsLine) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range iels {
+		vv = append(vv, v)
+	}
+	return c.Create(IrExportsLineModel, vv)
 }
 
 // UpdateIrExportsLine updates an existing ir.exports.line record.

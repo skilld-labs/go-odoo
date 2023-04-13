@@ -72,7 +72,7 @@ type ResUsers struct {
 	LogIds                        *Relation  `xmlrpc:"log_ids,omptempty"`
 	Login                         *String    `xmlrpc:"login,omptempty"`
 	LoginDate                     *Time      `xmlrpc:"login_date,omptempty"`
-	MachineCompanyName            *String    `xmlrpc:"machine_company_name,omptempty"`
+	MachineOrganizationName       *String    `xmlrpc:"machine_organization_name,omptempty"`
 	MachineUserEmail              *String    `xmlrpc:"machine_user_email,omptempty"`
 	MachineUserLogin              *String    `xmlrpc:"machine_user_login,omptempty"`
 	MeetingCount                  *Int       `xmlrpc:"meeting_count,omptempty"`
@@ -178,7 +178,23 @@ func (ru *ResUsers) Many2One() *Many2One {
 
 // CreateResUsers creates a new res.users model and returns its id.
 func (c *Client) CreateResUsers(ru *ResUsers) (int64, error) {
-	return c.Create(ResUsersModel, ru)
+	ids, err := c.Create(ResUsersModel, []interface{}{ru})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateResUsers creates a new res.users model and returns its id.
+func (c *Client) CreateResUserss(rus []*ResUsers) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rus {
+		vv = append(vv, v)
+	}
+	return c.Create(ResUsersModel, vv)
 }
 
 // UpdateResUsers updates an existing res.users record.

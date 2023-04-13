@@ -36,7 +36,23 @@ func (arpl *AccountReportPartnerLedger) Many2One() *Many2One {
 
 // CreateAccountReportPartnerLedger creates a new account.report.partner.ledger model and returns its id.
 func (c *Client) CreateAccountReportPartnerLedger(arpl *AccountReportPartnerLedger) (int64, error) {
-	return c.Create(AccountReportPartnerLedgerModel, arpl)
+	ids, err := c.Create(AccountReportPartnerLedgerModel, []interface{}{arpl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountReportPartnerLedger creates a new account.report.partner.ledger model and returns its id.
+func (c *Client) CreateAccountReportPartnerLedgers(arpls []*AccountReportPartnerLedger) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range arpls {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountReportPartnerLedgerModel, vv)
 }
 
 // UpdateAccountReportPartnerLedger updates an existing account.report.partner.ledger record.

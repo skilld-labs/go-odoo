@@ -50,7 +50,23 @@ func (sl *StockLocation) Many2One() *Many2One {
 
 // CreateStockLocation creates a new stock.location model and returns its id.
 func (c *Client) CreateStockLocation(sl *StockLocation) (int64, error) {
-	return c.Create(StockLocationModel, sl)
+	ids, err := c.Create(StockLocationModel, []interface{}{sl})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateStockLocation creates a new stock.location model and returns its id.
+func (c *Client) CreateStockLocations(sls []*StockLocation) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range sls {
+		vv = append(vv, v)
+	}
+	return c.Create(StockLocationModel, vv)
 }
 
 // UpdateStockLocation updates an existing stock.location record.

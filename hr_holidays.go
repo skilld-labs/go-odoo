@@ -64,7 +64,23 @@ func (hh *HrHolidays) Many2One() *Many2One {
 
 // CreateHrHolidays creates a new hr.holidays model and returns its id.
 func (c *Client) CreateHrHolidays(hh *HrHolidays) (int64, error) {
-	return c.Create(HrHolidaysModel, hh)
+	ids, err := c.Create(HrHolidaysModel, []interface{}{hh})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateHrHolidays creates a new hr.holidays model and returns its id.
+func (c *Client) CreateHrHolidayss(hhs []*HrHolidays) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range hhs {
+		vv = append(vv, v)
+	}
+	return c.Create(HrHolidaysModel, vv)
 }
 
 // UpdateHrHolidays updates an existing hr.holidays record.

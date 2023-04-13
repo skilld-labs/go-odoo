@@ -54,7 +54,23 @@ func (air *AccountInvoiceReport) Many2One() *Many2One {
 
 // CreateAccountInvoiceReport creates a new account.invoice.report model and returns its id.
 func (c *Client) CreateAccountInvoiceReport(air *AccountInvoiceReport) (int64, error) {
-	return c.Create(AccountInvoiceReportModel, air)
+	ids, err := c.Create(AccountInvoiceReportModel, []interface{}{air})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountInvoiceReport creates a new account.invoice.report model and returns its id.
+func (c *Client) CreateAccountInvoiceReports(airs []*AccountInvoiceReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range airs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountInvoiceReportModel, vv)
 }
 
 // UpdateAccountInvoiceReport updates an existing account.invoice.report record.

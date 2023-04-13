@@ -63,7 +63,23 @@ func (pa *PaymentAcquirer) Many2One() *Many2One {
 
 // CreatePaymentAcquirer creates a new payment.acquirer model and returns its id.
 func (c *Client) CreatePaymentAcquirer(pa *PaymentAcquirer) (int64, error) {
-	return c.Create(PaymentAcquirerModel, pa)
+	ids, err := c.Create(PaymentAcquirerModel, []interface{}{pa})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePaymentAcquirer creates a new payment.acquirer model and returns its id.
+func (c *Client) CreatePaymentAcquirers(pas []*PaymentAcquirer) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pas {
+		vv = append(vv, v)
+	}
+	return c.Create(PaymentAcquirerModel, vv)
 }
 
 // UpdatePaymentAcquirer updates an existing payment.acquirer record.

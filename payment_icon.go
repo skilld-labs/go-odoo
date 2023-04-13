@@ -32,7 +32,23 @@ func (pi *PaymentIcon) Many2One() *Many2One {
 
 // CreatePaymentIcon creates a new payment.icon model and returns its id.
 func (c *Client) CreatePaymentIcon(pi *PaymentIcon) (int64, error) {
-	return c.Create(PaymentIconModel, pi)
+	ids, err := c.Create(PaymentIconModel, []interface{}{pi})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreatePaymentIcon creates a new payment.icon model and returns its id.
+func (c *Client) CreatePaymentIcons(pis []*PaymentIcon) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range pis {
+		vv = append(vv, v)
+	}
+	return c.Create(PaymentIconModel, vv)
 }
 
 // UpdatePaymentIcon updates an existing payment.icon record.

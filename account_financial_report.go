@@ -40,7 +40,23 @@ func (afr *AccountFinancialReport) Many2One() *Many2One {
 
 // CreateAccountFinancialReport creates a new account.financial.report model and returns its id.
 func (c *Client) CreateAccountFinancialReport(afr *AccountFinancialReport) (int64, error) {
-	return c.Create(AccountFinancialReportModel, afr)
+	ids, err := c.Create(AccountFinancialReportModel, []interface{}{afr})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateAccountFinancialReport creates a new account.financial.report model and returns its id.
+func (c *Client) CreateAccountFinancialReports(afrs []*AccountFinancialReport) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range afrs {
+		vv = append(vv, v)
+	}
+	return c.Create(AccountFinancialReportModel, vv)
 }
 
 // UpdateAccountFinancialReport updates an existing account.financial.report record.

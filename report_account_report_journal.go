@@ -24,7 +24,23 @@ func (rar *ReportAccountReportJournal) Many2One() *Many2One {
 
 // CreateReportAccountReportJournal creates a new report.account.report_journal model and returns its id.
 func (c *Client) CreateReportAccountReportJournal(rar *ReportAccountReportJournal) (int64, error) {
-	return c.Create(ReportAccountReportJournalModel, rar)
+	ids, err := c.Create(ReportAccountReportJournalModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportJournal creates a new report.account.report_journal model and returns its id.
+func (c *Client) CreateReportAccountReportJournals(rars []*ReportAccountReportJournal) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportJournalModel, vv)
 }
 
 // UpdateReportAccountReportJournal updates an existing report.account.report_journal record.

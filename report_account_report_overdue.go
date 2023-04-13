@@ -24,7 +24,23 @@ func (rar *ReportAccountReportOverdue) Many2One() *Many2One {
 
 // CreateReportAccountReportOverdue creates a new report.account.report_overdue model and returns its id.
 func (c *Client) CreateReportAccountReportOverdue(rar *ReportAccountReportOverdue) (int64, error) {
-	return c.Create(ReportAccountReportOverdueModel, rar)
+	ids, err := c.Create(ReportAccountReportOverdueModel, []interface{}{rar})
+	if err != nil {
+		return -1, err
+	}
+	if len(ids) == 0 {
+		return -1, nil
+	}
+	return ids[0], nil
+}
+
+// CreateReportAccountReportOverdue creates a new report.account.report_overdue model and returns its id.
+func (c *Client) CreateReportAccountReportOverdues(rars []*ReportAccountReportOverdue) ([]int64, error) {
+	var vv []interface{}
+	for _, v := range rars {
+		vv = append(vv, v)
+	}
+	return c.Create(ReportAccountReportOverdueModel, vv)
 }
 
 // UpdateReportAccountReportOverdue updates an existing report.account.report_overdue record.
