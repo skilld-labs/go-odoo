@@ -36,7 +36,7 @@ func (ima *IrModelAccess) Many2One() *Many2One {
 
 // CreateIrModelAccess creates a new ir.model.access model and returns its id.
 func (c *Client) CreateIrModelAccess(ima *IrModelAccess) (int64, error) {
-	ids, err := c.Create(IrModelAccessModel, []interface{}{ima})
+	ids, err := c.CreateIrModelAccesss([]*IrModelAccess{ima})
 	if err != nil {
 		return -1, err
 	}

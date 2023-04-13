@@ -29,7 +29,7 @@ func (wcts *WebEditorConverterTestSub) Many2One() *Many2One {
 
 // CreateWebEditorConverterTestSub creates a new web_editor.converter.test.sub model and returns its id.
 func (c *Client) CreateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub) (int64, error) {
-	ids, err := c.Create(WebEditorConverterTestSubModel, []interface{}{wcts})
+	ids, err := c.CreateWebEditorConverterTestSubs([]*WebEditorConverterTestSub{wcts})
 	if err != nil {
 		return -1, err
 	}

@@ -29,7 +29,7 @@ func (rm *RatingMixin) Many2One() *Many2One {
 
 // CreateRatingMixin creates a new rating.mixin model and returns its id.
 func (c *Client) CreateRatingMixin(rm *RatingMixin) (int64, error) {
-	ids, err := c.Create(RatingMixinModel, []interface{}{rm})
+	ids, err := c.CreateRatingMixins([]*RatingMixin{rm})
 	if err != nil {
 		return -1, err
 	}

@@ -33,7 +33,7 @@ func (acr *AccountCommonReport) Many2One() *Many2One {
 
 // CreateAccountCommonReport creates a new account.common.report model and returns its id.
 func (c *Client) CreateAccountCommonReport(acr *AccountCommonReport) (int64, error) {
-	ids, err := c.Create(AccountCommonReportModel, []interface{}{acr})
+	ids, err := c.CreateAccountCommonReports([]*AccountCommonReport{acr})
 	if err != nil {
 		return -1, err
 	}

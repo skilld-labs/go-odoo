@@ -54,7 +54,7 @@ func (pt *PaymentTransaction) Many2One() *Many2One {
 
 // CreatePaymentTransaction creates a new payment.transaction model and returns its id.
 func (c *Client) CreatePaymentTransaction(pt *PaymentTransaction) (int64, error) {
-	ids, err := c.Create(PaymentTransactionModel, []interface{}{pt})
+	ids, err := c.CreatePaymentTransactions([]*PaymentTransaction{pt})
 	if err != nil {
 		return -1, err
 	}

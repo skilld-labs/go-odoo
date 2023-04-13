@@ -36,7 +36,7 @@ func (rpc *ResPartnerCategory) Many2One() *Many2One {
 
 // CreateResPartnerCategory creates a new res.partner.category model and returns its id.
 func (c *Client) CreateResPartnerCategory(rpc *ResPartnerCategory) (int64, error) {
-	ids, err := c.Create(ResPartnerCategoryModel, []interface{}{rpc})
+	ids, err := c.CreateResPartnerCategorys([]*ResPartnerCategory{rpc})
 	if err != nil {
 		return -1, err
 	}

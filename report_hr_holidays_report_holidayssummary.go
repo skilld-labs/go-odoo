@@ -24,7 +24,7 @@ func (rhr *ReportHrHolidaysReportHolidayssummary) Many2One() *Many2One {
 
 // CreateReportHrHolidaysReportHolidayssummary creates a new report.hr_holidays.report_holidayssummary model and returns its id.
 func (c *Client) CreateReportHrHolidaysReportHolidayssummary(rhr *ReportHrHolidaysReportHolidayssummary) (int64, error) {
-	ids, err := c.Create(ReportHrHolidaysReportHolidayssummaryModel, []interface{}{rhr})
+	ids, err := c.CreateReportHrHolidaysReportHolidayssummarys([]*ReportHrHolidaysReportHolidayssummary{rhr})
 	if err != nil {
 		return -1, err
 	}

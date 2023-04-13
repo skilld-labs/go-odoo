@@ -32,7 +32,7 @@ func (cpu *ChangePasswordUser) Many2One() *Many2One {
 
 // CreateChangePasswordUser creates a new change.password.user model and returns its id.
 func (c *Client) CreateChangePasswordUser(cpu *ChangePasswordUser) (int64, error) {
-	ids, err := c.Create(ChangePasswordUserModel, []interface{}{cpu})
+	ids, err := c.CreateChangePasswordUsers([]*ChangePasswordUser{cpu})
 	if err != nil {
 		return -1, err
 	}

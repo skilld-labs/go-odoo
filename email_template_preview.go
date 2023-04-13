@@ -55,7 +55,7 @@ func (ep *EmailTemplatePreview) Many2One() *Many2One {
 
 // CreateEmailTemplatePreview creates a new email_template.preview model and returns its id.
 func (c *Client) CreateEmailTemplatePreview(ep *EmailTemplatePreview) (int64, error) {
-	ids, err := c.Create(EmailTemplatePreviewModel, []interface{}{ep})
+	ids, err := c.CreateEmailTemplatePreviews([]*EmailTemplatePreview{ep})
 	if err != nil {
 		return -1, err
 	}

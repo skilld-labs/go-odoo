@@ -54,7 +54,7 @@ func (hd *HrDepartment) Many2One() *Many2One {
 
 // CreateHrDepartment creates a new hr.department model and returns its id.
 func (c *Client) CreateHrDepartment(hd *HrDepartment) (int64, error) {
-	ids, err := c.Create(HrDepartmentModel, []interface{}{hd})
+	ids, err := c.CreateHrDepartments([]*HrDepartment{hd})
 	if err != nil {
 		return -1, err
 	}

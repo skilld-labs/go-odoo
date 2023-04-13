@@ -38,7 +38,7 @@ func (imc *IrModuleCategory) Many2One() *Many2One {
 
 // CreateIrModuleCategory creates a new ir.module.category model and returns its id.
 func (c *Client) CreateIrModuleCategory(imc *IrModuleCategory) (int64, error) {
-	ids, err := c.Create(IrModuleCategoryModel, []interface{}{imc})
+	ids, err := c.CreateIrModuleCategorys([]*IrModuleCategory{imc})
 	if err != nil {
 		return -1, err
 	}

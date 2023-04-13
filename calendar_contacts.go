@@ -31,7 +31,7 @@ func (cc *CalendarContacts) Many2One() *Many2One {
 
 // CreateCalendarContacts creates a new calendar.contacts model and returns its id.
 func (c *Client) CreateCalendarContacts(cc *CalendarContacts) (int64, error) {
-	ids, err := c.Create(CalendarContactsModel, []interface{}{cc})
+	ids, err := c.CreateCalendarContactss([]*CalendarContacts{cc})
 	if err != nil {
 		return -1, err
 	}

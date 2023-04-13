@@ -32,7 +32,7 @@ func (iat *IrActionsTodo) Many2One() *Many2One {
 
 // CreateIrActionsTodo creates a new ir.actions.todo model and returns its id.
 func (c *Client) CreateIrActionsTodo(iat *IrActionsTodo) (int64, error) {
-	ids, err := c.Create(IrActionsTodoModel, []interface{}{iat})
+	ids, err := c.CreateIrActionsTodos([]*IrActionsTodo{iat})
 	if err != nil {
 		return -1, err
 	}

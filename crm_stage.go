@@ -36,7 +36,7 @@ func (cs *CrmStage) Many2One() *Many2One {
 
 // CreateCrmStage creates a new crm.stage model and returns its id.
 func (c *Client) CreateCrmStage(cs *CrmStage) (int64, error) {
-	ids, err := c.Create(CrmStageModel, []interface{}{cs})
+	ids, err := c.CreateCrmStages([]*CrmStage{cs})
 	if err != nil {
 		return -1, err
 	}

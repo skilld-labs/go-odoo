@@ -33,7 +33,7 @@ func (ca *CalendarAlarm) Many2One() *Many2One {
 
 // CreateCalendarAlarm creates a new calendar.alarm model and returns its id.
 func (c *Client) CreateCalendarAlarm(ca *CalendarAlarm) (int64, error) {
-	ids, err := c.Create(CalendarAlarmModel, []interface{}{ca})
+	ids, err := c.CreateCalendarAlarms([]*CalendarAlarm{ca})
 	if err != nil {
 		return -1, err
 	}

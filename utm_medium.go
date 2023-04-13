@@ -30,7 +30,7 @@ func (um *UtmMedium) Many2One() *Many2One {
 
 // CreateUtmMedium creates a new utm.medium model and returns its id.
 func (c *Client) CreateUtmMedium(um *UtmMedium) (int64, error) {
-	ids, err := c.Create(UtmMediumModel, []interface{}{um})
+	ids, err := c.CreateUtmMediums([]*UtmMedium{um})
 	if err != nil {
 		return -1, err
 	}

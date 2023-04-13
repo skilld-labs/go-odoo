@@ -34,7 +34,7 @@ func (mwi *MailWizardInvite) Many2One() *Many2One {
 
 // CreateMailWizardInvite creates a new mail.wizard.invite model and returns its id.
 func (c *Client) CreateMailWizardInvite(mwi *MailWizardInvite) (int64, error) {
-	ids, err := c.Create(MailWizardInviteModel, []interface{}{mwi})
+	ids, err := c.CreateMailWizardInvites([]*MailWizardInvite{mwi})
 	if err != nil {
 		return -1, err
 	}

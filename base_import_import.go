@@ -32,7 +32,7 @@ func (bi *BaseImportImport) Many2One() *Many2One {
 
 // CreateBaseImportImport creates a new base_import.import model and returns its id.
 func (c *Client) CreateBaseImportImport(bi *BaseImportImport) (int64, error) {
-	ids, err := c.Create(BaseImportImportModel, []interface{}{bi})
+	ids, err := c.CreateBaseImportImports([]*BaseImportImport{bi})
 	if err != nil {
 		return -1, err
 	}

@@ -50,7 +50,7 @@ func (sl *StockLocation) Many2One() *Many2One {
 
 // CreateStockLocation creates a new stock.location model and returns its id.
 func (c *Client) CreateStockLocation(sl *StockLocation) (int64, error) {
-	ids, err := c.Create(StockLocationModel, []interface{}{sl})
+	ids, err := c.CreateStockLocations([]*StockLocation{sl})
 	if err != nil {
 		return -1, err
 	}

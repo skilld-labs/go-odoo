@@ -24,7 +24,7 @@ func (rar *ReportAccountReportGeneralledger) Many2One() *Many2One {
 
 // CreateReportAccountReportGeneralledger creates a new report.account.report_generalledger model and returns its id.
 func (c *Client) CreateReportAccountReportGeneralledger(rar *ReportAccountReportGeneralledger) (int64, error) {
-	ids, err := c.Create(ReportAccountReportGeneralledgerModel, []interface{}{rar})
+	ids, err := c.CreateReportAccountReportGeneralledgers([]*ReportAccountReportGeneralledger{rar})
 	if err != nil {
 		return -1, err
 	}

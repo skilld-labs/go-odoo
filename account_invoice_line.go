@@ -56,7 +56,7 @@ func (ail *AccountInvoiceLine) Many2One() *Many2One {
 
 // CreateAccountInvoiceLine creates a new account.invoice.line model and returns its id.
 func (c *Client) CreateAccountInvoiceLine(ail *AccountInvoiceLine) (int64, error) {
-	ids, err := c.Create(AccountInvoiceLineModel, []interface{}{ail})
+	ids, err := c.CreateAccountInvoiceLines([]*AccountInvoiceLine{ail})
 	if err != nil {
 		return -1, err
 	}

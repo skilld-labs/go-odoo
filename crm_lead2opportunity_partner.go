@@ -34,7 +34,7 @@ func (clp *CrmLead2OpportunityPartner) Many2One() *Many2One {
 
 // CreateCrmLead2OpportunityPartner creates a new crm.lead2opportunity.partner model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartner(clp *CrmLead2OpportunityPartner) (int64, error) {
-	ids, err := c.Create(CrmLead2OpportunityPartnerModel, []interface{}{clp})
+	ids, err := c.CreateCrmLead2OpportunityPartners([]*CrmLead2OpportunityPartner{clp})
 	if err != nil {
 		return -1, err
 	}

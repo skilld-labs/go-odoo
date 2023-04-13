@@ -34,7 +34,7 @@ func (pav *ProductAttributeValue) Many2One() *Many2One {
 
 // CreateProductAttributeValue creates a new product.attribute.value model and returns its id.
 func (c *Client) CreateProductAttributeValue(pav *ProductAttributeValue) (int64, error) {
-	ids, err := c.Create(ProductAttributeValueModel, []interface{}{pav})
+	ids, err := c.CreateProductAttributeValues([]*ProductAttributeValue{pav})
 	if err != nil {
 		return -1, err
 	}

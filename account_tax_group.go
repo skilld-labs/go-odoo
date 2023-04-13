@@ -30,7 +30,7 @@ func (atg *AccountTaxGroup) Many2One() *Many2One {
 
 // CreateAccountTaxGroup creates a new account.tax.group model and returns its id.
 func (c *Client) CreateAccountTaxGroup(atg *AccountTaxGroup) (int64, error) {
-	ids, err := c.Create(AccountTaxGroupModel, []interface{}{atg})
+	ids, err := c.CreateAccountTaxGroups([]*AccountTaxGroup{atg})
 	if err != nil {
 		return -1, err
 	}

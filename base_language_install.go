@@ -31,7 +31,7 @@ func (bli *BaseLanguageInstall) Many2One() *Many2One {
 
 // CreateBaseLanguageInstall creates a new base.language.install model and returns its id.
 func (c *Client) CreateBaseLanguageInstall(bli *BaseLanguageInstall) (int64, error) {
-	ids, err := c.Create(BaseLanguageInstallModel, []interface{}{bli})
+	ids, err := c.CreateBaseLanguageInstalls([]*BaseLanguageInstall{bli})
 	if err != nil {
 		return -1, err
 	}

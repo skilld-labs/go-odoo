@@ -27,7 +27,7 @@ func (um *UtmMixin) Many2One() *Many2One {
 
 // CreateUtmMixin creates a new utm.mixin model and returns its id.
 func (c *Client) CreateUtmMixin(um *UtmMixin) (int64, error) {
-	ids, err := c.Create(UtmMixinModel, []interface{}{um})
+	ids, err := c.CreateUtmMixins([]*UtmMixin{um})
 	if err != nil {
 		return -1, err
 	}

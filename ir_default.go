@@ -33,7 +33,7 @@ func (ID *IrDefault) Many2One() *Many2One {
 
 // CreateIrDefault creates a new ir.default model and returns its id.
 func (c *Client) CreateIrDefault(ID *IrDefault) (int64, error) {
-	ids, err := c.Create(IrDefaultModel, []interface{}{ID})
+	ids, err := c.CreateIrDefaults([]*IrDefault{ID})
 	if err != nil {
 		return -1, err
 	}

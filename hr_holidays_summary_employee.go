@@ -31,7 +31,7 @@ func (hhse *HrHolidaysSummaryEmployee) Many2One() *Many2One {
 
 // CreateHrHolidaysSummaryEmployee creates a new hr.holidays.summary.employee model and returns its id.
 func (c *Client) CreateHrHolidaysSummaryEmployee(hhse *HrHolidaysSummaryEmployee) (int64, error) {
-	ids, err := c.Create(HrHolidaysSummaryEmployeeModel, []interface{}{hhse})
+	ids, err := c.CreateHrHolidaysSummaryEmployees([]*HrHolidaysSummaryEmployee{hhse})
 	if err != nil {
 		return -1, err
 	}

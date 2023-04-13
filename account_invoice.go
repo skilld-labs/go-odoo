@@ -107,7 +107,7 @@ func (ai *AccountInvoice) Many2One() *Many2One {
 
 // CreateAccountInvoice creates a new account.invoice model and returns its id.
 func (c *Client) CreateAccountInvoice(ai *AccountInvoice) (int64, error) {
-	ids, err := c.Create(AccountInvoiceModel, []interface{}{ai})
+	ids, err := c.CreateAccountInvoices([]*AccountInvoice{ai})
 	if err != nil {
 		return -1, err
 	}

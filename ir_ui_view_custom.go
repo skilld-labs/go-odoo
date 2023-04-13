@@ -31,7 +31,7 @@ func (iuvc *IrUiViewCustom) Many2One() *Many2One {
 
 // CreateIrUiViewCustom creates a new ir.ui.view.custom model and returns its id.
 func (c *Client) CreateIrUiViewCustom(iuvc *IrUiViewCustom) (int64, error) {
-	ids, err := c.Create(IrUiViewCustomModel, []interface{}{iuvc})
+	ids, err := c.CreateIrUiViewCustoms([]*IrUiViewCustom{iuvc})
 	if err != nil {
 		return -1, err
 	}

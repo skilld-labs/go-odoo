@@ -28,7 +28,7 @@ func (vam *ValidateAccountMove) Many2One() *Many2One {
 
 // CreateValidateAccountMove creates a new validate.account.move model and returns its id.
 func (c *Client) CreateValidateAccountMove(vam *ValidateAccountMove) (int64, error) {
-	ids, err := c.Create(ValidateAccountMoveModel, []interface{}{vam})
+	ids, err := c.CreateValidateAccountMoves([]*ValidateAccountMove{vam})
 	if err != nil {
 		return -1, err
 	}

@@ -30,7 +30,7 @@ func (ic *IrConfigParameter) Many2One() *Many2One {
 
 // CreateIrConfigParameter creates a new ir.config_parameter model and returns its id.
 func (c *Client) CreateIrConfigParameter(ic *IrConfigParameter) (int64, error) {
-	ids, err := c.Create(IrConfigParameterModel, []interface{}{ic})
+	ids, err := c.CreateIrConfigParameters([]*IrConfigParameter{ic})
 	if err != nil {
 		return -1, err
 	}

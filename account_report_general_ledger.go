@@ -36,7 +36,7 @@ func (argl *AccountReportGeneralLedger) Many2One() *Many2One {
 
 // CreateAccountReportGeneralLedger creates a new account.report.general.ledger model and returns its id.
 func (c *Client) CreateAccountReportGeneralLedger(argl *AccountReportGeneralLedger) (int64, error) {
-	ids, err := c.Create(AccountReportGeneralLedgerModel, []interface{}{argl})
+	ids, err := c.CreateAccountReportGeneralLedgers([]*AccountReportGeneralLedger{argl})
 	if err != nil {
 		return -1, err
 	}

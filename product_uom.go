@@ -35,7 +35,7 @@ func (pu *ProductUom) Many2One() *Many2One {
 
 // CreateProductUom creates a new product.uom model and returns its id.
 func (c *Client) CreateProductUom(pu *ProductUom) (int64, error) {
-	ids, err := c.Create(ProductUomModel, []interface{}{pu})
+	ids, err := c.CreateProductUoms([]*ProductUom{pu})
 	if err != nil {
 		return -1, err
 	}

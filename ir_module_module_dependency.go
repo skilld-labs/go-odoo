@@ -32,7 +32,7 @@ func (immd *IrModuleModuleDependency) Many2One() *Many2One {
 
 // CreateIrModuleModuleDependency creates a new ir.module.module.dependency model and returns its id.
 func (c *Client) CreateIrModuleModuleDependency(immd *IrModuleModuleDependency) (int64, error) {
-	ids, err := c.Create(IrModuleModuleDependencyModel, []interface{}{immd})
+	ids, err := c.CreateIrModuleModuleDependencys([]*IrModuleModuleDependency{immd})
 	if err != nil {
 		return -1, err
 	}

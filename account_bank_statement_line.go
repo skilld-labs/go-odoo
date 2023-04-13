@@ -48,7 +48,7 @@ func (absl *AccountBankStatementLine) Many2One() *Many2One {
 
 // CreateAccountBankStatementLine creates a new account.bank.statement.line model and returns its id.
 func (c *Client) CreateAccountBankStatementLine(absl *AccountBankStatementLine) (int64, error) {
-	ids, err := c.Create(AccountBankStatementLineModel, []interface{}{absl})
+	ids, err := c.CreateAccountBankStatementLines([]*AccountBankStatementLine{absl})
 	if err != nil {
 		return -1, err
 	}

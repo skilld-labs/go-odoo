@@ -26,7 +26,7 @@ func (wt *WebTourTour) Many2One() *Many2One {
 
 // CreateWebTourTour creates a new web_tour.tour model and returns its id.
 func (c *Client) CreateWebTourTour(wt *WebTourTour) (int64, error) {
-	ids, err := c.Create(WebTourTourModel, []interface{}{wt})
+	ids, err := c.CreateWebTourTours([]*WebTourTour{wt})
 	if err != nil {
 		return -1, err
 	}

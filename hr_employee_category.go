@@ -31,7 +31,7 @@ func (hec *HrEmployeeCategory) Many2One() *Many2One {
 
 // CreateHrEmployeeCategory creates a new hr.employee.category model and returns its id.
 func (c *Client) CreateHrEmployeeCategory(hec *HrEmployeeCategory) (int64, error) {
-	ids, err := c.Create(HrEmployeeCategoryModel, []interface{}{hec})
+	ids, err := c.CreateHrEmployeeCategorys([]*HrEmployeeCategory{hec})
 	if err != nil {
 		return -1, err
 	}

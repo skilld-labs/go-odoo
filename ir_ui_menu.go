@@ -40,7 +40,7 @@ func (ium *IrUiMenu) Many2One() *Many2One {
 
 // CreateIrUiMenu creates a new ir.ui.menu model and returns its id.
 func (c *Client) CreateIrUiMenu(ium *IrUiMenu) (int64, error) {
-	ids, err := c.Create(IrUiMenuModel, []interface{}{ium})
+	ids, err := c.CreateIrUiMenus([]*IrUiMenu{ium})
 	if err != nil {
 		return -1, err
 	}

@@ -33,7 +33,7 @@ func (acr *AccountCashRounding) Many2One() *Many2One {
 
 // CreateAccountCashRounding creates a new account.cash.rounding model and returns its id.
 func (c *Client) CreateAccountCashRounding(acr *AccountCashRounding) (int64, error) {
-	ids, err := c.Create(AccountCashRoundingModel, []interface{}{acr})
+	ids, err := c.CreateAccountCashRoundings([]*AccountCashRounding{acr})
 	if err != nil {
 		return -1, err
 	}

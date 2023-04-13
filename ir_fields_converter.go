@@ -24,7 +24,7 @@ func (ifc *IrFieldsConverter) Many2One() *Many2One {
 
 // CreateIrFieldsConverter creates a new ir.fields.converter model and returns its id.
 func (c *Client) CreateIrFieldsConverter(ifc *IrFieldsConverter) (int64, error) {
-	ids, err := c.Create(IrFieldsConverterModel, []interface{}{ifc})
+	ids, err := c.CreateIrFieldsConverters([]*IrFieldsConverter{ifc})
 	if err != nil {
 		return -1, err
 	}

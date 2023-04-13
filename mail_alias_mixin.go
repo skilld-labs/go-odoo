@@ -38,7 +38,7 @@ func (mam *MailAliasMixin) Many2One() *Many2One {
 
 // CreateMailAliasMixin creates a new mail.alias.mixin model and returns its id.
 func (c *Client) CreateMailAliasMixin(mam *MailAliasMixin) (int64, error) {
-	ids, err := c.Create(MailAliasMixinModel, []interface{}{mam})
+	ids, err := c.CreateMailAliasMixins([]*MailAliasMixin{mam})
 	if err != nil {
 		return -1, err
 	}

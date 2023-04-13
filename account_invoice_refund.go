@@ -33,7 +33,7 @@ func (air *AccountInvoiceRefund) Many2One() *Many2One {
 
 // CreateAccountInvoiceRefund creates a new account.invoice.refund model and returns its id.
 func (c *Client) CreateAccountInvoiceRefund(air *AccountInvoiceRefund) (int64, error) {
-	ids, err := c.Create(AccountInvoiceRefundModel, []interface{}{air})
+	ids, err := c.CreateAccountInvoiceRefunds([]*AccountInvoiceRefund{air})
 	if err != nil {
 		return -1, err
 	}

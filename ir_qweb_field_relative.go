@@ -24,7 +24,7 @@ func (iqfr *IrQwebFieldRelative) Many2One() *Many2One {
 
 // CreateIrQwebFieldRelative creates a new ir.qweb.field.relative model and returns its id.
 func (c *Client) CreateIrQwebFieldRelative(iqfr *IrQwebFieldRelative) (int64, error) {
-	ids, err := c.Create(IrQwebFieldRelativeModel, []interface{}{iqfr})
+	ids, err := c.CreateIrQwebFieldRelatives([]*IrQwebFieldRelative{iqfr})
 	if err != nil {
 		return -1, err
 	}

@@ -30,7 +30,7 @@ func (pt *ProjectTags) Many2One() *Many2One {
 
 // CreateProjectTags creates a new project.tags model and returns its id.
 func (c *Client) CreateProjectTags(pt *ProjectTags) (int64, error) {
-	ids, err := c.Create(ProjectTagsModel, []interface{}{pt})
+	ids, err := c.CreateProjectTagss([]*ProjectTags{pt})
 	if err != nil {
 		return -1, err
 	}

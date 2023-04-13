@@ -29,7 +29,7 @@ func (but *BaseUpdateTranslations) Many2One() *Many2One {
 
 // CreateBaseUpdateTranslations creates a new base.update.translations model and returns its id.
 func (c *Client) CreateBaseUpdateTranslations(but *BaseUpdateTranslations) (int64, error) {
-	ids, err := c.Create(BaseUpdateTranslationsModel, []interface{}{but})
+	ids, err := c.CreateBaseUpdateTranslationss([]*BaseUpdateTranslations{but})
 	if err != nil {
 		return -1, err
 	}

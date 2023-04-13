@@ -30,7 +30,7 @@ func (mms *MailMassMailingStage) Many2One() *Many2One {
 
 // CreateMailMassMailingStage creates a new mail.mass_mailing.stage model and returns its id.
 func (c *Client) CreateMailMassMailingStage(mms *MailMassMailingStage) (int64, error) {
-	ids, err := c.Create(MailMassMailingStageModel, []interface{}{mms})
+	ids, err := c.CreateMailMassMailingStages([]*MailMassMailingStage{mms})
 	if err != nil {
 		return -1, err
 	}

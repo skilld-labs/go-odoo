@@ -32,7 +32,7 @@ func (rcr *ResCurrencyRate) Many2One() *Many2One {
 
 // CreateResCurrencyRate creates a new res.currency.rate model and returns its id.
 func (c *Client) CreateResCurrencyRate(rcr *ResCurrencyRate) (int64, error) {
-	ids, err := c.Create(ResCurrencyRateModel, []interface{}{rcr})
+	ids, err := c.CreateResCurrencyRates([]*ResCurrencyRate{rcr})
 	if err != nil {
 		return -1, err
 	}

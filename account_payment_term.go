@@ -34,7 +34,7 @@ func (apt *AccountPaymentTerm) Many2One() *Many2One {
 
 // CreateAccountPaymentTerm creates a new account.payment.term model and returns its id.
 func (c *Client) CreateAccountPaymentTerm(apt *AccountPaymentTerm) (int64, error) {
-	ids, err := c.Create(AccountPaymentTermModel, []interface{}{apt})
+	ids, err := c.CreateAccountPaymentTerms([]*AccountPaymentTerm{apt})
 	if err != nil {
 		return -1, err
 	}

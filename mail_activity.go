@@ -45,7 +45,7 @@ func (ma *MailActivity) Many2One() *Many2One {
 
 // CreateMailActivity creates a new mail.activity model and returns its id.
 func (c *Client) CreateMailActivity(ma *MailActivity) (int64, error) {
-	ids, err := c.Create(MailActivityModel, []interface{}{ma})
+	ids, err := c.CreateMailActivitys([]*MailActivity{ma})
 	if err != nil {
 		return -1, err
 	}

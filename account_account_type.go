@@ -32,7 +32,7 @@ func (aat *AccountAccountType) Many2One() *Many2One {
 
 // CreateAccountAccountType creates a new account.account.type model and returns its id.
 func (c *Client) CreateAccountAccountType(aat *AccountAccountType) (int64, error) {
-	ids, err := c.Create(AccountAccountTypeModel, []interface{}{aat})
+	ids, err := c.CreateAccountAccountTypes([]*AccountAccountType{aat})
 	if err != nil {
 		return -1, err
 	}

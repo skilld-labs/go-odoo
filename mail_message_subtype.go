@@ -37,7 +37,7 @@ func (mms *MailMessageSubtype) Many2One() *Many2One {
 
 // CreateMailMessageSubtype creates a new mail.message.subtype model and returns its id.
 func (c *Client) CreateMailMessageSubtype(mms *MailMessageSubtype) (int64, error) {
-	ids, err := c.Create(MailMessageSubtypeModel, []interface{}{mms})
+	ids, err := c.CreateMailMessageSubtypes([]*MailMessageSubtype{mms})
 	if err != nil {
 		return -1, err
 	}

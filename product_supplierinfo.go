@@ -43,7 +43,7 @@ func (ps *ProductSupplierinfo) Many2One() *Many2One {
 
 // CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
 func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, error) {
-	ids, err := c.Create(ProductSupplierinfoModel, []interface{}{ps})
+	ids, err := c.CreateProductSupplierinfos([]*ProductSupplierinfo{ps})
 	if err != nil {
 		return -1, err
 	}

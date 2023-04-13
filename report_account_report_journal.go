@@ -24,7 +24,7 @@ func (rar *ReportAccountReportJournal) Many2One() *Many2One {
 
 // CreateReportAccountReportJournal creates a new report.account.report_journal model and returns its id.
 func (c *Client) CreateReportAccountReportJournal(rar *ReportAccountReportJournal) (int64, error) {
-	ids, err := c.Create(ReportAccountReportJournalModel, []interface{}{rar})
+	ids, err := c.CreateReportAccountReportJournals([]*ReportAccountReportJournal{rar})
 	if err != nil {
 		return -1, err
 	}

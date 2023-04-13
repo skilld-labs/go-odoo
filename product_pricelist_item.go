@@ -50,7 +50,7 @@ func (ppi *ProductPricelistItem) Many2One() *Many2One {
 
 // CreateProductPricelistItem creates a new product.pricelist.item model and returns its id.
 func (c *Client) CreateProductPricelistItem(ppi *ProductPricelistItem) (int64, error) {
-	ids, err := c.Create(ProductPricelistItemModel, []interface{}{ppi})
+	ids, err := c.CreateProductPricelistItems([]*ProductPricelistItem{ppi})
 	if err != nil {
 		return -1, err
 	}

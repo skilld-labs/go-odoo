@@ -69,7 +69,7 @@ func (mcm *MailComposeMessage) Many2One() *Many2One {
 
 // CreateMailComposeMessage creates a new mail.compose.message model and returns its id.
 func (c *Client) CreateMailComposeMessage(mcm *MailComposeMessage) (int64, error) {
-	ids, err := c.Create(MailComposeMessageModel, []interface{}{mcm})
+	ids, err := c.CreateMailComposeMessages([]*MailComposeMessage{mcm})
 	if err != nil {
 		return -1, err
 	}

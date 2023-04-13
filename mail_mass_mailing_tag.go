@@ -30,7 +30,7 @@ func (mmt *MailMassMailingTag) Many2One() *Many2One {
 
 // CreateMailMassMailingTag creates a new mail.mass_mailing.tag model and returns its id.
 func (c *Client) CreateMailMassMailingTag(mmt *MailMassMailingTag) (int64, error) {
-	ids, err := c.Create(MailMassMailingTagModel, []interface{}{mmt})
+	ids, err := c.CreateMailMassMailingTags([]*MailMassMailingTag{mmt})
 	if err != nil {
 		return -1, err
 	}

@@ -35,7 +35,7 @@ func (mt *MailThread) Many2One() *Many2One {
 
 // CreateMailThread creates a new mail.thread model and returns its id.
 func (c *Client) CreateMailThread(mt *MailThread) (int64, error) {
-	ids, err := c.Create(MailThreadModel, []interface{}{mt})
+	ids, err := c.CreateMailThreads([]*MailThread{mt})
 	if err != nil {
 		return -1, err
 	}

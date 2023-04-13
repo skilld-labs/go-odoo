@@ -93,7 +93,7 @@ func (pt *ProjectTask) Many2One() *Many2One {
 
 // CreateProjectTask creates a new project.task model and returns its id.
 func (c *Client) CreateProjectTask(pt *ProjectTask) (int64, error) {
-	ids, err := c.Create(ProjectTaskModel, []interface{}{pt})
+	ids, err := c.CreateProjectTasks([]*ProjectTask{pt})
 	if err != nil {
 		return -1, err
 	}

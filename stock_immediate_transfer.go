@@ -29,7 +29,7 @@ func (sit *StockImmediateTransfer) Many2One() *Many2One {
 
 // CreateStockImmediateTransfer creates a new stock.immediate.transfer model and returns its id.
 func (c *Client) CreateStockImmediateTransfer(sit *StockImmediateTransfer) (int64, error) {
-	ids, err := c.Create(StockImmediateTransferModel, []interface{}{sit})
+	ids, err := c.CreateStockImmediateTransfers([]*StockImmediateTransfer{sit})
 	if err != nil {
 		return -1, err
 	}

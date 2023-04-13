@@ -36,7 +36,7 @@ func (pt *PaymentToken) Many2One() *Many2One {
 
 // CreatePaymentToken creates a new payment.token model and returns its id.
 func (c *Client) CreatePaymentToken(pt *PaymentToken) (int64, error) {
-	ids, err := c.Create(PaymentTokenModel, []interface{}{pt})
+	ids, err := c.CreatePaymentTokens([]*PaymentToken{pt})
 	if err != nil {
 		return -1, err
 	}

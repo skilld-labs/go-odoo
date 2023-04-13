@@ -28,7 +28,7 @@ func (bp *BusPresence) Many2One() *Many2One {
 
 // CreateBusPresence creates a new bus.presence model and returns its id.
 func (c *Client) CreateBusPresence(bp *BusPresence) (int64, error) {
-	ids, err := c.Create(BusPresenceModel, []interface{}{bp})
+	ids, err := c.CreateBusPresences([]*BusPresence{bp})
 	if err != nil {
 		return -1, err
 	}

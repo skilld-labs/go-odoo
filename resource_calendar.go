@@ -33,7 +33,7 @@ func (rc *ResourceCalendar) Many2One() *Many2One {
 
 // CreateResourceCalendar creates a new resource.calendar model and returns its id.
 func (c *Client) CreateResourceCalendar(rc *ResourceCalendar) (int64, error) {
-	ids, err := c.Create(ResourceCalendarModel, []interface{}{rc})
+	ids, err := c.CreateResourceCalendars([]*ResourceCalendar{rc})
 	if err != nil {
 		return -1, err
 	}

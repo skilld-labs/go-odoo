@@ -24,7 +24,7 @@ func (iqfi *IrQwebFieldImage) Many2One() *Many2One {
 
 // CreateIrQwebFieldImage creates a new ir.qweb.field.image model and returns its id.
 func (c *Client) CreateIrQwebFieldImage(iqfi *IrQwebFieldImage) (int64, error) {
-	ids, err := c.Create(IrQwebFieldImageModel, []interface{}{iqfi})
+	ids, err := c.CreateIrQwebFieldImages([]*IrQwebFieldImage{iqfi})
 	if err != nil {
 		return -1, err
 	}

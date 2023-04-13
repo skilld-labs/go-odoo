@@ -36,7 +36,7 @@ func (aap *AccountAbstractPayment) Many2One() *Many2One {
 
 // CreateAccountAbstractPayment creates a new account.abstract.payment model and returns its id.
 func (c *Client) CreateAccountAbstractPayment(aap *AccountAbstractPayment) (int64, error) {
-	ids, err := c.Create(AccountAbstractPaymentModel, []interface{}{aap})
+	ids, err := c.CreateAccountAbstractPayments([]*AccountAbstractPayment{aap})
 	if err != nil {
 		return -1, err
 	}

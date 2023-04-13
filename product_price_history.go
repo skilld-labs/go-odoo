@@ -32,7 +32,7 @@ func (pph *ProductPriceHistory) Many2One() *Many2One {
 
 // CreateProductPriceHistory creates a new product.price.history model and returns its id.
 func (c *Client) CreateProductPriceHistory(pph *ProductPriceHistory) (int64, error) {
-	ids, err := c.Create(ProductPriceHistoryModel, []interface{}{pph})
+	ids, err := c.CreateProductPriceHistorys([]*ProductPriceHistory{pph})
 	if err != nil {
 		return -1, err
 	}

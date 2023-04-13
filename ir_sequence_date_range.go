@@ -33,7 +33,7 @@ func (isd *IrSequenceDateRange) Many2One() *Many2One {
 
 // CreateIrSequenceDateRange creates a new ir.sequence.date_range model and returns its id.
 func (c *Client) CreateIrSequenceDateRange(isd *IrSequenceDateRange) (int64, error) {
-	ids, err := c.Create(IrSequenceDateRangeModel, []interface{}{isd})
+	ids, err := c.CreateIrSequenceDateRanges([]*IrSequenceDateRange{isd})
 	if err != nil {
 		return -1, err
 	}

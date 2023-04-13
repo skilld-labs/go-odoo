@@ -106,7 +106,7 @@ func (rc *ResCompany) Many2One() *Many2One {
 
 // CreateResCompany creates a new res.company model and returns its id.
 func (c *Client) CreateResCompany(rc *ResCompany) (int64, error) {
-	ids, err := c.Create(ResCompanyModel, []interface{}{rc})
+	ids, err := c.CreateResCompanys([]*ResCompany{rc})
 	if err != nil {
 		return -1, err
 	}

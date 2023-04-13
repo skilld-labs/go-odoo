@@ -30,7 +30,7 @@ func (sot *StockOverprocessedTransfer) Many2One() *Many2One {
 
 // CreateStockOverprocessedTransfer creates a new stock.overprocessed.transfer model and returns its id.
 func (c *Client) CreateStockOverprocessedTransfer(sot *StockOverprocessedTransfer) (int64, error) {
-	ids, err := c.Create(StockOverprocessedTransferModel, []interface{}{sot})
+	ids, err := c.CreateStockOverprocessedTransfers([]*StockOverprocessedTransfer{sot})
 	if err != nil {
 		return -1, err
 	}

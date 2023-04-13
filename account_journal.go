@@ -62,7 +62,7 @@ func (aj *AccountJournal) Many2One() *Many2One {
 
 // CreateAccountJournal creates a new account.journal model and returns its id.
 func (c *Client) CreateAccountJournal(aj *AccountJournal) (int64, error) {
-	ids, err := c.Create(AccountJournalModel, []interface{}{aj})
+	ids, err := c.CreateAccountJournals([]*AccountJournal{aj})
 	if err != nil {
 		return -1, err
 	}

@@ -30,7 +30,7 @@ func (wimmc *WizardIrModelMenuCreate) Many2One() *Many2One {
 
 // CreateWizardIrModelMenuCreate creates a new wizard.ir.model.menu.create model and returns its id.
 func (c *Client) CreateWizardIrModelMenuCreate(wimmc *WizardIrModelMenuCreate) (int64, error) {
-	ids, err := c.Create(WizardIrModelMenuCreateModel, []interface{}{wimmc})
+	ids, err := c.CreateWizardIrModelMenuCreates([]*WizardIrModelMenuCreate{wimmc})
 	if err != nil {
 		return -1, err
 	}

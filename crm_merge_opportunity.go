@@ -31,7 +31,7 @@ func (cmo *CrmMergeOpportunity) Many2One() *Many2One {
 
 // CreateCrmMergeOpportunity creates a new crm.merge.opportunity model and returns its id.
 func (c *Client) CreateCrmMergeOpportunity(cmo *CrmMergeOpportunity) (int64, error) {
-	ids, err := c.Create(CrmMergeOpportunityModel, []interface{}{cmo})
+	ids, err := c.CreateCrmMergeOpportunitys([]*CrmMergeOpportunity{cmo})
 	if err != nil {
 		return -1, err
 	}

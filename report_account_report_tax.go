@@ -24,7 +24,7 @@ func (rar *ReportAccountReportTax) Many2One() *Many2One {
 
 // CreateReportAccountReportTax creates a new report.account.report_tax model and returns its id.
 func (c *Client) CreateReportAccountReportTax(rar *ReportAccountReportTax) (int64, error) {
-	ids, err := c.Create(ReportAccountReportTaxModel, []interface{}{rar})
+	ids, err := c.CreateReportAccountReportTaxs([]*ReportAccountReportTax{rar})
 	if err != nil {
 		return -1, err
 	}

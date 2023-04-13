@@ -72,7 +72,7 @@ func (mc *MailChannel) Many2One() *Many2One {
 
 // CreateMailChannel creates a new mail.channel model and returns its id.
 func (c *Client) CreateMailChannel(mc *MailChannel) (int64, error) {
-	ids, err := c.Create(MailChannelModel, []interface{}{mc})
+	ids, err := c.CreateMailChannels([]*MailChannel{mc})
 	if err != nil {
 		return -1, err
 	}

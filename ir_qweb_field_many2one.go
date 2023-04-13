@@ -24,7 +24,7 @@ func (iqfm *IrQwebFieldMany2One) Many2One() *Many2One {
 
 // CreateIrQwebFieldMany2One creates a new ir.qweb.field.many2one model and returns its id.
 func (c *Client) CreateIrQwebFieldMany2One(iqfm *IrQwebFieldMany2One) (int64, error) {
-	ids, err := c.Create(IrQwebFieldMany2OneModel, []interface{}{iqfm})
+	ids, err := c.CreateIrQwebFieldMany2Ones([]*IrQwebFieldMany2One{iqfm})
 	if err != nil {
 		return -1, err
 	}

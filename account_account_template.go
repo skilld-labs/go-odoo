@@ -39,7 +39,7 @@ func (aat *AccountAccountTemplate) Many2One() *Many2One {
 
 // CreateAccountAccountTemplate creates a new account.account.template model and returns its id.
 func (c *Client) CreateAccountAccountTemplate(aat *AccountAccountTemplate) (int64, error) {
-	ids, err := c.Create(AccountAccountTemplateModel, []interface{}{aat})
+	ids, err := c.CreateAccountAccountTemplates([]*AccountAccountTemplate{aat})
 	if err != nil {
 		return -1, err
 	}

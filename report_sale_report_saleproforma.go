@@ -24,7 +24,7 @@ func (rsr *ReportSaleReportSaleproforma) Many2One() *Many2One {
 
 // CreateReportSaleReportSaleproforma creates a new report.sale.report_saleproforma model and returns its id.
 func (c *Client) CreateReportSaleReportSaleproforma(rsr *ReportSaleReportSaleproforma) (int64, error) {
-	ids, err := c.Create(ReportSaleReportSaleproformaModel, []interface{}{rsr})
+	ids, err := c.CreateReportSaleReportSaleproformas([]*ReportSaleReportSaleproforma{rsr})
 	if err != nil {
 		return -1, err
 	}

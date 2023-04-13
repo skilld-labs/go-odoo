@@ -35,7 +35,7 @@ func (ca *CalendarAttendee) Many2One() *Many2One {
 
 // CreateCalendarAttendee creates a new calendar.attendee model and returns its id.
 func (c *Client) CreateCalendarAttendee(ca *CalendarAttendee) (int64, error) {
-	ids, err := c.Create(CalendarAttendeeModel, []interface{}{ca})
+	ids, err := c.CreateCalendarAttendees([]*CalendarAttendee{ca})
 	if err != nil {
 		return -1, err
 	}

@@ -24,7 +24,7 @@ func (iqfb *IrQwebFieldBarcode) Many2One() *Many2One {
 
 // CreateIrQwebFieldBarcode creates a new ir.qweb.field.barcode model and returns its id.
 func (c *Client) CreateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) (int64, error) {
-	ids, err := c.Create(IrQwebFieldBarcodeModel, []interface{}{iqfb})
+	ids, err := c.CreateIrQwebFieldBarcodes([]*IrQwebFieldBarcode{iqfb})
 	if err != nil {
 		return -1, err
 	}

@@ -63,7 +63,7 @@ func (pa *PaymentAcquirer) Many2One() *Many2One {
 
 // CreatePaymentAcquirer creates a new payment.acquirer model and returns its id.
 func (c *Client) CreatePaymentAcquirer(pa *PaymentAcquirer) (int64, error) {
-	ids, err := c.Create(PaymentAcquirerModel, []interface{}{pa})
+	ids, err := c.CreatePaymentAcquirers([]*PaymentAcquirer{pa})
 	if err != nil {
 		return -1, err
 	}

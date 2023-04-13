@@ -31,7 +31,7 @@ func (bpml *BasePartnerMergeLine) Many2One() *Many2One {
 
 // CreateBasePartnerMergeLine creates a new base.partner.merge.line model and returns its id.
 func (c *Client) CreateBasePartnerMergeLine(bpml *BasePartnerMergeLine) (int64, error) {
-	ids, err := c.Create(BasePartnerMergeLineModel, []interface{}{bpml})
+	ids, err := c.CreateBasePartnerMergeLines([]*BasePartnerMergeLine{bpml})
 	if err != nil {
 		return -1, err
 	}

@@ -96,7 +96,7 @@ func (so *SaleOrder) Many2One() *Many2One {
 
 // CreateSaleOrder creates a new sale.order model and returns its id.
 func (c *Client) CreateSaleOrder(so *SaleOrder) (int64, error) {
-	ids, err := c.Create(SaleOrderModel, []interface{}{so})
+	ids, err := c.CreateSaleOrders([]*SaleOrder{so})
 	if err != nil {
 		return -1, err
 	}

@@ -34,7 +34,7 @@ func (scpq *StockChangeProductQty) Many2One() *Many2One {
 
 // CreateStockChangeProductQty creates a new stock.change.product.qty model and returns its id.
 func (c *Client) CreateStockChangeProductQty(scpq *StockChangeProductQty) (int64, error) {
-	ids, err := c.Create(StockChangeProductQtyModel, []interface{}{scpq})
+	ids, err := c.CreateStockChangeProductQtys([]*StockChangeProductQty{scpq})
 	if err != nil {
 		return -1, err
 	}

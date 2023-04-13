@@ -30,7 +30,7 @@ func (sqh *StockQuantityHistory) Many2One() *Many2One {
 
 // CreateStockQuantityHistory creates a new stock.quantity.history model and returns its id.
 func (c *Client) CreateStockQuantityHistory(sqh *StockQuantityHistory) (int64, error) {
-	ids, err := c.Create(StockQuantityHistoryModel, []interface{}{sqh})
+	ids, err := c.CreateStockQuantityHistorys([]*StockQuantityHistory{sqh})
 	if err != nil {
 		return -1, err
 	}

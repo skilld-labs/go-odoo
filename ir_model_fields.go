@@ -58,7 +58,7 @@ func (imf *IrModelFields) Many2One() *Many2One {
 
 // CreateIrModelFields creates a new ir.model.fields model and returns its id.
 func (c *Client) CreateIrModelFields(imf *IrModelFields) (int64, error) {
-	ids, err := c.Create(IrModelFieldsModel, []interface{}{imf})
+	ids, err := c.CreateIrModelFieldss([]*IrModelFields{imf})
 	if err != nil {
 		return -1, err
 	}

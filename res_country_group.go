@@ -31,7 +31,7 @@ func (rcg *ResCountryGroup) Many2One() *Many2One {
 
 // CreateResCountryGroup creates a new res.country.group model and returns its id.
 func (c *Client) CreateResCountryGroup(rcg *ResCountryGroup) (int64, error) {
-	ids, err := c.Create(ResCountryGroupModel, []interface{}{rcg})
+	ids, err := c.CreateResCountryGroups([]*ResCountryGroup{rcg})
 	if err != nil {
 		return -1, err
 	}

@@ -25,7 +25,7 @@ func (pm *PortalMixin) Many2One() *Many2One {
 
 // CreatePortalMixin creates a new portal.mixin model and returns its id.
 func (c *Client) CreatePortalMixin(pm *PortalMixin) (int64, error) {
-	ids, err := c.Create(PortalMixinModel, []interface{}{pm})
+	ids, err := c.CreatePortalMixins([]*PortalMixin{pm})
 	if err != nil {
 		return -1, err
 	}

@@ -52,7 +52,7 @@ func (cor *CrmOpportunityReport) Many2One() *Many2One {
 
 // CreateCrmOpportunityReport creates a new crm.opportunity.report model and returns its id.
 func (c *Client) CreateCrmOpportunityReport(cor *CrmOpportunityReport) (int64, error) {
-	ids, err := c.Create(CrmOpportunityReportModel, []interface{}{cor})
+	ids, err := c.CreateCrmOpportunityReports([]*CrmOpportunityReport{cor})
 	if err != nil {
 		return -1, err
 	}

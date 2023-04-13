@@ -182,7 +182,7 @@ func (rcs *ResConfigSettings) Many2One() *Many2One {
 
 // CreateResConfigSettings creates a new res.config.settings model and returns its id.
 func (c *Client) CreateResConfigSettings(rcs *ResConfigSettings) (int64, error) {
-	ids, err := c.Create(ResConfigSettingsModel, []interface{}{rcs})
+	ids, err := c.CreateResConfigSettingss([]*ResConfigSettings{rcs})
 	if err != nil {
 		return -1, err
 	}

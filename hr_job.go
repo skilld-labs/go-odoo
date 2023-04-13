@@ -50,7 +50,7 @@ func (hj *HrJob) Many2One() *Many2One {
 
 // CreateHrJob creates a new hr.job model and returns its id.
 func (c *Client) CreateHrJob(hj *HrJob) (int64, error) {
-	ids, err := c.Create(HrJobModel, []interface{}{hj})
+	ids, err := c.CreateHrJobs([]*HrJob{hj})
 	if err != nil {
 		return -1, err
 	}

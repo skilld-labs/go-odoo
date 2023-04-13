@@ -65,7 +65,7 @@ func (mm *MailMassMailing) Many2One() *Many2One {
 
 // CreateMailMassMailing creates a new mail.mass_mailing model and returns its id.
 func (c *Client) CreateMailMassMailing(mm *MailMassMailing) (int64, error) {
-	ids, err := c.Create(MailMassMailingModel, []interface{}{mm})
+	ids, err := c.CreateMailMassMailings([]*MailMassMailing{mm})
 	if err != nil {
 		return -1, err
 	}

@@ -37,7 +37,7 @@ func (clpm *CrmLead2OpportunityPartnerMass) Many2One() *Many2One {
 
 // CreateCrmLead2OpportunityPartnerMass creates a new crm.lead2opportunity.partner.mass model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartnerMass(clpm *CrmLead2OpportunityPartnerMass) (int64, error) {
-	ids, err := c.Create(CrmLead2OpportunityPartnerMassModel, []interface{}{clpm})
+	ids, err := c.CreateCrmLead2OpportunityPartnerMasss([]*CrmLead2OpportunityPartnerMass{clpm})
 	if err != nil {
 		return -1, err
 	}

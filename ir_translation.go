@@ -34,7 +34,7 @@ func (it *IrTranslation) Many2One() *Many2One {
 
 // CreateIrTranslation creates a new ir.translation model and returns its id.
 func (c *Client) CreateIrTranslation(it *IrTranslation) (int64, error) {
-	ids, err := c.Create(IrTranslationModel, []interface{}{it})
+	ids, err := c.CreateIrTranslations([]*IrTranslation{it})
 	if err != nil {
 		return -1, err
 	}

@@ -39,7 +39,7 @@ func (sq *StockQuant) Many2One() *Many2One {
 
 // CreateStockQuant creates a new stock.quant model and returns its id.
 func (c *Client) CreateStockQuant(sq *StockQuant) (int64, error) {
-	ids, err := c.Create(StockQuantModel, []interface{}{sq})
+	ids, err := c.CreateStockQuants([]*StockQuant{sq})
 	if err != nil {
 		return -1, err
 	}

@@ -33,7 +33,7 @@ func (pp *ProductPackaging) Many2One() *Many2One {
 
 // CreateProductPackaging creates a new product.packaging model and returns its id.
 func (c *Client) CreateProductPackaging(pp *ProductPackaging) (int64, error) {
-	ids, err := c.Create(ProductPackagingModel, []interface{}{pp})
+	ids, err := c.CreateProductPackagings([]*ProductPackaging{pp})
 	if err != nil {
 		return -1, err
 	}

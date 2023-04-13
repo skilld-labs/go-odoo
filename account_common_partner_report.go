@@ -34,7 +34,7 @@ func (acpr *AccountCommonPartnerReport) Many2One() *Many2One {
 
 // CreateAccountCommonPartnerReport creates a new account.common.partner.report model and returns its id.
 func (c *Client) CreateAccountCommonPartnerReport(acpr *AccountCommonPartnerReport) (int64, error) {
-	ids, err := c.Create(AccountCommonPartnerReportModel, []interface{}{acpr})
+	ids, err := c.CreateAccountCommonPartnerReports([]*AccountCommonPartnerReport{acpr})
 	if err != nil {
 		return -1, err
 	}

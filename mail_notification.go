@@ -29,7 +29,7 @@ func (mn *MailNotification) Many2One() *Many2One {
 
 // CreateMailNotification creates a new mail.notification model and returns its id.
 func (c *Client) CreateMailNotification(mn *MailNotification) (int64, error) {
-	ids, err := c.Create(MailNotificationModel, []interface{}{mn})
+	ids, err := c.CreateMailNotifications([]*MailNotification{mn})
 	if err != nil {
 		return -1, err
 	}

@@ -36,7 +36,7 @@ func (wp *WebPlanner) Many2One() *Many2One {
 
 // CreateWebPlanner creates a new web.planner model and returns its id.
 func (c *Client) CreateWebPlanner(wp *WebPlanner) (int64, error) {
-	ids, err := c.Create(WebPlannerModel, []interface{}{wp})
+	ids, err := c.CreateWebPlanners([]*WebPlanner{wp})
 	if err != nil {
 		return -1, err
 	}

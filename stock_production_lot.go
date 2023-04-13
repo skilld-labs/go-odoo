@@ -45,7 +45,7 @@ func (spl *StockProductionLot) Many2One() *Many2One {
 
 // CreateStockProductionLot creates a new stock.production.lot model and returns its id.
 func (c *Client) CreateStockProductionLot(spl *StockProductionLot) (int64, error) {
-	ids, err := c.Create(StockProductionLotModel, []interface{}{spl})
+	ids, err := c.CreateStockProductionLots([]*StockProductionLot{spl})
 	if err != nil {
 		return -1, err
 	}

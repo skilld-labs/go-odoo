@@ -30,7 +30,7 @@ func (pr *ProductRemoval) Many2One() *Many2One {
 
 // CreateProductRemoval creates a new product.removal model and returns its id.
 func (c *Client) CreateProductRemoval(pr *ProductRemoval) (int64, error) {
-	ids, err := c.Create(ProductRemovalModel, []interface{}{pr})
+	ids, err := c.CreateProductRemovals([]*ProductRemoval{pr})
 	if err != nil {
 		return -1, err
 	}

@@ -33,7 +33,7 @@ func (ms *MailShortcode) Many2One() *Many2One {
 
 // CreateMailShortcode creates a new mail.shortcode model and returns its id.
 func (c *Client) CreateMailShortcode(ms *MailShortcode) (int64, error) {
-	ids, err := c.Create(MailShortcodeModel, []interface{}{ms})
+	ids, err := c.CreateMailShortcodes([]*MailShortcode{ms})
 	if err != nil {
 		return -1, err
 	}

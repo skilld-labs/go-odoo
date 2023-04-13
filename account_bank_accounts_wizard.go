@@ -32,7 +32,7 @@ func (abaw *AccountBankAccountsWizard) Many2One() *Many2One {
 
 // CreateAccountBankAccountsWizard creates a new account.bank.accounts.wizard model and returns its id.
 func (c *Client) CreateAccountBankAccountsWizard(abaw *AccountBankAccountsWizard) (int64, error) {
-	ids, err := c.Create(AccountBankAccountsWizardModel, []interface{}{abaw})
+	ids, err := c.CreateAccountBankAccountsWizards([]*AccountBankAccountsWizard{abaw})
 	if err != nil {
 		return -1, err
 	}

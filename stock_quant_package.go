@@ -40,7 +40,7 @@ func (sqp *StockQuantPackage) Many2One() *Many2One {
 
 // CreateStockQuantPackage creates a new stock.quant.package model and returns its id.
 func (c *Client) CreateStockQuantPackage(sqp *StockQuantPackage) (int64, error) {
-	ids, err := c.Create(StockQuantPackageModel, []interface{}{sqp})
+	ids, err := c.CreateStockQuantPackages([]*StockQuantPackage{sqp})
 	if err != nil {
 		return -1, err
 	}

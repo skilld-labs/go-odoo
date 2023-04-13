@@ -31,7 +31,7 @@ func (bn *BarcodeNomenclature) Many2One() *Many2One {
 
 // CreateBarcodeNomenclature creates a new barcode.nomenclature model and returns its id.
 func (c *Client) CreateBarcodeNomenclature(bn *BarcodeNomenclature) (int64, error) {
-	ids, err := c.Create(BarcodeNomenclatureModel, []interface{}{bn})
+	ids, err := c.CreateBarcodeNomenclatures([]*BarcodeNomenclature{bn})
 	if err != nil {
 		return -1, err
 	}

@@ -39,7 +39,7 @@ func (rb *ResBank) Many2One() *Many2One {
 
 // CreateResBank creates a new res.bank model and returns its id.
 func (c *Client) CreateResBank(rb *ResBank) (int64, error) {
-	ids, err := c.Create(ResBankModel, []interface{}{rb})
+	ids, err := c.CreateResBanks([]*ResBank{rb})
 	if err != nil {
 		return -1, err
 	}

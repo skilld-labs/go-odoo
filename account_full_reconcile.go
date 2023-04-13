@@ -32,7 +32,7 @@ func (afr *AccountFullReconcile) Many2One() *Many2One {
 
 // CreateAccountFullReconcile creates a new account.full.reconcile model and returns its id.
 func (c *Client) CreateAccountFullReconcile(afr *AccountFullReconcile) (int64, error) {
-	ids, err := c.Create(AccountFullReconcileModel, []interface{}{afr})
+	ids, err := c.CreateAccountFullReconciles([]*AccountFullReconcile{afr})
 	if err != nil {
 		return -1, err
 	}

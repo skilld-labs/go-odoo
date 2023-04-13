@@ -27,7 +27,7 @@ func (rm *ResourceMixin) Many2One() *Many2One {
 
 // CreateResourceMixin creates a new resource.mixin model and returns its id.
 func (c *Client) CreateResourceMixin(rm *ResourceMixin) (int64, error) {
-	ids, err := c.Create(ResourceMixinModel, []interface{}{rm})
+	ids, err := c.CreateResourceMixins([]*ResourceMixin{rm})
 	if err != nil {
 		return -1, err
 	}

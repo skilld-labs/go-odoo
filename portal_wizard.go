@@ -31,7 +31,7 @@ func (pw *PortalWizard) Many2One() *Many2One {
 
 // CreatePortalWizard creates a new portal.wizard model and returns its id.
 func (c *Client) CreatePortalWizard(pw *PortalWizard) (int64, error) {
-	ids, err := c.Create(PortalWizardModel, []interface{}{pw})
+	ids, err := c.CreatePortalWizards([]*PortalWizard{pw})
 	if err != nil {
 		return -1, err
 	}

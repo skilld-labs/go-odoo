@@ -55,7 +55,7 @@ func (imm *IrModuleModule) Many2One() *Many2One {
 
 // CreateIrModuleModule creates a new ir.module.module model and returns its id.
 func (c *Client) CreateIrModuleModule(imm *IrModuleModule) (int64, error) {
-	ids, err := c.Create(IrModuleModuleModel, []interface{}{imm})
+	ids, err := c.CreateIrModuleModules([]*IrModuleModule{imm})
 	if err != nil {
 		return -1, err
 	}

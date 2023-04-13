@@ -39,7 +39,7 @@ func (rc *ResCountry) Many2One() *Many2One {
 
 // CreateResCountry creates a new res.country model and returns its id.
 func (c *Client) CreateResCountry(rc *ResCountry) (int64, error) {
-	ids, err := c.Create(ResCountryModel, []interface{}{rc})
+	ids, err := c.CreateResCountrys([]*ResCountry{rc})
 	if err != nil {
 		return -1, err
 	}

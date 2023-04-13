@@ -54,7 +54,7 @@ func (pol *PurchaseOrderLine) Many2One() *Many2One {
 
 // CreatePurchaseOrderLine creates a new purchase.order.line model and returns its id.
 func (c *Client) CreatePurchaseOrderLine(pol *PurchaseOrderLine) (int64, error) {
-	ids, err := c.Create(PurchaseOrderLineModel, []interface{}{pol})
+	ids, err := c.CreatePurchaseOrderLines([]*PurchaseOrderLine{pol})
 	if err != nil {
 		return -1, err
 	}

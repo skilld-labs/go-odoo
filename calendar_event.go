@@ -90,7 +90,7 @@ func (ce *CalendarEvent) Many2One() *Many2One {
 
 // CreateCalendarEvent creates a new calendar.event model and returns its id.
 func (c *Client) CreateCalendarEvent(ce *CalendarEvent) (int64, error) {
-	ids, err := c.Create(CalendarEventModel, []interface{}{ce})
+	ids, err := c.CreateCalendarEvents([]*CalendarEvent{ce})
 	if err != nil {
 		return -1, err
 	}

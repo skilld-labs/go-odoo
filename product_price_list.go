@@ -34,7 +34,7 @@ func (pp *ProductPriceList) Many2One() *Many2One {
 
 // CreateProductPriceList creates a new product.price_list model and returns its id.
 func (c *Client) CreateProductPriceList(pp *ProductPriceList) (int64, error) {
-	ids, err := c.Create(ProductPriceListModel, []interface{}{pp})
+	ids, err := c.CreateProductPriceLists([]*ProductPriceList{pp})
 	if err != nil {
 		return -1, err
 	}

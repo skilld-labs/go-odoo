@@ -34,7 +34,7 @@ func (icr *ImLivechatChannelRule) Many2One() *Many2One {
 
 // CreateImLivechatChannelRule creates a new im_livechat.channel.rule model and returns its id.
 func (c *Client) CreateImLivechatChannelRule(icr *ImLivechatChannelRule) (int64, error) {
-	ids, err := c.Create(ImLivechatChannelRuleModel, []interface{}{icr})
+	ids, err := c.CreateImLivechatChannelRules([]*ImLivechatChannelRule{icr})
 	if err != nil {
 		return -1, err
 	}

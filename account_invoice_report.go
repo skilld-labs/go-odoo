@@ -54,7 +54,7 @@ func (air *AccountInvoiceReport) Many2One() *Many2One {
 
 // CreateAccountInvoiceReport creates a new account.invoice.report model and returns its id.
 func (c *Client) CreateAccountInvoiceReport(air *AccountInvoiceReport) (int64, error) {
-	ids, err := c.Create(AccountInvoiceReportModel, []interface{}{air})
+	ids, err := c.CreateAccountInvoiceReports([]*AccountInvoiceReport{air})
 	if err != nil {
 		return -1, err
 	}

@@ -50,7 +50,7 @@ func (pr *PurchaseReport) Many2One() *Many2One {
 
 // CreatePurchaseReport creates a new purchase.report model and returns its id.
 func (c *Client) CreatePurchaseReport(pr *PurchaseReport) (int64, error) {
-	ids, err := c.Create(PurchaseReportModel, []interface{}{pr})
+	ids, err := c.CreatePurchaseReports([]*PurchaseReport{pr})
 	if err != nil {
 		return -1, err
 	}

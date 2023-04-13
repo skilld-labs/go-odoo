@@ -29,7 +29,7 @@ func (us *UtmSource) Many2One() *Many2One {
 
 // CreateUtmSource creates a new utm.source model and returns its id.
 func (c *Client) CreateUtmSource(us *UtmSource) (int64, error) {
-	ids, err := c.Create(UtmSourceModel, []interface{}{us})
+	ids, err := c.CreateUtmSources([]*UtmSource{us})
 	if err != nil {
 		return -1, err
 	}

@@ -49,7 +49,7 @@ func (mmc *MailMassMailingContact) Many2One() *Many2One {
 
 // CreateMailMassMailingContact creates a new mail.mass_mailing.contact model and returns its id.
 func (c *Client) CreateMailMassMailingContact(mmc *MailMassMailingContact) (int64, error) {
-	ids, err := c.Create(MailMassMailingContactModel, []interface{}{mmc})
+	ids, err := c.CreateMailMassMailingContacts([]*MailMassMailingContact{mmc})
 	if err != nil {
 		return -1, err
 	}

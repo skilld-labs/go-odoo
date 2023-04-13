@@ -28,7 +28,7 @@ func (ssc *StockSchedulerCompute) Many2One() *Many2One {
 
 // CreateStockSchedulerCompute creates a new stock.scheduler.compute model and returns its id.
 func (c *Client) CreateStockSchedulerCompute(ssc *StockSchedulerCompute) (int64, error) {
-	ids, err := c.Create(StockSchedulerComputeModel, []interface{}{ssc})
+	ids, err := c.CreateStockSchedulerComputes([]*StockSchedulerCompute{ssc})
 	if err != nil {
 		return -1, err
 	}

@@ -36,7 +36,7 @@ func (arpl *AccountReportPartnerLedger) Many2One() *Many2One {
 
 // CreateAccountReportPartnerLedger creates a new account.report.partner.ledger model and returns its id.
 func (c *Client) CreateAccountReportPartnerLedger(arpl *AccountReportPartnerLedger) (int64, error) {
-	ids, err := c.Create(AccountReportPartnerLedgerModel, []interface{}{arpl})
+	ids, err := c.CreateAccountReportPartnerLedgers([]*AccountReportPartnerLedger{arpl})
 	if err != nil {
 		return -1, err
 	}

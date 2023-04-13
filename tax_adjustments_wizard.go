@@ -37,7 +37,7 @@ func (taw *TaxAdjustmentsWizard) Many2One() *Many2One {
 
 // CreateTaxAdjustmentsWizard creates a new tax.adjustments.wizard model and returns its id.
 func (c *Client) CreateTaxAdjustmentsWizard(taw *TaxAdjustmentsWizard) (int64, error) {
-	ids, err := c.Create(TaxAdjustmentsWizardModel, []interface{}{taw})
+	ids, err := c.CreateTaxAdjustmentsWizards([]*TaxAdjustmentsWizard{taw})
 	if err != nil {
 		return -1, err
 	}

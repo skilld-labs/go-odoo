@@ -29,7 +29,7 @@ func (btmmr *BaseImportTestsModelsM2ORequired) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsM2ORequired creates a new base_import.tests.models.m2o.required model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsM2ORequired(btmmr *BaseImportTestsModelsM2ORequired) (int64, error) {
-	ids, err := c.Create(BaseImportTestsModelsM2ORequiredModel, []interface{}{btmmr})
+	ids, err := c.CreateBaseImportTestsModelsM2ORequireds([]*BaseImportTestsModelsM2ORequired{btmmr})
 	if err != nil {
 		return -1, err
 	}

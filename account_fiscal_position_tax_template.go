@@ -31,7 +31,7 @@ func (afptt *AccountFiscalPositionTaxTemplate) Many2One() *Many2One {
 
 // CreateAccountFiscalPositionTaxTemplate creates a new account.fiscal.position.tax.template model and returns its id.
 func (c *Client) CreateAccountFiscalPositionTaxTemplate(afptt *AccountFiscalPositionTaxTemplate) (int64, error) {
-	ids, err := c.Create(AccountFiscalPositionTaxTemplateModel, []interface{}{afptt})
+	ids, err := c.CreateAccountFiscalPositionTaxTemplates([]*AccountFiscalPositionTaxTemplate{afptt})
 	if err != nil {
 		return -1, err
 	}

@@ -33,7 +33,7 @@ func (imr *IrModelRelation) Many2One() *Many2One {
 
 // CreateIrModelRelation creates a new ir.model.relation model and returns its id.
 func (c *Client) CreateIrModelRelation(imr *IrModelRelation) (int64, error) {
-	ids, err := c.Create(IrModelRelationModel, []interface{}{imr})
+	ids, err := c.CreateIrModelRelations([]*IrModelRelation{imr})
 	if err != nil {
 		return -1, err
 	}

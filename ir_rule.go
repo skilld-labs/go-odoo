@@ -38,7 +38,7 @@ func (ir *IrRule) Many2One() *Many2One {
 
 // CreateIrRule creates a new ir.rule model and returns its id.
 func (c *Client) CreateIrRule(ir *IrRule) (int64, error) {
-	ids, err := c.Create(IrRuleModel, []interface{}{ir})
+	ids, err := c.CreateIrRules([]*IrRule{ir})
 	if err != nil {
 		return -1, err
 	}

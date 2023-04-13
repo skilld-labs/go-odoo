@@ -31,7 +31,7 @@ func (aat *AccountAnalyticTag) Many2One() *Many2One {
 
 // CreateAccountAnalyticTag creates a new account.analytic.tag model and returns its id.
 func (c *Client) CreateAccountAnalyticTag(aat *AccountAnalyticTag) (int64, error) {
-	ids, err := c.Create(AccountAnalyticTagModel, []interface{}{aat})
+	ids, err := c.CreateAccountAnalyticTags([]*AccountAnalyticTag{aat})
 	if err != nil {
 		return -1, err
 	}

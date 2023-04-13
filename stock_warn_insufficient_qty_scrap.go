@@ -32,7 +32,7 @@ func (swiqs *StockWarnInsufficientQtyScrap) Many2One() *Many2One {
 
 // CreateStockWarnInsufficientQtyScrap creates a new stock.warn.insufficient.qty.scrap model and returns its id.
 func (c *Client) CreateStockWarnInsufficientQtyScrap(swiqs *StockWarnInsufficientQtyScrap) (int64, error) {
-	ids, err := c.Create(StockWarnInsufficientQtyScrapModel, []interface{}{swiqs})
+	ids, err := c.CreateStockWarnInsufficientQtyScraps([]*StockWarnInsufficientQtyScrap{swiqs})
 	if err != nil {
 		return -1, err
 	}

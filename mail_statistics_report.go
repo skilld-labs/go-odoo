@@ -34,7 +34,7 @@ func (msr *MailStatisticsReport) Many2One() *Many2One {
 
 // CreateMailStatisticsReport creates a new mail.statistics.report model and returns its id.
 func (c *Client) CreateMailStatisticsReport(msr *MailStatisticsReport) (int64, error) {
-	ids, err := c.Create(MailStatisticsReportModel, []interface{}{msr})
+	ids, err := c.CreateMailStatisticsReports([]*MailStatisticsReport{msr})
 	if err != nil {
 		return -1, err
 	}

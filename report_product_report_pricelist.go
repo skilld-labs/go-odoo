@@ -24,7 +24,7 @@ func (rpr *ReportProductReportPricelist) Many2One() *Many2One {
 
 // CreateReportProductReportPricelist creates a new report.product.report_pricelist model and returns its id.
 func (c *Client) CreateReportProductReportPricelist(rpr *ReportProductReportPricelist) (int64, error) {
-	ids, err := c.Create(ReportProductReportPricelistModel, []interface{}{rpr})
+	ids, err := c.CreateReportProductReportPricelists([]*ReportProductReportPricelist{rpr})
 	if err != nil {
 		return -1, err
 	}

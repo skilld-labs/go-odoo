@@ -31,7 +31,7 @@ func (pap *ProductAttributePrice) Many2One() *Many2One {
 
 // CreateProductAttributePrice creates a new product.attribute.price model and returns its id.
 func (c *Client) CreateProductAttributePrice(pap *ProductAttributePrice) (int64, error) {
-	ids, err := c.Create(ProductAttributePriceModel, []interface{}{pap})
+	ids, err := c.CreateProductAttributePrices([]*ProductAttributePrice{pap})
 	if err != nil {
 		return -1, err
 	}

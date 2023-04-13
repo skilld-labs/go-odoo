@@ -24,7 +24,7 @@ func (iqfm *IrQwebFieldMonetary) Many2One() *Many2One {
 
 // CreateIrQwebFieldMonetary creates a new ir.qweb.field.monetary model and returns its id.
 func (c *Client) CreateIrQwebFieldMonetary(iqfm *IrQwebFieldMonetary) (int64, error) {
-	ids, err := c.Create(IrQwebFieldMonetaryModel, []interface{}{iqfm})
+	ids, err := c.CreateIrQwebFieldMonetarys([]*IrQwebFieldMonetary{iqfm})
 	if err != nil {
 		return -1, err
 	}

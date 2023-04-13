@@ -24,7 +24,7 @@ func (iqfd *IrQwebFieldDuration) Many2One() *Many2One {
 
 // CreateIrQwebFieldDuration creates a new ir.qweb.field.duration model and returns its id.
 func (c *Client) CreateIrQwebFieldDuration(iqfd *IrQwebFieldDuration) (int64, error) {
-	ids, err := c.Create(IrQwebFieldDurationModel, []interface{}{iqfd})
+	ids, err := c.CreateIrQwebFieldDurations([]*IrQwebFieldDuration{iqfd})
 	if err != nil {
 		return -1, err
 	}

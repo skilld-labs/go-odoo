@@ -28,7 +28,7 @@ func (aic *AccountInvoiceConfirm) Many2One() *Many2One {
 
 // CreateAccountInvoiceConfirm creates a new account.invoice.confirm model and returns its id.
 func (c *Client) CreateAccountInvoiceConfirm(aic *AccountInvoiceConfirm) (int64, error) {
-	ids, err := c.Create(AccountInvoiceConfirmModel, []interface{}{aic})
+	ids, err := c.CreateAccountInvoiceConfirms([]*AccountInvoiceConfirm{aic})
 	if err != nil {
 		return -1, err
 	}

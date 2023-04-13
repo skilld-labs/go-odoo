@@ -44,7 +44,7 @@ func (iar *IrActionsReport) Many2One() *Many2One {
 
 // CreateIrActionsReport creates a new ir.actions.report model and returns its id.
 func (c *Client) CreateIrActionsReport(iar *IrActionsReport) (int64, error) {
-	ids, err := c.Create(IrActionsReportModel, []interface{}{iar})
+	ids, err := c.CreateIrActionsReports([]*IrActionsReport{iar})
 	if err != nil {
 		return -1, err
 	}

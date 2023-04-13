@@ -32,7 +32,7 @@ func (acl *AccountCashboxLine) Many2One() *Many2One {
 
 // CreateAccountCashboxLine creates a new account.cashbox.line model and returns its id.
 func (c *Client) CreateAccountCashboxLine(acl *AccountCashboxLine) (int64, error) {
-	ids, err := c.Create(AccountCashboxLineModel, []interface{}{acl})
+	ids, err := c.CreateAccountCashboxLines([]*AccountCashboxLine{acl})
 	if err != nil {
 		return -1, err
 	}

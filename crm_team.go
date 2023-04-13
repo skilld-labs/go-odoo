@@ -80,7 +80,7 @@ func (ct *CrmTeam) Many2One() *Many2One {
 
 // CreateCrmTeam creates a new crm.team model and returns its id.
 func (c *Client) CreateCrmTeam(ct *CrmTeam) (int64, error) {
-	ids, err := c.Create(CrmTeamModel, []interface{}{ct})
+	ids, err := c.CreateCrmTeams([]*CrmTeam{ct})
 	if err != nil {
 		return -1, err
 	}

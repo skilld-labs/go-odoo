@@ -33,7 +33,7 @@ func (amlrw *AccountMoveLineReconcileWriteoff) Many2One() *Many2One {
 
 // CreateAccountMoveLineReconcileWriteoff creates a new account.move.line.reconcile.writeoff model and returns its id.
 func (c *Client) CreateAccountMoveLineReconcileWriteoff(amlrw *AccountMoveLineReconcileWriteoff) (int64, error) {
-	ids, err := c.Create(AccountMoveLineReconcileWriteoffModel, []interface{}{amlrw})
+	ids, err := c.CreateAccountMoveLineReconcileWriteoffs([]*AccountMoveLineReconcileWriteoff{amlrw})
 	if err != nil {
 		return -1, err
 	}

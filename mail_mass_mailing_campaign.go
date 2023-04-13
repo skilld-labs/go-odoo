@@ -52,7 +52,7 @@ func (mmc *MailMassMailingCampaign) Many2One() *Many2One {
 
 // CreateMailMassMailingCampaign creates a new mail.mass_mailing.campaign model and returns its id.
 func (c *Client) CreateMailMassMailingCampaign(mmc *MailMassMailingCampaign) (int64, error) {
-	ids, err := c.Create(MailMassMailingCampaignModel, []interface{}{mmc})
+	ids, err := c.CreateMailMassMailingCampaigns([]*MailMassMailingCampaign{mmc})
 	if err != nil {
 		return -1, err
 	}

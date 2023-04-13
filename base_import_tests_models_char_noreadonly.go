@@ -29,7 +29,7 @@ func (btmcn *BaseImportTestsModelsCharNoreadonly) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsCharNoreadonly creates a new base_import.tests.models.char.noreadonly model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharNoreadonly(btmcn *BaseImportTestsModelsCharNoreadonly) (int64, error) {
-	ids, err := c.Create(BaseImportTestsModelsCharNoreadonlyModel, []interface{}{btmcn})
+	ids, err := c.CreateBaseImportTestsModelsCharNoreadonlys([]*BaseImportTestsModelsCharNoreadonly{btmcn})
 	if err != nil {
 		return -1, err
 	}

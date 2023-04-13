@@ -152,7 +152,7 @@ func (rp *ResPartner) Many2One() *Many2One {
 
 // CreateResPartner creates a new res.partner model and returns its id.
 func (c *Client) CreateResPartner(rp *ResPartner) (int64, error) {
-	ids, err := c.Create(ResPartnerModel, []interface{}{rp})
+	ids, err := c.CreateResPartners([]*ResPartner{rp})
 	if err != nil {
 		return -1, err
 	}

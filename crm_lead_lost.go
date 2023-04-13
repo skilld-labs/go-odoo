@@ -29,7 +29,7 @@ func (cll *CrmLeadLost) Many2One() *Many2One {
 
 // CreateCrmLeadLost creates a new crm.lead.lost model and returns its id.
 func (c *Client) CreateCrmLeadLost(cll *CrmLeadLost) (int64, error) {
-	ids, err := c.Create(CrmLeadLostModel, []interface{}{cll})
+	ids, err := c.CreateCrmLeadLosts([]*CrmLeadLost{cll})
 	if err != nil {
 		return -1, err
 	}

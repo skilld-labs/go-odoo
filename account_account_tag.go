@@ -32,7 +32,7 @@ func (aat *AccountAccountTag) Many2One() *Many2One {
 
 // CreateAccountAccountTag creates a new account.account.tag model and returns its id.
 func (c *Client) CreateAccountAccountTag(aat *AccountAccountTag) (int64, error) {
-	ids, err := c.Create(AccountAccountTagModel, []interface{}{aat})
+	ids, err := c.CreateAccountAccountTags([]*AccountAccountTag{aat})
 	if err != nil {
 		return -1, err
 	}

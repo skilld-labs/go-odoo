@@ -37,7 +37,7 @@ func (imd *IrModelData) Many2One() *Many2One {
 
 // CreateIrModelData creates a new ir.model.data model and returns its id.
 func (c *Client) CreateIrModelData(imd *IrModelData) (int64, error) {
-	ids, err := c.Create(IrModelDataModel, []interface{}{imd})
+	ids, err := c.CreateIrModelDatas([]*IrModelData{imd})
 	if err != nil {
 		return -1, err
 	}

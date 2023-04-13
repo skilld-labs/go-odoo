@@ -31,7 +31,7 @@ func (cbi *CashBoxIn) Many2One() *Many2One {
 
 // CreateCashBoxIn creates a new cash.box.in model and returns its id.
 func (c *Client) CreateCashBoxIn(cbi *CashBoxIn) (int64, error) {
-	ids, err := c.Create(CashBoxInModel, []interface{}{cbi})
+	ids, err := c.CreateCashBoxIns([]*CashBoxIn{cbi})
 	if err != nil {
 		return -1, err
 	}

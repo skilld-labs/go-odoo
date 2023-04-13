@@ -28,7 +28,7 @@ func (absc *AccountBankStatementClosebalance) Many2One() *Many2One {
 
 // CreateAccountBankStatementClosebalance creates a new account.bank.statement.closebalance model and returns its id.
 func (c *Client) CreateAccountBankStatementClosebalance(absc *AccountBankStatementClosebalance) (int64, error) {
-	ids, err := c.Create(AccountBankStatementClosebalanceModel, []interface{}{absc})
+	ids, err := c.CreateAccountBankStatementClosebalances([]*AccountBankStatementClosebalance{absc})
 	if err != nil {
 		return -1, err
 	}

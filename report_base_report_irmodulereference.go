@@ -24,7 +24,7 @@ func (rbr *ReportBaseReportIrmodulereference) Many2One() *Many2One {
 
 // CreateReportBaseReportIrmodulereference creates a new report.base.report_irmodulereference model and returns its id.
 func (c *Client) CreateReportBaseReportIrmodulereference(rbr *ReportBaseReportIrmodulereference) (int64, error) {
-	ids, err := c.Create(ReportBaseReportIrmodulereferenceModel, []interface{}{rbr})
+	ids, err := c.CreateReportBaseReportIrmodulereferences([]*ReportBaseReportIrmodulereference{rbr})
 	if err != nil {
 		return -1, err
 	}

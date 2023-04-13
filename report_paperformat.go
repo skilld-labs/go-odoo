@@ -42,7 +42,7 @@ func (rp *ReportPaperformat) Many2One() *Many2One {
 
 // CreateReportPaperformat creates a new report.paperformat model and returns its id.
 func (c *Client) CreateReportPaperformat(rp *ReportPaperformat) (int64, error) {
-	ids, err := c.Create(ReportPaperformatModel, []interface{}{rp})
+	ids, err := c.CreateReportPaperformats([]*ReportPaperformat{rp})
 	if err != nil {
 		return -1, err
 	}

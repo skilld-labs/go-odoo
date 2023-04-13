@@ -32,7 +32,7 @@ func (isol *IrServerObjectLines) Many2One() *Many2One {
 
 // CreateIrServerObjectLines creates a new ir.server.object.lines model and returns its id.
 func (c *Client) CreateIrServerObjectLines(isol *IrServerObjectLines) (int64, error) {
-	ids, err := c.Create(IrServerObjectLinesModel, []interface{}{isol})
+	ids, err := c.CreateIrServerObjectLiness([]*IrServerObjectLines{isol})
 	if err != nil {
 		return -1, err
 	}

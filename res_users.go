@@ -178,7 +178,7 @@ func (ru *ResUsers) Many2One() *Many2One {
 
 // CreateResUsers creates a new res.users model and returns its id.
 func (c *Client) CreateResUsers(ru *ResUsers) (int64, error) {
-	ids, err := c.Create(ResUsersModel, []interface{}{ru})
+	ids, err := c.CreateResUserss([]*ResUsers{ru})
 	if err != nil {
 		return -1, err
 	}

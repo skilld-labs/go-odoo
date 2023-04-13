@@ -31,7 +31,7 @@ func (ia *IapAccount) Many2One() *Many2One {
 
 // CreateIapAccount creates a new iap.account model and returns its id.
 func (c *Client) CreateIapAccount(ia *IapAccount) (int64, error) {
-	ids, err := c.Create(IapAccountModel, []interface{}{ia})
+	ids, err := c.CreateIapAccounts([]*IapAccount{ia})
 	if err != nil {
 		return -1, err
 	}

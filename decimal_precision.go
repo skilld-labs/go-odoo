@@ -30,7 +30,7 @@ func (dp *DecimalPrecision) Many2One() *Many2One {
 
 // CreateDecimalPrecision creates a new decimal.precision model and returns its id.
 func (c *Client) CreateDecimalPrecision(dp *DecimalPrecision) (int64, error) {
-	ids, err := c.Create(DecimalPrecisionModel, []interface{}{dp})
+	ids, err := c.CreateDecimalPrecisions([]*DecimalPrecision{dp})
 	if err != nil {
 		return -1, err
 	}

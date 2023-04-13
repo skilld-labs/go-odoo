@@ -31,7 +31,7 @@ func (rcs *ResCountryState) Many2One() *Many2One {
 
 // CreateResCountryState creates a new res.country.state model and returns its id.
 func (c *Client) CreateResCountryState(rcs *ResCountryState) (int64, error) {
-	ids, err := c.Create(ResCountryStateModel, []interface{}{rcs})
+	ids, err := c.CreateResCountryStates([]*ResCountryState{rcs})
 	if err != nil {
 		return -1, err
 	}

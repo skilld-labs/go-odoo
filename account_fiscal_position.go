@@ -43,7 +43,7 @@ func (afp *AccountFiscalPosition) Many2One() *Many2One {
 
 // CreateAccountFiscalPosition creates a new account.fiscal.position model and returns its id.
 func (c *Client) CreateAccountFiscalPosition(afp *AccountFiscalPosition) (int64, error) {
-	ids, err := c.Create(AccountFiscalPositionModel, []interface{}{afp})
+	ids, err := c.CreateAccountFiscalPositions([]*AccountFiscalPosition{afp})
 	if err != nil {
 		return -1, err
 	}

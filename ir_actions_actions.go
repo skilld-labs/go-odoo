@@ -34,7 +34,7 @@ func (iaa *IrActionsActions) Many2One() *Many2One {
 
 // CreateIrActionsActions creates a new ir.actions.actions model and returns its id.
 func (c *Client) CreateIrActionsActions(iaa *IrActionsActions) (int64, error) {
-	ids, err := c.Create(IrActionsActionsModel, []interface{}{iaa})
+	ids, err := c.CreateIrActionsActionss([]*IrActionsActions{iaa})
 	if err != nil {
 		return -1, err
 	}

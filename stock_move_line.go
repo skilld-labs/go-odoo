@@ -54,7 +54,7 @@ func (sml *StockMoveLine) Many2One() *Many2One {
 
 // CreateStockMoveLine creates a new stock.move.line model and returns its id.
 func (c *Client) CreateStockMoveLine(sml *StockMoveLine) (int64, error) {
-	ids, err := c.Create(StockMoveLineModel, []interface{}{sml})
+	ids, err := c.CreateStockMoveLines([]*StockMoveLine{sml})
 	if err != nil {
 		return -1, err
 	}

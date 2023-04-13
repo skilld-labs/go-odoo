@@ -29,7 +29,7 @@ func (bmu *BaseModuleUpgrade) Many2One() *Many2One {
 
 // CreateBaseModuleUpgrade creates a new base.module.upgrade model and returns its id.
 func (c *Client) CreateBaseModuleUpgrade(bmu *BaseModuleUpgrade) (int64, error) {
-	ids, err := c.Create(BaseModuleUpgradeModel, []interface{}{bmu})
+	ids, err := c.CreateBaseModuleUpgrades([]*BaseModuleUpgrade{bmu})
 	if err != nil {
 		return -1, err
 	}

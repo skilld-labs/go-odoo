@@ -28,7 +28,7 @@ func (rul *ResUsersLog) Many2One() *Many2One {
 
 // CreateResUsersLog creates a new res.users.log model and returns its id.
 func (c *Client) CreateResUsersLog(rul *ResUsersLog) (int64, error) {
-	ids, err := c.Create(ResUsersLogModel, []interface{}{rul})
+	ids, err := c.CreateResUsersLogs([]*ResUsersLog{rul})
 	if err != nil {
 		return -1, err
 	}

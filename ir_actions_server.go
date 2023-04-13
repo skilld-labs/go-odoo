@@ -48,7 +48,7 @@ func (ias *IrActionsServer) Many2One() *Many2One {
 
 // CreateIrActionsServer creates a new ir.actions.server model and returns its id.
 func (c *Client) CreateIrActionsServer(ias *IrActionsServer) (int64, error) {
-	ids, err := c.Create(IrActionsServerModel, []interface{}{ias})
+	ids, err := c.CreateIrActionsServers([]*IrActionsServer{ias})
 	if err != nil {
 		return -1, err
 	}

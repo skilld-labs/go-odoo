@@ -33,7 +33,7 @@ func (bli *BaseLanguageImport) Many2One() *Many2One {
 
 // CreateBaseLanguageImport creates a new base.language.import model and returns its id.
 func (c *Client) CreateBaseLanguageImport(bli *BaseLanguageImport) (int64, error) {
-	ids, err := c.Create(BaseLanguageImportModel, []interface{}{bli})
+	ids, err := c.CreateBaseLanguageImports([]*BaseLanguageImport{bli})
 	if err != nil {
 		return -1, err
 	}

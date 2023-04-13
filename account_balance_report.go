@@ -34,7 +34,7 @@ func (abr *AccountBalanceReport) Many2One() *Many2One {
 
 // CreateAccountBalanceReport creates a new account.balance.report model and returns its id.
 func (c *Client) CreateAccountBalanceReport(abr *AccountBalanceReport) (int64, error) {
-	ids, err := c.Create(AccountBalanceReportModel, []interface{}{abr})
+	ids, err := c.CreateAccountBalanceReports([]*AccountBalanceReport{abr})
 	if err != nil {
 		return -1, err
 	}

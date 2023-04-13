@@ -56,7 +56,7 @@ func (aal *AccountAnalyticLine) Many2One() *Many2One {
 
 // CreateAccountAnalyticLine creates a new account.analytic.line model and returns its id.
 func (c *Client) CreateAccountAnalyticLine(aal *AccountAnalyticLine) (int64, error) {
-	ids, err := c.Create(AccountAnalyticLineModel, []interface{}{aal})
+	ids, err := c.CreateAccountAnalyticLines([]*AccountAnalyticLine{aal})
 	if err != nil {
 		return -1, err
 	}

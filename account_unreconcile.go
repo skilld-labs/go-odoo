@@ -28,7 +28,7 @@ func (au *AccountUnreconcile) Many2One() *Many2One {
 
 // CreateAccountUnreconcile creates a new account.unreconcile model and returns its id.
 func (c *Client) CreateAccountUnreconcile(au *AccountUnreconcile) (int64, error) {
-	ids, err := c.Create(AccountUnreconcileModel, []interface{}{au})
+	ids, err := c.CreateAccountUnreconciles([]*AccountUnreconcile{au})
 	if err != nil {
 		return -1, err
 	}

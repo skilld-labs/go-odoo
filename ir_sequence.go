@@ -41,7 +41,7 @@ func (is *IrSequence) Many2One() *Many2One {
 
 // CreateIrSequence creates a new ir.sequence model and returns its id.
 func (c *Client) CreateIrSequence(is *IrSequence) (int64, error) {
-	ids, err := c.Create(IrSequenceModel, []interface{}{is})
+	ids, err := c.CreateIrSequences([]*IrSequence{is})
 	if err != nil {
 		return -1, err
 	}

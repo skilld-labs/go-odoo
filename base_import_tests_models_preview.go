@@ -31,7 +31,7 @@ func (btmp *BaseImportTestsModelsPreview) Many2One() *Many2One {
 
 // CreateBaseImportTestsModelsPreview creates a new base_import.tests.models.preview model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsPreview(btmp *BaseImportTestsModelsPreview) (int64, error) {
-	ids, err := c.Create(BaseImportTestsModelsPreviewModel, []interface{}{btmp})
+	ids, err := c.CreateBaseImportTestsModelsPreviews([]*BaseImportTestsModelsPreview{btmp})
 	if err != nil {
 		return -1, err
 	}

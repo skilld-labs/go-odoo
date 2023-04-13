@@ -33,7 +33,7 @@ func (atr *AccountTaxReport) Many2One() *Many2One {
 
 // CreateAccountTaxReport creates a new account.tax.report model and returns its id.
 func (c *Client) CreateAccountTaxReport(atr *AccountTaxReport) (int64, error) {
-	ids, err := c.Create(AccountTaxReportModel, []interface{}{atr})
+	ids, err := c.CreateAccountTaxReports([]*AccountTaxReport{atr})
 	if err != nil {
 		return -1, err
 	}

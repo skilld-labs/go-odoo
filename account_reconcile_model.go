@@ -46,7 +46,7 @@ func (arm *AccountReconcileModel) Many2One() *Many2One {
 
 // CreateAccountReconcileModel creates a new account.reconcile.model model and returns its id.
 func (c *Client) CreateAccountReconcileModel(arm *AccountReconcileModel) (int64, error) {
-	ids, err := c.Create(AccountReconcileModelModel, []interface{}{arm})
+	ids, err := c.CreateAccountReconcileModels([]*AccountReconcileModel{arm})
 	if err != nil {
 		return -1, err
 	}

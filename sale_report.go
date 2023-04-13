@@ -52,7 +52,7 @@ func (sr *SaleReport) Many2One() *Many2One {
 
 // CreateSaleReport creates a new sale.report model and returns its id.
 func (c *Client) CreateSaleReport(sr *SaleReport) (int64, error) {
-	ids, err := c.Create(SaleReportModel, []interface{}{sr})
+	ids, err := c.CreateSaleReports([]*SaleReport{sr})
 	if err != nil {
 		return -1, err
 	}

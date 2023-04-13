@@ -32,7 +32,7 @@ func (imme *IrModuleModuleExclusion) Many2One() *Many2One {
 
 // CreateIrModuleModuleExclusion creates a new ir.module.module.exclusion model and returns its id.
 func (c *Client) CreateIrModuleModuleExclusion(imme *IrModuleModuleExclusion) (int64, error) {
-	ids, err := c.Create(IrModuleModuleExclusionModel, []interface{}{imme})
+	ids, err := c.CreateIrModuleModuleExclusions([]*IrModuleModuleExclusion{imme})
 	if err != nil {
 		return -1, err
 	}

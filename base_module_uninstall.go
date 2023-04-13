@@ -32,7 +32,7 @@ func (bmu *BaseModuleUninstall) Many2One() *Many2One {
 
 // CreateBaseModuleUninstall creates a new base.module.uninstall model and returns its id.
 func (c *Client) CreateBaseModuleUninstall(bmu *BaseModuleUninstall) (int64, error) {
-	ids, err := c.Create(BaseModuleUninstallModel, []interface{}{bmu})
+	ids, err := c.CreateBaseModuleUninstalls([]*BaseModuleUninstall{bmu})
 	if err != nil {
 		return -1, err
 	}

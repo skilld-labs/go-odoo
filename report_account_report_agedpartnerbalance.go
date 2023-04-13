@@ -24,7 +24,7 @@ func (rar *ReportAccountReportAgedpartnerbalance) Many2One() *Many2One {
 
 // CreateReportAccountReportAgedpartnerbalance creates a new report.account.report_agedpartnerbalance model and returns its id.
 func (c *Client) CreateReportAccountReportAgedpartnerbalance(rar *ReportAccountReportAgedpartnerbalance) (int64, error) {
-	ids, err := c.Create(ReportAccountReportAgedpartnerbalanceModel, []interface{}{rar})
+	ids, err := c.CreateReportAccountReportAgedpartnerbalances([]*ReportAccountReportAgedpartnerbalance{rar})
 	if err != nil {
 		return -1, err
 	}

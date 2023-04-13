@@ -24,7 +24,7 @@ func (iqfd *IrQwebFieldDate) Many2One() *Many2One {
 
 // CreateIrQwebFieldDate creates a new ir.qweb.field.date model and returns its id.
 func (c *Client) CreateIrQwebFieldDate(iqfd *IrQwebFieldDate) (int64, error) {
-	ids, err := c.Create(IrQwebFieldDateModel, []interface{}{iqfd})
+	ids, err := c.CreateIrQwebFieldDates([]*IrQwebFieldDate{iqfd})
 	if err != nil {
 		return -1, err
 	}

@@ -82,7 +82,7 @@ func (sp *StockPicking) Many2One() *Many2One {
 
 // CreateStockPicking creates a new stock.picking model and returns its id.
 func (c *Client) CreateStockPicking(sp *StockPicking) (int64, error) {
-	ids, err := c.Create(StockPickingModel, []interface{}{sp})
+	ids, err := c.CreateStockPickings([]*StockPicking{sp})
 	if err != nil {
 		return -1, err
 	}

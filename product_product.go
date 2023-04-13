@@ -140,7 +140,7 @@ func (pp *ProductProduct) Many2One() *Many2One {
 
 // CreateProductProduct creates a new product.product model and returns its id.
 func (c *Client) CreateProductProduct(pp *ProductProduct) (int64, error) {
-	ids, err := c.Create(ProductProductModel, []interface{}{pp})
+	ids, err := c.CreateProductProducts([]*ProductProduct{pp})
 	if err != nil {
 		return -1, err
 	}

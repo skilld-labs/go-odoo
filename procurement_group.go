@@ -32,7 +32,7 @@ func (pg *ProcurementGroup) Many2One() *Many2One {
 
 // CreateProcurementGroup creates a new procurement.group model and returns its id.
 func (c *Client) CreateProcurementGroup(pg *ProcurementGroup) (int64, error) {
-	ids, err := c.Create(ProcurementGroupModel, []interface{}{pg})
+	ids, err := c.CreateProcurementGroups([]*ProcurementGroup{pg})
 	if err != nil {
 		return -1, err
 	}

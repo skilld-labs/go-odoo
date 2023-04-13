@@ -44,7 +44,7 @@ func (si *StockInventory) Many2One() *Many2One {
 
 // CreateStockInventory creates a new stock.inventory model and returns its id.
 func (c *Client) CreateStockInventory(si *StockInventory) (int64, error) {
-	ids, err := c.Create(StockInventoryModel, []interface{}{si})
+	ids, err := c.CreateStockInventorys([]*StockInventory{si})
 	if err != nil {
 		return -1, err
 	}

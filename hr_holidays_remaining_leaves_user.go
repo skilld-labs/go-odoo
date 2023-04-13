@@ -28,7 +28,7 @@ func (hhrlu *HrHolidaysRemainingLeavesUser) Many2One() *Many2One {
 
 // CreateHrHolidaysRemainingLeavesUser creates a new hr.holidays.remaining.leaves.user model and returns its id.
 func (c *Client) CreateHrHolidaysRemainingLeavesUser(hhrlu *HrHolidaysRemainingLeavesUser) (int64, error) {
-	ids, err := c.Create(HrHolidaysRemainingLeavesUserModel, []interface{}{hhrlu})
+	ids, err := c.CreateHrHolidaysRemainingLeavesUsers([]*HrHolidaysRemainingLeavesUser{hhrlu})
 	if err != nil {
 		return -1, err
 	}

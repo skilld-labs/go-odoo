@@ -32,7 +32,7 @@ func (sfps *StockFixedPutawayStrat) Many2One() *Many2One {
 
 // CreateStockFixedPutawayStrat creates a new stock.fixed.putaway.strat model and returns its id.
 func (c *Client) CreateStockFixedPutawayStrat(sfps *StockFixedPutawayStrat) (int64, error) {
-	ids, err := c.Create(StockFixedPutawayStratModel, []interface{}{sfps})
+	ids, err := c.CreateStockFixedPutawayStrats([]*StockFixedPutawayStrat{sfps})
 	if err != nil {
 		return -1, err
 	}

@@ -24,7 +24,7 @@ func (b *Base) Many2One() *Many2One {
 
 // CreateBase creates a new base model and returns its id.
 func (c *Client) CreateBase(b *Base) (int64, error) {
-	ids, err := c.Create(BaseModel, []interface{}{b})
+	ids, err := c.CreateBases([]*Base{b})
 	if err != nil {
 		return -1, err
 	}

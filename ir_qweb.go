@@ -24,7 +24,7 @@ func (iq *IrQweb) Many2One() *Many2One {
 
 // CreateIrQweb creates a new ir.qweb model and returns its id.
 func (c *Client) CreateIrQweb(iq *IrQweb) (int64, error) {
-	ids, err := c.Create(IrQwebModel, []interface{}{iq})
+	ids, err := c.CreateIrQwebs([]*IrQweb{iq})
 	if err != nil {
 		return -1, err
 	}

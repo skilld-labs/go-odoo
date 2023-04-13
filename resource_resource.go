@@ -35,7 +35,7 @@ func (rr *ResourceResource) Many2One() *Many2One {
 
 // CreateResourceResource creates a new resource.resource model and returns its id.
 func (c *Client) CreateResourceResource(rr *ResourceResource) (int64, error) {
-	ids, err := c.Create(ResourceResourceModel, []interface{}{rr})
+	ids, err := c.CreateResourceResources([]*ResourceResource{rr})
 	if err != nil {
 		return -1, err
 	}

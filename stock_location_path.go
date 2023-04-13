@@ -41,7 +41,7 @@ func (slp *StockLocationPath) Many2One() *Many2One {
 
 // CreateStockLocationPath creates a new stock.location.path model and returns its id.
 func (c *Client) CreateStockLocationPath(slp *StockLocationPath) (int64, error) {
-	ids, err := c.Create(StockLocationPathModel, []interface{}{slp})
+	ids, err := c.CreateStockLocationPaths([]*StockLocationPath{slp})
 	if err != nil {
 		return -1, err
 	}

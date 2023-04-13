@@ -25,7 +25,7 @@ func (bb *BarcodesBarcodeEventsMixin) Many2One() *Many2One {
 
 // CreateBarcodesBarcodeEventsMixin creates a new barcodes.barcode_events_mixin model and returns its id.
 func (c *Client) CreateBarcodesBarcodeEventsMixin(bb *BarcodesBarcodeEventsMixin) (int64, error) {
-	ids, err := c.Create(BarcodesBarcodeEventsMixinModel, []interface{}{bb})
+	ids, err := c.CreateBarcodesBarcodeEventsMixins([]*BarcodesBarcodeEventsMixin{bb})
 	if err != nil {
 		return -1, err
 	}

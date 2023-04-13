@@ -55,7 +55,7 @@ func (ic *IrCron) Many2One() *Many2One {
 
 // CreateIrCron creates a new ir.cron model and returns its id.
 func (c *Client) CreateIrCron(ic *IrCron) (int64, error) {
-	ids, err := c.Create(IrCronModel, []interface{}{ic})
+	ids, err := c.CreateIrCrons([]*IrCron{ic})
 	if err != nil {
 		return -1, err
 	}

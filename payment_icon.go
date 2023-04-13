@@ -32,7 +32,7 @@ func (pi *PaymentIcon) Many2One() *Many2One {
 
 // CreatePaymentIcon creates a new payment.icon model and returns its id.
 func (c *Client) CreatePaymentIcon(pi *PaymentIcon) (int64, error) {
-	ids, err := c.Create(PaymentIconModel, []interface{}{pi})
+	ids, err := c.CreatePaymentIcons([]*PaymentIcon{pi})
 	if err != nil {
 		return -1, err
 	}

@@ -56,7 +56,7 @@ func (sw *StockWarehouse) Many2One() *Many2One {
 
 // CreateStockWarehouse creates a new stock.warehouse model and returns its id.
 func (c *Client) CreateStockWarehouse(sw *StockWarehouse) (int64, error) {
-	ids, err := c.Create(StockWarehouseModel, []interface{}{sw})
+	ids, err := c.CreateStockWarehouses([]*StockWarehouse{sw})
 	if err != nil {
 		return -1, err
 	}

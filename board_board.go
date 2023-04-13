@@ -24,7 +24,7 @@ func (bb *BoardBoard) Many2One() *Many2One {
 
 // CreateBoardBoard creates a new board.board model and returns its id.
 func (c *Client) CreateBoardBoard(bb *BoardBoard) (int64, error) {
-	ids, err := c.Create(BoardBoardModel, []interface{}{bb})
+	ids, err := c.CreateBoardBoards([]*BoardBoard{bb})
 	if err != nil {
 		return -1, err
 	}

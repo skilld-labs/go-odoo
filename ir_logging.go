@@ -36,7 +36,7 @@ func (il *IrLogging) Many2One() *Many2One {
 
 // CreateIrLogging creates a new ir.logging model and returns its id.
 func (c *Client) CreateIrLogging(il *IrLogging) (int64, error) {
-	ids, err := c.Create(IrLoggingModel, []interface{}{il})
+	ids, err := c.CreateIrLoggings([]*IrLogging{il})
 	if err != nil {
 		return -1, err
 	}

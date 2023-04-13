@@ -24,7 +24,7 @@ func (fam *FormatAddressMixin) Many2One() *Many2One {
 
 // CreateFormatAddressMixin creates a new format.address.mixin model and returns its id.
 func (c *Client) CreateFormatAddressMixin(fam *FormatAddressMixin) (int64, error) {
-	ids, err := c.Create(FormatAddressMixinModel, []interface{}{fam})
+	ids, err := c.CreateFormatAddressMixins([]*FormatAddressMixin{fam})
 	if err != nil {
 		return -1, err
 	}

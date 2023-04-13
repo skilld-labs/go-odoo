@@ -32,7 +32,7 @@ func (rt *ResourceTest) Many2One() *Many2One {
 
 // CreateResourceTest creates a new resource.test model and returns its id.
 func (c *Client) CreateResourceTest(rt *ResourceTest) (int64, error) {
-	ids, err := c.Create(ResourceTestModel, []interface{}{rt})
+	ids, err := c.CreateResourceTests([]*ResourceTest{rt})
 	if err != nil {
 		return -1, err
 	}

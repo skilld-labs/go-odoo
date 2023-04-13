@@ -24,7 +24,7 @@ func (pc *PublisherWarrantyContract) Many2One() *Many2One {
 
 // CreatePublisherWarrantyContract creates a new publisher_warranty.contract model and returns its id.
 func (c *Client) CreatePublisherWarrantyContract(pc *PublisherWarrantyContract) (int64, error) {
-	ids, err := c.Create(PublisherWarrantyContractModel, []interface{}{pc})
+	ids, err := c.CreatePublisherWarrantyContracts([]*PublisherWarrantyContract{pc})
 	if err != nil {
 		return -1, err
 	}

@@ -126,7 +126,7 @@ func (pt *ProductTemplate) Many2One() *Many2One {
 
 // CreateProductTemplate creates a new product.template model and returns its id.
 func (c *Client) CreateProductTemplate(pt *ProductTemplate) (int64, error) {
-	ids, err := c.Create(ProductTemplateModel, []interface{}{pt})
+	ids, err := c.CreateProductTemplates([]*ProductTemplate{pt})
 	if err != nil {
 		return -1, err
 	}

@@ -100,7 +100,7 @@ func (cl *CrmLead) Many2One() *Many2One {
 
 // CreateCrmLead creates a new crm.lead model and returns its id.
 func (c *Client) CreateCrmLead(cl *CrmLead) (int64, error) {
-	ids, err := c.Create(CrmLeadModel, []interface{}{cl})
+	ids, err := c.CreateCrmLeads([]*CrmLead{cl})
 	if err != nil {
 		return -1, err
 	}

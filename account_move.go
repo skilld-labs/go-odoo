@@ -43,7 +43,7 @@ func (am *AccountMove) Many2One() *Many2One {
 
 // CreateAccountMove creates a new account.move model and returns its id.
 func (c *Client) CreateAccountMove(am *AccountMove) (int64, error) {
-	ids, err := c.Create(AccountMoveModel, []interface{}{am})
+	ids, err := c.CreateAccountMoves([]*AccountMove{am})
 	if err != nil {
 		return -1, err
 	}

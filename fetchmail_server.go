@@ -46,7 +46,7 @@ func (fs *FetchmailServer) Many2One() *Many2One {
 
 // CreateFetchmailServer creates a new fetchmail.server model and returns its id.
 func (c *Client) CreateFetchmailServer(fs *FetchmailServer) (int64, error) {
-	ids, err := c.Create(FetchmailServerModel, []interface{}{fs})
+	ids, err := c.CreateFetchmailServers([]*FetchmailServer{fs})
 	if err != nil {
 		return -1, err
 	}

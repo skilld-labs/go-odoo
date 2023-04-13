@@ -51,7 +51,7 @@ func (mt *MailTest) Many2One() *Many2One {
 
 // CreateMailTest creates a new mail.test model and returns its id.
 func (c *Client) CreateMailTest(mt *MailTest) (int64, error) {
-	ids, err := c.Create(MailTestModel, []interface{}{mt})
+	ids, err := c.CreateMailTests([]*MailTest{mt})
 	if err != nil {
 		return -1, err
 	}

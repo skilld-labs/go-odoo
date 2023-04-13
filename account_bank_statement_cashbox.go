@@ -29,7 +29,7 @@ func (absc *AccountBankStatementCashbox) Many2One() *Many2One {
 
 // CreateAccountBankStatementCashbox creates a new account.bank.statement.cashbox model and returns its id.
 func (c *Client) CreateAccountBankStatementCashbox(absc *AccountBankStatementCashbox) (int64, error) {
-	ids, err := c.Create(AccountBankStatementCashboxModel, []interface{}{absc})
+	ids, err := c.CreateAccountBankStatementCashboxs([]*AccountBankStatementCashbox{absc})
 	if err != nil {
 		return -1, err
 	}

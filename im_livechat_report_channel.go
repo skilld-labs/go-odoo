@@ -35,7 +35,7 @@ func (irc *ImLivechatReportChannel) Many2One() *Many2One {
 
 // CreateImLivechatReportChannel creates a new im_livechat.report.channel model and returns its id.
 func (c *Client) CreateImLivechatReportChannel(irc *ImLivechatReportChannel) (int64, error) {
-	ids, err := c.Create(ImLivechatReportChannelModel, []interface{}{irc})
+	ids, err := c.CreateImLivechatReportChannels([]*ImLivechatReportChannel{irc})
 	if err != nil {
 		return -1, err
 	}

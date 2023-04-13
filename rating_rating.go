@@ -45,7 +45,7 @@ func (rr *RatingRating) Many2One() *Many2One {
 
 // CreateRatingRating creates a new rating.rating model and returns its id.
 func (c *Client) CreateRatingRating(rr *RatingRating) (int64, error) {
-	ids, err := c.Create(RatingRatingModel, []interface{}{rr})
+	ids, err := c.CreateRatingRatings([]*RatingRating{rr})
 	if err != nil {
 		return -1, err
 	}

@@ -85,7 +85,7 @@ func (pp *ProjectProject) Many2One() *Many2One {
 
 // CreateProjectProject creates a new project.project model and returns its id.
 func (c *Client) CreateProjectProject(pp *ProjectProject) (int64, error) {
-	ids, err := c.Create(ProjectProjectModel, []interface{}{pp})
+	ids, err := c.CreateProjectProjects([]*ProjectProject{pp})
 	if err != nil {
 		return -1, err
 	}

@@ -31,7 +31,7 @@ func (si *StockIncoterms) Many2One() *Many2One {
 
 // CreateStockIncoterms creates a new stock.incoterms model and returns its id.
 func (c *Client) CreateStockIncoterms(si *StockIncoterms) (int64, error) {
-	ids, err := c.Create(StockIncotermsModel, []interface{}{si})
+	ids, err := c.CreateStockIncotermss([]*StockIncoterms{si})
 	if err != nil {
 		return -1, err
 	}

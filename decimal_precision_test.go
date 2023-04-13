@@ -31,7 +31,7 @@ func (dpt *DecimalPrecisionTest) Many2One() *Many2One {
 
 // CreateDecimalPrecisionTest creates a new decimal.precision.test model and returns its id.
 func (c *Client) CreateDecimalPrecisionTest(dpt *DecimalPrecisionTest) (int64, error) {
-	ids, err := c.Create(DecimalPrecisionTestModel, []interface{}{dpt})
+	ids, err := c.CreateDecimalPrecisionTests([]*DecimalPrecisionTest{dpt})
 	if err != nil {
 		return -1, err
 	}

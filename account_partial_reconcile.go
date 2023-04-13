@@ -37,7 +37,7 @@ func (apr *AccountPartialReconcile) Many2One() *Many2One {
 
 // CreateAccountPartialReconcile creates a new account.partial.reconcile model and returns its id.
 func (c *Client) CreateAccountPartialReconcile(apr *AccountPartialReconcile) (int64, error) {
-	ids, err := c.Create(AccountPartialReconcileModel, []interface{}{apr})
+	ids, err := c.CreateAccountPartialReconciles([]*AccountPartialReconcile{apr})
 	if err != nil {
 		return -1, err
 	}

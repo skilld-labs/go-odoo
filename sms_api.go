@@ -24,7 +24,7 @@ func (sa *SmsApi) Many2One() *Many2One {
 
 // CreateSmsApi creates a new sms.api model and returns its id.
 func (c *Client) CreateSmsApi(sa *SmsApi) (int64, error) {
-	ids, err := c.Create(SmsApiModel, []interface{}{sa})
+	ids, err := c.CreateSmsApis([]*SmsApi{sa})
 	if err != nil {
 		return -1, err
 	}

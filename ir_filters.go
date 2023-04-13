@@ -37,7 +37,7 @@ func (IF *IrFilters) Many2One() *Many2One {
 
 // CreateIrFilters creates a new ir.filters model and returns its id.
 func (c *Client) CreateIrFilters(IF *IrFilters) (int64, error) {
-	ids, err := c.Create(IrFiltersModel, []interface{}{IF})
+	ids, err := c.CreateIrFilterss([]*IrFilters{IF})
 	if err != nil {
 		return -1, err
 	}

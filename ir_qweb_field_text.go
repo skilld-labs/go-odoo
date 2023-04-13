@@ -24,7 +24,7 @@ func (iqft *IrQwebFieldText) Many2One() *Many2One {
 
 // CreateIrQwebFieldText creates a new ir.qweb.field.text model and returns its id.
 func (c *Client) CreateIrQwebFieldText(iqft *IrQwebFieldText) (int64, error) {
-	ids, err := c.Create(IrQwebFieldTextModel, []interface{}{iqft})
+	ids, err := c.CreateIrQwebFieldTexts([]*IrQwebFieldText{iqft})
 	if err != nil {
 		return -1, err
 	}

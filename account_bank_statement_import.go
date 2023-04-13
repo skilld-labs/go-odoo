@@ -30,7 +30,7 @@ func (absi *AccountBankStatementImport) Many2One() *Many2One {
 
 // CreateAccountBankStatementImport creates a new account.bank.statement.import model and returns its id.
 func (c *Client) CreateAccountBankStatementImport(absi *AccountBankStatementImport) (int64, error) {
-	ids, err := c.Create(AccountBankStatementImportModel, []interface{}{absi})
+	ids, err := c.CreateAccountBankStatementImports([]*AccountBankStatementImport{absi})
 	if err != nil {
 		return -1, err
 	}

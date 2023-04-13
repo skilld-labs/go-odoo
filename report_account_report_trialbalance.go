@@ -24,7 +24,7 @@ func (rar *ReportAccountReportTrialbalance) Many2One() *Many2One {
 
 // CreateReportAccountReportTrialbalance creates a new report.account.report_trialbalance model and returns its id.
 func (c *Client) CreateReportAccountReportTrialbalance(rar *ReportAccountReportTrialbalance) (int64, error) {
-	ids, err := c.Create(ReportAccountReportTrialbalanceModel, []interface{}{rar})
+	ids, err := c.CreateReportAccountReportTrialbalances([]*ReportAccountReportTrialbalance{rar})
 	if err != nil {
 		return -1, err
 	}

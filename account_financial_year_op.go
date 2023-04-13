@@ -34,7 +34,7 @@ func (afyo *AccountFinancialYearOp) Many2One() *Many2One {
 
 // CreateAccountFinancialYearOp creates a new account.financial.year.op model and returns its id.
 func (c *Client) CreateAccountFinancialYearOp(afyo *AccountFinancialYearOp) (int64, error) {
-	ids, err := c.Create(AccountFinancialYearOpModel, []interface{}{afyo})
+	ids, err := c.CreateAccountFinancialYearOps([]*AccountFinancialYearOp{afyo})
 	if err != nil {
 		return -1, err
 	}

@@ -30,7 +30,7 @@ func (clr *CrmLostReason) Many2One() *Many2One {
 
 // CreateCrmLostReason creates a new crm.lost.reason model and returns its id.
 func (c *Client) CreateCrmLostReason(clr *CrmLostReason) (int64, error) {
-	ids, err := c.Create(CrmLostReasonModel, []interface{}{clr})
+	ids, err := c.CreateCrmLostReasons([]*CrmLostReason{clr})
 	if err != nil {
 		return -1, err
 	}

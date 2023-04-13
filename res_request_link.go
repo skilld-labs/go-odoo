@@ -31,7 +31,7 @@ func (rrl *ResRequestLink) Many2One() *Many2One {
 
 // CreateResRequestLink creates a new res.request.link model and returns its id.
 func (c *Client) CreateResRequestLink(rrl *ResRequestLink) (int64, error) {
-	ids, err := c.Create(ResRequestLinkModel, []interface{}{rrl})
+	ids, err := c.CreateResRequestLinks([]*ResRequestLink{rrl})
 	if err != nil {
 		return -1, err
 	}

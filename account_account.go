@@ -43,7 +43,7 @@ func (aa *AccountAccount) Many2One() *Many2One {
 
 // CreateAccountAccount creates a new account.account model and returns its id.
 func (c *Client) CreateAccountAccount(aa *AccountAccount) (int64, error) {
-	ids, err := c.Create(AccountAccountModel, []interface{}{aa})
+	ids, err := c.CreateAccountAccounts([]*AccountAccount{aa})
 	if err != nil {
 		return -1, err
 	}
