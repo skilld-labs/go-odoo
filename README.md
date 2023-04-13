@@ -94,6 +94,7 @@ It covers the most common usage and contains for each models those functions :
 ### Create
 ```go
 func (c *Client) CreateCrmLead(cl *CrmLead) (int64, error) {}
+func (c *Client) CreateCrmLeads(cls []*CrmLead) ([]int64, error) {}
 ```
 
 ### Update
@@ -196,7 +197,7 @@ These functions give you more flexibility but less usability. We recommand you t
 Here are available low level functions :
 
 ```go
-func (c *Client) Create(model string, values interface{}) (int64, error) {}
+func (c *Client) Create(model string, values []interface{}) ([]int64, error) {}
 func (c *Client) Update(model string, ids []int64, values interface{}) error {}
 func (c *Client) Delete(model string, ids []int64) error {}
 func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, elem interface{}) error {}
