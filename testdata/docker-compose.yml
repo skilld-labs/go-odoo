@@ -1,11 +1,12 @@
-version: '2'
+version: '3.9'
 services:
   db:
-    image: postgres:12
+    image: postgres:10-alpine
+    restart: always
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=odoodb
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
       - PGDATA=/var/lib/postgresql/data/pgdata
@@ -18,10 +19,14 @@ services:
       - db
     ports:
       - "8091:8069"
+    environment:
+      - DB_USER=odoo
+      - DB_PASSWORD=odoo
+      - DB_NAME=odoodb
     volumes:
       - "./data:/var/lib/odoo"
       - "./config:/etc/odoo"
-    command: odoo --dev=reload -d xiatech_test -i stock,sale_management
+    command: odoo -d odoodb -i base,stock,sale_management
 
 volumes:
   odoo-odoo14-data:

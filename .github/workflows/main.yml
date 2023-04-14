@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: '*'
 
-name: Lint
+name: Lint & Test
 jobs:
   lint:
     name: Lint code
@@ -36,3 +36,29 @@ jobs:
         with:
           version: v1.51
           args: --timeout=3m
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20.1'
+      - name: Install Task
+        uses: arduino/setup-task@v1
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pre-Authenticate
+        run: git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+
+      - name: Authenticate
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.XIA_MACHINE_SSH_KEY }}
+          name: id_ed25519
+          known_hosts: unnecessary
+
+      - name: Unit tests
+        run: task test

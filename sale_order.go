@@ -1,12 +1,17 @@
 package odoo
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/xiatechs/XFuze/pkg/importer/conversion/converter"
+)
 
 // SaleOrderModelID is the model identifier we use to fetch a SaleOrder from Odoo.
 const SaleOrderModelID = "sale.order"
 
 // SaleOrder represents a sales order within Odoo.
-// Required fields when creating: PartnerID, PriceListID, CompanyID, PartnerInvoiceID, DateOrder
+// Required fields when creating: PartnerID & DateOrder. PartnerID is the customer this order is for, they must
+// already be stored within Odoo.
 type SaleOrder struct {
 	ID                       int             `json:"id"`
 	AuthorizedTransactionIds []interface{}   `json:"authorized_transaction_ids"`
@@ -66,6 +71,23 @@ func (c *Client) GetSalesOrder(id int) ([]byte, error) {
 	}
 
 	return json.Marshal(saleOrder)
+}
+
+// CreateSalesOrder creates a new sales order within Odoo
+func (c *Client) CreateSalesOrder(order []byte) (int, error) {
+	conv := converter.SelectFormat("json")
+
+	mapConversion, err := conv.BytesToMap(order)
+	if err != nil {
+		return 0, nil
+	}
+
+	saleOrderID, err := c.Create(SaleOrderModelID, mapConversion[0])
+	if err != nil {
+		return 0, err
+	}
+
+	return saleOrderID, nil
 }
 
 // OrderLineItem is a product that gets added to an order.
