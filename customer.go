@@ -2,9 +2,14 @@ package odoo
 
 import (
 	"encoding/json"
+	"fmt"
+	"log"
 
 	"github.com/xiatechs/XFuze/pkg/importer/conversion/converter"
 )
+
+// CustomerNotFound is returned if we don't find the customer within Odoo.
+var CustomerNotFound = fmt.Errorf("customer not found")
 
 // Customer represents a customer within Odoo.
 type Customer struct {
@@ -27,7 +32,7 @@ type Customer struct {
 	CompanyName                   interface{}   `json:"company_name"`
 	Type                          string        `json:"type"`
 	Street                        string        `json:"street"`
-	Street2                       string        `json:"street2"`
+	Street2                       interface{}   `json:"street2"`
 	City                          string        `json:"city"`
 	StateId                       interface{}   `json:"state_id"`
 	Zip                           string        `json:"zip"`
@@ -85,6 +90,34 @@ func (c *Client) GetCustomer(id int) ([]byte, error) {
 	}
 
 	return json.Marshal(cust)
+}
+
+// GetCustomerFromEmail gets a customer via an email address. If the customer isn't found we return a
+// NotFound error.
+func (c *Client) GetCustomerFromEmail(email string) (*Customer, error) {
+	log.Printf("looking for customer with email %s", email)
+
+	resp, err := c.SearchRead("res.partner", List{List{"email", "ilike", email}}, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(resp) == 0 {
+		return nil, CustomerNotFound
+	}
+
+	bytes, err := json.Marshal(resp[0])
+	if err != nil {
+		return nil, err
+	}
+
+	var customer Customer
+	err = json.Unmarshal(bytes, &customer)
+	if err != nil {
+		return nil, err
+	}
+
+	return &customer, nil
 }
 
 // CreateCustomer creates a new customer within Odoo.
