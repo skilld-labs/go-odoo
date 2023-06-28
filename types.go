@@ -165,28 +165,54 @@ func (r *Relation) UpdateRecord(record int64, values interface{}) {
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
 func (r *Relation) DeleteRecord(record int64) {
 	r.v = append(r.v, newTuple(2, record, 0))
+	r.ids = []int64{}
 }
 
 // RemoveRecord is an helper to remove an existing record of one2many or many2many.
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
 func (r *Relation) RemoveRecord(record int64) {
 	r.v = append(r.v, newTuple(3, record, 0))
+	r.ids = []int64{}
 }
 
 // AddRecord is an helper to add an existing record of one2many or many2many.
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
 func (r *Relation) AddRecord(record int64) {
 	r.v = append(r.v, newTuple(4, record, 0))
+	r.ids = addRecord(r.ids, record)
 }
 
 // RemoveAllRecords is an helper to remove all records of one2many or many2many.
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
 func (r *Relation) RemoveAllRecords() {
 	r.v = append(r.v, newTuple(5, 0, 0))
+	r.ids = []int64{}
 }
 
 // ReplaceAllRecords is an helper to replace all records of one2many or many2many.
 // https://www.odoo.com/documentation/13.0/reference/orm.html#odoo.models.Model.write
 func (r *Relation) ReplaceAllRecords(newRecords []int64) {
 	r.v = append(r.v, newTuple(6, 0, newRecords))
+	r.ids = newRecords
+}
+
+func addRecord(records []int64, record int64) []int64 {
+	for _, r := range records {
+		if r == record {
+			return records
+		}
+	}
+	return append(records, record)
+}
+
+func removeRecord(records []int64, record int64) []int64 {
+	newRecords := make([]int64, len(records)-1)
+	for idx, r := range records {
+		if r == record {
+			copy(newRecords, records[0:idx])
+			copy(newRecords[idx:], records[idx+1:])
+			return newRecords
+		}
+	}
+	return records
 }
