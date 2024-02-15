@@ -4,15 +4,18 @@ package odoo
 
 import (
 	"errors"
+	"fmt"
 	"log"
 
 	"github.com/kolo/xmlrpc"
 )
 
 var (
-	errClientConfigurationInvalid = errors.New("client configuration is invalid")
-	errClientNotAuthenticate      = errors.New("client is not authenticate")
-	errClientAuthentication       = errors.New("client authentication error: please verify client configuration")
+	ErrClientConfigurationInvalid = errors.New("client configuration is invalid")
+	ErrClientNotAuthenticate      = errors.New("client is not authenticate")
+	ErrClientAuthentication       = errors.New("client authentication error: please verify client configuration")
+	ErrNotFound                   = errors.New("not found")
+	ErrPartiallyFound             = errors.New("partially found")
 )
 
 // ClientConfig is the configuration to create a new *Client by givin connection infomations.
@@ -42,7 +45,7 @@ type Client struct {
 // NewClient creates a new *Client.
 func NewClient(cfg *ClientConfig) (*Client, error) {
 	if !cfg.valid() {
-		return nil, errClientConfigurationInvalid
+		return nil, ErrClientConfigurationInvalid
 	}
 	c := &Client{
 		cfg:    cfg,
@@ -279,6 +282,10 @@ func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, 
 	if err != nil {
 		return err
 	}
+	respLen := len(resp.([]interface{}))
+	if respLen == 0 {
+		return fmt.Errorf("%s model was %w with criteria %v and options %v", model, ErrNotFound, criteria, options)
+	}
 	if err := convertFromDynamicToStatic(resp, elem); err != nil {
 		return err
 	}
@@ -292,8 +299,15 @@ func (c *Client) Read(model string, ids []int64, options *Options, elem interfac
 	if err != nil {
 		return err
 	}
+	respLen := len(resp.([]interface{}))
+	if respLen == 0 {
+		return fmt.Errorf("%s ids %v was %w with options %v", model, ids, ErrNotFound, options)
+	}
 	if err := convertFromDynamicToStatic(resp, elem); err != nil {
 		return err
+	}
+	if respLen != len(ids) {
+		return fmt.Errorf("%s ids %v was %w with options %v", model, ids, ErrPartiallyFound, options)
 	}
 	return nil
 }
@@ -314,6 +328,10 @@ func (c *Client) Search(model string, criteria *Criteria, options *Options) ([]i
 	resp, err := c.ExecuteKw("search", model, argsFromCriteria(criteria), options)
 	if err != nil {
 		return []int64{}, err
+	}
+	respLen := len(resp.([]interface{}))
+	if respLen == 0 {
+		return []int64{}, fmt.Errorf("%s model was %w with criteria %v and options %v", model, ErrNotFound, criteria, options)
 	}
 	return sliceInterfaceToInt64Slice(resp.([]interface{})), nil
 }
@@ -348,7 +366,7 @@ func (c *Client) authenticate() error {
 			return err
 		}
 		if _, ok := resp.(bool); ok {
-			return errClientAuthentication
+			return ErrClientAuthentication
 		}
 		c.uid = resp.(int64)
 		c.auth = true
@@ -407,7 +425,7 @@ func (c *Client) loadXmlrpcClient(x *xmlrpc.Client, path string) error {
 
 func (c *Client) checkForAuthentication() error {
 	if !c.isAuthenticate() {
-		return errClientNotAuthenticate
+		return ErrClientNotAuthenticate
 	}
 	return nil
 }
