@@ -11,31 +11,8 @@ An Odoo API client enabling Go programs to interact with Odoo in a simple and un
 
 ### Generate your models
 
-**Note: Generating models require to follow instructions in GOPATH mode. Refactoring for go modules will come soon.**
-
-Define the environment variables to be able to connect to your odoo instance :
-
-(Don't set `ODOO_MODELS` if you want all your models to be generated)
-
-```
-export ODOO_ADMIN=admin // ensure the user has sufficient permissions to generate models
-export ODOO_PASSWORD=password
-export ODOO_DATABASE=odoo
-export ODOO_URL=http://localhost:8069
-export ODOO_MODELS="crm.lead"
-```
-
-`ODOO_REPO_PATH` is the path where the repository will be downloaded (by default its GOPATH):
-```
-export ODOO_REPO_PATH=$(echo $GOPATH | awk -F ':' '{ print $1 }')/src/github.com/skilld-labs/go-odoo
-```
-
-Download library and generate models :
-```
-GO111MODULE="off" go get github.com/skilld-labs/go-odoo
-cd $ODOO_REPO_PATH
-ls | grep -v "conversion.go\|generator\|go.mod\|go-odoo-generator\|go.sum\|ir_model_fields.go\|ir_model.go\|LICENSE\|odoo.go\|README.md\|types.go\|version.go" // keep only go-odoo core files
-GO111MODULE="off" go generate
+```bash
+./generator/generator -u admin_name -p admin_password -d database_name -o /the/directory/you/want/the/files/to/be/generated/in --url http://localhost:8069 -t ./generator/cmd/tmpl/model.tmpl -m crm.lead,res.users
 ```
 
 That's it ! Your models have been generated !
@@ -67,9 +44,9 @@ import (
 
 func main() {
 	c, err := odoo.NewClient(&odoo.ClientConfig{
-		Admin:    "admin",
-		Password: "password",
-		Database: "odoo",
+		Admin:    "admin_name",
+		Password: "admin_password",
+		Database: "database_name",
 		URL:      "http://localhost:8069",
 	})
 	if err != nil {

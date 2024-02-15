@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // {{.StructName}} represents {{ .Name }} model.
 type {{.StructName}} struct { {{range .Fields}}
 	{{.VarName}} {{.Type}} `xmlrpc:"{{.Name}},omptempty"`{{end }}
