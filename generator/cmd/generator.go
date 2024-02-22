@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
@@ -80,6 +81,9 @@ func (g *generator) getAllModelsName() ([]string, error) {
 func (g *generator) modelFieldsFromModel(model string) ([]*modelField, error) {
 	imfs, err := g.odoo.FindIrModelFieldss(odoo.NewCriteria().Add("model", "=", model), nil)
 	if err != nil {
+		if errors.Is(err, odoo.ErrNotFound) {
+			return nil, nil
+		}
 		return nil, err
 	}
 	return g.irModelFieldsToModelFields(imfs), nil

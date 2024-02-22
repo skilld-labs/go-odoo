@@ -13,7 +13,7 @@ import (
 
 var (
 	rootCmd = &cobra.Command{
-		Use:   "./go-odoo -u admin -p admin -d odoo --url http://localhost:8069 --models crm.lead",
+		Use:   "./go-odoo -u admin -p admin -d odoo --url http://localhost:8069 --models crm.lead -t generator/cmd/tmpl/model.tmpl",
 		Short: "Generates your odoo models for go-odoo golang library.",
 		Long: ` 
 Generates your odoo models for go-odoo golang library.
@@ -29,16 +29,17 @@ You can provide models name as arguments to specify what models to generate. By 
 			}
 		},
 	}
-	database   string
-	admin      string
-	password   string
-	url        string
-	noFmt      bool
-	destFolder string
-	models     string
-	c          *odoo.Client
-	t          *template.Template
-	g          *generator
+	database      string
+	admin         string
+	password      string
+	url           string
+	noFmt         bool
+	destFolder    string
+	models        string
+	modelTemplate string
+	c             *odoo.Client
+	t             *template.Template
+	g             *generator
 )
 
 // Execute executes the root command.
@@ -57,6 +58,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&url, "url", "http://localhost:8069", "the url of your odoo instance")
 	rootCmd.PersistentFlags().StringVarP(&destFolder, "dest", "o", "", "the destination of generated models")
 	rootCmd.PersistentFlags().StringVarP(&models, "models", "m", "", "the models you want to generate, separated by commas, empty means generate all")
+	rootCmd.PersistentFlags().StringVarP(&modelTemplate, "template", "t", "", "the model template location used to generate the models code")
 	rootCmd.PersistentFlags().BoolVar(&noFmt, "no-fmt", false, "specify if you want to disable auto format of generated models")
 }
 
@@ -78,7 +80,7 @@ func initOdoo() {
 
 func initTemplate() {
 	var err error
-	if t, err = template.New("model.tmpl").ParseFiles("./generator/cmd/tmpl/model.tmpl"); err != nil {
+	if t, err = template.New("model.tmpl").ParseFiles(modelTemplate); err != nil {
 		handleError(err)
 	}
 }
