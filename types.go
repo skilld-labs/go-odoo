@@ -124,6 +124,11 @@ func NewMany2One(id int64, name string) *Many2One {
 	return &Many2One{ID: id, Name: name}
 }
 
+// NewUnassignedMany2One create *Many2One value that once set will unassign the current value.
+func NewUnassignedMany2One() *Many2One {
+	return &Many2One{}
+}
+
 // Get *Many2One value.
 func (m *Many2One) Get() int64 {
 	return m.ID

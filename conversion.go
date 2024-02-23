@@ -47,7 +47,11 @@ func convertFromStaticToDynamicValue(staticValue interface{}) interface{} {
 	case *Float:
 		v = sv.v
 	case *Many2One:
-		v = sv.ID
+		if sv.ID == 0 {
+			v = false
+		} else {
+			v = sv.ID
+		}
 	case *Relation:
 		v = sv.v
 	default:

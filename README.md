@@ -136,6 +136,7 @@ func (f *Float) Get() float64 {}
 
 ```go
 func NewMany2One(id int64, name string) *Many2One {}
+func NewUnassignedMany2One() *Many2One {}
 func (m *Many2One) Get() int64 {}
 
 func NewRelation() *Relation {}
