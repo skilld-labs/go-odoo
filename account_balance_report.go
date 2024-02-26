@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBalanceReport represents account.balance.report model.
 type AccountBalanceReport struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountBalanceReports(abrs []*AccountBalanceReport) ([]in
 	for _, v := range abrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBalanceReportModel, vv)
+	return c.Create(AccountBalanceReportModel, vv, nil)
 }
 
 // UpdateAccountBalanceReport updates an existing account.balance.report record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountBalanceReport(abr *AccountBalanceReport) error {
 // UpdateAccountBalanceReports updates existing account.balance.report records.
 // All records (represented by ids) will be updated by abr values.
 func (c *Client) UpdateAccountBalanceReports(ids []int64, abr *AccountBalanceReport) error {
-	return c.Update(AccountBalanceReportModel, ids, abr)
+	return c.Update(AccountBalanceReportModel, ids, abr, nil)
 }
 
 // DeleteAccountBalanceReport deletes an existing account.balance.report record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountBalanceReport(id int64) (*AccountBalanceReport, error
 	if err != nil {
 		return nil, err
 	}
-	if abrs != nil && len(*abrs) > 0 {
-		return &((*abrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.balance.report not found", id)
+	return &((*abrs)[0]), nil
 }
 
 // GetAccountBalanceReports gets account.balance.report existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountBalanceReport(criteria *Criteria) (*AccountBalanceRe
 	if err := c.SearchRead(AccountBalanceReportModel, criteria, NewOptions().Limit(1), abrs); err != nil {
 		return nil, err
 	}
-	if abrs != nil && len(*abrs) > 0 {
-		return &((*abrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.balance.report was not found with criteria %v", criteria)
+	return &((*abrs)[0]), nil
 }
 
 // FindAccountBalanceReports finds account.balance.report records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountBalanceReports(criteria *Criteria, options *Options)
 // FindAccountBalanceReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBalanceReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBalanceReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBalanceReportModel, criteria, options)
 }
 
 // FindAccountBalanceReportId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountBalanceReportId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.balance.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

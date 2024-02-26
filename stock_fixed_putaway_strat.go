@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockFixedPutawayStrat represents stock.fixed.putaway.strat model.
 type StockFixedPutawayStrat struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateStockFixedPutawayStrats(sfpss []*StockFixedPutawayStrat) 
 	for _, v := range sfpss {
 		vv = append(vv, v)
 	}
-	return c.Create(StockFixedPutawayStratModel, vv)
+	return c.Create(StockFixedPutawayStratModel, vv, nil)
 }
 
 // UpdateStockFixedPutawayStrat updates an existing stock.fixed.putaway.strat record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateStockFixedPutawayStrat(sfps *StockFixedPutawayStrat) erro
 // UpdateStockFixedPutawayStrats updates existing stock.fixed.putaway.strat records.
 // All records (represented by ids) will be updated by sfps values.
 func (c *Client) UpdateStockFixedPutawayStrats(ids []int64, sfps *StockFixedPutawayStrat) error {
-	return c.Update(StockFixedPutawayStratModel, ids, sfps)
+	return c.Update(StockFixedPutawayStratModel, ids, sfps, nil)
 }
 
 // DeleteStockFixedPutawayStrat deletes an existing stock.fixed.putaway.strat record.
@@ -78,10 +74,7 @@ func (c *Client) GetStockFixedPutawayStrat(id int64) (*StockFixedPutawayStrat, e
 	if err != nil {
 		return nil, err
 	}
-	if sfpss != nil && len(*sfpss) > 0 {
-		return &((*sfpss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.fixed.putaway.strat not found", id)
+	return &((*sfpss)[0]), nil
 }
 
 // GetStockFixedPutawayStrats gets stock.fixed.putaway.strat existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindStockFixedPutawayStrat(criteria *Criteria) (*StockFixedPuta
 	if err := c.SearchRead(StockFixedPutawayStratModel, criteria, NewOptions().Limit(1), sfpss); err != nil {
 		return nil, err
 	}
-	if sfpss != nil && len(*sfpss) > 0 {
-		return &((*sfpss)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.fixed.putaway.strat was not found with criteria %v", criteria)
+	return &((*sfpss)[0]), nil
 }
 
 // FindStockFixedPutawayStrats finds stock.fixed.putaway.strat records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindStockFixedPutawayStrats(criteria *Criteria, options *Option
 // FindStockFixedPutawayStratIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockFixedPutawayStratIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockFixedPutawayStratModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockFixedPutawayStratModel, criteria, options)
 }
 
 // FindStockFixedPutawayStratId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindStockFixedPutawayStratId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.fixed.putaway.strat was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

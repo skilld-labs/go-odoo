@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportProductReportPricelist represents report.product.report_pricelist model.
 type ReportProductReportPricelist struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportProductReportPricelists(rprs []*ReportProductReport
 	for _, v := range rprs {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportProductReportPricelistModel, vv)
+	return c.Create(ReportProductReportPricelistModel, vv, nil)
 }
 
 // UpdateReportProductReportPricelist updates an existing report.product.report_pricelist record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportProductReportPricelist(rpr *ReportProductReportPric
 // UpdateReportProductReportPricelists updates existing report.product.report_pricelist records.
 // All records (represented by ids) will be updated by rpr values.
 func (c *Client) UpdateReportProductReportPricelists(ids []int64, rpr *ReportProductReportPricelist) error {
-	return c.Update(ReportProductReportPricelistModel, ids, rpr)
+	return c.Update(ReportProductReportPricelistModel, ids, rpr, nil)
 }
 
 // DeleteReportProductReportPricelist deletes an existing report.product.report_pricelist record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportProductReportPricelist(id int64) (*ReportProductReport
 	if err != nil {
 		return nil, err
 	}
-	if rprs != nil && len(*rprs) > 0 {
-		return &((*rprs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.product.report_pricelist not found", id)
+	return &((*rprs)[0]), nil
 }
 
 // GetReportProductReportPricelists gets report.product.report_pricelist existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportProductReportPricelist(criteria *Criteria) (*ReportPr
 	if err := c.SearchRead(ReportProductReportPricelistModel, criteria, NewOptions().Limit(1), rprs); err != nil {
 		return nil, err
 	}
-	if rprs != nil && len(*rprs) > 0 {
-		return &((*rprs)[0]), nil
-	}
-	return nil, fmt.Errorf("report.product.report_pricelist was not found with criteria %v", criteria)
+	return &((*rprs)[0]), nil
 }
 
 // FindReportProductReportPricelists finds report.product.report_pricelist records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportProductReportPricelists(criteria *Criteria, options *
 // FindReportProductReportPricelistIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportProductReportPricelistIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportProductReportPricelistModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportProductReportPricelistModel, criteria, options)
 }
 
 // FindReportProductReportPricelistId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportProductReportPricelistId(criteria *Criteria, options 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.product.report_pricelist was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

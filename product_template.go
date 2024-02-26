@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductTemplate represents product.template model.
 type ProductTemplate struct {
 	LastUpdate                             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -142,7 +138,7 @@ func (c *Client) CreateProductTemplates(pts []*ProductTemplate) ([]int64, error)
 	for _, v := range pts {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductTemplateModel, vv)
+	return c.Create(ProductTemplateModel, vv, nil)
 }
 
 // UpdateProductTemplate updates an existing product.template record.
@@ -153,7 +149,7 @@ func (c *Client) UpdateProductTemplate(pt *ProductTemplate) error {
 // UpdateProductTemplates updates existing product.template records.
 // All records (represented by ids) will be updated by pt values.
 func (c *Client) UpdateProductTemplates(ids []int64, pt *ProductTemplate) error {
-	return c.Update(ProductTemplateModel, ids, pt)
+	return c.Update(ProductTemplateModel, ids, pt, nil)
 }
 
 // DeleteProductTemplate deletes an existing product.template record.
@@ -172,10 +168,7 @@ func (c *Client) GetProductTemplate(id int64) (*ProductTemplate, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.template not found", id)
+	return &((*pts)[0]), nil
 }
 
 // GetProductTemplates gets product.template existing records.
@@ -193,10 +186,7 @@ func (c *Client) FindProductTemplate(criteria *Criteria) (*ProductTemplate, erro
 	if err := c.SearchRead(ProductTemplateModel, criteria, NewOptions().Limit(1), pts); err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("product.template was not found with criteria %v", criteria)
+	return &((*pts)[0]), nil
 }
 
 // FindProductTemplates finds product.template records by querying it
@@ -212,11 +202,7 @@ func (c *Client) FindProductTemplates(criteria *Criteria, options *Options) (*Pr
 // FindProductTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductTemplateModel, criteria, options)
 }
 
 // FindProductTemplateId finds record id by querying it with criteria.
@@ -225,8 +211,5 @@ func (c *Client) FindProductTemplateId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

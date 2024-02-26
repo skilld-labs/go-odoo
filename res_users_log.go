@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResUsersLog represents res.users.log model.
 type ResUsersLog struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateResUsersLogs(ruls []*ResUsersLog) ([]int64, error) {
 	for _, v := range ruls {
 		vv = append(vv, v)
 	}
-	return c.Create(ResUsersLogModel, vv)
+	return c.Create(ResUsersLogModel, vv, nil)
 }
 
 // UpdateResUsersLog updates an existing res.users.log record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateResUsersLog(rul *ResUsersLog) error {
 // UpdateResUsersLogs updates existing res.users.log records.
 // All records (represented by ids) will be updated by rul values.
 func (c *Client) UpdateResUsersLogs(ids []int64, rul *ResUsersLog) error {
-	return c.Update(ResUsersLogModel, ids, rul)
+	return c.Update(ResUsersLogModel, ids, rul, nil)
 }
 
 // DeleteResUsersLog deletes an existing res.users.log record.
@@ -74,10 +70,7 @@ func (c *Client) GetResUsersLog(id int64) (*ResUsersLog, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ruls != nil && len(*ruls) > 0 {
-		return &((*ruls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.users.log not found", id)
+	return &((*ruls)[0]), nil
 }
 
 // GetResUsersLogs gets res.users.log existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindResUsersLog(criteria *Criteria) (*ResUsersLog, error) {
 	if err := c.SearchRead(ResUsersLogModel, criteria, NewOptions().Limit(1), ruls); err != nil {
 		return nil, err
 	}
-	if ruls != nil && len(*ruls) > 0 {
-		return &((*ruls)[0]), nil
-	}
-	return nil, fmt.Errorf("res.users.log was not found with criteria %v", criteria)
+	return &((*ruls)[0]), nil
 }
 
 // FindResUsersLogs finds res.users.log records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindResUsersLogs(criteria *Criteria, options *Options) (*ResUse
 // FindResUsersLogIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersLogIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResUsersLogModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResUsersLogModel, criteria, options)
 }
 
 // FindResUsersLogId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindResUsersLogId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.users.log was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

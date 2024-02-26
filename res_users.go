@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResUsers represents res.users model.
 type ResUsers struct {
 	LastUpdate                    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -72,6 +68,7 @@ type ResUsers struct {
 	LogIds                        *Relation  `xmlrpc:"log_ids,omptempty"`
 	Login                         *String    `xmlrpc:"login,omptempty"`
 	LoginDate                     *Time      `xmlrpc:"login_date,omptempty"`
+	MachineCompanyName            *String    `xmlrpc:"machine_company_name,omptempty"`
 	MachineOrganizationName       *String    `xmlrpc:"machine_organization_name,omptempty"`
 	MachineUserEmail              *String    `xmlrpc:"machine_user_email,omptempty"`
 	MachineUserLogin              *String    `xmlrpc:"machine_user_login,omptempty"`
@@ -131,13 +128,7 @@ type ResUsers struct {
 	Self                          *Many2One  `xmlrpc:"self,omptempty"`
 	Share                         *Bool      `xmlrpc:"share,omptempty"`
 	Signature                     *String    `xmlrpc:"signature,omptempty"`
-	SignupExpiration              *Time      `xmlrpc:"signup_expiration,omptempty"`
-	SignupToken                   *String    `xmlrpc:"signup_token,omptempty"`
-	SignupType                    *String    `xmlrpc:"signup_type,omptempty"`
-	SignupUrl                     *String    `xmlrpc:"signup_url,omptempty"`
-	SignupValid                   *Bool      `xmlrpc:"signup_valid,omptempty"`
 	Siret                         *String    `xmlrpc:"siret,omptempty"`
-	State                         *Selection `xmlrpc:"state,omptempty"`
 	StateId                       *Many2One  `xmlrpc:"state_id,omptempty"`
 	Street                        *String    `xmlrpc:"street,omptempty"`
 	Street2                       *String    `xmlrpc:"street2,omptempty"`
@@ -194,7 +185,7 @@ func (c *Client) CreateResUserss(rus []*ResUsers) ([]int64, error) {
 	for _, v := range rus {
 		vv = append(vv, v)
 	}
-	return c.Create(ResUsersModel, vv)
+	return c.Create(ResUsersModel, vv, nil)
 }
 
 // UpdateResUsers updates an existing res.users record.
@@ -205,7 +196,7 @@ func (c *Client) UpdateResUsers(ru *ResUsers) error {
 // UpdateResUserss updates existing res.users records.
 // All records (represented by ids) will be updated by ru values.
 func (c *Client) UpdateResUserss(ids []int64, ru *ResUsers) error {
-	return c.Update(ResUsersModel, ids, ru)
+	return c.Update(ResUsersModel, ids, ru, nil)
 }
 
 // DeleteResUsers deletes an existing res.users record.
@@ -224,10 +215,7 @@ func (c *Client) GetResUsers(id int64) (*ResUsers, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rus != nil && len(*rus) > 0 {
-		return &((*rus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.users not found", id)
+	return &((*rus)[0]), nil
 }
 
 // GetResUserss gets res.users existing records.
@@ -245,10 +233,7 @@ func (c *Client) FindResUsers(criteria *Criteria) (*ResUsers, error) {
 	if err := c.SearchRead(ResUsersModel, criteria, NewOptions().Limit(1), rus); err != nil {
 		return nil, err
 	}
-	if rus != nil && len(*rus) > 0 {
-		return &((*rus)[0]), nil
-	}
-	return nil, fmt.Errorf("res.users was not found with criteria %v", criteria)
+	return &((*rus)[0]), nil
 }
 
 // FindResUserss finds res.users records by querying it
@@ -264,11 +249,7 @@ func (c *Client) FindResUserss(criteria *Criteria, options *Options) (*ResUserss
 // FindResUsersIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResUsersIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResUsersModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResUsersModel, criteria, options)
 }
 
 // FindResUsersId finds record id by querying it with criteria.
@@ -277,8 +258,5 @@ func (c *Client) FindResUsersId(criteria *Criteria, options *Options) (int64, er
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.users was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

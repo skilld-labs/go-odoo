@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmActivityReport represents crm.activity.report model.
 type CrmActivityReport struct {
 	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateCrmActivityReports(cars []*CrmActivityReport) ([]int64, e
 	for _, v := range cars {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmActivityReportModel, vv)
+	return c.Create(CrmActivityReportModel, vv, nil)
 }
 
 // UpdateCrmActivityReport updates an existing crm.activity.report record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateCrmActivityReport(car *CrmActivityReport) error {
 // UpdateCrmActivityReports updates existing crm.activity.report records.
 // All records (represented by ids) will be updated by car values.
 func (c *Client) UpdateCrmActivityReports(ids []int64, car *CrmActivityReport) error {
-	return c.Update(CrmActivityReportModel, ids, car)
+	return c.Update(CrmActivityReportModel, ids, car, nil)
 }
 
 // DeleteCrmActivityReport deletes an existing crm.activity.report record.
@@ -85,10 +81,7 @@ func (c *Client) GetCrmActivityReport(id int64) (*CrmActivityReport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cars != nil && len(*cars) > 0 {
-		return &((*cars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.activity.report not found", id)
+	return &((*cars)[0]), nil
 }
 
 // GetCrmActivityReports gets crm.activity.report existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindCrmActivityReport(criteria *Criteria) (*CrmActivityReport, 
 	if err := c.SearchRead(CrmActivityReportModel, criteria, NewOptions().Limit(1), cars); err != nil {
 		return nil, err
 	}
-	if cars != nil && len(*cars) > 0 {
-		return &((*cars)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.activity.report was not found with criteria %v", criteria)
+	return &((*cars)[0]), nil
 }
 
 // FindCrmActivityReports finds crm.activity.report records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindCrmActivityReports(criteria *Criteria, options *Options) (*
 // FindCrmActivityReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmActivityReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmActivityReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmActivityReportModel, criteria, options)
 }
 
 // FindCrmActivityReportId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindCrmActivityReportId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.activity.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

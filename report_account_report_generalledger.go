@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportGeneralledger represents report.account.report_generalledger model.
 type ReportAccountReportGeneralledger struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportGeneralledgers(rars []*ReportAccountRe
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportGeneralledgerModel, vv)
+	return c.Create(ReportAccountReportGeneralledgerModel, vv, nil)
 }
 
 // UpdateReportAccountReportGeneralledger updates an existing report.account.report_generalledger record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportGeneralledger(rar *ReportAccountReport
 // UpdateReportAccountReportGeneralledgers updates existing report.account.report_generalledger records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportGeneralledgers(ids []int64, rar *ReportAccountReportGeneralledger) error {
-	return c.Update(ReportAccountReportGeneralledgerModel, ids, rar)
+	return c.Update(ReportAccountReportGeneralledgerModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportGeneralledger deletes an existing report.account.report_generalledger record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportGeneralledger(id int64) (*ReportAccountRe
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_generalledger not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportGeneralledgers gets report.account.report_generalledger existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportGeneralledger(criteria *Criteria) (*Repo
 	if err := c.SearchRead(ReportAccountReportGeneralledgerModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_generalledger was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportGeneralledgers finds report.account.report_generalledger records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportGeneralledgers(criteria *Criteria, optio
 // FindReportAccountReportGeneralledgerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportGeneralledgerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportGeneralledgerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportGeneralledgerModel, criteria, options)
 }
 
 // FindReportAccountReportGeneralledgerId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportGeneralledgerId(criteria *Criteria, opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_generalledger was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

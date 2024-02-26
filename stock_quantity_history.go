@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockQuantityHistory represents stock.quantity.history model.
 type StockQuantityHistory struct {
 	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateStockQuantityHistorys(sqhs []*StockQuantityHistory) ([]in
 	for _, v := range sqhs {
 		vv = append(vv, v)
 	}
-	return c.Create(StockQuantityHistoryModel, vv)
+	return c.Create(StockQuantityHistoryModel, vv, nil)
 }
 
 // UpdateStockQuantityHistory updates an existing stock.quantity.history record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateStockQuantityHistory(sqh *StockQuantityHistory) error {
 // UpdateStockQuantityHistorys updates existing stock.quantity.history records.
 // All records (represented by ids) will be updated by sqh values.
 func (c *Client) UpdateStockQuantityHistorys(ids []int64, sqh *StockQuantityHistory) error {
-	return c.Update(StockQuantityHistoryModel, ids, sqh)
+	return c.Update(StockQuantityHistoryModel, ids, sqh, nil)
 }
 
 // DeleteStockQuantityHistory deletes an existing stock.quantity.history record.
@@ -76,10 +72,7 @@ func (c *Client) GetStockQuantityHistory(id int64) (*StockQuantityHistory, error
 	if err != nil {
 		return nil, err
 	}
-	if sqhs != nil && len(*sqhs) > 0 {
-		return &((*sqhs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.quantity.history not found", id)
+	return &((*sqhs)[0]), nil
 }
 
 // GetStockQuantityHistorys gets stock.quantity.history existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindStockQuantityHistory(criteria *Criteria) (*StockQuantityHis
 	if err := c.SearchRead(StockQuantityHistoryModel, criteria, NewOptions().Limit(1), sqhs); err != nil {
 		return nil, err
 	}
-	if sqhs != nil && len(*sqhs) > 0 {
-		return &((*sqhs)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.quantity.history was not found with criteria %v", criteria)
+	return &((*sqhs)[0]), nil
 }
 
 // FindStockQuantityHistorys finds stock.quantity.history records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindStockQuantityHistorys(criteria *Criteria, options *Options)
 // FindStockQuantityHistoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockQuantityHistoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockQuantityHistoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockQuantityHistoryModel, criteria, options)
 }
 
 // FindStockQuantityHistoryId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindStockQuantityHistoryId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.quantity.history was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldFloat represents ir.qweb.field.float model.
 type IrQwebFieldFloat struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldFloats(iqffs []*IrQwebFieldFloat) ([]int64, er
 	for _, v := range iqffs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldFloatModel, vv)
+	return c.Create(IrQwebFieldFloatModel, vv, nil)
 }
 
 // UpdateIrQwebFieldFloat updates an existing ir.qweb.field.float record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldFloat(iqff *IrQwebFieldFloat) error {
 // UpdateIrQwebFieldFloats updates existing ir.qweb.field.float records.
 // All records (represented by ids) will be updated by iqff values.
 func (c *Client) UpdateIrQwebFieldFloats(ids []int64, iqff *IrQwebFieldFloat) error {
-	return c.Update(IrQwebFieldFloatModel, ids, iqff)
+	return c.Update(IrQwebFieldFloatModel, ids, iqff, nil)
 }
 
 // DeleteIrQwebFieldFloat deletes an existing ir.qweb.field.float record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldFloat(id int64) (*IrQwebFieldFloat, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqffs != nil && len(*iqffs) > 0 {
-		return &((*iqffs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.float not found", id)
+	return &((*iqffs)[0]), nil
 }
 
 // GetIrQwebFieldFloats gets ir.qweb.field.float existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldFloat(criteria *Criteria) (*IrQwebFieldFloat, er
 	if err := c.SearchRead(IrQwebFieldFloatModel, criteria, NewOptions().Limit(1), iqffs); err != nil {
 		return nil, err
 	}
-	if iqffs != nil && len(*iqffs) > 0 {
-		return &((*iqffs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.float was not found with criteria %v", criteria)
+	return &((*iqffs)[0]), nil
 }
 
 // FindIrQwebFieldFloats finds ir.qweb.field.float records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldFloats(criteria *Criteria, options *Options) (*I
 // FindIrQwebFieldFloatIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldFloatIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldFloatModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldFloatModel, criteria, options)
 }
 
 // FindIrQwebFieldFloatId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldFloatId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.float was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

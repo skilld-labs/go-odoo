@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAccount represents account.account model.
 type AccountAccount struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateAccountAccounts(aas []*AccountAccount) ([]int64, error) {
 	for _, v := range aas {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAccountModel, vv)
+	return c.Create(AccountAccountModel, vv, nil)
 }
 
 // UpdateAccountAccount updates an existing account.account record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateAccountAccount(aa *AccountAccount) error {
 // UpdateAccountAccounts updates existing account.account records.
 // All records (represented by ids) will be updated by aa values.
 func (c *Client) UpdateAccountAccounts(ids []int64, aa *AccountAccount) error {
-	return c.Update(AccountAccountModel, ids, aa)
+	return c.Update(AccountAccountModel, ids, aa, nil)
 }
 
 // DeleteAccountAccount deletes an existing account.account record.
@@ -89,10 +85,7 @@ func (c *Client) GetAccountAccount(id int64) (*AccountAccount, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aas != nil && len(*aas) > 0 {
-		return &((*aas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.account not found", id)
+	return &((*aas)[0]), nil
 }
 
 // GetAccountAccounts gets account.account existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindAccountAccount(criteria *Criteria) (*AccountAccount, error)
 	if err := c.SearchRead(AccountAccountModel, criteria, NewOptions().Limit(1), aas); err != nil {
 		return nil, err
 	}
-	if aas != nil && len(*aas) > 0 {
-		return &((*aas)[0]), nil
-	}
-	return nil, fmt.Errorf("account.account was not found with criteria %v", criteria)
+	return &((*aas)[0]), nil
 }
 
 // FindAccountAccounts finds account.account records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindAccountAccounts(criteria *Criteria, options *Options) (*Acc
 // FindAccountAccountIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAccountModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAccountModel, criteria, options)
 }
 
 // FindAccountAccountId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindAccountAccountId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.account was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

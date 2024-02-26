@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductPackaging represents product.packaging model.
 type ProductPackaging struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateProductPackagings(pps []*ProductPackaging) ([]int64, erro
 	for _, v := range pps {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductPackagingModel, vv)
+	return c.Create(ProductPackagingModel, vv, nil)
 }
 
 // UpdateProductPackaging updates an existing product.packaging record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateProductPackaging(pp *ProductPackaging) error {
 // UpdateProductPackagings updates existing product.packaging records.
 // All records (represented by ids) will be updated by pp values.
 func (c *Client) UpdateProductPackagings(ids []int64, pp *ProductPackaging) error {
-	return c.Update(ProductPackagingModel, ids, pp)
+	return c.Update(ProductPackagingModel, ids, pp, nil)
 }
 
 // DeleteProductPackaging deletes an existing product.packaging record.
@@ -79,10 +75,7 @@ func (c *Client) GetProductPackaging(id int64) (*ProductPackaging, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.packaging not found", id)
+	return &((*pps)[0]), nil
 }
 
 // GetProductPackagings gets product.packaging existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindProductPackaging(criteria *Criteria) (*ProductPackaging, er
 	if err := c.SearchRead(ProductPackagingModel, criteria, NewOptions().Limit(1), pps); err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("product.packaging was not found with criteria %v", criteria)
+	return &((*pps)[0]), nil
 }
 
 // FindProductPackagings finds product.packaging records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindProductPackagings(criteria *Criteria, options *Options) (*P
 // FindProductPackagingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductPackagingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductPackagingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductPackagingModel, criteria, options)
 }
 
 // FindProductPackagingId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindProductPackagingId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.packaging was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

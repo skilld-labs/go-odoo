@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResCountryGroup represents res.country.group model.
 type ResCountryGroup struct {
 	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateResCountryGroups(rcgs []*ResCountryGroup) ([]int64, error
 	for _, v := range rcgs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResCountryGroupModel, vv)
+	return c.Create(ResCountryGroupModel, vv, nil)
 }
 
 // UpdateResCountryGroup updates an existing res.country.group record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateResCountryGroup(rcg *ResCountryGroup) error {
 // UpdateResCountryGroups updates existing res.country.group records.
 // All records (represented by ids) will be updated by rcg values.
 func (c *Client) UpdateResCountryGroups(ids []int64, rcg *ResCountryGroup) error {
-	return c.Update(ResCountryGroupModel, ids, rcg)
+	return c.Update(ResCountryGroupModel, ids, rcg, nil)
 }
 
 // DeleteResCountryGroup deletes an existing res.country.group record.
@@ -77,10 +73,7 @@ func (c *Client) GetResCountryGroup(id int64) (*ResCountryGroup, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcgs != nil && len(*rcgs) > 0 {
-		return &((*rcgs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.country.group not found", id)
+	return &((*rcgs)[0]), nil
 }
 
 // GetResCountryGroups gets res.country.group existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindResCountryGroup(criteria *Criteria) (*ResCountryGroup, erro
 	if err := c.SearchRead(ResCountryGroupModel, criteria, NewOptions().Limit(1), rcgs); err != nil {
 		return nil, err
 	}
-	if rcgs != nil && len(*rcgs) > 0 {
-		return &((*rcgs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.country.group was not found with criteria %v", criteria)
+	return &((*rcgs)[0]), nil
 }
 
 // FindResCountryGroups finds res.country.group records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindResCountryGroups(criteria *Criteria, options *Options) (*Re
 // FindResCountryGroupIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResCountryGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResCountryGroupModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResCountryGroupModel, criteria, options)
 }
 
 // FindResCountryGroupId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindResCountryGroupId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.country.group was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

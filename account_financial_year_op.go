@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountFinancialYearOp represents account.financial.year.op model.
 type AccountFinancialYearOp struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountFinancialYearOps(afyos []*AccountFinancialYearOp) 
 	for _, v := range afyos {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountFinancialYearOpModel, vv)
+	return c.Create(AccountFinancialYearOpModel, vv, nil)
 }
 
 // UpdateAccountFinancialYearOp updates an existing account.financial.year.op record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountFinancialYearOp(afyo *AccountFinancialYearOp) erro
 // UpdateAccountFinancialYearOps updates existing account.financial.year.op records.
 // All records (represented by ids) will be updated by afyo values.
 func (c *Client) UpdateAccountFinancialYearOps(ids []int64, afyo *AccountFinancialYearOp) error {
-	return c.Update(AccountFinancialYearOpModel, ids, afyo)
+	return c.Update(AccountFinancialYearOpModel, ids, afyo, nil)
 }
 
 // DeleteAccountFinancialYearOp deletes an existing account.financial.year.op record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountFinancialYearOp(id int64) (*AccountFinancialYearOp, e
 	if err != nil {
 		return nil, err
 	}
-	if afyos != nil && len(*afyos) > 0 {
-		return &((*afyos)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.financial.year.op not found", id)
+	return &((*afyos)[0]), nil
 }
 
 // GetAccountFinancialYearOps gets account.financial.year.op existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountFinancialYearOp(criteria *Criteria) (*AccountFinanci
 	if err := c.SearchRead(AccountFinancialYearOpModel, criteria, NewOptions().Limit(1), afyos); err != nil {
 		return nil, err
 	}
-	if afyos != nil && len(*afyos) > 0 {
-		return &((*afyos)[0]), nil
-	}
-	return nil, fmt.Errorf("account.financial.year.op was not found with criteria %v", criteria)
+	return &((*afyos)[0]), nil
 }
 
 // FindAccountFinancialYearOps finds account.financial.year.op records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountFinancialYearOps(criteria *Criteria, options *Option
 // FindAccountFinancialYearOpIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFinancialYearOpIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountFinancialYearOpModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountFinancialYearOpModel, criteria, options)
 }
 
 // FindAccountFinancialYearOpId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountFinancialYearOpId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.financial.year.op was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

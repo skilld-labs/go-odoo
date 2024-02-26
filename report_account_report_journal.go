@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportJournal represents report.account.report_journal model.
 type ReportAccountReportJournal struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportJournals(rars []*ReportAccountReportJo
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportJournalModel, vv)
+	return c.Create(ReportAccountReportJournalModel, vv, nil)
 }
 
 // UpdateReportAccountReportJournal updates an existing report.account.report_journal record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportJournal(rar *ReportAccountReportJourna
 // UpdateReportAccountReportJournals updates existing report.account.report_journal records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportJournals(ids []int64, rar *ReportAccountReportJournal) error {
-	return c.Update(ReportAccountReportJournalModel, ids, rar)
+	return c.Update(ReportAccountReportJournalModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportJournal deletes an existing report.account.report_journal record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportJournal(id int64) (*ReportAccountReportJo
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_journal not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportJournals gets report.account.report_journal existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportJournal(criteria *Criteria) (*ReportAcco
 	if err := c.SearchRead(ReportAccountReportJournalModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_journal was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportJournals finds report.account.report_journal records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportJournals(criteria *Criteria, options *Op
 // FindReportAccountReportJournalIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportJournalIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportJournalModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportJournalModel, criteria, options)
 }
 
 // FindReportAccountReportJournalId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportJournalId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_journal was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

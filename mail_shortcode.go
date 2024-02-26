@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailShortcode represents mail.shortcode model.
 type MailShortcode struct {
 	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateMailShortcodes(mss []*MailShortcode) ([]int64, error) {
 	for _, v := range mss {
 		vv = append(vv, v)
 	}
-	return c.Create(MailShortcodeModel, vv)
+	return c.Create(MailShortcodeModel, vv, nil)
 }
 
 // UpdateMailShortcode updates an existing mail.shortcode record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateMailShortcode(ms *MailShortcode) error {
 // UpdateMailShortcodes updates existing mail.shortcode records.
 // All records (represented by ids) will be updated by ms values.
 func (c *Client) UpdateMailShortcodes(ids []int64, ms *MailShortcode) error {
-	return c.Update(MailShortcodeModel, ids, ms)
+	return c.Update(MailShortcodeModel, ids, ms, nil)
 }
 
 // DeleteMailShortcode deletes an existing mail.shortcode record.
@@ -79,10 +75,7 @@ func (c *Client) GetMailShortcode(id int64) (*MailShortcode, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mss != nil && len(*mss) > 0 {
-		return &((*mss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.shortcode not found", id)
+	return &((*mss)[0]), nil
 }
 
 // GetMailShortcodes gets mail.shortcode existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindMailShortcode(criteria *Criteria) (*MailShortcode, error) {
 	if err := c.SearchRead(MailShortcodeModel, criteria, NewOptions().Limit(1), mss); err != nil {
 		return nil, err
 	}
-	if mss != nil && len(*mss) > 0 {
-		return &((*mss)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.shortcode was not found with criteria %v", criteria)
+	return &((*mss)[0]), nil
 }
 
 // FindMailShortcodes finds mail.shortcode records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindMailShortcodes(criteria *Criteria, options *Options) (*Mail
 // FindMailShortcodeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailShortcodeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailShortcodeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailShortcodeModel, criteria, options)
 }
 
 // FindMailShortcodeId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindMailShortcodeId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.shortcode was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

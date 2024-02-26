@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResCompany represents res.company model.
 type ResCompany struct {
 	LastUpdate                        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -43,6 +39,7 @@ type ResCompany struct {
 	Id                                *Int       `xmlrpc:"id,omptempty"`
 	IncomeCurrencyExchangeAccountId   *Many2One  `xmlrpc:"income_currency_exchange_account_id,omptempty"`
 	InternalTransitLocationId         *Many2One  `xmlrpc:"internal_transit_location_id,omptempty"`
+	Ldaps                             *Relation  `xmlrpc:"ldaps,omptempty"`
 	LeaveTimesheetProjectId           *Many2One  `xmlrpc:"leave_timesheet_project_id,omptempty"`
 	LeaveTimesheetTaskId              *Many2One  `xmlrpc:"leave_timesheet_task_id,omptempty"`
 	Logo                              *String    `xmlrpc:"logo,omptempty"`
@@ -122,7 +119,7 @@ func (c *Client) CreateResCompanys(rcs []*ResCompany) ([]int64, error) {
 	for _, v := range rcs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResCompanyModel, vv)
+	return c.Create(ResCompanyModel, vv, nil)
 }
 
 // UpdateResCompany updates an existing res.company record.
@@ -133,7 +130,7 @@ func (c *Client) UpdateResCompany(rc *ResCompany) error {
 // UpdateResCompanys updates existing res.company records.
 // All records (represented by ids) will be updated by rc values.
 func (c *Client) UpdateResCompanys(ids []int64, rc *ResCompany) error {
-	return c.Update(ResCompanyModel, ids, rc)
+	return c.Update(ResCompanyModel, ids, rc, nil)
 }
 
 // DeleteResCompany deletes an existing res.company record.
@@ -152,10 +149,7 @@ func (c *Client) GetResCompany(id int64) (*ResCompany, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.company not found", id)
+	return &((*rcs)[0]), nil
 }
 
 // GetResCompanys gets res.company existing records.
@@ -173,10 +167,7 @@ func (c *Client) FindResCompany(criteria *Criteria) (*ResCompany, error) {
 	if err := c.SearchRead(ResCompanyModel, criteria, NewOptions().Limit(1), rcs); err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.company was not found with criteria %v", criteria)
+	return &((*rcs)[0]), nil
 }
 
 // FindResCompanys finds res.company records by querying it
@@ -192,11 +183,7 @@ func (c *Client) FindResCompanys(criteria *Criteria, options *Options) (*ResComp
 // FindResCompanyIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResCompanyIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResCompanyModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResCompanyModel, criteria, options)
 }
 
 // FindResCompanyId finds record id by querying it with criteria.
@@ -205,8 +192,5 @@ func (c *Client) FindResCompanyId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.company was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

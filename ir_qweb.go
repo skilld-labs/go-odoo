@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQweb represents ir.qweb model.
 type IrQweb struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebs(iqs []*IrQweb) ([]int64, error) {
 	for _, v := range iqs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebModel, vv)
+	return c.Create(IrQwebModel, vv, nil)
 }
 
 // UpdateIrQweb updates an existing ir.qweb record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQweb(iq *IrQweb) error {
 // UpdateIrQwebs updates existing ir.qweb records.
 // All records (represented by ids) will be updated by iq values.
 func (c *Client) UpdateIrQwebs(ids []int64, iq *IrQweb) error {
-	return c.Update(IrQwebModel, ids, iq)
+	return c.Update(IrQwebModel, ids, iq, nil)
 }
 
 // DeleteIrQweb deletes an existing ir.qweb record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQweb(id int64) (*IrQweb, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqs != nil && len(*iqs) > 0 {
-		return &((*iqs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb not found", id)
+	return &((*iqs)[0]), nil
 }
 
 // GetIrQwebs gets ir.qweb existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQweb(criteria *Criteria) (*IrQweb, error) {
 	if err := c.SearchRead(IrQwebModel, criteria, NewOptions().Limit(1), iqs); err != nil {
 		return nil, err
 	}
-	if iqs != nil && len(*iqs) > 0 {
-		return &((*iqs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb was not found with criteria %v", criteria)
+	return &((*iqs)[0]), nil
 }
 
 // FindIrQwebs finds ir.qweb records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebs(criteria *Criteria, options *Options) (*IrQwebs, er
 // FindIrQwebIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebModel, criteria, options)
 }
 
 // FindIrQwebId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebId(criteria *Criteria, options *Options) (int64, erro
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

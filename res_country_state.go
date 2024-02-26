@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResCountryState represents res.country.state model.
 type ResCountryState struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateResCountryStates(rcss []*ResCountryState) ([]int64, error
 	for _, v := range rcss {
 		vv = append(vv, v)
 	}
-	return c.Create(ResCountryStateModel, vv)
+	return c.Create(ResCountryStateModel, vv, nil)
 }
 
 // UpdateResCountryState updates an existing res.country.state record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateResCountryState(rcs *ResCountryState) error {
 // UpdateResCountryStates updates existing res.country.state records.
 // All records (represented by ids) will be updated by rcs values.
 func (c *Client) UpdateResCountryStates(ids []int64, rcs *ResCountryState) error {
-	return c.Update(ResCountryStateModel, ids, rcs)
+	return c.Update(ResCountryStateModel, ids, rcs, nil)
 }
 
 // DeleteResCountryState deletes an existing res.country.state record.
@@ -77,10 +73,7 @@ func (c *Client) GetResCountryState(id int64) (*ResCountryState, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcss != nil && len(*rcss) > 0 {
-		return &((*rcss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.country.state not found", id)
+	return &((*rcss)[0]), nil
 }
 
 // GetResCountryStates gets res.country.state existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindResCountryState(criteria *Criteria) (*ResCountryState, erro
 	if err := c.SearchRead(ResCountryStateModel, criteria, NewOptions().Limit(1), rcss); err != nil {
 		return nil, err
 	}
-	if rcss != nil && len(*rcss) > 0 {
-		return &((*rcss)[0]), nil
-	}
-	return nil, fmt.Errorf("res.country.state was not found with criteria %v", criteria)
+	return &((*rcss)[0]), nil
 }
 
 // FindResCountryStates finds res.country.state records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindResCountryStates(criteria *Criteria, options *Options) (*Re
 // FindResCountryStateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResCountryStateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResCountryStateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResCountryStateModel, criteria, options)
 }
 
 // FindResCountryStateId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindResCountryStateId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.country.state was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

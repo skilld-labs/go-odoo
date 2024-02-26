@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockTraceabilityReport represents stock.traceability.report model.
 type StockTraceabilityReport struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateStockTraceabilityReports(strs []*StockTraceabilityReport)
 	for _, v := range strs {
 		vv = append(vv, v)
 	}
-	return c.Create(StockTraceabilityReportModel, vv)
+	return c.Create(StockTraceabilityReportModel, vv, nil)
 }
 
 // UpdateStockTraceabilityReport updates an existing stock.traceability.report record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateStockTraceabilityReport(str *StockTraceabilityReport) err
 // UpdateStockTraceabilityReports updates existing stock.traceability.report records.
 // All records (represented by ids) will be updated by str values.
 func (c *Client) UpdateStockTraceabilityReports(ids []int64, str *StockTraceabilityReport) error {
-	return c.Update(StockTraceabilityReportModel, ids, str)
+	return c.Update(StockTraceabilityReportModel, ids, str, nil)
 }
 
 // DeleteStockTraceabilityReport deletes an existing stock.traceability.report record.
@@ -74,10 +70,7 @@ func (c *Client) GetStockTraceabilityReport(id int64) (*StockTraceabilityReport,
 	if err != nil {
 		return nil, err
 	}
-	if strs != nil && len(*strs) > 0 {
-		return &((*strs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.traceability.report not found", id)
+	return &((*strs)[0]), nil
 }
 
 // GetStockTraceabilityReports gets stock.traceability.report existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindStockTraceabilityReport(criteria *Criteria) (*StockTraceabi
 	if err := c.SearchRead(StockTraceabilityReportModel, criteria, NewOptions().Limit(1), strs); err != nil {
 		return nil, err
 	}
-	if strs != nil && len(*strs) > 0 {
-		return &((*strs)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.traceability.report was not found with criteria %v", criteria)
+	return &((*strs)[0]), nil
 }
 
 // FindStockTraceabilityReports finds stock.traceability.report records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindStockTraceabilityReports(criteria *Criteria, options *Optio
 // FindStockTraceabilityReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockTraceabilityReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockTraceabilityReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockTraceabilityReportModel, criteria, options)
 }
 
 // FindStockTraceabilityReportId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindStockTraceabilityReportId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.traceability.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

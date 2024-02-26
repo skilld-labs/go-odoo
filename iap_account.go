@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IapAccount represents iap.account model.
 type IapAccount struct {
 	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateIapAccounts(ias []*IapAccount) ([]int64, error) {
 	for _, v := range ias {
 		vv = append(vv, v)
 	}
-	return c.Create(IapAccountModel, vv)
+	return c.Create(IapAccountModel, vv, nil)
 }
 
 // UpdateIapAccount updates an existing iap.account record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateIapAccount(ia *IapAccount) error {
 // UpdateIapAccounts updates existing iap.account records.
 // All records (represented by ids) will be updated by ia values.
 func (c *Client) UpdateIapAccounts(ids []int64, ia *IapAccount) error {
-	return c.Update(IapAccountModel, ids, ia)
+	return c.Update(IapAccountModel, ids, ia, nil)
 }
 
 // DeleteIapAccount deletes an existing iap.account record.
@@ -77,10 +73,7 @@ func (c *Client) GetIapAccount(id int64) (*IapAccount, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of iap.account not found", id)
+	return &((*ias)[0]), nil
 }
 
 // GetIapAccounts gets iap.account existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindIapAccount(criteria *Criteria) (*IapAccount, error) {
 	if err := c.SearchRead(IapAccountModel, criteria, NewOptions().Limit(1), ias); err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("iap.account was not found with criteria %v", criteria)
+	return &((*ias)[0]), nil
 }
 
 // FindIapAccounts finds iap.account records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindIapAccounts(criteria *Criteria, options *Options) (*IapAcco
 // FindIapAccountIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIapAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IapAccountModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IapAccountModel, criteria, options)
 }
 
 // FindIapAccountId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindIapAccountId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("iap.account was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // UtmMedium represents utm.medium model.
 type UtmMedium struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateUtmMediums(ums []*UtmMedium) ([]int64, error) {
 	for _, v := range ums {
 		vv = append(vv, v)
 	}
-	return c.Create(UtmMediumModel, vv)
+	return c.Create(UtmMediumModel, vv, nil)
 }
 
 // UpdateUtmMedium updates an existing utm.medium record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateUtmMedium(um *UtmMedium) error {
 // UpdateUtmMediums updates existing utm.medium records.
 // All records (represented by ids) will be updated by um values.
 func (c *Client) UpdateUtmMediums(ids []int64, um *UtmMedium) error {
-	return c.Update(UtmMediumModel, ids, um)
+	return c.Update(UtmMediumModel, ids, um, nil)
 }
 
 // DeleteUtmMedium deletes an existing utm.medium record.
@@ -76,10 +72,7 @@ func (c *Client) GetUtmMedium(id int64) (*UtmMedium, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ums != nil && len(*ums) > 0 {
-		return &((*ums)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of utm.medium not found", id)
+	return &((*ums)[0]), nil
 }
 
 // GetUtmMediums gets utm.medium existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindUtmMedium(criteria *Criteria) (*UtmMedium, error) {
 	if err := c.SearchRead(UtmMediumModel, criteria, NewOptions().Limit(1), ums); err != nil {
 		return nil, err
 	}
-	if ums != nil && len(*ums) > 0 {
-		return &((*ums)[0]), nil
-	}
-	return nil, fmt.Errorf("utm.medium was not found with criteria %v", criteria)
+	return &((*ums)[0]), nil
 }
 
 // FindUtmMediums finds utm.medium records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindUtmMediums(criteria *Criteria, options *Options) (*UtmMediu
 // FindUtmMediumIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmMediumIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(UtmMediumModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(UtmMediumModel, criteria, options)
 }
 
 // FindUtmMediumId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindUtmMediumId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("utm.medium was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

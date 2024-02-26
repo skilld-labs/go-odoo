@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountFinancialReport represents account.financial.report model.
 type AccountFinancialReport struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -56,7 +52,7 @@ func (c *Client) CreateAccountFinancialReports(afrs []*AccountFinancialReport) (
 	for _, v := range afrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountFinancialReportModel, vv)
+	return c.Create(AccountFinancialReportModel, vv, nil)
 }
 
 // UpdateAccountFinancialReport updates an existing account.financial.report record.
@@ -67,7 +63,7 @@ func (c *Client) UpdateAccountFinancialReport(afr *AccountFinancialReport) error
 // UpdateAccountFinancialReports updates existing account.financial.report records.
 // All records (represented by ids) will be updated by afr values.
 func (c *Client) UpdateAccountFinancialReports(ids []int64, afr *AccountFinancialReport) error {
-	return c.Update(AccountFinancialReportModel, ids, afr)
+	return c.Update(AccountFinancialReportModel, ids, afr, nil)
 }
 
 // DeleteAccountFinancialReport deletes an existing account.financial.report record.
@@ -86,10 +82,7 @@ func (c *Client) GetAccountFinancialReport(id int64) (*AccountFinancialReport, e
 	if err != nil {
 		return nil, err
 	}
-	if afrs != nil && len(*afrs) > 0 {
-		return &((*afrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.financial.report not found", id)
+	return &((*afrs)[0]), nil
 }
 
 // GetAccountFinancialReports gets account.financial.report existing records.
@@ -107,10 +100,7 @@ func (c *Client) FindAccountFinancialReport(criteria *Criteria) (*AccountFinanci
 	if err := c.SearchRead(AccountFinancialReportModel, criteria, NewOptions().Limit(1), afrs); err != nil {
 		return nil, err
 	}
-	if afrs != nil && len(*afrs) > 0 {
-		return &((*afrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.financial.report was not found with criteria %v", criteria)
+	return &((*afrs)[0]), nil
 }
 
 // FindAccountFinancialReports finds account.financial.report records by querying it
@@ -126,11 +116,7 @@ func (c *Client) FindAccountFinancialReports(criteria *Criteria, options *Option
 // FindAccountFinancialReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFinancialReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountFinancialReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountFinancialReportModel, criteria, options)
 }
 
 // FindAccountFinancialReportId finds record id by querying it with criteria.
@@ -139,8 +125,5 @@ func (c *Client) FindAccountFinancialReportId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.financial.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

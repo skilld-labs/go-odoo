@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PurchaseReport represents purchase.report model.
 type PurchaseReport struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -66,7 +62,7 @@ func (c *Client) CreatePurchaseReports(prs []*PurchaseReport) ([]int64, error) {
 	for _, v := range prs {
 		vv = append(vv, v)
 	}
-	return c.Create(PurchaseReportModel, vv)
+	return c.Create(PurchaseReportModel, vv, nil)
 }
 
 // UpdatePurchaseReport updates an existing purchase.report record.
@@ -77,7 +73,7 @@ func (c *Client) UpdatePurchaseReport(pr *PurchaseReport) error {
 // UpdatePurchaseReports updates existing purchase.report records.
 // All records (represented by ids) will be updated by pr values.
 func (c *Client) UpdatePurchaseReports(ids []int64, pr *PurchaseReport) error {
-	return c.Update(PurchaseReportModel, ids, pr)
+	return c.Update(PurchaseReportModel, ids, pr, nil)
 }
 
 // DeletePurchaseReport deletes an existing purchase.report record.
@@ -96,10 +92,7 @@ func (c *Client) GetPurchaseReport(id int64) (*PurchaseReport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of purchase.report not found", id)
+	return &((*prs)[0]), nil
 }
 
 // GetPurchaseReports gets purchase.report existing records.
@@ -117,10 +110,7 @@ func (c *Client) FindPurchaseReport(criteria *Criteria) (*PurchaseReport, error)
 	if err := c.SearchRead(PurchaseReportModel, criteria, NewOptions().Limit(1), prs); err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("purchase.report was not found with criteria %v", criteria)
+	return &((*prs)[0]), nil
 }
 
 // FindPurchaseReports finds purchase.report records by querying it
@@ -136,11 +126,7 @@ func (c *Client) FindPurchaseReports(criteria *Criteria, options *Options) (*Pur
 // FindPurchaseReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPurchaseReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PurchaseReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PurchaseReportModel, criteria, options)
 }
 
 // FindPurchaseReportId finds record id by querying it with criteria.
@@ -149,8 +135,5 @@ func (c *Client) FindPurchaseReportId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("purchase.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

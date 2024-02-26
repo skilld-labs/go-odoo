@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // FormatAddressMixin represents format.address.mixin model.
 type FormatAddressMixin struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateFormatAddressMixins(fams []*FormatAddressMixin) ([]int64,
 	for _, v := range fams {
 		vv = append(vv, v)
 	}
-	return c.Create(FormatAddressMixinModel, vv)
+	return c.Create(FormatAddressMixinModel, vv, nil)
 }
 
 // UpdateFormatAddressMixin updates an existing format.address.mixin record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateFormatAddressMixin(fam *FormatAddressMixin) error {
 // UpdateFormatAddressMixins updates existing format.address.mixin records.
 // All records (represented by ids) will be updated by fam values.
 func (c *Client) UpdateFormatAddressMixins(ids []int64, fam *FormatAddressMixin) error {
-	return c.Update(FormatAddressMixinModel, ids, fam)
+	return c.Update(FormatAddressMixinModel, ids, fam, nil)
 }
 
 // DeleteFormatAddressMixin deletes an existing format.address.mixin record.
@@ -70,10 +66,7 @@ func (c *Client) GetFormatAddressMixin(id int64) (*FormatAddressMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if fams != nil && len(*fams) > 0 {
-		return &((*fams)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of format.address.mixin not found", id)
+	return &((*fams)[0]), nil
 }
 
 // GetFormatAddressMixins gets format.address.mixin existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindFormatAddressMixin(criteria *Criteria) (*FormatAddressMixin
 	if err := c.SearchRead(FormatAddressMixinModel, criteria, NewOptions().Limit(1), fams); err != nil {
 		return nil, err
 	}
-	if fams != nil && len(*fams) > 0 {
-		return &((*fams)[0]), nil
-	}
-	return nil, fmt.Errorf("format.address.mixin was not found with criteria %v", criteria)
+	return &((*fams)[0]), nil
 }
 
 // FindFormatAddressMixins finds format.address.mixin records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindFormatAddressMixins(criteria *Criteria, options *Options) (
 // FindFormatAddressMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindFormatAddressMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(FormatAddressMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(FormatAddressMixinModel, criteria, options)
 }
 
 // FindFormatAddressMixinId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindFormatAddressMixinId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("format.address.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductProduct represents product.product model.
 type ProductProduct struct {
 	LastUpdate                             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -156,7 +152,7 @@ func (c *Client) CreateProductProducts(pps []*ProductProduct) ([]int64, error) {
 	for _, v := range pps {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductProductModel, vv)
+	return c.Create(ProductProductModel, vv, nil)
 }
 
 // UpdateProductProduct updates an existing product.product record.
@@ -167,7 +163,7 @@ func (c *Client) UpdateProductProduct(pp *ProductProduct) error {
 // UpdateProductProducts updates existing product.product records.
 // All records (represented by ids) will be updated by pp values.
 func (c *Client) UpdateProductProducts(ids []int64, pp *ProductProduct) error {
-	return c.Update(ProductProductModel, ids, pp)
+	return c.Update(ProductProductModel, ids, pp, nil)
 }
 
 // DeleteProductProduct deletes an existing product.product record.
@@ -186,10 +182,7 @@ func (c *Client) GetProductProduct(id int64) (*ProductProduct, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.product not found", id)
+	return &((*pps)[0]), nil
 }
 
 // GetProductProducts gets product.product existing records.
@@ -207,10 +200,7 @@ func (c *Client) FindProductProduct(criteria *Criteria) (*ProductProduct, error)
 	if err := c.SearchRead(ProductProductModel, criteria, NewOptions().Limit(1), pps); err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("product.product was not found with criteria %v", criteria)
+	return &((*pps)[0]), nil
 }
 
 // FindProductProducts finds product.product records by querying it
@@ -226,11 +216,7 @@ func (c *Client) FindProductProducts(criteria *Criteria, options *Options) (*Pro
 // FindProductProductIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductProductIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductProductModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductProductModel, criteria, options)
 }
 
 // FindProductProductId finds record id by querying it with criteria.
@@ -239,8 +225,5 @@ func (c *Client) FindProductProductId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.product was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModuleModuleDependency represents ir.module.module.dependency model.
 type IrModuleModuleDependency struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateIrModuleModuleDependencys(immds []*IrModuleModuleDependen
 	for _, v := range immds {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModuleModuleDependencyModel, vv)
+	return c.Create(IrModuleModuleDependencyModel, vv, nil)
 }
 
 // UpdateIrModuleModuleDependency updates an existing ir.module.module.dependency record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateIrModuleModuleDependency(immd *IrModuleModuleDependency) 
 // UpdateIrModuleModuleDependencys updates existing ir.module.module.dependency records.
 // All records (represented by ids) will be updated by immd values.
 func (c *Client) UpdateIrModuleModuleDependencys(ids []int64, immd *IrModuleModuleDependency) error {
-	return c.Update(IrModuleModuleDependencyModel, ids, immd)
+	return c.Update(IrModuleModuleDependencyModel, ids, immd, nil)
 }
 
 // DeleteIrModuleModuleDependency deletes an existing ir.module.module.dependency record.
@@ -78,10 +74,7 @@ func (c *Client) GetIrModuleModuleDependency(id int64) (*IrModuleModuleDependenc
 	if err != nil {
 		return nil, err
 	}
-	if immds != nil && len(*immds) > 0 {
-		return &((*immds)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.module.module.dependency not found", id)
+	return &((*immds)[0]), nil
 }
 
 // GetIrModuleModuleDependencys gets ir.module.module.dependency existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindIrModuleModuleDependency(criteria *Criteria) (*IrModuleModu
 	if err := c.SearchRead(IrModuleModuleDependencyModel, criteria, NewOptions().Limit(1), immds); err != nil {
 		return nil, err
 	}
-	if immds != nil && len(*immds) > 0 {
-		return &((*immds)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.module.module.dependency was not found with criteria %v", criteria)
+	return &((*immds)[0]), nil
 }
 
 // FindIrModuleModuleDependencys finds ir.module.module.dependency records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindIrModuleModuleDependencys(criteria *Criteria, options *Opti
 // FindIrModuleModuleDependencyIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModuleModuleDependencyIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModuleModuleDependencyModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModuleModuleDependencyModel, criteria, options)
 }
 
 // FindIrModuleModuleDependencyId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindIrModuleModuleDependencyId(criteria *Criteria, options *Opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.module.module.dependency was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProcurementGroup represents procurement.group model.
 type ProcurementGroup struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateProcurementGroups(pgs []*ProcurementGroup) ([]int64, erro
 	for _, v := range pgs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProcurementGroupModel, vv)
+	return c.Create(ProcurementGroupModel, vv, nil)
 }
 
 // UpdateProcurementGroup updates an existing procurement.group record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateProcurementGroup(pg *ProcurementGroup) error {
 // UpdateProcurementGroups updates existing procurement.group records.
 // All records (represented by ids) will be updated by pg values.
 func (c *Client) UpdateProcurementGroups(ids []int64, pg *ProcurementGroup) error {
-	return c.Update(ProcurementGroupModel, ids, pg)
+	return c.Update(ProcurementGroupModel, ids, pg, nil)
 }
 
 // DeleteProcurementGroup deletes an existing procurement.group record.
@@ -78,10 +74,7 @@ func (c *Client) GetProcurementGroup(id int64) (*ProcurementGroup, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pgs != nil && len(*pgs) > 0 {
-		return &((*pgs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of procurement.group not found", id)
+	return &((*pgs)[0]), nil
 }
 
 // GetProcurementGroups gets procurement.group existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindProcurementGroup(criteria *Criteria) (*ProcurementGroup, er
 	if err := c.SearchRead(ProcurementGroupModel, criteria, NewOptions().Limit(1), pgs); err != nil {
 		return nil, err
 	}
-	if pgs != nil && len(*pgs) > 0 {
-		return &((*pgs)[0]), nil
-	}
-	return nil, fmt.Errorf("procurement.group was not found with criteria %v", criteria)
+	return &((*pgs)[0]), nil
 }
 
 // FindProcurementGroups finds procurement.group records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindProcurementGroups(criteria *Criteria, options *Options) (*P
 // FindProcurementGroupIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProcurementGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProcurementGroupModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProcurementGroupModel, criteria, options)
 }
 
 // FindProcurementGroupId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindProcurementGroupId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("procurement.group was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

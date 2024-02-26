@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountReconcileModel represents account.reconcile.model model.
 type AccountReconcileModel struct {
 	LastUpdate              *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateAccountReconcileModels(arms []*AccountReconcileModel) ([]
 	for _, v := range arms {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountReconcileModelModel, vv)
+	return c.Create(AccountReconcileModelModel, vv, nil)
 }
 
 // UpdateAccountReconcileModel updates an existing account.reconcile.model record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateAccountReconcileModel(arm *AccountReconcileModel) error {
 // UpdateAccountReconcileModels updates existing account.reconcile.model records.
 // All records (represented by ids) will be updated by arm values.
 func (c *Client) UpdateAccountReconcileModels(ids []int64, arm *AccountReconcileModel) error {
-	return c.Update(AccountReconcileModelModel, ids, arm)
+	return c.Update(AccountReconcileModelModel, ids, arm, nil)
 }
 
 // DeleteAccountReconcileModel deletes an existing account.reconcile.model record.
@@ -92,10 +88,7 @@ func (c *Client) GetAccountReconcileModel(id int64) (*AccountReconcileModel, err
 	if err != nil {
 		return nil, err
 	}
-	if arms != nil && len(*arms) > 0 {
-		return &((*arms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.reconcile.model not found", id)
+	return &((*arms)[0]), nil
 }
 
 // GetAccountReconcileModels gets account.reconcile.model existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindAccountReconcileModel(criteria *Criteria) (*AccountReconcil
 	if err := c.SearchRead(AccountReconcileModelModel, criteria, NewOptions().Limit(1), arms); err != nil {
 		return nil, err
 	}
-	if arms != nil && len(*arms) > 0 {
-		return &((*arms)[0]), nil
-	}
-	return nil, fmt.Errorf("account.reconcile.model was not found with criteria %v", criteria)
+	return &((*arms)[0]), nil
 }
 
 // FindAccountReconcileModels finds account.reconcile.model records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindAccountReconcileModels(criteria *Criteria, options *Options
 // FindAccountReconcileModelIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountReconcileModelIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountReconcileModelModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountReconcileModelModel, criteria, options)
 }
 
 // FindAccountReconcileModelId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindAccountReconcileModelId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.reconcile.model was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

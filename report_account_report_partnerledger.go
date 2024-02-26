@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportPartnerledger represents report.account.report_partnerledger model.
 type ReportAccountReportPartnerledger struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportPartnerledgers(rars []*ReportAccountRe
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportPartnerledgerModel, vv)
+	return c.Create(ReportAccountReportPartnerledgerModel, vv, nil)
 }
 
 // UpdateReportAccountReportPartnerledger updates an existing report.account.report_partnerledger record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportPartnerledger(rar *ReportAccountReport
 // UpdateReportAccountReportPartnerledgers updates existing report.account.report_partnerledger records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportPartnerledgers(ids []int64, rar *ReportAccountReportPartnerledger) error {
-	return c.Update(ReportAccountReportPartnerledgerModel, ids, rar)
+	return c.Update(ReportAccountReportPartnerledgerModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportPartnerledger deletes an existing report.account.report_partnerledger record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportPartnerledger(id int64) (*ReportAccountRe
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_partnerledger not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportPartnerledgers gets report.account.report_partnerledger existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportPartnerledger(criteria *Criteria) (*Repo
 	if err := c.SearchRead(ReportAccountReportPartnerledgerModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_partnerledger was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportPartnerledgers finds report.account.report_partnerledger records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportPartnerledgers(criteria *Criteria, optio
 // FindReportAccountReportPartnerledgerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportPartnerledgerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportPartnerledgerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportPartnerledgerModel, criteria, options)
 }
 
 // FindReportAccountReportPartnerledgerId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportPartnerledgerId(criteria *Criteria, opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_partnerledger was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

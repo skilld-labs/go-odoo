@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductAttributeValue represents product.attribute.value model.
 type ProductAttributeValue struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateProductAttributeValues(pavs []*ProductAttributeValue) ([]
 	for _, v := range pavs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductAttributeValueModel, vv)
+	return c.Create(ProductAttributeValueModel, vv, nil)
 }
 
 // UpdateProductAttributeValue updates an existing product.attribute.value record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateProductAttributeValue(pav *ProductAttributeValue) error {
 // UpdateProductAttributeValues updates existing product.attribute.value records.
 // All records (represented by ids) will be updated by pav values.
 func (c *Client) UpdateProductAttributeValues(ids []int64, pav *ProductAttributeValue) error {
-	return c.Update(ProductAttributeValueModel, ids, pav)
+	return c.Update(ProductAttributeValueModel, ids, pav, nil)
 }
 
 // DeleteProductAttributeValue deletes an existing product.attribute.value record.
@@ -80,10 +76,7 @@ func (c *Client) GetProductAttributeValue(id int64) (*ProductAttributeValue, err
 	if err != nil {
 		return nil, err
 	}
-	if pavs != nil && len(*pavs) > 0 {
-		return &((*pavs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.attribute.value not found", id)
+	return &((*pavs)[0]), nil
 }
 
 // GetProductAttributeValues gets product.attribute.value existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindProductAttributeValue(criteria *Criteria) (*ProductAttribut
 	if err := c.SearchRead(ProductAttributeValueModel, criteria, NewOptions().Limit(1), pavs); err != nil {
 		return nil, err
 	}
-	if pavs != nil && len(*pavs) > 0 {
-		return &((*pavs)[0]), nil
-	}
-	return nil, fmt.Errorf("product.attribute.value was not found with criteria %v", criteria)
+	return &((*pavs)[0]), nil
 }
 
 // FindProductAttributeValues finds product.attribute.value records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindProductAttributeValues(criteria *Criteria, options *Options
 // FindProductAttributeValueIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductAttributeValueIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductAttributeValueModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductAttributeValueModel, criteria, options)
 }
 
 // FindProductAttributeValueId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindProductAttributeValueId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.attribute.value was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

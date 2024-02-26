@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailAliasMixin represents mail.alias.mixin model.
 type MailAliasMixin struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -54,7 +50,7 @@ func (c *Client) CreateMailAliasMixins(mams []*MailAliasMixin) ([]int64, error) 
 	for _, v := range mams {
 		vv = append(vv, v)
 	}
-	return c.Create(MailAliasMixinModel, vv)
+	return c.Create(MailAliasMixinModel, vv, nil)
 }
 
 // UpdateMailAliasMixin updates an existing mail.alias.mixin record.
@@ -65,7 +61,7 @@ func (c *Client) UpdateMailAliasMixin(mam *MailAliasMixin) error {
 // UpdateMailAliasMixins updates existing mail.alias.mixin records.
 // All records (represented by ids) will be updated by mam values.
 func (c *Client) UpdateMailAliasMixins(ids []int64, mam *MailAliasMixin) error {
-	return c.Update(MailAliasMixinModel, ids, mam)
+	return c.Update(MailAliasMixinModel, ids, mam, nil)
 }
 
 // DeleteMailAliasMixin deletes an existing mail.alias.mixin record.
@@ -84,10 +80,7 @@ func (c *Client) GetMailAliasMixin(id int64) (*MailAliasMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mams != nil && len(*mams) > 0 {
-		return &((*mams)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.alias.mixin not found", id)
+	return &((*mams)[0]), nil
 }
 
 // GetMailAliasMixins gets mail.alias.mixin existing records.
@@ -105,10 +98,7 @@ func (c *Client) FindMailAliasMixin(criteria *Criteria) (*MailAliasMixin, error)
 	if err := c.SearchRead(MailAliasMixinModel, criteria, NewOptions().Limit(1), mams); err != nil {
 		return nil, err
 	}
-	if mams != nil && len(*mams) > 0 {
-		return &((*mams)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.alias.mixin was not found with criteria %v", criteria)
+	return &((*mams)[0]), nil
 }
 
 // FindMailAliasMixins finds mail.alias.mixin records by querying it
@@ -124,11 +114,7 @@ func (c *Client) FindMailAliasMixins(criteria *Criteria, options *Options) (*Mai
 // FindMailAliasMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailAliasMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailAliasMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailAliasMixinModel, criteria, options)
 }
 
 // FindMailAliasMixinId finds record id by querying it with criteria.
@@ -137,8 +123,5 @@ func (c *Client) FindMailAliasMixinId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.alias.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

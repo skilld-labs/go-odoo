@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PurchaseOrderLine represents purchase.order.line model.
 type PurchaseOrderLine struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -70,7 +66,7 @@ func (c *Client) CreatePurchaseOrderLines(pols []*PurchaseOrderLine) ([]int64, e
 	for _, v := range pols {
 		vv = append(vv, v)
 	}
-	return c.Create(PurchaseOrderLineModel, vv)
+	return c.Create(PurchaseOrderLineModel, vv, nil)
 }
 
 // UpdatePurchaseOrderLine updates an existing purchase.order.line record.
@@ -81,7 +77,7 @@ func (c *Client) UpdatePurchaseOrderLine(pol *PurchaseOrderLine) error {
 // UpdatePurchaseOrderLines updates existing purchase.order.line records.
 // All records (represented by ids) will be updated by pol values.
 func (c *Client) UpdatePurchaseOrderLines(ids []int64, pol *PurchaseOrderLine) error {
-	return c.Update(PurchaseOrderLineModel, ids, pol)
+	return c.Update(PurchaseOrderLineModel, ids, pol, nil)
 }
 
 // DeletePurchaseOrderLine deletes an existing purchase.order.line record.
@@ -100,10 +96,7 @@ func (c *Client) GetPurchaseOrderLine(id int64) (*PurchaseOrderLine, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pols != nil && len(*pols) > 0 {
-		return &((*pols)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of purchase.order.line not found", id)
+	return &((*pols)[0]), nil
 }
 
 // GetPurchaseOrderLines gets purchase.order.line existing records.
@@ -121,10 +114,7 @@ func (c *Client) FindPurchaseOrderLine(criteria *Criteria) (*PurchaseOrderLine, 
 	if err := c.SearchRead(PurchaseOrderLineModel, criteria, NewOptions().Limit(1), pols); err != nil {
 		return nil, err
 	}
-	if pols != nil && len(*pols) > 0 {
-		return &((*pols)[0]), nil
-	}
-	return nil, fmt.Errorf("purchase.order.line was not found with criteria %v", criteria)
+	return &((*pols)[0]), nil
 }
 
 // FindPurchaseOrderLines finds purchase.order.line records by querying it
@@ -140,11 +130,7 @@ func (c *Client) FindPurchaseOrderLines(criteria *Criteria, options *Options) (*
 // FindPurchaseOrderLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPurchaseOrderLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PurchaseOrderLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PurchaseOrderLineModel, criteria, options)
 }
 
 // FindPurchaseOrderLineId finds record id by querying it with criteria.
@@ -153,8 +139,5 @@ func (c *Client) FindPurchaseOrderLineId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("purchase.order.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

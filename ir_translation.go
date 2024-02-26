@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrTranslation represents ir.translation model.
 type IrTranslation struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateIrTranslations(its []*IrTranslation) ([]int64, error) {
 	for _, v := range its {
 		vv = append(vv, v)
 	}
-	return c.Create(IrTranslationModel, vv)
+	return c.Create(IrTranslationModel, vv, nil)
 }
 
 // UpdateIrTranslation updates an existing ir.translation record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateIrTranslation(it *IrTranslation) error {
 // UpdateIrTranslations updates existing ir.translation records.
 // All records (represented by ids) will be updated by it values.
 func (c *Client) UpdateIrTranslations(ids []int64, it *IrTranslation) error {
-	return c.Update(IrTranslationModel, ids, it)
+	return c.Update(IrTranslationModel, ids, it, nil)
 }
 
 // DeleteIrTranslation deletes an existing ir.translation record.
@@ -80,10 +76,7 @@ func (c *Client) GetIrTranslation(id int64) (*IrTranslation, error) {
 	if err != nil {
 		return nil, err
 	}
-	if its != nil && len(*its) > 0 {
-		return &((*its)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.translation not found", id)
+	return &((*its)[0]), nil
 }
 
 // GetIrTranslations gets ir.translation existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindIrTranslation(criteria *Criteria) (*IrTranslation, error) {
 	if err := c.SearchRead(IrTranslationModel, criteria, NewOptions().Limit(1), its); err != nil {
 		return nil, err
 	}
-	if its != nil && len(*its) > 0 {
-		return &((*its)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.translation was not found with criteria %v", criteria)
+	return &((*its)[0]), nil
 }
 
 // FindIrTranslations finds ir.translation records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindIrTranslations(criteria *Criteria, options *Options) (*IrTr
 // FindIrTranslationIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrTranslationIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrTranslationModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrTranslationModel, criteria, options)
 }
 
 // FindIrTranslationId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindIrTranslationId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.translation was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldDatetime represents ir.qweb.field.datetime model.
 type IrQwebFieldDatetime struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldDatetimes(iqfds []*IrQwebFieldDatetime) ([]int
 	for _, v := range iqfds {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldDatetimeModel, vv)
+	return c.Create(IrQwebFieldDatetimeModel, vv, nil)
 }
 
 // UpdateIrQwebFieldDatetime updates an existing ir.qweb.field.datetime record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldDatetime(iqfd *IrQwebFieldDatetime) error {
 // UpdateIrQwebFieldDatetimes updates existing ir.qweb.field.datetime records.
 // All records (represented by ids) will be updated by iqfd values.
 func (c *Client) UpdateIrQwebFieldDatetimes(ids []int64, iqfd *IrQwebFieldDatetime) error {
-	return c.Update(IrQwebFieldDatetimeModel, ids, iqfd)
+	return c.Update(IrQwebFieldDatetimeModel, ids, iqfd, nil)
 }
 
 // DeleteIrQwebFieldDatetime deletes an existing ir.qweb.field.datetime record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldDatetime(id int64) (*IrQwebFieldDatetime, error) 
 	if err != nil {
 		return nil, err
 	}
-	if iqfds != nil && len(*iqfds) > 0 {
-		return &((*iqfds)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.datetime not found", id)
+	return &((*iqfds)[0]), nil
 }
 
 // GetIrQwebFieldDatetimes gets ir.qweb.field.datetime existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldDatetime(criteria *Criteria) (*IrQwebFieldDateti
 	if err := c.SearchRead(IrQwebFieldDatetimeModel, criteria, NewOptions().Limit(1), iqfds); err != nil {
 		return nil, err
 	}
-	if iqfds != nil && len(*iqfds) > 0 {
-		return &((*iqfds)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.datetime was not found with criteria %v", criteria)
+	return &((*iqfds)[0]), nil
 }
 
 // FindIrQwebFieldDatetimes finds ir.qweb.field.datetime records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldDatetimes(criteria *Criteria, options *Options) 
 // FindIrQwebFieldDatetimeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldDatetimeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldDatetimeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldDatetimeModel, criteria, options)
 }
 
 // FindIrQwebFieldDatetimeId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldDatetimeId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.datetime was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

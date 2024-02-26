@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrHolidaysStatus represents hr.holidays.status model.
 type HrHolidaysStatus struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -58,7 +54,7 @@ func (c *Client) CreateHrHolidaysStatuss(hhss []*HrHolidaysStatus) ([]int64, err
 	for _, v := range hhss {
 		vv = append(vv, v)
 	}
-	return c.Create(HrHolidaysStatusModel, vv)
+	return c.Create(HrHolidaysStatusModel, vv, nil)
 }
 
 // UpdateHrHolidaysStatus updates an existing hr.holidays.status record.
@@ -69,7 +65,7 @@ func (c *Client) UpdateHrHolidaysStatus(hhs *HrHolidaysStatus) error {
 // UpdateHrHolidaysStatuss updates existing hr.holidays.status records.
 // All records (represented by ids) will be updated by hhs values.
 func (c *Client) UpdateHrHolidaysStatuss(ids []int64, hhs *HrHolidaysStatus) error {
-	return c.Update(HrHolidaysStatusModel, ids, hhs)
+	return c.Update(HrHolidaysStatusModel, ids, hhs, nil)
 }
 
 // DeleteHrHolidaysStatus deletes an existing hr.holidays.status record.
@@ -88,10 +84,7 @@ func (c *Client) GetHrHolidaysStatus(id int64) (*HrHolidaysStatus, error) {
 	if err != nil {
 		return nil, err
 	}
-	if hhss != nil && len(*hhss) > 0 {
-		return &((*hhss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.holidays.status not found", id)
+	return &((*hhss)[0]), nil
 }
 
 // GetHrHolidaysStatuss gets hr.holidays.status existing records.
@@ -109,10 +102,7 @@ func (c *Client) FindHrHolidaysStatus(criteria *Criteria) (*HrHolidaysStatus, er
 	if err := c.SearchRead(HrHolidaysStatusModel, criteria, NewOptions().Limit(1), hhss); err != nil {
 		return nil, err
 	}
-	if hhss != nil && len(*hhss) > 0 {
-		return &((*hhss)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.holidays.status was not found with criteria %v", criteria)
+	return &((*hhss)[0]), nil
 }
 
 // FindHrHolidaysStatuss finds hr.holidays.status records by querying it
@@ -128,11 +118,7 @@ func (c *Client) FindHrHolidaysStatuss(criteria *Criteria, options *Options) (*H
 // FindHrHolidaysStatusIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrHolidaysStatusIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrHolidaysStatusModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrHolidaysStatusModel, criteria, options)
 }
 
 // FindHrHolidaysStatusId finds record id by querying it with criteria.
@@ -141,8 +127,5 @@ func (c *Client) FindHrHolidaysStatusId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.holidays.status was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

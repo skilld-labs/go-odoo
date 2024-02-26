@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrAttachment represents ir.attachment model.
 type IrAttachment struct {
 	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
@@ -64,7 +60,7 @@ func (c *Client) CreateIrAttachments(ias []*IrAttachment) ([]int64, error) {
 	for _, v := range ias {
 		vv = append(vv, v)
 	}
-	return c.Create(IrAttachmentModel, vv)
+	return c.Create(IrAttachmentModel, vv, nil)
 }
 
 // UpdateIrAttachment updates an existing ir.attachment record.
@@ -75,7 +71,7 @@ func (c *Client) UpdateIrAttachment(ia *IrAttachment) error {
 // UpdateIrAttachments updates existing ir.attachment records.
 // All records (represented by ids) will be updated by ia values.
 func (c *Client) UpdateIrAttachments(ids []int64, ia *IrAttachment) error {
-	return c.Update(IrAttachmentModel, ids, ia)
+	return c.Update(IrAttachmentModel, ids, ia, nil)
 }
 
 // DeleteIrAttachment deletes an existing ir.attachment record.
@@ -94,10 +90,7 @@ func (c *Client) GetIrAttachment(id int64) (*IrAttachment, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.attachment not found", id)
+	return &((*ias)[0]), nil
 }
 
 // GetIrAttachments gets ir.attachment existing records.
@@ -115,10 +108,7 @@ func (c *Client) FindIrAttachment(criteria *Criteria) (*IrAttachment, error) {
 	if err := c.SearchRead(IrAttachmentModel, criteria, NewOptions().Limit(1), ias); err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.attachment was not found with criteria %v", criteria)
+	return &((*ias)[0]), nil
 }
 
 // FindIrAttachments finds ir.attachment records by querying it
@@ -134,11 +124,7 @@ func (c *Client) FindIrAttachments(criteria *Criteria, options *Options) (*IrAtt
 // FindIrAttachmentIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrAttachmentIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrAttachmentModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrAttachmentModel, criteria, options)
 }
 
 // FindIrAttachmentId finds record id by querying it with criteria.
@@ -147,8 +133,5 @@ func (c *Client) FindIrAttachmentId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.attachment was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

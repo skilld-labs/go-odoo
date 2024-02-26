@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResConfigInstaller represents res.config.installer model.
 type ResConfigInstaller struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateResConfigInstallers(rcis []*ResConfigInstaller) ([]int64,
 	for _, v := range rcis {
 		vv = append(vv, v)
 	}
-	return c.Create(ResConfigInstallerModel, vv)
+	return c.Create(ResConfigInstallerModel, vv, nil)
 }
 
 // UpdateResConfigInstaller updates an existing res.config.installer record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateResConfigInstaller(rci *ResConfigInstaller) error {
 // UpdateResConfigInstallers updates existing res.config.installer records.
 // All records (represented by ids) will be updated by rci values.
 func (c *Client) UpdateResConfigInstallers(ids []int64, rci *ResConfigInstaller) error {
-	return c.Update(ResConfigInstallerModel, ids, rci)
+	return c.Update(ResConfigInstallerModel, ids, rci, nil)
 }
 
 // DeleteResConfigInstaller deletes an existing res.config.installer record.
@@ -74,10 +70,7 @@ func (c *Client) GetResConfigInstaller(id int64) (*ResConfigInstaller, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcis != nil && len(*rcis) > 0 {
-		return &((*rcis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.config.installer not found", id)
+	return &((*rcis)[0]), nil
 }
 
 // GetResConfigInstallers gets res.config.installer existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindResConfigInstaller(criteria *Criteria) (*ResConfigInstaller
 	if err := c.SearchRead(ResConfigInstallerModel, criteria, NewOptions().Limit(1), rcis); err != nil {
 		return nil, err
 	}
-	if rcis != nil && len(*rcis) > 0 {
-		return &((*rcis)[0]), nil
-	}
-	return nil, fmt.Errorf("res.config.installer was not found with criteria %v", criteria)
+	return &((*rcis)[0]), nil
 }
 
 // FindResConfigInstallers finds res.config.installer records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindResConfigInstallers(criteria *Criteria, options *Options) (
 // FindResConfigInstallerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResConfigInstallerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResConfigInstallerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResConfigInstallerModel, criteria, options)
 }
 
 // FindResConfigInstallerId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindResConfigInstallerId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.config.installer was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

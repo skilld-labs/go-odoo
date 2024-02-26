@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMessageSubtype represents mail.message.subtype model.
 type MailMessageSubtype struct {
 	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateMailMessageSubtypes(mmss []*MailMessageSubtype) ([]int64,
 	for _, v := range mmss {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMessageSubtypeModel, vv)
+	return c.Create(MailMessageSubtypeModel, vv, nil)
 }
 
 // UpdateMailMessageSubtype updates an existing mail.message.subtype record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateMailMessageSubtype(mms *MailMessageSubtype) error {
 // UpdateMailMessageSubtypes updates existing mail.message.subtype records.
 // All records (represented by ids) will be updated by mms values.
 func (c *Client) UpdateMailMessageSubtypes(ids []int64, mms *MailMessageSubtype) error {
-	return c.Update(MailMessageSubtypeModel, ids, mms)
+	return c.Update(MailMessageSubtypeModel, ids, mms, nil)
 }
 
 // DeleteMailMessageSubtype deletes an existing mail.message.subtype record.
@@ -83,10 +79,7 @@ func (c *Client) GetMailMessageSubtype(id int64) (*MailMessageSubtype, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mmss != nil && len(*mmss) > 0 {
-		return &((*mmss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.message.subtype not found", id)
+	return &((*mmss)[0]), nil
 }
 
 // GetMailMessageSubtypes gets mail.message.subtype existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindMailMessageSubtype(criteria *Criteria) (*MailMessageSubtype
 	if err := c.SearchRead(MailMessageSubtypeModel, criteria, NewOptions().Limit(1), mmss); err != nil {
 		return nil, err
 	}
-	if mmss != nil && len(*mmss) > 0 {
-		return &((*mmss)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.message.subtype was not found with criteria %v", criteria)
+	return &((*mmss)[0]), nil
 }
 
 // FindMailMessageSubtypes finds mail.message.subtype records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindMailMessageSubtypes(criteria *Criteria, options *Options) (
 // FindMailMessageSubtypeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMessageSubtypeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMessageSubtypeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMessageSubtypeModel, criteria, options)
 }
 
 // FindMailMessageSubtypeId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindMailMessageSubtypeId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.message.subtype was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

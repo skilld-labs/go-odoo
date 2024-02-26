@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMassMailing represents mail.mass_mailing model.
 type MailMassMailing struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -81,7 +77,7 @@ func (c *Client) CreateMailMassMailings(mms []*MailMassMailing) ([]int64, error)
 	for _, v := range mms {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMassMailingModel, vv)
+	return c.Create(MailMassMailingModel, vv, nil)
 }
 
 // UpdateMailMassMailing updates an existing mail.mass_mailing record.
@@ -92,7 +88,7 @@ func (c *Client) UpdateMailMassMailing(mm *MailMassMailing) error {
 // UpdateMailMassMailings updates existing mail.mass_mailing records.
 // All records (represented by ids) will be updated by mm values.
 func (c *Client) UpdateMailMassMailings(ids []int64, mm *MailMassMailing) error {
-	return c.Update(MailMassMailingModel, ids, mm)
+	return c.Update(MailMassMailingModel, ids, mm, nil)
 }
 
 // DeleteMailMassMailing deletes an existing mail.mass_mailing record.
@@ -111,10 +107,7 @@ func (c *Client) GetMailMassMailing(id int64) (*MailMassMailing, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mms != nil && len(*mms) > 0 {
-		return &((*mms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.mass_mailing not found", id)
+	return &((*mms)[0]), nil
 }
 
 // GetMailMassMailings gets mail.mass_mailing existing records.
@@ -132,10 +125,7 @@ func (c *Client) FindMailMassMailing(criteria *Criteria) (*MailMassMailing, erro
 	if err := c.SearchRead(MailMassMailingModel, criteria, NewOptions().Limit(1), mms); err != nil {
 		return nil, err
 	}
-	if mms != nil && len(*mms) > 0 {
-		return &((*mms)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.mass_mailing was not found with criteria %v", criteria)
+	return &((*mms)[0]), nil
 }
 
 // FindMailMassMailings finds mail.mass_mailing records by querying it
@@ -151,11 +141,7 @@ func (c *Client) FindMailMassMailings(criteria *Criteria, options *Options) (*Ma
 // FindMailMassMailingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMassMailingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMassMailingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMassMailingModel, criteria, options)
 }
 
 // FindMailMassMailingId finds record id by querying it with criteria.
@@ -164,8 +150,5 @@ func (c *Client) FindMailMassMailingId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.mass_mailing was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

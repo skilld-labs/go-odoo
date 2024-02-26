@@ -1,16 +1,10 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResConfigSettings represents res.config.settings model.
 type ResConfigSettings struct {
 	LastUpdate                           *Time      `xmlrpc:"__last_update,omptempty"`
 	AccountHideSetupBar                  *Bool      `xmlrpc:"account_hide_setup_bar,omptempty"`
 	AliasDomain                          *String    `xmlrpc:"alias_domain,omptempty"`
-	AuthSignupResetPassword              *Bool      `xmlrpc:"auth_signup_reset_password,omptempty"`
-	AuthSignupTemplateUserId             *Many2One  `xmlrpc:"auth_signup_template_user_id,omptempty"`
 	AuthSignupUninvited                  *Selection `xmlrpc:"auth_signup_uninvited,omptempty"`
 	AutoDoneSetting                      *Bool      `xmlrpc:"auto_done_setting,omptempty"`
 	ChartTemplateId                      *Many2One  `xmlrpc:"chart_template_id,omptempty"`
@@ -74,6 +68,7 @@ type ResConfigSettings struct {
 	HasChartOfAccounts                   *Bool      `xmlrpc:"has_chart_of_accounts,omptempty"`
 	Id                                   *Int       `xmlrpc:"id,omptempty"`
 	IsInstalledSale                      *Bool      `xmlrpc:"is_installed_sale,omptempty"`
+	Ldaps                                *Relation  `xmlrpc:"ldaps,omptempty"`
 	LeaveTimesheetProjectId              *Many2One  `xmlrpc:"leave_timesheet_project_id,omptempty"`
 	LeaveTimesheetTaskId                 *Many2One  `xmlrpc:"leave_timesheet_task_id,omptempty"`
 	LockConfirmedPo                      *Bool      `xmlrpc:"lock_confirmed_po,omptempty"`
@@ -198,7 +193,7 @@ func (c *Client) CreateResConfigSettingss(rcss []*ResConfigSettings) ([]int64, e
 	for _, v := range rcss {
 		vv = append(vv, v)
 	}
-	return c.Create(ResConfigSettingsModel, vv)
+	return c.Create(ResConfigSettingsModel, vv, nil)
 }
 
 // UpdateResConfigSettings updates an existing res.config.settings record.
@@ -209,7 +204,7 @@ func (c *Client) UpdateResConfigSettings(rcs *ResConfigSettings) error {
 // UpdateResConfigSettingss updates existing res.config.settings records.
 // All records (represented by ids) will be updated by rcs values.
 func (c *Client) UpdateResConfigSettingss(ids []int64, rcs *ResConfigSettings) error {
-	return c.Update(ResConfigSettingsModel, ids, rcs)
+	return c.Update(ResConfigSettingsModel, ids, rcs, nil)
 }
 
 // DeleteResConfigSettings deletes an existing res.config.settings record.
@@ -228,10 +223,7 @@ func (c *Client) GetResConfigSettings(id int64) (*ResConfigSettings, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcss != nil && len(*rcss) > 0 {
-		return &((*rcss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.config.settings not found", id)
+	return &((*rcss)[0]), nil
 }
 
 // GetResConfigSettingss gets res.config.settings existing records.
@@ -249,10 +241,7 @@ func (c *Client) FindResConfigSettings(criteria *Criteria) (*ResConfigSettings, 
 	if err := c.SearchRead(ResConfigSettingsModel, criteria, NewOptions().Limit(1), rcss); err != nil {
 		return nil, err
 	}
-	if rcss != nil && len(*rcss) > 0 {
-		return &((*rcss)[0]), nil
-	}
-	return nil, fmt.Errorf("res.config.settings was not found with criteria %v", criteria)
+	return &((*rcss)[0]), nil
 }
 
 // FindResConfigSettingss finds res.config.settings records by querying it
@@ -268,11 +257,7 @@ func (c *Client) FindResConfigSettingss(criteria *Criteria, options *Options) (*
 // FindResConfigSettingsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResConfigSettingsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResConfigSettingsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResConfigSettingsModel, criteria, options)
 }
 
 // FindResConfigSettingsId finds record id by querying it with criteria.
@@ -281,8 +266,5 @@ func (c *Client) FindResConfigSettingsId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.config.settings was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

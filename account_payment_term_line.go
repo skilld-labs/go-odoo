@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountPaymentTermLine represents account.payment.term.line model.
 type AccountPaymentTermLine struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountPaymentTermLines(aptls []*AccountPaymentTermLine) 
 	for _, v := range aptls {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountPaymentTermLineModel, vv)
+	return c.Create(AccountPaymentTermLineModel, vv, nil)
 }
 
 // UpdateAccountPaymentTermLine updates an existing account.payment.term.line record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountPaymentTermLine(aptl *AccountPaymentTermLine) erro
 // UpdateAccountPaymentTermLines updates existing account.payment.term.line records.
 // All records (represented by ids) will be updated by aptl values.
 func (c *Client) UpdateAccountPaymentTermLines(ids []int64, aptl *AccountPaymentTermLine) error {
-	return c.Update(AccountPaymentTermLineModel, ids, aptl)
+	return c.Update(AccountPaymentTermLineModel, ids, aptl, nil)
 }
 
 // DeleteAccountPaymentTermLine deletes an existing account.payment.term.line record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountPaymentTermLine(id int64) (*AccountPaymentTermLine, e
 	if err != nil {
 		return nil, err
 	}
-	if aptls != nil && len(*aptls) > 0 {
-		return &((*aptls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.payment.term.line not found", id)
+	return &((*aptls)[0]), nil
 }
 
 // GetAccountPaymentTermLines gets account.payment.term.line existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountPaymentTermLine(criteria *Criteria) (*AccountPayment
 	if err := c.SearchRead(AccountPaymentTermLineModel, criteria, NewOptions().Limit(1), aptls); err != nil {
 		return nil, err
 	}
-	if aptls != nil && len(*aptls) > 0 {
-		return &((*aptls)[0]), nil
-	}
-	return nil, fmt.Errorf("account.payment.term.line was not found with criteria %v", criteria)
+	return &((*aptls)[0]), nil
 }
 
 // FindAccountPaymentTermLines finds account.payment.term.line records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountPaymentTermLines(criteria *Criteria, options *Option
 // FindAccountPaymentTermLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentTermLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountPaymentTermLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountPaymentTermLineModel, criteria, options)
 }
 
 // FindAccountPaymentTermLineId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountPaymentTermLineId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.payment.term.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

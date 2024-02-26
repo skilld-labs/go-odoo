@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldDate represents ir.qweb.field.date model.
 type IrQwebFieldDate struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldDates(iqfds []*IrQwebFieldDate) ([]int64, erro
 	for _, v := range iqfds {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldDateModel, vv)
+	return c.Create(IrQwebFieldDateModel, vv, nil)
 }
 
 // UpdateIrQwebFieldDate updates an existing ir.qweb.field.date record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldDate(iqfd *IrQwebFieldDate) error {
 // UpdateIrQwebFieldDates updates existing ir.qweb.field.date records.
 // All records (represented by ids) will be updated by iqfd values.
 func (c *Client) UpdateIrQwebFieldDates(ids []int64, iqfd *IrQwebFieldDate) error {
-	return c.Update(IrQwebFieldDateModel, ids, iqfd)
+	return c.Update(IrQwebFieldDateModel, ids, iqfd, nil)
 }
 
 // DeleteIrQwebFieldDate deletes an existing ir.qweb.field.date record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldDate(id int64) (*IrQwebFieldDate, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfds != nil && len(*iqfds) > 0 {
-		return &((*iqfds)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.date not found", id)
+	return &((*iqfds)[0]), nil
 }
 
 // GetIrQwebFieldDates gets ir.qweb.field.date existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldDate(criteria *Criteria) (*IrQwebFieldDate, erro
 	if err := c.SearchRead(IrQwebFieldDateModel, criteria, NewOptions().Limit(1), iqfds); err != nil {
 		return nil, err
 	}
-	if iqfds != nil && len(*iqfds) > 0 {
-		return &((*iqfds)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.date was not found with criteria %v", criteria)
+	return &((*iqfds)[0]), nil
 }
 
 // FindIrQwebFieldDates finds ir.qweb.field.date records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldDates(criteria *Criteria, options *Options) (*Ir
 // FindIrQwebFieldDateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldDateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldDateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldDateModel, criteria, options)
 }
 
 // FindIrQwebFieldDateId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldDateId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.date was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

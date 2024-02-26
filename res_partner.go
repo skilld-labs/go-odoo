@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResPartner represents res.partner model.
 type ResPartner struct {
 	LastUpdate                    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,6 +58,7 @@ type ResPartner struct {
 	JournalItemCount              *Int       `xmlrpc:"journal_item_count,omptempty"`
 	Lang                          *Selection `xmlrpc:"lang,omptempty"`
 	LastTimeEntriesChecked        *Time      `xmlrpc:"last_time_entries_checked,omptempty"`
+	MachineCompanyName            *String    `xmlrpc:"machine_company_name,omptempty"`
 	MachineOrganizationName       *String    `xmlrpc:"machine_organization_name,omptempty"`
 	MeetingCount                  *Int       `xmlrpc:"meeting_count,omptempty"`
 	MeetingIds                    *Relation  `xmlrpc:"meeting_ids,omptempty"`
@@ -109,11 +106,6 @@ type ResPartner struct {
 	SaleWarn                      *Selection `xmlrpc:"sale_warn,omptempty"`
 	SaleWarnMsg                   *String    `xmlrpc:"sale_warn_msg,omptempty"`
 	Self                          *Many2One  `xmlrpc:"self,omptempty"`
-	SignupExpiration              *Time      `xmlrpc:"signup_expiration,omptempty"`
-	SignupToken                   *String    `xmlrpc:"signup_token,omptempty"`
-	SignupType                    *String    `xmlrpc:"signup_type,omptempty"`
-	SignupUrl                     *String    `xmlrpc:"signup_url,omptempty"`
-	SignupValid                   *Bool      `xmlrpc:"signup_valid,omptempty"`
 	Siret                         *String    `xmlrpc:"siret,omptempty"`
 	StateId                       *Many2One  `xmlrpc:"state_id,omptempty"`
 	Street                        *String    `xmlrpc:"street,omptempty"`
@@ -168,7 +160,7 @@ func (c *Client) CreateResPartners(rps []*ResPartner) ([]int64, error) {
 	for _, v := range rps {
 		vv = append(vv, v)
 	}
-	return c.Create(ResPartnerModel, vv)
+	return c.Create(ResPartnerModel, vv, nil)
 }
 
 // UpdateResPartner updates an existing res.partner record.
@@ -179,7 +171,7 @@ func (c *Client) UpdateResPartner(rp *ResPartner) error {
 // UpdateResPartners updates existing res.partner records.
 // All records (represented by ids) will be updated by rp values.
 func (c *Client) UpdateResPartners(ids []int64, rp *ResPartner) error {
-	return c.Update(ResPartnerModel, ids, rp)
+	return c.Update(ResPartnerModel, ids, rp, nil)
 }
 
 // DeleteResPartner deletes an existing res.partner record.
@@ -198,10 +190,7 @@ func (c *Client) GetResPartner(id int64) (*ResPartner, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rps != nil && len(*rps) > 0 {
-		return &((*rps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.partner not found", id)
+	return &((*rps)[0]), nil
 }
 
 // GetResPartners gets res.partner existing records.
@@ -219,10 +208,7 @@ func (c *Client) FindResPartner(criteria *Criteria) (*ResPartner, error) {
 	if err := c.SearchRead(ResPartnerModel, criteria, NewOptions().Limit(1), rps); err != nil {
 		return nil, err
 	}
-	if rps != nil && len(*rps) > 0 {
-		return &((*rps)[0]), nil
-	}
-	return nil, fmt.Errorf("res.partner was not found with criteria %v", criteria)
+	return &((*rps)[0]), nil
 }
 
 // FindResPartners finds res.partner records by querying it
@@ -238,11 +224,7 @@ func (c *Client) FindResPartners(criteria *Criteria, options *Options) (*ResPart
 // FindResPartnerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResPartnerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResPartnerModel, criteria, options)
 }
 
 // FindResPartnerId finds record id by querying it with criteria.
@@ -251,8 +233,5 @@ func (c *Client) FindResPartnerId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.partner was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailTrackingValue represents mail.tracking.value model.
 type MailTrackingValue struct {
 	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
@@ -60,7 +56,7 @@ func (c *Client) CreateMailTrackingValues(mtvs []*MailTrackingValue) ([]int64, e
 	for _, v := range mtvs {
 		vv = append(vv, v)
 	}
-	return c.Create(MailTrackingValueModel, vv)
+	return c.Create(MailTrackingValueModel, vv, nil)
 }
 
 // UpdateMailTrackingValue updates an existing mail.tracking.value record.
@@ -71,7 +67,7 @@ func (c *Client) UpdateMailTrackingValue(mtv *MailTrackingValue) error {
 // UpdateMailTrackingValues updates existing mail.tracking.value records.
 // All records (represented by ids) will be updated by mtv values.
 func (c *Client) UpdateMailTrackingValues(ids []int64, mtv *MailTrackingValue) error {
-	return c.Update(MailTrackingValueModel, ids, mtv)
+	return c.Update(MailTrackingValueModel, ids, mtv, nil)
 }
 
 // DeleteMailTrackingValue deletes an existing mail.tracking.value record.
@@ -90,10 +86,7 @@ func (c *Client) GetMailTrackingValue(id int64) (*MailTrackingValue, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mtvs != nil && len(*mtvs) > 0 {
-		return &((*mtvs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.tracking.value not found", id)
+	return &((*mtvs)[0]), nil
 }
 
 // GetMailTrackingValues gets mail.tracking.value existing records.
@@ -111,10 +104,7 @@ func (c *Client) FindMailTrackingValue(criteria *Criteria) (*MailTrackingValue, 
 	if err := c.SearchRead(MailTrackingValueModel, criteria, NewOptions().Limit(1), mtvs); err != nil {
 		return nil, err
 	}
-	if mtvs != nil && len(*mtvs) > 0 {
-		return &((*mtvs)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.tracking.value was not found with criteria %v", criteria)
+	return &((*mtvs)[0]), nil
 }
 
 // FindMailTrackingValues finds mail.tracking.value records by querying it
@@ -130,11 +120,7 @@ func (c *Client) FindMailTrackingValues(criteria *Criteria, options *Options) (*
 // FindMailTrackingValueIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTrackingValueIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailTrackingValueModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailTrackingValueModel, criteria, options)
 }
 
 // FindMailTrackingValueId finds record id by querying it with criteria.
@@ -143,8 +129,5 @@ func (c *Client) FindMailTrackingValueId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.tracking.value was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

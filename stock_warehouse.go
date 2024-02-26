@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockWarehouse represents stock.warehouse model.
 type StockWarehouse struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -72,7 +68,7 @@ func (c *Client) CreateStockWarehouses(sws []*StockWarehouse) ([]int64, error) {
 	for _, v := range sws {
 		vv = append(vv, v)
 	}
-	return c.Create(StockWarehouseModel, vv)
+	return c.Create(StockWarehouseModel, vv, nil)
 }
 
 // UpdateStockWarehouse updates an existing stock.warehouse record.
@@ -83,7 +79,7 @@ func (c *Client) UpdateStockWarehouse(sw *StockWarehouse) error {
 // UpdateStockWarehouses updates existing stock.warehouse records.
 // All records (represented by ids) will be updated by sw values.
 func (c *Client) UpdateStockWarehouses(ids []int64, sw *StockWarehouse) error {
-	return c.Update(StockWarehouseModel, ids, sw)
+	return c.Update(StockWarehouseModel, ids, sw, nil)
 }
 
 // DeleteStockWarehouse deletes an existing stock.warehouse record.
@@ -102,10 +98,7 @@ func (c *Client) GetStockWarehouse(id int64) (*StockWarehouse, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sws != nil && len(*sws) > 0 {
-		return &((*sws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.warehouse not found", id)
+	return &((*sws)[0]), nil
 }
 
 // GetStockWarehouses gets stock.warehouse existing records.
@@ -123,10 +116,7 @@ func (c *Client) FindStockWarehouse(criteria *Criteria) (*StockWarehouse, error)
 	if err := c.SearchRead(StockWarehouseModel, criteria, NewOptions().Limit(1), sws); err != nil {
 		return nil, err
 	}
-	if sws != nil && len(*sws) > 0 {
-		return &((*sws)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.warehouse was not found with criteria %v", criteria)
+	return &((*sws)[0]), nil
 }
 
 // FindStockWarehouses finds stock.warehouse records by querying it
@@ -142,11 +132,7 @@ func (c *Client) FindStockWarehouses(criteria *Criteria, options *Options) (*Sto
 // FindStockWarehouseIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockWarehouseIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockWarehouseModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockWarehouseModel, criteria, options)
 }
 
 // FindStockWarehouseId finds record id by querying it with criteria.
@@ -155,8 +141,5 @@ func (c *Client) FindStockWarehouseId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.warehouse was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

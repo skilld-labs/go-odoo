@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockPicking represents stock.picking model.
 type StockPicking struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -98,7 +94,7 @@ func (c *Client) CreateStockPickings(sps []*StockPicking) ([]int64, error) {
 	for _, v := range sps {
 		vv = append(vv, v)
 	}
-	return c.Create(StockPickingModel, vv)
+	return c.Create(StockPickingModel, vv, nil)
 }
 
 // UpdateStockPicking updates an existing stock.picking record.
@@ -109,7 +105,7 @@ func (c *Client) UpdateStockPicking(sp *StockPicking) error {
 // UpdateStockPickings updates existing stock.picking records.
 // All records (represented by ids) will be updated by sp values.
 func (c *Client) UpdateStockPickings(ids []int64, sp *StockPicking) error {
-	return c.Update(StockPickingModel, ids, sp)
+	return c.Update(StockPickingModel, ids, sp, nil)
 }
 
 // DeleteStockPicking deletes an existing stock.picking record.
@@ -128,10 +124,7 @@ func (c *Client) GetStockPicking(id int64) (*StockPicking, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sps != nil && len(*sps) > 0 {
-		return &((*sps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.picking not found", id)
+	return &((*sps)[0]), nil
 }
 
 // GetStockPickings gets stock.picking existing records.
@@ -149,10 +142,7 @@ func (c *Client) FindStockPicking(criteria *Criteria) (*StockPicking, error) {
 	if err := c.SearchRead(StockPickingModel, criteria, NewOptions().Limit(1), sps); err != nil {
 		return nil, err
 	}
-	if sps != nil && len(*sps) > 0 {
-		return &((*sps)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.picking was not found with criteria %v", criteria)
+	return &((*sps)[0]), nil
 }
 
 // FindStockPickings finds stock.picking records by querying it
@@ -168,11 +158,7 @@ func (c *Client) FindStockPickings(criteria *Criteria, options *Options) (*Stock
 // FindStockPickingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockPickingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockPickingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockPickingModel, criteria, options)
 }
 
 // FindStockPickingId finds record id by querying it with criteria.
@@ -181,8 +167,5 @@ func (c *Client) FindStockPickingId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.picking was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

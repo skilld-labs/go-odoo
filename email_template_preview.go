@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // EmailTemplatePreview represents email_template.preview model.
 type EmailTemplatePreview struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -71,7 +67,7 @@ func (c *Client) CreateEmailTemplatePreviews(eps []*EmailTemplatePreview) ([]int
 	for _, v := range eps {
 		vv = append(vv, v)
 	}
-	return c.Create(EmailTemplatePreviewModel, vv)
+	return c.Create(EmailTemplatePreviewModel, vv, nil)
 }
 
 // UpdateEmailTemplatePreview updates an existing email_template.preview record.
@@ -82,7 +78,7 @@ func (c *Client) UpdateEmailTemplatePreview(ep *EmailTemplatePreview) error {
 // UpdateEmailTemplatePreviews updates existing email_template.preview records.
 // All records (represented by ids) will be updated by ep values.
 func (c *Client) UpdateEmailTemplatePreviews(ids []int64, ep *EmailTemplatePreview) error {
-	return c.Update(EmailTemplatePreviewModel, ids, ep)
+	return c.Update(EmailTemplatePreviewModel, ids, ep, nil)
 }
 
 // DeleteEmailTemplatePreview deletes an existing email_template.preview record.
@@ -101,10 +97,7 @@ func (c *Client) GetEmailTemplatePreview(id int64) (*EmailTemplatePreview, error
 	if err != nil {
 		return nil, err
 	}
-	if eps != nil && len(*eps) > 0 {
-		return &((*eps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of email_template.preview not found", id)
+	return &((*eps)[0]), nil
 }
 
 // GetEmailTemplatePreviews gets email_template.preview existing records.
@@ -122,10 +115,7 @@ func (c *Client) FindEmailTemplatePreview(criteria *Criteria) (*EmailTemplatePre
 	if err := c.SearchRead(EmailTemplatePreviewModel, criteria, NewOptions().Limit(1), eps); err != nil {
 		return nil, err
 	}
-	if eps != nil && len(*eps) > 0 {
-		return &((*eps)[0]), nil
-	}
-	return nil, fmt.Errorf("email_template.preview was not found with criteria %v", criteria)
+	return &((*eps)[0]), nil
 }
 
 // FindEmailTemplatePreviews finds email_template.preview records by querying it
@@ -141,11 +131,7 @@ func (c *Client) FindEmailTemplatePreviews(criteria *Criteria, options *Options)
 // FindEmailTemplatePreviewIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindEmailTemplatePreviewIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(EmailTemplatePreviewModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(EmailTemplatePreviewModel, criteria, options)
 }
 
 // FindEmailTemplatePreviewId finds record id by querying it with criteria.
@@ -154,8 +140,5 @@ func (c *Client) FindEmailTemplatePreviewId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("email_template.preview was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

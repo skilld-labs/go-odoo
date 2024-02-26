@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResourceCalendar represents resource.calendar model.
 type ResourceCalendar struct {
 	LastUpdate     *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateResourceCalendars(rcs []*ResourceCalendar) ([]int64, erro
 	for _, v := range rcs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResourceCalendarModel, vv)
+	return c.Create(ResourceCalendarModel, vv, nil)
 }
 
 // UpdateResourceCalendar updates an existing resource.calendar record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateResourceCalendar(rc *ResourceCalendar) error {
 // UpdateResourceCalendars updates existing resource.calendar records.
 // All records (represented by ids) will be updated by rc values.
 func (c *Client) UpdateResourceCalendars(ids []int64, rc *ResourceCalendar) error {
-	return c.Update(ResourceCalendarModel, ids, rc)
+	return c.Update(ResourceCalendarModel, ids, rc, nil)
 }
 
 // DeleteResourceCalendar deletes an existing resource.calendar record.
@@ -79,10 +75,7 @@ func (c *Client) GetResourceCalendar(id int64) (*ResourceCalendar, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of resource.calendar not found", id)
+	return &((*rcs)[0]), nil
 }
 
 // GetResourceCalendars gets resource.calendar existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindResourceCalendar(criteria *Criteria) (*ResourceCalendar, er
 	if err := c.SearchRead(ResourceCalendarModel, criteria, NewOptions().Limit(1), rcs); err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("resource.calendar was not found with criteria %v", criteria)
+	return &((*rcs)[0]), nil
 }
 
 // FindResourceCalendars finds resource.calendar records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindResourceCalendars(criteria *Criteria, options *Options) (*R
 // FindResourceCalendarIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceCalendarIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResourceCalendarModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResourceCalendarModel, criteria, options)
 }
 
 // FindResourceCalendarId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindResourceCalendarId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("resource.calendar was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

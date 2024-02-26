@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountingReport represents accounting.report model.
 type AccountingReport struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -56,7 +52,7 @@ func (c *Client) CreateAccountingReports(ars []*AccountingReport) ([]int64, erro
 	for _, v := range ars {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountingReportModel, vv)
+	return c.Create(AccountingReportModel, vv, nil)
 }
 
 // UpdateAccountingReport updates an existing accounting.report record.
@@ -67,7 +63,7 @@ func (c *Client) UpdateAccountingReport(ar *AccountingReport) error {
 // UpdateAccountingReports updates existing accounting.report records.
 // All records (represented by ids) will be updated by ar values.
 func (c *Client) UpdateAccountingReports(ids []int64, ar *AccountingReport) error {
-	return c.Update(AccountingReportModel, ids, ar)
+	return c.Update(AccountingReportModel, ids, ar, nil)
 }
 
 // DeleteAccountingReport deletes an existing accounting.report record.
@@ -86,10 +82,7 @@ func (c *Client) GetAccountingReport(id int64) (*AccountingReport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ars != nil && len(*ars) > 0 {
-		return &((*ars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of accounting.report not found", id)
+	return &((*ars)[0]), nil
 }
 
 // GetAccountingReports gets accounting.report existing records.
@@ -107,10 +100,7 @@ func (c *Client) FindAccountingReport(criteria *Criteria) (*AccountingReport, er
 	if err := c.SearchRead(AccountingReportModel, criteria, NewOptions().Limit(1), ars); err != nil {
 		return nil, err
 	}
-	if ars != nil && len(*ars) > 0 {
-		return &((*ars)[0]), nil
-	}
-	return nil, fmt.Errorf("accounting.report was not found with criteria %v", criteria)
+	return &((*ars)[0]), nil
 }
 
 // FindAccountingReports finds accounting.report records by querying it
@@ -126,11 +116,7 @@ func (c *Client) FindAccountingReports(criteria *Criteria, options *Options) (*A
 // FindAccountingReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountingReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountingReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountingReportModel, criteria, options)
 }
 
 // FindAccountingReportId finds record id by querying it with criteria.
@@ -139,8 +125,5 @@ func (c *Client) FindAccountingReportId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("accounting.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

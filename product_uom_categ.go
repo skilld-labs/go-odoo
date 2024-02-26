@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductUomCateg represents product.uom.categ model.
 type ProductUomCateg struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateProductUomCategs(pucs []*ProductUomCateg) ([]int64, error
 	for _, v := range pucs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductUomCategModel, vv)
+	return c.Create(ProductUomCategModel, vv, nil)
 }
 
 // UpdateProductUomCateg updates an existing product.uom.categ record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateProductUomCateg(puc *ProductUomCateg) error {
 // UpdateProductUomCategs updates existing product.uom.categ records.
 // All records (represented by ids) will be updated by puc values.
 func (c *Client) UpdateProductUomCategs(ids []int64, puc *ProductUomCateg) error {
-	return c.Update(ProductUomCategModel, ids, puc)
+	return c.Update(ProductUomCategModel, ids, puc, nil)
 }
 
 // DeleteProductUomCateg deletes an existing product.uom.categ record.
@@ -75,10 +71,7 @@ func (c *Client) GetProductUomCateg(id int64) (*ProductUomCateg, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pucs != nil && len(*pucs) > 0 {
-		return &((*pucs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.uom.categ not found", id)
+	return &((*pucs)[0]), nil
 }
 
 // GetProductUomCategs gets product.uom.categ existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindProductUomCateg(criteria *Criteria) (*ProductUomCateg, erro
 	if err := c.SearchRead(ProductUomCategModel, criteria, NewOptions().Limit(1), pucs); err != nil {
 		return nil, err
 	}
-	if pucs != nil && len(*pucs) > 0 {
-		return &((*pucs)[0]), nil
-	}
-	return nil, fmt.Errorf("product.uom.categ was not found with criteria %v", criteria)
+	return &((*pucs)[0]), nil
 }
 
 // FindProductUomCategs finds product.uom.categ records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindProductUomCategs(criteria *Criteria, options *Options) (*Pr
 // FindProductUomCategIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductUomCategIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductUomCategModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductUomCategModel, criteria, options)
 }
 
 // FindProductUomCategId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindProductUomCategId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.uom.categ was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

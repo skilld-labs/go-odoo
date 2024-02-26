@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BasePartnerMergeAutomaticWizard represents base.partner.merge.automatic.wizard model.
 type BasePartnerMergeAutomaticWizard struct {
 	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
@@ -58,7 +54,7 @@ func (c *Client) CreateBasePartnerMergeAutomaticWizards(bpmaws []*BasePartnerMer
 	for _, v := range bpmaws {
 		vv = append(vv, v)
 	}
-	return c.Create(BasePartnerMergeAutomaticWizardModel, vv)
+	return c.Create(BasePartnerMergeAutomaticWizardModel, vv, nil)
 }
 
 // UpdateBasePartnerMergeAutomaticWizard updates an existing base.partner.merge.automatic.wizard record.
@@ -69,7 +65,7 @@ func (c *Client) UpdateBasePartnerMergeAutomaticWizard(bpmaw *BasePartnerMergeAu
 // UpdateBasePartnerMergeAutomaticWizards updates existing base.partner.merge.automatic.wizard records.
 // All records (represented by ids) will be updated by bpmaw values.
 func (c *Client) UpdateBasePartnerMergeAutomaticWizards(ids []int64, bpmaw *BasePartnerMergeAutomaticWizard) error {
-	return c.Update(BasePartnerMergeAutomaticWizardModel, ids, bpmaw)
+	return c.Update(BasePartnerMergeAutomaticWizardModel, ids, bpmaw, nil)
 }
 
 // DeleteBasePartnerMergeAutomaticWizard deletes an existing base.partner.merge.automatic.wizard record.
@@ -88,10 +84,7 @@ func (c *Client) GetBasePartnerMergeAutomaticWizard(id int64) (*BasePartnerMerge
 	if err != nil {
 		return nil, err
 	}
-	if bpmaws != nil && len(*bpmaws) > 0 {
-		return &((*bpmaws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.partner.merge.automatic.wizard not found", id)
+	return &((*bpmaws)[0]), nil
 }
 
 // GetBasePartnerMergeAutomaticWizards gets base.partner.merge.automatic.wizard existing records.
@@ -109,10 +102,7 @@ func (c *Client) FindBasePartnerMergeAutomaticWizard(criteria *Criteria) (*BaseP
 	if err := c.SearchRead(BasePartnerMergeAutomaticWizardModel, criteria, NewOptions().Limit(1), bpmaws); err != nil {
 		return nil, err
 	}
-	if bpmaws != nil && len(*bpmaws) > 0 {
-		return &((*bpmaws)[0]), nil
-	}
-	return nil, fmt.Errorf("base.partner.merge.automatic.wizard was not found with criteria %v", criteria)
+	return &((*bpmaws)[0]), nil
 }
 
 // FindBasePartnerMergeAutomaticWizards finds base.partner.merge.automatic.wizard records by querying it
@@ -128,11 +118,7 @@ func (c *Client) FindBasePartnerMergeAutomaticWizards(criteria *Criteria, option
 // FindBasePartnerMergeAutomaticWizardIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBasePartnerMergeAutomaticWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BasePartnerMergeAutomaticWizardModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BasePartnerMergeAutomaticWizardModel, criteria, options)
 }
 
 // FindBasePartnerMergeAutomaticWizardId finds record id by querying it with criteria.
@@ -141,8 +127,5 @@ func (c *Client) FindBasePartnerMergeAutomaticWizardId(criteria *Criteria, optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.partner.merge.automatic.wizard was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

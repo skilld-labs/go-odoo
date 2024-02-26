@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModelConstraint represents ir.model.constraint model.
 type IrModelConstraint struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateIrModelConstraints(imcs []*IrModelConstraint) ([]int64, e
 	for _, v := range imcs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModelConstraintModel, vv)
+	return c.Create(IrModelConstraintModel, vv, nil)
 }
 
 // UpdateIrModelConstraint updates an existing ir.model.constraint record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateIrModelConstraint(imc *IrModelConstraint) error {
 // UpdateIrModelConstraints updates existing ir.model.constraint records.
 // All records (represented by ids) will be updated by imc values.
 func (c *Client) UpdateIrModelConstraints(ids []int64, imc *IrModelConstraint) error {
-	return c.Update(IrModelConstraintModel, ids, imc)
+	return c.Update(IrModelConstraintModel, ids, imc, nil)
 }
 
 // DeleteIrModelConstraint deletes an existing ir.model.constraint record.
@@ -81,10 +77,7 @@ func (c *Client) GetIrModelConstraint(id int64) (*IrModelConstraint, error) {
 	if err != nil {
 		return nil, err
 	}
-	if imcs != nil && len(*imcs) > 0 {
-		return &((*imcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.model.constraint not found", id)
+	return &((*imcs)[0]), nil
 }
 
 // GetIrModelConstraints gets ir.model.constraint existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindIrModelConstraint(criteria *Criteria) (*IrModelConstraint, 
 	if err := c.SearchRead(IrModelConstraintModel, criteria, NewOptions().Limit(1), imcs); err != nil {
 		return nil, err
 	}
-	if imcs != nil && len(*imcs) > 0 {
-		return &((*imcs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.model.constraint was not found with criteria %v", criteria)
+	return &((*imcs)[0]), nil
 }
 
 // FindIrModelConstraints finds ir.model.constraint records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindIrModelConstraints(criteria *Criteria, options *Options) (*
 // FindIrModelConstraintIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelConstraintIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModelConstraintModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModelConstraintModel, criteria, options)
 }
 
 // FindIrModelConstraintId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindIrModelConstraintId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.model.constraint was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

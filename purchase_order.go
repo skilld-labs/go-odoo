@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PurchaseOrder represents purchase.order model.
 type PurchaseOrder struct {
 	LastUpdate                 *Time      `xmlrpc:"__last_update,omptempty"`
@@ -91,7 +87,7 @@ func (c *Client) CreatePurchaseOrders(pos []*PurchaseOrder) ([]int64, error) {
 	for _, v := range pos {
 		vv = append(vv, v)
 	}
-	return c.Create(PurchaseOrderModel, vv)
+	return c.Create(PurchaseOrderModel, vv, nil)
 }
 
 // UpdatePurchaseOrder updates an existing purchase.order record.
@@ -102,7 +98,7 @@ func (c *Client) UpdatePurchaseOrder(po *PurchaseOrder) error {
 // UpdatePurchaseOrders updates existing purchase.order records.
 // All records (represented by ids) will be updated by po values.
 func (c *Client) UpdatePurchaseOrders(ids []int64, po *PurchaseOrder) error {
-	return c.Update(PurchaseOrderModel, ids, po)
+	return c.Update(PurchaseOrderModel, ids, po, nil)
 }
 
 // DeletePurchaseOrder deletes an existing purchase.order record.
@@ -121,10 +117,7 @@ func (c *Client) GetPurchaseOrder(id int64) (*PurchaseOrder, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pos != nil && len(*pos) > 0 {
-		return &((*pos)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of purchase.order not found", id)
+	return &((*pos)[0]), nil
 }
 
 // GetPurchaseOrders gets purchase.order existing records.
@@ -142,10 +135,7 @@ func (c *Client) FindPurchaseOrder(criteria *Criteria) (*PurchaseOrder, error) {
 	if err := c.SearchRead(PurchaseOrderModel, criteria, NewOptions().Limit(1), pos); err != nil {
 		return nil, err
 	}
-	if pos != nil && len(*pos) > 0 {
-		return &((*pos)[0]), nil
-	}
-	return nil, fmt.Errorf("purchase.order was not found with criteria %v", criteria)
+	return &((*pos)[0]), nil
 }
 
 // FindPurchaseOrders finds purchase.order records by querying it
@@ -161,11 +151,7 @@ func (c *Client) FindPurchaseOrders(criteria *Criteria, options *Options) (*Purc
 // FindPurchaseOrderIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPurchaseOrderIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PurchaseOrderModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PurchaseOrderModel, criteria, options)
 }
 
 // FindPurchaseOrderId finds record id by querying it with criteria.
@@ -174,8 +160,5 @@ func (c *Client) FindPurchaseOrderId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("purchase.order was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

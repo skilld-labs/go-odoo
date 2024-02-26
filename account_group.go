@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountGroup represents account.group model.
 type AccountGroup struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateAccountGroups(ags []*AccountGroup) ([]int64, error) {
 	for _, v := range ags {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountGroupModel, vv)
+	return c.Create(AccountGroupModel, vv, nil)
 }
 
 // UpdateAccountGroup updates an existing account.group record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateAccountGroup(ag *AccountGroup) error {
 // UpdateAccountGroups updates existing account.group records.
 // All records (represented by ids) will be updated by ag values.
 func (c *Client) UpdateAccountGroups(ids []int64, ag *AccountGroup) error {
-	return c.Update(AccountGroupModel, ids, ag)
+	return c.Update(AccountGroupModel, ids, ag, nil)
 }
 
 // DeleteAccountGroup deletes an existing account.group record.
@@ -79,10 +75,7 @@ func (c *Client) GetAccountGroup(id int64) (*AccountGroup, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ags != nil && len(*ags) > 0 {
-		return &((*ags)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.group not found", id)
+	return &((*ags)[0]), nil
 }
 
 // GetAccountGroups gets account.group existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindAccountGroup(criteria *Criteria) (*AccountGroup, error) {
 	if err := c.SearchRead(AccountGroupModel, criteria, NewOptions().Limit(1), ags); err != nil {
 		return nil, err
 	}
-	if ags != nil && len(*ags) > 0 {
-		return &((*ags)[0]), nil
-	}
-	return nil, fmt.Errorf("account.group was not found with criteria %v", criteria)
+	return &((*ags)[0]), nil
 }
 
 // FindAccountGroups finds account.group records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindAccountGroups(criteria *Criteria, options *Options) (*Accou
 // FindAccountGroupIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountGroupIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountGroupModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountGroupModel, criteria, options)
 }
 
 // FindAccountGroupId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindAccountGroupId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.group was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

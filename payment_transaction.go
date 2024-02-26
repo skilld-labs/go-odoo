@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PaymentTransaction represents payment.transaction model.
 type PaymentTransaction struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -70,7 +66,7 @@ func (c *Client) CreatePaymentTransactions(pts []*PaymentTransaction) ([]int64, 
 	for _, v := range pts {
 		vv = append(vv, v)
 	}
-	return c.Create(PaymentTransactionModel, vv)
+	return c.Create(PaymentTransactionModel, vv, nil)
 }
 
 // UpdatePaymentTransaction updates an existing payment.transaction record.
@@ -81,7 +77,7 @@ func (c *Client) UpdatePaymentTransaction(pt *PaymentTransaction) error {
 // UpdatePaymentTransactions updates existing payment.transaction records.
 // All records (represented by ids) will be updated by pt values.
 func (c *Client) UpdatePaymentTransactions(ids []int64, pt *PaymentTransaction) error {
-	return c.Update(PaymentTransactionModel, ids, pt)
+	return c.Update(PaymentTransactionModel, ids, pt, nil)
 }
 
 // DeletePaymentTransaction deletes an existing payment.transaction record.
@@ -100,10 +96,7 @@ func (c *Client) GetPaymentTransaction(id int64) (*PaymentTransaction, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of payment.transaction not found", id)
+	return &((*pts)[0]), nil
 }
 
 // GetPaymentTransactions gets payment.transaction existing records.
@@ -121,10 +114,7 @@ func (c *Client) FindPaymentTransaction(criteria *Criteria) (*PaymentTransaction
 	if err := c.SearchRead(PaymentTransactionModel, criteria, NewOptions().Limit(1), pts); err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("payment.transaction was not found with criteria %v", criteria)
+	return &((*pts)[0]), nil
 }
 
 // FindPaymentTransactions finds payment.transaction records by querying it
@@ -140,11 +130,7 @@ func (c *Client) FindPaymentTransactions(criteria *Criteria, options *Options) (
 // FindPaymentTransactionIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentTransactionIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PaymentTransactionModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PaymentTransactionModel, criteria, options)
 }
 
 // FindPaymentTransactionId finds record id by querying it with criteria.
@@ -153,8 +139,5 @@ func (c *Client) FindPaymentTransactionId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("payment.transaction was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

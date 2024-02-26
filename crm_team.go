@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmTeam represents crm.team model.
 type CrmTeam struct {
 	LastUpdate                   *Time      `xmlrpc:"__last_update,omptempty"`
@@ -96,7 +92,7 @@ func (c *Client) CreateCrmTeams(cts []*CrmTeam) ([]int64, error) {
 	for _, v := range cts {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmTeamModel, vv)
+	return c.Create(CrmTeamModel, vv, nil)
 }
 
 // UpdateCrmTeam updates an existing crm.team record.
@@ -107,7 +103,7 @@ func (c *Client) UpdateCrmTeam(ct *CrmTeam) error {
 // UpdateCrmTeams updates existing crm.team records.
 // All records (represented by ids) will be updated by ct values.
 func (c *Client) UpdateCrmTeams(ids []int64, ct *CrmTeam) error {
-	return c.Update(CrmTeamModel, ids, ct)
+	return c.Update(CrmTeamModel, ids, ct, nil)
 }
 
 // DeleteCrmTeam deletes an existing crm.team record.
@@ -126,10 +122,7 @@ func (c *Client) GetCrmTeam(id int64) (*CrmTeam, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cts != nil && len(*cts) > 0 {
-		return &((*cts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.team not found", id)
+	return &((*cts)[0]), nil
 }
 
 // GetCrmTeams gets crm.team existing records.
@@ -147,10 +140,7 @@ func (c *Client) FindCrmTeam(criteria *Criteria) (*CrmTeam, error) {
 	if err := c.SearchRead(CrmTeamModel, criteria, NewOptions().Limit(1), cts); err != nil {
 		return nil, err
 	}
-	if cts != nil && len(*cts) > 0 {
-		return &((*cts)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.team was not found with criteria %v", criteria)
+	return &((*cts)[0]), nil
 }
 
 // FindCrmTeams finds crm.team records by querying it
@@ -166,11 +156,7 @@ func (c *Client) FindCrmTeams(criteria *Criteria, options *Options) (*CrmTeams, 
 // FindCrmTeamIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmTeamIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmTeamModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmTeamModel, criteria, options)
 }
 
 // FindCrmTeamId finds record id by querying it with criteria.
@@ -179,8 +165,5 @@ func (c *Client) FindCrmTeamId(criteria *Criteria, options *Options) (int64, err
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.team was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

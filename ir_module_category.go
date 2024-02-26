@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModuleCategory represents ir.module.category model.
 type IrModuleCategory struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -54,7 +50,7 @@ func (c *Client) CreateIrModuleCategorys(imcs []*IrModuleCategory) ([]int64, err
 	for _, v := range imcs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModuleCategoryModel, vv)
+	return c.Create(IrModuleCategoryModel, vv, nil)
 }
 
 // UpdateIrModuleCategory updates an existing ir.module.category record.
@@ -65,7 +61,7 @@ func (c *Client) UpdateIrModuleCategory(imc *IrModuleCategory) error {
 // UpdateIrModuleCategorys updates existing ir.module.category records.
 // All records (represented by ids) will be updated by imc values.
 func (c *Client) UpdateIrModuleCategorys(ids []int64, imc *IrModuleCategory) error {
-	return c.Update(IrModuleCategoryModel, ids, imc)
+	return c.Update(IrModuleCategoryModel, ids, imc, nil)
 }
 
 // DeleteIrModuleCategory deletes an existing ir.module.category record.
@@ -84,10 +80,7 @@ func (c *Client) GetIrModuleCategory(id int64) (*IrModuleCategory, error) {
 	if err != nil {
 		return nil, err
 	}
-	if imcs != nil && len(*imcs) > 0 {
-		return &((*imcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.module.category not found", id)
+	return &((*imcs)[0]), nil
 }
 
 // GetIrModuleCategorys gets ir.module.category existing records.
@@ -105,10 +98,7 @@ func (c *Client) FindIrModuleCategory(criteria *Criteria) (*IrModuleCategory, er
 	if err := c.SearchRead(IrModuleCategoryModel, criteria, NewOptions().Limit(1), imcs); err != nil {
 		return nil, err
 	}
-	if imcs != nil && len(*imcs) > 0 {
-		return &((*imcs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.module.category was not found with criteria %v", criteria)
+	return &((*imcs)[0]), nil
 }
 
 // FindIrModuleCategorys finds ir.module.category records by querying it
@@ -124,11 +114,7 @@ func (c *Client) FindIrModuleCategorys(criteria *Criteria, options *Options) (*I
 // FindIrModuleCategoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModuleCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModuleCategoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModuleCategoryModel, criteria, options)
 }
 
 // FindIrModuleCategoryId finds record id by querying it with criteria.
@@ -137,8 +123,5 @@ func (c *Client) FindIrModuleCategoryId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.module.category was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

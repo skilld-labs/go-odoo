@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BasePartnerMergeLine represents base.partner.merge.line model.
 type BasePartnerMergeLine struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateBasePartnerMergeLines(bpmls []*BasePartnerMergeLine) ([]i
 	for _, v := range bpmls {
 		vv = append(vv, v)
 	}
-	return c.Create(BasePartnerMergeLineModel, vv)
+	return c.Create(BasePartnerMergeLineModel, vv, nil)
 }
 
 // UpdateBasePartnerMergeLine updates an existing base.partner.merge.line record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateBasePartnerMergeLine(bpml *BasePartnerMergeLine) error {
 // UpdateBasePartnerMergeLines updates existing base.partner.merge.line records.
 // All records (represented by ids) will be updated by bpml values.
 func (c *Client) UpdateBasePartnerMergeLines(ids []int64, bpml *BasePartnerMergeLine) error {
-	return c.Update(BasePartnerMergeLineModel, ids, bpml)
+	return c.Update(BasePartnerMergeLineModel, ids, bpml, nil)
 }
 
 // DeleteBasePartnerMergeLine deletes an existing base.partner.merge.line record.
@@ -77,10 +73,7 @@ func (c *Client) GetBasePartnerMergeLine(id int64) (*BasePartnerMergeLine, error
 	if err != nil {
 		return nil, err
 	}
-	if bpmls != nil && len(*bpmls) > 0 {
-		return &((*bpmls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.partner.merge.line not found", id)
+	return &((*bpmls)[0]), nil
 }
 
 // GetBasePartnerMergeLines gets base.partner.merge.line existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindBasePartnerMergeLine(criteria *Criteria) (*BasePartnerMerge
 	if err := c.SearchRead(BasePartnerMergeLineModel, criteria, NewOptions().Limit(1), bpmls); err != nil {
 		return nil, err
 	}
-	if bpmls != nil && len(*bpmls) > 0 {
-		return &((*bpmls)[0]), nil
-	}
-	return nil, fmt.Errorf("base.partner.merge.line was not found with criteria %v", criteria)
+	return &((*bpmls)[0]), nil
 }
 
 // FindBasePartnerMergeLines finds base.partner.merge.line records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindBasePartnerMergeLines(criteria *Criteria, options *Options)
 // FindBasePartnerMergeLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBasePartnerMergeLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BasePartnerMergeLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BasePartnerMergeLineModel, criteria, options)
 }
 
 // FindBasePartnerMergeLineId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindBasePartnerMergeLineId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.partner.merge.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

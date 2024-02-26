@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BarcodeRule represents barcode.rule model.
 type BarcodeRule struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateBarcodeRules(brs []*BarcodeRule) ([]int64, error) {
 	for _, v := range brs {
 		vv = append(vv, v)
 	}
-	return c.Create(BarcodeRuleModel, vv)
+	return c.Create(BarcodeRuleModel, vv, nil)
 }
 
 // UpdateBarcodeRule updates an existing barcode.rule record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateBarcodeRule(br *BarcodeRule) error {
 // UpdateBarcodeRules updates existing barcode.rule records.
 // All records (represented by ids) will be updated by br values.
 func (c *Client) UpdateBarcodeRules(ids []int64, br *BarcodeRule) error {
-	return c.Update(BarcodeRuleModel, ids, br)
+	return c.Update(BarcodeRuleModel, ids, br, nil)
 }
 
 // DeleteBarcodeRule deletes an existing barcode.rule record.
@@ -81,10 +77,7 @@ func (c *Client) GetBarcodeRule(id int64) (*BarcodeRule, error) {
 	if err != nil {
 		return nil, err
 	}
-	if brs != nil && len(*brs) > 0 {
-		return &((*brs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of barcode.rule not found", id)
+	return &((*brs)[0]), nil
 }
 
 // GetBarcodeRules gets barcode.rule existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindBarcodeRule(criteria *Criteria) (*BarcodeRule, error) {
 	if err := c.SearchRead(BarcodeRuleModel, criteria, NewOptions().Limit(1), brs); err != nil {
 		return nil, err
 	}
-	if brs != nil && len(*brs) > 0 {
-		return &((*brs)[0]), nil
-	}
-	return nil, fmt.Errorf("barcode.rule was not found with criteria %v", criteria)
+	return &((*brs)[0]), nil
 }
 
 // FindBarcodeRules finds barcode.rule records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindBarcodeRules(criteria *Criteria, options *Options) (*Barcod
 // FindBarcodeRuleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBarcodeRuleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BarcodeRuleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BarcodeRuleModel, criteria, options)
 }
 
 // FindBarcodeRuleId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindBarcodeRuleId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("barcode.rule was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductAttributeLine represents product.attribute.line model.
 type ProductAttributeLine struct {
 	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateProductAttributeLines(pals []*ProductAttributeLine) ([]in
 	for _, v := range pals {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductAttributeLineModel, vv)
+	return c.Create(ProductAttributeLineModel, vv, nil)
 }
 
 // UpdateProductAttributeLine updates an existing product.attribute.line record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateProductAttributeLine(pal *ProductAttributeLine) error {
 // UpdateProductAttributeLines updates existing product.attribute.line records.
 // All records (represented by ids) will be updated by pal values.
 func (c *Client) UpdateProductAttributeLines(ids []int64, pal *ProductAttributeLine) error {
-	return c.Update(ProductAttributeLineModel, ids, pal)
+	return c.Update(ProductAttributeLineModel, ids, pal, nil)
 }
 
 // DeleteProductAttributeLine deletes an existing product.attribute.line record.
@@ -77,10 +73,7 @@ func (c *Client) GetProductAttributeLine(id int64) (*ProductAttributeLine, error
 	if err != nil {
 		return nil, err
 	}
-	if pals != nil && len(*pals) > 0 {
-		return &((*pals)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.attribute.line not found", id)
+	return &((*pals)[0]), nil
 }
 
 // GetProductAttributeLines gets product.attribute.line existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindProductAttributeLine(criteria *Criteria) (*ProductAttribute
 	if err := c.SearchRead(ProductAttributeLineModel, criteria, NewOptions().Limit(1), pals); err != nil {
 		return nil, err
 	}
-	if pals != nil && len(*pals) > 0 {
-		return &((*pals)[0]), nil
-	}
-	return nil, fmt.Errorf("product.attribute.line was not found with criteria %v", criteria)
+	return &((*pals)[0]), nil
 }
 
 // FindProductAttributeLines finds product.attribute.line records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindProductAttributeLines(criteria *Criteria, options *Options)
 // FindProductAttributeLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductAttributeLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductAttributeLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductAttributeLineModel, criteria, options)
 }
 
 // FindProductAttributeLineId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindProductAttributeLineId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.attribute.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebField represents ir.qweb.field model.
 type IrQwebField struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFields(iqfs []*IrQwebField) ([]int64, error) {
 	for _, v := range iqfs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldModel, vv)
+	return c.Create(IrQwebFieldModel, vv, nil)
 }
 
 // UpdateIrQwebField updates an existing ir.qweb.field record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebField(iqf *IrQwebField) error {
 // UpdateIrQwebFields updates existing ir.qweb.field records.
 // All records (represented by ids) will be updated by iqf values.
 func (c *Client) UpdateIrQwebFields(ids []int64, iqf *IrQwebField) error {
-	return c.Update(IrQwebFieldModel, ids, iqf)
+	return c.Update(IrQwebFieldModel, ids, iqf, nil)
 }
 
 // DeleteIrQwebField deletes an existing ir.qweb.field record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebField(id int64) (*IrQwebField, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfs != nil && len(*iqfs) > 0 {
-		return &((*iqfs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field not found", id)
+	return &((*iqfs)[0]), nil
 }
 
 // GetIrQwebFields gets ir.qweb.field existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebField(criteria *Criteria) (*IrQwebField, error) {
 	if err := c.SearchRead(IrQwebFieldModel, criteria, NewOptions().Limit(1), iqfs); err != nil {
 		return nil, err
 	}
-	if iqfs != nil && len(*iqfs) > 0 {
-		return &((*iqfs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field was not found with criteria %v", criteria)
+	return &((*iqfs)[0]), nil
 }
 
 // FindIrQwebFields finds ir.qweb.field records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFields(criteria *Criteria, options *Options) (*IrQweb
 // FindIrQwebFieldIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldModel, criteria, options)
 }
 
 // FindIrQwebFieldId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

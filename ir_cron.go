@@ -1,15 +1,12 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrCron represents ir.cron model.
 type IrCron struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
 	Active            *Bool      `xmlrpc:"active,omptempty"`
 	BindingModelId    *Many2One  `xmlrpc:"binding_model_id,omptempty"`
 	BindingType       *Selection `xmlrpc:"binding_type,omptempty"`
+	ChannelIds        *Relation  `xmlrpc:"channel_ids,omptempty"`
 	ChildIds          *Relation  `xmlrpc:"child_ids,omptempty"`
 	Code              *String    `xmlrpc:"code,omptempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
@@ -31,9 +28,11 @@ type IrCron struct {
 	Name              *String    `xmlrpc:"name,omptempty"`
 	Nextcall          *Time      `xmlrpc:"nextcall,omptempty"`
 	Numbercall        *Int       `xmlrpc:"numbercall,omptempty"`
+	PartnerIds        *Relation  `xmlrpc:"partner_ids,omptempty"`
 	Priority          *Int       `xmlrpc:"priority,omptempty"`
 	Sequence          *Int       `xmlrpc:"sequence,omptempty"`
 	State             *Selection `xmlrpc:"state,omptempty"`
+	TemplateId        *Many2One  `xmlrpc:"template_id,omptempty"`
 	Type              *String    `xmlrpc:"type,omptempty"`
 	Usage             *Selection `xmlrpc:"usage,omptempty"`
 	UserId            *Many2One  `xmlrpc:"user_id,omptempty"`
@@ -71,7 +70,7 @@ func (c *Client) CreateIrCrons(ics []*IrCron) ([]int64, error) {
 	for _, v := range ics {
 		vv = append(vv, v)
 	}
-	return c.Create(IrCronModel, vv)
+	return c.Create(IrCronModel, vv, nil)
 }
 
 // UpdateIrCron updates an existing ir.cron record.
@@ -82,7 +81,7 @@ func (c *Client) UpdateIrCron(ic *IrCron) error {
 // UpdateIrCrons updates existing ir.cron records.
 // All records (represented by ids) will be updated by ic values.
 func (c *Client) UpdateIrCrons(ids []int64, ic *IrCron) error {
-	return c.Update(IrCronModel, ids, ic)
+	return c.Update(IrCronModel, ids, ic, nil)
 }
 
 // DeleteIrCron deletes an existing ir.cron record.
@@ -101,10 +100,7 @@ func (c *Client) GetIrCron(id int64) (*IrCron, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ics != nil && len(*ics) > 0 {
-		return &((*ics)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.cron not found", id)
+	return &((*ics)[0]), nil
 }
 
 // GetIrCrons gets ir.cron existing records.
@@ -122,10 +118,7 @@ func (c *Client) FindIrCron(criteria *Criteria) (*IrCron, error) {
 	if err := c.SearchRead(IrCronModel, criteria, NewOptions().Limit(1), ics); err != nil {
 		return nil, err
 	}
-	if ics != nil && len(*ics) > 0 {
-		return &((*ics)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.cron was not found with criteria %v", criteria)
+	return &((*ics)[0]), nil
 }
 
 // FindIrCrons finds ir.cron records by querying it
@@ -141,11 +134,7 @@ func (c *Client) FindIrCrons(criteria *Criteria, options *Options) (*IrCrons, er
 // FindIrCronIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrCronIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrCronModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrCronModel, criteria, options)
 }
 
 // FindIrCronId finds record id by querying it with criteria.
@@ -154,8 +143,5 @@ func (c *Client) FindIrCronId(criteria *Criteria, options *Options) (int64, erro
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.cron was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

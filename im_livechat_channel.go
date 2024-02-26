@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ImLivechatChannel represents im_livechat.channel model.
 type ImLivechatChannel struct {
 	LastUpdate                   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateImLivechatChannels(ics []*ImLivechatChannel) ([]int64, er
 	for _, v := range ics {
 		vv = append(vv, v)
 	}
-	return c.Create(ImLivechatChannelModel, vv)
+	return c.Create(ImLivechatChannelModel, vv, nil)
 }
 
 // UpdateImLivechatChannel updates an existing im_livechat.channel record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateImLivechatChannel(ic *ImLivechatChannel) error {
 // UpdateImLivechatChannels updates existing im_livechat.channel records.
 // All records (represented by ids) will be updated by ic values.
 func (c *Client) UpdateImLivechatChannels(ids []int64, ic *ImLivechatChannel) error {
-	return c.Update(ImLivechatChannelModel, ids, ic)
+	return c.Update(ImLivechatChannelModel, ids, ic, nil)
 }
 
 // DeleteImLivechatChannel deletes an existing im_livechat.channel record.
@@ -89,10 +85,7 @@ func (c *Client) GetImLivechatChannel(id int64) (*ImLivechatChannel, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ics != nil && len(*ics) > 0 {
-		return &((*ics)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of im_livechat.channel not found", id)
+	return &((*ics)[0]), nil
 }
 
 // GetImLivechatChannels gets im_livechat.channel existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindImLivechatChannel(criteria *Criteria) (*ImLivechatChannel, 
 	if err := c.SearchRead(ImLivechatChannelModel, criteria, NewOptions().Limit(1), ics); err != nil {
 		return nil, err
 	}
-	if ics != nil && len(*ics) > 0 {
-		return &((*ics)[0]), nil
-	}
-	return nil, fmt.Errorf("im_livechat.channel was not found with criteria %v", criteria)
+	return &((*ics)[0]), nil
 }
 
 // FindImLivechatChannels finds im_livechat.channel records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindImLivechatChannels(criteria *Criteria, options *Options) (*
 // FindImLivechatChannelIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindImLivechatChannelIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ImLivechatChannelModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ImLivechatChannelModel, criteria, options)
 }
 
 // FindImLivechatChannelId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindImLivechatChannelId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("im_livechat.channel was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

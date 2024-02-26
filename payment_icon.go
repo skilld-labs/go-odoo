@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PaymentIcon represents payment.icon model.
 type PaymentIcon struct {
 	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreatePaymentIcons(pis []*PaymentIcon) ([]int64, error) {
 	for _, v := range pis {
 		vv = append(vv, v)
 	}
-	return c.Create(PaymentIconModel, vv)
+	return c.Create(PaymentIconModel, vv, nil)
 }
 
 // UpdatePaymentIcon updates an existing payment.icon record.
@@ -59,7 +55,7 @@ func (c *Client) UpdatePaymentIcon(pi *PaymentIcon) error {
 // UpdatePaymentIcons updates existing payment.icon records.
 // All records (represented by ids) will be updated by pi values.
 func (c *Client) UpdatePaymentIcons(ids []int64, pi *PaymentIcon) error {
-	return c.Update(PaymentIconModel, ids, pi)
+	return c.Update(PaymentIconModel, ids, pi, nil)
 }
 
 // DeletePaymentIcon deletes an existing payment.icon record.
@@ -78,10 +74,7 @@ func (c *Client) GetPaymentIcon(id int64) (*PaymentIcon, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pis != nil && len(*pis) > 0 {
-		return &((*pis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of payment.icon not found", id)
+	return &((*pis)[0]), nil
 }
 
 // GetPaymentIcons gets payment.icon existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindPaymentIcon(criteria *Criteria) (*PaymentIcon, error) {
 	if err := c.SearchRead(PaymentIconModel, criteria, NewOptions().Limit(1), pis); err != nil {
 		return nil, err
 	}
-	if pis != nil && len(*pis) > 0 {
-		return &((*pis)[0]), nil
-	}
-	return nil, fmt.Errorf("payment.icon was not found with criteria %v", criteria)
+	return &((*pis)[0]), nil
 }
 
 // FindPaymentIcons finds payment.icon records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindPaymentIcons(criteria *Criteria, options *Options) (*Paymen
 // FindPaymentIconIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentIconIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PaymentIconModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PaymentIconModel, criteria, options)
 }
 
 // FindPaymentIconId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindPaymentIconId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("payment.icon was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

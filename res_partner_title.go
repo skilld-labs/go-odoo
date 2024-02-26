@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResPartnerTitle represents res.partner.title model.
 type ResPartnerTitle struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateResPartnerTitles(rpts []*ResPartnerTitle) ([]int64, error
 	for _, v := range rpts {
 		vv = append(vv, v)
 	}
-	return c.Create(ResPartnerTitleModel, vv)
+	return c.Create(ResPartnerTitleModel, vv, nil)
 }
 
 // UpdateResPartnerTitle updates an existing res.partner.title record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateResPartnerTitle(rpt *ResPartnerTitle) error {
 // UpdateResPartnerTitles updates existing res.partner.title records.
 // All records (represented by ids) will be updated by rpt values.
 func (c *Client) UpdateResPartnerTitles(ids []int64, rpt *ResPartnerTitle) error {
-	return c.Update(ResPartnerTitleModel, ids, rpt)
+	return c.Update(ResPartnerTitleModel, ids, rpt, nil)
 }
 
 // DeleteResPartnerTitle deletes an existing res.partner.title record.
@@ -76,10 +72,7 @@ func (c *Client) GetResPartnerTitle(id int64) (*ResPartnerTitle, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rpts != nil && len(*rpts) > 0 {
-		return &((*rpts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.partner.title not found", id)
+	return &((*rpts)[0]), nil
 }
 
 // GetResPartnerTitles gets res.partner.title existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindResPartnerTitle(criteria *Criteria) (*ResPartnerTitle, erro
 	if err := c.SearchRead(ResPartnerTitleModel, criteria, NewOptions().Limit(1), rpts); err != nil {
 		return nil, err
 	}
-	if rpts != nil && len(*rpts) > 0 {
-		return &((*rpts)[0]), nil
-	}
-	return nil, fmt.Errorf("res.partner.title was not found with criteria %v", criteria)
+	return &((*rpts)[0]), nil
 }
 
 // FindResPartnerTitles finds res.partner.title records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindResPartnerTitles(criteria *Criteria, options *Options) (*Re
 // FindResPartnerTitleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerTitleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResPartnerTitleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResPartnerTitleModel, criteria, options)
 }
 
 // FindResPartnerTitleId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindResPartnerTitleId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.partner.title was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

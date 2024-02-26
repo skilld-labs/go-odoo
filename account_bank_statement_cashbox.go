@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBankStatementCashbox represents account.bank.statement.cashbox model.
 type AccountBankStatementCashbox struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateAccountBankStatementCashboxs(abscs []*AccountBankStatemen
 	for _, v := range abscs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBankStatementCashboxModel, vv)
+	return c.Create(AccountBankStatementCashboxModel, vv, nil)
 }
 
 // UpdateAccountBankStatementCashbox updates an existing account.bank.statement.cashbox record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateAccountBankStatementCashbox(absc *AccountBankStatementCas
 // UpdateAccountBankStatementCashboxs updates existing account.bank.statement.cashbox records.
 // All records (represented by ids) will be updated by absc values.
 func (c *Client) UpdateAccountBankStatementCashboxs(ids []int64, absc *AccountBankStatementCashbox) error {
-	return c.Update(AccountBankStatementCashboxModel, ids, absc)
+	return c.Update(AccountBankStatementCashboxModel, ids, absc, nil)
 }
 
 // DeleteAccountBankStatementCashbox deletes an existing account.bank.statement.cashbox record.
@@ -75,10 +71,7 @@ func (c *Client) GetAccountBankStatementCashbox(id int64) (*AccountBankStatement
 	if err != nil {
 		return nil, err
 	}
-	if abscs != nil && len(*abscs) > 0 {
-		return &((*abscs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.bank.statement.cashbox not found", id)
+	return &((*abscs)[0]), nil
 }
 
 // GetAccountBankStatementCashboxs gets account.bank.statement.cashbox existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindAccountBankStatementCashbox(criteria *Criteria) (*AccountBa
 	if err := c.SearchRead(AccountBankStatementCashboxModel, criteria, NewOptions().Limit(1), abscs); err != nil {
 		return nil, err
 	}
-	if abscs != nil && len(*abscs) > 0 {
-		return &((*abscs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.bank.statement.cashbox was not found with criteria %v", criteria)
+	return &((*abscs)[0]), nil
 }
 
 // FindAccountBankStatementCashboxs finds account.bank.statement.cashbox records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindAccountBankStatementCashboxs(criteria *Criteria, options *O
 // FindAccountBankStatementCashboxIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementCashboxIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBankStatementCashboxModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBankStatementCashboxModel, criteria, options)
 }
 
 // FindAccountBankStatementCashboxId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindAccountBankStatementCashboxId(criteria *Criteria, options *
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.bank.statement.cashbox was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

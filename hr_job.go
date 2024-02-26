@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrJob represents hr.job model.
 type HrJob struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -66,7 +62,7 @@ func (c *Client) CreateHrJobs(hjs []*HrJob) ([]int64, error) {
 	for _, v := range hjs {
 		vv = append(vv, v)
 	}
-	return c.Create(HrJobModel, vv)
+	return c.Create(HrJobModel, vv, nil)
 }
 
 // UpdateHrJob updates an existing hr.job record.
@@ -77,7 +73,7 @@ func (c *Client) UpdateHrJob(hj *HrJob) error {
 // UpdateHrJobs updates existing hr.job records.
 // All records (represented by ids) will be updated by hj values.
 func (c *Client) UpdateHrJobs(ids []int64, hj *HrJob) error {
-	return c.Update(HrJobModel, ids, hj)
+	return c.Update(HrJobModel, ids, hj, nil)
 }
 
 // DeleteHrJob deletes an existing hr.job record.
@@ -96,10 +92,7 @@ func (c *Client) GetHrJob(id int64) (*HrJob, error) {
 	if err != nil {
 		return nil, err
 	}
-	if hjs != nil && len(*hjs) > 0 {
-		return &((*hjs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.job not found", id)
+	return &((*hjs)[0]), nil
 }
 
 // GetHrJobs gets hr.job existing records.
@@ -117,10 +110,7 @@ func (c *Client) FindHrJob(criteria *Criteria) (*HrJob, error) {
 	if err := c.SearchRead(HrJobModel, criteria, NewOptions().Limit(1), hjs); err != nil {
 		return nil, err
 	}
-	if hjs != nil && len(*hjs) > 0 {
-		return &((*hjs)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.job was not found with criteria %v", criteria)
+	return &((*hjs)[0]), nil
 }
 
 // FindHrJobs finds hr.job records by querying it
@@ -136,11 +126,7 @@ func (c *Client) FindHrJobs(criteria *Criteria, options *Options) (*HrJobs, erro
 // FindHrJobIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrJobIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrJobModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrJobModel, criteria, options)
 }
 
 // FindHrJobId finds record id by querying it with criteria.
@@ -149,8 +135,5 @@ func (c *Client) FindHrJobId(criteria *Criteria, options *Options) (int64, error
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.job was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

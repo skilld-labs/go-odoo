@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailAlias represents mail.alias model.
 type MailAlias struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateMailAliass(mas []*MailAlias) ([]int64, error) {
 	for _, v := range mas {
 		vv = append(vv, v)
 	}
-	return c.Create(MailAliasModel, vv)
+	return c.Create(MailAliasModel, vv, nil)
 }
 
 // UpdateMailAlias updates an existing mail.alias record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateMailAlias(ma *MailAlias) error {
 // UpdateMailAliass updates existing mail.alias records.
 // All records (represented by ids) will be updated by ma values.
 func (c *Client) UpdateMailAliass(ids []int64, ma *MailAlias) error {
-	return c.Update(MailAliasModel, ids, ma)
+	return c.Update(MailAliasModel, ids, ma, nil)
 }
 
 // DeleteMailAlias deletes an existing mail.alias record.
@@ -83,10 +79,7 @@ func (c *Client) GetMailAlias(id int64) (*MailAlias, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mas != nil && len(*mas) > 0 {
-		return &((*mas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.alias not found", id)
+	return &((*mas)[0]), nil
 }
 
 // GetMailAliass gets mail.alias existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindMailAlias(criteria *Criteria) (*MailAlias, error) {
 	if err := c.SearchRead(MailAliasModel, criteria, NewOptions().Limit(1), mas); err != nil {
 		return nil, err
 	}
-	if mas != nil && len(*mas) > 0 {
-		return &((*mas)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.alias was not found with criteria %v", criteria)
+	return &((*mas)[0]), nil
 }
 
 // FindMailAliass finds mail.alias records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindMailAliass(criteria *Criteria, options *Options) (*MailAlia
 // FindMailAliasIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailAliasIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailAliasModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailAliasModel, criteria, options)
 }
 
 // FindMailAliasId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindMailAliasId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.alias was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

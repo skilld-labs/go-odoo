@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmPartnerBinding represents crm.partner.binding model.
 type CrmPartnerBinding struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateCrmPartnerBindings(cpbs []*CrmPartnerBinding) ([]int64, e
 	for _, v := range cpbs {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmPartnerBindingModel, vv)
+	return c.Create(CrmPartnerBindingModel, vv, nil)
 }
 
 // UpdateCrmPartnerBinding updates an existing crm.partner.binding record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateCrmPartnerBinding(cpb *CrmPartnerBinding) error {
 // UpdateCrmPartnerBindings updates existing crm.partner.binding records.
 // All records (represented by ids) will be updated by cpb values.
 func (c *Client) UpdateCrmPartnerBindings(ids []int64, cpb *CrmPartnerBinding) error {
-	return c.Update(CrmPartnerBindingModel, ids, cpb)
+	return c.Update(CrmPartnerBindingModel, ids, cpb, nil)
 }
 
 // DeleteCrmPartnerBinding deletes an existing crm.partner.binding record.
@@ -76,10 +72,7 @@ func (c *Client) GetCrmPartnerBinding(id int64) (*CrmPartnerBinding, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cpbs != nil && len(*cpbs) > 0 {
-		return &((*cpbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.partner.binding not found", id)
+	return &((*cpbs)[0]), nil
 }
 
 // GetCrmPartnerBindings gets crm.partner.binding existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindCrmPartnerBinding(criteria *Criteria) (*CrmPartnerBinding, 
 	if err := c.SearchRead(CrmPartnerBindingModel, criteria, NewOptions().Limit(1), cpbs); err != nil {
 		return nil, err
 	}
-	if cpbs != nil && len(*cpbs) > 0 {
-		return &((*cpbs)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.partner.binding was not found with criteria %v", criteria)
+	return &((*cpbs)[0]), nil
 }
 
 // FindCrmPartnerBindings finds crm.partner.binding records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindCrmPartnerBindings(criteria *Criteria, options *Options) (*
 // FindCrmPartnerBindingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmPartnerBindingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmPartnerBindingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmPartnerBindingModel, criteria, options)
 }
 
 // FindCrmPartnerBindingId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindCrmPartnerBindingId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.partner.binding was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

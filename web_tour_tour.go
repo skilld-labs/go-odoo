@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // WebTourTour represents web_tour.tour model.
 type WebTourTour struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -42,7 +38,7 @@ func (c *Client) CreateWebTourTours(wts []*WebTourTour) ([]int64, error) {
 	for _, v := range wts {
 		vv = append(vv, v)
 	}
-	return c.Create(WebTourTourModel, vv)
+	return c.Create(WebTourTourModel, vv, nil)
 }
 
 // UpdateWebTourTour updates an existing web_tour.tour record.
@@ -53,7 +49,7 @@ func (c *Client) UpdateWebTourTour(wt *WebTourTour) error {
 // UpdateWebTourTours updates existing web_tour.tour records.
 // All records (represented by ids) will be updated by wt values.
 func (c *Client) UpdateWebTourTours(ids []int64, wt *WebTourTour) error {
-	return c.Update(WebTourTourModel, ids, wt)
+	return c.Update(WebTourTourModel, ids, wt, nil)
 }
 
 // DeleteWebTourTour deletes an existing web_tour.tour record.
@@ -72,10 +68,7 @@ func (c *Client) GetWebTourTour(id int64) (*WebTourTour, error) {
 	if err != nil {
 		return nil, err
 	}
-	if wts != nil && len(*wts) > 0 {
-		return &((*wts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of web_tour.tour not found", id)
+	return &((*wts)[0]), nil
 }
 
 // GetWebTourTours gets web_tour.tour existing records.
@@ -93,10 +86,7 @@ func (c *Client) FindWebTourTour(criteria *Criteria) (*WebTourTour, error) {
 	if err := c.SearchRead(WebTourTourModel, criteria, NewOptions().Limit(1), wts); err != nil {
 		return nil, err
 	}
-	if wts != nil && len(*wts) > 0 {
-		return &((*wts)[0]), nil
-	}
-	return nil, fmt.Errorf("web_tour.tour was not found with criteria %v", criteria)
+	return &((*wts)[0]), nil
 }
 
 // FindWebTourTours finds web_tour.tour records by querying it
@@ -112,11 +102,7 @@ func (c *Client) FindWebTourTours(criteria *Criteria, options *Options) (*WebTou
 // FindWebTourTourIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebTourTourIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(WebTourTourModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(WebTourTourModel, criteria, options)
 }
 
 // FindWebTourTourId finds record id by querying it with criteria.
@@ -125,8 +111,5 @@ func (c *Client) FindWebTourTourId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("web_tour.tour was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

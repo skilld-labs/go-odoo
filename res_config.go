@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResConfig represents res.config model.
 type ResConfig struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateResConfigs(rcs []*ResConfig) ([]int64, error) {
 	for _, v := range rcs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResConfigModel, vv)
+	return c.Create(ResConfigModel, vv, nil)
 }
 
 // UpdateResConfig updates an existing res.config record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateResConfig(rc *ResConfig) error {
 // UpdateResConfigs updates existing res.config records.
 // All records (represented by ids) will be updated by rc values.
 func (c *Client) UpdateResConfigs(ids []int64, rc *ResConfig) error {
-	return c.Update(ResConfigModel, ids, rc)
+	return c.Update(ResConfigModel, ids, rc, nil)
 }
 
 // DeleteResConfig deletes an existing res.config record.
@@ -74,10 +70,7 @@ func (c *Client) GetResConfig(id int64) (*ResConfig, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.config not found", id)
+	return &((*rcs)[0]), nil
 }
 
 // GetResConfigs gets res.config existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindResConfig(criteria *Criteria) (*ResConfig, error) {
 	if err := c.SearchRead(ResConfigModel, criteria, NewOptions().Limit(1), rcs); err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.config was not found with criteria %v", criteria)
+	return &((*rcs)[0]), nil
 }
 
 // FindResConfigs finds res.config records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindResConfigs(criteria *Criteria, options *Options) (*ResConfi
 // FindResConfigIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResConfigIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResConfigModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResConfigModel, criteria, options)
 }
 
 // FindResConfigId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindResConfigId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.config was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

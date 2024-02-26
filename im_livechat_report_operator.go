@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ImLivechatReportOperator represents im_livechat.report.operator model.
 type ImLivechatReportOperator struct {
 	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateImLivechatReportOperators(iros []*ImLivechatReportOperato
 	for _, v := range iros {
 		vv = append(vv, v)
 	}
-	return c.Create(ImLivechatReportOperatorModel, vv)
+	return c.Create(ImLivechatReportOperatorModel, vv, nil)
 }
 
 // UpdateImLivechatReportOperator updates an existing im_livechat.report.operator record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateImLivechatReportOperator(iro *ImLivechatReportOperator) e
 // UpdateImLivechatReportOperators updates existing im_livechat.report.operator records.
 // All records (represented by ids) will be updated by iro values.
 func (c *Client) UpdateImLivechatReportOperators(ids []int64, iro *ImLivechatReportOperator) error {
-	return c.Update(ImLivechatReportOperatorModel, ids, iro)
+	return c.Update(ImLivechatReportOperatorModel, ids, iro, nil)
 }
 
 // DeleteImLivechatReportOperator deletes an existing im_livechat.report.operator record.
@@ -77,10 +73,7 @@ func (c *Client) GetImLivechatReportOperator(id int64) (*ImLivechatReportOperato
 	if err != nil {
 		return nil, err
 	}
-	if iros != nil && len(*iros) > 0 {
-		return &((*iros)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of im_livechat.report.operator not found", id)
+	return &((*iros)[0]), nil
 }
 
 // GetImLivechatReportOperators gets im_livechat.report.operator existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindImLivechatReportOperator(criteria *Criteria) (*ImLivechatRe
 	if err := c.SearchRead(ImLivechatReportOperatorModel, criteria, NewOptions().Limit(1), iros); err != nil {
 		return nil, err
 	}
-	if iros != nil && len(*iros) > 0 {
-		return &((*iros)[0]), nil
-	}
-	return nil, fmt.Errorf("im_livechat.report.operator was not found with criteria %v", criteria)
+	return &((*iros)[0]), nil
 }
 
 // FindImLivechatReportOperators finds im_livechat.report.operator records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindImLivechatReportOperators(criteria *Criteria, options *Opti
 // FindImLivechatReportOperatorIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindImLivechatReportOperatorIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ImLivechatReportOperatorModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ImLivechatReportOperatorModel, criteria, options)
 }
 
 // FindImLivechatReportOperatorId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindImLivechatReportOperatorId(criteria *Criteria, options *Opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("im_livechat.report.operator was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

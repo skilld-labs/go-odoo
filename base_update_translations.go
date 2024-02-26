@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseUpdateTranslations represents base.update.translations model.
 type BaseUpdateTranslations struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseUpdateTranslationss(buts []*BaseUpdateTranslations) (
 	for _, v := range buts {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseUpdateTranslationsModel, vv)
+	return c.Create(BaseUpdateTranslationsModel, vv, nil)
 }
 
 // UpdateBaseUpdateTranslations updates an existing base.update.translations record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseUpdateTranslations(but *BaseUpdateTranslations) error
 // UpdateBaseUpdateTranslationss updates existing base.update.translations records.
 // All records (represented by ids) will be updated by but values.
 func (c *Client) UpdateBaseUpdateTranslationss(ids []int64, but *BaseUpdateTranslations) error {
-	return c.Update(BaseUpdateTranslationsModel, ids, but)
+	return c.Update(BaseUpdateTranslationsModel, ids, but, nil)
 }
 
 // DeleteBaseUpdateTranslations deletes an existing base.update.translations record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseUpdateTranslations(id int64) (*BaseUpdateTranslations, e
 	if err != nil {
 		return nil, err
 	}
-	if buts != nil && len(*buts) > 0 {
-		return &((*buts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.update.translations not found", id)
+	return &((*buts)[0]), nil
 }
 
 // GetBaseUpdateTranslationss gets base.update.translations existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseUpdateTranslations(criteria *Criteria) (*BaseUpdateTran
 	if err := c.SearchRead(BaseUpdateTranslationsModel, criteria, NewOptions().Limit(1), buts); err != nil {
 		return nil, err
 	}
-	if buts != nil && len(*buts) > 0 {
-		return &((*buts)[0]), nil
-	}
-	return nil, fmt.Errorf("base.update.translations was not found with criteria %v", criteria)
+	return &((*buts)[0]), nil
 }
 
 // FindBaseUpdateTranslationss finds base.update.translations records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseUpdateTranslationss(criteria *Criteria, options *Option
 // FindBaseUpdateTranslationsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseUpdateTranslationsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseUpdateTranslationsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseUpdateTranslationsModel, criteria, options)
 }
 
 // FindBaseUpdateTranslationsId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseUpdateTranslationsId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.update.translations was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

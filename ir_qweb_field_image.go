@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldImage represents ir.qweb.field.image model.
 type IrQwebFieldImage struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldImages(iqfis []*IrQwebFieldImage) ([]int64, er
 	for _, v := range iqfis {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldImageModel, vv)
+	return c.Create(IrQwebFieldImageModel, vv, nil)
 }
 
 // UpdateIrQwebFieldImage updates an existing ir.qweb.field.image record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldImage(iqfi *IrQwebFieldImage) error {
 // UpdateIrQwebFieldImages updates existing ir.qweb.field.image records.
 // All records (represented by ids) will be updated by iqfi values.
 func (c *Client) UpdateIrQwebFieldImages(ids []int64, iqfi *IrQwebFieldImage) error {
-	return c.Update(IrQwebFieldImageModel, ids, iqfi)
+	return c.Update(IrQwebFieldImageModel, ids, iqfi, nil)
 }
 
 // DeleteIrQwebFieldImage deletes an existing ir.qweb.field.image record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldImage(id int64) (*IrQwebFieldImage, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfis != nil && len(*iqfis) > 0 {
-		return &((*iqfis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.image not found", id)
+	return &((*iqfis)[0]), nil
 }
 
 // GetIrQwebFieldImages gets ir.qweb.field.image existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldImage(criteria *Criteria) (*IrQwebFieldImage, er
 	if err := c.SearchRead(IrQwebFieldImageModel, criteria, NewOptions().Limit(1), iqfis); err != nil {
 		return nil, err
 	}
-	if iqfis != nil && len(*iqfis) > 0 {
-		return &((*iqfis)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.image was not found with criteria %v", criteria)
+	return &((*iqfis)[0]), nil
 }
 
 // FindIrQwebFieldImages finds ir.qweb.field.image records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldImages(criteria *Criteria, options *Options) (*I
 // FindIrQwebFieldImageIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldImageIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldImageModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldImageModel, criteria, options)
 }
 
 // FindIrQwebFieldImageId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldImageId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.image was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

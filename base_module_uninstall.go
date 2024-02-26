@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseModuleUninstall represents base.module.uninstall model.
 type BaseModuleUninstall struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateBaseModuleUninstalls(bmus []*BaseModuleUninstall) ([]int6
 	for _, v := range bmus {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseModuleUninstallModel, vv)
+	return c.Create(BaseModuleUninstallModel, vv, nil)
 }
 
 // UpdateBaseModuleUninstall updates an existing base.module.uninstall record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateBaseModuleUninstall(bmu *BaseModuleUninstall) error {
 // UpdateBaseModuleUninstalls updates existing base.module.uninstall records.
 // All records (represented by ids) will be updated by bmu values.
 func (c *Client) UpdateBaseModuleUninstalls(ids []int64, bmu *BaseModuleUninstall) error {
-	return c.Update(BaseModuleUninstallModel, ids, bmu)
+	return c.Update(BaseModuleUninstallModel, ids, bmu, nil)
 }
 
 // DeleteBaseModuleUninstall deletes an existing base.module.uninstall record.
@@ -78,10 +74,7 @@ func (c *Client) GetBaseModuleUninstall(id int64) (*BaseModuleUninstall, error) 
 	if err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.module.uninstall not found", id)
+	return &((*bmus)[0]), nil
 }
 
 // GetBaseModuleUninstalls gets base.module.uninstall existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindBaseModuleUninstall(criteria *Criteria) (*BaseModuleUninsta
 	if err := c.SearchRead(BaseModuleUninstallModel, criteria, NewOptions().Limit(1), bmus); err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("base.module.uninstall was not found with criteria %v", criteria)
+	return &((*bmus)[0]), nil
 }
 
 // FindBaseModuleUninstalls finds base.module.uninstall records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindBaseModuleUninstalls(criteria *Criteria, options *Options) 
 // FindBaseModuleUninstallIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseModuleUninstallIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseModuleUninstallModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseModuleUninstallModel, criteria, options)
 }
 
 // FindBaseModuleUninstallId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindBaseModuleUninstallId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.module.uninstall was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

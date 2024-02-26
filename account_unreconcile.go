@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountUnreconcile represents account.unreconcile model.
 type AccountUnreconcile struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateAccountUnreconciles(aus []*AccountUnreconcile) ([]int64, 
 	for _, v := range aus {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountUnreconcileModel, vv)
+	return c.Create(AccountUnreconcileModel, vv, nil)
 }
 
 // UpdateAccountUnreconcile updates an existing account.unreconcile record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateAccountUnreconcile(au *AccountUnreconcile) error {
 // UpdateAccountUnreconciles updates existing account.unreconcile records.
 // All records (represented by ids) will be updated by au values.
 func (c *Client) UpdateAccountUnreconciles(ids []int64, au *AccountUnreconcile) error {
-	return c.Update(AccountUnreconcileModel, ids, au)
+	return c.Update(AccountUnreconcileModel, ids, au, nil)
 }
 
 // DeleteAccountUnreconcile deletes an existing account.unreconcile record.
@@ -74,10 +70,7 @@ func (c *Client) GetAccountUnreconcile(id int64) (*AccountUnreconcile, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aus != nil && len(*aus) > 0 {
-		return &((*aus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.unreconcile not found", id)
+	return &((*aus)[0]), nil
 }
 
 // GetAccountUnreconciles gets account.unreconcile existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindAccountUnreconcile(criteria *Criteria) (*AccountUnreconcile
 	if err := c.SearchRead(AccountUnreconcileModel, criteria, NewOptions().Limit(1), aus); err != nil {
 		return nil, err
 	}
-	if aus != nil && len(*aus) > 0 {
-		return &((*aus)[0]), nil
-	}
-	return nil, fmt.Errorf("account.unreconcile was not found with criteria %v", criteria)
+	return &((*aus)[0]), nil
 }
 
 // FindAccountUnreconciles finds account.unreconcile records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindAccountUnreconciles(criteria *Criteria, options *Options) (
 // FindAccountUnreconcileIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountUnreconcileIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountUnreconcileModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountUnreconcileModel, criteria, options)
 }
 
 // FindAccountUnreconcileId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindAccountUnreconcileId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.unreconcile was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

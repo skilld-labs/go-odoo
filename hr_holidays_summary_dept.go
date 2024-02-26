@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrHolidaysSummaryDept represents hr.holidays.summary.dept model.
 type HrHolidaysSummaryDept struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateHrHolidaysSummaryDepts(hhsds []*HrHolidaysSummaryDept) ([
 	for _, v := range hhsds {
 		vv = append(vv, v)
 	}
-	return c.Create(HrHolidaysSummaryDeptModel, vv)
+	return c.Create(HrHolidaysSummaryDeptModel, vv, nil)
 }
 
 // UpdateHrHolidaysSummaryDept updates an existing hr.holidays.summary.dept record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateHrHolidaysSummaryDept(hhsd *HrHolidaysSummaryDept) error 
 // UpdateHrHolidaysSummaryDepts updates existing hr.holidays.summary.dept records.
 // All records (represented by ids) will be updated by hhsd values.
 func (c *Client) UpdateHrHolidaysSummaryDepts(ids []int64, hhsd *HrHolidaysSummaryDept) error {
-	return c.Update(HrHolidaysSummaryDeptModel, ids, hhsd)
+	return c.Update(HrHolidaysSummaryDeptModel, ids, hhsd, nil)
 }
 
 // DeleteHrHolidaysSummaryDept deletes an existing hr.holidays.summary.dept record.
@@ -77,10 +73,7 @@ func (c *Client) GetHrHolidaysSummaryDept(id int64) (*HrHolidaysSummaryDept, err
 	if err != nil {
 		return nil, err
 	}
-	if hhsds != nil && len(*hhsds) > 0 {
-		return &((*hhsds)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.holidays.summary.dept not found", id)
+	return &((*hhsds)[0]), nil
 }
 
 // GetHrHolidaysSummaryDepts gets hr.holidays.summary.dept existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindHrHolidaysSummaryDept(criteria *Criteria) (*HrHolidaysSumma
 	if err := c.SearchRead(HrHolidaysSummaryDeptModel, criteria, NewOptions().Limit(1), hhsds); err != nil {
 		return nil, err
 	}
-	if hhsds != nil && len(*hhsds) > 0 {
-		return &((*hhsds)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.holidays.summary.dept was not found with criteria %v", criteria)
+	return &((*hhsds)[0]), nil
 }
 
 // FindHrHolidaysSummaryDepts finds hr.holidays.summary.dept records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindHrHolidaysSummaryDepts(criteria *Criteria, options *Options
 // FindHrHolidaysSummaryDeptIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrHolidaysSummaryDeptIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrHolidaysSummaryDeptModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrHolidaysSummaryDeptModel, criteria, options)
 }
 
 // FindHrHolidaysSummaryDeptId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindHrHolidaysSummaryDeptId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.holidays.summary.dept was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

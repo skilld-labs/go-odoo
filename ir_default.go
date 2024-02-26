@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrDefault represents ir.default model.
 type IrDefault struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateIrDefaults(IDs []*IrDefault) ([]int64, error) {
 	for _, v := range IDs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrDefaultModel, vv)
+	return c.Create(IrDefaultModel, vv, nil)
 }
 
 // UpdateIrDefault updates an existing ir.default record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateIrDefault(ID *IrDefault) error {
 // UpdateIrDefaults updates existing ir.default records.
 // All records (represented by ids) will be updated by ID values.
 func (c *Client) UpdateIrDefaults(ids []int64, ID *IrDefault) error {
-	return c.Update(IrDefaultModel, ids, ID)
+	return c.Update(IrDefaultModel, ids, ID, nil)
 }
 
 // DeleteIrDefault deletes an existing ir.default record.
@@ -79,10 +75,7 @@ func (c *Client) GetIrDefault(id int64) (*IrDefault, error) {
 	if err != nil {
 		return nil, err
 	}
-	if IDs != nil && len(*IDs) > 0 {
-		return &((*IDs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.default not found", id)
+	return &((*IDs)[0]), nil
 }
 
 // GetIrDefaults gets ir.default existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindIrDefault(criteria *Criteria) (*IrDefault, error) {
 	if err := c.SearchRead(IrDefaultModel, criteria, NewOptions().Limit(1), IDs); err != nil {
 		return nil, err
 	}
-	if IDs != nil && len(*IDs) > 0 {
-		return &((*IDs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.default was not found with criteria %v", criteria)
+	return &((*IDs)[0]), nil
 }
 
 // FindIrDefaults finds ir.default records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindIrDefaults(criteria *Criteria, options *Options) (*IrDefaul
 // FindIrDefaultIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrDefaultIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrDefaultModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrDefaultModel, criteria, options)
 }
 
 // FindIrDefaultId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindIrDefaultId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.default was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

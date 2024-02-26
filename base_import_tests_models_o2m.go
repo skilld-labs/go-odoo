@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportTestsModelsO2M represents base_import.tests.models.o2m model.
 type BaseImportTestsModelsO2M struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseImportTestsModelsO2Ms(btmos []*BaseImportTestsModelsO
 	for _, v := range btmos {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportTestsModelsO2MModel, vv)
+	return c.Create(BaseImportTestsModelsO2MModel, vv, nil)
 }
 
 // UpdateBaseImportTestsModelsO2M updates an existing base_import.tests.models.o2m record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseImportTestsModelsO2M(btmo *BaseImportTestsModelsO2M) 
 // UpdateBaseImportTestsModelsO2Ms updates existing base_import.tests.models.o2m records.
 // All records (represented by ids) will be updated by btmo values.
 func (c *Client) UpdateBaseImportTestsModelsO2Ms(ids []int64, btmo *BaseImportTestsModelsO2M) error {
-	return c.Update(BaseImportTestsModelsO2MModel, ids, btmo)
+	return c.Update(BaseImportTestsModelsO2MModel, ids, btmo, nil)
 }
 
 // DeleteBaseImportTestsModelsO2M deletes an existing base_import.tests.models.o2m record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseImportTestsModelsO2M(id int64) (*BaseImportTestsModelsO2
 	if err != nil {
 		return nil, err
 	}
-	if btmos != nil && len(*btmos) > 0 {
-		return &((*btmos)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.tests.models.o2m not found", id)
+	return &((*btmos)[0]), nil
 }
 
 // GetBaseImportTestsModelsO2Ms gets base_import.tests.models.o2m existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseImportTestsModelsO2M(criteria *Criteria) (*BaseImportTe
 	if err := c.SearchRead(BaseImportTestsModelsO2MModel, criteria, NewOptions().Limit(1), btmos); err != nil {
 		return nil, err
 	}
-	if btmos != nil && len(*btmos) > 0 {
-		return &((*btmos)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.tests.models.o2m was not found with criteria %v", criteria)
+	return &((*btmos)[0]), nil
 }
 
 // FindBaseImportTestsModelsO2Ms finds base_import.tests.models.o2m records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseImportTestsModelsO2Ms(criteria *Criteria, options *Opti
 // FindBaseImportTestsModelsO2MIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsO2MIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportTestsModelsO2MModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportTestsModelsO2MModel, criteria, options)
 }
 
 // FindBaseImportTestsModelsO2MId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseImportTestsModelsO2MId(criteria *Criteria, options *Opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.tests.models.o2m was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

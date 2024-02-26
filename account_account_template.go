@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAccountTemplate represents account.account.template model.
 type AccountAccountTemplate struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateAccountAccountTemplates(aats []*AccountAccountTemplate) (
 	for _, v := range aats {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAccountTemplateModel, vv)
+	return c.Create(AccountAccountTemplateModel, vv, nil)
 }
 
 // UpdateAccountAccountTemplate updates an existing account.account.template record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateAccountAccountTemplate(aat *AccountAccountTemplate) error
 // UpdateAccountAccountTemplates updates existing account.account.template records.
 // All records (represented by ids) will be updated by aat values.
 func (c *Client) UpdateAccountAccountTemplates(ids []int64, aat *AccountAccountTemplate) error {
-	return c.Update(AccountAccountTemplateModel, ids, aat)
+	return c.Update(AccountAccountTemplateModel, ids, aat, nil)
 }
 
 // DeleteAccountAccountTemplate deletes an existing account.account.template record.
@@ -85,10 +81,7 @@ func (c *Client) GetAccountAccountTemplate(id int64) (*AccountAccountTemplate, e
 	if err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.account.template not found", id)
+	return &((*aats)[0]), nil
 }
 
 // GetAccountAccountTemplates gets account.account.template existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindAccountAccountTemplate(criteria *Criteria) (*AccountAccount
 	if err := c.SearchRead(AccountAccountTemplateModel, criteria, NewOptions().Limit(1), aats); err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("account.account.template was not found with criteria %v", criteria)
+	return &((*aats)[0]), nil
 }
 
 // FindAccountAccountTemplates finds account.account.template records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindAccountAccountTemplates(criteria *Criteria, options *Option
 // FindAccountAccountTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAccountTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAccountTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAccountTemplateModel, criteria, options)
 }
 
 // FindAccountAccountTemplateId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindAccountAccountTemplateId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.account.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

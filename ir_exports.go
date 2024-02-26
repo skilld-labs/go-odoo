@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrExports represents ir.exports model.
 type IrExports struct {
 	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateIrExportss(ies []*IrExports) ([]int64, error) {
 	for _, v := range ies {
 		vv = append(vv, v)
 	}
-	return c.Create(IrExportsModel, vv)
+	return c.Create(IrExportsModel, vv, nil)
 }
 
 // UpdateIrExports updates an existing ir.exports record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateIrExports(ie *IrExports) error {
 // UpdateIrExportss updates existing ir.exports records.
 // All records (represented by ids) will be updated by ie values.
 func (c *Client) UpdateIrExportss(ids []int64, ie *IrExports) error {
-	return c.Update(IrExportsModel, ids, ie)
+	return c.Update(IrExportsModel, ids, ie, nil)
 }
 
 // DeleteIrExports deletes an existing ir.exports record.
@@ -77,10 +73,7 @@ func (c *Client) GetIrExports(id int64) (*IrExports, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ies != nil && len(*ies) > 0 {
-		return &((*ies)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.exports not found", id)
+	return &((*ies)[0]), nil
 }
 
 // GetIrExportss gets ir.exports existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindIrExports(criteria *Criteria) (*IrExports, error) {
 	if err := c.SearchRead(IrExportsModel, criteria, NewOptions().Limit(1), ies); err != nil {
 		return nil, err
 	}
-	if ies != nil && len(*ies) > 0 {
-		return &((*ies)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.exports was not found with criteria %v", criteria)
+	return &((*ies)[0]), nil
 }
 
 // FindIrExportss finds ir.exports records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindIrExportss(criteria *Criteria, options *Options) (*IrExport
 // FindIrExportsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrExportsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrExportsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrExportsModel, criteria, options)
 }
 
 // FindIrExportsId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindIrExportsId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.exports was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

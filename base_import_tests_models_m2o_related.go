@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportTestsModelsM2ORelated represents base_import.tests.models.m2o.related model.
 type BaseImportTestsModelsM2ORelated struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseImportTestsModelsM2ORelateds(btmmrs []*BaseImportTest
 	for _, v := range btmmrs {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportTestsModelsM2ORelatedModel, vv)
+	return c.Create(BaseImportTestsModelsM2ORelatedModel, vv, nil)
 }
 
 // UpdateBaseImportTestsModelsM2ORelated updates an existing base_import.tests.models.m2o.related record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseImportTestsModelsM2ORelated(btmmr *BaseImportTestsMod
 // UpdateBaseImportTestsModelsM2ORelateds updates existing base_import.tests.models.m2o.related records.
 // All records (represented by ids) will be updated by btmmr values.
 func (c *Client) UpdateBaseImportTestsModelsM2ORelateds(ids []int64, btmmr *BaseImportTestsModelsM2ORelated) error {
-	return c.Update(BaseImportTestsModelsM2ORelatedModel, ids, btmmr)
+	return c.Update(BaseImportTestsModelsM2ORelatedModel, ids, btmmr, nil)
 }
 
 // DeleteBaseImportTestsModelsM2ORelated deletes an existing base_import.tests.models.m2o.related record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseImportTestsModelsM2ORelated(id int64) (*BaseImportTestsM
 	if err != nil {
 		return nil, err
 	}
-	if btmmrs != nil && len(*btmmrs) > 0 {
-		return &((*btmmrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.tests.models.m2o.related not found", id)
+	return &((*btmmrs)[0]), nil
 }
 
 // GetBaseImportTestsModelsM2ORelateds gets base_import.tests.models.m2o.related existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORelated(criteria *Criteria) (*BaseI
 	if err := c.SearchRead(BaseImportTestsModelsM2ORelatedModel, criteria, NewOptions().Limit(1), btmmrs); err != nil {
 		return nil, err
 	}
-	if btmmrs != nil && len(*btmmrs) > 0 {
-		return &((*btmmrs)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.tests.models.m2o.related was not found with criteria %v", criteria)
+	return &((*btmmrs)[0]), nil
 }
 
 // FindBaseImportTestsModelsM2ORelateds finds base_import.tests.models.m2o.related records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORelateds(criteria *Criteria, option
 // FindBaseImportTestsModelsM2ORelatedIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsM2ORelatedIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportTestsModelsM2ORelatedModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportTestsModelsM2ORelatedModel, criteria, options)
 }
 
 // FindBaseImportTestsModelsM2ORelatedId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseImportTestsModelsM2ORelatedId(criteria *Criteria, optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.tests.models.m2o.related was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

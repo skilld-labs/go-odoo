@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ValidateAccountMove represents validate.account.move model.
 type ValidateAccountMove struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateValidateAccountMoves(vams []*ValidateAccountMove) ([]int6
 	for _, v := range vams {
 		vv = append(vv, v)
 	}
-	return c.Create(ValidateAccountMoveModel, vv)
+	return c.Create(ValidateAccountMoveModel, vv, nil)
 }
 
 // UpdateValidateAccountMove updates an existing validate.account.move record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateValidateAccountMove(vam *ValidateAccountMove) error {
 // UpdateValidateAccountMoves updates existing validate.account.move records.
 // All records (represented by ids) will be updated by vam values.
 func (c *Client) UpdateValidateAccountMoves(ids []int64, vam *ValidateAccountMove) error {
-	return c.Update(ValidateAccountMoveModel, ids, vam)
+	return c.Update(ValidateAccountMoveModel, ids, vam, nil)
 }
 
 // DeleteValidateAccountMove deletes an existing validate.account.move record.
@@ -74,10 +70,7 @@ func (c *Client) GetValidateAccountMove(id int64) (*ValidateAccountMove, error) 
 	if err != nil {
 		return nil, err
 	}
-	if vams != nil && len(*vams) > 0 {
-		return &((*vams)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of validate.account.move not found", id)
+	return &((*vams)[0]), nil
 }
 
 // GetValidateAccountMoves gets validate.account.move existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindValidateAccountMove(criteria *Criteria) (*ValidateAccountMo
 	if err := c.SearchRead(ValidateAccountMoveModel, criteria, NewOptions().Limit(1), vams); err != nil {
 		return nil, err
 	}
-	if vams != nil && len(*vams) > 0 {
-		return &((*vams)[0]), nil
-	}
-	return nil, fmt.Errorf("validate.account.move was not found with criteria %v", criteria)
+	return &((*vams)[0]), nil
 }
 
 // FindValidateAccountMoves finds validate.account.move records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindValidateAccountMoves(criteria *Criteria, options *Options) 
 // FindValidateAccountMoveIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindValidateAccountMoveIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ValidateAccountMoveModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ValidateAccountMoveModel, criteria, options)
 }
 
 // FindValidateAccountMoveId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindValidateAccountMoveId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("validate.account.move was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

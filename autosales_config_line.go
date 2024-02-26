@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AutosalesConfigLine represents autosales.config.line model.
 type AutosalesConfigLine struct {
 	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateAutosalesConfigLines(acls []*AutosalesConfigLine) ([]int6
 	for _, v := range acls {
 		vv = append(vv, v)
 	}
-	return c.Create(AutosalesConfigLineModel, vv)
+	return c.Create(AutosalesConfigLineModel, vv, nil)
 }
 
 // UpdateAutosalesConfigLine updates an existing autosales.config.line record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateAutosalesConfigLine(acl *AutosalesConfigLine) error {
 // UpdateAutosalesConfigLines updates existing autosales.config.line records.
 // All records (represented by ids) will be updated by acl values.
 func (c *Client) UpdateAutosalesConfigLines(ids []int64, acl *AutosalesConfigLine) error {
-	return c.Update(AutosalesConfigLineModel, ids, acl)
+	return c.Update(AutosalesConfigLineModel, ids, acl, nil)
 }
 
 // DeleteAutosalesConfigLine deletes an existing autosales.config.line record.
@@ -79,10 +75,7 @@ func (c *Client) GetAutosalesConfigLine(id int64) (*AutosalesConfigLine, error) 
 	if err != nil {
 		return nil, err
 	}
-	if acls != nil && len(*acls) > 0 {
-		return &((*acls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of autosales.config.line not found", id)
+	return &((*acls)[0]), nil
 }
 
 // GetAutosalesConfigLines gets autosales.config.line existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindAutosalesConfigLine(criteria *Criteria) (*AutosalesConfigLi
 	if err := c.SearchRead(AutosalesConfigLineModel, criteria, NewOptions().Limit(1), acls); err != nil {
 		return nil, err
 	}
-	if acls != nil && len(*acls) > 0 {
-		return &((*acls)[0]), nil
-	}
-	return nil, fmt.Errorf("autosales.config.line was not found with criteria %v", criteria)
+	return &((*acls)[0]), nil
 }
 
 // FindAutosalesConfigLines finds autosales.config.line records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindAutosalesConfigLines(criteria *Criteria, options *Options) 
 // FindAutosalesConfigLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAutosalesConfigLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AutosalesConfigLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AutosalesConfigLineModel, criteria, options)
 }
 
 // FindAutosalesConfigLineId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindAutosalesConfigLineId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("autosales.config.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

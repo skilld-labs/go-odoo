@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountInvoiceTax represents account.invoice.tax model.
 type AccountInvoiceTax struct {
 	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
@@ -57,7 +53,7 @@ func (c *Client) CreateAccountInvoiceTaxs(aits []*AccountInvoiceTax) ([]int64, e
 	for _, v := range aits {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountInvoiceTaxModel, vv)
+	return c.Create(AccountInvoiceTaxModel, vv, nil)
 }
 
 // UpdateAccountInvoiceTax updates an existing account.invoice.tax record.
@@ -68,7 +64,7 @@ func (c *Client) UpdateAccountInvoiceTax(ait *AccountInvoiceTax) error {
 // UpdateAccountInvoiceTaxs updates existing account.invoice.tax records.
 // All records (represented by ids) will be updated by ait values.
 func (c *Client) UpdateAccountInvoiceTaxs(ids []int64, ait *AccountInvoiceTax) error {
-	return c.Update(AccountInvoiceTaxModel, ids, ait)
+	return c.Update(AccountInvoiceTaxModel, ids, ait, nil)
 }
 
 // DeleteAccountInvoiceTax deletes an existing account.invoice.tax record.
@@ -87,10 +83,7 @@ func (c *Client) GetAccountInvoiceTax(id int64) (*AccountInvoiceTax, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aits != nil && len(*aits) > 0 {
-		return &((*aits)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.invoice.tax not found", id)
+	return &((*aits)[0]), nil
 }
 
 // GetAccountInvoiceTaxs gets account.invoice.tax existing records.
@@ -108,10 +101,7 @@ func (c *Client) FindAccountInvoiceTax(criteria *Criteria) (*AccountInvoiceTax, 
 	if err := c.SearchRead(AccountInvoiceTaxModel, criteria, NewOptions().Limit(1), aits); err != nil {
 		return nil, err
 	}
-	if aits != nil && len(*aits) > 0 {
-		return &((*aits)[0]), nil
-	}
-	return nil, fmt.Errorf("account.invoice.tax was not found with criteria %v", criteria)
+	return &((*aits)[0]), nil
 }
 
 // FindAccountInvoiceTaxs finds account.invoice.tax records by querying it
@@ -127,11 +117,7 @@ func (c *Client) FindAccountInvoiceTaxs(criteria *Criteria, options *Options) (*
 // FindAccountInvoiceTaxIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountInvoiceTaxIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountInvoiceTaxModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountInvoiceTaxModel, criteria, options)
 }
 
 // FindAccountInvoiceTaxId finds record id by querying it with criteria.
@@ -140,8 +126,5 @@ func (c *Client) FindAccountInvoiceTaxId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.invoice.tax was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

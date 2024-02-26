@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BarcodesBarcodeEventsMixin represents barcodes.barcode_events_mixin model.
 type BarcodesBarcodeEventsMixin struct {
 	LastUpdate     *Time   `xmlrpc:"__last_update,omptempty"`
@@ -41,7 +37,7 @@ func (c *Client) CreateBarcodesBarcodeEventsMixins(bbs []*BarcodesBarcodeEventsM
 	for _, v := range bbs {
 		vv = append(vv, v)
 	}
-	return c.Create(BarcodesBarcodeEventsMixinModel, vv)
+	return c.Create(BarcodesBarcodeEventsMixinModel, vv, nil)
 }
 
 // UpdateBarcodesBarcodeEventsMixin updates an existing barcodes.barcode_events_mixin record.
@@ -52,7 +48,7 @@ func (c *Client) UpdateBarcodesBarcodeEventsMixin(bb *BarcodesBarcodeEventsMixin
 // UpdateBarcodesBarcodeEventsMixins updates existing barcodes.barcode_events_mixin records.
 // All records (represented by ids) will be updated by bb values.
 func (c *Client) UpdateBarcodesBarcodeEventsMixins(ids []int64, bb *BarcodesBarcodeEventsMixin) error {
-	return c.Update(BarcodesBarcodeEventsMixinModel, ids, bb)
+	return c.Update(BarcodesBarcodeEventsMixinModel, ids, bb, nil)
 }
 
 // DeleteBarcodesBarcodeEventsMixin deletes an existing barcodes.barcode_events_mixin record.
@@ -71,10 +67,7 @@ func (c *Client) GetBarcodesBarcodeEventsMixin(id int64) (*BarcodesBarcodeEvents
 	if err != nil {
 		return nil, err
 	}
-	if bbs != nil && len(*bbs) > 0 {
-		return &((*bbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of barcodes.barcode_events_mixin not found", id)
+	return &((*bbs)[0]), nil
 }
 
 // GetBarcodesBarcodeEventsMixins gets barcodes.barcode_events_mixin existing records.
@@ -92,10 +85,7 @@ func (c *Client) FindBarcodesBarcodeEventsMixin(criteria *Criteria) (*BarcodesBa
 	if err := c.SearchRead(BarcodesBarcodeEventsMixinModel, criteria, NewOptions().Limit(1), bbs); err != nil {
 		return nil, err
 	}
-	if bbs != nil && len(*bbs) > 0 {
-		return &((*bbs)[0]), nil
-	}
-	return nil, fmt.Errorf("barcodes.barcode_events_mixin was not found with criteria %v", criteria)
+	return &((*bbs)[0]), nil
 }
 
 // FindBarcodesBarcodeEventsMixins finds barcodes.barcode_events_mixin records by querying it
@@ -111,11 +101,7 @@ func (c *Client) FindBarcodesBarcodeEventsMixins(criteria *Criteria, options *Op
 // FindBarcodesBarcodeEventsMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBarcodesBarcodeEventsMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BarcodesBarcodeEventsMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BarcodesBarcodeEventsMixinModel, criteria, options)
 }
 
 // FindBarcodesBarcodeEventsMixinId finds record id by querying it with criteria.
@@ -124,8 +110,5 @@ func (c *Client) FindBarcodesBarcodeEventsMixinId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("barcodes.barcode_events_mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

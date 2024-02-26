@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockMoveLine represents stock.move.line model.
 type StockMoveLine struct {
 	LastUpdate              *Time      `xmlrpc:"__last_update,omptempty"`
@@ -70,7 +66,7 @@ func (c *Client) CreateStockMoveLines(smls []*StockMoveLine) ([]int64, error) {
 	for _, v := range smls {
 		vv = append(vv, v)
 	}
-	return c.Create(StockMoveLineModel, vv)
+	return c.Create(StockMoveLineModel, vv, nil)
 }
 
 // UpdateStockMoveLine updates an existing stock.move.line record.
@@ -81,7 +77,7 @@ func (c *Client) UpdateStockMoveLine(sml *StockMoveLine) error {
 // UpdateStockMoveLines updates existing stock.move.line records.
 // All records (represented by ids) will be updated by sml values.
 func (c *Client) UpdateStockMoveLines(ids []int64, sml *StockMoveLine) error {
-	return c.Update(StockMoveLineModel, ids, sml)
+	return c.Update(StockMoveLineModel, ids, sml, nil)
 }
 
 // DeleteStockMoveLine deletes an existing stock.move.line record.
@@ -100,10 +96,7 @@ func (c *Client) GetStockMoveLine(id int64) (*StockMoveLine, error) {
 	if err != nil {
 		return nil, err
 	}
-	if smls != nil && len(*smls) > 0 {
-		return &((*smls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.move.line not found", id)
+	return &((*smls)[0]), nil
 }
 
 // GetStockMoveLines gets stock.move.line existing records.
@@ -121,10 +114,7 @@ func (c *Client) FindStockMoveLine(criteria *Criteria) (*StockMoveLine, error) {
 	if err := c.SearchRead(StockMoveLineModel, criteria, NewOptions().Limit(1), smls); err != nil {
 		return nil, err
 	}
-	if smls != nil && len(*smls) > 0 {
-		return &((*smls)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.move.line was not found with criteria %v", criteria)
+	return &((*smls)[0]), nil
 }
 
 // FindStockMoveLines finds stock.move.line records by querying it
@@ -140,11 +130,7 @@ func (c *Client) FindStockMoveLines(criteria *Criteria, options *Options) (*Stoc
 // FindStockMoveLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockMoveLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockMoveLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockMoveLineModel, criteria, options)
 }
 
 // FindStockMoveLineId finds record id by querying it with criteria.
@@ -153,8 +139,5 @@ func (c *Client) FindStockMoveLineId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.move.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

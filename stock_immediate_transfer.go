@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockImmediateTransfer represents stock.immediate.transfer model.
 type StockImmediateTransfer struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateStockImmediateTransfers(sits []*StockImmediateTransfer) (
 	for _, v := range sits {
 		vv = append(vv, v)
 	}
-	return c.Create(StockImmediateTransferModel, vv)
+	return c.Create(StockImmediateTransferModel, vv, nil)
 }
 
 // UpdateStockImmediateTransfer updates an existing stock.immediate.transfer record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateStockImmediateTransfer(sit *StockImmediateTransfer) error
 // UpdateStockImmediateTransfers updates existing stock.immediate.transfer records.
 // All records (represented by ids) will be updated by sit values.
 func (c *Client) UpdateStockImmediateTransfers(ids []int64, sit *StockImmediateTransfer) error {
-	return c.Update(StockImmediateTransferModel, ids, sit)
+	return c.Update(StockImmediateTransferModel, ids, sit, nil)
 }
 
 // DeleteStockImmediateTransfer deletes an existing stock.immediate.transfer record.
@@ -75,10 +71,7 @@ func (c *Client) GetStockImmediateTransfer(id int64) (*StockImmediateTransfer, e
 	if err != nil {
 		return nil, err
 	}
-	if sits != nil && len(*sits) > 0 {
-		return &((*sits)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.immediate.transfer not found", id)
+	return &((*sits)[0]), nil
 }
 
 // GetStockImmediateTransfers gets stock.immediate.transfer existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindStockImmediateTransfer(criteria *Criteria) (*StockImmediate
 	if err := c.SearchRead(StockImmediateTransferModel, criteria, NewOptions().Limit(1), sits); err != nil {
 		return nil, err
 	}
-	if sits != nil && len(*sits) > 0 {
-		return &((*sits)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.immediate.transfer was not found with criteria %v", criteria)
+	return &((*sits)[0]), nil
 }
 
 // FindStockImmediateTransfers finds stock.immediate.transfer records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindStockImmediateTransfers(criteria *Criteria, options *Option
 // FindStockImmediateTransferIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockImmediateTransferIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockImmediateTransferModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockImmediateTransferModel, criteria, options)
 }
 
 // FindStockImmediateTransferId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindStockImmediateTransferId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.immediate.transfer was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

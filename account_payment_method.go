@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountPaymentMethod represents account.payment.method model.
 type AccountPaymentMethod struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateAccountPaymentMethods(apms []*AccountPaymentMethod) ([]in
 	for _, v := range apms {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountPaymentMethodModel, vv)
+	return c.Create(AccountPaymentMethodModel, vv, nil)
 }
 
 // UpdateAccountPaymentMethod updates an existing account.payment.method record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateAccountPaymentMethod(apm *AccountPaymentMethod) error {
 // UpdateAccountPaymentMethods updates existing account.payment.method records.
 // All records (represented by ids) will be updated by apm values.
 func (c *Client) UpdateAccountPaymentMethods(ids []int64, apm *AccountPaymentMethod) error {
-	return c.Update(AccountPaymentMethodModel, ids, apm)
+	return c.Update(AccountPaymentMethodModel, ids, apm, nil)
 }
 
 // DeleteAccountPaymentMethod deletes an existing account.payment.method record.
@@ -77,10 +73,7 @@ func (c *Client) GetAccountPaymentMethod(id int64) (*AccountPaymentMethod, error
 	if err != nil {
 		return nil, err
 	}
-	if apms != nil && len(*apms) > 0 {
-		return &((*apms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.payment.method not found", id)
+	return &((*apms)[0]), nil
 }
 
 // GetAccountPaymentMethods gets account.payment.method existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindAccountPaymentMethod(criteria *Criteria) (*AccountPaymentMe
 	if err := c.SearchRead(AccountPaymentMethodModel, criteria, NewOptions().Limit(1), apms); err != nil {
 		return nil, err
 	}
-	if apms != nil && len(*apms) > 0 {
-		return &((*apms)[0]), nil
-	}
-	return nil, fmt.Errorf("account.payment.method was not found with criteria %v", criteria)
+	return &((*apms)[0]), nil
 }
 
 // FindAccountPaymentMethods finds account.payment.method records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindAccountPaymentMethods(criteria *Criteria, options *Options)
 // FindAccountPaymentMethodIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentMethodIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountPaymentMethodModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountPaymentMethodModel, criteria, options)
 }
 
 // FindAccountPaymentMethodId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindAccountPaymentMethodId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.payment.method was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

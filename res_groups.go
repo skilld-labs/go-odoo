@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResGroups represents res.groups model.
 type ResGroups struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -58,7 +54,7 @@ func (c *Client) CreateResGroupss(rgs []*ResGroups) ([]int64, error) {
 	for _, v := range rgs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResGroupsModel, vv)
+	return c.Create(ResGroupsModel, vv, nil)
 }
 
 // UpdateResGroups updates an existing res.groups record.
@@ -69,7 +65,7 @@ func (c *Client) UpdateResGroups(rg *ResGroups) error {
 // UpdateResGroupss updates existing res.groups records.
 // All records (represented by ids) will be updated by rg values.
 func (c *Client) UpdateResGroupss(ids []int64, rg *ResGroups) error {
-	return c.Update(ResGroupsModel, ids, rg)
+	return c.Update(ResGroupsModel, ids, rg, nil)
 }
 
 // DeleteResGroups deletes an existing res.groups record.
@@ -88,10 +84,7 @@ func (c *Client) GetResGroups(id int64) (*ResGroups, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rgs != nil && len(*rgs) > 0 {
-		return &((*rgs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.groups not found", id)
+	return &((*rgs)[0]), nil
 }
 
 // GetResGroupss gets res.groups existing records.
@@ -109,10 +102,7 @@ func (c *Client) FindResGroups(criteria *Criteria) (*ResGroups, error) {
 	if err := c.SearchRead(ResGroupsModel, criteria, NewOptions().Limit(1), rgs); err != nil {
 		return nil, err
 	}
-	if rgs != nil && len(*rgs) > 0 {
-		return &((*rgs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.groups was not found with criteria %v", criteria)
+	return &((*rgs)[0]), nil
 }
 
 // FindResGroupss finds res.groups records by querying it
@@ -128,11 +118,7 @@ func (c *Client) FindResGroupss(criteria *Criteria, options *Options) (*ResGroup
 // FindResGroupsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResGroupsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResGroupsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResGroupsModel, criteria, options)
 }
 
 // FindResGroupsId finds record id by querying it with criteria.
@@ -141,8 +127,5 @@ func (c *Client) FindResGroupsId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.groups was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

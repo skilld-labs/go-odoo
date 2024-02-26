@@ -61,17 +61,28 @@ func (g *generator) getModels(models []string) ([]*model, error) {
 			fmt.Printf("error: cannot find fields for model %s, cannot generate it.\n", model)
 			continue
 		}
+		idExists := false
+		for _, mf := range mfs {
+			if mf.Name == "id" {
+				idExists = true
+				break
+			}
+		}
+		if idExists == false {
+			fmt.Printf("error: cannot find ID field for model %s, cannot generate it.\n", model)
+			continue
+		}
 		mm = append(mm, newModel(model, mfs))
 	}
 	return mm, nil
 }
 
 func (g *generator) getAllModelsName() ([]string, error) {
-	ims, err := g.odoo.FindIrModels(nil, nil)
-	if err != nil || ims == nil {
-		return []string{}, nil
-	}
 	var models []string
+	ims, err := g.odoo.FindIrModels(nil, nil)
+	if err != nil {
+		return models, err
+	}
 	for _, im := range *ims {
 		models = append(models, im.Model.Get())
 	}

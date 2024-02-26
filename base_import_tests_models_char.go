@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportTestsModelsChar represents base_import.tests.models.char model.
 type BaseImportTestsModelsChar struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseImportTestsModelsChars(btmcs []*BaseImportTestsModels
 	for _, v := range btmcs {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportTestsModelsCharModel, vv)
+	return c.Create(BaseImportTestsModelsCharModel, vv, nil)
 }
 
 // UpdateBaseImportTestsModelsChar updates an existing base_import.tests.models.char record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseImportTestsModelsChar(btmc *BaseImportTestsModelsChar
 // UpdateBaseImportTestsModelsChars updates existing base_import.tests.models.char records.
 // All records (represented by ids) will be updated by btmc values.
 func (c *Client) UpdateBaseImportTestsModelsChars(ids []int64, btmc *BaseImportTestsModelsChar) error {
-	return c.Update(BaseImportTestsModelsCharModel, ids, btmc)
+	return c.Update(BaseImportTestsModelsCharModel, ids, btmc, nil)
 }
 
 // DeleteBaseImportTestsModelsChar deletes an existing base_import.tests.models.char record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseImportTestsModelsChar(id int64) (*BaseImportTestsModelsC
 	if err != nil {
 		return nil, err
 	}
-	if btmcs != nil && len(*btmcs) > 0 {
-		return &((*btmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.tests.models.char not found", id)
+	return &((*btmcs)[0]), nil
 }
 
 // GetBaseImportTestsModelsChars gets base_import.tests.models.char existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseImportTestsModelsChar(criteria *Criteria) (*BaseImportT
 	if err := c.SearchRead(BaseImportTestsModelsCharModel, criteria, NewOptions().Limit(1), btmcs); err != nil {
 		return nil, err
 	}
-	if btmcs != nil && len(*btmcs) > 0 {
-		return &((*btmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.tests.models.char was not found with criteria %v", criteria)
+	return &((*btmcs)[0]), nil
 }
 
 // FindBaseImportTestsModelsChars finds base_import.tests.models.char records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseImportTestsModelsChars(criteria *Criteria, options *Opt
 // FindBaseImportTestsModelsCharIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsCharIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportTestsModelsCharModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportTestsModelsCharModel, criteria, options)
 }
 
 // FindBaseImportTestsModelsCharId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseImportTestsModelsCharId(criteria *Criteria, options *Op
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.tests.models.char was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

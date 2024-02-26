@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailFollowers represents mail.followers model.
 type MailFollowers struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateMailFollowerss(mfs []*MailFollowers) ([]int64, error) {
 	for _, v := range mfs {
 		vv = append(vv, v)
 	}
-	return c.Create(MailFollowersModel, vv)
+	return c.Create(MailFollowersModel, vv, nil)
 }
 
 // UpdateMailFollowers updates an existing mail.followers record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateMailFollowers(mf *MailFollowers) error {
 // UpdateMailFollowerss updates existing mail.followers records.
 // All records (represented by ids) will be updated by mf values.
 func (c *Client) UpdateMailFollowerss(ids []int64, mf *MailFollowers) error {
-	return c.Update(MailFollowersModel, ids, mf)
+	return c.Update(MailFollowersModel, ids, mf, nil)
 }
 
 // DeleteMailFollowers deletes an existing mail.followers record.
@@ -75,10 +71,7 @@ func (c *Client) GetMailFollowers(id int64) (*MailFollowers, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mfs != nil && len(*mfs) > 0 {
-		return &((*mfs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.followers not found", id)
+	return &((*mfs)[0]), nil
 }
 
 // GetMailFollowerss gets mail.followers existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindMailFollowers(criteria *Criteria) (*MailFollowers, error) {
 	if err := c.SearchRead(MailFollowersModel, criteria, NewOptions().Limit(1), mfs); err != nil {
 		return nil, err
 	}
-	if mfs != nil && len(*mfs) > 0 {
-		return &((*mfs)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.followers was not found with criteria %v", criteria)
+	return &((*mfs)[0]), nil
 }
 
 // FindMailFollowerss finds mail.followers records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindMailFollowerss(criteria *Criteria, options *Options) (*Mail
 // FindMailFollowersIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailFollowersIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailFollowersModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailFollowersModel, criteria, options)
 }
 
 // FindMailFollowersId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindMailFollowersId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.followers was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsActUrl represents ir.actions.act_url model.
 type IrActionsActUrl struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -52,7 +48,7 @@ func (c *Client) CreateIrActionsActUrls(iaas []*IrActionsActUrl) ([]int64, error
 	for _, v := range iaas {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsActUrlModel, vv)
+	return c.Create(IrActionsActUrlModel, vv, nil)
 }
 
 // UpdateIrActionsActUrl updates an existing ir.actions.act_url record.
@@ -63,7 +59,7 @@ func (c *Client) UpdateIrActionsActUrl(iaa *IrActionsActUrl) error {
 // UpdateIrActionsActUrls updates existing ir.actions.act_url records.
 // All records (represented by ids) will be updated by iaa values.
 func (c *Client) UpdateIrActionsActUrls(ids []int64, iaa *IrActionsActUrl) error {
-	return c.Update(IrActionsActUrlModel, ids, iaa)
+	return c.Update(IrActionsActUrlModel, ids, iaa, nil)
 }
 
 // DeleteIrActionsActUrl deletes an existing ir.actions.act_url record.
@@ -82,10 +78,7 @@ func (c *Client) GetIrActionsActUrl(id int64) (*IrActionsActUrl, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.act_url not found", id)
+	return &((*iaas)[0]), nil
 }
 
 // GetIrActionsActUrls gets ir.actions.act_url existing records.
@@ -103,10 +96,7 @@ func (c *Client) FindIrActionsActUrl(criteria *Criteria) (*IrActionsActUrl, erro
 	if err := c.SearchRead(IrActionsActUrlModel, criteria, NewOptions().Limit(1), iaas); err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.act_url was not found with criteria %v", criteria)
+	return &((*iaas)[0]), nil
 }
 
 // FindIrActionsActUrls finds ir.actions.act_url records by querying it
@@ -122,11 +112,7 @@ func (c *Client) FindIrActionsActUrls(criteria *Criteria, options *Options) (*Ir
 // FindIrActionsActUrlIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActUrlIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsActUrlModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsActUrlModel, criteria, options)
 }
 
 // FindIrActionsActUrlId finds record id by querying it with criteria.
@@ -135,8 +121,5 @@ func (c *Client) FindIrActionsActUrlId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.act_url was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

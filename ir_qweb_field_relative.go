@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldRelative represents ir.qweb.field.relative model.
 type IrQwebFieldRelative struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldRelatives(iqfrs []*IrQwebFieldRelative) ([]int
 	for _, v := range iqfrs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldRelativeModel, vv)
+	return c.Create(IrQwebFieldRelativeModel, vv, nil)
 }
 
 // UpdateIrQwebFieldRelative updates an existing ir.qweb.field.relative record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldRelative(iqfr *IrQwebFieldRelative) error {
 // UpdateIrQwebFieldRelatives updates existing ir.qweb.field.relative records.
 // All records (represented by ids) will be updated by iqfr values.
 func (c *Client) UpdateIrQwebFieldRelatives(ids []int64, iqfr *IrQwebFieldRelative) error {
-	return c.Update(IrQwebFieldRelativeModel, ids, iqfr)
+	return c.Update(IrQwebFieldRelativeModel, ids, iqfr, nil)
 }
 
 // DeleteIrQwebFieldRelative deletes an existing ir.qweb.field.relative record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldRelative(id int64) (*IrQwebFieldRelative, error) 
 	if err != nil {
 		return nil, err
 	}
-	if iqfrs != nil && len(*iqfrs) > 0 {
-		return &((*iqfrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.relative not found", id)
+	return &((*iqfrs)[0]), nil
 }
 
 // GetIrQwebFieldRelatives gets ir.qweb.field.relative existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldRelative(criteria *Criteria) (*IrQwebFieldRelati
 	if err := c.SearchRead(IrQwebFieldRelativeModel, criteria, NewOptions().Limit(1), iqfrs); err != nil {
 		return nil, err
 	}
-	if iqfrs != nil && len(*iqfrs) > 0 {
-		return &((*iqfrs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.relative was not found with criteria %v", criteria)
+	return &((*iqfrs)[0]), nil
 }
 
 // FindIrQwebFieldRelatives finds ir.qweb.field.relative records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldRelatives(criteria *Criteria, options *Options) 
 // FindIrQwebFieldRelativeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldRelativeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldRelativeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldRelativeModel, criteria, options)
 }
 
 // FindIrQwebFieldRelativeId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldRelativeId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.relative was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

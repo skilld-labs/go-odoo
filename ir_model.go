@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModel represents ir.model model.
 type IrModel struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -56,7 +52,7 @@ func (c *Client) CreateIrModels(ims []*IrModel) ([]int64, error) {
 	for _, v := range ims {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModelModel, vv)
+	return c.Create(IrModelModel, vv, nil)
 }
 
 // UpdateIrModel updates an existing ir.model record.
@@ -67,7 +63,7 @@ func (c *Client) UpdateIrModel(im *IrModel) error {
 // UpdateIrModels updates existing ir.model records.
 // All records (represented by ids) will be updated by im values.
 func (c *Client) UpdateIrModels(ids []int64, im *IrModel) error {
-	return c.Update(IrModelModel, ids, im)
+	return c.Update(IrModelModel, ids, im, nil)
 }
 
 // DeleteIrModel deletes an existing ir.model record.
@@ -86,10 +82,7 @@ func (c *Client) GetIrModel(id int64) (*IrModel, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ims != nil && len(*ims) > 0 {
-		return &((*ims)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.model not found", id)
+	return &((*ims)[0]), nil
 }
 
 // GetIrModels gets ir.model existing records.
@@ -107,10 +100,7 @@ func (c *Client) FindIrModel(criteria *Criteria) (*IrModel, error) {
 	if err := c.SearchRead(IrModelModel, criteria, NewOptions().Limit(1), ims); err != nil {
 		return nil, err
 	}
-	if ims != nil && len(*ims) > 0 {
-		return &((*ims)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.model was not found with criteria %v", criteria)
+	return &((*ims)[0]), nil
 }
 
 // FindIrModels finds ir.model records by querying it
@@ -126,11 +116,7 @@ func (c *Client) FindIrModels(criteria *Criteria, options *Options) (*IrModels, 
 // FindIrModelIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModelModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModelModel, criteria, options)
 }
 
 // FindIrModelId finds record id by querying it with criteria.
@@ -139,8 +125,5 @@ func (c *Client) FindIrModelId(criteria *Criteria, options *Options) (int64, err
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.model was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

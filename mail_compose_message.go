@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailComposeMessage represents mail.compose.message model.
 type MailComposeMessage struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -85,7 +81,7 @@ func (c *Client) CreateMailComposeMessages(mcms []*MailComposeMessage) ([]int64,
 	for _, v := range mcms {
 		vv = append(vv, v)
 	}
-	return c.Create(MailComposeMessageModel, vv)
+	return c.Create(MailComposeMessageModel, vv, nil)
 }
 
 // UpdateMailComposeMessage updates an existing mail.compose.message record.
@@ -96,7 +92,7 @@ func (c *Client) UpdateMailComposeMessage(mcm *MailComposeMessage) error {
 // UpdateMailComposeMessages updates existing mail.compose.message records.
 // All records (represented by ids) will be updated by mcm values.
 func (c *Client) UpdateMailComposeMessages(ids []int64, mcm *MailComposeMessage) error {
-	return c.Update(MailComposeMessageModel, ids, mcm)
+	return c.Update(MailComposeMessageModel, ids, mcm, nil)
 }
 
 // DeleteMailComposeMessage deletes an existing mail.compose.message record.
@@ -115,10 +111,7 @@ func (c *Client) GetMailComposeMessage(id int64) (*MailComposeMessage, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mcms != nil && len(*mcms) > 0 {
-		return &((*mcms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.compose.message not found", id)
+	return &((*mcms)[0]), nil
 }
 
 // GetMailComposeMessages gets mail.compose.message existing records.
@@ -136,10 +129,7 @@ func (c *Client) FindMailComposeMessage(criteria *Criteria) (*MailComposeMessage
 	if err := c.SearchRead(MailComposeMessageModel, criteria, NewOptions().Limit(1), mcms); err != nil {
 		return nil, err
 	}
-	if mcms != nil && len(*mcms) > 0 {
-		return &((*mcms)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.compose.message was not found with criteria %v", criteria)
+	return &((*mcms)[0]), nil
 }
 
 // FindMailComposeMessages finds mail.compose.message records by querying it
@@ -155,11 +145,7 @@ func (c *Client) FindMailComposeMessages(criteria *Criteria, options *Options) (
 // FindMailComposeMessageIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailComposeMessageIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailComposeMessageModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailComposeMessageModel, criteria, options)
 }
 
 // FindMailComposeMessageId finds record id by querying it with criteria.
@@ -168,8 +154,5 @@ func (c *Client) FindMailComposeMessageId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.compose.message was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

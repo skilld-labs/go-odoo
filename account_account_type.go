@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAccountType represents account.account.type model.
 type AccountAccountType struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateAccountAccountTypes(aats []*AccountAccountType) ([]int64,
 	for _, v := range aats {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAccountTypeModel, vv)
+	return c.Create(AccountAccountTypeModel, vv, nil)
 }
 
 // UpdateAccountAccountType updates an existing account.account.type record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateAccountAccountType(aat *AccountAccountType) error {
 // UpdateAccountAccountTypes updates existing account.account.type records.
 // All records (represented by ids) will be updated by aat values.
 func (c *Client) UpdateAccountAccountTypes(ids []int64, aat *AccountAccountType) error {
-	return c.Update(AccountAccountTypeModel, ids, aat)
+	return c.Update(AccountAccountTypeModel, ids, aat, nil)
 }
 
 // DeleteAccountAccountType deletes an existing account.account.type record.
@@ -78,10 +74,7 @@ func (c *Client) GetAccountAccountType(id int64) (*AccountAccountType, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.account.type not found", id)
+	return &((*aats)[0]), nil
 }
 
 // GetAccountAccountTypes gets account.account.type existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindAccountAccountType(criteria *Criteria) (*AccountAccountType
 	if err := c.SearchRead(AccountAccountTypeModel, criteria, NewOptions().Limit(1), aats); err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("account.account.type was not found with criteria %v", criteria)
+	return &((*aats)[0]), nil
 }
 
 // FindAccountAccountTypes finds account.account.type records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindAccountAccountTypes(criteria *Criteria, options *Options) (
 // FindAccountAccountTypeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAccountTypeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAccountTypeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAccountTypeModel, criteria, options)
 }
 
 // FindAccountAccountTypeId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindAccountAccountTypeId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.account.type was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

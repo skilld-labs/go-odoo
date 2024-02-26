@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseLanguageInstall represents base.language.install model.
 type BaseLanguageInstall struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateBaseLanguageInstalls(blis []*BaseLanguageInstall) ([]int6
 	for _, v := range blis {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseLanguageInstallModel, vv)
+	return c.Create(BaseLanguageInstallModel, vv, nil)
 }
 
 // UpdateBaseLanguageInstall updates an existing base.language.install record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateBaseLanguageInstall(bli *BaseLanguageInstall) error {
 // UpdateBaseLanguageInstalls updates existing base.language.install records.
 // All records (represented by ids) will be updated by bli values.
 func (c *Client) UpdateBaseLanguageInstalls(ids []int64, bli *BaseLanguageInstall) error {
-	return c.Update(BaseLanguageInstallModel, ids, bli)
+	return c.Update(BaseLanguageInstallModel, ids, bli, nil)
 }
 
 // DeleteBaseLanguageInstall deletes an existing base.language.install record.
@@ -77,10 +73,7 @@ func (c *Client) GetBaseLanguageInstall(id int64) (*BaseLanguageInstall, error) 
 	if err != nil {
 		return nil, err
 	}
-	if blis != nil && len(*blis) > 0 {
-		return &((*blis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.language.install not found", id)
+	return &((*blis)[0]), nil
 }
 
 // GetBaseLanguageInstalls gets base.language.install existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindBaseLanguageInstall(criteria *Criteria) (*BaseLanguageInsta
 	if err := c.SearchRead(BaseLanguageInstallModel, criteria, NewOptions().Limit(1), blis); err != nil {
 		return nil, err
 	}
-	if blis != nil && len(*blis) > 0 {
-		return &((*blis)[0]), nil
-	}
-	return nil, fmt.Errorf("base.language.install was not found with criteria %v", criteria)
+	return &((*blis)[0]), nil
 }
 
 // FindBaseLanguageInstalls finds base.language.install records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindBaseLanguageInstalls(criteria *Criteria, options *Options) 
 // FindBaseLanguageInstallIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseLanguageInstallIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseLanguageInstallModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseLanguageInstallModel, criteria, options)
 }
 
 // FindBaseLanguageInstallId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindBaseLanguageInstallId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.language.install was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

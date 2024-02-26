@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountFiscalPositionTemplate represents account.fiscal.position.template model.
 type AccountFiscalPositionTemplate struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -57,7 +53,7 @@ func (c *Client) CreateAccountFiscalPositionTemplates(afpts []*AccountFiscalPosi
 	for _, v := range afpts {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountFiscalPositionTemplateModel, vv)
+	return c.Create(AccountFiscalPositionTemplateModel, vv, nil)
 }
 
 // UpdateAccountFiscalPositionTemplate updates an existing account.fiscal.position.template record.
@@ -68,7 +64,7 @@ func (c *Client) UpdateAccountFiscalPositionTemplate(afpt *AccountFiscalPosition
 // UpdateAccountFiscalPositionTemplates updates existing account.fiscal.position.template records.
 // All records (represented by ids) will be updated by afpt values.
 func (c *Client) UpdateAccountFiscalPositionTemplates(ids []int64, afpt *AccountFiscalPositionTemplate) error {
-	return c.Update(AccountFiscalPositionTemplateModel, ids, afpt)
+	return c.Update(AccountFiscalPositionTemplateModel, ids, afpt, nil)
 }
 
 // DeleteAccountFiscalPositionTemplate deletes an existing account.fiscal.position.template record.
@@ -87,10 +83,7 @@ func (c *Client) GetAccountFiscalPositionTemplate(id int64) (*AccountFiscalPosit
 	if err != nil {
 		return nil, err
 	}
-	if afpts != nil && len(*afpts) > 0 {
-		return &((*afpts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.fiscal.position.template not found", id)
+	return &((*afpts)[0]), nil
 }
 
 // GetAccountFiscalPositionTemplates gets account.fiscal.position.template existing records.
@@ -108,10 +101,7 @@ func (c *Client) FindAccountFiscalPositionTemplate(criteria *Criteria) (*Account
 	if err := c.SearchRead(AccountFiscalPositionTemplateModel, criteria, NewOptions().Limit(1), afpts); err != nil {
 		return nil, err
 	}
-	if afpts != nil && len(*afpts) > 0 {
-		return &((*afpts)[0]), nil
-	}
-	return nil, fmt.Errorf("account.fiscal.position.template was not found with criteria %v", criteria)
+	return &((*afpts)[0]), nil
 }
 
 // FindAccountFiscalPositionTemplates finds account.fiscal.position.template records by querying it
@@ -127,11 +117,7 @@ func (c *Client) FindAccountFiscalPositionTemplates(criteria *Criteria, options 
 // FindAccountFiscalPositionTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFiscalPositionTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountFiscalPositionTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountFiscalPositionTemplateModel, criteria, options)
 }
 
 // FindAccountFiscalPositionTemplateId finds record id by querying it with criteria.
@@ -140,8 +126,5 @@ func (c *Client) FindAccountFiscalPositionTemplateId(criteria *Criteria, options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.fiscal.position.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockLocationPath represents stock.location.path model.
 type StockLocationPath struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -57,7 +53,7 @@ func (c *Client) CreateStockLocationPaths(slps []*StockLocationPath) ([]int64, e
 	for _, v := range slps {
 		vv = append(vv, v)
 	}
-	return c.Create(StockLocationPathModel, vv)
+	return c.Create(StockLocationPathModel, vv, nil)
 }
 
 // UpdateStockLocationPath updates an existing stock.location.path record.
@@ -68,7 +64,7 @@ func (c *Client) UpdateStockLocationPath(slp *StockLocationPath) error {
 // UpdateStockLocationPaths updates existing stock.location.path records.
 // All records (represented by ids) will be updated by slp values.
 func (c *Client) UpdateStockLocationPaths(ids []int64, slp *StockLocationPath) error {
-	return c.Update(StockLocationPathModel, ids, slp)
+	return c.Update(StockLocationPathModel, ids, slp, nil)
 }
 
 // DeleteStockLocationPath deletes an existing stock.location.path record.
@@ -87,10 +83,7 @@ func (c *Client) GetStockLocationPath(id int64) (*StockLocationPath, error) {
 	if err != nil {
 		return nil, err
 	}
-	if slps != nil && len(*slps) > 0 {
-		return &((*slps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.location.path not found", id)
+	return &((*slps)[0]), nil
 }
 
 // GetStockLocationPaths gets stock.location.path existing records.
@@ -108,10 +101,7 @@ func (c *Client) FindStockLocationPath(criteria *Criteria) (*StockLocationPath, 
 	if err := c.SearchRead(StockLocationPathModel, criteria, NewOptions().Limit(1), slps); err != nil {
 		return nil, err
 	}
-	if slps != nil && len(*slps) > 0 {
-		return &((*slps)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.location.path was not found with criteria %v", criteria)
+	return &((*slps)[0]), nil
 }
 
 // FindStockLocationPaths finds stock.location.path records by querying it
@@ -127,11 +117,7 @@ func (c *Client) FindStockLocationPaths(criteria *Criteria, options *Options) (*
 // FindStockLocationPathIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockLocationPathIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockLocationPathModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockLocationPathModel, criteria, options)
 }
 
 // FindStockLocationPathId finds record id by querying it with criteria.
@@ -140,8 +126,5 @@ func (c *Client) FindStockLocationPathId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.location.path was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

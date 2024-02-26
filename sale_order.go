@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SaleOrder represents sale.order model.
 type SaleOrder struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -69,6 +65,7 @@ type SaleOrder struct {
 	State                    *Selection `xmlrpc:"state,omptempty"`
 	TagIds                   *Relation  `xmlrpc:"tag_ids,omptempty"`
 	TasksCount               *Int       `xmlrpc:"tasks_count,omptempty"`
+	TasksCreated             *Bool      `xmlrpc:"tasks_created,omptempty"`
 	TasksIds                 *Relation  `xmlrpc:"tasks_ids,omptempty"`
 	TeamId                   *Many2One  `xmlrpc:"team_id,omptempty"`
 	TimesheetCount           *Float     `xmlrpc:"timesheet_count,omptempty"`
@@ -112,7 +109,7 @@ func (c *Client) CreateSaleOrders(sos []*SaleOrder) ([]int64, error) {
 	for _, v := range sos {
 		vv = append(vv, v)
 	}
-	return c.Create(SaleOrderModel, vv)
+	return c.Create(SaleOrderModel, vv, nil)
 }
 
 // UpdateSaleOrder updates an existing sale.order record.
@@ -123,7 +120,7 @@ func (c *Client) UpdateSaleOrder(so *SaleOrder) error {
 // UpdateSaleOrders updates existing sale.order records.
 // All records (represented by ids) will be updated by so values.
 func (c *Client) UpdateSaleOrders(ids []int64, so *SaleOrder) error {
-	return c.Update(SaleOrderModel, ids, so)
+	return c.Update(SaleOrderModel, ids, so, nil)
 }
 
 // DeleteSaleOrder deletes an existing sale.order record.
@@ -142,10 +139,7 @@ func (c *Client) GetSaleOrder(id int64) (*SaleOrder, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sos != nil && len(*sos) > 0 {
-		return &((*sos)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sale.order not found", id)
+	return &((*sos)[0]), nil
 }
 
 // GetSaleOrders gets sale.order existing records.
@@ -163,10 +157,7 @@ func (c *Client) FindSaleOrder(criteria *Criteria) (*SaleOrder, error) {
 	if err := c.SearchRead(SaleOrderModel, criteria, NewOptions().Limit(1), sos); err != nil {
 		return nil, err
 	}
-	if sos != nil && len(*sos) > 0 {
-		return &((*sos)[0]), nil
-	}
-	return nil, fmt.Errorf("sale.order was not found with criteria %v", criteria)
+	return &((*sos)[0]), nil
 }
 
 // FindSaleOrders finds sale.order records by querying it
@@ -182,11 +173,7 @@ func (c *Client) FindSaleOrders(criteria *Criteria, options *Options) (*SaleOrde
 // FindSaleOrderIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleOrderIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SaleOrderModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SaleOrderModel, criteria, options)
 }
 
 // FindSaleOrderId finds record id by querying it with criteria.
@@ -195,8 +182,5 @@ func (c *Client) FindSaleOrderId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sale.order was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

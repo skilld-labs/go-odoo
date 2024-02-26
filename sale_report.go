@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SaleReport represents sale.report model.
 type SaleReport struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -68,7 +64,7 @@ func (c *Client) CreateSaleReports(srs []*SaleReport) ([]int64, error) {
 	for _, v := range srs {
 		vv = append(vv, v)
 	}
-	return c.Create(SaleReportModel, vv)
+	return c.Create(SaleReportModel, vv, nil)
 }
 
 // UpdateSaleReport updates an existing sale.report record.
@@ -79,7 +75,7 @@ func (c *Client) UpdateSaleReport(sr *SaleReport) error {
 // UpdateSaleReports updates existing sale.report records.
 // All records (represented by ids) will be updated by sr values.
 func (c *Client) UpdateSaleReports(ids []int64, sr *SaleReport) error {
-	return c.Update(SaleReportModel, ids, sr)
+	return c.Update(SaleReportModel, ids, sr, nil)
 }
 
 // DeleteSaleReport deletes an existing sale.report record.
@@ -98,10 +94,7 @@ func (c *Client) GetSaleReport(id int64) (*SaleReport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if srs != nil && len(*srs) > 0 {
-		return &((*srs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sale.report not found", id)
+	return &((*srs)[0]), nil
 }
 
 // GetSaleReports gets sale.report existing records.
@@ -119,10 +112,7 @@ func (c *Client) FindSaleReport(criteria *Criteria) (*SaleReport, error) {
 	if err := c.SearchRead(SaleReportModel, criteria, NewOptions().Limit(1), srs); err != nil {
 		return nil, err
 	}
-	if srs != nil && len(*srs) > 0 {
-		return &((*srs)[0]), nil
-	}
-	return nil, fmt.Errorf("sale.report was not found with criteria %v", criteria)
+	return &((*srs)[0]), nil
 }
 
 // FindSaleReports finds sale.report records by querying it
@@ -138,11 +128,7 @@ func (c *Client) FindSaleReports(criteria *Criteria, options *Options) (*SaleRep
 // FindSaleReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SaleReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SaleReportModel, criteria, options)
 }
 
 // FindSaleReportId finds record id by querying it with criteria.
@@ -151,8 +137,5 @@ func (c *Client) FindSaleReportId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sale.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // WizardMultiChartsAccounts represents wizard.multi.charts.accounts model.
 type WizardMultiChartsAccounts struct {
 	LastUpdate            *Time     `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateWizardMultiChartsAccountss(wmcas []*WizardMultiChartsAcco
 	for _, v := range wmcas {
 		vv = append(vv, v)
 	}
-	return c.Create(WizardMultiChartsAccountsModel, vv)
+	return c.Create(WizardMultiChartsAccountsModel, vv, nil)
 }
 
 // UpdateWizardMultiChartsAccounts updates an existing wizard.multi.charts.accounts record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateWizardMultiChartsAccounts(wmca *WizardMultiChartsAccounts
 // UpdateWizardMultiChartsAccountss updates existing wizard.multi.charts.accounts records.
 // All records (represented by ids) will be updated by wmca values.
 func (c *Client) UpdateWizardMultiChartsAccountss(ids []int64, wmca *WizardMultiChartsAccounts) error {
-	return c.Update(WizardMultiChartsAccountsModel, ids, wmca)
+	return c.Update(WizardMultiChartsAccountsModel, ids, wmca, nil)
 }
 
 // DeleteWizardMultiChartsAccounts deletes an existing wizard.multi.charts.accounts record.
@@ -89,10 +85,7 @@ func (c *Client) GetWizardMultiChartsAccounts(id int64) (*WizardMultiChartsAccou
 	if err != nil {
 		return nil, err
 	}
-	if wmcas != nil && len(*wmcas) > 0 {
-		return &((*wmcas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of wizard.multi.charts.accounts not found", id)
+	return &((*wmcas)[0]), nil
 }
 
 // GetWizardMultiChartsAccountss gets wizard.multi.charts.accounts existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindWizardMultiChartsAccounts(criteria *Criteria) (*WizardMulti
 	if err := c.SearchRead(WizardMultiChartsAccountsModel, criteria, NewOptions().Limit(1), wmcas); err != nil {
 		return nil, err
 	}
-	if wmcas != nil && len(*wmcas) > 0 {
-		return &((*wmcas)[0]), nil
-	}
-	return nil, fmt.Errorf("wizard.multi.charts.accounts was not found with criteria %v", criteria)
+	return &((*wmcas)[0]), nil
 }
 
 // FindWizardMultiChartsAccountss finds wizard.multi.charts.accounts records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindWizardMultiChartsAccountss(criteria *Criteria, options *Opt
 // FindWizardMultiChartsAccountsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWizardMultiChartsAccountsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(WizardMultiChartsAccountsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(WizardMultiChartsAccountsModel, criteria, options)
 }
 
 // FindWizardMultiChartsAccountsId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindWizardMultiChartsAccountsId(criteria *Criteria, options *Op
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("wizard.multi.charts.accounts was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

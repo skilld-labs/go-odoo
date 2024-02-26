@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SaleOrderLine represents sale.order.line model.
 type SaleOrderLine struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -86,7 +82,7 @@ func (c *Client) CreateSaleOrderLines(sols []*SaleOrderLine) ([]int64, error) {
 	for _, v := range sols {
 		vv = append(vv, v)
 	}
-	return c.Create(SaleOrderLineModel, vv)
+	return c.Create(SaleOrderLineModel, vv, nil)
 }
 
 // UpdateSaleOrderLine updates an existing sale.order.line record.
@@ -97,7 +93,7 @@ func (c *Client) UpdateSaleOrderLine(sol *SaleOrderLine) error {
 // UpdateSaleOrderLines updates existing sale.order.line records.
 // All records (represented by ids) will be updated by sol values.
 func (c *Client) UpdateSaleOrderLines(ids []int64, sol *SaleOrderLine) error {
-	return c.Update(SaleOrderLineModel, ids, sol)
+	return c.Update(SaleOrderLineModel, ids, sol, nil)
 }
 
 // DeleteSaleOrderLine deletes an existing sale.order.line record.
@@ -116,10 +112,7 @@ func (c *Client) GetSaleOrderLine(id int64) (*SaleOrderLine, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sols != nil && len(*sols) > 0 {
-		return &((*sols)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sale.order.line not found", id)
+	return &((*sols)[0]), nil
 }
 
 // GetSaleOrderLines gets sale.order.line existing records.
@@ -137,10 +130,7 @@ func (c *Client) FindSaleOrderLine(criteria *Criteria) (*SaleOrderLine, error) {
 	if err := c.SearchRead(SaleOrderLineModel, criteria, NewOptions().Limit(1), sols); err != nil {
 		return nil, err
 	}
-	if sols != nil && len(*sols) > 0 {
-		return &((*sols)[0]), nil
-	}
-	return nil, fmt.Errorf("sale.order.line was not found with criteria %v", criteria)
+	return &((*sols)[0]), nil
 }
 
 // FindSaleOrderLines finds sale.order.line records by querying it
@@ -156,11 +146,7 @@ func (c *Client) FindSaleOrderLines(criteria *Criteria, options *Options) (*Sale
 // FindSaleOrderLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleOrderLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SaleOrderLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SaleOrderLineModel, criteria, options)
 }
 
 // FindSaleOrderLineId finds record id by querying it with criteria.
@@ -169,8 +155,5 @@ func (c *Client) FindSaleOrderLineId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sale.order.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

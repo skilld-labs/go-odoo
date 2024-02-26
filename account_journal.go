@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountJournal represents account.journal model.
 type AccountJournal struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -78,7 +74,7 @@ func (c *Client) CreateAccountJournals(ajs []*AccountJournal) ([]int64, error) {
 	for _, v := range ajs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountJournalModel, vv)
+	return c.Create(AccountJournalModel, vv, nil)
 }
 
 // UpdateAccountJournal updates an existing account.journal record.
@@ -89,7 +85,7 @@ func (c *Client) UpdateAccountJournal(aj *AccountJournal) error {
 // UpdateAccountJournals updates existing account.journal records.
 // All records (represented by ids) will be updated by aj values.
 func (c *Client) UpdateAccountJournals(ids []int64, aj *AccountJournal) error {
-	return c.Update(AccountJournalModel, ids, aj)
+	return c.Update(AccountJournalModel, ids, aj, nil)
 }
 
 // DeleteAccountJournal deletes an existing account.journal record.
@@ -108,10 +104,7 @@ func (c *Client) GetAccountJournal(id int64) (*AccountJournal, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ajs != nil && len(*ajs) > 0 {
-		return &((*ajs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.journal not found", id)
+	return &((*ajs)[0]), nil
 }
 
 // GetAccountJournals gets account.journal existing records.
@@ -129,10 +122,7 @@ func (c *Client) FindAccountJournal(criteria *Criteria) (*AccountJournal, error)
 	if err := c.SearchRead(AccountJournalModel, criteria, NewOptions().Limit(1), ajs); err != nil {
 		return nil, err
 	}
-	if ajs != nil && len(*ajs) > 0 {
-		return &((*ajs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.journal was not found with criteria %v", criteria)
+	return &((*ajs)[0]), nil
 }
 
 // FindAccountJournals finds account.journal records by querying it
@@ -148,11 +138,7 @@ func (c *Client) FindAccountJournals(criteria *Criteria, options *Options) (*Acc
 // FindAccountJournalIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountJournalIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountJournalModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountJournalModel, criteria, options)
 }
 
 // FindAccountJournalId finds record id by querying it with criteria.
@@ -161,8 +147,5 @@ func (c *Client) FindAccountJournalId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.journal was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

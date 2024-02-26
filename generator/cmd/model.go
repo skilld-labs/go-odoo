@@ -47,7 +47,7 @@ func newModel(name string, mfs []*modelField) *model {
 	for _, p := range pp {
 		m.VarName += string(p[0])
 	}
-	if m.VarName == "ids" || m.VarName == "id" || m.VarName == "c" || m.VarName == "if" {
+	if m.VarName == "ids" || m.VarName == "id" || m.VarName == "c" || m.VarName == "if" || m.VarName == "map" {
 		m.VarName = strings.ToUpper(m.VarName)
 	}
 	m.VarsName = m.VarName + "s"

@@ -175,8 +175,8 @@ These functions give you more flexibility but less usability. We recommand you t
 Here are available low level functions :
 
 ```go
-func (c *Client) Create(model string, values []interface{}) ([]int64, error) {} !! Creating multiple instances is only for odoo 12+ versions !!
-func (c *Client) Update(model string, ids []int64, values interface{}) error {}
+func (c *Client) Create(model string, values []interface{}, options *Options) ([]int64, error) {} !! Creating multiple instances is only for odoo 12+ versions !!
+func (c *Client) Update(model string, ids []int64, values interface{}, options *Options) error {}
 func (c *Client) Delete(model string, ids []int64) error {}
 func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, elem interface{}) error {}
 func (c *Client) Read(model string, ids []int64, options *Options, elem interface{}) error {}

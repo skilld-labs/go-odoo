@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CashBoxIn represents cash.box.in model.
 type CashBoxIn struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateCashBoxIns(cbis []*CashBoxIn) ([]int64, error) {
 	for _, v := range cbis {
 		vv = append(vv, v)
 	}
-	return c.Create(CashBoxInModel, vv)
+	return c.Create(CashBoxInModel, vv, nil)
 }
 
 // UpdateCashBoxIn updates an existing cash.box.in record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateCashBoxIn(cbi *CashBoxIn) error {
 // UpdateCashBoxIns updates existing cash.box.in records.
 // All records (represented by ids) will be updated by cbi values.
 func (c *Client) UpdateCashBoxIns(ids []int64, cbi *CashBoxIn) error {
-	return c.Update(CashBoxInModel, ids, cbi)
+	return c.Update(CashBoxInModel, ids, cbi, nil)
 }
 
 // DeleteCashBoxIn deletes an existing cash.box.in record.
@@ -77,10 +73,7 @@ func (c *Client) GetCashBoxIn(id int64) (*CashBoxIn, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cbis != nil && len(*cbis) > 0 {
-		return &((*cbis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of cash.box.in not found", id)
+	return &((*cbis)[0]), nil
 }
 
 // GetCashBoxIns gets cash.box.in existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindCashBoxIn(criteria *Criteria) (*CashBoxIn, error) {
 	if err := c.SearchRead(CashBoxInModel, criteria, NewOptions().Limit(1), cbis); err != nil {
 		return nil, err
 	}
-	if cbis != nil && len(*cbis) > 0 {
-		return &((*cbis)[0]), nil
-	}
-	return nil, fmt.Errorf("cash.box.in was not found with criteria %v", criteria)
+	return &((*cbis)[0]), nil
 }
 
 // FindCashBoxIns finds cash.box.in records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindCashBoxIns(criteria *Criteria, options *Options) (*CashBoxI
 // FindCashBoxInIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCashBoxInIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CashBoxInModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CashBoxInModel, criteria, options)
 }
 
 // FindCashBoxInId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindCashBoxInId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("cash.box.in was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

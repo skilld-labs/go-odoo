@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountPartialReconcile represents account.partial.reconcile model.
 type AccountPartialReconcile struct {
 	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateAccountPartialReconciles(aprs []*AccountPartialReconcile)
 	for _, v := range aprs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountPartialReconcileModel, vv)
+	return c.Create(AccountPartialReconcileModel, vv, nil)
 }
 
 // UpdateAccountPartialReconcile updates an existing account.partial.reconcile record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateAccountPartialReconcile(apr *AccountPartialReconcile) err
 // UpdateAccountPartialReconciles updates existing account.partial.reconcile records.
 // All records (represented by ids) will be updated by apr values.
 func (c *Client) UpdateAccountPartialReconciles(ids []int64, apr *AccountPartialReconcile) error {
-	return c.Update(AccountPartialReconcileModel, ids, apr)
+	return c.Update(AccountPartialReconcileModel, ids, apr, nil)
 }
 
 // DeleteAccountPartialReconcile deletes an existing account.partial.reconcile record.
@@ -83,10 +79,7 @@ func (c *Client) GetAccountPartialReconcile(id int64) (*AccountPartialReconcile,
 	if err != nil {
 		return nil, err
 	}
-	if aprs != nil && len(*aprs) > 0 {
-		return &((*aprs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.partial.reconcile not found", id)
+	return &((*aprs)[0]), nil
 }
 
 // GetAccountPartialReconciles gets account.partial.reconcile existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindAccountPartialReconcile(criteria *Criteria) (*AccountPartia
 	if err := c.SearchRead(AccountPartialReconcileModel, criteria, NewOptions().Limit(1), aprs); err != nil {
 		return nil, err
 	}
-	if aprs != nil && len(*aprs) > 0 {
-		return &((*aprs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.partial.reconcile was not found with criteria %v", criteria)
+	return &((*aprs)[0]), nil
 }
 
 // FindAccountPartialReconciles finds account.partial.reconcile records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindAccountPartialReconciles(criteria *Criteria, options *Optio
 // FindAccountPartialReconcileIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPartialReconcileIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountPartialReconcileModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountPartialReconcileModel, criteria, options)
 }
 
 // FindAccountPartialReconcileId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindAccountPartialReconcileId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.partial.reconcile was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

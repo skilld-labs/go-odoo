@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrFilters represents ir.filters model.
 type IrFilters struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateIrFilterss(IFs []*IrFilters) ([]int64, error) {
 	for _, v := range IFs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrFiltersModel, vv)
+	return c.Create(IrFiltersModel, vv, nil)
 }
 
 // UpdateIrFilters updates an existing ir.filters record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateIrFilters(IF *IrFilters) error {
 // UpdateIrFilterss updates existing ir.filters records.
 // All records (represented by ids) will be updated by IF values.
 func (c *Client) UpdateIrFilterss(ids []int64, IF *IrFilters) error {
-	return c.Update(IrFiltersModel, ids, IF)
+	return c.Update(IrFiltersModel, ids, IF, nil)
 }
 
 // DeleteIrFilters deletes an existing ir.filters record.
@@ -83,10 +79,7 @@ func (c *Client) GetIrFilters(id int64) (*IrFilters, error) {
 	if err != nil {
 		return nil, err
 	}
-	if IFs != nil && len(*IFs) > 0 {
-		return &((*IFs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.filters not found", id)
+	return &((*IFs)[0]), nil
 }
 
 // GetIrFilterss gets ir.filters existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindIrFilters(criteria *Criteria) (*IrFilters, error) {
 	if err := c.SearchRead(IrFiltersModel, criteria, NewOptions().Limit(1), IFs); err != nil {
 		return nil, err
 	}
-	if IFs != nil && len(*IFs) > 0 {
-		return &((*IFs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.filters was not found with criteria %v", criteria)
+	return &((*IFs)[0]), nil
 }
 
 // FindIrFilterss finds ir.filters records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindIrFilterss(criteria *Criteria, options *Options) (*IrFilter
 // FindIrFiltersIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrFiltersIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrFiltersModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrFiltersModel, criteria, options)
 }
 
 // FindIrFiltersId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindIrFiltersId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.filters was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

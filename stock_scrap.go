@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockScrap represents stock.scrap model.
 type StockScrap struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateStockScraps(sss []*StockScrap) ([]int64, error) {
 	for _, v := range sss {
 		vv = append(vv, v)
 	}
-	return c.Create(StockScrapModel, vv)
+	return c.Create(StockScrapModel, vv, nil)
 }
 
 // UpdateStockScrap updates an existing stock.scrap record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateStockScrap(ss *StockScrap) error {
 // UpdateStockScraps updates existing stock.scrap records.
 // All records (represented by ids) will be updated by ss values.
 func (c *Client) UpdateStockScraps(ids []int64, ss *StockScrap) error {
-	return c.Update(StockScrapModel, ids, ss)
+	return c.Update(StockScrapModel, ids, ss, nil)
 }
 
 // DeleteStockScrap deletes an existing stock.scrap record.
@@ -89,10 +85,7 @@ func (c *Client) GetStockScrap(id int64) (*StockScrap, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sss != nil && len(*sss) > 0 {
-		return &((*sss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.scrap not found", id)
+	return &((*sss)[0]), nil
 }
 
 // GetStockScraps gets stock.scrap existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindStockScrap(criteria *Criteria) (*StockScrap, error) {
 	if err := c.SearchRead(StockScrapModel, criteria, NewOptions().Limit(1), sss); err != nil {
 		return nil, err
 	}
-	if sss != nil && len(*sss) > 0 {
-		return &((*sss)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.scrap was not found with criteria %v", criteria)
+	return &((*sss)[0]), nil
 }
 
 // FindStockScraps finds stock.scrap records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindStockScraps(criteria *Criteria, options *Options) (*StockSc
 // FindStockScrapIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockScrapIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockScrapModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockScrapModel, criteria, options)
 }
 
 // FindStockScrapId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindStockScrapId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.scrap was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

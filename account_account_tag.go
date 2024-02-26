@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAccountTag represents account.account.tag model.
 type AccountAccountTag struct {
 	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateAccountAccountTags(aats []*AccountAccountTag) ([]int64, e
 	for _, v := range aats {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAccountTagModel, vv)
+	return c.Create(AccountAccountTagModel, vv, nil)
 }
 
 // UpdateAccountAccountTag updates an existing account.account.tag record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateAccountAccountTag(aat *AccountAccountTag) error {
 // UpdateAccountAccountTags updates existing account.account.tag records.
 // All records (represented by ids) will be updated by aat values.
 func (c *Client) UpdateAccountAccountTags(ids []int64, aat *AccountAccountTag) error {
-	return c.Update(AccountAccountTagModel, ids, aat)
+	return c.Update(AccountAccountTagModel, ids, aat, nil)
 }
 
 // DeleteAccountAccountTag deletes an existing account.account.tag record.
@@ -78,10 +74,7 @@ func (c *Client) GetAccountAccountTag(id int64) (*AccountAccountTag, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.account.tag not found", id)
+	return &((*aats)[0]), nil
 }
 
 // GetAccountAccountTags gets account.account.tag existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindAccountAccountTag(criteria *Criteria) (*AccountAccountTag, 
 	if err := c.SearchRead(AccountAccountTagModel, criteria, NewOptions().Limit(1), aats); err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("account.account.tag was not found with criteria %v", criteria)
+	return &((*aats)[0]), nil
 }
 
 // FindAccountAccountTags finds account.account.tag records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindAccountAccountTags(criteria *Criteria, options *Options) (*
 // FindAccountAccountTagIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAccountTagIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAccountTagModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAccountTagModel, criteria, options)
 }
 
 // FindAccountAccountTagId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindAccountAccountTagId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.account.tag was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

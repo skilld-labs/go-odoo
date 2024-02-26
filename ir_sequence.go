@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrSequence represents ir.sequence model.
 type IrSequence struct {
 	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
@@ -57,7 +53,7 @@ func (c *Client) CreateIrSequences(iss []*IrSequence) ([]int64, error) {
 	for _, v := range iss {
 		vv = append(vv, v)
 	}
-	return c.Create(IrSequenceModel, vv)
+	return c.Create(IrSequenceModel, vv, nil)
 }
 
 // UpdateIrSequence updates an existing ir.sequence record.
@@ -68,7 +64,7 @@ func (c *Client) UpdateIrSequence(is *IrSequence) error {
 // UpdateIrSequences updates existing ir.sequence records.
 // All records (represented by ids) will be updated by is values.
 func (c *Client) UpdateIrSequences(ids []int64, is *IrSequence) error {
-	return c.Update(IrSequenceModel, ids, is)
+	return c.Update(IrSequenceModel, ids, is, nil)
 }
 
 // DeleteIrSequence deletes an existing ir.sequence record.
@@ -87,10 +83,7 @@ func (c *Client) GetIrSequence(id int64) (*IrSequence, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iss != nil && len(*iss) > 0 {
-		return &((*iss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.sequence not found", id)
+	return &((*iss)[0]), nil
 }
 
 // GetIrSequences gets ir.sequence existing records.
@@ -108,10 +101,7 @@ func (c *Client) FindIrSequence(criteria *Criteria) (*IrSequence, error) {
 	if err := c.SearchRead(IrSequenceModel, criteria, NewOptions().Limit(1), iss); err != nil {
 		return nil, err
 	}
-	if iss != nil && len(*iss) > 0 {
-		return &((*iss)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.sequence was not found with criteria %v", criteria)
+	return &((*iss)[0]), nil
 }
 
 // FindIrSequences finds ir.sequence records by querying it
@@ -127,11 +117,7 @@ func (c *Client) FindIrSequences(criteria *Criteria, options *Options) (*IrSeque
 // FindIrSequenceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrSequenceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrSequenceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrSequenceModel, criteria, options)
 }
 
 // FindIrSequenceId finds record id by querying it with criteria.
@@ -140,8 +126,5 @@ func (c *Client) FindIrSequenceId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.sequence was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

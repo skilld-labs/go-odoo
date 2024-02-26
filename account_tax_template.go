@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountTaxTemplate represents account.tax.template model.
 type AccountTaxTemplate struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -64,7 +60,7 @@ func (c *Client) CreateAccountTaxTemplates(atts []*AccountTaxTemplate) ([]int64,
 	for _, v := range atts {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountTaxTemplateModel, vv)
+	return c.Create(AccountTaxTemplateModel, vv, nil)
 }
 
 // UpdateAccountTaxTemplate updates an existing account.tax.template record.
@@ -75,7 +71,7 @@ func (c *Client) UpdateAccountTaxTemplate(att *AccountTaxTemplate) error {
 // UpdateAccountTaxTemplates updates existing account.tax.template records.
 // All records (represented by ids) will be updated by att values.
 func (c *Client) UpdateAccountTaxTemplates(ids []int64, att *AccountTaxTemplate) error {
-	return c.Update(AccountTaxTemplateModel, ids, att)
+	return c.Update(AccountTaxTemplateModel, ids, att, nil)
 }
 
 // DeleteAccountTaxTemplate deletes an existing account.tax.template record.
@@ -94,10 +90,7 @@ func (c *Client) GetAccountTaxTemplate(id int64) (*AccountTaxTemplate, error) {
 	if err != nil {
 		return nil, err
 	}
-	if atts != nil && len(*atts) > 0 {
-		return &((*atts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.tax.template not found", id)
+	return &((*atts)[0]), nil
 }
 
 // GetAccountTaxTemplates gets account.tax.template existing records.
@@ -115,10 +108,7 @@ func (c *Client) FindAccountTaxTemplate(criteria *Criteria) (*AccountTaxTemplate
 	if err := c.SearchRead(AccountTaxTemplateModel, criteria, NewOptions().Limit(1), atts); err != nil {
 		return nil, err
 	}
-	if atts != nil && len(*atts) > 0 {
-		return &((*atts)[0]), nil
-	}
-	return nil, fmt.Errorf("account.tax.template was not found with criteria %v", criteria)
+	return &((*atts)[0]), nil
 }
 
 // FindAccountTaxTemplates finds account.tax.template records by querying it
@@ -134,11 +124,7 @@ func (c *Client) FindAccountTaxTemplates(criteria *Criteria, options *Options) (
 // FindAccountTaxTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountTaxTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountTaxTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountTaxTemplateModel, criteria, options)
 }
 
 // FindAccountTaxTemplateId finds record id by querying it with criteria.
@@ -147,8 +133,5 @@ func (c *Client) FindAccountTaxTemplateId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.tax.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

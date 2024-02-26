@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMassMailingTag represents mail.mass_mailing.tag model.
 type MailMassMailingTag struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateMailMassMailingTags(mmts []*MailMassMailingTag) ([]int64,
 	for _, v := range mmts {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMassMailingTagModel, vv)
+	return c.Create(MailMassMailingTagModel, vv, nil)
 }
 
 // UpdateMailMassMailingTag updates an existing mail.mass_mailing.tag record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateMailMassMailingTag(mmt *MailMassMailingTag) error {
 // UpdateMailMassMailingTags updates existing mail.mass_mailing.tag records.
 // All records (represented by ids) will be updated by mmt values.
 func (c *Client) UpdateMailMassMailingTags(ids []int64, mmt *MailMassMailingTag) error {
-	return c.Update(MailMassMailingTagModel, ids, mmt)
+	return c.Update(MailMassMailingTagModel, ids, mmt, nil)
 }
 
 // DeleteMailMassMailingTag deletes an existing mail.mass_mailing.tag record.
@@ -76,10 +72,7 @@ func (c *Client) GetMailMassMailingTag(id int64) (*MailMassMailingTag, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mmts != nil && len(*mmts) > 0 {
-		return &((*mmts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.mass_mailing.tag not found", id)
+	return &((*mmts)[0]), nil
 }
 
 // GetMailMassMailingTags gets mail.mass_mailing.tag existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindMailMassMailingTag(criteria *Criteria) (*MailMassMailingTag
 	if err := c.SearchRead(MailMassMailingTagModel, criteria, NewOptions().Limit(1), mmts); err != nil {
 		return nil, err
 	}
-	if mmts != nil && len(*mmts) > 0 {
-		return &((*mmts)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.mass_mailing.tag was not found with criteria %v", criteria)
+	return &((*mmts)[0]), nil
 }
 
 // FindMailMassMailingTags finds mail.mass_mailing.tag records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindMailMassMailingTags(criteria *Criteria, options *Options) (
 // FindMailMassMailingTagIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMassMailingTagIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMassMailingTagModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMassMailingTagModel, criteria, options)
 }
 
 // FindMailMassMailingTagId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindMailMassMailingTagId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.mass_mailing.tag was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

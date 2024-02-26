@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResPartnerBank represents res.partner.bank model.
 type ResPartnerBank struct {
 	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateResPartnerBanks(rpbs []*ResPartnerBank) ([]int64, error) 
 	for _, v := range rpbs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResPartnerBankModel, vv)
+	return c.Create(ResPartnerBankModel, vv, nil)
 }
 
 // UpdateResPartnerBank updates an existing res.partner.bank record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateResPartnerBank(rpb *ResPartnerBank) error {
 // UpdateResPartnerBanks updates existing res.partner.bank records.
 // All records (represented by ids) will be updated by rpb values.
 func (c *Client) UpdateResPartnerBanks(ids []int64, rpb *ResPartnerBank) error {
-	return c.Update(ResPartnerBankModel, ids, rpb)
+	return c.Update(ResPartnerBankModel, ids, rpb, nil)
 }
 
 // DeleteResPartnerBank deletes an existing res.partner.bank record.
@@ -85,10 +81,7 @@ func (c *Client) GetResPartnerBank(id int64) (*ResPartnerBank, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rpbs != nil && len(*rpbs) > 0 {
-		return &((*rpbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.partner.bank not found", id)
+	return &((*rpbs)[0]), nil
 }
 
 // GetResPartnerBanks gets res.partner.bank existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindResPartnerBank(criteria *Criteria) (*ResPartnerBank, error)
 	if err := c.SearchRead(ResPartnerBankModel, criteria, NewOptions().Limit(1), rpbs); err != nil {
 		return nil, err
 	}
-	if rpbs != nil && len(*rpbs) > 0 {
-		return &((*rpbs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.partner.bank was not found with criteria %v", criteria)
+	return &((*rpbs)[0]), nil
 }
 
 // FindResPartnerBanks finds res.partner.bank records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindResPartnerBanks(criteria *Criteria, options *Options) (*Res
 // FindResPartnerBankIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerBankIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResPartnerBankModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResPartnerBankModel, criteria, options)
 }
 
 // FindResPartnerBankId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindResPartnerBankId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.partner.bank was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

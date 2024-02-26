@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CalendarEvent represents calendar.event model.
 type CalendarEvent struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -106,7 +102,7 @@ func (c *Client) CreateCalendarEvents(ces []*CalendarEvent) ([]int64, error) {
 	for _, v := range ces {
 		vv = append(vv, v)
 	}
-	return c.Create(CalendarEventModel, vv)
+	return c.Create(CalendarEventModel, vv, nil)
 }
 
 // UpdateCalendarEvent updates an existing calendar.event record.
@@ -117,7 +113,7 @@ func (c *Client) UpdateCalendarEvent(ce *CalendarEvent) error {
 // UpdateCalendarEvents updates existing calendar.event records.
 // All records (represented by ids) will be updated by ce values.
 func (c *Client) UpdateCalendarEvents(ids []int64, ce *CalendarEvent) error {
-	return c.Update(CalendarEventModel, ids, ce)
+	return c.Update(CalendarEventModel, ids, ce, nil)
 }
 
 // DeleteCalendarEvent deletes an existing calendar.event record.
@@ -136,10 +132,7 @@ func (c *Client) GetCalendarEvent(id int64) (*CalendarEvent, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ces != nil && len(*ces) > 0 {
-		return &((*ces)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of calendar.event not found", id)
+	return &((*ces)[0]), nil
 }
 
 // GetCalendarEvents gets calendar.event existing records.
@@ -157,10 +150,7 @@ func (c *Client) FindCalendarEvent(criteria *Criteria) (*CalendarEvent, error) {
 	if err := c.SearchRead(CalendarEventModel, criteria, NewOptions().Limit(1), ces); err != nil {
 		return nil, err
 	}
-	if ces != nil && len(*ces) > 0 {
-		return &((*ces)[0]), nil
-	}
-	return nil, fmt.Errorf("calendar.event was not found with criteria %v", criteria)
+	return &((*ces)[0]), nil
 }
 
 // FindCalendarEvents finds calendar.event records by querying it
@@ -176,11 +166,7 @@ func (c *Client) FindCalendarEvents(criteria *Criteria, options *Options) (*Cale
 // FindCalendarEventIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCalendarEventIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CalendarEventModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CalendarEventModel, criteria, options)
 }
 
 // FindCalendarEventId finds record id by querying it with criteria.
@@ -189,8 +175,5 @@ func (c *Client) FindCalendarEventId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("calendar.event was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

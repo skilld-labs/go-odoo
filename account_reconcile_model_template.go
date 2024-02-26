@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountReconcileModelTemplate represents account.reconcile.model.template model.
 type AccountReconcileModelTemplate struct {
 	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
@@ -58,7 +54,7 @@ func (c *Client) CreateAccountReconcileModelTemplates(armts []*AccountReconcileM
 	for _, v := range armts {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountReconcileModelTemplateModel, vv)
+	return c.Create(AccountReconcileModelTemplateModel, vv, nil)
 }
 
 // UpdateAccountReconcileModelTemplate updates an existing account.reconcile.model.template record.
@@ -69,7 +65,7 @@ func (c *Client) UpdateAccountReconcileModelTemplate(armt *AccountReconcileModel
 // UpdateAccountReconcileModelTemplates updates existing account.reconcile.model.template records.
 // All records (represented by ids) will be updated by armt values.
 func (c *Client) UpdateAccountReconcileModelTemplates(ids []int64, armt *AccountReconcileModelTemplate) error {
-	return c.Update(AccountReconcileModelTemplateModel, ids, armt)
+	return c.Update(AccountReconcileModelTemplateModel, ids, armt, nil)
 }
 
 // DeleteAccountReconcileModelTemplate deletes an existing account.reconcile.model.template record.
@@ -88,10 +84,7 @@ func (c *Client) GetAccountReconcileModelTemplate(id int64) (*AccountReconcileMo
 	if err != nil {
 		return nil, err
 	}
-	if armts != nil && len(*armts) > 0 {
-		return &((*armts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.reconcile.model.template not found", id)
+	return &((*armts)[0]), nil
 }
 
 // GetAccountReconcileModelTemplates gets account.reconcile.model.template existing records.
@@ -109,10 +102,7 @@ func (c *Client) FindAccountReconcileModelTemplate(criteria *Criteria) (*Account
 	if err := c.SearchRead(AccountReconcileModelTemplateModel, criteria, NewOptions().Limit(1), armts); err != nil {
 		return nil, err
 	}
-	if armts != nil && len(*armts) > 0 {
-		return &((*armts)[0]), nil
-	}
-	return nil, fmt.Errorf("account.reconcile.model.template was not found with criteria %v", criteria)
+	return &((*armts)[0]), nil
 }
 
 // FindAccountReconcileModelTemplates finds account.reconcile.model.template records by querying it
@@ -128,11 +118,7 @@ func (c *Client) FindAccountReconcileModelTemplates(criteria *Criteria, options 
 // FindAccountReconcileModelTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountReconcileModelTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountReconcileModelTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountReconcileModelTemplateModel, criteria, options)
 }
 
 // FindAccountReconcileModelTemplateId finds record id by querying it with criteria.
@@ -141,8 +127,5 @@ func (c *Client) FindAccountReconcileModelTemplateId(criteria *Criteria, options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.reconcile.model.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }
