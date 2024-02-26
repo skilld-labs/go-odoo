@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResourceMixin represents resource.mixin model.
 type ResourceMixin struct {
 	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
@@ -43,7 +39,7 @@ func (c *Client) CreateResourceMixins(rms []*ResourceMixin) ([]int64, error) {
 	for _, v := range rms {
 		vv = append(vv, v)
 	}
-	return c.Create(ResourceMixinModel, vv)
+	return c.Create(ResourceMixinModel, vv, nil)
 }
 
 // UpdateResourceMixin updates an existing resource.mixin record.
@@ -54,7 +50,7 @@ func (c *Client) UpdateResourceMixin(rm *ResourceMixin) error {
 // UpdateResourceMixins updates existing resource.mixin records.
 // All records (represented by ids) will be updated by rm values.
 func (c *Client) UpdateResourceMixins(ids []int64, rm *ResourceMixin) error {
-	return c.Update(ResourceMixinModel, ids, rm)
+	return c.Update(ResourceMixinModel, ids, rm, nil)
 }
 
 // DeleteResourceMixin deletes an existing resource.mixin record.
@@ -73,10 +69,7 @@ func (c *Client) GetResourceMixin(id int64) (*ResourceMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rms != nil && len(*rms) > 0 {
-		return &((*rms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of resource.mixin not found", id)
+	return &((*rms)[0]), nil
 }
 
 // GetResourceMixins gets resource.mixin existing records.
@@ -94,10 +87,7 @@ func (c *Client) FindResourceMixin(criteria *Criteria) (*ResourceMixin, error) {
 	if err := c.SearchRead(ResourceMixinModel, criteria, NewOptions().Limit(1), rms); err != nil {
 		return nil, err
 	}
-	if rms != nil && len(*rms) > 0 {
-		return &((*rms)[0]), nil
-	}
-	return nil, fmt.Errorf("resource.mixin was not found with criteria %v", criteria)
+	return &((*rms)[0]), nil
 }
 
 // FindResourceMixins finds resource.mixin records by querying it
@@ -113,11 +103,7 @@ func (c *Client) FindResourceMixins(criteria *Criteria, options *Options) (*Reso
 // FindResourceMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResourceMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResourceMixinModel, criteria, options)
 }
 
 // FindResourceMixinId finds record id by querying it with criteria.
@@ -126,8 +112,5 @@ func (c *Client) FindResourceMixinId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("resource.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

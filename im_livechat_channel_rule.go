@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ImLivechatChannelRule represents im_livechat.channel.rule model.
 type ImLivechatChannelRule struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateImLivechatChannelRules(icrs []*ImLivechatChannelRule) ([]
 	for _, v := range icrs {
 		vv = append(vv, v)
 	}
-	return c.Create(ImLivechatChannelRuleModel, vv)
+	return c.Create(ImLivechatChannelRuleModel, vv, nil)
 }
 
 // UpdateImLivechatChannelRule updates an existing im_livechat.channel.rule record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateImLivechatChannelRule(icr *ImLivechatChannelRule) error {
 // UpdateImLivechatChannelRules updates existing im_livechat.channel.rule records.
 // All records (represented by ids) will be updated by icr values.
 func (c *Client) UpdateImLivechatChannelRules(ids []int64, icr *ImLivechatChannelRule) error {
-	return c.Update(ImLivechatChannelRuleModel, ids, icr)
+	return c.Update(ImLivechatChannelRuleModel, ids, icr, nil)
 }
 
 // DeleteImLivechatChannelRule deletes an existing im_livechat.channel.rule record.
@@ -80,10 +76,7 @@ func (c *Client) GetImLivechatChannelRule(id int64) (*ImLivechatChannelRule, err
 	if err != nil {
 		return nil, err
 	}
-	if icrs != nil && len(*icrs) > 0 {
-		return &((*icrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of im_livechat.channel.rule not found", id)
+	return &((*icrs)[0]), nil
 }
 
 // GetImLivechatChannelRules gets im_livechat.channel.rule existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindImLivechatChannelRule(criteria *Criteria) (*ImLivechatChann
 	if err := c.SearchRead(ImLivechatChannelRuleModel, criteria, NewOptions().Limit(1), icrs); err != nil {
 		return nil, err
 	}
-	if icrs != nil && len(*icrs) > 0 {
-		return &((*icrs)[0]), nil
-	}
-	return nil, fmt.Errorf("im_livechat.channel.rule was not found with criteria %v", criteria)
+	return &((*icrs)[0]), nil
 }
 
 // FindImLivechatChannelRules finds im_livechat.channel.rule records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindImLivechatChannelRules(criteria *Criteria, options *Options
 // FindImLivechatChannelRuleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindImLivechatChannelRuleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ImLivechatChannelRuleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ImLivechatChannelRuleModel, criteria, options)
 }
 
 // FindImLivechatChannelRuleId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindImLivechatChannelRuleId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("im_livechat.channel.rule was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

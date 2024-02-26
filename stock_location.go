@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockLocation represents stock.location model.
 type StockLocation struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -66,7 +62,7 @@ func (c *Client) CreateStockLocations(sls []*StockLocation) ([]int64, error) {
 	for _, v := range sls {
 		vv = append(vv, v)
 	}
-	return c.Create(StockLocationModel, vv)
+	return c.Create(StockLocationModel, vv, nil)
 }
 
 // UpdateStockLocation updates an existing stock.location record.
@@ -77,7 +73,7 @@ func (c *Client) UpdateStockLocation(sl *StockLocation) error {
 // UpdateStockLocations updates existing stock.location records.
 // All records (represented by ids) will be updated by sl values.
 func (c *Client) UpdateStockLocations(ids []int64, sl *StockLocation) error {
-	return c.Update(StockLocationModel, ids, sl)
+	return c.Update(StockLocationModel, ids, sl, nil)
 }
 
 // DeleteStockLocation deletes an existing stock.location record.
@@ -96,10 +92,7 @@ func (c *Client) GetStockLocation(id int64) (*StockLocation, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sls != nil && len(*sls) > 0 {
-		return &((*sls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.location not found", id)
+	return &((*sls)[0]), nil
 }
 
 // GetStockLocations gets stock.location existing records.
@@ -117,10 +110,7 @@ func (c *Client) FindStockLocation(criteria *Criteria) (*StockLocation, error) {
 	if err := c.SearchRead(StockLocationModel, criteria, NewOptions().Limit(1), sls); err != nil {
 		return nil, err
 	}
-	if sls != nil && len(*sls) > 0 {
-		return &((*sls)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.location was not found with criteria %v", criteria)
+	return &((*sls)[0]), nil
 }
 
 // FindStockLocations finds stock.location records by querying it
@@ -136,11 +126,7 @@ func (c *Client) FindStockLocations(criteria *Criteria, options *Options) (*Stoc
 // FindStockLocationIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockLocationIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockLocationModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockLocationModel, criteria, options)
 }
 
 // FindStockLocationId finds record id by querying it with criteria.
@@ -149,8 +135,5 @@ func (c *Client) FindStockLocationId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.location was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAnalyticAccount represents account.analytic.account model.
 type AccountAnalyticAccount struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
@@ -21,6 +17,7 @@ type AccountAnalyticAccount struct {
 	Id                       *Int      `xmlrpc:"id,omptempty"`
 	LineIds                  *Relation `xmlrpc:"line_ids,omptempty"`
 	MachineInitiativeName    *String   `xmlrpc:"machine_initiative_name,omptempty"`
+	MachineProjectName       *String   `xmlrpc:"machine_project_name,omptempty"`
 	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omptempty"`
 	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omptempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omptempty"`
@@ -34,6 +31,7 @@ type AccountAnalyticAccount struct {
 	Name                     *String   `xmlrpc:"name,omptempty"`
 	PartnerId                *Many2One `xmlrpc:"partner_id,omptempty"`
 	ProjectCount             *Int      `xmlrpc:"project_count,omptempty"`
+	ProjectCreated           *Bool     `xmlrpc:"project_created,omptempty"`
 	ProjectIds               *Relation `xmlrpc:"project_ids,omptempty"`
 	TagIds                   *Relation `xmlrpc:"tag_ids,omptempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omptempty"`
@@ -70,7 +68,7 @@ func (c *Client) CreateAccountAnalyticAccounts(aaas []*AccountAnalyticAccount) (
 	for _, v := range aaas {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAnalyticAccountModel, vv)
+	return c.Create(AccountAnalyticAccountModel, vv, nil)
 }
 
 // UpdateAccountAnalyticAccount updates an existing account.analytic.account record.
@@ -81,7 +79,7 @@ func (c *Client) UpdateAccountAnalyticAccount(aaa *AccountAnalyticAccount) error
 // UpdateAccountAnalyticAccounts updates existing account.analytic.account records.
 // All records (represented by ids) will be updated by aaa values.
 func (c *Client) UpdateAccountAnalyticAccounts(ids []int64, aaa *AccountAnalyticAccount) error {
-	return c.Update(AccountAnalyticAccountModel, ids, aaa)
+	return c.Update(AccountAnalyticAccountModel, ids, aaa, nil)
 }
 
 // DeleteAccountAnalyticAccount deletes an existing account.analytic.account record.
@@ -100,10 +98,7 @@ func (c *Client) GetAccountAnalyticAccount(id int64) (*AccountAnalyticAccount, e
 	if err != nil {
 		return nil, err
 	}
-	if aaas != nil && len(*aaas) > 0 {
-		return &((*aaas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.analytic.account not found", id)
+	return &((*aaas)[0]), nil
 }
 
 // GetAccountAnalyticAccounts gets account.analytic.account existing records.
@@ -121,10 +116,7 @@ func (c *Client) FindAccountAnalyticAccount(criteria *Criteria) (*AccountAnalyti
 	if err := c.SearchRead(AccountAnalyticAccountModel, criteria, NewOptions().Limit(1), aaas); err != nil {
 		return nil, err
 	}
-	if aaas != nil && len(*aaas) > 0 {
-		return &((*aaas)[0]), nil
-	}
-	return nil, fmt.Errorf("account.analytic.account was not found with criteria %v", criteria)
+	return &((*aaas)[0]), nil
 }
 
 // FindAccountAnalyticAccounts finds account.analytic.account records by querying it
@@ -140,11 +132,7 @@ func (c *Client) FindAccountAnalyticAccounts(criteria *Criteria, options *Option
 // FindAccountAnalyticAccountIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticAccountIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAnalyticAccountModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAnalyticAccountModel, criteria, options)
 }
 
 // FindAccountAnalyticAccountId finds record id by querying it with criteria.
@@ -153,8 +141,5 @@ func (c *Client) FindAccountAnalyticAccountId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.analytic.account was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

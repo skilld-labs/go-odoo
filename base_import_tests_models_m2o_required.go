@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportTestsModelsM2ORequired represents base_import.tests.models.m2o.required model.
 type BaseImportTestsModelsM2ORequired struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseImportTestsModelsM2ORequireds(btmmrs []*BaseImportTes
 	for _, v := range btmmrs {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportTestsModelsM2ORequiredModel, vv)
+	return c.Create(BaseImportTestsModelsM2ORequiredModel, vv, nil)
 }
 
 // UpdateBaseImportTestsModelsM2ORequired updates an existing base_import.tests.models.m2o.required record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseImportTestsModelsM2ORequired(btmmr *BaseImportTestsMo
 // UpdateBaseImportTestsModelsM2ORequireds updates existing base_import.tests.models.m2o.required records.
 // All records (represented by ids) will be updated by btmmr values.
 func (c *Client) UpdateBaseImportTestsModelsM2ORequireds(ids []int64, btmmr *BaseImportTestsModelsM2ORequired) error {
-	return c.Update(BaseImportTestsModelsM2ORequiredModel, ids, btmmr)
+	return c.Update(BaseImportTestsModelsM2ORequiredModel, ids, btmmr, nil)
 }
 
 // DeleteBaseImportTestsModelsM2ORequired deletes an existing base_import.tests.models.m2o.required record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseImportTestsModelsM2ORequired(id int64) (*BaseImportTests
 	if err != nil {
 		return nil, err
 	}
-	if btmmrs != nil && len(*btmmrs) > 0 {
-		return &((*btmmrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.tests.models.m2o.required not found", id)
+	return &((*btmmrs)[0]), nil
 }
 
 // GetBaseImportTestsModelsM2ORequireds gets base_import.tests.models.m2o.required existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORequired(criteria *Criteria) (*Base
 	if err := c.SearchRead(BaseImportTestsModelsM2ORequiredModel, criteria, NewOptions().Limit(1), btmmrs); err != nil {
 		return nil, err
 	}
-	if btmmrs != nil && len(*btmmrs) > 0 {
-		return &((*btmmrs)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.tests.models.m2o.required was not found with criteria %v", criteria)
+	return &((*btmmrs)[0]), nil
 }
 
 // FindBaseImportTestsModelsM2ORequireds finds base_import.tests.models.m2o.required records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseImportTestsModelsM2ORequireds(criteria *Criteria, optio
 // FindBaseImportTestsModelsM2ORequiredIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsM2ORequiredIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportTestsModelsM2ORequiredModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportTestsModelsM2ORequiredModel, criteria, options)
 }
 
 // FindBaseImportTestsModelsM2ORequiredId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseImportTestsModelsM2ORequiredId(criteria *Criteria, opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.tests.models.m2o.required was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

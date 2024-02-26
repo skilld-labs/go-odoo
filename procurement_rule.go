@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProcurementRule represents procurement.rule model.
 type ProcurementRule struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateProcurementRules(prs []*ProcurementRule) ([]int64, error)
 	for _, v := range prs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProcurementRuleModel, vv)
+	return c.Create(ProcurementRuleModel, vv, nil)
 }
 
 // UpdateProcurementRule updates an existing procurement.rule record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateProcurementRule(pr *ProcurementRule) error {
 // UpdateProcurementRules updates existing procurement.rule records.
 // All records (represented by ids) will be updated by pr values.
 func (c *Client) UpdateProcurementRules(ids []int64, pr *ProcurementRule) error {
-	return c.Update(ProcurementRuleModel, ids, pr)
+	return c.Update(ProcurementRuleModel, ids, pr, nil)
 }
 
 // DeleteProcurementRule deletes an existing procurement.rule record.
@@ -92,10 +88,7 @@ func (c *Client) GetProcurementRule(id int64) (*ProcurementRule, error) {
 	if err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of procurement.rule not found", id)
+	return &((*prs)[0]), nil
 }
 
 // GetProcurementRules gets procurement.rule existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindProcurementRule(criteria *Criteria) (*ProcurementRule, erro
 	if err := c.SearchRead(ProcurementRuleModel, criteria, NewOptions().Limit(1), prs); err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("procurement.rule was not found with criteria %v", criteria)
+	return &((*prs)[0]), nil
 }
 
 // FindProcurementRules finds procurement.rule records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindProcurementRules(criteria *Criteria, options *Options) (*Pr
 // FindProcurementRuleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProcurementRuleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProcurementRuleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProcurementRuleModel, criteria, options)
 }
 
 // FindProcurementRuleId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindProcurementRuleId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("procurement.rule was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

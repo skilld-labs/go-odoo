@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CalendarAlarmManager represents calendar.alarm_manager model.
 type CalendarAlarmManager struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateCalendarAlarmManagers(cas []*CalendarAlarmManager) ([]int
 	for _, v := range cas {
 		vv = append(vv, v)
 	}
-	return c.Create(CalendarAlarmManagerModel, vv)
+	return c.Create(CalendarAlarmManagerModel, vv, nil)
 }
 
 // UpdateCalendarAlarmManager updates an existing calendar.alarm_manager record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateCalendarAlarmManager(ca *CalendarAlarmManager) error {
 // UpdateCalendarAlarmManagers updates existing calendar.alarm_manager records.
 // All records (represented by ids) will be updated by ca values.
 func (c *Client) UpdateCalendarAlarmManagers(ids []int64, ca *CalendarAlarmManager) error {
-	return c.Update(CalendarAlarmManagerModel, ids, ca)
+	return c.Update(CalendarAlarmManagerModel, ids, ca, nil)
 }
 
 // DeleteCalendarAlarmManager deletes an existing calendar.alarm_manager record.
@@ -70,10 +66,7 @@ func (c *Client) GetCalendarAlarmManager(id int64) (*CalendarAlarmManager, error
 	if err != nil {
 		return nil, err
 	}
-	if cas != nil && len(*cas) > 0 {
-		return &((*cas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of calendar.alarm_manager not found", id)
+	return &((*cas)[0]), nil
 }
 
 // GetCalendarAlarmManagers gets calendar.alarm_manager existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindCalendarAlarmManager(criteria *Criteria) (*CalendarAlarmMan
 	if err := c.SearchRead(CalendarAlarmManagerModel, criteria, NewOptions().Limit(1), cas); err != nil {
 		return nil, err
 	}
-	if cas != nil && len(*cas) > 0 {
-		return &((*cas)[0]), nil
-	}
-	return nil, fmt.Errorf("calendar.alarm_manager was not found with criteria %v", criteria)
+	return &((*cas)[0]), nil
 }
 
 // FindCalendarAlarmManagers finds calendar.alarm_manager records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindCalendarAlarmManagers(criteria *Criteria, options *Options)
 // FindCalendarAlarmManagerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCalendarAlarmManagerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CalendarAlarmManagerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CalendarAlarmManagerModel, criteria, options)
 }
 
 // FindCalendarAlarmManagerId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindCalendarAlarmManagerId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("calendar.alarm_manager was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

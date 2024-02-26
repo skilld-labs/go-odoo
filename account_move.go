@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountMove represents account.move model.
 type AccountMove struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateAccountMoves(ams []*AccountMove) ([]int64, error) {
 	for _, v := range ams {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountMoveModel, vv)
+	return c.Create(AccountMoveModel, vv, nil)
 }
 
 // UpdateAccountMove updates an existing account.move record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateAccountMove(am *AccountMove) error {
 // UpdateAccountMoves updates existing account.move records.
 // All records (represented by ids) will be updated by am values.
 func (c *Client) UpdateAccountMoves(ids []int64, am *AccountMove) error {
-	return c.Update(AccountMoveModel, ids, am)
+	return c.Update(AccountMoveModel, ids, am, nil)
 }
 
 // DeleteAccountMove deletes an existing account.move record.
@@ -89,10 +85,7 @@ func (c *Client) GetAccountMove(id int64) (*AccountMove, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ams != nil && len(*ams) > 0 {
-		return &((*ams)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.move not found", id)
+	return &((*ams)[0]), nil
 }
 
 // GetAccountMoves gets account.move existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindAccountMove(criteria *Criteria) (*AccountMove, error) {
 	if err := c.SearchRead(AccountMoveModel, criteria, NewOptions().Limit(1), ams); err != nil {
 		return nil, err
 	}
-	if ams != nil && len(*ams) > 0 {
-		return &((*ams)[0]), nil
-	}
-	return nil, fmt.Errorf("account.move was not found with criteria %v", criteria)
+	return &((*ams)[0]), nil
 }
 
 // FindAccountMoves finds account.move records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindAccountMoves(criteria *Criteria, options *Options) (*Accoun
 // FindAccountMoveIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountMoveIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountMoveModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountMoveModel, criteria, options)
 }
 
 // FindAccountMoveId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindAccountMoveId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.move was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportSaleReportSaleproforma represents report.sale.report_saleproforma model.
 type ReportSaleReportSaleproforma struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportSaleReportSaleproformas(rsrs []*ReportSaleReportSal
 	for _, v := range rsrs {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportSaleReportSaleproformaModel, vv)
+	return c.Create(ReportSaleReportSaleproformaModel, vv, nil)
 }
 
 // UpdateReportSaleReportSaleproforma updates an existing report.sale.report_saleproforma record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportSaleReportSaleproforma(rsr *ReportSaleReportSalepro
 // UpdateReportSaleReportSaleproformas updates existing report.sale.report_saleproforma records.
 // All records (represented by ids) will be updated by rsr values.
 func (c *Client) UpdateReportSaleReportSaleproformas(ids []int64, rsr *ReportSaleReportSaleproforma) error {
-	return c.Update(ReportSaleReportSaleproformaModel, ids, rsr)
+	return c.Update(ReportSaleReportSaleproformaModel, ids, rsr, nil)
 }
 
 // DeleteReportSaleReportSaleproforma deletes an existing report.sale.report_saleproforma record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportSaleReportSaleproforma(id int64) (*ReportSaleReportSal
 	if err != nil {
 		return nil, err
 	}
-	if rsrs != nil && len(*rsrs) > 0 {
-		return &((*rsrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.sale.report_saleproforma not found", id)
+	return &((*rsrs)[0]), nil
 }
 
 // GetReportSaleReportSaleproformas gets report.sale.report_saleproforma existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportSaleReportSaleproforma(criteria *Criteria) (*ReportSa
 	if err := c.SearchRead(ReportSaleReportSaleproformaModel, criteria, NewOptions().Limit(1), rsrs); err != nil {
 		return nil, err
 	}
-	if rsrs != nil && len(*rsrs) > 0 {
-		return &((*rsrs)[0]), nil
-	}
-	return nil, fmt.Errorf("report.sale.report_saleproforma was not found with criteria %v", criteria)
+	return &((*rsrs)[0]), nil
 }
 
 // FindReportSaleReportSaleproformas finds report.sale.report_saleproforma records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportSaleReportSaleproformas(criteria *Criteria, options *
 // FindReportSaleReportSaleproformaIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportSaleReportSaleproformaIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportSaleReportSaleproformaModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportSaleReportSaleproformaModel, criteria, options)
 }
 
 // FindReportSaleReportSaleproformaId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportSaleReportSaleproformaId(criteria *Criteria, options 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.sale.report_saleproforma was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SmsApi represents sms.api model.
 type SmsApi struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateSmsApis(sas []*SmsApi) ([]int64, error) {
 	for _, v := range sas {
 		vv = append(vv, v)
 	}
-	return c.Create(SmsApiModel, vv)
+	return c.Create(SmsApiModel, vv, nil)
 }
 
 // UpdateSmsApi updates an existing sms.api record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateSmsApi(sa *SmsApi) error {
 // UpdateSmsApis updates existing sms.api records.
 // All records (represented by ids) will be updated by sa values.
 func (c *Client) UpdateSmsApis(ids []int64, sa *SmsApi) error {
-	return c.Update(SmsApiModel, ids, sa)
+	return c.Update(SmsApiModel, ids, sa, nil)
 }
 
 // DeleteSmsApi deletes an existing sms.api record.
@@ -70,10 +66,7 @@ func (c *Client) GetSmsApi(id int64) (*SmsApi, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sas != nil && len(*sas) > 0 {
-		return &((*sas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sms.api not found", id)
+	return &((*sas)[0]), nil
 }
 
 // GetSmsApis gets sms.api existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindSmsApi(criteria *Criteria) (*SmsApi, error) {
 	if err := c.SearchRead(SmsApiModel, criteria, NewOptions().Limit(1), sas); err != nil {
 		return nil, err
 	}
-	if sas != nil && len(*sas) > 0 {
-		return &((*sas)[0]), nil
-	}
-	return nil, fmt.Errorf("sms.api was not found with criteria %v", criteria)
+	return &((*sas)[0]), nil
 }
 
 // FindSmsApis finds sms.api records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindSmsApis(criteria *Criteria, options *Options) (*SmsApis, er
 // FindSmsApiIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsApiIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SmsApiModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SmsApiModel, criteria, options)
 }
 
 // FindSmsApiId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindSmsApiId(criteria *Criteria, options *Options) (int64, erro
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sms.api was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

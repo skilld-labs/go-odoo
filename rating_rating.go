@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // RatingRating represents rating.rating model.
 type RatingRating struct {
 	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
@@ -61,7 +57,7 @@ func (c *Client) CreateRatingRatings(rrs []*RatingRating) ([]int64, error) {
 	for _, v := range rrs {
 		vv = append(vv, v)
 	}
-	return c.Create(RatingRatingModel, vv)
+	return c.Create(RatingRatingModel, vv, nil)
 }
 
 // UpdateRatingRating updates an existing rating.rating record.
@@ -72,7 +68,7 @@ func (c *Client) UpdateRatingRating(rr *RatingRating) error {
 // UpdateRatingRatings updates existing rating.rating records.
 // All records (represented by ids) will be updated by rr values.
 func (c *Client) UpdateRatingRatings(ids []int64, rr *RatingRating) error {
-	return c.Update(RatingRatingModel, ids, rr)
+	return c.Update(RatingRatingModel, ids, rr, nil)
 }
 
 // DeleteRatingRating deletes an existing rating.rating record.
@@ -91,10 +87,7 @@ func (c *Client) GetRatingRating(id int64) (*RatingRating, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rrs != nil && len(*rrs) > 0 {
-		return &((*rrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of rating.rating not found", id)
+	return &((*rrs)[0]), nil
 }
 
 // GetRatingRatings gets rating.rating existing records.
@@ -112,10 +105,7 @@ func (c *Client) FindRatingRating(criteria *Criteria) (*RatingRating, error) {
 	if err := c.SearchRead(RatingRatingModel, criteria, NewOptions().Limit(1), rrs); err != nil {
 		return nil, err
 	}
-	if rrs != nil && len(*rrs) > 0 {
-		return &((*rrs)[0]), nil
-	}
-	return nil, fmt.Errorf("rating.rating was not found with criteria %v", criteria)
+	return &((*rrs)[0]), nil
 }
 
 // FindRatingRatings finds rating.rating records by querying it
@@ -131,11 +121,7 @@ func (c *Client) FindRatingRatings(criteria *Criteria, options *Options) (*Ratin
 // FindRatingRatingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindRatingRatingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(RatingRatingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(RatingRatingModel, criteria, options)
 }
 
 // FindRatingRatingId finds record id by querying it with criteria.
@@ -144,8 +130,5 @@ func (c *Client) FindRatingRatingId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("rating.rating was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

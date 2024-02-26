@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseLanguageExport represents base.language.export model.
 type BaseLanguageExport struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateBaseLanguageExports(bles []*BaseLanguageExport) ([]int64,
 	for _, v := range bles {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseLanguageExportModel, vv)
+	return c.Create(BaseLanguageExportModel, vv, nil)
 }
 
 // UpdateBaseLanguageExport updates an existing base.language.export record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateBaseLanguageExport(ble *BaseLanguageExport) error {
 // UpdateBaseLanguageExports updates existing base.language.export records.
 // All records (represented by ids) will be updated by ble values.
 func (c *Client) UpdateBaseLanguageExports(ids []int64, ble *BaseLanguageExport) error {
-	return c.Update(BaseLanguageExportModel, ids, ble)
+	return c.Update(BaseLanguageExportModel, ids, ble, nil)
 }
 
 // DeleteBaseLanguageExport deletes an existing base.language.export record.
@@ -80,10 +76,7 @@ func (c *Client) GetBaseLanguageExport(id int64) (*BaseLanguageExport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bles != nil && len(*bles) > 0 {
-		return &((*bles)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.language.export not found", id)
+	return &((*bles)[0]), nil
 }
 
 // GetBaseLanguageExports gets base.language.export existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindBaseLanguageExport(criteria *Criteria) (*BaseLanguageExport
 	if err := c.SearchRead(BaseLanguageExportModel, criteria, NewOptions().Limit(1), bles); err != nil {
 		return nil, err
 	}
-	if bles != nil && len(*bles) > 0 {
-		return &((*bles)[0]), nil
-	}
-	return nil, fmt.Errorf("base.language.export was not found with criteria %v", criteria)
+	return &((*bles)[0]), nil
 }
 
 // FindBaseLanguageExports finds base.language.export records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindBaseLanguageExports(criteria *Criteria, options *Options) (
 // FindBaseLanguageExportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseLanguageExportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseLanguageExportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseLanguageExportModel, criteria, options)
 }
 
 // FindBaseLanguageExportId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindBaseLanguageExportId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.language.export was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

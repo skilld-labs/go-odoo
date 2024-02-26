@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmLead2OpportunityPartnerMass represents crm.lead2opportunity.partner.mass model.
 type CrmLead2OpportunityPartnerMass struct {
 	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateCrmLead2OpportunityPartnerMasss(clpms []*CrmLead2Opportun
 	for _, v := range clpms {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmLead2OpportunityPartnerMassModel, vv)
+	return c.Create(CrmLead2OpportunityPartnerMassModel, vv, nil)
 }
 
 // UpdateCrmLead2OpportunityPartnerMass updates an existing crm.lead2opportunity.partner.mass record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateCrmLead2OpportunityPartnerMass(clpm *CrmLead2OpportunityP
 // UpdateCrmLead2OpportunityPartnerMasss updates existing crm.lead2opportunity.partner.mass records.
 // All records (represented by ids) will be updated by clpm values.
 func (c *Client) UpdateCrmLead2OpportunityPartnerMasss(ids []int64, clpm *CrmLead2OpportunityPartnerMass) error {
-	return c.Update(CrmLead2OpportunityPartnerMassModel, ids, clpm)
+	return c.Update(CrmLead2OpportunityPartnerMassModel, ids, clpm, nil)
 }
 
 // DeleteCrmLead2OpportunityPartnerMass deletes an existing crm.lead2opportunity.partner.mass record.
@@ -83,10 +79,7 @@ func (c *Client) GetCrmLead2OpportunityPartnerMass(id int64) (*CrmLead2Opportuni
 	if err != nil {
 		return nil, err
 	}
-	if clpms != nil && len(*clpms) > 0 {
-		return &((*clpms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.lead2opportunity.partner.mass not found", id)
+	return &((*clpms)[0]), nil
 }
 
 // GetCrmLead2OpportunityPartnerMasss gets crm.lead2opportunity.partner.mass existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindCrmLead2OpportunityPartnerMass(criteria *Criteria) (*CrmLea
 	if err := c.SearchRead(CrmLead2OpportunityPartnerMassModel, criteria, NewOptions().Limit(1), clpms); err != nil {
 		return nil, err
 	}
-	if clpms != nil && len(*clpms) > 0 {
-		return &((*clpms)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.lead2opportunity.partner.mass was not found with criteria %v", criteria)
+	return &((*clpms)[0]), nil
 }
 
 // FindCrmLead2OpportunityPartnerMasss finds crm.lead2opportunity.partner.mass records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindCrmLead2OpportunityPartnerMasss(criteria *Criteria, options
 // FindCrmLead2OpportunityPartnerMassIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmLead2OpportunityPartnerMassIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmLead2OpportunityPartnerMassModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmLead2OpportunityPartnerMassModel, criteria, options)
 }
 
 // FindCrmLead2OpportunityPartnerMassId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindCrmLead2OpportunityPartnerMassId(criteria *Criteria, option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.lead2opportunity.partner.mass was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

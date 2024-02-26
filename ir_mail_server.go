@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrMailServer represents ir.mail_server model.
 type IrMailServer struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateIrMailServers(ims []*IrMailServer) ([]int64, error) {
 	for _, v := range ims {
 		vv = append(vv, v)
 	}
-	return c.Create(IrMailServerModel, vv)
+	return c.Create(IrMailServerModel, vv, nil)
 }
 
 // UpdateIrMailServer updates an existing ir.mail_server record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateIrMailServer(im *IrMailServer) error {
 // UpdateIrMailServers updates existing ir.mail_server records.
 // All records (represented by ids) will be updated by im values.
 func (c *Client) UpdateIrMailServers(ids []int64, im *IrMailServer) error {
-	return c.Update(IrMailServerModel, ids, im)
+	return c.Update(IrMailServerModel, ids, im, nil)
 }
 
 // DeleteIrMailServer deletes an existing ir.mail_server record.
@@ -83,10 +79,7 @@ func (c *Client) GetIrMailServer(id int64) (*IrMailServer, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ims != nil && len(*ims) > 0 {
-		return &((*ims)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.mail_server not found", id)
+	return &((*ims)[0]), nil
 }
 
 // GetIrMailServers gets ir.mail_server existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindIrMailServer(criteria *Criteria) (*IrMailServer, error) {
 	if err := c.SearchRead(IrMailServerModel, criteria, NewOptions().Limit(1), ims); err != nil {
 		return nil, err
 	}
-	if ims != nil && len(*ims) > 0 {
-		return &((*ims)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.mail_server was not found with criteria %v", criteria)
+	return &((*ims)[0]), nil
 }
 
 // FindIrMailServers finds ir.mail_server records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindIrMailServers(criteria *Criteria, options *Options) (*IrMai
 // FindIrMailServerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrMailServerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrMailServerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrMailServerModel, criteria, options)
 }
 
 // FindIrMailServerId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindIrMailServerId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.mail_server was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductPricelistItem represents product.pricelist.item model.
 type ProductPricelistItem struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -66,7 +62,7 @@ func (c *Client) CreateProductPricelistItems(ppis []*ProductPricelistItem) ([]in
 	for _, v := range ppis {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductPricelistItemModel, vv)
+	return c.Create(ProductPricelistItemModel, vv, nil)
 }
 
 // UpdateProductPricelistItem updates an existing product.pricelist.item record.
@@ -77,7 +73,7 @@ func (c *Client) UpdateProductPricelistItem(ppi *ProductPricelistItem) error {
 // UpdateProductPricelistItems updates existing product.pricelist.item records.
 // All records (represented by ids) will be updated by ppi values.
 func (c *Client) UpdateProductPricelistItems(ids []int64, ppi *ProductPricelistItem) error {
-	return c.Update(ProductPricelistItemModel, ids, ppi)
+	return c.Update(ProductPricelistItemModel, ids, ppi, nil)
 }
 
 // DeleteProductPricelistItem deletes an existing product.pricelist.item record.
@@ -96,10 +92,7 @@ func (c *Client) GetProductPricelistItem(id int64) (*ProductPricelistItem, error
 	if err != nil {
 		return nil, err
 	}
-	if ppis != nil && len(*ppis) > 0 {
-		return &((*ppis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.pricelist.item not found", id)
+	return &((*ppis)[0]), nil
 }
 
 // GetProductPricelistItems gets product.pricelist.item existing records.
@@ -117,10 +110,7 @@ func (c *Client) FindProductPricelistItem(criteria *Criteria) (*ProductPricelist
 	if err := c.SearchRead(ProductPricelistItemModel, criteria, NewOptions().Limit(1), ppis); err != nil {
 		return nil, err
 	}
-	if ppis != nil && len(*ppis) > 0 {
-		return &((*ppis)[0]), nil
-	}
-	return nil, fmt.Errorf("product.pricelist.item was not found with criteria %v", criteria)
+	return &((*ppis)[0]), nil
 }
 
 // FindProductPricelistItems finds product.pricelist.item records by querying it
@@ -136,11 +126,7 @@ func (c *Client) FindProductPricelistItems(criteria *Criteria, options *Options)
 // FindProductPricelistItemIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductPricelistItemIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductPricelistItemModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductPricelistItemModel, criteria, options)
 }
 
 // FindProductPricelistItemId finds record id by querying it with criteria.
@@ -149,8 +135,5 @@ func (c *Client) FindProductPricelistItemId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.pricelist.item was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

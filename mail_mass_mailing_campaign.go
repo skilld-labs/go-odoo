@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMassMailingCampaign represents mail.mass_mailing.campaign model.
 type MailMassMailingCampaign struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -68,7 +64,7 @@ func (c *Client) CreateMailMassMailingCampaigns(mmcs []*MailMassMailingCampaign)
 	for _, v := range mmcs {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMassMailingCampaignModel, vv)
+	return c.Create(MailMassMailingCampaignModel, vv, nil)
 }
 
 // UpdateMailMassMailingCampaign updates an existing mail.mass_mailing.campaign record.
@@ -79,7 +75,7 @@ func (c *Client) UpdateMailMassMailingCampaign(mmc *MailMassMailingCampaign) err
 // UpdateMailMassMailingCampaigns updates existing mail.mass_mailing.campaign records.
 // All records (represented by ids) will be updated by mmc values.
 func (c *Client) UpdateMailMassMailingCampaigns(ids []int64, mmc *MailMassMailingCampaign) error {
-	return c.Update(MailMassMailingCampaignModel, ids, mmc)
+	return c.Update(MailMassMailingCampaignModel, ids, mmc, nil)
 }
 
 // DeleteMailMassMailingCampaign deletes an existing mail.mass_mailing.campaign record.
@@ -98,10 +94,7 @@ func (c *Client) GetMailMassMailingCampaign(id int64) (*MailMassMailingCampaign,
 	if err != nil {
 		return nil, err
 	}
-	if mmcs != nil && len(*mmcs) > 0 {
-		return &((*mmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.mass_mailing.campaign not found", id)
+	return &((*mmcs)[0]), nil
 }
 
 // GetMailMassMailingCampaigns gets mail.mass_mailing.campaign existing records.
@@ -119,10 +112,7 @@ func (c *Client) FindMailMassMailingCampaign(criteria *Criteria) (*MailMassMaili
 	if err := c.SearchRead(MailMassMailingCampaignModel, criteria, NewOptions().Limit(1), mmcs); err != nil {
 		return nil, err
 	}
-	if mmcs != nil && len(*mmcs) > 0 {
-		return &((*mmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.mass_mailing.campaign was not found with criteria %v", criteria)
+	return &((*mmcs)[0]), nil
 }
 
 // FindMailMassMailingCampaigns finds mail.mass_mailing.campaign records by querying it
@@ -138,11 +128,7 @@ func (c *Client) FindMailMassMailingCampaigns(criteria *Criteria, options *Optio
 // FindMailMassMailingCampaignIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMassMailingCampaignIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMassMailingCampaignModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMassMailingCampaignModel, criteria, options)
 }
 
 // FindMailMassMailingCampaignId finds record id by querying it with criteria.
@@ -151,8 +137,5 @@ func (c *Client) FindMailMassMailingCampaignId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.mass_mailing.campaign was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

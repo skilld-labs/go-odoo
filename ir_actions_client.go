@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsClient represents ir.actions.client model.
 type IrActionsClient struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -56,7 +52,7 @@ func (c *Client) CreateIrActionsClients(iacs []*IrActionsClient) ([]int64, error
 	for _, v := range iacs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsClientModel, vv)
+	return c.Create(IrActionsClientModel, vv, nil)
 }
 
 // UpdateIrActionsClient updates an existing ir.actions.client record.
@@ -67,7 +63,7 @@ func (c *Client) UpdateIrActionsClient(iac *IrActionsClient) error {
 // UpdateIrActionsClients updates existing ir.actions.client records.
 // All records (represented by ids) will be updated by iac values.
 func (c *Client) UpdateIrActionsClients(ids []int64, iac *IrActionsClient) error {
-	return c.Update(IrActionsClientModel, ids, iac)
+	return c.Update(IrActionsClientModel, ids, iac, nil)
 }
 
 // DeleteIrActionsClient deletes an existing ir.actions.client record.
@@ -86,10 +82,7 @@ func (c *Client) GetIrActionsClient(id int64) (*IrActionsClient, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iacs != nil && len(*iacs) > 0 {
-		return &((*iacs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.client not found", id)
+	return &((*iacs)[0]), nil
 }
 
 // GetIrActionsClients gets ir.actions.client existing records.
@@ -107,10 +100,7 @@ func (c *Client) FindIrActionsClient(criteria *Criteria) (*IrActionsClient, erro
 	if err := c.SearchRead(IrActionsClientModel, criteria, NewOptions().Limit(1), iacs); err != nil {
 		return nil, err
 	}
-	if iacs != nil && len(*iacs) > 0 {
-		return &((*iacs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.client was not found with criteria %v", criteria)
+	return &((*iacs)[0]), nil
 }
 
 // FindIrActionsClients finds ir.actions.client records by querying it
@@ -126,11 +116,7 @@ func (c *Client) FindIrActionsClients(criteria *Criteria, options *Options) (*Ir
 // FindIrActionsClientIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsClientIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsClientModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsClientModel, criteria, options)
 }
 
 // FindIrActionsClientId finds record id by querying it with criteria.
@@ -139,8 +125,5 @@ func (c *Client) FindIrActionsClientId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.client was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockPickingType represents stock.picking.type model.
 type StockPickingType struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -69,7 +65,7 @@ func (c *Client) CreateStockPickingTypes(spts []*StockPickingType) ([]int64, err
 	for _, v := range spts {
 		vv = append(vv, v)
 	}
-	return c.Create(StockPickingTypeModel, vv)
+	return c.Create(StockPickingTypeModel, vv, nil)
 }
 
 // UpdateStockPickingType updates an existing stock.picking.type record.
@@ -80,7 +76,7 @@ func (c *Client) UpdateStockPickingType(spt *StockPickingType) error {
 // UpdateStockPickingTypes updates existing stock.picking.type records.
 // All records (represented by ids) will be updated by spt values.
 func (c *Client) UpdateStockPickingTypes(ids []int64, spt *StockPickingType) error {
-	return c.Update(StockPickingTypeModel, ids, spt)
+	return c.Update(StockPickingTypeModel, ids, spt, nil)
 }
 
 // DeleteStockPickingType deletes an existing stock.picking.type record.
@@ -99,10 +95,7 @@ func (c *Client) GetStockPickingType(id int64) (*StockPickingType, error) {
 	if err != nil {
 		return nil, err
 	}
-	if spts != nil && len(*spts) > 0 {
-		return &((*spts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.picking.type not found", id)
+	return &((*spts)[0]), nil
 }
 
 // GetStockPickingTypes gets stock.picking.type existing records.
@@ -120,10 +113,7 @@ func (c *Client) FindStockPickingType(criteria *Criteria) (*StockPickingType, er
 	if err := c.SearchRead(StockPickingTypeModel, criteria, NewOptions().Limit(1), spts); err != nil {
 		return nil, err
 	}
-	if spts != nil && len(*spts) > 0 {
-		return &((*spts)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.picking.type was not found with criteria %v", criteria)
+	return &((*spts)[0]), nil
 }
 
 // FindStockPickingTypes finds stock.picking.type records by querying it
@@ -139,11 +129,7 @@ func (c *Client) FindStockPickingTypes(criteria *Criteria, options *Options) (*S
 // FindStockPickingTypeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockPickingTypeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockPickingTypeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockPickingTypeModel, criteria, options)
 }
 
 // FindStockPickingTypeId finds record id by querying it with criteria.
@@ -152,8 +138,5 @@ func (c *Client) FindStockPickingTypeId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.picking.type was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

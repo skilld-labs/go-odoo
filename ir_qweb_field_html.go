@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldHtml represents ir.qweb.field.html model.
 type IrQwebFieldHtml struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldHtmls(iqfhs []*IrQwebFieldHtml) ([]int64, erro
 	for _, v := range iqfhs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldHtmlModel, vv)
+	return c.Create(IrQwebFieldHtmlModel, vv, nil)
 }
 
 // UpdateIrQwebFieldHtml updates an existing ir.qweb.field.html record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldHtml(iqfh *IrQwebFieldHtml) error {
 // UpdateIrQwebFieldHtmls updates existing ir.qweb.field.html records.
 // All records (represented by ids) will be updated by iqfh values.
 func (c *Client) UpdateIrQwebFieldHtmls(ids []int64, iqfh *IrQwebFieldHtml) error {
-	return c.Update(IrQwebFieldHtmlModel, ids, iqfh)
+	return c.Update(IrQwebFieldHtmlModel, ids, iqfh, nil)
 }
 
 // DeleteIrQwebFieldHtml deletes an existing ir.qweb.field.html record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldHtml(id int64) (*IrQwebFieldHtml, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfhs != nil && len(*iqfhs) > 0 {
-		return &((*iqfhs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.html not found", id)
+	return &((*iqfhs)[0]), nil
 }
 
 // GetIrQwebFieldHtmls gets ir.qweb.field.html existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldHtml(criteria *Criteria) (*IrQwebFieldHtml, erro
 	if err := c.SearchRead(IrQwebFieldHtmlModel, criteria, NewOptions().Limit(1), iqfhs); err != nil {
 		return nil, err
 	}
-	if iqfhs != nil && len(*iqfhs) > 0 {
-		return &((*iqfhs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.html was not found with criteria %v", criteria)
+	return &((*iqfhs)[0]), nil
 }
 
 // FindIrQwebFieldHtmls finds ir.qweb.field.html records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldHtmls(criteria *Criteria, options *Options) (*Ir
 // FindIrQwebFieldHtmlIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldHtmlIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldHtmlModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldHtmlModel, criteria, options)
 }
 
 // FindIrQwebFieldHtmlId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldHtmlId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.html was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

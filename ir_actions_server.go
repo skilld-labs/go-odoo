@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsServer represents ir.actions.server model.
 type IrActionsServer struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -64,7 +60,7 @@ func (c *Client) CreateIrActionsServers(iass []*IrActionsServer) ([]int64, error
 	for _, v := range iass {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsServerModel, vv)
+	return c.Create(IrActionsServerModel, vv, nil)
 }
 
 // UpdateIrActionsServer updates an existing ir.actions.server record.
@@ -75,7 +71,7 @@ func (c *Client) UpdateIrActionsServer(ias *IrActionsServer) error {
 // UpdateIrActionsServers updates existing ir.actions.server records.
 // All records (represented by ids) will be updated by ias values.
 func (c *Client) UpdateIrActionsServers(ids []int64, ias *IrActionsServer) error {
-	return c.Update(IrActionsServerModel, ids, ias)
+	return c.Update(IrActionsServerModel, ids, ias, nil)
 }
 
 // DeleteIrActionsServer deletes an existing ir.actions.server record.
@@ -94,10 +90,7 @@ func (c *Client) GetIrActionsServer(id int64) (*IrActionsServer, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iass != nil && len(*iass) > 0 {
-		return &((*iass)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.server not found", id)
+	return &((*iass)[0]), nil
 }
 
 // GetIrActionsServers gets ir.actions.server existing records.
@@ -115,10 +108,7 @@ func (c *Client) FindIrActionsServer(criteria *Criteria) (*IrActionsServer, erro
 	if err := c.SearchRead(IrActionsServerModel, criteria, NewOptions().Limit(1), iass); err != nil {
 		return nil, err
 	}
-	if iass != nil && len(*iass) > 0 {
-		return &((*iass)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.server was not found with criteria %v", criteria)
+	return &((*iass)[0]), nil
 }
 
 // FindIrActionsServers finds ir.actions.server records by querying it
@@ -134,11 +124,7 @@ func (c *Client) FindIrActionsServers(criteria *Criteria, options *Options) (*Ir
 // FindIrActionsServerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsServerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsServerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsServerModel, criteria, options)
 }
 
 // FindIrActionsServerId finds record id by querying it with criteria.
@@ -147,8 +133,5 @@ func (c *Client) FindIrActionsServerId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.server was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

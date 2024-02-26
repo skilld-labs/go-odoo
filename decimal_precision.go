@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // DecimalPrecision represents decimal.precision model.
 type DecimalPrecision struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateDecimalPrecisions(dps []*DecimalPrecision) ([]int64, erro
 	for _, v := range dps {
 		vv = append(vv, v)
 	}
-	return c.Create(DecimalPrecisionModel, vv)
+	return c.Create(DecimalPrecisionModel, vv, nil)
 }
 
 // UpdateDecimalPrecision updates an existing decimal.precision record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateDecimalPrecision(dp *DecimalPrecision) error {
 // UpdateDecimalPrecisions updates existing decimal.precision records.
 // All records (represented by ids) will be updated by dp values.
 func (c *Client) UpdateDecimalPrecisions(ids []int64, dp *DecimalPrecision) error {
-	return c.Update(DecimalPrecisionModel, ids, dp)
+	return c.Update(DecimalPrecisionModel, ids, dp, nil)
 }
 
 // DeleteDecimalPrecision deletes an existing decimal.precision record.
@@ -76,10 +72,7 @@ func (c *Client) GetDecimalPrecision(id int64) (*DecimalPrecision, error) {
 	if err != nil {
 		return nil, err
 	}
-	if dps != nil && len(*dps) > 0 {
-		return &((*dps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of decimal.precision not found", id)
+	return &((*dps)[0]), nil
 }
 
 // GetDecimalPrecisions gets decimal.precision existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindDecimalPrecision(criteria *Criteria) (*DecimalPrecision, er
 	if err := c.SearchRead(DecimalPrecisionModel, criteria, NewOptions().Limit(1), dps); err != nil {
 		return nil, err
 	}
-	if dps != nil && len(*dps) > 0 {
-		return &((*dps)[0]), nil
-	}
-	return nil, fmt.Errorf("decimal.precision was not found with criteria %v", criteria)
+	return &((*dps)[0]), nil
 }
 
 // FindDecimalPrecisions finds decimal.precision records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindDecimalPrecisions(criteria *Criteria, options *Options) (*D
 // FindDecimalPrecisionIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindDecimalPrecisionIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(DecimalPrecisionModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(DecimalPrecisionModel, criteria, options)
 }
 
 // FindDecimalPrecisionId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindDecimalPrecisionId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("decimal.precision was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

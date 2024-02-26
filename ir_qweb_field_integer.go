@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldInteger represents ir.qweb.field.integer model.
 type IrQwebFieldInteger struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldIntegers(iqfis []*IrQwebFieldInteger) ([]int64
 	for _, v := range iqfis {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldIntegerModel, vv)
+	return c.Create(IrQwebFieldIntegerModel, vv, nil)
 }
 
 // UpdateIrQwebFieldInteger updates an existing ir.qweb.field.integer record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldInteger(iqfi *IrQwebFieldInteger) error {
 // UpdateIrQwebFieldIntegers updates existing ir.qweb.field.integer records.
 // All records (represented by ids) will be updated by iqfi values.
 func (c *Client) UpdateIrQwebFieldIntegers(ids []int64, iqfi *IrQwebFieldInteger) error {
-	return c.Update(IrQwebFieldIntegerModel, ids, iqfi)
+	return c.Update(IrQwebFieldIntegerModel, ids, iqfi, nil)
 }
 
 // DeleteIrQwebFieldInteger deletes an existing ir.qweb.field.integer record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldInteger(id int64) (*IrQwebFieldInteger, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfis != nil && len(*iqfis) > 0 {
-		return &((*iqfis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.integer not found", id)
+	return &((*iqfis)[0]), nil
 }
 
 // GetIrQwebFieldIntegers gets ir.qweb.field.integer existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldInteger(criteria *Criteria) (*IrQwebFieldInteger
 	if err := c.SearchRead(IrQwebFieldIntegerModel, criteria, NewOptions().Limit(1), iqfis); err != nil {
 		return nil, err
 	}
-	if iqfis != nil && len(*iqfis) > 0 {
-		return &((*iqfis)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.integer was not found with criteria %v", criteria)
+	return &((*iqfis)[0]), nil
 }
 
 // FindIrQwebFieldIntegers finds ir.qweb.field.integer records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldIntegers(criteria *Criteria, options *Options) (
 // FindIrQwebFieldIntegerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldIntegerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldIntegerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldIntegerModel, criteria, options)
 }
 
 // FindIrQwebFieldIntegerId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldIntegerId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.integer was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountMoveLineReconcileWriteoff represents account.move.line.reconcile.writeoff model.
 type AccountMoveLineReconcileWriteoff struct {
 	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateAccountMoveLineReconcileWriteoffs(amlrws []*AccountMoveLi
 	for _, v := range amlrws {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountMoveLineReconcileWriteoffModel, vv)
+	return c.Create(AccountMoveLineReconcileWriteoffModel, vv, nil)
 }
 
 // UpdateAccountMoveLineReconcileWriteoff updates an existing account.move.line.reconcile.writeoff record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateAccountMoveLineReconcileWriteoff(amlrw *AccountMoveLineRe
 // UpdateAccountMoveLineReconcileWriteoffs updates existing account.move.line.reconcile.writeoff records.
 // All records (represented by ids) will be updated by amlrw values.
 func (c *Client) UpdateAccountMoveLineReconcileWriteoffs(ids []int64, amlrw *AccountMoveLineReconcileWriteoff) error {
-	return c.Update(AccountMoveLineReconcileWriteoffModel, ids, amlrw)
+	return c.Update(AccountMoveLineReconcileWriteoffModel, ids, amlrw, nil)
 }
 
 // DeleteAccountMoveLineReconcileWriteoff deletes an existing account.move.line.reconcile.writeoff record.
@@ -79,10 +75,7 @@ func (c *Client) GetAccountMoveLineReconcileWriteoff(id int64) (*AccountMoveLine
 	if err != nil {
 		return nil, err
 	}
-	if amlrws != nil && len(*amlrws) > 0 {
-		return &((*amlrws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.move.line.reconcile.writeoff not found", id)
+	return &((*amlrws)[0]), nil
 }
 
 // GetAccountMoveLineReconcileWriteoffs gets account.move.line.reconcile.writeoff existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindAccountMoveLineReconcileWriteoff(criteria *Criteria) (*Acco
 	if err := c.SearchRead(AccountMoveLineReconcileWriteoffModel, criteria, NewOptions().Limit(1), amlrws); err != nil {
 		return nil, err
 	}
-	if amlrws != nil && len(*amlrws) > 0 {
-		return &((*amlrws)[0]), nil
-	}
-	return nil, fmt.Errorf("account.move.line.reconcile.writeoff was not found with criteria %v", criteria)
+	return &((*amlrws)[0]), nil
 }
 
 // FindAccountMoveLineReconcileWriteoffs finds account.move.line.reconcile.writeoff records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindAccountMoveLineReconcileWriteoffs(criteria *Criteria, optio
 // FindAccountMoveLineReconcileWriteoffIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountMoveLineReconcileWriteoffIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountMoveLineReconcileWriteoffModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountMoveLineReconcileWriteoffModel, criteria, options)
 }
 
 // FindAccountMoveLineReconcileWriteoffId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindAccountMoveLineReconcileWriteoffId(criteria *Criteria, opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.move.line.reconcile.writeoff was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

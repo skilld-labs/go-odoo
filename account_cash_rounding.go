@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountCashRounding represents account.cash.rounding model.
 type AccountCashRounding struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateAccountCashRoundings(acrs []*AccountCashRounding) ([]int6
 	for _, v := range acrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountCashRoundingModel, vv)
+	return c.Create(AccountCashRoundingModel, vv, nil)
 }
 
 // UpdateAccountCashRounding updates an existing account.cash.rounding record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateAccountCashRounding(acr *AccountCashRounding) error {
 // UpdateAccountCashRoundings updates existing account.cash.rounding records.
 // All records (represented by ids) will be updated by acr values.
 func (c *Client) UpdateAccountCashRoundings(ids []int64, acr *AccountCashRounding) error {
-	return c.Update(AccountCashRoundingModel, ids, acr)
+	return c.Update(AccountCashRoundingModel, ids, acr, nil)
 }
 
 // DeleteAccountCashRounding deletes an existing account.cash.rounding record.
@@ -79,10 +75,7 @@ func (c *Client) GetAccountCashRounding(id int64) (*AccountCashRounding, error) 
 	if err != nil {
 		return nil, err
 	}
-	if acrs != nil && len(*acrs) > 0 {
-		return &((*acrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.cash.rounding not found", id)
+	return &((*acrs)[0]), nil
 }
 
 // GetAccountCashRoundings gets account.cash.rounding existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindAccountCashRounding(criteria *Criteria) (*AccountCashRoundi
 	if err := c.SearchRead(AccountCashRoundingModel, criteria, NewOptions().Limit(1), acrs); err != nil {
 		return nil, err
 	}
-	if acrs != nil && len(*acrs) > 0 {
-		return &((*acrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.cash.rounding was not found with criteria %v", criteria)
+	return &((*acrs)[0]), nil
 }
 
 // FindAccountCashRoundings finds account.cash.rounding records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindAccountCashRoundings(criteria *Criteria, options *Options) 
 // FindAccountCashRoundingIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountCashRoundingIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountCashRoundingModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountCashRoundingModel, criteria, options)
 }
 
 // FindAccountCashRoundingId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindAccountCashRoundingId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.cash.rounding was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

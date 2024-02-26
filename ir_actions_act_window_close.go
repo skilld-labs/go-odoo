@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsActWindowClose represents ir.actions.act_window_close model.
 type IrActionsActWindowClose struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateIrActionsActWindowCloses(iaas []*IrActionsActWindowClose)
 	for _, v := range iaas {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsActWindowCloseModel, vv)
+	return c.Create(IrActionsActWindowCloseModel, vv, nil)
 }
 
 // UpdateIrActionsActWindowClose updates an existing ir.actions.act_window_close record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateIrActionsActWindowClose(iaa *IrActionsActWindowClose) err
 // UpdateIrActionsActWindowCloses updates existing ir.actions.act_window_close records.
 // All records (represented by ids) will be updated by iaa values.
 func (c *Client) UpdateIrActionsActWindowCloses(ids []int64, iaa *IrActionsActWindowClose) error {
-	return c.Update(IrActionsActWindowCloseModel, ids, iaa)
+	return c.Update(IrActionsActWindowCloseModel, ids, iaa, nil)
 }
 
 // DeleteIrActionsActWindowClose deletes an existing ir.actions.act_window_close record.
@@ -80,10 +76,7 @@ func (c *Client) GetIrActionsActWindowClose(id int64) (*IrActionsActWindowClose,
 	if err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.act_window_close not found", id)
+	return &((*iaas)[0]), nil
 }
 
 // GetIrActionsActWindowCloses gets ir.actions.act_window_close existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindIrActionsActWindowClose(criteria *Criteria) (*IrActionsActW
 	if err := c.SearchRead(IrActionsActWindowCloseModel, criteria, NewOptions().Limit(1), iaas); err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.act_window_close was not found with criteria %v", criteria)
+	return &((*iaas)[0]), nil
 }
 
 // FindIrActionsActWindowCloses finds ir.actions.act_window_close records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindIrActionsActWindowCloses(criteria *Criteria, options *Optio
 // FindIrActionsActWindowCloseIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActWindowCloseIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsActWindowCloseModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsActWindowCloseModel, criteria, options)
 }
 
 // FindIrActionsActWindowCloseId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindIrActionsActWindowCloseId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.act_window_close was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

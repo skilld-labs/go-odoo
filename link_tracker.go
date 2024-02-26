@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // LinkTracker represents link.tracker model.
 type LinkTracker struct {
 	LastUpdate            *Time     `xmlrpc:"__last_update,omptempty"`
@@ -60,7 +56,7 @@ func (c *Client) CreateLinkTrackers(lts []*LinkTracker) ([]int64, error) {
 	for _, v := range lts {
 		vv = append(vv, v)
 	}
-	return c.Create(LinkTrackerModel, vv)
+	return c.Create(LinkTrackerModel, vv, nil)
 }
 
 // UpdateLinkTracker updates an existing link.tracker record.
@@ -71,7 +67,7 @@ func (c *Client) UpdateLinkTracker(lt *LinkTracker) error {
 // UpdateLinkTrackers updates existing link.tracker records.
 // All records (represented by ids) will be updated by lt values.
 func (c *Client) UpdateLinkTrackers(ids []int64, lt *LinkTracker) error {
-	return c.Update(LinkTrackerModel, ids, lt)
+	return c.Update(LinkTrackerModel, ids, lt, nil)
 }
 
 // DeleteLinkTracker deletes an existing link.tracker record.
@@ -90,10 +86,7 @@ func (c *Client) GetLinkTracker(id int64) (*LinkTracker, error) {
 	if err != nil {
 		return nil, err
 	}
-	if lts != nil && len(*lts) > 0 {
-		return &((*lts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of link.tracker not found", id)
+	return &((*lts)[0]), nil
 }
 
 // GetLinkTrackers gets link.tracker existing records.
@@ -111,10 +104,7 @@ func (c *Client) FindLinkTracker(criteria *Criteria) (*LinkTracker, error) {
 	if err := c.SearchRead(LinkTrackerModel, criteria, NewOptions().Limit(1), lts); err != nil {
 		return nil, err
 	}
-	if lts != nil && len(*lts) > 0 {
-		return &((*lts)[0]), nil
-	}
-	return nil, fmt.Errorf("link.tracker was not found with criteria %v", criteria)
+	return &((*lts)[0]), nil
 }
 
 // FindLinkTrackers finds link.tracker records by querying it
@@ -130,11 +120,7 @@ func (c *Client) FindLinkTrackers(criteria *Criteria, options *Options) (*LinkTr
 // FindLinkTrackerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindLinkTrackerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(LinkTrackerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(LinkTrackerModel, criteria, options)
 }
 
 // FindLinkTrackerId finds record id by querying it with criteria.
@@ -143,8 +129,5 @@ func (c *Client) FindLinkTrackerId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("link.tracker was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

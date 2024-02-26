@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SaleLayoutCategory represents sale.layout_category model.
 type SaleLayoutCategory struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateSaleLayoutCategorys(sls []*SaleLayoutCategory) ([]int64, 
 	for _, v := range sls {
 		vv = append(vv, v)
 	}
-	return c.Create(SaleLayoutCategoryModel, vv)
+	return c.Create(SaleLayoutCategoryModel, vv, nil)
 }
 
 // UpdateSaleLayoutCategory updates an existing sale.layout_category record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateSaleLayoutCategory(sl *SaleLayoutCategory) error {
 // UpdateSaleLayoutCategorys updates existing sale.layout_category records.
 // All records (represented by ids) will be updated by sl values.
 func (c *Client) UpdateSaleLayoutCategorys(ids []int64, sl *SaleLayoutCategory) error {
-	return c.Update(SaleLayoutCategoryModel, ids, sl)
+	return c.Update(SaleLayoutCategoryModel, ids, sl, nil)
 }
 
 // DeleteSaleLayoutCategory deletes an existing sale.layout_category record.
@@ -78,10 +74,7 @@ func (c *Client) GetSaleLayoutCategory(id int64) (*SaleLayoutCategory, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sls != nil && len(*sls) > 0 {
-		return &((*sls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sale.layout_category not found", id)
+	return &((*sls)[0]), nil
 }
 
 // GetSaleLayoutCategorys gets sale.layout_category existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindSaleLayoutCategory(criteria *Criteria) (*SaleLayoutCategory
 	if err := c.SearchRead(SaleLayoutCategoryModel, criteria, NewOptions().Limit(1), sls); err != nil {
 		return nil, err
 	}
-	if sls != nil && len(*sls) > 0 {
-		return &((*sls)[0]), nil
-	}
-	return nil, fmt.Errorf("sale.layout_category was not found with criteria %v", criteria)
+	return &((*sls)[0]), nil
 }
 
 // FindSaleLayoutCategorys finds sale.layout_category records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindSaleLayoutCategorys(criteria *Criteria, options *Options) (
 // FindSaleLayoutCategoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSaleLayoutCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SaleLayoutCategoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SaleLayoutCategoryModel, criteria, options)
 }
 
 // FindSaleLayoutCategoryId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindSaleLayoutCategoryId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sale.layout_category was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsTodo represents ir.actions.todo model.
 type IrActionsTodo struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateIrActionsTodos(iats []*IrActionsTodo) ([]int64, error) {
 	for _, v := range iats {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsTodoModel, vv)
+	return c.Create(IrActionsTodoModel, vv, nil)
 }
 
 // UpdateIrActionsTodo updates an existing ir.actions.todo record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateIrActionsTodo(iat *IrActionsTodo) error {
 // UpdateIrActionsTodos updates existing ir.actions.todo records.
 // All records (represented by ids) will be updated by iat values.
 func (c *Client) UpdateIrActionsTodos(ids []int64, iat *IrActionsTodo) error {
-	return c.Update(IrActionsTodoModel, ids, iat)
+	return c.Update(IrActionsTodoModel, ids, iat, nil)
 }
 
 // DeleteIrActionsTodo deletes an existing ir.actions.todo record.
@@ -78,10 +74,7 @@ func (c *Client) GetIrActionsTodo(id int64) (*IrActionsTodo, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iats != nil && len(*iats) > 0 {
-		return &((*iats)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.todo not found", id)
+	return &((*iats)[0]), nil
 }
 
 // GetIrActionsTodos gets ir.actions.todo existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindIrActionsTodo(criteria *Criteria) (*IrActionsTodo, error) {
 	if err := c.SearchRead(IrActionsTodoModel, criteria, NewOptions().Limit(1), iats); err != nil {
 		return nil, err
 	}
-	if iats != nil && len(*iats) > 0 {
-		return &((*iats)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.todo was not found with criteria %v", criteria)
+	return &((*iats)[0]), nil
 }
 
 // FindIrActionsTodos finds ir.actions.todo records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindIrActionsTodos(criteria *Criteria, options *Options) (*IrAc
 // FindIrActionsTodoIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsTodoIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsTodoModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsTodoModel, criteria, options)
 }
 
 // FindIrActionsTodoId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindIrActionsTodoId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.todo was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

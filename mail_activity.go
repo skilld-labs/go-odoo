@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailActivity represents mail.activity model.
 type MailActivity struct {
 	LastUpdate                *Time      `xmlrpc:"__last_update,omptempty"`
@@ -61,7 +57,7 @@ func (c *Client) CreateMailActivitys(mas []*MailActivity) ([]int64, error) {
 	for _, v := range mas {
 		vv = append(vv, v)
 	}
-	return c.Create(MailActivityModel, vv)
+	return c.Create(MailActivityModel, vv, nil)
 }
 
 // UpdateMailActivity updates an existing mail.activity record.
@@ -72,7 +68,7 @@ func (c *Client) UpdateMailActivity(ma *MailActivity) error {
 // UpdateMailActivitys updates existing mail.activity records.
 // All records (represented by ids) will be updated by ma values.
 func (c *Client) UpdateMailActivitys(ids []int64, ma *MailActivity) error {
-	return c.Update(MailActivityModel, ids, ma)
+	return c.Update(MailActivityModel, ids, ma, nil)
 }
 
 // DeleteMailActivity deletes an existing mail.activity record.
@@ -91,10 +87,7 @@ func (c *Client) GetMailActivity(id int64) (*MailActivity, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mas != nil && len(*mas) > 0 {
-		return &((*mas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.activity not found", id)
+	return &((*mas)[0]), nil
 }
 
 // GetMailActivitys gets mail.activity existing records.
@@ -112,10 +105,7 @@ func (c *Client) FindMailActivity(criteria *Criteria) (*MailActivity, error) {
 	if err := c.SearchRead(MailActivityModel, criteria, NewOptions().Limit(1), mas); err != nil {
 		return nil, err
 	}
-	if mas != nil && len(*mas) > 0 {
-		return &((*mas)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.activity was not found with criteria %v", criteria)
+	return &((*mas)[0]), nil
 }
 
 // FindMailActivitys finds mail.activity records by querying it
@@ -131,11 +121,7 @@ func (c *Client) FindMailActivitys(criteria *Criteria, options *Options) (*MailA
 // FindMailActivityIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailActivityIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailActivityModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailActivityModel, criteria, options)
 }
 
 // FindMailActivityId finds record id by querying it with criteria.
@@ -144,8 +130,5 @@ func (c *Client) FindMailActivityId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.activity was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

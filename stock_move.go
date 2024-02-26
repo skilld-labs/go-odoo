@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockMove represents stock.move model.
 type StockMove struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -109,7 +105,7 @@ func (c *Client) CreateStockMoves(sms []*StockMove) ([]int64, error) {
 	for _, v := range sms {
 		vv = append(vv, v)
 	}
-	return c.Create(StockMoveModel, vv)
+	return c.Create(StockMoveModel, vv, nil)
 }
 
 // UpdateStockMove updates an existing stock.move record.
@@ -120,7 +116,7 @@ func (c *Client) UpdateStockMove(sm *StockMove) error {
 // UpdateStockMoves updates existing stock.move records.
 // All records (represented by ids) will be updated by sm values.
 func (c *Client) UpdateStockMoves(ids []int64, sm *StockMove) error {
-	return c.Update(StockMoveModel, ids, sm)
+	return c.Update(StockMoveModel, ids, sm, nil)
 }
 
 // DeleteStockMove deletes an existing stock.move record.
@@ -139,10 +135,7 @@ func (c *Client) GetStockMove(id int64) (*StockMove, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sms != nil && len(*sms) > 0 {
-		return &((*sms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.move not found", id)
+	return &((*sms)[0]), nil
 }
 
 // GetStockMoves gets stock.move existing records.
@@ -160,10 +153,7 @@ func (c *Client) FindStockMove(criteria *Criteria) (*StockMove, error) {
 	if err := c.SearchRead(StockMoveModel, criteria, NewOptions().Limit(1), sms); err != nil {
 		return nil, err
 	}
-	if sms != nil && len(*sms) > 0 {
-		return &((*sms)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.move was not found with criteria %v", criteria)
+	return &((*sms)[0]), nil
 }
 
 // FindStockMoves finds stock.move records by querying it
@@ -179,11 +169,7 @@ func (c *Client) FindStockMoves(criteria *Criteria, options *Options) (*StockMov
 // FindStockMoveIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockMoveIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockMoveModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockMoveModel, criteria, options)
 }
 
 // FindStockMoveId finds record id by querying it with criteria.
@@ -192,8 +178,5 @@ func (c *Client) FindStockMoveId(criteria *Criteria, options *Options) (int64, e
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.move was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

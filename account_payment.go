@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountPayment represents account.payment model.
 type AccountPayment struct {
 	LastUpdate                *Time      `xmlrpc:"__last_update,omptempty"`
@@ -83,7 +79,7 @@ func (c *Client) CreateAccountPayments(aps []*AccountPayment) ([]int64, error) {
 	for _, v := range aps {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountPaymentModel, vv)
+	return c.Create(AccountPaymentModel, vv, nil)
 }
 
 // UpdateAccountPayment updates an existing account.payment record.
@@ -94,7 +90,7 @@ func (c *Client) UpdateAccountPayment(ap *AccountPayment) error {
 // UpdateAccountPayments updates existing account.payment records.
 // All records (represented by ids) will be updated by ap values.
 func (c *Client) UpdateAccountPayments(ids []int64, ap *AccountPayment) error {
-	return c.Update(AccountPaymentModel, ids, ap)
+	return c.Update(AccountPaymentModel, ids, ap, nil)
 }
 
 // DeleteAccountPayment deletes an existing account.payment record.
@@ -113,10 +109,7 @@ func (c *Client) GetAccountPayment(id int64) (*AccountPayment, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aps != nil && len(*aps) > 0 {
-		return &((*aps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.payment not found", id)
+	return &((*aps)[0]), nil
 }
 
 // GetAccountPayments gets account.payment existing records.
@@ -134,10 +127,7 @@ func (c *Client) FindAccountPayment(criteria *Criteria) (*AccountPayment, error)
 	if err := c.SearchRead(AccountPaymentModel, criteria, NewOptions().Limit(1), aps); err != nil {
 		return nil, err
 	}
-	if aps != nil && len(*aps) > 0 {
-		return &((*aps)[0]), nil
-	}
-	return nil, fmt.Errorf("account.payment was not found with criteria %v", criteria)
+	return &((*aps)[0]), nil
 }
 
 // FindAccountPayments finds account.payment records by querying it
@@ -153,11 +143,7 @@ func (c *Client) FindAccountPayments(criteria *Criteria, options *Options) (*Acc
 // FindAccountPaymentIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountPaymentModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountPaymentModel, criteria, options)
 }
 
 // FindAccountPaymentId finds record id by querying it with criteria.
@@ -166,8 +152,5 @@ func (c *Client) FindAccountPaymentId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.payment was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

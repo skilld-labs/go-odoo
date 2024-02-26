@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMessage represents mail.message model.
 type MailMessage struct {
 	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
@@ -73,7 +69,7 @@ func (c *Client) CreateMailMessages(mms []*MailMessage) ([]int64, error) {
 	for _, v := range mms {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMessageModel, vv)
+	return c.Create(MailMessageModel, vv, nil)
 }
 
 // UpdateMailMessage updates an existing mail.message record.
@@ -84,7 +80,7 @@ func (c *Client) UpdateMailMessage(mm *MailMessage) error {
 // UpdateMailMessages updates existing mail.message records.
 // All records (represented by ids) will be updated by mm values.
 func (c *Client) UpdateMailMessages(ids []int64, mm *MailMessage) error {
-	return c.Update(MailMessageModel, ids, mm)
+	return c.Update(MailMessageModel, ids, mm, nil)
 }
 
 // DeleteMailMessage deletes an existing mail.message record.
@@ -103,10 +99,7 @@ func (c *Client) GetMailMessage(id int64) (*MailMessage, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mms != nil && len(*mms) > 0 {
-		return &((*mms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.message not found", id)
+	return &((*mms)[0]), nil
 }
 
 // GetMailMessages gets mail.message existing records.
@@ -124,10 +117,7 @@ func (c *Client) FindMailMessage(criteria *Criteria) (*MailMessage, error) {
 	if err := c.SearchRead(MailMessageModel, criteria, NewOptions().Limit(1), mms); err != nil {
 		return nil, err
 	}
-	if mms != nil && len(*mms) > 0 {
-		return &((*mms)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.message was not found with criteria %v", criteria)
+	return &((*mms)[0]), nil
 }
 
 // FindMailMessages finds mail.message records by querying it
@@ -143,11 +133,7 @@ func (c *Client) FindMailMessages(criteria *Criteria, options *Options) (*MailMe
 // FindMailMessageIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMessageIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMessageModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMessageModel, criteria, options)
 }
 
 // FindMailMessageId finds record id by querying it with criteria.
@@ -156,8 +142,5 @@ func (c *Client) FindMailMessageId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.message was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

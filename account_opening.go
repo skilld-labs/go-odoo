@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountOpening represents account.opening model.
 type AccountOpening struct {
 	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountOpenings(aos []*AccountOpening) ([]int64, error) {
 	for _, v := range aos {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountOpeningModel, vv)
+	return c.Create(AccountOpeningModel, vv, nil)
 }
 
 // UpdateAccountOpening updates an existing account.opening record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountOpening(ao *AccountOpening) error {
 // UpdateAccountOpenings updates existing account.opening records.
 // All records (represented by ids) will be updated by ao values.
 func (c *Client) UpdateAccountOpenings(ids []int64, ao *AccountOpening) error {
-	return c.Update(AccountOpeningModel, ids, ao)
+	return c.Update(AccountOpeningModel, ids, ao, nil)
 }
 
 // DeleteAccountOpening deletes an existing account.opening record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountOpening(id int64) (*AccountOpening, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aos != nil && len(*aos) > 0 {
-		return &((*aos)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.opening not found", id)
+	return &((*aos)[0]), nil
 }
 
 // GetAccountOpenings gets account.opening existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountOpening(criteria *Criteria) (*AccountOpening, error)
 	if err := c.SearchRead(AccountOpeningModel, criteria, NewOptions().Limit(1), aos); err != nil {
 		return nil, err
 	}
-	if aos != nil && len(*aos) > 0 {
-		return &((*aos)[0]), nil
-	}
-	return nil, fmt.Errorf("account.opening was not found with criteria %v", criteria)
+	return &((*aos)[0]), nil
 }
 
 // FindAccountOpenings finds account.opening records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountOpenings(criteria *Criteria, options *Options) (*Acc
 // FindAccountOpeningIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountOpeningIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountOpeningModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountOpeningModel, criteria, options)
 }
 
 // FindAccountOpeningId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountOpeningId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.opening was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

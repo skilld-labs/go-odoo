@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockQuantPackage represents stock.quant.package model.
 type StockQuantPackage struct {
 	LastUpdate                   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -56,7 +52,7 @@ func (c *Client) CreateStockQuantPackages(sqps []*StockQuantPackage) ([]int64, e
 	for _, v := range sqps {
 		vv = append(vv, v)
 	}
-	return c.Create(StockQuantPackageModel, vv)
+	return c.Create(StockQuantPackageModel, vv, nil)
 }
 
 // UpdateStockQuantPackage updates an existing stock.quant.package record.
@@ -67,7 +63,7 @@ func (c *Client) UpdateStockQuantPackage(sqp *StockQuantPackage) error {
 // UpdateStockQuantPackages updates existing stock.quant.package records.
 // All records (represented by ids) will be updated by sqp values.
 func (c *Client) UpdateStockQuantPackages(ids []int64, sqp *StockQuantPackage) error {
-	return c.Update(StockQuantPackageModel, ids, sqp)
+	return c.Update(StockQuantPackageModel, ids, sqp, nil)
 }
 
 // DeleteStockQuantPackage deletes an existing stock.quant.package record.
@@ -86,10 +82,7 @@ func (c *Client) GetStockQuantPackage(id int64) (*StockQuantPackage, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sqps != nil && len(*sqps) > 0 {
-		return &((*sqps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.quant.package not found", id)
+	return &((*sqps)[0]), nil
 }
 
 // GetStockQuantPackages gets stock.quant.package existing records.
@@ -107,10 +100,7 @@ func (c *Client) FindStockQuantPackage(criteria *Criteria) (*StockQuantPackage, 
 	if err := c.SearchRead(StockQuantPackageModel, criteria, NewOptions().Limit(1), sqps); err != nil {
 		return nil, err
 	}
-	if sqps != nil && len(*sqps) > 0 {
-		return &((*sqps)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.quant.package was not found with criteria %v", criteria)
+	return &((*sqps)[0]), nil
 }
 
 // FindStockQuantPackages finds stock.quant.package records by querying it
@@ -126,11 +116,7 @@ func (c *Client) FindStockQuantPackages(criteria *Criteria, options *Options) (*
 // FindStockQuantPackageIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockQuantPackageIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockQuantPackageModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockQuantPackageModel, criteria, options)
 }
 
 // FindStockQuantPackageId finds record id by querying it with criteria.
@@ -139,8 +125,5 @@ func (c *Client) FindStockQuantPackageId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.quant.package was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockOverprocessedTransfer represents stock.overprocessed.transfer model.
 type StockOverprocessedTransfer struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateStockOverprocessedTransfers(sots []*StockOverprocessedTra
 	for _, v := range sots {
 		vv = append(vv, v)
 	}
-	return c.Create(StockOverprocessedTransferModel, vv)
+	return c.Create(StockOverprocessedTransferModel, vv, nil)
 }
 
 // UpdateStockOverprocessedTransfer updates an existing stock.overprocessed.transfer record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateStockOverprocessedTransfer(sot *StockOverprocessedTransfe
 // UpdateStockOverprocessedTransfers updates existing stock.overprocessed.transfer records.
 // All records (represented by ids) will be updated by sot values.
 func (c *Client) UpdateStockOverprocessedTransfers(ids []int64, sot *StockOverprocessedTransfer) error {
-	return c.Update(StockOverprocessedTransferModel, ids, sot)
+	return c.Update(StockOverprocessedTransferModel, ids, sot, nil)
 }
 
 // DeleteStockOverprocessedTransfer deletes an existing stock.overprocessed.transfer record.
@@ -76,10 +72,7 @@ func (c *Client) GetStockOverprocessedTransfer(id int64) (*StockOverprocessedTra
 	if err != nil {
 		return nil, err
 	}
-	if sots != nil && len(*sots) > 0 {
-		return &((*sots)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.overprocessed.transfer not found", id)
+	return &((*sots)[0]), nil
 }
 
 // GetStockOverprocessedTransfers gets stock.overprocessed.transfer existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindStockOverprocessedTransfer(criteria *Criteria) (*StockOverp
 	if err := c.SearchRead(StockOverprocessedTransferModel, criteria, NewOptions().Limit(1), sots); err != nil {
 		return nil, err
 	}
-	if sots != nil && len(*sots) > 0 {
-		return &((*sots)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.overprocessed.transfer was not found with criteria %v", criteria)
+	return &((*sots)[0]), nil
 }
 
 // FindStockOverprocessedTransfers finds stock.overprocessed.transfer records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindStockOverprocessedTransfers(criteria *Criteria, options *Op
 // FindStockOverprocessedTransferIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockOverprocessedTransferIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockOverprocessedTransferModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockOverprocessedTransferModel, criteria, options)
 }
 
 // FindStockOverprocessedTransferId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindStockOverprocessedTransferId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.overprocessed.transfer was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

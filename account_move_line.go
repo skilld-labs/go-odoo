@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountMoveLine represents account.move.line model.
 type AccountMoveLine struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
@@ -88,7 +84,7 @@ func (c *Client) CreateAccountMoveLines(amls []*AccountMoveLine) ([]int64, error
 	for _, v := range amls {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountMoveLineModel, vv)
+	return c.Create(AccountMoveLineModel, vv, nil)
 }
 
 // UpdateAccountMoveLine updates an existing account.move.line record.
@@ -99,7 +95,7 @@ func (c *Client) UpdateAccountMoveLine(aml *AccountMoveLine) error {
 // UpdateAccountMoveLines updates existing account.move.line records.
 // All records (represented by ids) will be updated by aml values.
 func (c *Client) UpdateAccountMoveLines(ids []int64, aml *AccountMoveLine) error {
-	return c.Update(AccountMoveLineModel, ids, aml)
+	return c.Update(AccountMoveLineModel, ids, aml, nil)
 }
 
 // DeleteAccountMoveLine deletes an existing account.move.line record.
@@ -118,10 +114,7 @@ func (c *Client) GetAccountMoveLine(id int64) (*AccountMoveLine, error) {
 	if err != nil {
 		return nil, err
 	}
-	if amls != nil && len(*amls) > 0 {
-		return &((*amls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.move.line not found", id)
+	return &((*amls)[0]), nil
 }
 
 // GetAccountMoveLines gets account.move.line existing records.
@@ -139,10 +132,7 @@ func (c *Client) FindAccountMoveLine(criteria *Criteria) (*AccountMoveLine, erro
 	if err := c.SearchRead(AccountMoveLineModel, criteria, NewOptions().Limit(1), amls); err != nil {
 		return nil, err
 	}
-	if amls != nil && len(*amls) > 0 {
-		return &((*amls)[0]), nil
-	}
-	return nil, fmt.Errorf("account.move.line was not found with criteria %v", criteria)
+	return &((*amls)[0]), nil
 }
 
 // FindAccountMoveLines finds account.move.line records by querying it
@@ -158,11 +148,7 @@ func (c *Client) FindAccountMoveLines(criteria *Criteria, options *Options) (*Ac
 // FindAccountMoveLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountMoveLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountMoveLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountMoveLineModel, criteria, options)
 }
 
 // FindAccountMoveLineId finds record id by querying it with criteria.
@@ -171,8 +157,5 @@ func (c *Client) FindAccountMoveLineId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.move.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

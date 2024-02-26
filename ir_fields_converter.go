@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrFieldsConverter represents ir.fields.converter model.
 type IrFieldsConverter struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrFieldsConverters(ifcs []*IrFieldsConverter) ([]int64, e
 	for _, v := range ifcs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrFieldsConverterModel, vv)
+	return c.Create(IrFieldsConverterModel, vv, nil)
 }
 
 // UpdateIrFieldsConverter updates an existing ir.fields.converter record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrFieldsConverter(ifc *IrFieldsConverter) error {
 // UpdateIrFieldsConverters updates existing ir.fields.converter records.
 // All records (represented by ids) will be updated by ifc values.
 func (c *Client) UpdateIrFieldsConverters(ids []int64, ifc *IrFieldsConverter) error {
-	return c.Update(IrFieldsConverterModel, ids, ifc)
+	return c.Update(IrFieldsConverterModel, ids, ifc, nil)
 }
 
 // DeleteIrFieldsConverter deletes an existing ir.fields.converter record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrFieldsConverter(id int64) (*IrFieldsConverter, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ifcs != nil && len(*ifcs) > 0 {
-		return &((*ifcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.fields.converter not found", id)
+	return &((*ifcs)[0]), nil
 }
 
 // GetIrFieldsConverters gets ir.fields.converter existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrFieldsConverter(criteria *Criteria) (*IrFieldsConverter, 
 	if err := c.SearchRead(IrFieldsConverterModel, criteria, NewOptions().Limit(1), ifcs); err != nil {
 		return nil, err
 	}
-	if ifcs != nil && len(*ifcs) > 0 {
-		return &((*ifcs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.fields.converter was not found with criteria %v", criteria)
+	return &((*ifcs)[0]), nil
 }
 
 // FindIrFieldsConverters finds ir.fields.converter records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrFieldsConverters(criteria *Criteria, options *Options) (*
 // FindIrFieldsConverterIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrFieldsConverterIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrFieldsConverterModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrFieldsConverterModel, criteria, options)
 }
 
 // FindIrFieldsConverterId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrFieldsConverterId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.fields.converter was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

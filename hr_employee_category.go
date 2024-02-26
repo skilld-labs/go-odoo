@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrEmployeeCategory represents hr.employee.category model.
 type HrEmployeeCategory struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateHrEmployeeCategorys(hecs []*HrEmployeeCategory) ([]int64,
 	for _, v := range hecs {
 		vv = append(vv, v)
 	}
-	return c.Create(HrEmployeeCategoryModel, vv)
+	return c.Create(HrEmployeeCategoryModel, vv, nil)
 }
 
 // UpdateHrEmployeeCategory updates an existing hr.employee.category record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateHrEmployeeCategory(hec *HrEmployeeCategory) error {
 // UpdateHrEmployeeCategorys updates existing hr.employee.category records.
 // All records (represented by ids) will be updated by hec values.
 func (c *Client) UpdateHrEmployeeCategorys(ids []int64, hec *HrEmployeeCategory) error {
-	return c.Update(HrEmployeeCategoryModel, ids, hec)
+	return c.Update(HrEmployeeCategoryModel, ids, hec, nil)
 }
 
 // DeleteHrEmployeeCategory deletes an existing hr.employee.category record.
@@ -77,10 +73,7 @@ func (c *Client) GetHrEmployeeCategory(id int64) (*HrEmployeeCategory, error) {
 	if err != nil {
 		return nil, err
 	}
-	if hecs != nil && len(*hecs) > 0 {
-		return &((*hecs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.employee.category not found", id)
+	return &((*hecs)[0]), nil
 }
 
 // GetHrEmployeeCategorys gets hr.employee.category existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindHrEmployeeCategory(criteria *Criteria) (*HrEmployeeCategory
 	if err := c.SearchRead(HrEmployeeCategoryModel, criteria, NewOptions().Limit(1), hecs); err != nil {
 		return nil, err
 	}
-	if hecs != nil && len(*hecs) > 0 {
-		return &((*hecs)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.employee.category was not found with criteria %v", criteria)
+	return &((*hecs)[0]), nil
 }
 
 // FindHrEmployeeCategorys finds hr.employee.category records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindHrEmployeeCategorys(criteria *Criteria, options *Options) (
 // FindHrEmployeeCategoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrEmployeeCategoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrEmployeeCategoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrEmployeeCategoryModel, criteria, options)
 }
 
 // FindHrEmployeeCategoryId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindHrEmployeeCategoryId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.employee.category was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

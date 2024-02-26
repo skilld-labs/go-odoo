@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductPriceHistory represents product.price.history model.
 type ProductPriceHistory struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateProductPriceHistorys(pphs []*ProductPriceHistory) ([]int6
 	for _, v := range pphs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductPriceHistoryModel, vv)
+	return c.Create(ProductPriceHistoryModel, vv, nil)
 }
 
 // UpdateProductPriceHistory updates an existing product.price.history record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateProductPriceHistory(pph *ProductPriceHistory) error {
 // UpdateProductPriceHistorys updates existing product.price.history records.
 // All records (represented by ids) will be updated by pph values.
 func (c *Client) UpdateProductPriceHistorys(ids []int64, pph *ProductPriceHistory) error {
-	return c.Update(ProductPriceHistoryModel, ids, pph)
+	return c.Update(ProductPriceHistoryModel, ids, pph, nil)
 }
 
 // DeleteProductPriceHistory deletes an existing product.price.history record.
@@ -78,10 +74,7 @@ func (c *Client) GetProductPriceHistory(id int64) (*ProductPriceHistory, error) 
 	if err != nil {
 		return nil, err
 	}
-	if pphs != nil && len(*pphs) > 0 {
-		return &((*pphs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.price.history not found", id)
+	return &((*pphs)[0]), nil
 }
 
 // GetProductPriceHistorys gets product.price.history existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindProductPriceHistory(criteria *Criteria) (*ProductPriceHisto
 	if err := c.SearchRead(ProductPriceHistoryModel, criteria, NewOptions().Limit(1), pphs); err != nil {
 		return nil, err
 	}
-	if pphs != nil && len(*pphs) > 0 {
-		return &((*pphs)[0]), nil
-	}
-	return nil, fmt.Errorf("product.price.history was not found with criteria %v", criteria)
+	return &((*pphs)[0]), nil
 }
 
 // FindProductPriceHistorys finds product.price.history records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindProductPriceHistorys(criteria *Criteria, options *Options) 
 // FindProductPriceHistoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductPriceHistoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductPriceHistoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductPriceHistoryModel, criteria, options)
 }
 
 // FindProductPriceHistoryId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindProductPriceHistoryId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.price.history was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

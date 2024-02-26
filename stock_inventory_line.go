@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockInventoryLine represents stock.inventory.line model.
 type StockInventoryLine struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -60,7 +56,7 @@ func (c *Client) CreateStockInventoryLines(sils []*StockInventoryLine) ([]int64,
 	for _, v := range sils {
 		vv = append(vv, v)
 	}
-	return c.Create(StockInventoryLineModel, vv)
+	return c.Create(StockInventoryLineModel, vv, nil)
 }
 
 // UpdateStockInventoryLine updates an existing stock.inventory.line record.
@@ -71,7 +67,7 @@ func (c *Client) UpdateStockInventoryLine(sil *StockInventoryLine) error {
 // UpdateStockInventoryLines updates existing stock.inventory.line records.
 // All records (represented by ids) will be updated by sil values.
 func (c *Client) UpdateStockInventoryLines(ids []int64, sil *StockInventoryLine) error {
-	return c.Update(StockInventoryLineModel, ids, sil)
+	return c.Update(StockInventoryLineModel, ids, sil, nil)
 }
 
 // DeleteStockInventoryLine deletes an existing stock.inventory.line record.
@@ -90,10 +86,7 @@ func (c *Client) GetStockInventoryLine(id int64) (*StockInventoryLine, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sils != nil && len(*sils) > 0 {
-		return &((*sils)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.inventory.line not found", id)
+	return &((*sils)[0]), nil
 }
 
 // GetStockInventoryLines gets stock.inventory.line existing records.
@@ -111,10 +104,7 @@ func (c *Client) FindStockInventoryLine(criteria *Criteria) (*StockInventoryLine
 	if err := c.SearchRead(StockInventoryLineModel, criteria, NewOptions().Limit(1), sils); err != nil {
 		return nil, err
 	}
-	if sils != nil && len(*sils) > 0 {
-		return &((*sils)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.inventory.line was not found with criteria %v", criteria)
+	return &((*sils)[0]), nil
 }
 
 // FindStockInventoryLines finds stock.inventory.line records by querying it
@@ -130,11 +120,7 @@ func (c *Client) FindStockInventoryLines(criteria *Criteria, options *Options) (
 // FindStockInventoryLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockInventoryLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockInventoryLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockInventoryLineModel, criteria, options)
 }
 
 // FindStockInventoryLineId finds record id by querying it with criteria.
@@ -143,8 +129,5 @@ func (c *Client) FindStockInventoryLineId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.inventory.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

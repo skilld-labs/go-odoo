@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportTestsModelsCharReadonly represents base_import.tests.models.char.readonly model.
 type BaseImportTestsModelsCharReadonly struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseImportTestsModelsCharReadonlys(btmcrs []*BaseImportTe
 	for _, v := range btmcrs {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportTestsModelsCharReadonlyModel, vv)
+	return c.Create(BaseImportTestsModelsCharReadonlyModel, vv, nil)
 }
 
 // UpdateBaseImportTestsModelsCharReadonly updates an existing base_import.tests.models.char.readonly record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseImportTestsModelsCharReadonly(btmcr *BaseImportTestsM
 // UpdateBaseImportTestsModelsCharReadonlys updates existing base_import.tests.models.char.readonly records.
 // All records (represented by ids) will be updated by btmcr values.
 func (c *Client) UpdateBaseImportTestsModelsCharReadonlys(ids []int64, btmcr *BaseImportTestsModelsCharReadonly) error {
-	return c.Update(BaseImportTestsModelsCharReadonlyModel, ids, btmcr)
+	return c.Update(BaseImportTestsModelsCharReadonlyModel, ids, btmcr, nil)
 }
 
 // DeleteBaseImportTestsModelsCharReadonly deletes an existing base_import.tests.models.char.readonly record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseImportTestsModelsCharReadonly(id int64) (*BaseImportTest
 	if err != nil {
 		return nil, err
 	}
-	if btmcrs != nil && len(*btmcrs) > 0 {
-		return &((*btmcrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.tests.models.char.readonly not found", id)
+	return &((*btmcrs)[0]), nil
 }
 
 // GetBaseImportTestsModelsCharReadonlys gets base_import.tests.models.char.readonly existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseImportTestsModelsCharReadonly(criteria *Criteria) (*Bas
 	if err := c.SearchRead(BaseImportTestsModelsCharReadonlyModel, criteria, NewOptions().Limit(1), btmcrs); err != nil {
 		return nil, err
 	}
-	if btmcrs != nil && len(*btmcrs) > 0 {
-		return &((*btmcrs)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.tests.models.char.readonly was not found with criteria %v", criteria)
+	return &((*btmcrs)[0]), nil
 }
 
 // FindBaseImportTestsModelsCharReadonlys finds base_import.tests.models.char.readonly records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseImportTestsModelsCharReadonlys(criteria *Criteria, opti
 // FindBaseImportTestsModelsCharReadonlyIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportTestsModelsCharReadonlyIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportTestsModelsCharReadonlyModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportTestsModelsCharReadonlyModel, criteria, options)
 }
 
 // FindBaseImportTestsModelsCharReadonlyId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseImportTestsModelsCharReadonlyId(criteria *Criteria, opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.tests.models.char.readonly was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

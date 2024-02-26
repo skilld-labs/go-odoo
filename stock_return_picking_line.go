@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockReturnPickingLine represents stock.return.picking.line model.
 type StockReturnPickingLine struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateStockReturnPickingLines(srpls []*StockReturnPickingLine) 
 	for _, v := range srpls {
 		vv = append(vv, v)
 	}
-	return c.Create(StockReturnPickingLineModel, vv)
+	return c.Create(StockReturnPickingLineModel, vv, nil)
 }
 
 // UpdateStockReturnPickingLine updates an existing stock.return.picking.line record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateStockReturnPickingLine(srpl *StockReturnPickingLine) erro
 // UpdateStockReturnPickingLines updates existing stock.return.picking.line records.
 // All records (represented by ids) will be updated by srpl values.
 func (c *Client) UpdateStockReturnPickingLines(ids []int64, srpl *StockReturnPickingLine) error {
-	return c.Update(StockReturnPickingLineModel, ids, srpl)
+	return c.Update(StockReturnPickingLineModel, ids, srpl, nil)
 }
 
 // DeleteStockReturnPickingLine deletes an existing stock.return.picking.line record.
@@ -80,10 +76,7 @@ func (c *Client) GetStockReturnPickingLine(id int64) (*StockReturnPickingLine, e
 	if err != nil {
 		return nil, err
 	}
-	if srpls != nil && len(*srpls) > 0 {
-		return &((*srpls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.return.picking.line not found", id)
+	return &((*srpls)[0]), nil
 }
 
 // GetStockReturnPickingLines gets stock.return.picking.line existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindStockReturnPickingLine(criteria *Criteria) (*StockReturnPic
 	if err := c.SearchRead(StockReturnPickingLineModel, criteria, NewOptions().Limit(1), srpls); err != nil {
 		return nil, err
 	}
-	if srpls != nil && len(*srpls) > 0 {
-		return &((*srpls)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.return.picking.line was not found with criteria %v", criteria)
+	return &((*srpls)[0]), nil
 }
 
 // FindStockReturnPickingLines finds stock.return.picking.line records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindStockReturnPickingLines(criteria *Criteria, options *Option
 // FindStockReturnPickingLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockReturnPickingLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockReturnPickingLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockReturnPickingLineModel, criteria, options)
 }
 
 // FindStockReturnPickingLineId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindStockReturnPickingLineId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.return.picking.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

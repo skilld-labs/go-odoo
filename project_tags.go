@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProjectTags represents project.tags model.
 type ProjectTags struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateProjectTagss(pts []*ProjectTags) ([]int64, error) {
 	for _, v := range pts {
 		vv = append(vv, v)
 	}
-	return c.Create(ProjectTagsModel, vv)
+	return c.Create(ProjectTagsModel, vv, nil)
 }
 
 // UpdateProjectTags updates an existing project.tags record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateProjectTags(pt *ProjectTags) error {
 // UpdateProjectTagss updates existing project.tags records.
 // All records (represented by ids) will be updated by pt values.
 func (c *Client) UpdateProjectTagss(ids []int64, pt *ProjectTags) error {
-	return c.Update(ProjectTagsModel, ids, pt)
+	return c.Update(ProjectTagsModel, ids, pt, nil)
 }
 
 // DeleteProjectTags deletes an existing project.tags record.
@@ -76,10 +72,7 @@ func (c *Client) GetProjectTags(id int64) (*ProjectTags, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of project.tags not found", id)
+	return &((*pts)[0]), nil
 }
 
 // GetProjectTagss gets project.tags existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindProjectTags(criteria *Criteria) (*ProjectTags, error) {
 	if err := c.SearchRead(ProjectTagsModel, criteria, NewOptions().Limit(1), pts); err != nil {
 		return nil, err
 	}
-	if pts != nil && len(*pts) > 0 {
-		return &((*pts)[0]), nil
-	}
-	return nil, fmt.Errorf("project.tags was not found with criteria %v", criteria)
+	return &((*pts)[0]), nil
 }
 
 // FindProjectTagss finds project.tags records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindProjectTagss(criteria *Criteria, options *Options) (*Projec
 // FindProjectTagsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProjectTagsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProjectTagsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProjectTagsModel, criteria, options)
 }
 
 // FindProjectTagsId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindProjectTagsId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("project.tags was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

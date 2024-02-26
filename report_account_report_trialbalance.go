@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportTrialbalance represents report.account.report_trialbalance model.
 type ReportAccountReportTrialbalance struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportTrialbalances(rars []*ReportAccountRep
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportTrialbalanceModel, vv)
+	return c.Create(ReportAccountReportTrialbalanceModel, vv, nil)
 }
 
 // UpdateReportAccountReportTrialbalance updates an existing report.account.report_trialbalance record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportTrialbalance(rar *ReportAccountReportT
 // UpdateReportAccountReportTrialbalances updates existing report.account.report_trialbalance records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportTrialbalances(ids []int64, rar *ReportAccountReportTrialbalance) error {
-	return c.Update(ReportAccountReportTrialbalanceModel, ids, rar)
+	return c.Update(ReportAccountReportTrialbalanceModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportTrialbalance deletes an existing report.account.report_trialbalance record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportTrialbalance(id int64) (*ReportAccountRep
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_trialbalance not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportTrialbalances gets report.account.report_trialbalance existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportTrialbalance(criteria *Criteria) (*Repor
 	if err := c.SearchRead(ReportAccountReportTrialbalanceModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_trialbalance was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportTrialbalances finds report.account.report_trialbalance records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportTrialbalances(criteria *Criteria, option
 // FindReportAccountReportTrialbalanceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportTrialbalanceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportTrialbalanceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportTrialbalanceModel, criteria, options)
 }
 
 // FindReportAccountReportTrialbalanceId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportTrialbalanceId(criteria *Criteria, optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_trialbalance was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

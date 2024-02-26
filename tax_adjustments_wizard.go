@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // TaxAdjustmentsWizard represents tax.adjustments.wizard model.
 type TaxAdjustmentsWizard struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -53,7 +49,7 @@ func (c *Client) CreateTaxAdjustmentsWizards(taws []*TaxAdjustmentsWizard) ([]in
 	for _, v := range taws {
 		vv = append(vv, v)
 	}
-	return c.Create(TaxAdjustmentsWizardModel, vv)
+	return c.Create(TaxAdjustmentsWizardModel, vv, nil)
 }
 
 // UpdateTaxAdjustmentsWizard updates an existing tax.adjustments.wizard record.
@@ -64,7 +60,7 @@ func (c *Client) UpdateTaxAdjustmentsWizard(taw *TaxAdjustmentsWizard) error {
 // UpdateTaxAdjustmentsWizards updates existing tax.adjustments.wizard records.
 // All records (represented by ids) will be updated by taw values.
 func (c *Client) UpdateTaxAdjustmentsWizards(ids []int64, taw *TaxAdjustmentsWizard) error {
-	return c.Update(TaxAdjustmentsWizardModel, ids, taw)
+	return c.Update(TaxAdjustmentsWizardModel, ids, taw, nil)
 }
 
 // DeleteTaxAdjustmentsWizard deletes an existing tax.adjustments.wizard record.
@@ -83,10 +79,7 @@ func (c *Client) GetTaxAdjustmentsWizard(id int64) (*TaxAdjustmentsWizard, error
 	if err != nil {
 		return nil, err
 	}
-	if taws != nil && len(*taws) > 0 {
-		return &((*taws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of tax.adjustments.wizard not found", id)
+	return &((*taws)[0]), nil
 }
 
 // GetTaxAdjustmentsWizards gets tax.adjustments.wizard existing records.
@@ -104,10 +97,7 @@ func (c *Client) FindTaxAdjustmentsWizard(criteria *Criteria) (*TaxAdjustmentsWi
 	if err := c.SearchRead(TaxAdjustmentsWizardModel, criteria, NewOptions().Limit(1), taws); err != nil {
 		return nil, err
 	}
-	if taws != nil && len(*taws) > 0 {
-		return &((*taws)[0]), nil
-	}
-	return nil, fmt.Errorf("tax.adjustments.wizard was not found with criteria %v", criteria)
+	return &((*taws)[0]), nil
 }
 
 // FindTaxAdjustmentsWizards finds tax.adjustments.wizard records by querying it
@@ -123,11 +113,7 @@ func (c *Client) FindTaxAdjustmentsWizards(criteria *Criteria, options *Options)
 // FindTaxAdjustmentsWizardIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindTaxAdjustmentsWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(TaxAdjustmentsWizardModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(TaxAdjustmentsWizardModel, criteria, options)
 }
 
 // FindTaxAdjustmentsWizardId finds record id by querying it with criteria.
@@ -136,8 +122,5 @@ func (c *Client) FindTaxAdjustmentsWizardId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("tax.adjustments.wizard was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

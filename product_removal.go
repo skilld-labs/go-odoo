@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductRemoval represents product.removal model.
 type ProductRemoval struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateProductRemovals(prs []*ProductRemoval) ([]int64, error) {
 	for _, v := range prs {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductRemovalModel, vv)
+	return c.Create(ProductRemovalModel, vv, nil)
 }
 
 // UpdateProductRemoval updates an existing product.removal record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateProductRemoval(pr *ProductRemoval) error {
 // UpdateProductRemovals updates existing product.removal records.
 // All records (represented by ids) will be updated by pr values.
 func (c *Client) UpdateProductRemovals(ids []int64, pr *ProductRemoval) error {
-	return c.Update(ProductRemovalModel, ids, pr)
+	return c.Update(ProductRemovalModel, ids, pr, nil)
 }
 
 // DeleteProductRemoval deletes an existing product.removal record.
@@ -76,10 +72,7 @@ func (c *Client) GetProductRemoval(id int64) (*ProductRemoval, error) {
 	if err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.removal not found", id)
+	return &((*prs)[0]), nil
 }
 
 // GetProductRemovals gets product.removal existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindProductRemoval(criteria *Criteria) (*ProductRemoval, error)
 	if err := c.SearchRead(ProductRemovalModel, criteria, NewOptions().Limit(1), prs); err != nil {
 		return nil, err
 	}
-	if prs != nil && len(*prs) > 0 {
-		return &((*prs)[0]), nil
-	}
-	return nil, fmt.Errorf("product.removal was not found with criteria %v", criteria)
+	return &((*prs)[0]), nil
 }
 
 // FindProductRemovals finds product.removal records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindProductRemovals(criteria *Criteria, options *Options) (*Pro
 // FindProductRemovalIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductRemovalIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductRemovalModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductRemovalModel, criteria, options)
 }
 
 // FindProductRemovalId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindProductRemovalId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.removal was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

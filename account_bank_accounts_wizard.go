@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBankAccountsWizard represents account.bank.accounts.wizard model.
 type AccountBankAccountsWizard struct {
 	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateAccountBankAccountsWizards(abaws []*AccountBankAccountsWi
 	for _, v := range abaws {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBankAccountsWizardModel, vv)
+	return c.Create(AccountBankAccountsWizardModel, vv, nil)
 }
 
 // UpdateAccountBankAccountsWizard updates an existing account.bank.accounts.wizard record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateAccountBankAccountsWizard(abaw *AccountBankAccountsWizard
 // UpdateAccountBankAccountsWizards updates existing account.bank.accounts.wizard records.
 // All records (represented by ids) will be updated by abaw values.
 func (c *Client) UpdateAccountBankAccountsWizards(ids []int64, abaw *AccountBankAccountsWizard) error {
-	return c.Update(AccountBankAccountsWizardModel, ids, abaw)
+	return c.Update(AccountBankAccountsWizardModel, ids, abaw, nil)
 }
 
 // DeleteAccountBankAccountsWizard deletes an existing account.bank.accounts.wizard record.
@@ -78,10 +74,7 @@ func (c *Client) GetAccountBankAccountsWizard(id int64) (*AccountBankAccountsWiz
 	if err != nil {
 		return nil, err
 	}
-	if abaws != nil && len(*abaws) > 0 {
-		return &((*abaws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.bank.accounts.wizard not found", id)
+	return &((*abaws)[0]), nil
 }
 
 // GetAccountBankAccountsWizards gets account.bank.accounts.wizard existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindAccountBankAccountsWizard(criteria *Criteria) (*AccountBank
 	if err := c.SearchRead(AccountBankAccountsWizardModel, criteria, NewOptions().Limit(1), abaws); err != nil {
 		return nil, err
 	}
-	if abaws != nil && len(*abaws) > 0 {
-		return &((*abaws)[0]), nil
-	}
-	return nil, fmt.Errorf("account.bank.accounts.wizard was not found with criteria %v", criteria)
+	return &((*abaws)[0]), nil
 }
 
 // FindAccountBankAccountsWizards finds account.bank.accounts.wizard records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindAccountBankAccountsWizards(criteria *Criteria, options *Opt
 // FindAccountBankAccountsWizardIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankAccountsWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBankAccountsWizardModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBankAccountsWizardModel, criteria, options)
 }
 
 // FindAccountBankAccountsWizardId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindAccountBankAccountsWizardId(criteria *Criteria, options *Op
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.bank.accounts.wizard was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

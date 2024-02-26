@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockInventory represents stock.inventory model.
 type StockInventory struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -60,7 +56,7 @@ func (c *Client) CreateStockInventorys(sis []*StockInventory) ([]int64, error) {
 	for _, v := range sis {
 		vv = append(vv, v)
 	}
-	return c.Create(StockInventoryModel, vv)
+	return c.Create(StockInventoryModel, vv, nil)
 }
 
 // UpdateStockInventory updates an existing stock.inventory record.
@@ -71,7 +67,7 @@ func (c *Client) UpdateStockInventory(si *StockInventory) error {
 // UpdateStockInventorys updates existing stock.inventory records.
 // All records (represented by ids) will be updated by si values.
 func (c *Client) UpdateStockInventorys(ids []int64, si *StockInventory) error {
-	return c.Update(StockInventoryModel, ids, si)
+	return c.Update(StockInventoryModel, ids, si, nil)
 }
 
 // DeleteStockInventory deletes an existing stock.inventory record.
@@ -90,10 +86,7 @@ func (c *Client) GetStockInventory(id int64) (*StockInventory, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sis != nil && len(*sis) > 0 {
-		return &((*sis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.inventory not found", id)
+	return &((*sis)[0]), nil
 }
 
 // GetStockInventorys gets stock.inventory existing records.
@@ -111,10 +104,7 @@ func (c *Client) FindStockInventory(criteria *Criteria) (*StockInventory, error)
 	if err := c.SearchRead(StockInventoryModel, criteria, NewOptions().Limit(1), sis); err != nil {
 		return nil, err
 	}
-	if sis != nil && len(*sis) > 0 {
-		return &((*sis)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.inventory was not found with criteria %v", criteria)
+	return &((*sis)[0]), nil
 }
 
 // FindStockInventorys finds stock.inventory records by querying it
@@ -130,11 +120,7 @@ func (c *Client) FindStockInventorys(criteria *Criteria, options *Options) (*Sto
 // FindStockInventoryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockInventoryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockInventoryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockInventoryModel, criteria, options)
 }
 
 // FindStockInventoryId finds record id by querying it with criteria.
@@ -143,8 +129,5 @@ func (c *Client) FindStockInventoryId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.inventory was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

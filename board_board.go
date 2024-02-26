@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BoardBoard represents board.board model.
 type BoardBoard struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateBoardBoards(bbs []*BoardBoard) ([]int64, error) {
 	for _, v := range bbs {
 		vv = append(vv, v)
 	}
-	return c.Create(BoardBoardModel, vv)
+	return c.Create(BoardBoardModel, vv, nil)
 }
 
 // UpdateBoardBoard updates an existing board.board record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateBoardBoard(bb *BoardBoard) error {
 // UpdateBoardBoards updates existing board.board records.
 // All records (represented by ids) will be updated by bb values.
 func (c *Client) UpdateBoardBoards(ids []int64, bb *BoardBoard) error {
-	return c.Update(BoardBoardModel, ids, bb)
+	return c.Update(BoardBoardModel, ids, bb, nil)
 }
 
 // DeleteBoardBoard deletes an existing board.board record.
@@ -70,10 +66,7 @@ func (c *Client) GetBoardBoard(id int64) (*BoardBoard, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bbs != nil && len(*bbs) > 0 {
-		return &((*bbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of board.board not found", id)
+	return &((*bbs)[0]), nil
 }
 
 // GetBoardBoards gets board.board existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindBoardBoard(criteria *Criteria) (*BoardBoard, error) {
 	if err := c.SearchRead(BoardBoardModel, criteria, NewOptions().Limit(1), bbs); err != nil {
 		return nil, err
 	}
-	if bbs != nil && len(*bbs) > 0 {
-		return &((*bbs)[0]), nil
-	}
-	return nil, fmt.Errorf("board.board was not found with criteria %v", criteria)
+	return &((*bbs)[0]), nil
 }
 
 // FindBoardBoards finds board.board records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindBoardBoards(criteria *Criteria, options *Options) (*BoardBo
 // FindBoardBoardIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBoardBoardIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BoardBoardModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BoardBoardModel, criteria, options)
 }
 
 // FindBoardBoardId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindBoardBoardId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("board.board was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

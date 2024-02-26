@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BusPresence represents bus.presence model.
 type BusPresence struct {
 	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateBusPresences(bps []*BusPresence) ([]int64, error) {
 	for _, v := range bps {
 		vv = append(vv, v)
 	}
-	return c.Create(BusPresenceModel, vv)
+	return c.Create(BusPresenceModel, vv, nil)
 }
 
 // UpdateBusPresence updates an existing bus.presence record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateBusPresence(bp *BusPresence) error {
 // UpdateBusPresences updates existing bus.presence records.
 // All records (represented by ids) will be updated by bp values.
 func (c *Client) UpdateBusPresences(ids []int64, bp *BusPresence) error {
-	return c.Update(BusPresenceModel, ids, bp)
+	return c.Update(BusPresenceModel, ids, bp, nil)
 }
 
 // DeleteBusPresence deletes an existing bus.presence record.
@@ -74,10 +70,7 @@ func (c *Client) GetBusPresence(id int64) (*BusPresence, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bps != nil && len(*bps) > 0 {
-		return &((*bps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of bus.presence not found", id)
+	return &((*bps)[0]), nil
 }
 
 // GetBusPresences gets bus.presence existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindBusPresence(criteria *Criteria) (*BusPresence, error) {
 	if err := c.SearchRead(BusPresenceModel, criteria, NewOptions().Limit(1), bps); err != nil {
 		return nil, err
 	}
-	if bps != nil && len(*bps) > 0 {
-		return &((*bps)[0]), nil
-	}
-	return nil, fmt.Errorf("bus.presence was not found with criteria %v", criteria)
+	return &((*bps)[0]), nil
 }
 
 // FindBusPresences finds bus.presence records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindBusPresences(criteria *Criteria, options *Options) (*BusPre
 // FindBusPresenceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBusPresenceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BusPresenceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BusPresenceModel, criteria, options)
 }
 
 // FindBusPresenceId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindBusPresenceId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("bus.presence was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

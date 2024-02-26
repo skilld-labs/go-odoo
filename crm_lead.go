@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmLead represents crm.lead model.
 type CrmLead struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -116,7 +112,7 @@ func (c *Client) CreateCrmLeads(cls []*CrmLead) ([]int64, error) {
 	for _, v := range cls {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmLeadModel, vv)
+	return c.Create(CrmLeadModel, vv, nil)
 }
 
 // UpdateCrmLead updates an existing crm.lead record.
@@ -127,7 +123,7 @@ func (c *Client) UpdateCrmLead(cl *CrmLead) error {
 // UpdateCrmLeads updates existing crm.lead records.
 // All records (represented by ids) will be updated by cl values.
 func (c *Client) UpdateCrmLeads(ids []int64, cl *CrmLead) error {
-	return c.Update(CrmLeadModel, ids, cl)
+	return c.Update(CrmLeadModel, ids, cl, nil)
 }
 
 // DeleteCrmLead deletes an existing crm.lead record.
@@ -146,10 +142,7 @@ func (c *Client) GetCrmLead(id int64) (*CrmLead, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cls != nil && len(*cls) > 0 {
-		return &((*cls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.lead not found", id)
+	return &((*cls)[0]), nil
 }
 
 // GetCrmLeads gets crm.lead existing records.
@@ -167,10 +160,7 @@ func (c *Client) FindCrmLead(criteria *Criteria) (*CrmLead, error) {
 	if err := c.SearchRead(CrmLeadModel, criteria, NewOptions().Limit(1), cls); err != nil {
 		return nil, err
 	}
-	if cls != nil && len(*cls) > 0 {
-		return &((*cls)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.lead was not found with criteria %v", criteria)
+	return &((*cls)[0]), nil
 }
 
 // FindCrmLeads finds crm.lead records by querying it
@@ -186,11 +176,7 @@ func (c *Client) FindCrmLeads(criteria *Criteria, options *Options) (*CrmLeads, 
 // FindCrmLeadIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmLeadIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmLeadModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmLeadModel, criteria, options)
 }
 
 // FindCrmLeadId finds record id by querying it with criteria.
@@ -199,8 +185,5 @@ func (c *Client) FindCrmLeadId(criteria *Criteria, options *Options) (int64, err
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.lead was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,4 +1,5 @@
-//Package odoo contains client code of library
+// Package odoo contains client code of library
+//
 //go:generate ./generator/generator -u $ODOO_ADMIN -p $ODOO_PASSWORD -d $ODOO_DATABASE --url $ODOO_URL -o $ODOO_REPO_PATH --models $ODOO_MODELS -t generator/cmd/tmpl/model.tmpl
 package odoo
 
@@ -226,7 +227,7 @@ func getValuesFromInterface(v interface{}) map[string]interface{} {
 
 // Create new model instances.
 // https://www.odoo.com/documentation/13.0/webservices/odoo.html#create-records
-func (c *Client) Create(model string, values []interface{}) ([]int64, error) {
+func (c *Client) Create(model string, values []interface{}, options *Options) ([]int64, error) {
 	var args []interface{}
 	if len(values) == 0 {
 		return nil, nil
@@ -239,7 +240,7 @@ func (c *Client) Create(model string, values []interface{}) ([]int64, error) {
 		}
 		args = []interface{}{vv}
 	}
-	resp, err := c.ExecuteKw("create", model, args, nil)
+	resp, err := c.ExecuteKw("create", model, args, options)
 	if err != nil {
 		return nil, err
 	}
@@ -256,9 +257,9 @@ func (c *Client) Create(model string, values []interface{}) ([]int64, error) {
 
 // Update existing model row(s).
 // https://www.odoo.com/documentation/13.0/webservices/odoo.html#update-records
-func (c *Client) Update(model string, ids []int64, values interface{}) error {
+func (c *Client) Update(model string, ids []int64, values interface{}, options *Options) error {
 	v := getValuesFromInterface(values)
-	_, err := c.ExecuteKw("write", model, []interface{}{ids, v}, nil)
+	_, err := c.ExecuteKw("write", model, []interface{}{ids, v}, options)
 	if err != nil {
 		return err
 	}

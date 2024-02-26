@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseModuleUpgrade represents base.module.upgrade model.
 type BaseModuleUpgrade struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateBaseModuleUpgrades(bmus []*BaseModuleUpgrade) ([]int64, e
 	for _, v := range bmus {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseModuleUpgradeModel, vv)
+	return c.Create(BaseModuleUpgradeModel, vv, nil)
 }
 
 // UpdateBaseModuleUpgrade updates an existing base.module.upgrade record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateBaseModuleUpgrade(bmu *BaseModuleUpgrade) error {
 // UpdateBaseModuleUpgrades updates existing base.module.upgrade records.
 // All records (represented by ids) will be updated by bmu values.
 func (c *Client) UpdateBaseModuleUpgrades(ids []int64, bmu *BaseModuleUpgrade) error {
-	return c.Update(BaseModuleUpgradeModel, ids, bmu)
+	return c.Update(BaseModuleUpgradeModel, ids, bmu, nil)
 }
 
 // DeleteBaseModuleUpgrade deletes an existing base.module.upgrade record.
@@ -75,10 +71,7 @@ func (c *Client) GetBaseModuleUpgrade(id int64) (*BaseModuleUpgrade, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.module.upgrade not found", id)
+	return &((*bmus)[0]), nil
 }
 
 // GetBaseModuleUpgrades gets base.module.upgrade existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindBaseModuleUpgrade(criteria *Criteria) (*BaseModuleUpgrade, 
 	if err := c.SearchRead(BaseModuleUpgradeModel, criteria, NewOptions().Limit(1), bmus); err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("base.module.upgrade was not found with criteria %v", criteria)
+	return &((*bmus)[0]), nil
 }
 
 // FindBaseModuleUpgrades finds base.module.upgrade records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindBaseModuleUpgrades(criteria *Criteria, options *Options) (*
 // FindBaseModuleUpgradeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseModuleUpgradeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseModuleUpgradeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseModuleUpgradeModel, criteria, options)
 }
 
 // FindBaseModuleUpgradeId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindBaseModuleUpgradeId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.module.upgrade was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PortalMixin represents portal.mixin model.
 type PortalMixin struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -41,7 +37,7 @@ func (c *Client) CreatePortalMixins(pms []*PortalMixin) ([]int64, error) {
 	for _, v := range pms {
 		vv = append(vv, v)
 	}
-	return c.Create(PortalMixinModel, vv)
+	return c.Create(PortalMixinModel, vv, nil)
 }
 
 // UpdatePortalMixin updates an existing portal.mixin record.
@@ -52,7 +48,7 @@ func (c *Client) UpdatePortalMixin(pm *PortalMixin) error {
 // UpdatePortalMixins updates existing portal.mixin records.
 // All records (represented by ids) will be updated by pm values.
 func (c *Client) UpdatePortalMixins(ids []int64, pm *PortalMixin) error {
-	return c.Update(PortalMixinModel, ids, pm)
+	return c.Update(PortalMixinModel, ids, pm, nil)
 }
 
 // DeletePortalMixin deletes an existing portal.mixin record.
@@ -71,10 +67,7 @@ func (c *Client) GetPortalMixin(id int64) (*PortalMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pms != nil && len(*pms) > 0 {
-		return &((*pms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of portal.mixin not found", id)
+	return &((*pms)[0]), nil
 }
 
 // GetPortalMixins gets portal.mixin existing records.
@@ -92,10 +85,7 @@ func (c *Client) FindPortalMixin(criteria *Criteria) (*PortalMixin, error) {
 	if err := c.SearchRead(PortalMixinModel, criteria, NewOptions().Limit(1), pms); err != nil {
 		return nil, err
 	}
-	if pms != nil && len(*pms) > 0 {
-		return &((*pms)[0]), nil
-	}
-	return nil, fmt.Errorf("portal.mixin was not found with criteria %v", criteria)
+	return &((*pms)[0]), nil
 }
 
 // FindPortalMixins finds portal.mixin records by querying it
@@ -111,11 +101,7 @@ func (c *Client) FindPortalMixins(criteria *Criteria, options *Options) (*Portal
 // FindPortalMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPortalMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PortalMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PortalMixinModel, criteria, options)
 }
 
 // FindPortalMixinId finds record id by querying it with criteria.
@@ -124,8 +110,5 @@ func (c *Client) FindPortalMixinId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("portal.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

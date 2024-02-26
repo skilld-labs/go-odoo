@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmOpportunityReport represents crm.opportunity.report model.
 type CrmOpportunityReport struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -68,7 +64,7 @@ func (c *Client) CreateCrmOpportunityReports(cors []*CrmOpportunityReport) ([]in
 	for _, v := range cors {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmOpportunityReportModel, vv)
+	return c.Create(CrmOpportunityReportModel, vv, nil)
 }
 
 // UpdateCrmOpportunityReport updates an existing crm.opportunity.report record.
@@ -79,7 +75,7 @@ func (c *Client) UpdateCrmOpportunityReport(cor *CrmOpportunityReport) error {
 // UpdateCrmOpportunityReports updates existing crm.opportunity.report records.
 // All records (represented by ids) will be updated by cor values.
 func (c *Client) UpdateCrmOpportunityReports(ids []int64, cor *CrmOpportunityReport) error {
-	return c.Update(CrmOpportunityReportModel, ids, cor)
+	return c.Update(CrmOpportunityReportModel, ids, cor, nil)
 }
 
 // DeleteCrmOpportunityReport deletes an existing crm.opportunity.report record.
@@ -98,10 +94,7 @@ func (c *Client) GetCrmOpportunityReport(id int64) (*CrmOpportunityReport, error
 	if err != nil {
 		return nil, err
 	}
-	if cors != nil && len(*cors) > 0 {
-		return &((*cors)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.opportunity.report not found", id)
+	return &((*cors)[0]), nil
 }
 
 // GetCrmOpportunityReports gets crm.opportunity.report existing records.
@@ -119,10 +112,7 @@ func (c *Client) FindCrmOpportunityReport(criteria *Criteria) (*CrmOpportunityRe
 	if err := c.SearchRead(CrmOpportunityReportModel, criteria, NewOptions().Limit(1), cors); err != nil {
 		return nil, err
 	}
-	if cors != nil && len(*cors) > 0 {
-		return &((*cors)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.opportunity.report was not found with criteria %v", criteria)
+	return &((*cors)[0]), nil
 }
 
 // FindCrmOpportunityReports finds crm.opportunity.report records by querying it
@@ -138,11 +128,7 @@ func (c *Client) FindCrmOpportunityReports(criteria *Criteria, options *Options)
 // FindCrmOpportunityReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmOpportunityReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmOpportunityReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmOpportunityReportModel, criteria, options)
 }
 
 // FindCrmOpportunityReportId finds record id by querying it with criteria.
@@ -151,8 +137,5 @@ func (c *Client) FindCrmOpportunityReportId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.opportunity.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

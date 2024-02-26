@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportBaseReportIrmodulereference represents report.base.report_irmodulereference model.
 type ReportBaseReportIrmodulereference struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportBaseReportIrmodulereferences(rbrs []*ReportBaseRepo
 	for _, v := range rbrs {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportBaseReportIrmodulereferenceModel, vv)
+	return c.Create(ReportBaseReportIrmodulereferenceModel, vv, nil)
 }
 
 // UpdateReportBaseReportIrmodulereference updates an existing report.base.report_irmodulereference record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportBaseReportIrmodulereference(rbr *ReportBaseReportIr
 // UpdateReportBaseReportIrmodulereferences updates existing report.base.report_irmodulereference records.
 // All records (represented by ids) will be updated by rbr values.
 func (c *Client) UpdateReportBaseReportIrmodulereferences(ids []int64, rbr *ReportBaseReportIrmodulereference) error {
-	return c.Update(ReportBaseReportIrmodulereferenceModel, ids, rbr)
+	return c.Update(ReportBaseReportIrmodulereferenceModel, ids, rbr, nil)
 }
 
 // DeleteReportBaseReportIrmodulereference deletes an existing report.base.report_irmodulereference record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportBaseReportIrmodulereference(id int64) (*ReportBaseRepo
 	if err != nil {
 		return nil, err
 	}
-	if rbrs != nil && len(*rbrs) > 0 {
-		return &((*rbrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.base.report_irmodulereference not found", id)
+	return &((*rbrs)[0]), nil
 }
 
 // GetReportBaseReportIrmodulereferences gets report.base.report_irmodulereference existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportBaseReportIrmodulereference(criteria *Criteria) (*Rep
 	if err := c.SearchRead(ReportBaseReportIrmodulereferenceModel, criteria, NewOptions().Limit(1), rbrs); err != nil {
 		return nil, err
 	}
-	if rbrs != nil && len(*rbrs) > 0 {
-		return &((*rbrs)[0]), nil
-	}
-	return nil, fmt.Errorf("report.base.report_irmodulereference was not found with criteria %v", criteria)
+	return &((*rbrs)[0]), nil
 }
 
 // FindReportBaseReportIrmodulereferences finds report.base.report_irmodulereference records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportBaseReportIrmodulereferences(criteria *Criteria, opti
 // FindReportBaseReportIrmodulereferenceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportBaseReportIrmodulereferenceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportBaseReportIrmodulereferenceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportBaseReportIrmodulereferenceModel, criteria, options)
 }
 
 // FindReportBaseReportIrmodulereferenceId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportBaseReportIrmodulereferenceId(criteria *Criteria, opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.base.report_irmodulereference was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

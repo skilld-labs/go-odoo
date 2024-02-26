@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // WebPlanner represents web.planner model.
 type WebPlanner struct {
 	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
@@ -52,7 +48,7 @@ func (c *Client) CreateWebPlanners(wps []*WebPlanner) ([]int64, error) {
 	for _, v := range wps {
 		vv = append(vv, v)
 	}
-	return c.Create(WebPlannerModel, vv)
+	return c.Create(WebPlannerModel, vv, nil)
 }
 
 // UpdateWebPlanner updates an existing web.planner record.
@@ -63,7 +59,7 @@ func (c *Client) UpdateWebPlanner(wp *WebPlanner) error {
 // UpdateWebPlanners updates existing web.planner records.
 // All records (represented by ids) will be updated by wp values.
 func (c *Client) UpdateWebPlanners(ids []int64, wp *WebPlanner) error {
-	return c.Update(WebPlannerModel, ids, wp)
+	return c.Update(WebPlannerModel, ids, wp, nil)
 }
 
 // DeleteWebPlanner deletes an existing web.planner record.
@@ -82,10 +78,7 @@ func (c *Client) GetWebPlanner(id int64) (*WebPlanner, error) {
 	if err != nil {
 		return nil, err
 	}
-	if wps != nil && len(*wps) > 0 {
-		return &((*wps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of web.planner not found", id)
+	return &((*wps)[0]), nil
 }
 
 // GetWebPlanners gets web.planner existing records.
@@ -103,10 +96,7 @@ func (c *Client) FindWebPlanner(criteria *Criteria) (*WebPlanner, error) {
 	if err := c.SearchRead(WebPlannerModel, criteria, NewOptions().Limit(1), wps); err != nil {
 		return nil, err
 	}
-	if wps != nil && len(*wps) > 0 {
-		return &((*wps)[0]), nil
-	}
-	return nil, fmt.Errorf("web.planner was not found with criteria %v", criteria)
+	return &((*wps)[0]), nil
 }
 
 // FindWebPlanners finds web.planner records by querying it
@@ -122,11 +112,7 @@ func (c *Client) FindWebPlanners(criteria *Criteria, options *Options) (*WebPlan
 // FindWebPlannerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebPlannerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(WebPlannerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(WebPlannerModel, criteria, options)
 }
 
 // FindWebPlannerId finds record id by querying it with criteria.
@@ -135,8 +121,5 @@ func (c *Client) FindWebPlannerId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("web.planner was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

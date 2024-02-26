@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBankStatementImportJournalCreation represents account.bank.statement.import.journal.creation model.
 type AccountBankStatementImportJournalCreation struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -79,7 +75,7 @@ func (c *Client) CreateAccountBankStatementImportJournalCreations(absijcs []*Acc
 	for _, v := range absijcs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBankStatementImportJournalCreationModel, vv)
+	return c.Create(AccountBankStatementImportJournalCreationModel, vv, nil)
 }
 
 // UpdateAccountBankStatementImportJournalCreation updates an existing account.bank.statement.import.journal.creation record.
@@ -90,7 +86,7 @@ func (c *Client) UpdateAccountBankStatementImportJournalCreation(absijc *Account
 // UpdateAccountBankStatementImportJournalCreations updates existing account.bank.statement.import.journal.creation records.
 // All records (represented by ids) will be updated by absijc values.
 func (c *Client) UpdateAccountBankStatementImportJournalCreations(ids []int64, absijc *AccountBankStatementImportJournalCreation) error {
-	return c.Update(AccountBankStatementImportJournalCreationModel, ids, absijc)
+	return c.Update(AccountBankStatementImportJournalCreationModel, ids, absijc, nil)
 }
 
 // DeleteAccountBankStatementImportJournalCreation deletes an existing account.bank.statement.import.journal.creation record.
@@ -109,10 +105,7 @@ func (c *Client) GetAccountBankStatementImportJournalCreation(id int64) (*Accoun
 	if err != nil {
 		return nil, err
 	}
-	if absijcs != nil && len(*absijcs) > 0 {
-		return &((*absijcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.bank.statement.import.journal.creation not found", id)
+	return &((*absijcs)[0]), nil
 }
 
 // GetAccountBankStatementImportJournalCreations gets account.bank.statement.import.journal.creation existing records.
@@ -130,10 +123,7 @@ func (c *Client) FindAccountBankStatementImportJournalCreation(criteria *Criteri
 	if err := c.SearchRead(AccountBankStatementImportJournalCreationModel, criteria, NewOptions().Limit(1), absijcs); err != nil {
 		return nil, err
 	}
-	if absijcs != nil && len(*absijcs) > 0 {
-		return &((*absijcs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.bank.statement.import.journal.creation was not found with criteria %v", criteria)
+	return &((*absijcs)[0]), nil
 }
 
 // FindAccountBankStatementImportJournalCreations finds account.bank.statement.import.journal.creation records by querying it
@@ -149,11 +139,7 @@ func (c *Client) FindAccountBankStatementImportJournalCreations(criteria *Criter
 // FindAccountBankStatementImportJournalCreationIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementImportJournalCreationIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBankStatementImportJournalCreationModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBankStatementImportJournalCreationModel, criteria, options)
 }
 
 // FindAccountBankStatementImportJournalCreationId finds record id by querying it with criteria.
@@ -162,8 +148,5 @@ func (c *Client) FindAccountBankStatementImportJournalCreationId(criteria *Crite
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.bank.statement.import.journal.creation was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

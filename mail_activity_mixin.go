@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailActivityMixin represents mail.activity.mixin model.
 type MailActivityMixin struct {
 	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateMailActivityMixins(mams []*MailActivityMixin) ([]int64, e
 	for _, v := range mams {
 		vv = append(vv, v)
 	}
-	return c.Create(MailActivityMixinModel, vv)
+	return c.Create(MailActivityMixinModel, vv, nil)
 }
 
 // UpdateMailActivityMixin updates an existing mail.activity.mixin record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateMailActivityMixin(mam *MailActivityMixin) error {
 // UpdateMailActivityMixins updates existing mail.activity.mixin records.
 // All records (represented by ids) will be updated by mam values.
 func (c *Client) UpdateMailActivityMixins(ids []int64, mam *MailActivityMixin) error {
-	return c.Update(MailActivityMixinModel, ids, mam)
+	return c.Update(MailActivityMixinModel, ids, mam, nil)
 }
 
 // DeleteMailActivityMixin deletes an existing mail.activity.mixin record.
@@ -76,10 +72,7 @@ func (c *Client) GetMailActivityMixin(id int64) (*MailActivityMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mams != nil && len(*mams) > 0 {
-		return &((*mams)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.activity.mixin not found", id)
+	return &((*mams)[0]), nil
 }
 
 // GetMailActivityMixins gets mail.activity.mixin existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindMailActivityMixin(criteria *Criteria) (*MailActivityMixin, 
 	if err := c.SearchRead(MailActivityMixinModel, criteria, NewOptions().Limit(1), mams); err != nil {
 		return nil, err
 	}
-	if mams != nil && len(*mams) > 0 {
-		return &((*mams)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.activity.mixin was not found with criteria %v", criteria)
+	return &((*mams)[0]), nil
 }
 
 // FindMailActivityMixins finds mail.activity.mixin records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindMailActivityMixins(criteria *Criteria, options *Options) (*
 // FindMailActivityMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailActivityMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailActivityMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailActivityMixinModel, criteria, options)
 }
 
 // FindMailActivityMixinId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindMailActivityMixinId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.activity.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

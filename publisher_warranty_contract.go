@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PublisherWarrantyContract represents publisher_warranty.contract model.
 type PublisherWarrantyContract struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreatePublisherWarrantyContracts(pcs []*PublisherWarrantyContra
 	for _, v := range pcs {
 		vv = append(vv, v)
 	}
-	return c.Create(PublisherWarrantyContractModel, vv)
+	return c.Create(PublisherWarrantyContractModel, vv, nil)
 }
 
 // UpdatePublisherWarrantyContract updates an existing publisher_warranty.contract record.
@@ -51,7 +47,7 @@ func (c *Client) UpdatePublisherWarrantyContract(pc *PublisherWarrantyContract) 
 // UpdatePublisherWarrantyContracts updates existing publisher_warranty.contract records.
 // All records (represented by ids) will be updated by pc values.
 func (c *Client) UpdatePublisherWarrantyContracts(ids []int64, pc *PublisherWarrantyContract) error {
-	return c.Update(PublisherWarrantyContractModel, ids, pc)
+	return c.Update(PublisherWarrantyContractModel, ids, pc, nil)
 }
 
 // DeletePublisherWarrantyContract deletes an existing publisher_warranty.contract record.
@@ -70,10 +66,7 @@ func (c *Client) GetPublisherWarrantyContract(id int64) (*PublisherWarrantyContr
 	if err != nil {
 		return nil, err
 	}
-	if pcs != nil && len(*pcs) > 0 {
-		return &((*pcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of publisher_warranty.contract not found", id)
+	return &((*pcs)[0]), nil
 }
 
 // GetPublisherWarrantyContracts gets publisher_warranty.contract existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindPublisherWarrantyContract(criteria *Criteria) (*PublisherWa
 	if err := c.SearchRead(PublisherWarrantyContractModel, criteria, NewOptions().Limit(1), pcs); err != nil {
 		return nil, err
 	}
-	if pcs != nil && len(*pcs) > 0 {
-		return &((*pcs)[0]), nil
-	}
-	return nil, fmt.Errorf("publisher_warranty.contract was not found with criteria %v", criteria)
+	return &((*pcs)[0]), nil
 }
 
 // FindPublisherWarrantyContracts finds publisher_warranty.contract records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindPublisherWarrantyContracts(criteria *Criteria, options *Opt
 // FindPublisherWarrantyContractIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPublisherWarrantyContractIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PublisherWarrantyContractModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PublisherWarrantyContractModel, criteria, options)
 }
 
 // FindPublisherWarrantyContractId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindPublisherWarrantyContractId(criteria *Criteria, options *Op
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("publisher_warranty.contract was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

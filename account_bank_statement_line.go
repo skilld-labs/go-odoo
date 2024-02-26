@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBankStatementLine represents account.bank.statement.line model.
 type AccountBankStatementLine struct {
 	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
@@ -64,7 +60,7 @@ func (c *Client) CreateAccountBankStatementLines(absls []*AccountBankStatementLi
 	for _, v := range absls {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBankStatementLineModel, vv)
+	return c.Create(AccountBankStatementLineModel, vv, nil)
 }
 
 // UpdateAccountBankStatementLine updates an existing account.bank.statement.line record.
@@ -75,7 +71,7 @@ func (c *Client) UpdateAccountBankStatementLine(absl *AccountBankStatementLine) 
 // UpdateAccountBankStatementLines updates existing account.bank.statement.line records.
 // All records (represented by ids) will be updated by absl values.
 func (c *Client) UpdateAccountBankStatementLines(ids []int64, absl *AccountBankStatementLine) error {
-	return c.Update(AccountBankStatementLineModel, ids, absl)
+	return c.Update(AccountBankStatementLineModel, ids, absl, nil)
 }
 
 // DeleteAccountBankStatementLine deletes an existing account.bank.statement.line record.
@@ -94,10 +90,7 @@ func (c *Client) GetAccountBankStatementLine(id int64) (*AccountBankStatementLin
 	if err != nil {
 		return nil, err
 	}
-	if absls != nil && len(*absls) > 0 {
-		return &((*absls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.bank.statement.line not found", id)
+	return &((*absls)[0]), nil
 }
 
 // GetAccountBankStatementLines gets account.bank.statement.line existing records.
@@ -115,10 +108,7 @@ func (c *Client) FindAccountBankStatementLine(criteria *Criteria) (*AccountBankS
 	if err := c.SearchRead(AccountBankStatementLineModel, criteria, NewOptions().Limit(1), absls); err != nil {
 		return nil, err
 	}
-	if absls != nil && len(*absls) > 0 {
-		return &((*absls)[0]), nil
-	}
-	return nil, fmt.Errorf("account.bank.statement.line was not found with criteria %v", criteria)
+	return &((*absls)[0]), nil
 }
 
 // FindAccountBankStatementLines finds account.bank.statement.line records by querying it
@@ -134,11 +124,7 @@ func (c *Client) FindAccountBankStatementLines(criteria *Criteria, options *Opti
 // FindAccountBankStatementLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBankStatementLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBankStatementLineModel, criteria, options)
 }
 
 // FindAccountBankStatementLineId finds record id by querying it with criteria.
@@ -147,8 +133,5 @@ func (c *Client) FindAccountBankStatementLineId(criteria *Criteria, options *Opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.bank.statement.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

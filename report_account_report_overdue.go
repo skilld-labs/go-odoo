@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportOverdue represents report.account.report_overdue model.
 type ReportAccountReportOverdue struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportOverdues(rars []*ReportAccountReportOv
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportOverdueModel, vv)
+	return c.Create(ReportAccountReportOverdueModel, vv, nil)
 }
 
 // UpdateReportAccountReportOverdue updates an existing report.account.report_overdue record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportOverdue(rar *ReportAccountReportOverdu
 // UpdateReportAccountReportOverdues updates existing report.account.report_overdue records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportOverdues(ids []int64, rar *ReportAccountReportOverdue) error {
-	return c.Update(ReportAccountReportOverdueModel, ids, rar)
+	return c.Update(ReportAccountReportOverdueModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportOverdue deletes an existing report.account.report_overdue record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportOverdue(id int64) (*ReportAccountReportOv
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_overdue not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportOverdues gets report.account.report_overdue existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportOverdue(criteria *Criteria) (*ReportAcco
 	if err := c.SearchRead(ReportAccountReportOverdueModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_overdue was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportOverdues finds report.account.report_overdue records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportOverdues(criteria *Criteria, options *Op
 // FindReportAccountReportOverdueIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportOverdueIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportOverdueModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportOverdueModel, criteria, options)
 }
 
 // FindReportAccountReportOverdueId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportOverdueId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_overdue was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAccountReportTax represents report.account.report_tax model.
 type ReportAccountReportTax struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportAccountReportTaxs(rars []*ReportAccountReportTax) (
 	for _, v := range rars {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAccountReportTaxModel, vv)
+	return c.Create(ReportAccountReportTaxModel, vv, nil)
 }
 
 // UpdateReportAccountReportTax updates an existing report.account.report_tax record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportAccountReportTax(rar *ReportAccountReportTax) error
 // UpdateReportAccountReportTaxs updates existing report.account.report_tax records.
 // All records (represented by ids) will be updated by rar values.
 func (c *Client) UpdateReportAccountReportTaxs(ids []int64, rar *ReportAccountReportTax) error {
-	return c.Update(ReportAccountReportTaxModel, ids, rar)
+	return c.Update(ReportAccountReportTaxModel, ids, rar, nil)
 }
 
 // DeleteReportAccountReportTax deletes an existing report.account.report_tax record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportAccountReportTax(id int64) (*ReportAccountReportTax, e
 	if err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.account.report_tax not found", id)
+	return &((*rars)[0]), nil
 }
 
 // GetReportAccountReportTaxs gets report.account.report_tax existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportAccountReportTax(criteria *Criteria) (*ReportAccountR
 	if err := c.SearchRead(ReportAccountReportTaxModel, criteria, NewOptions().Limit(1), rars); err != nil {
 		return nil, err
 	}
-	if rars != nil && len(*rars) > 0 {
-		return &((*rars)[0]), nil
-	}
-	return nil, fmt.Errorf("report.account.report_tax was not found with criteria %v", criteria)
+	return &((*rars)[0]), nil
 }
 
 // FindReportAccountReportTaxs finds report.account.report_tax records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportAccountReportTaxs(criteria *Criteria, options *Option
 // FindReportAccountReportTaxIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAccountReportTaxIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAccountReportTaxModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAccountReportTaxModel, criteria, options)
 }
 
 // FindReportAccountReportTaxId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportAccountReportTaxId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.account.report_tax was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

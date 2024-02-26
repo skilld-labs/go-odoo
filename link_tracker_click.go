@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // LinkTrackerClick represents link.tracker.click model.
 type LinkTrackerClick struct {
 	LastUpdate            *Time     `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateLinkTrackerClicks(ltcs []*LinkTrackerClick) ([]int64, err
 	for _, v := range ltcs {
 		vv = append(vv, v)
 	}
-	return c.Create(LinkTrackerClickModel, vv)
+	return c.Create(LinkTrackerClickModel, vv, nil)
 }
 
 // UpdateLinkTrackerClick updates an existing link.tracker.click record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateLinkTrackerClick(ltc *LinkTrackerClick) error {
 // UpdateLinkTrackerClicks updates existing link.tracker.click records.
 // All records (represented by ids) will be updated by ltc values.
 func (c *Client) UpdateLinkTrackerClicks(ids []int64, ltc *LinkTrackerClick) error {
-	return c.Update(LinkTrackerClickModel, ids, ltc)
+	return c.Update(LinkTrackerClickModel, ids, ltc, nil)
 }
 
 // DeleteLinkTrackerClick deletes an existing link.tracker.click record.
@@ -81,10 +77,7 @@ func (c *Client) GetLinkTrackerClick(id int64) (*LinkTrackerClick, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ltcs != nil && len(*ltcs) > 0 {
-		return &((*ltcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of link.tracker.click not found", id)
+	return &((*ltcs)[0]), nil
 }
 
 // GetLinkTrackerClicks gets link.tracker.click existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindLinkTrackerClick(criteria *Criteria) (*LinkTrackerClick, er
 	if err := c.SearchRead(LinkTrackerClickModel, criteria, NewOptions().Limit(1), ltcs); err != nil {
 		return nil, err
 	}
-	if ltcs != nil && len(*ltcs) > 0 {
-		return &((*ltcs)[0]), nil
-	}
-	return nil, fmt.Errorf("link.tracker.click was not found with criteria %v", criteria)
+	return &((*ltcs)[0]), nil
 }
 
 // FindLinkTrackerClicks finds link.tracker.click records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindLinkTrackerClicks(criteria *Criteria, options *Options) (*L
 // FindLinkTrackerClickIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindLinkTrackerClickIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(LinkTrackerClickModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(LinkTrackerClickModel, criteria, options)
 }
 
 // FindLinkTrackerClickId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindLinkTrackerClickId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("link.tracker.click was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

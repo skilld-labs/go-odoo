@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // WizardIrModelMenuCreate represents wizard.ir.model.menu.create model.
 type WizardIrModelMenuCreate struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateWizardIrModelMenuCreates(wimmcs []*WizardIrModelMenuCreat
 	for _, v := range wimmcs {
 		vv = append(vv, v)
 	}
-	return c.Create(WizardIrModelMenuCreateModel, vv)
+	return c.Create(WizardIrModelMenuCreateModel, vv, nil)
 }
 
 // UpdateWizardIrModelMenuCreate updates an existing wizard.ir.model.menu.create record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateWizardIrModelMenuCreate(wimmc *WizardIrModelMenuCreate) e
 // UpdateWizardIrModelMenuCreates updates existing wizard.ir.model.menu.create records.
 // All records (represented by ids) will be updated by wimmc values.
 func (c *Client) UpdateWizardIrModelMenuCreates(ids []int64, wimmc *WizardIrModelMenuCreate) error {
-	return c.Update(WizardIrModelMenuCreateModel, ids, wimmc)
+	return c.Update(WizardIrModelMenuCreateModel, ids, wimmc, nil)
 }
 
 // DeleteWizardIrModelMenuCreate deletes an existing wizard.ir.model.menu.create record.
@@ -76,10 +72,7 @@ func (c *Client) GetWizardIrModelMenuCreate(id int64) (*WizardIrModelMenuCreate,
 	if err != nil {
 		return nil, err
 	}
-	if wimmcs != nil && len(*wimmcs) > 0 {
-		return &((*wimmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of wizard.ir.model.menu.create not found", id)
+	return &((*wimmcs)[0]), nil
 }
 
 // GetWizardIrModelMenuCreates gets wizard.ir.model.menu.create existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindWizardIrModelMenuCreate(criteria *Criteria) (*WizardIrModel
 	if err := c.SearchRead(WizardIrModelMenuCreateModel, criteria, NewOptions().Limit(1), wimmcs); err != nil {
 		return nil, err
 	}
-	if wimmcs != nil && len(*wimmcs) > 0 {
-		return &((*wimmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("wizard.ir.model.menu.create was not found with criteria %v", criteria)
+	return &((*wimmcs)[0]), nil
 }
 
 // FindWizardIrModelMenuCreates finds wizard.ir.model.menu.create records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindWizardIrModelMenuCreates(criteria *Criteria, options *Optio
 // FindWizardIrModelMenuCreateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWizardIrModelMenuCreateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(WizardIrModelMenuCreateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(WizardIrModelMenuCreateModel, criteria, options)
 }
 
 // FindWizardIrModelMenuCreateId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindWizardIrModelMenuCreateId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("wizard.ir.model.menu.create was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

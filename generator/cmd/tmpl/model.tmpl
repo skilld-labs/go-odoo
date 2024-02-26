@@ -34,7 +34,7 @@ func (c *Client) Create{{.StructName}}s({{.VarName}}s []*{{.StructName}}) ([]int
 	for _, v := range {{.VarName}}s {
 		vv = append(vv, v)
 	}
-	return c.Create({{.StructName}}Model, vv)
+	return c.Create({{.StructName}}Model, vv, nil)
 }
 
 // Update{{.StructName}} updates an existing {{ .Name }} record.
@@ -45,7 +45,7 @@ func (c *Client) Update{{.StructName}}({{.VarName}} *{{.StructName}}) error {
 // Update{{.StructName}}s updates existing {{ .Name }} records.
 // All records (represented by ids) will be updated by {{.VarName}} values.
 func (c *Client) Update{{.StructName}}s(ids []int64, {{.VarName}} *{{.StructName}}) error {
-	return c.Update({{.StructName}}Model, ids, {{.VarName}})
+	return c.Update({{.StructName}}Model, ids, {{.VarName}}, nil)
 }
 
 // Delete{{.StructName}} deletes an existing {{ .Name }} record.

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailTestSimple represents mail.test.simple model.
 type MailTestSimple struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
@@ -58,7 +54,7 @@ func (c *Client) CreateMailTestSimples(mtss []*MailTestSimple) ([]int64, error) 
 	for _, v := range mtss {
 		vv = append(vv, v)
 	}
-	return c.Create(MailTestSimpleModel, vv)
+	return c.Create(MailTestSimpleModel, vv, nil)
 }
 
 // UpdateMailTestSimple updates an existing mail.test.simple record.
@@ -69,7 +65,7 @@ func (c *Client) UpdateMailTestSimple(mts *MailTestSimple) error {
 // UpdateMailTestSimples updates existing mail.test.simple records.
 // All records (represented by ids) will be updated by mts values.
 func (c *Client) UpdateMailTestSimples(ids []int64, mts *MailTestSimple) error {
-	return c.Update(MailTestSimpleModel, ids, mts)
+	return c.Update(MailTestSimpleModel, ids, mts, nil)
 }
 
 // DeleteMailTestSimple deletes an existing mail.test.simple record.
@@ -88,10 +84,7 @@ func (c *Client) GetMailTestSimple(id int64) (*MailTestSimple, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mtss != nil && len(*mtss) > 0 {
-		return &((*mtss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.test.simple not found", id)
+	return &((*mtss)[0]), nil
 }
 
 // GetMailTestSimples gets mail.test.simple existing records.
@@ -109,10 +102,7 @@ func (c *Client) FindMailTestSimple(criteria *Criteria) (*MailTestSimple, error)
 	if err := c.SearchRead(MailTestSimpleModel, criteria, NewOptions().Limit(1), mtss); err != nil {
 		return nil, err
 	}
-	if mtss != nil && len(*mtss) > 0 {
-		return &((*mtss)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.test.simple was not found with criteria %v", criteria)
+	return &((*mtss)[0]), nil
 }
 
 // FindMailTestSimples finds mail.test.simple records by querying it
@@ -128,11 +118,7 @@ func (c *Client) FindMailTestSimples(criteria *Criteria, options *Options) (*Mai
 // FindMailTestSimpleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTestSimpleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailTestSimpleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailTestSimpleModel, criteria, options)
 }
 
 // FindMailTestSimpleId finds record id by querying it with criteria.
@@ -141,8 +127,5 @@ func (c *Client) FindMailTestSimpleId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.test.simple was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

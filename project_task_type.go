@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProjectTaskType represents project.task.type model.
 type ProjectTaskType struct {
 	LastUpdate     *Time     `xmlrpc:"__last_update,omptempty"`
@@ -54,7 +50,7 @@ func (c *Client) CreateProjectTaskTypes(ptts []*ProjectTaskType) ([]int64, error
 	for _, v := range ptts {
 		vv = append(vv, v)
 	}
-	return c.Create(ProjectTaskTypeModel, vv)
+	return c.Create(ProjectTaskTypeModel, vv, nil)
 }
 
 // UpdateProjectTaskType updates an existing project.task.type record.
@@ -65,7 +61,7 @@ func (c *Client) UpdateProjectTaskType(ptt *ProjectTaskType) error {
 // UpdateProjectTaskTypes updates existing project.task.type records.
 // All records (represented by ids) will be updated by ptt values.
 func (c *Client) UpdateProjectTaskTypes(ids []int64, ptt *ProjectTaskType) error {
-	return c.Update(ProjectTaskTypeModel, ids, ptt)
+	return c.Update(ProjectTaskTypeModel, ids, ptt, nil)
 }
 
 // DeleteProjectTaskType deletes an existing project.task.type record.
@@ -84,10 +80,7 @@ func (c *Client) GetProjectTaskType(id int64) (*ProjectTaskType, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ptts != nil && len(*ptts) > 0 {
-		return &((*ptts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of project.task.type not found", id)
+	return &((*ptts)[0]), nil
 }
 
 // GetProjectTaskTypes gets project.task.type existing records.
@@ -105,10 +98,7 @@ func (c *Client) FindProjectTaskType(criteria *Criteria) (*ProjectTaskType, erro
 	if err := c.SearchRead(ProjectTaskTypeModel, criteria, NewOptions().Limit(1), ptts); err != nil {
 		return nil, err
 	}
-	if ptts != nil && len(*ptts) > 0 {
-		return &((*ptts)[0]), nil
-	}
-	return nil, fmt.Errorf("project.task.type was not found with criteria %v", criteria)
+	return &((*ptts)[0]), nil
 }
 
 // FindProjectTaskTypes finds project.task.type records by querying it
@@ -124,11 +114,7 @@ func (c *Client) FindProjectTaskTypes(criteria *Criteria, options *Options) (*Pr
 // FindProjectTaskTypeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProjectTaskTypeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProjectTaskTypeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProjectTaskTypeModel, criteria, options)
 }
 
 // FindProjectTaskTypeId finds record id by querying it with criteria.
@@ -137,8 +123,5 @@ func (c *Client) FindProjectTaskTypeId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("project.task.type was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

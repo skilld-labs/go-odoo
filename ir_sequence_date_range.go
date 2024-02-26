@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrSequenceDateRange represents ir.sequence.date_range model.
 type IrSequenceDateRange struct {
 	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateIrSequenceDateRanges(isds []*IrSequenceDateRange) ([]int6
 	for _, v := range isds {
 		vv = append(vv, v)
 	}
-	return c.Create(IrSequenceDateRangeModel, vv)
+	return c.Create(IrSequenceDateRangeModel, vv, nil)
 }
 
 // UpdateIrSequenceDateRange updates an existing ir.sequence.date_range record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateIrSequenceDateRange(isd *IrSequenceDateRange) error {
 // UpdateIrSequenceDateRanges updates existing ir.sequence.date_range records.
 // All records (represented by ids) will be updated by isd values.
 func (c *Client) UpdateIrSequenceDateRanges(ids []int64, isd *IrSequenceDateRange) error {
-	return c.Update(IrSequenceDateRangeModel, ids, isd)
+	return c.Update(IrSequenceDateRangeModel, ids, isd, nil)
 }
 
 // DeleteIrSequenceDateRange deletes an existing ir.sequence.date_range record.
@@ -79,10 +75,7 @@ func (c *Client) GetIrSequenceDateRange(id int64) (*IrSequenceDateRange, error) 
 	if err != nil {
 		return nil, err
 	}
-	if isds != nil && len(*isds) > 0 {
-		return &((*isds)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.sequence.date_range not found", id)
+	return &((*isds)[0]), nil
 }
 
 // GetIrSequenceDateRanges gets ir.sequence.date_range existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindIrSequenceDateRange(criteria *Criteria) (*IrSequenceDateRan
 	if err := c.SearchRead(IrSequenceDateRangeModel, criteria, NewOptions().Limit(1), isds); err != nil {
 		return nil, err
 	}
-	if isds != nil && len(*isds) > 0 {
-		return &((*isds)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.sequence.date_range was not found with criteria %v", criteria)
+	return &((*isds)[0]), nil
 }
 
 // FindIrSequenceDateRanges finds ir.sequence.date_range records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindIrSequenceDateRanges(criteria *Criteria, options *Options) 
 // FindIrSequenceDateRangeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrSequenceDateRangeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrSequenceDateRangeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrSequenceDateRangeModel, criteria, options)
 }
 
 // FindIrSequenceDateRangeId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindIrSequenceDateRangeId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.sequence.date_range was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

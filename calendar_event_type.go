@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CalendarEventType represents calendar.event.type model.
 type CalendarEventType struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateCalendarEventTypes(cets []*CalendarEventType) ([]int64, e
 	for _, v := range cets {
 		vv = append(vv, v)
 	}
-	return c.Create(CalendarEventTypeModel, vv)
+	return c.Create(CalendarEventTypeModel, vv, nil)
 }
 
 // UpdateCalendarEventType updates an existing calendar.event.type record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateCalendarEventType(cet *CalendarEventType) error {
 // UpdateCalendarEventTypes updates existing calendar.event.type records.
 // All records (represented by ids) will be updated by cet values.
 func (c *Client) UpdateCalendarEventTypes(ids []int64, cet *CalendarEventType) error {
-	return c.Update(CalendarEventTypeModel, ids, cet)
+	return c.Update(CalendarEventTypeModel, ids, cet, nil)
 }
 
 // DeleteCalendarEventType deletes an existing calendar.event.type record.
@@ -75,10 +71,7 @@ func (c *Client) GetCalendarEventType(id int64) (*CalendarEventType, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cets != nil && len(*cets) > 0 {
-		return &((*cets)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of calendar.event.type not found", id)
+	return &((*cets)[0]), nil
 }
 
 // GetCalendarEventTypes gets calendar.event.type existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindCalendarEventType(criteria *Criteria) (*CalendarEventType, 
 	if err := c.SearchRead(CalendarEventTypeModel, criteria, NewOptions().Limit(1), cets); err != nil {
 		return nil, err
 	}
-	if cets != nil && len(*cets) > 0 {
-		return &((*cets)[0]), nil
-	}
-	return nil, fmt.Errorf("calendar.event.type was not found with criteria %v", criteria)
+	return &((*cets)[0]), nil
 }
 
 // FindCalendarEventTypes finds calendar.event.type records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindCalendarEventTypes(criteria *Criteria, options *Options) (*
 // FindCalendarEventTypeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCalendarEventTypeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CalendarEventTypeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CalendarEventTypeModel, criteria, options)
 }
 
 // FindCalendarEventTypeId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindCalendarEventTypeId(criteria *Criteria, options *Options) (
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("calendar.event.type was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountBankStatementImport represents account.bank.statement.import model.
 type AccountBankStatementImport struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateAccountBankStatementImports(absis []*AccountBankStatement
 	for _, v := range absis {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountBankStatementImportModel, vv)
+	return c.Create(AccountBankStatementImportModel, vv, nil)
 }
 
 // UpdateAccountBankStatementImport updates an existing account.bank.statement.import record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateAccountBankStatementImport(absi *AccountBankStatementImpo
 // UpdateAccountBankStatementImports updates existing account.bank.statement.import records.
 // All records (represented by ids) will be updated by absi values.
 func (c *Client) UpdateAccountBankStatementImports(ids []int64, absi *AccountBankStatementImport) error {
-	return c.Update(AccountBankStatementImportModel, ids, absi)
+	return c.Update(AccountBankStatementImportModel, ids, absi, nil)
 }
 
 // DeleteAccountBankStatementImport deletes an existing account.bank.statement.import record.
@@ -76,10 +72,7 @@ func (c *Client) GetAccountBankStatementImport(id int64) (*AccountBankStatementI
 	if err != nil {
 		return nil, err
 	}
-	if absis != nil && len(*absis) > 0 {
-		return &((*absis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.bank.statement.import not found", id)
+	return &((*absis)[0]), nil
 }
 
 // GetAccountBankStatementImports gets account.bank.statement.import existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindAccountBankStatementImport(criteria *Criteria) (*AccountBan
 	if err := c.SearchRead(AccountBankStatementImportModel, criteria, NewOptions().Limit(1), absis); err != nil {
 		return nil, err
 	}
-	if absis != nil && len(*absis) > 0 {
-		return &((*absis)[0]), nil
-	}
-	return nil, fmt.Errorf("account.bank.statement.import was not found with criteria %v", criteria)
+	return &((*absis)[0]), nil
 }
 
 // FindAccountBankStatementImports finds account.bank.statement.import records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindAccountBankStatementImports(criteria *Criteria, options *Op
 // FindAccountBankStatementImportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountBankStatementImportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountBankStatementImportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountBankStatementImportModel, criteria, options)
 }
 
 // FindAccountBankStatementImportId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindAccountBankStatementImportId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.bank.statement.import was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

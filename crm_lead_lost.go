@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CrmLeadLost represents crm.lead.lost model.
 type CrmLeadLost struct {
 	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateCrmLeadLosts(clls []*CrmLeadLost) ([]int64, error) {
 	for _, v := range clls {
 		vv = append(vv, v)
 	}
-	return c.Create(CrmLeadLostModel, vv)
+	return c.Create(CrmLeadLostModel, vv, nil)
 }
 
 // UpdateCrmLeadLost updates an existing crm.lead.lost record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateCrmLeadLost(cll *CrmLeadLost) error {
 // UpdateCrmLeadLosts updates existing crm.lead.lost records.
 // All records (represented by ids) will be updated by cll values.
 func (c *Client) UpdateCrmLeadLosts(ids []int64, cll *CrmLeadLost) error {
-	return c.Update(CrmLeadLostModel, ids, cll)
+	return c.Update(CrmLeadLostModel, ids, cll, nil)
 }
 
 // DeleteCrmLeadLost deletes an existing crm.lead.lost record.
@@ -75,10 +71,7 @@ func (c *Client) GetCrmLeadLost(id int64) (*CrmLeadLost, error) {
 	if err != nil {
 		return nil, err
 	}
-	if clls != nil && len(*clls) > 0 {
-		return &((*clls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of crm.lead.lost not found", id)
+	return &((*clls)[0]), nil
 }
 
 // GetCrmLeadLosts gets crm.lead.lost existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindCrmLeadLost(criteria *Criteria) (*CrmLeadLost, error) {
 	if err := c.SearchRead(CrmLeadLostModel, criteria, NewOptions().Limit(1), clls); err != nil {
 		return nil, err
 	}
-	if clls != nil && len(*clls) > 0 {
-		return &((*clls)[0]), nil
-	}
-	return nil, fmt.Errorf("crm.lead.lost was not found with criteria %v", criteria)
+	return &((*clls)[0]), nil
 }
 
 // FindCrmLeadLosts finds crm.lead.lost records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindCrmLeadLosts(criteria *Criteria, options *Options) (*CrmLea
 // FindCrmLeadLostIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCrmLeadLostIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CrmLeadLostModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CrmLeadLostModel, criteria, options)
 }
 
 // FindCrmLeadLostId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindCrmLeadLostId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("crm.lead.lost was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

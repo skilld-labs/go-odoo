@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockSchedulerCompute represents stock.scheduler.compute model.
 type StockSchedulerCompute struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateStockSchedulerComputes(sscs []*StockSchedulerCompute) ([]
 	for _, v := range sscs {
 		vv = append(vv, v)
 	}
-	return c.Create(StockSchedulerComputeModel, vv)
+	return c.Create(StockSchedulerComputeModel, vv, nil)
 }
 
 // UpdateStockSchedulerCompute updates an existing stock.scheduler.compute record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateStockSchedulerCompute(ssc *StockSchedulerCompute) error {
 // UpdateStockSchedulerComputes updates existing stock.scheduler.compute records.
 // All records (represented by ids) will be updated by ssc values.
 func (c *Client) UpdateStockSchedulerComputes(ids []int64, ssc *StockSchedulerCompute) error {
-	return c.Update(StockSchedulerComputeModel, ids, ssc)
+	return c.Update(StockSchedulerComputeModel, ids, ssc, nil)
 }
 
 // DeleteStockSchedulerCompute deletes an existing stock.scheduler.compute record.
@@ -74,10 +70,7 @@ func (c *Client) GetStockSchedulerCompute(id int64) (*StockSchedulerCompute, err
 	if err != nil {
 		return nil, err
 	}
-	if sscs != nil && len(*sscs) > 0 {
-		return &((*sscs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.scheduler.compute not found", id)
+	return &((*sscs)[0]), nil
 }
 
 // GetStockSchedulerComputes gets stock.scheduler.compute existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindStockSchedulerCompute(criteria *Criteria) (*StockSchedulerC
 	if err := c.SearchRead(StockSchedulerComputeModel, criteria, NewOptions().Limit(1), sscs); err != nil {
 		return nil, err
 	}
-	if sscs != nil && len(*sscs) > 0 {
-		return &((*sscs)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.scheduler.compute was not found with criteria %v", criteria)
+	return &((*sscs)[0]), nil
 }
 
 // FindStockSchedulerComputes finds stock.scheduler.compute records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindStockSchedulerComputes(criteria *Criteria, options *Options
 // FindStockSchedulerComputeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockSchedulerComputeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockSchedulerComputeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockSchedulerComputeModel, criteria, options)
 }
 
 // FindStockSchedulerComputeId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindStockSchedulerComputeId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.scheduler.compute was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

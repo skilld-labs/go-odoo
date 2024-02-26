@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportAllChannelsSales represents report.all.channels.sales model.
 type ReportAllChannelsSales struct {
 	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateReportAllChannelsSaless(racss []*ReportAllChannelsSales) 
 	for _, v := range racss {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportAllChannelsSalesModel, vv)
+	return c.Create(ReportAllChannelsSalesModel, vv, nil)
 }
 
 // UpdateReportAllChannelsSales updates an existing report.all.channels.sales record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateReportAllChannelsSales(racs *ReportAllChannelsSales) erro
 // UpdateReportAllChannelsSaless updates existing report.all.channels.sales records.
 // All records (represented by ids) will be updated by racs values.
 func (c *Client) UpdateReportAllChannelsSaless(ids []int64, racs *ReportAllChannelsSales) error {
-	return c.Update(ReportAllChannelsSalesModel, ids, racs)
+	return c.Update(ReportAllChannelsSalesModel, ids, racs, nil)
 }
 
 // DeleteReportAllChannelsSales deletes an existing report.all.channels.sales record.
@@ -85,10 +81,7 @@ func (c *Client) GetReportAllChannelsSales(id int64) (*ReportAllChannelsSales, e
 	if err != nil {
 		return nil, err
 	}
-	if racss != nil && len(*racss) > 0 {
-		return &((*racss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.all.channels.sales not found", id)
+	return &((*racss)[0]), nil
 }
 
 // GetReportAllChannelsSaless gets report.all.channels.sales existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindReportAllChannelsSales(criteria *Criteria) (*ReportAllChann
 	if err := c.SearchRead(ReportAllChannelsSalesModel, criteria, NewOptions().Limit(1), racss); err != nil {
 		return nil, err
 	}
-	if racss != nil && len(*racss) > 0 {
-		return &((*racss)[0]), nil
-	}
-	return nil, fmt.Errorf("report.all.channels.sales was not found with criteria %v", criteria)
+	return &((*racss)[0]), nil
 }
 
 // FindReportAllChannelsSaless finds report.all.channels.sales records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindReportAllChannelsSaless(criteria *Criteria, options *Option
 // FindReportAllChannelsSalesIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportAllChannelsSalesIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportAllChannelsSalesModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportAllChannelsSalesModel, criteria, options)
 }
 
 // FindReportAllChannelsSalesId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindReportAllChannelsSalesId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.all.channels.sales was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

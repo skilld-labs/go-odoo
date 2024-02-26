@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // SmsSendSms represents sms.send_sms model.
 type SmsSendSms struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateSmsSendSmss(sss []*SmsSendSms) ([]int64, error) {
 	for _, v := range sss {
 		vv = append(vv, v)
 	}
-	return c.Create(SmsSendSmsModel, vv)
+	return c.Create(SmsSendSmsModel, vv, nil)
 }
 
 // UpdateSmsSendSms updates an existing sms.send_sms record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateSmsSendSms(ss *SmsSendSms) error {
 // UpdateSmsSendSmss updates existing sms.send_sms records.
 // All records (represented by ids) will be updated by ss values.
 func (c *Client) UpdateSmsSendSmss(ids []int64, ss *SmsSendSms) error {
-	return c.Update(SmsSendSmsModel, ids, ss)
+	return c.Update(SmsSendSmsModel, ids, ss, nil)
 }
 
 // DeleteSmsSendSms deletes an existing sms.send_sms record.
@@ -76,10 +72,7 @@ func (c *Client) GetSmsSendSms(id int64) (*SmsSendSms, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sss != nil && len(*sss) > 0 {
-		return &((*sss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of sms.send_sms not found", id)
+	return &((*sss)[0]), nil
 }
 
 // GetSmsSendSmss gets sms.send_sms existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindSmsSendSms(criteria *Criteria) (*SmsSendSms, error) {
 	if err := c.SearchRead(SmsSendSmsModel, criteria, NewOptions().Limit(1), sss); err != nil {
 		return nil, err
 	}
-	if sss != nil && len(*sss) > 0 {
-		return &((*sss)[0]), nil
-	}
-	return nil, fmt.Errorf("sms.send_sms was not found with criteria %v", criteria)
+	return &((*sss)[0]), nil
 }
 
 // FindSmsSendSmss finds sms.send_sms records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindSmsSendSmss(criteria *Criteria, options *Options) (*SmsSend
 // FindSmsSendSmsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindSmsSendSmsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(SmsSendSmsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(SmsSendSmsModel, criteria, options)
 }
 
 // FindSmsSendSmsId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindSmsSendSmsId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("sms.send_sms was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModuleModule represents ir.module.module model.
 type IrModuleModule struct {
 	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
@@ -71,7 +67,7 @@ func (c *Client) CreateIrModuleModules(imms []*IrModuleModule) ([]int64, error) 
 	for _, v := range imms {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModuleModuleModel, vv)
+	return c.Create(IrModuleModuleModel, vv, nil)
 }
 
 // UpdateIrModuleModule updates an existing ir.module.module record.
@@ -82,7 +78,7 @@ func (c *Client) UpdateIrModuleModule(imm *IrModuleModule) error {
 // UpdateIrModuleModules updates existing ir.module.module records.
 // All records (represented by ids) will be updated by imm values.
 func (c *Client) UpdateIrModuleModules(ids []int64, imm *IrModuleModule) error {
-	return c.Update(IrModuleModuleModel, ids, imm)
+	return c.Update(IrModuleModuleModel, ids, imm, nil)
 }
 
 // DeleteIrModuleModule deletes an existing ir.module.module record.
@@ -101,10 +97,7 @@ func (c *Client) GetIrModuleModule(id int64) (*IrModuleModule, error) {
 	if err != nil {
 		return nil, err
 	}
-	if imms != nil && len(*imms) > 0 {
-		return &((*imms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.module.module not found", id)
+	return &((*imms)[0]), nil
 }
 
 // GetIrModuleModules gets ir.module.module existing records.
@@ -122,10 +115,7 @@ func (c *Client) FindIrModuleModule(criteria *Criteria) (*IrModuleModule, error)
 	if err := c.SearchRead(IrModuleModuleModel, criteria, NewOptions().Limit(1), imms); err != nil {
 		return nil, err
 	}
-	if imms != nil && len(*imms) > 0 {
-		return &((*imms)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.module.module was not found with criteria %v", criteria)
+	return &((*imms)[0]), nil
 }
 
 // FindIrModuleModules finds ir.module.module records by querying it
@@ -141,11 +131,7 @@ func (c *Client) FindIrModuleModules(criteria *Criteria, options *Options) (*IrM
 // FindIrModuleModuleIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModuleModuleIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModuleModuleModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModuleModuleModel, criteria, options)
 }
 
 // FindIrModuleModuleId finds record id by querying it with criteria.
@@ -154,8 +140,5 @@ func (c *Client) FindIrModuleModuleId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.module.module was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

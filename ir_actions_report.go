@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsReport represents ir.actions.report model.
 type IrActionsReport struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -60,7 +56,7 @@ func (c *Client) CreateIrActionsReports(iars []*IrActionsReport) ([]int64, error
 	for _, v := range iars {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsReportModel, vv)
+	return c.Create(IrActionsReportModel, vv, nil)
 }
 
 // UpdateIrActionsReport updates an existing ir.actions.report record.
@@ -71,7 +67,7 @@ func (c *Client) UpdateIrActionsReport(iar *IrActionsReport) error {
 // UpdateIrActionsReports updates existing ir.actions.report records.
 // All records (represented by ids) will be updated by iar values.
 func (c *Client) UpdateIrActionsReports(ids []int64, iar *IrActionsReport) error {
-	return c.Update(IrActionsReportModel, ids, iar)
+	return c.Update(IrActionsReportModel, ids, iar, nil)
 }
 
 // DeleteIrActionsReport deletes an existing ir.actions.report record.
@@ -90,10 +86,7 @@ func (c *Client) GetIrActionsReport(id int64) (*IrActionsReport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iars != nil && len(*iars) > 0 {
-		return &((*iars)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.report not found", id)
+	return &((*iars)[0]), nil
 }
 
 // GetIrActionsReports gets ir.actions.report existing records.
@@ -111,10 +104,7 @@ func (c *Client) FindIrActionsReport(criteria *Criteria) (*IrActionsReport, erro
 	if err := c.SearchRead(IrActionsReportModel, criteria, NewOptions().Limit(1), iars); err != nil {
 		return nil, err
 	}
-	if iars != nil && len(*iars) > 0 {
-		return &((*iars)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.report was not found with criteria %v", criteria)
+	return &((*iars)[0]), nil
 }
 
 // FindIrActionsReports finds ir.actions.report records by querying it
@@ -130,11 +120,7 @@ func (c *Client) FindIrActionsReports(criteria *Criteria, options *Options) (*Ir
 // FindIrActionsReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsReportModel, criteria, options)
 }
 
 // FindIrActionsReportId finds record id by querying it with criteria.
@@ -143,8 +129,5 @@ func (c *Client) FindIrActionsReportId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

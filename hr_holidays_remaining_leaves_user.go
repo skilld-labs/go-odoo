@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrHolidaysRemainingLeavesUser represents hr.holidays.remaining.leaves.user model.
 type HrHolidaysRemainingLeavesUser struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateHrHolidaysRemainingLeavesUsers(hhrlus []*HrHolidaysRemain
 	for _, v := range hhrlus {
 		vv = append(vv, v)
 	}
-	return c.Create(HrHolidaysRemainingLeavesUserModel, vv)
+	return c.Create(HrHolidaysRemainingLeavesUserModel, vv, nil)
 }
 
 // UpdateHrHolidaysRemainingLeavesUser updates an existing hr.holidays.remaining.leaves.user record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateHrHolidaysRemainingLeavesUser(hhrlu *HrHolidaysRemainingL
 // UpdateHrHolidaysRemainingLeavesUsers updates existing hr.holidays.remaining.leaves.user records.
 // All records (represented by ids) will be updated by hhrlu values.
 func (c *Client) UpdateHrHolidaysRemainingLeavesUsers(ids []int64, hhrlu *HrHolidaysRemainingLeavesUser) error {
-	return c.Update(HrHolidaysRemainingLeavesUserModel, ids, hhrlu)
+	return c.Update(HrHolidaysRemainingLeavesUserModel, ids, hhrlu, nil)
 }
 
 // DeleteHrHolidaysRemainingLeavesUser deletes an existing hr.holidays.remaining.leaves.user record.
@@ -74,10 +70,7 @@ func (c *Client) GetHrHolidaysRemainingLeavesUser(id int64) (*HrHolidaysRemainin
 	if err != nil {
 		return nil, err
 	}
-	if hhrlus != nil && len(*hhrlus) > 0 {
-		return &((*hhrlus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.holidays.remaining.leaves.user not found", id)
+	return &((*hhrlus)[0]), nil
 }
 
 // GetHrHolidaysRemainingLeavesUsers gets hr.holidays.remaining.leaves.user existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindHrHolidaysRemainingLeavesUser(criteria *Criteria) (*HrHolid
 	if err := c.SearchRead(HrHolidaysRemainingLeavesUserModel, criteria, NewOptions().Limit(1), hhrlus); err != nil {
 		return nil, err
 	}
-	if hhrlus != nil && len(*hhrlus) > 0 {
-		return &((*hhrlus)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.holidays.remaining.leaves.user was not found with criteria %v", criteria)
+	return &((*hhrlus)[0]), nil
 }
 
 // FindHrHolidaysRemainingLeavesUsers finds hr.holidays.remaining.leaves.user records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindHrHolidaysRemainingLeavesUsers(criteria *Criteria, options 
 // FindHrHolidaysRemainingLeavesUserIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrHolidaysRemainingLeavesUserIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrHolidaysRemainingLeavesUserModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrHolidaysRemainingLeavesUserModel, criteria, options)
 }
 
 // FindHrHolidaysRemainingLeavesUserId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindHrHolidaysRemainingLeavesUserId(criteria *Criteria, options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.holidays.remaining.leaves.user was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

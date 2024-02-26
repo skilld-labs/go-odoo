@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailTemplate represents mail.template model.
 type MailTemplate struct {
 	LastUpdate          *Time     `xmlrpc:"__last_update,omptempty"`
@@ -69,7 +65,7 @@ func (c *Client) CreateMailTemplates(mts []*MailTemplate) ([]int64, error) {
 	for _, v := range mts {
 		vv = append(vv, v)
 	}
-	return c.Create(MailTemplateModel, vv)
+	return c.Create(MailTemplateModel, vv, nil)
 }
 
 // UpdateMailTemplate updates an existing mail.template record.
@@ -80,7 +76,7 @@ func (c *Client) UpdateMailTemplate(mt *MailTemplate) error {
 // UpdateMailTemplates updates existing mail.template records.
 // All records (represented by ids) will be updated by mt values.
 func (c *Client) UpdateMailTemplates(ids []int64, mt *MailTemplate) error {
-	return c.Update(MailTemplateModel, ids, mt)
+	return c.Update(MailTemplateModel, ids, mt, nil)
 }
 
 // DeleteMailTemplate deletes an existing mail.template record.
@@ -99,10 +95,7 @@ func (c *Client) GetMailTemplate(id int64) (*MailTemplate, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mts != nil && len(*mts) > 0 {
-		return &((*mts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.template not found", id)
+	return &((*mts)[0]), nil
 }
 
 // GetMailTemplates gets mail.template existing records.
@@ -120,10 +113,7 @@ func (c *Client) FindMailTemplate(criteria *Criteria) (*MailTemplate, error) {
 	if err := c.SearchRead(MailTemplateModel, criteria, NewOptions().Limit(1), mts); err != nil {
 		return nil, err
 	}
-	if mts != nil && len(*mts) > 0 {
-		return &((*mts)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.template was not found with criteria %v", criteria)
+	return &((*mts)[0]), nil
 }
 
 // FindMailTemplates finds mail.template records by querying it
@@ -139,11 +129,7 @@ func (c *Client) FindMailTemplates(criteria *Criteria, options *Options) (*MailT
 // FindMailTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailTemplateModel, criteria, options)
 }
 
 // FindMailTemplateId finds record id by querying it with criteria.
@@ -152,8 +138,5 @@ func (c *Client) FindMailTemplateId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

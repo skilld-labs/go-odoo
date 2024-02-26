@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAnalyticTag represents account.analytic.tag model.
 type AccountAnalyticTag struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateAccountAnalyticTags(aats []*AccountAnalyticTag) ([]int64,
 	for _, v := range aats {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAnalyticTagModel, vv)
+	return c.Create(AccountAnalyticTagModel, vv, nil)
 }
 
 // UpdateAccountAnalyticTag updates an existing account.analytic.tag record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateAccountAnalyticTag(aat *AccountAnalyticTag) error {
 // UpdateAccountAnalyticTags updates existing account.analytic.tag records.
 // All records (represented by ids) will be updated by aat values.
 func (c *Client) UpdateAccountAnalyticTags(ids []int64, aat *AccountAnalyticTag) error {
-	return c.Update(AccountAnalyticTagModel, ids, aat)
+	return c.Update(AccountAnalyticTagModel, ids, aat, nil)
 }
 
 // DeleteAccountAnalyticTag deletes an existing account.analytic.tag record.
@@ -77,10 +73,7 @@ func (c *Client) GetAccountAnalyticTag(id int64) (*AccountAnalyticTag, error) {
 	if err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.analytic.tag not found", id)
+	return &((*aats)[0]), nil
 }
 
 // GetAccountAnalyticTags gets account.analytic.tag existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindAccountAnalyticTag(criteria *Criteria) (*AccountAnalyticTag
 	if err := c.SearchRead(AccountAnalyticTagModel, criteria, NewOptions().Limit(1), aats); err != nil {
 		return nil, err
 	}
-	if aats != nil && len(*aats) > 0 {
-		return &((*aats)[0]), nil
-	}
-	return nil, fmt.Errorf("account.analytic.tag was not found with criteria %v", criteria)
+	return &((*aats)[0]), nil
 }
 
 // FindAccountAnalyticTags finds account.analytic.tag records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindAccountAnalyticTags(criteria *Criteria, options *Options) (
 // FindAccountAnalyticTagIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticTagIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAnalyticTagModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAnalyticTagModel, criteria, options)
 }
 
 // FindAccountAnalyticTagId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindAccountAnalyticTagId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.analytic.tag was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

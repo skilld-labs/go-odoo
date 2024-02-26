@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountChartTemplate represents account.chart.template model.
 type AccountChartTemplate struct {
 	LastUpdate                        *Time     `xmlrpc:"__last_update,omptempty"`
@@ -68,7 +64,7 @@ func (c *Client) CreateAccountChartTemplates(acts []*AccountChartTemplate) ([]in
 	for _, v := range acts {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountChartTemplateModel, vv)
+	return c.Create(AccountChartTemplateModel, vv, nil)
 }
 
 // UpdateAccountChartTemplate updates an existing account.chart.template record.
@@ -79,7 +75,7 @@ func (c *Client) UpdateAccountChartTemplate(act *AccountChartTemplate) error {
 // UpdateAccountChartTemplates updates existing account.chart.template records.
 // All records (represented by ids) will be updated by act values.
 func (c *Client) UpdateAccountChartTemplates(ids []int64, act *AccountChartTemplate) error {
-	return c.Update(AccountChartTemplateModel, ids, act)
+	return c.Update(AccountChartTemplateModel, ids, act, nil)
 }
 
 // DeleteAccountChartTemplate deletes an existing account.chart.template record.
@@ -98,10 +94,7 @@ func (c *Client) GetAccountChartTemplate(id int64) (*AccountChartTemplate, error
 	if err != nil {
 		return nil, err
 	}
-	if acts != nil && len(*acts) > 0 {
-		return &((*acts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.chart.template not found", id)
+	return &((*acts)[0]), nil
 }
 
 // GetAccountChartTemplates gets account.chart.template existing records.
@@ -119,10 +112,7 @@ func (c *Client) FindAccountChartTemplate(criteria *Criteria) (*AccountChartTemp
 	if err := c.SearchRead(AccountChartTemplateModel, criteria, NewOptions().Limit(1), acts); err != nil {
 		return nil, err
 	}
-	if acts != nil && len(*acts) > 0 {
-		return &((*acts)[0]), nil
-	}
-	return nil, fmt.Errorf("account.chart.template was not found with criteria %v", criteria)
+	return &((*acts)[0]), nil
 }
 
 // FindAccountChartTemplates finds account.chart.template records by querying it
@@ -138,11 +128,7 @@ func (c *Client) FindAccountChartTemplates(criteria *Criteria, options *Options)
 // FindAccountChartTemplateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountChartTemplateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountChartTemplateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountChartTemplateModel, criteria, options)
 }
 
 // FindAccountChartTemplateId finds record id by querying it with criteria.
@@ -151,8 +137,5 @@ func (c *Client) FindAccountChartTemplateId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.chart.template was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

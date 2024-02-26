@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // Base represents base model.
 type Base struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateBases(bs []*Base) ([]int64, error) {
 	for _, v := range bs {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseModel, vv)
+	return c.Create(BaseModel, vv, nil)
 }
 
 // UpdateBase updates an existing base record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateBase(b *Base) error {
 // UpdateBases updates existing base records.
 // All records (represented by ids) will be updated by b values.
 func (c *Client) UpdateBases(ids []int64, b *Base) error {
-	return c.Update(BaseModel, ids, b)
+	return c.Update(BaseModel, ids, b, nil)
 }
 
 // DeleteBase deletes an existing base record.
@@ -70,10 +66,7 @@ func (c *Client) GetBase(id int64) (*Base, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bs != nil && len(*bs) > 0 {
-		return &((*bs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base not found", id)
+	return &((*bs)[0]), nil
 }
 
 // GetBases gets base existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindBase(criteria *Criteria) (*Base, error) {
 	if err := c.SearchRead(BaseModel, criteria, NewOptions().Limit(1), bs); err != nil {
 		return nil, err
 	}
-	if bs != nil && len(*bs) > 0 {
-		return &((*bs)[0]), nil
-	}
-	return nil, fmt.Errorf("base was not found with criteria %v", criteria)
+	return &((*bs)[0]), nil
 }
 
 // FindBases finds base records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindBases(criteria *Criteria, options *Options) (*Bases, error)
 // FindBaseIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseModel, criteria, options)
 }
 
 // FindBaseId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindBaseId(criteria *Criteria, options *Options) (int64, error)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

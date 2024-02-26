@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResourceResource represents resource.resource model.
 type ResourceResource struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateResourceResources(rrs []*ResourceResource) ([]int64, erro
 	for _, v := range rrs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResourceResourceModel, vv)
+	return c.Create(ResourceResourceModel, vv, nil)
 }
 
 // UpdateResourceResource updates an existing resource.resource record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateResourceResource(rr *ResourceResource) error {
 // UpdateResourceResources updates existing resource.resource records.
 // All records (represented by ids) will be updated by rr values.
 func (c *Client) UpdateResourceResources(ids []int64, rr *ResourceResource) error {
-	return c.Update(ResourceResourceModel, ids, rr)
+	return c.Update(ResourceResourceModel, ids, rr, nil)
 }
 
 // DeleteResourceResource deletes an existing resource.resource record.
@@ -81,10 +77,7 @@ func (c *Client) GetResourceResource(id int64) (*ResourceResource, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rrs != nil && len(*rrs) > 0 {
-		return &((*rrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of resource.resource not found", id)
+	return &((*rrs)[0]), nil
 }
 
 // GetResourceResources gets resource.resource existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindResourceResource(criteria *Criteria) (*ResourceResource, er
 	if err := c.SearchRead(ResourceResourceModel, criteria, NewOptions().Limit(1), rrs); err != nil {
 		return nil, err
 	}
-	if rrs != nil && len(*rrs) > 0 {
-		return &((*rrs)[0]), nil
-	}
-	return nil, fmt.Errorf("resource.resource was not found with criteria %v", criteria)
+	return &((*rrs)[0]), nil
 }
 
 // FindResourceResources finds resource.resource records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindResourceResources(criteria *Criteria, options *Options) (*R
 // FindResourceResourceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResourceResourceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResourceResourceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResourceResourceModel, criteria, options)
 }
 
 // FindResourceResourceId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindResourceResourceId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("resource.resource was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // FetchmailServer represents fetchmail.server model.
 type FetchmailServer struct {
 	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateFetchmailServers(fss []*FetchmailServer) ([]int64, error)
 	for _, v := range fss {
 		vv = append(vv, v)
 	}
-	return c.Create(FetchmailServerModel, vv)
+	return c.Create(FetchmailServerModel, vv, nil)
 }
 
 // UpdateFetchmailServer updates an existing fetchmail.server record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateFetchmailServer(fs *FetchmailServer) error {
 // UpdateFetchmailServers updates existing fetchmail.server records.
 // All records (represented by ids) will be updated by fs values.
 func (c *Client) UpdateFetchmailServers(ids []int64, fs *FetchmailServer) error {
-	return c.Update(FetchmailServerModel, ids, fs)
+	return c.Update(FetchmailServerModel, ids, fs, nil)
 }
 
 // DeleteFetchmailServer deletes an existing fetchmail.server record.
@@ -92,10 +88,7 @@ func (c *Client) GetFetchmailServer(id int64) (*FetchmailServer, error) {
 	if err != nil {
 		return nil, err
 	}
-	if fss != nil && len(*fss) > 0 {
-		return &((*fss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of fetchmail.server not found", id)
+	return &((*fss)[0]), nil
 }
 
 // GetFetchmailServers gets fetchmail.server existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindFetchmailServer(criteria *Criteria) (*FetchmailServer, erro
 	if err := c.SearchRead(FetchmailServerModel, criteria, NewOptions().Limit(1), fss); err != nil {
 		return nil, err
 	}
-	if fss != nil && len(*fss) > 0 {
-		return &((*fss)[0]), nil
-	}
-	return nil, fmt.Errorf("fetchmail.server was not found with criteria %v", criteria)
+	return &((*fss)[0]), nil
 }
 
 // FindFetchmailServers finds fetchmail.server records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindFetchmailServers(criteria *Criteria, options *Options) (*Fe
 // FindFetchmailServerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindFetchmailServerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(FetchmailServerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(FetchmailServerModel, criteria, options)
 }
 
 // FindFetchmailServerId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindFetchmailServerId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("fetchmail.server was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

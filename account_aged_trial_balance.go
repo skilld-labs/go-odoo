@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAgedTrialBalance represents account.aged.trial.balance model.
 type AccountAgedTrialBalance struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateAccountAgedTrialBalances(aatbs []*AccountAgedTrialBalance
 	for _, v := range aatbs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAgedTrialBalanceModel, vv)
+	return c.Create(AccountAgedTrialBalanceModel, vv, nil)
 }
 
 // UpdateAccountAgedTrialBalance updates an existing account.aged.trial.balance record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateAccountAgedTrialBalance(aatb *AccountAgedTrialBalance) er
 // UpdateAccountAgedTrialBalances updates existing account.aged.trial.balance records.
 // All records (represented by ids) will be updated by aatb values.
 func (c *Client) UpdateAccountAgedTrialBalances(ids []int64, aatb *AccountAgedTrialBalance) error {
-	return c.Update(AccountAgedTrialBalanceModel, ids, aatb)
+	return c.Update(AccountAgedTrialBalanceModel, ids, aatb, nil)
 }
 
 // DeleteAccountAgedTrialBalance deletes an existing account.aged.trial.balance record.
@@ -81,10 +77,7 @@ func (c *Client) GetAccountAgedTrialBalance(id int64) (*AccountAgedTrialBalance,
 	if err != nil {
 		return nil, err
 	}
-	if aatbs != nil && len(*aatbs) > 0 {
-		return &((*aatbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.aged.trial.balance not found", id)
+	return &((*aatbs)[0]), nil
 }
 
 // GetAccountAgedTrialBalances gets account.aged.trial.balance existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindAccountAgedTrialBalance(criteria *Criteria) (*AccountAgedTr
 	if err := c.SearchRead(AccountAgedTrialBalanceModel, criteria, NewOptions().Limit(1), aatbs); err != nil {
 		return nil, err
 	}
-	if aatbs != nil && len(*aatbs) > 0 {
-		return &((*aatbs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.aged.trial.balance was not found with criteria %v", criteria)
+	return &((*aatbs)[0]), nil
 }
 
 // FindAccountAgedTrialBalances finds account.aged.trial.balance records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindAccountAgedTrialBalances(criteria *Criteria, options *Optio
 // FindAccountAgedTrialBalanceIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAgedTrialBalanceIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAgedTrialBalanceModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAgedTrialBalanceModel, criteria, options)
 }
 
 // FindAccountAgedTrialBalanceId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindAccountAgedTrialBalanceId(criteria *Criteria, options *Opti
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.aged.trial.balance was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

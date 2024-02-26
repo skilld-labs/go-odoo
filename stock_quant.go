@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockQuant represents stock.quant model.
 type StockQuant struct {
 	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateStockQuants(sqs []*StockQuant) ([]int64, error) {
 	for _, v := range sqs {
 		vv = append(vv, v)
 	}
-	return c.Create(StockQuantModel, vv)
+	return c.Create(StockQuantModel, vv, nil)
 }
 
 // UpdateStockQuant updates an existing stock.quant record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateStockQuant(sq *StockQuant) error {
 // UpdateStockQuants updates existing stock.quant records.
 // All records (represented by ids) will be updated by sq values.
 func (c *Client) UpdateStockQuants(ids []int64, sq *StockQuant) error {
-	return c.Update(StockQuantModel, ids, sq)
+	return c.Update(StockQuantModel, ids, sq, nil)
 }
 
 // DeleteStockQuant deletes an existing stock.quant record.
@@ -85,10 +81,7 @@ func (c *Client) GetStockQuant(id int64) (*StockQuant, error) {
 	if err != nil {
 		return nil, err
 	}
-	if sqs != nil && len(*sqs) > 0 {
-		return &((*sqs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.quant not found", id)
+	return &((*sqs)[0]), nil
 }
 
 // GetStockQuants gets stock.quant existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindStockQuant(criteria *Criteria) (*StockQuant, error) {
 	if err := c.SearchRead(StockQuantModel, criteria, NewOptions().Limit(1), sqs); err != nil {
 		return nil, err
 	}
-	if sqs != nil && len(*sqs) > 0 {
-		return &((*sqs)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.quant was not found with criteria %v", criteria)
+	return &((*sqs)[0]), nil
 }
 
 // FindStockQuants finds stock.quant records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindStockQuants(criteria *Criteria, options *Options) (*StockQu
 // FindStockQuantIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockQuantIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockQuantModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockQuantModel, criteria, options)
 }
 
 // FindStockQuantId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindStockQuantId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.quant was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

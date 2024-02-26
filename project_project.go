@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProjectProject represents project.project model.
 type ProjectProject struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -40,6 +36,7 @@ type ProjectProject struct {
 	LabelTasks               *String    `xmlrpc:"label_tasks,omptempty"`
 	LineIds                  *Relation  `xmlrpc:"line_ids,omptempty"`
 	MachineInitiativeName    *String    `xmlrpc:"machine_initiative_name,omptempty"`
+	MachineProjectName       *String    `xmlrpc:"machine_project_name,omptempty"`
 	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omptempty"`
 	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omptempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omptempty"`
@@ -55,6 +52,7 @@ type ProjectProject struct {
 	PortalUrl                *String    `xmlrpc:"portal_url,omptempty"`
 	PrivacyVisibility        *Selection `xmlrpc:"privacy_visibility,omptempty"`
 	ProjectCount             *Int       `xmlrpc:"project_count,omptempty"`
+	ProjectCreated           *Bool      `xmlrpc:"project_created,omptempty"`
 	ProjectIds               *Relation  `xmlrpc:"project_ids,omptempty"`
 	ResourceCalendarId       *Many2One  `xmlrpc:"resource_calendar_id,omptempty"`
 	SaleLineId               *Many2One  `xmlrpc:"sale_line_id,omptempty"`
@@ -101,7 +99,7 @@ func (c *Client) CreateProjectProjects(pps []*ProjectProject) ([]int64, error) {
 	for _, v := range pps {
 		vv = append(vv, v)
 	}
-	return c.Create(ProjectProjectModel, vv)
+	return c.Create(ProjectProjectModel, vv, nil)
 }
 
 // UpdateProjectProject updates an existing project.project record.
@@ -112,7 +110,7 @@ func (c *Client) UpdateProjectProject(pp *ProjectProject) error {
 // UpdateProjectProjects updates existing project.project records.
 // All records (represented by ids) will be updated by pp values.
 func (c *Client) UpdateProjectProjects(ids []int64, pp *ProjectProject) error {
-	return c.Update(ProjectProjectModel, ids, pp)
+	return c.Update(ProjectProjectModel, ids, pp, nil)
 }
 
 // DeleteProjectProject deletes an existing project.project record.
@@ -131,10 +129,7 @@ func (c *Client) GetProjectProject(id int64) (*ProjectProject, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of project.project not found", id)
+	return &((*pps)[0]), nil
 }
 
 // GetProjectProjects gets project.project existing records.
@@ -152,10 +147,7 @@ func (c *Client) FindProjectProject(criteria *Criteria) (*ProjectProject, error)
 	if err := c.SearchRead(ProjectProjectModel, criteria, NewOptions().Limit(1), pps); err != nil {
 		return nil, err
 	}
-	if pps != nil && len(*pps) > 0 {
-		return &((*pps)[0]), nil
-	}
-	return nil, fmt.Errorf("project.project was not found with criteria %v", criteria)
+	return &((*pps)[0]), nil
 }
 
 // FindProjectProjects finds project.project records by querying it
@@ -171,11 +163,7 @@ func (c *Client) FindProjectProjects(criteria *Criteria, options *Options) (*Pro
 // FindProjectProjectIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProjectProjectIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProjectProjectModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProjectProjectModel, criteria, options)
 }
 
 // FindProjectProjectId finds record id by querying it with criteria.
@@ -184,8 +172,5 @@ func (c *Client) FindProjectProjectId(criteria *Criteria, options *Options) (int
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("project.project was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

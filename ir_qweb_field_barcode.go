@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldBarcode represents ir.qweb.field.barcode model.
 type IrQwebFieldBarcode struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldBarcodes(iqfbs []*IrQwebFieldBarcode) ([]int64
 	for _, v := range iqfbs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldBarcodeModel, vv)
+	return c.Create(IrQwebFieldBarcodeModel, vv, nil)
 }
 
 // UpdateIrQwebFieldBarcode updates an existing ir.qweb.field.barcode record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) error {
 // UpdateIrQwebFieldBarcodes updates existing ir.qweb.field.barcode records.
 // All records (represented by ids) will be updated by iqfb values.
 func (c *Client) UpdateIrQwebFieldBarcodes(ids []int64, iqfb *IrQwebFieldBarcode) error {
-	return c.Update(IrQwebFieldBarcodeModel, ids, iqfb)
+	return c.Update(IrQwebFieldBarcodeModel, ids, iqfb, nil)
 }
 
 // DeleteIrQwebFieldBarcode deletes an existing ir.qweb.field.barcode record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldBarcode(id int64) (*IrQwebFieldBarcode, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfbs != nil && len(*iqfbs) > 0 {
-		return &((*iqfbs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.barcode not found", id)
+	return &((*iqfbs)[0]), nil
 }
 
 // GetIrQwebFieldBarcodes gets ir.qweb.field.barcode existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldBarcode(criteria *Criteria) (*IrQwebFieldBarcode
 	if err := c.SearchRead(IrQwebFieldBarcodeModel, criteria, NewOptions().Limit(1), iqfbs); err != nil {
 		return nil, err
 	}
-	if iqfbs != nil && len(*iqfbs) > 0 {
-		return &((*iqfbs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.barcode was not found with criteria %v", criteria)
+	return &((*iqfbs)[0]), nil
 }
 
 // FindIrQwebFieldBarcodes finds ir.qweb.field.barcode records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldBarcodes(criteria *Criteria, options *Options) (
 // FindIrQwebFieldBarcodeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldBarcodeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldBarcodeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldBarcodeModel, criteria, options)
 }
 
 // FindIrQwebFieldBarcodeId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldBarcodeId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.barcode was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseModuleUpdate represents base.module.update model.
 type BaseModuleUpdate struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateBaseModuleUpdates(bmus []*BaseModuleUpdate) ([]int64, err
 	for _, v := range bmus {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseModuleUpdateModel, vv)
+	return c.Create(BaseModuleUpdateModel, vv, nil)
 }
 
 // UpdateBaseModuleUpdate updates an existing base.module.update record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateBaseModuleUpdate(bmu *BaseModuleUpdate) error {
 // UpdateBaseModuleUpdates updates existing base.module.update records.
 // All records (represented by ids) will be updated by bmu values.
 func (c *Client) UpdateBaseModuleUpdates(ids []int64, bmu *BaseModuleUpdate) error {
-	return c.Update(BaseModuleUpdateModel, ids, bmu)
+	return c.Update(BaseModuleUpdateModel, ids, bmu, nil)
 }
 
 // DeleteBaseModuleUpdate deletes an existing base.module.update record.
@@ -77,10 +73,7 @@ func (c *Client) GetBaseModuleUpdate(id int64) (*BaseModuleUpdate, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base.module.update not found", id)
+	return &((*bmus)[0]), nil
 }
 
 // GetBaseModuleUpdates gets base.module.update existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindBaseModuleUpdate(criteria *Criteria) (*BaseModuleUpdate, er
 	if err := c.SearchRead(BaseModuleUpdateModel, criteria, NewOptions().Limit(1), bmus); err != nil {
 		return nil, err
 	}
-	if bmus != nil && len(*bmus) > 0 {
-		return &((*bmus)[0]), nil
-	}
-	return nil, fmt.Errorf("base.module.update was not found with criteria %v", criteria)
+	return &((*bmus)[0]), nil
 }
 
 // FindBaseModuleUpdates finds base.module.update records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindBaseModuleUpdates(criteria *Criteria, options *Options) (*B
 // FindBaseModuleUpdateIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseModuleUpdateIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseModuleUpdateModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseModuleUpdateModel, criteria, options)
 }
 
 // FindBaseModuleUpdateId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindBaseModuleUpdateId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base.module.update was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrUiView represents ir.ui.view model.
 type IrUiView struct {
 	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateIrUiViews(iuvs []*IrUiView) ([]int64, error) {
 	for _, v := range iuvs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrUiViewModel, vv)
+	return c.Create(IrUiViewModel, vv, nil)
 }
 
 // UpdateIrUiView updates an existing ir.ui.view record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateIrUiView(iuv *IrUiView) error {
 // UpdateIrUiViews updates existing ir.ui.view records.
 // All records (represented by ids) will be updated by iuv values.
 func (c *Client) UpdateIrUiViews(ids []int64, iuv *IrUiView) error {
-	return c.Update(IrUiViewModel, ids, iuv)
+	return c.Update(IrUiViewModel, ids, iuv, nil)
 }
 
 // DeleteIrUiView deletes an existing ir.ui.view record.
@@ -92,10 +88,7 @@ func (c *Client) GetIrUiView(id int64) (*IrUiView, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iuvs != nil && len(*iuvs) > 0 {
-		return &((*iuvs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.ui.view not found", id)
+	return &((*iuvs)[0]), nil
 }
 
 // GetIrUiViews gets ir.ui.view existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindIrUiView(criteria *Criteria) (*IrUiView, error) {
 	if err := c.SearchRead(IrUiViewModel, criteria, NewOptions().Limit(1), iuvs); err != nil {
 		return nil, err
 	}
-	if iuvs != nil && len(*iuvs) > 0 {
-		return &((*iuvs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.ui.view was not found with criteria %v", criteria)
+	return &((*iuvs)[0]), nil
 }
 
 // FindIrUiViews finds ir.ui.view records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindIrUiViews(criteria *Criteria, options *Options) (*IrUiViews
 // FindIrUiViewIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrUiViewIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrUiViewModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrUiViewModel, criteria, options)
 }
 
 // FindIrUiViewId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindIrUiViewId(criteria *Criteria, options *Options) (int64, er
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.ui.view was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

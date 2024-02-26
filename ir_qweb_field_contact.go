@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldContact represents ir.qweb.field.contact model.
 type IrQwebFieldContact struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldContacts(iqfcs []*IrQwebFieldContact) ([]int64
 	for _, v := range iqfcs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldContactModel, vv)
+	return c.Create(IrQwebFieldContactModel, vv, nil)
 }
 
 // UpdateIrQwebFieldContact updates an existing ir.qweb.field.contact record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldContact(iqfc *IrQwebFieldContact) error {
 // UpdateIrQwebFieldContacts updates existing ir.qweb.field.contact records.
 // All records (represented by ids) will be updated by iqfc values.
 func (c *Client) UpdateIrQwebFieldContacts(ids []int64, iqfc *IrQwebFieldContact) error {
-	return c.Update(IrQwebFieldContactModel, ids, iqfc)
+	return c.Update(IrQwebFieldContactModel, ids, iqfc, nil)
 }
 
 // DeleteIrQwebFieldContact deletes an existing ir.qweb.field.contact record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldContact(id int64) (*IrQwebFieldContact, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfcs != nil && len(*iqfcs) > 0 {
-		return &((*iqfcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.contact not found", id)
+	return &((*iqfcs)[0]), nil
 }
 
 // GetIrQwebFieldContacts gets ir.qweb.field.contact existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldContact(criteria *Criteria) (*IrQwebFieldContact
 	if err := c.SearchRead(IrQwebFieldContactModel, criteria, NewOptions().Limit(1), iqfcs); err != nil {
 		return nil, err
 	}
-	if iqfcs != nil && len(*iqfcs) > 0 {
-		return &((*iqfcs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.contact was not found with criteria %v", criteria)
+	return &((*iqfcs)[0]), nil
 }
 
 // FindIrQwebFieldContacts finds ir.qweb.field.contact records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldContacts(criteria *Criteria, options *Options) (
 // FindIrQwebFieldContactIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldContactIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldContactModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldContactModel, criteria, options)
 }
 
 // FindIrQwebFieldContactId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldContactId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.contact was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

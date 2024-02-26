@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailTest represents mail.test model.
 type MailTest struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -67,7 +63,7 @@ func (c *Client) CreateMailTests(mts []*MailTest) ([]int64, error) {
 	for _, v := range mts {
 		vv = append(vv, v)
 	}
-	return c.Create(MailTestModel, vv)
+	return c.Create(MailTestModel, vv, nil)
 }
 
 // UpdateMailTest updates an existing mail.test record.
@@ -78,7 +74,7 @@ func (c *Client) UpdateMailTest(mt *MailTest) error {
 // UpdateMailTests updates existing mail.test records.
 // All records (represented by ids) will be updated by mt values.
 func (c *Client) UpdateMailTests(ids []int64, mt *MailTest) error {
-	return c.Update(MailTestModel, ids, mt)
+	return c.Update(MailTestModel, ids, mt, nil)
 }
 
 // DeleteMailTest deletes an existing mail.test record.
@@ -97,10 +93,7 @@ func (c *Client) GetMailTest(id int64) (*MailTest, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mts != nil && len(*mts) > 0 {
-		return &((*mts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.test not found", id)
+	return &((*mts)[0]), nil
 }
 
 // GetMailTests gets mail.test existing records.
@@ -118,10 +111,7 @@ func (c *Client) FindMailTest(criteria *Criteria) (*MailTest, error) {
 	if err := c.SearchRead(MailTestModel, criteria, NewOptions().Limit(1), mts); err != nil {
 		return nil, err
 	}
-	if mts != nil && len(*mts) > 0 {
-		return &((*mts)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.test was not found with criteria %v", criteria)
+	return &((*mts)[0]), nil
 }
 
 // FindMailTests finds mail.test records by querying it
@@ -137,11 +127,7 @@ func (c *Client) FindMailTests(criteria *Criteria, options *Options) (*MailTests
 // FindMailTestIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailTestIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailTestModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailTestModel, criteria, options)
 }
 
 // FindMailTestId finds record id by querying it with criteria.
@@ -150,8 +136,5 @@ func (c *Client) FindMailTestId(criteria *Criteria, options *Options) (int64, er
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.test was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

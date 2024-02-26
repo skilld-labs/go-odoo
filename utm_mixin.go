@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // UtmMixin represents utm.mixin model.
 type UtmMixin struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -43,7 +39,7 @@ func (c *Client) CreateUtmMixins(ums []*UtmMixin) ([]int64, error) {
 	for _, v := range ums {
 		vv = append(vv, v)
 	}
-	return c.Create(UtmMixinModel, vv)
+	return c.Create(UtmMixinModel, vv, nil)
 }
 
 // UpdateUtmMixin updates an existing utm.mixin record.
@@ -54,7 +50,7 @@ func (c *Client) UpdateUtmMixin(um *UtmMixin) error {
 // UpdateUtmMixins updates existing utm.mixin records.
 // All records (represented by ids) will be updated by um values.
 func (c *Client) UpdateUtmMixins(ids []int64, um *UtmMixin) error {
-	return c.Update(UtmMixinModel, ids, um)
+	return c.Update(UtmMixinModel, ids, um, nil)
 }
 
 // DeleteUtmMixin deletes an existing utm.mixin record.
@@ -73,10 +69,7 @@ func (c *Client) GetUtmMixin(id int64) (*UtmMixin, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ums != nil && len(*ums) > 0 {
-		return &((*ums)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of utm.mixin not found", id)
+	return &((*ums)[0]), nil
 }
 
 // GetUtmMixins gets utm.mixin existing records.
@@ -94,10 +87,7 @@ func (c *Client) FindUtmMixin(criteria *Criteria) (*UtmMixin, error) {
 	if err := c.SearchRead(UtmMixinModel, criteria, NewOptions().Limit(1), ums); err != nil {
 		return nil, err
 	}
-	if ums != nil && len(*ums) > 0 {
-		return &((*ums)[0]), nil
-	}
-	return nil, fmt.Errorf("utm.mixin was not found with criteria %v", criteria)
+	return &((*ums)[0]), nil
 }
 
 // FindUtmMixins finds utm.mixin records by querying it
@@ -113,11 +103,7 @@ func (c *Client) FindUtmMixins(criteria *Criteria, options *Options) (*UtmMixins
 // FindUtmMixinIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindUtmMixinIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(UtmMixinModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(UtmMixinModel, criteria, options)
 }
 
 // FindUtmMixinId finds record id by querying it with criteria.
@@ -126,8 +112,5 @@ func (c *Client) FindUtmMixinId(criteria *Criteria, options *Options) (int64, er
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("utm.mixin was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

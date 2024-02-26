@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // BaseImportImport represents base_import.import model.
 type BaseImportImport struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateBaseImportImports(bis []*BaseImportImport) ([]int64, erro
 	for _, v := range bis {
 		vv = append(vv, v)
 	}
-	return c.Create(BaseImportImportModel, vv)
+	return c.Create(BaseImportImportModel, vv, nil)
 }
 
 // UpdateBaseImportImport updates an existing base_import.import record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateBaseImportImport(bi *BaseImportImport) error {
 // UpdateBaseImportImports updates existing base_import.import records.
 // All records (represented by ids) will be updated by bi values.
 func (c *Client) UpdateBaseImportImports(ids []int64, bi *BaseImportImport) error {
-	return c.Update(BaseImportImportModel, ids, bi)
+	return c.Update(BaseImportImportModel, ids, bi, nil)
 }
 
 // DeleteBaseImportImport deletes an existing base_import.import record.
@@ -78,10 +74,7 @@ func (c *Client) GetBaseImportImport(id int64) (*BaseImportImport, error) {
 	if err != nil {
 		return nil, err
 	}
-	if bis != nil && len(*bis) > 0 {
-		return &((*bis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of base_import.import not found", id)
+	return &((*bis)[0]), nil
 }
 
 // GetBaseImportImports gets base_import.import existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindBaseImportImport(criteria *Criteria) (*BaseImportImport, er
 	if err := c.SearchRead(BaseImportImportModel, criteria, NewOptions().Limit(1), bis); err != nil {
 		return nil, err
 	}
-	if bis != nil && len(*bis) > 0 {
-		return &((*bis)[0]), nil
-	}
-	return nil, fmt.Errorf("base_import.import was not found with criteria %v", criteria)
+	return &((*bis)[0]), nil
 }
 
 // FindBaseImportImports finds base_import.import records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindBaseImportImports(criteria *Criteria, options *Options) (*B
 // FindBaseImportImportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindBaseImportImportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(BaseImportImportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(BaseImportImportModel, criteria, options)
 }
 
 // FindBaseImportImportId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindBaseImportImportId(criteria *Criteria, options *Options) (i
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("base_import.import was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

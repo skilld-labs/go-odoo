@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResLang represents res.lang model.
 type ResLang struct {
 	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateResLangs(rls []*ResLang) ([]int64, error) {
 	for _, v := range rls {
 		vv = append(vv, v)
 	}
-	return c.Create(ResLangModel, vv)
+	return c.Create(ResLangModel, vv, nil)
 }
 
 // UpdateResLang updates an existing res.lang record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateResLang(rl *ResLang) error {
 // UpdateResLangs updates existing res.lang records.
 // All records (represented by ids) will be updated by rl values.
 func (c *Client) UpdateResLangs(ids []int64, rl *ResLang) error {
-	return c.Update(ResLangModel, ids, rl)
+	return c.Update(ResLangModel, ids, rl, nil)
 }
 
 // DeleteResLang deletes an existing res.lang record.
@@ -85,10 +81,7 @@ func (c *Client) GetResLang(id int64) (*ResLang, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rls != nil && len(*rls) > 0 {
-		return &((*rls)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.lang not found", id)
+	return &((*rls)[0]), nil
 }
 
 // GetResLangs gets res.lang existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindResLang(criteria *Criteria) (*ResLang, error) {
 	if err := c.SearchRead(ResLangModel, criteria, NewOptions().Limit(1), rls); err != nil {
 		return nil, err
 	}
-	if rls != nil && len(*rls) > 0 {
-		return &((*rls)[0]), nil
-	}
-	return nil, fmt.Errorf("res.lang was not found with criteria %v", criteria)
+	return &((*rls)[0]), nil
 }
 
 // FindResLangs finds res.lang records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindResLangs(criteria *Criteria, options *Options) (*ResLangs, 
 // FindResLangIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResLangIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResLangModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResLangModel, criteria, options)
 }
 
 // FindResLangId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindResLangId(criteria *Criteria, options *Options) (int64, err
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.lang was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportHrHolidaysReportHolidayssummary represents report.hr_holidays.report_holidayssummary model.
 type ReportHrHolidaysReportHolidayssummary struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateReportHrHolidaysReportHolidayssummarys(rhrs []*ReportHrHo
 	for _, v := range rhrs {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportHrHolidaysReportHolidayssummaryModel, vv)
+	return c.Create(ReportHrHolidaysReportHolidayssummaryModel, vv, nil)
 }
 
 // UpdateReportHrHolidaysReportHolidayssummary updates an existing report.hr_holidays.report_holidayssummary record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateReportHrHolidaysReportHolidayssummary(rhr *ReportHrHolida
 // UpdateReportHrHolidaysReportHolidayssummarys updates existing report.hr_holidays.report_holidayssummary records.
 // All records (represented by ids) will be updated by rhr values.
 func (c *Client) UpdateReportHrHolidaysReportHolidayssummarys(ids []int64, rhr *ReportHrHolidaysReportHolidayssummary) error {
-	return c.Update(ReportHrHolidaysReportHolidayssummaryModel, ids, rhr)
+	return c.Update(ReportHrHolidaysReportHolidayssummaryModel, ids, rhr, nil)
 }
 
 // DeleteReportHrHolidaysReportHolidayssummary deletes an existing report.hr_holidays.report_holidayssummary record.
@@ -70,10 +66,7 @@ func (c *Client) GetReportHrHolidaysReportHolidayssummary(id int64) (*ReportHrHo
 	if err != nil {
 		return nil, err
 	}
-	if rhrs != nil && len(*rhrs) > 0 {
-		return &((*rhrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.hr_holidays.report_holidayssummary not found", id)
+	return &((*rhrs)[0]), nil
 }
 
 // GetReportHrHolidaysReportHolidayssummarys gets report.hr_holidays.report_holidayssummary existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindReportHrHolidaysReportHolidayssummary(criteria *Criteria) (
 	if err := c.SearchRead(ReportHrHolidaysReportHolidayssummaryModel, criteria, NewOptions().Limit(1), rhrs); err != nil {
 		return nil, err
 	}
-	if rhrs != nil && len(*rhrs) > 0 {
-		return &((*rhrs)[0]), nil
-	}
-	return nil, fmt.Errorf("report.hr_holidays.report_holidayssummary was not found with criteria %v", criteria)
+	return &((*rhrs)[0]), nil
 }
 
 // FindReportHrHolidaysReportHolidayssummarys finds report.hr_holidays.report_holidayssummary records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindReportHrHolidaysReportHolidayssummarys(criteria *Criteria, 
 // FindReportHrHolidaysReportHolidayssummaryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportHrHolidaysReportHolidayssummaryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportHrHolidaysReportHolidayssummaryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportHrHolidaysReportHolidayssummaryModel, criteria, options)
 }
 
 // FindReportHrHolidaysReportHolidayssummaryId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindReportHrHolidaysReportHolidayssummaryId(criteria *Criteria,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.hr_holidays.report_holidayssummary was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

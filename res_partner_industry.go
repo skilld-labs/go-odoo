@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResPartnerIndustry represents res.partner.industry model.
 type ResPartnerIndustry struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -47,7 +43,7 @@ func (c *Client) CreateResPartnerIndustrys(rpis []*ResPartnerIndustry) ([]int64,
 	for _, v := range rpis {
 		vv = append(vv, v)
 	}
-	return c.Create(ResPartnerIndustryModel, vv)
+	return c.Create(ResPartnerIndustryModel, vv, nil)
 }
 
 // UpdateResPartnerIndustry updates an existing res.partner.industry record.
@@ -58,7 +54,7 @@ func (c *Client) UpdateResPartnerIndustry(rpi *ResPartnerIndustry) error {
 // UpdateResPartnerIndustrys updates existing res.partner.industry records.
 // All records (represented by ids) will be updated by rpi values.
 func (c *Client) UpdateResPartnerIndustrys(ids []int64, rpi *ResPartnerIndustry) error {
-	return c.Update(ResPartnerIndustryModel, ids, rpi)
+	return c.Update(ResPartnerIndustryModel, ids, rpi, nil)
 }
 
 // DeleteResPartnerIndustry deletes an existing res.partner.industry record.
@@ -77,10 +73,7 @@ func (c *Client) GetResPartnerIndustry(id int64) (*ResPartnerIndustry, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rpis != nil && len(*rpis) > 0 {
-		return &((*rpis)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.partner.industry not found", id)
+	return &((*rpis)[0]), nil
 }
 
 // GetResPartnerIndustrys gets res.partner.industry existing records.
@@ -98,10 +91,7 @@ func (c *Client) FindResPartnerIndustry(criteria *Criteria) (*ResPartnerIndustry
 	if err := c.SearchRead(ResPartnerIndustryModel, criteria, NewOptions().Limit(1), rpis); err != nil {
 		return nil, err
 	}
-	if rpis != nil && len(*rpis) > 0 {
-		return &((*rpis)[0]), nil
-	}
-	return nil, fmt.Errorf("res.partner.industry was not found with criteria %v", criteria)
+	return &((*rpis)[0]), nil
 }
 
 // FindResPartnerIndustrys finds res.partner.industry records by querying it
@@ -117,11 +107,7 @@ func (c *Client) FindResPartnerIndustrys(criteria *Criteria, options *Options) (
 // FindResPartnerIndustryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResPartnerIndustryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResPartnerIndustryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResPartnerIndustryModel, criteria, options)
 }
 
 // FindResPartnerIndustryId finds record id by querying it with criteria.
@@ -130,8 +116,5 @@ func (c *Client) FindResPartnerIndustryId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.partner.industry was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

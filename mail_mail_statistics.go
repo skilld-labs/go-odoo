@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMailStatistics represents mail.mail.statistics model.
 type MailMailStatistics struct {
 	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateMailMailStatisticss(mmss []*MailMailStatistics) ([]int64,
 	for _, v := range mmss {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMailStatisticsModel, vv)
+	return c.Create(MailMailStatisticsModel, vv, nil)
 }
 
 // UpdateMailMailStatistics updates an existing mail.mail.statistics record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateMailMailStatistics(mms *MailMailStatistics) error {
 // UpdateMailMailStatisticss updates existing mail.mail.statistics records.
 // All records (represented by ids) will be updated by mms values.
 func (c *Client) UpdateMailMailStatisticss(ids []int64, mms *MailMailStatistics) error {
-	return c.Update(MailMailStatisticsModel, ids, mms)
+	return c.Update(MailMailStatisticsModel, ids, mms, nil)
 }
 
 // DeleteMailMailStatistics deletes an existing mail.mail.statistics record.
@@ -92,10 +88,7 @@ func (c *Client) GetMailMailStatistics(id int64) (*MailMailStatistics, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mmss != nil && len(*mmss) > 0 {
-		return &((*mmss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.mail.statistics not found", id)
+	return &((*mmss)[0]), nil
 }
 
 // GetMailMailStatisticss gets mail.mail.statistics existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindMailMailStatistics(criteria *Criteria) (*MailMailStatistics
 	if err := c.SearchRead(MailMailStatisticsModel, criteria, NewOptions().Limit(1), mmss); err != nil {
 		return nil, err
 	}
-	if mmss != nil && len(*mmss) > 0 {
-		return &((*mmss)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.mail.statistics was not found with criteria %v", criteria)
+	return &((*mmss)[0]), nil
 }
 
 // FindMailMailStatisticss finds mail.mail.statistics records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindMailMailStatisticss(criteria *Criteria, options *Options) (
 // FindMailMailStatisticsIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMailStatisticsIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMailStatisticsModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMailStatisticsModel, criteria, options)
 }
 
 // FindMailMailStatisticsId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindMailMailStatisticsId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.mail.statistics was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

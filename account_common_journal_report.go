@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountCommonJournalReport represents account.common.journal.report model.
 type AccountCommonJournalReport struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountCommonJournalReports(acjrs []*AccountCommonJournal
 	for _, v := range acjrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountCommonJournalReportModel, vv)
+	return c.Create(AccountCommonJournalReportModel, vv, nil)
 }
 
 // UpdateAccountCommonJournalReport updates an existing account.common.journal.report record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountCommonJournalReport(acjr *AccountCommonJournalRepo
 // UpdateAccountCommonJournalReports updates existing account.common.journal.report records.
 // All records (represented by ids) will be updated by acjr values.
 func (c *Client) UpdateAccountCommonJournalReports(ids []int64, acjr *AccountCommonJournalReport) error {
-	return c.Update(AccountCommonJournalReportModel, ids, acjr)
+	return c.Update(AccountCommonJournalReportModel, ids, acjr, nil)
 }
 
 // DeleteAccountCommonJournalReport deletes an existing account.common.journal.report record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountCommonJournalReport(id int64) (*AccountCommonJournalR
 	if err != nil {
 		return nil, err
 	}
-	if acjrs != nil && len(*acjrs) > 0 {
-		return &((*acjrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.common.journal.report not found", id)
+	return &((*acjrs)[0]), nil
 }
 
 // GetAccountCommonJournalReports gets account.common.journal.report existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountCommonJournalReport(criteria *Criteria) (*AccountCom
 	if err := c.SearchRead(AccountCommonJournalReportModel, criteria, NewOptions().Limit(1), acjrs); err != nil {
 		return nil, err
 	}
-	if acjrs != nil && len(*acjrs) > 0 {
-		return &((*acjrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.common.journal.report was not found with criteria %v", criteria)
+	return &((*acjrs)[0]), nil
 }
 
 // FindAccountCommonJournalReports finds account.common.journal.report records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountCommonJournalReports(criteria *Criteria, options *Op
 // FindAccountCommonJournalReportIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountCommonJournalReportIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountCommonJournalReportModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountCommonJournalReportModel, criteria, options)
 }
 
 // FindAccountCommonJournalReportId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountCommonJournalReportId(criteria *Criteria, options *O
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.common.journal.report was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

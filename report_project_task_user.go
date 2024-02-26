@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ReportProjectTaskUser represents report.project.task.user model.
 type ReportProjectTaskUser struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
@@ -62,7 +58,7 @@ func (c *Client) CreateReportProjectTaskUsers(rptus []*ReportProjectTaskUser) ([
 	for _, v := range rptus {
 		vv = append(vv, v)
 	}
-	return c.Create(ReportProjectTaskUserModel, vv)
+	return c.Create(ReportProjectTaskUserModel, vv, nil)
 }
 
 // UpdateReportProjectTaskUser updates an existing report.project.task.user record.
@@ -73,7 +69,7 @@ func (c *Client) UpdateReportProjectTaskUser(rptu *ReportProjectTaskUser) error 
 // UpdateReportProjectTaskUsers updates existing report.project.task.user records.
 // All records (represented by ids) will be updated by rptu values.
 func (c *Client) UpdateReportProjectTaskUsers(ids []int64, rptu *ReportProjectTaskUser) error {
-	return c.Update(ReportProjectTaskUserModel, ids, rptu)
+	return c.Update(ReportProjectTaskUserModel, ids, rptu, nil)
 }
 
 // DeleteReportProjectTaskUser deletes an existing report.project.task.user record.
@@ -92,10 +88,7 @@ func (c *Client) GetReportProjectTaskUser(id int64) (*ReportProjectTaskUser, err
 	if err != nil {
 		return nil, err
 	}
-	if rptus != nil && len(*rptus) > 0 {
-		return &((*rptus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of report.project.task.user not found", id)
+	return &((*rptus)[0]), nil
 }
 
 // GetReportProjectTaskUsers gets report.project.task.user existing records.
@@ -113,10 +106,7 @@ func (c *Client) FindReportProjectTaskUser(criteria *Criteria) (*ReportProjectTa
 	if err := c.SearchRead(ReportProjectTaskUserModel, criteria, NewOptions().Limit(1), rptus); err != nil {
 		return nil, err
 	}
-	if rptus != nil && len(*rptus) > 0 {
-		return &((*rptus)[0]), nil
-	}
-	return nil, fmt.Errorf("report.project.task.user was not found with criteria %v", criteria)
+	return &((*rptus)[0]), nil
 }
 
 // FindReportProjectTaskUsers finds report.project.task.user records by querying it
@@ -132,11 +122,7 @@ func (c *Client) FindReportProjectTaskUsers(criteria *Criteria, options *Options
 // FindReportProjectTaskUserIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindReportProjectTaskUserIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ReportProjectTaskUserModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ReportProjectTaskUserModel, criteria, options)
 }
 
 // FindReportProjectTaskUserId finds record id by querying it with criteria.
@@ -145,8 +131,5 @@ func (c *Client) FindReportProjectTaskUserId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("report.project.task.user was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountFullReconcile represents account.full.reconcile model.
 type AccountFullReconcile struct {
 	LastUpdate          *Time     `xmlrpc:"__last_update,omptempty"`
@@ -48,7 +44,7 @@ func (c *Client) CreateAccountFullReconciles(afrs []*AccountFullReconcile) ([]in
 	for _, v := range afrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountFullReconcileModel, vv)
+	return c.Create(AccountFullReconcileModel, vv, nil)
 }
 
 // UpdateAccountFullReconcile updates an existing account.full.reconcile record.
@@ -59,7 +55,7 @@ func (c *Client) UpdateAccountFullReconcile(afr *AccountFullReconcile) error {
 // UpdateAccountFullReconciles updates existing account.full.reconcile records.
 // All records (represented by ids) will be updated by afr values.
 func (c *Client) UpdateAccountFullReconciles(ids []int64, afr *AccountFullReconcile) error {
-	return c.Update(AccountFullReconcileModel, ids, afr)
+	return c.Update(AccountFullReconcileModel, ids, afr, nil)
 }
 
 // DeleteAccountFullReconcile deletes an existing account.full.reconcile record.
@@ -78,10 +74,7 @@ func (c *Client) GetAccountFullReconcile(id int64) (*AccountFullReconcile, error
 	if err != nil {
 		return nil, err
 	}
-	if afrs != nil && len(*afrs) > 0 {
-		return &((*afrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.full.reconcile not found", id)
+	return &((*afrs)[0]), nil
 }
 
 // GetAccountFullReconciles gets account.full.reconcile existing records.
@@ -99,10 +92,7 @@ func (c *Client) FindAccountFullReconcile(criteria *Criteria) (*AccountFullRecon
 	if err := c.SearchRead(AccountFullReconcileModel, criteria, NewOptions().Limit(1), afrs); err != nil {
 		return nil, err
 	}
-	if afrs != nil && len(*afrs) > 0 {
-		return &((*afrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.full.reconcile was not found with criteria %v", criteria)
+	return &((*afrs)[0]), nil
 }
 
 // FindAccountFullReconciles finds account.full.reconcile records by querying it
@@ -118,11 +108,7 @@ func (c *Client) FindAccountFullReconciles(criteria *Criteria, options *Options)
 // FindAccountFullReconcileIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountFullReconcileIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountFullReconcileModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountFullReconcileModel, criteria, options)
 }
 
 // FindAccountFullReconcileId finds record id by querying it with criteria.
@@ -131,8 +117,5 @@ func (c *Client) FindAccountFullReconcileId(criteria *Criteria, options *Options
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.full.reconcile was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountInvoiceConfirm represents account.invoice.confirm model.
 type AccountInvoiceConfirm struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -44,7 +40,7 @@ func (c *Client) CreateAccountInvoiceConfirms(aics []*AccountInvoiceConfirm) ([]
 	for _, v := range aics {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountInvoiceConfirmModel, vv)
+	return c.Create(AccountInvoiceConfirmModel, vv, nil)
 }
 
 // UpdateAccountInvoiceConfirm updates an existing account.invoice.confirm record.
@@ -55,7 +51,7 @@ func (c *Client) UpdateAccountInvoiceConfirm(aic *AccountInvoiceConfirm) error {
 // UpdateAccountInvoiceConfirms updates existing account.invoice.confirm records.
 // All records (represented by ids) will be updated by aic values.
 func (c *Client) UpdateAccountInvoiceConfirms(ids []int64, aic *AccountInvoiceConfirm) error {
-	return c.Update(AccountInvoiceConfirmModel, ids, aic)
+	return c.Update(AccountInvoiceConfirmModel, ids, aic, nil)
 }
 
 // DeleteAccountInvoiceConfirm deletes an existing account.invoice.confirm record.
@@ -74,10 +70,7 @@ func (c *Client) GetAccountInvoiceConfirm(id int64) (*AccountInvoiceConfirm, err
 	if err != nil {
 		return nil, err
 	}
-	if aics != nil && len(*aics) > 0 {
-		return &((*aics)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.invoice.confirm not found", id)
+	return &((*aics)[0]), nil
 }
 
 // GetAccountInvoiceConfirms gets account.invoice.confirm existing records.
@@ -95,10 +88,7 @@ func (c *Client) FindAccountInvoiceConfirm(criteria *Criteria) (*AccountInvoiceC
 	if err := c.SearchRead(AccountInvoiceConfirmModel, criteria, NewOptions().Limit(1), aics); err != nil {
 		return nil, err
 	}
-	if aics != nil && len(*aics) > 0 {
-		return &((*aics)[0]), nil
-	}
-	return nil, fmt.Errorf("account.invoice.confirm was not found with criteria %v", criteria)
+	return &((*aics)[0]), nil
 }
 
 // FindAccountInvoiceConfirms finds account.invoice.confirm records by querying it
@@ -114,11 +104,7 @@ func (c *Client) FindAccountInvoiceConfirms(criteria *Criteria, options *Options
 // FindAccountInvoiceConfirmIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountInvoiceConfirmIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountInvoiceConfirmModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountInvoiceConfirmModel, criteria, options)
 }
 
 // FindAccountInvoiceConfirmId finds record id by querying it with criteria.
@@ -127,8 +113,5 @@ func (c *Client) FindAccountInvoiceConfirmId(criteria *Criteria, options *Option
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.invoice.confirm was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

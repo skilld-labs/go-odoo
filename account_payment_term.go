@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountPaymentTerm represents account.payment.term model.
 type AccountPaymentTerm struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateAccountPaymentTerms(apts []*AccountPaymentTerm) ([]int64,
 	for _, v := range apts {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountPaymentTermModel, vv)
+	return c.Create(AccountPaymentTermModel, vv, nil)
 }
 
 // UpdateAccountPaymentTerm updates an existing account.payment.term record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateAccountPaymentTerm(apt *AccountPaymentTerm) error {
 // UpdateAccountPaymentTerms updates existing account.payment.term records.
 // All records (represented by ids) will be updated by apt values.
 func (c *Client) UpdateAccountPaymentTerms(ids []int64, apt *AccountPaymentTerm) error {
-	return c.Update(AccountPaymentTermModel, ids, apt)
+	return c.Update(AccountPaymentTermModel, ids, apt, nil)
 }
 
 // DeleteAccountPaymentTerm deletes an existing account.payment.term record.
@@ -80,10 +76,7 @@ func (c *Client) GetAccountPaymentTerm(id int64) (*AccountPaymentTerm, error) {
 	if err != nil {
 		return nil, err
 	}
-	if apts != nil && len(*apts) > 0 {
-		return &((*apts)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.payment.term not found", id)
+	return &((*apts)[0]), nil
 }
 
 // GetAccountPaymentTerms gets account.payment.term existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindAccountPaymentTerm(criteria *Criteria) (*AccountPaymentTerm
 	if err := c.SearchRead(AccountPaymentTermModel, criteria, NewOptions().Limit(1), apts); err != nil {
 		return nil, err
 	}
-	if apts != nil && len(*apts) > 0 {
-		return &((*apts)[0]), nil
-	}
-	return nil, fmt.Errorf("account.payment.term was not found with criteria %v", criteria)
+	return &((*apts)[0]), nil
 }
 
 // FindAccountPaymentTerms finds account.payment.term records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindAccountPaymentTerms(criteria *Criteria, options *Options) (
 // FindAccountPaymentTermIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountPaymentTermIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountPaymentTermModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountPaymentTermModel, criteria, options)
 }
 
 // FindAccountPaymentTermId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindAccountPaymentTermId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.payment.term was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

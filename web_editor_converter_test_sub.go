@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // WebEditorConverterTestSub represents web_editor.converter.test.sub model.
 type WebEditorConverterTestSub struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -45,7 +41,7 @@ func (c *Client) CreateWebEditorConverterTestSubs(wctss []*WebEditorConverterTes
 	for _, v := range wctss {
 		vv = append(vv, v)
 	}
-	return c.Create(WebEditorConverterTestSubModel, vv)
+	return c.Create(WebEditorConverterTestSubModel, vv, nil)
 }
 
 // UpdateWebEditorConverterTestSub updates an existing web_editor.converter.test.sub record.
@@ -56,7 +52,7 @@ func (c *Client) UpdateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub
 // UpdateWebEditorConverterTestSubs updates existing web_editor.converter.test.sub records.
 // All records (represented by ids) will be updated by wcts values.
 func (c *Client) UpdateWebEditorConverterTestSubs(ids []int64, wcts *WebEditorConverterTestSub) error {
-	return c.Update(WebEditorConverterTestSubModel, ids, wcts)
+	return c.Update(WebEditorConverterTestSubModel, ids, wcts, nil)
 }
 
 // DeleteWebEditorConverterTestSub deletes an existing web_editor.converter.test.sub record.
@@ -75,10 +71,7 @@ func (c *Client) GetWebEditorConverterTestSub(id int64) (*WebEditorConverterTest
 	if err != nil {
 		return nil, err
 	}
-	if wctss != nil && len(*wctss) > 0 {
-		return &((*wctss)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of web_editor.converter.test.sub not found", id)
+	return &((*wctss)[0]), nil
 }
 
 // GetWebEditorConverterTestSubs gets web_editor.converter.test.sub existing records.
@@ -96,10 +89,7 @@ func (c *Client) FindWebEditorConverterTestSub(criteria *Criteria) (*WebEditorCo
 	if err := c.SearchRead(WebEditorConverterTestSubModel, criteria, NewOptions().Limit(1), wctss); err != nil {
 		return nil, err
 	}
-	if wctss != nil && len(*wctss) > 0 {
-		return &((*wctss)[0]), nil
-	}
-	return nil, fmt.Errorf("web_editor.converter.test.sub was not found with criteria %v", criteria)
+	return &((*wctss)[0]), nil
 }
 
 // FindWebEditorConverterTestSubs finds web_editor.converter.test.sub records by querying it
@@ -115,11 +105,7 @@ func (c *Client) FindWebEditorConverterTestSubs(criteria *Criteria, options *Opt
 // FindWebEditorConverterTestSubIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindWebEditorConverterTestSubIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(WebEditorConverterTestSubModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(WebEditorConverterTestSubModel, criteria, options)
 }
 
 // FindWebEditorConverterTestSubId finds record id by querying it with criteria.
@@ -128,8 +114,5 @@ func (c *Client) FindWebEditorConverterTestSubId(criteria *Criteria, options *Op
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("web_editor.converter.test.sub was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

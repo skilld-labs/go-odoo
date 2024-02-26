@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // HrEmployee represents hr.employee model.
 type HrEmployee struct {
 	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
@@ -102,7 +98,7 @@ func (c *Client) CreateHrEmployees(hes []*HrEmployee) ([]int64, error) {
 	for _, v := range hes {
 		vv = append(vv, v)
 	}
-	return c.Create(HrEmployeeModel, vv)
+	return c.Create(HrEmployeeModel, vv, nil)
 }
 
 // UpdateHrEmployee updates an existing hr.employee record.
@@ -113,7 +109,7 @@ func (c *Client) UpdateHrEmployee(he *HrEmployee) error {
 // UpdateHrEmployees updates existing hr.employee records.
 // All records (represented by ids) will be updated by he values.
 func (c *Client) UpdateHrEmployees(ids []int64, he *HrEmployee) error {
-	return c.Update(HrEmployeeModel, ids, he)
+	return c.Update(HrEmployeeModel, ids, he, nil)
 }
 
 // DeleteHrEmployee deletes an existing hr.employee record.
@@ -132,10 +128,7 @@ func (c *Client) GetHrEmployee(id int64) (*HrEmployee, error) {
 	if err != nil {
 		return nil, err
 	}
-	if hes != nil && len(*hes) > 0 {
-		return &((*hes)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of hr.employee not found", id)
+	return &((*hes)[0]), nil
 }
 
 // GetHrEmployees gets hr.employee existing records.
@@ -153,10 +146,7 @@ func (c *Client) FindHrEmployee(criteria *Criteria) (*HrEmployee, error) {
 	if err := c.SearchRead(HrEmployeeModel, criteria, NewOptions().Limit(1), hes); err != nil {
 		return nil, err
 	}
-	if hes != nil && len(*hes) > 0 {
-		return &((*hes)[0]), nil
-	}
-	return nil, fmt.Errorf("hr.employee was not found with criteria %v", criteria)
+	return &((*hes)[0]), nil
 }
 
 // FindHrEmployees finds hr.employee records by querying it
@@ -172,11 +162,7 @@ func (c *Client) FindHrEmployees(criteria *Criteria, options *Options) (*HrEmplo
 // FindHrEmployeeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindHrEmployeeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(HrEmployeeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(HrEmployeeModel, criteria, options)
 }
 
 // FindHrEmployeeId finds record id by querying it with criteria.
@@ -185,8 +171,5 @@ func (c *Client) FindHrEmployeeId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("hr.employee was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldQweb represents ir.qweb.field.qweb model.
 type IrQwebFieldQweb struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldQwebs(iqfqs []*IrQwebFieldQweb) ([]int64, erro
 	for _, v := range iqfqs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldQwebModel, vv)
+	return c.Create(IrQwebFieldQwebModel, vv, nil)
 }
 
 // UpdateIrQwebFieldQweb updates an existing ir.qweb.field.qweb record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldQweb(iqfq *IrQwebFieldQweb) error {
 // UpdateIrQwebFieldQwebs updates existing ir.qweb.field.qweb records.
 // All records (represented by ids) will be updated by iqfq values.
 func (c *Client) UpdateIrQwebFieldQwebs(ids []int64, iqfq *IrQwebFieldQweb) error {
-	return c.Update(IrQwebFieldQwebModel, ids, iqfq)
+	return c.Update(IrQwebFieldQwebModel, ids, iqfq, nil)
 }
 
 // DeleteIrQwebFieldQweb deletes an existing ir.qweb.field.qweb record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldQweb(id int64) (*IrQwebFieldQweb, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iqfqs != nil && len(*iqfqs) > 0 {
-		return &((*iqfqs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.qweb not found", id)
+	return &((*iqfqs)[0]), nil
 }
 
 // GetIrQwebFieldQwebs gets ir.qweb.field.qweb existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldQweb(criteria *Criteria) (*IrQwebFieldQweb, erro
 	if err := c.SearchRead(IrQwebFieldQwebModel, criteria, NewOptions().Limit(1), iqfqs); err != nil {
 		return nil, err
 	}
-	if iqfqs != nil && len(*iqfqs) > 0 {
-		return &((*iqfqs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.qweb was not found with criteria %v", criteria)
+	return &((*iqfqs)[0]), nil
 }
 
 // FindIrQwebFieldQwebs finds ir.qweb.field.qweb records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldQwebs(criteria *Criteria, options *Options) (*Ir
 // FindIrQwebFieldQwebIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldQwebIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldQwebModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldQwebModel, criteria, options)
 }
 
 // FindIrQwebFieldQwebId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldQwebId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.qweb was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

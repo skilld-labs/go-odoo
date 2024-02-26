@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProjectTaskMergeWizard represents project.task.merge.wizard model.
 type ProjectTaskMergeWizard struct {
 	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
@@ -50,7 +46,7 @@ func (c *Client) CreateProjectTaskMergeWizards(ptmws []*ProjectTaskMergeWizard) 
 	for _, v := range ptmws {
 		vv = append(vv, v)
 	}
-	return c.Create(ProjectTaskMergeWizardModel, vv)
+	return c.Create(ProjectTaskMergeWizardModel, vv, nil)
 }
 
 // UpdateProjectTaskMergeWizard updates an existing project.task.merge.wizard record.
@@ -61,7 +57,7 @@ func (c *Client) UpdateProjectTaskMergeWizard(ptmw *ProjectTaskMergeWizard) erro
 // UpdateProjectTaskMergeWizards updates existing project.task.merge.wizard records.
 // All records (represented by ids) will be updated by ptmw values.
 func (c *Client) UpdateProjectTaskMergeWizards(ids []int64, ptmw *ProjectTaskMergeWizard) error {
-	return c.Update(ProjectTaskMergeWizardModel, ids, ptmw)
+	return c.Update(ProjectTaskMergeWizardModel, ids, ptmw, nil)
 }
 
 // DeleteProjectTaskMergeWizard deletes an existing project.task.merge.wizard record.
@@ -80,10 +76,7 @@ func (c *Client) GetProjectTaskMergeWizard(id int64) (*ProjectTaskMergeWizard, e
 	if err != nil {
 		return nil, err
 	}
-	if ptmws != nil && len(*ptmws) > 0 {
-		return &((*ptmws)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of project.task.merge.wizard not found", id)
+	return &((*ptmws)[0]), nil
 }
 
 // GetProjectTaskMergeWizards gets project.task.merge.wizard existing records.
@@ -101,10 +94,7 @@ func (c *Client) FindProjectTaskMergeWizard(criteria *Criteria) (*ProjectTaskMer
 	if err := c.SearchRead(ProjectTaskMergeWizardModel, criteria, NewOptions().Limit(1), ptmws); err != nil {
 		return nil, err
 	}
-	if ptmws != nil && len(*ptmws) > 0 {
-		return &((*ptmws)[0]), nil
-	}
-	return nil, fmt.Errorf("project.task.merge.wizard was not found with criteria %v", criteria)
+	return &((*ptmws)[0]), nil
 }
 
 // FindProjectTaskMergeWizards finds project.task.merge.wizard records by querying it
@@ -120,11 +110,7 @@ func (c *Client) FindProjectTaskMergeWizards(criteria *Criteria, options *Option
 // FindProjectTaskMergeWizardIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProjectTaskMergeWizardIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProjectTaskMergeWizardModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProjectTaskMergeWizardModel, criteria, options)
 }
 
 // FindProjectTaskMergeWizardId finds record id by querying it with criteria.
@@ -133,8 +119,5 @@ func (c *Client) FindProjectTaskMergeWizardId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("project.task.merge.wizard was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountMoveLineReconcile represents account.move.line.reconcile model.
 type AccountMoveLineReconcile struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateAccountMoveLineReconciles(amlrs []*AccountMoveLineReconci
 	for _, v := range amlrs {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountMoveLineReconcileModel, vv)
+	return c.Create(AccountMoveLineReconcileModel, vv, nil)
 }
 
 // UpdateAccountMoveLineReconcile updates an existing account.move.line.reconcile record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateAccountMoveLineReconcile(amlr *AccountMoveLineReconcile) 
 // UpdateAccountMoveLineReconciles updates existing account.move.line.reconcile records.
 // All records (represented by ids) will be updated by amlr values.
 func (c *Client) UpdateAccountMoveLineReconciles(ids []int64, amlr *AccountMoveLineReconcile) error {
-	return c.Update(AccountMoveLineReconcileModel, ids, amlr)
+	return c.Update(AccountMoveLineReconcileModel, ids, amlr, nil)
 }
 
 // DeleteAccountMoveLineReconcile deletes an existing account.move.line.reconcile record.
@@ -79,10 +75,7 @@ func (c *Client) GetAccountMoveLineReconcile(id int64) (*AccountMoveLineReconcil
 	if err != nil {
 		return nil, err
 	}
-	if amlrs != nil && len(*amlrs) > 0 {
-		return &((*amlrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.move.line.reconcile not found", id)
+	return &((*amlrs)[0]), nil
 }
 
 // GetAccountMoveLineReconciles gets account.move.line.reconcile existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindAccountMoveLineReconcile(criteria *Criteria) (*AccountMoveL
 	if err := c.SearchRead(AccountMoveLineReconcileModel, criteria, NewOptions().Limit(1), amlrs); err != nil {
 		return nil, err
 	}
-	if amlrs != nil && len(*amlrs) > 0 {
-		return &((*amlrs)[0]), nil
-	}
-	return nil, fmt.Errorf("account.move.line.reconcile was not found with criteria %v", criteria)
+	return &((*amlrs)[0]), nil
 }
 
 // FindAccountMoveLineReconciles finds account.move.line.reconcile records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindAccountMoveLineReconciles(criteria *Criteria, options *Opti
 // FindAccountMoveLineReconcileIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountMoveLineReconcileIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountMoveLineReconcileModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountMoveLineReconcileModel, criteria, options)
 }
 
 // FindAccountMoveLineReconcileId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindAccountMoveLineReconcileId(criteria *Criteria, options *Opt
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.move.line.reconcile was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

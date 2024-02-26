@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailChannel represents mail.channel model.
 type MailChannel struct {
 	LastUpdate                *Time      `xmlrpc:"__last_update,omptempty"`
@@ -88,7 +84,7 @@ func (c *Client) CreateMailChannels(mcs []*MailChannel) ([]int64, error) {
 	for _, v := range mcs {
 		vv = append(vv, v)
 	}
-	return c.Create(MailChannelModel, vv)
+	return c.Create(MailChannelModel, vv, nil)
 }
 
 // UpdateMailChannel updates an existing mail.channel record.
@@ -99,7 +95,7 @@ func (c *Client) UpdateMailChannel(mc *MailChannel) error {
 // UpdateMailChannels updates existing mail.channel records.
 // All records (represented by ids) will be updated by mc values.
 func (c *Client) UpdateMailChannels(ids []int64, mc *MailChannel) error {
-	return c.Update(MailChannelModel, ids, mc)
+	return c.Update(MailChannelModel, ids, mc, nil)
 }
 
 // DeleteMailChannel deletes an existing mail.channel record.
@@ -118,10 +114,7 @@ func (c *Client) GetMailChannel(id int64) (*MailChannel, error) {
 	if err != nil {
 		return nil, err
 	}
-	if mcs != nil && len(*mcs) > 0 {
-		return &((*mcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.channel not found", id)
+	return &((*mcs)[0]), nil
 }
 
 // GetMailChannels gets mail.channel existing records.
@@ -139,10 +132,7 @@ func (c *Client) FindMailChannel(criteria *Criteria) (*MailChannel, error) {
 	if err := c.SearchRead(MailChannelModel, criteria, NewOptions().Limit(1), mcs); err != nil {
 		return nil, err
 	}
-	if mcs != nil && len(*mcs) > 0 {
-		return &((*mcs)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.channel was not found with criteria %v", criteria)
+	return &((*mcs)[0]), nil
 }
 
 // FindMailChannels finds mail.channel records by querying it
@@ -158,11 +148,7 @@ func (c *Client) FindMailChannels(criteria *Criteria, options *Options) (*MailCh
 // FindMailChannelIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailChannelIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailChannelModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailChannelModel, criteria, options)
 }
 
 // FindMailChannelId finds record id by querying it with criteria.
@@ -171,8 +157,5 @@ func (c *Client) FindMailChannelId(criteria *Criteria, options *Options) (int64,
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.channel was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

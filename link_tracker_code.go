@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // LinkTrackerCode represents link.tracker.code model.
 type LinkTrackerCode struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -46,7 +42,7 @@ func (c *Client) CreateLinkTrackerCodes(ltcs []*LinkTrackerCode) ([]int64, error
 	for _, v := range ltcs {
 		vv = append(vv, v)
 	}
-	return c.Create(LinkTrackerCodeModel, vv)
+	return c.Create(LinkTrackerCodeModel, vv, nil)
 }
 
 // UpdateLinkTrackerCode updates an existing link.tracker.code record.
@@ -57,7 +53,7 @@ func (c *Client) UpdateLinkTrackerCode(ltc *LinkTrackerCode) error {
 // UpdateLinkTrackerCodes updates existing link.tracker.code records.
 // All records (represented by ids) will be updated by ltc values.
 func (c *Client) UpdateLinkTrackerCodes(ids []int64, ltc *LinkTrackerCode) error {
-	return c.Update(LinkTrackerCodeModel, ids, ltc)
+	return c.Update(LinkTrackerCodeModel, ids, ltc, nil)
 }
 
 // DeleteLinkTrackerCode deletes an existing link.tracker.code record.
@@ -76,10 +72,7 @@ func (c *Client) GetLinkTrackerCode(id int64) (*LinkTrackerCode, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ltcs != nil && len(*ltcs) > 0 {
-		return &((*ltcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of link.tracker.code not found", id)
+	return &((*ltcs)[0]), nil
 }
 
 // GetLinkTrackerCodes gets link.tracker.code existing records.
@@ -97,10 +90,7 @@ func (c *Client) FindLinkTrackerCode(criteria *Criteria) (*LinkTrackerCode, erro
 	if err := c.SearchRead(LinkTrackerCodeModel, criteria, NewOptions().Limit(1), ltcs); err != nil {
 		return nil, err
 	}
-	if ltcs != nil && len(*ltcs) > 0 {
-		return &((*ltcs)[0]), nil
-	}
-	return nil, fmt.Errorf("link.tracker.code was not found with criteria %v", criteria)
+	return &((*ltcs)[0]), nil
 }
 
 // FindLinkTrackerCodes finds link.tracker.code records by querying it
@@ -116,11 +106,7 @@ func (c *Client) FindLinkTrackerCodes(criteria *Criteria, options *Options) (*Li
 // FindLinkTrackerCodeIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindLinkTrackerCodeIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(LinkTrackerCodeModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(LinkTrackerCodeModel, criteria, options)
 }
 
 // FindLinkTrackerCodeId finds record id by querying it with criteria.
@@ -129,8 +115,5 @@ func (c *Client) FindLinkTrackerCodeId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("link.tracker.code was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

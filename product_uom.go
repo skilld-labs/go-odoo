@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ProductUom represents product.uom model.
 type ProductUom struct {
 	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
@@ -51,7 +47,7 @@ func (c *Client) CreateProductUoms(pus []*ProductUom) ([]int64, error) {
 	for _, v := range pus {
 		vv = append(vv, v)
 	}
-	return c.Create(ProductUomModel, vv)
+	return c.Create(ProductUomModel, vv, nil)
 }
 
 // UpdateProductUom updates an existing product.uom record.
@@ -62,7 +58,7 @@ func (c *Client) UpdateProductUom(pu *ProductUom) error {
 // UpdateProductUoms updates existing product.uom records.
 // All records (represented by ids) will be updated by pu values.
 func (c *Client) UpdateProductUoms(ids []int64, pu *ProductUom) error {
-	return c.Update(ProductUomModel, ids, pu)
+	return c.Update(ProductUomModel, ids, pu, nil)
 }
 
 // DeleteProductUom deletes an existing product.uom record.
@@ -81,10 +77,7 @@ func (c *Client) GetProductUom(id int64) (*ProductUom, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pus != nil && len(*pus) > 0 {
-		return &((*pus)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of product.uom not found", id)
+	return &((*pus)[0]), nil
 }
 
 // GetProductUoms gets product.uom existing records.
@@ -102,10 +95,7 @@ func (c *Client) FindProductUom(criteria *Criteria) (*ProductUom, error) {
 	if err := c.SearchRead(ProductUomModel, criteria, NewOptions().Limit(1), pus); err != nil {
 		return nil, err
 	}
-	if pus != nil && len(*pus) > 0 {
-		return &((*pus)[0]), nil
-	}
-	return nil, fmt.Errorf("product.uom was not found with criteria %v", criteria)
+	return &((*pus)[0]), nil
 }
 
 // FindProductUoms finds product.uom records by querying it
@@ -121,11 +111,7 @@ func (c *Client) FindProductUoms(criteria *Criteria, options *Options) (*Product
 // FindProductUomIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindProductUomIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ProductUomModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ProductUomModel, criteria, options)
 }
 
 // FindProductUomId finds record id by querying it with criteria.
@@ -134,8 +120,5 @@ func (c *Client) FindProductUomId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("product.uom was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

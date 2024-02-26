@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrModelRelation represents ir.model.relation model.
 type IrModelRelation struct {
 	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateIrModelRelations(imrs []*IrModelRelation) ([]int64, error
 	for _, v := range imrs {
 		vv = append(vv, v)
 	}
-	return c.Create(IrModelRelationModel, vv)
+	return c.Create(IrModelRelationModel, vv, nil)
 }
 
 // UpdateIrModelRelation updates an existing ir.model.relation record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateIrModelRelation(imr *IrModelRelation) error {
 // UpdateIrModelRelations updates existing ir.model.relation records.
 // All records (represented by ids) will be updated by imr values.
 func (c *Client) UpdateIrModelRelations(ids []int64, imr *IrModelRelation) error {
-	return c.Update(IrModelRelationModel, ids, imr)
+	return c.Update(IrModelRelationModel, ids, imr, nil)
 }
 
 // DeleteIrModelRelation deletes an existing ir.model.relation record.
@@ -79,10 +75,7 @@ func (c *Client) GetIrModelRelation(id int64) (*IrModelRelation, error) {
 	if err != nil {
 		return nil, err
 	}
-	if imrs != nil && len(*imrs) > 0 {
-		return &((*imrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.model.relation not found", id)
+	return &((*imrs)[0]), nil
 }
 
 // GetIrModelRelations gets ir.model.relation existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindIrModelRelation(criteria *Criteria) (*IrModelRelation, erro
 	if err := c.SearchRead(IrModelRelationModel, criteria, NewOptions().Limit(1), imrs); err != nil {
 		return nil, err
 	}
-	if imrs != nil && len(*imrs) > 0 {
-		return &((*imrs)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.model.relation was not found with criteria %v", criteria)
+	return &((*imrs)[0]), nil
 }
 
 // FindIrModelRelations finds ir.model.relation records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindIrModelRelations(criteria *Criteria, options *Options) (*Ir
 // FindIrModelRelationIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrModelRelationIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrModelRelationModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrModelRelationModel, criteria, options)
 }
 
 // FindIrModelRelationId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindIrModelRelationId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.model.relation was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

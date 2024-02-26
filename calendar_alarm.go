@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // CalendarAlarm represents calendar.alarm model.
 type CalendarAlarm struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -49,7 +45,7 @@ func (c *Client) CreateCalendarAlarms(cas []*CalendarAlarm) ([]int64, error) {
 	for _, v := range cas {
 		vv = append(vv, v)
 	}
-	return c.Create(CalendarAlarmModel, vv)
+	return c.Create(CalendarAlarmModel, vv, nil)
 }
 
 // UpdateCalendarAlarm updates an existing calendar.alarm record.
@@ -60,7 +56,7 @@ func (c *Client) UpdateCalendarAlarm(ca *CalendarAlarm) error {
 // UpdateCalendarAlarms updates existing calendar.alarm records.
 // All records (represented by ids) will be updated by ca values.
 func (c *Client) UpdateCalendarAlarms(ids []int64, ca *CalendarAlarm) error {
-	return c.Update(CalendarAlarmModel, ids, ca)
+	return c.Update(CalendarAlarmModel, ids, ca, nil)
 }
 
 // DeleteCalendarAlarm deletes an existing calendar.alarm record.
@@ -79,10 +75,7 @@ func (c *Client) GetCalendarAlarm(id int64) (*CalendarAlarm, error) {
 	if err != nil {
 		return nil, err
 	}
-	if cas != nil && len(*cas) > 0 {
-		return &((*cas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of calendar.alarm not found", id)
+	return &((*cas)[0]), nil
 }
 
 // GetCalendarAlarms gets calendar.alarm existing records.
@@ -100,10 +93,7 @@ func (c *Client) FindCalendarAlarm(criteria *Criteria) (*CalendarAlarm, error) {
 	if err := c.SearchRead(CalendarAlarmModel, criteria, NewOptions().Limit(1), cas); err != nil {
 		return nil, err
 	}
-	if cas != nil && len(*cas) > 0 {
-		return &((*cas)[0]), nil
-	}
-	return nil, fmt.Errorf("calendar.alarm was not found with criteria %v", criteria)
+	return &((*cas)[0]), nil
 }
 
 // FindCalendarAlarms finds calendar.alarm records by querying it
@@ -119,11 +109,7 @@ func (c *Client) FindCalendarAlarms(criteria *Criteria, options *Options) (*Cale
 // FindCalendarAlarmIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindCalendarAlarmIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(CalendarAlarmModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(CalendarAlarmModel, criteria, options)
 }
 
 // FindCalendarAlarmId finds record id by querying it with criteria.
@@ -132,8 +118,5 @@ func (c *Client) FindCalendarAlarmId(criteria *Criteria, options *Options) (int6
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("calendar.alarm was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

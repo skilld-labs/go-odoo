@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // ResCountry represents res.country model.
 type ResCountry struct {
 	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
@@ -55,7 +51,7 @@ func (c *Client) CreateResCountrys(rcs []*ResCountry) ([]int64, error) {
 	for _, v := range rcs {
 		vv = append(vv, v)
 	}
-	return c.Create(ResCountryModel, vv)
+	return c.Create(ResCountryModel, vv, nil)
 }
 
 // UpdateResCountry updates an existing res.country record.
@@ -66,7 +62,7 @@ func (c *Client) UpdateResCountry(rc *ResCountry) error {
 // UpdateResCountrys updates existing res.country records.
 // All records (represented by ids) will be updated by rc values.
 func (c *Client) UpdateResCountrys(ids []int64, rc *ResCountry) error {
-	return c.Update(ResCountryModel, ids, rc)
+	return c.Update(ResCountryModel, ids, rc, nil)
 }
 
 // DeleteResCountry deletes an existing res.country record.
@@ -85,10 +81,7 @@ func (c *Client) GetResCountry(id int64) (*ResCountry, error) {
 	if err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of res.country not found", id)
+	return &((*rcs)[0]), nil
 }
 
 // GetResCountrys gets res.country existing records.
@@ -106,10 +99,7 @@ func (c *Client) FindResCountry(criteria *Criteria) (*ResCountry, error) {
 	if err := c.SearchRead(ResCountryModel, criteria, NewOptions().Limit(1), rcs); err != nil {
 		return nil, err
 	}
-	if rcs != nil && len(*rcs) > 0 {
-		return &((*rcs)[0]), nil
-	}
-	return nil, fmt.Errorf("res.country was not found with criteria %v", criteria)
+	return &((*rcs)[0]), nil
 }
 
 // FindResCountrys finds res.country records by querying it
@@ -125,11 +115,7 @@ func (c *Client) FindResCountrys(criteria *Criteria, options *Options) (*ResCoun
 // FindResCountryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindResCountryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(ResCountryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(ResCountryModel, criteria, options)
 }
 
 // FindResCountryId finds record id by querying it with criteria.
@@ -138,8 +124,5 @@ func (c *Client) FindResCountryId(criteria *Criteria, options *Options) (int64, 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("res.country was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

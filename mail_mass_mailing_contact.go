@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // MailMassMailingContact represents mail.mass_mailing.contact model.
 type MailMassMailingContact struct {
 	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
@@ -65,7 +61,7 @@ func (c *Client) CreateMailMassMailingContacts(mmcs []*MailMassMailingContact) (
 	for _, v := range mmcs {
 		vv = append(vv, v)
 	}
-	return c.Create(MailMassMailingContactModel, vv)
+	return c.Create(MailMassMailingContactModel, vv, nil)
 }
 
 // UpdateMailMassMailingContact updates an existing mail.mass_mailing.contact record.
@@ -76,7 +72,7 @@ func (c *Client) UpdateMailMassMailingContact(mmc *MailMassMailingContact) error
 // UpdateMailMassMailingContacts updates existing mail.mass_mailing.contact records.
 // All records (represented by ids) will be updated by mmc values.
 func (c *Client) UpdateMailMassMailingContacts(ids []int64, mmc *MailMassMailingContact) error {
-	return c.Update(MailMassMailingContactModel, ids, mmc)
+	return c.Update(MailMassMailingContactModel, ids, mmc, nil)
 }
 
 // DeleteMailMassMailingContact deletes an existing mail.mass_mailing.contact record.
@@ -95,10 +91,7 @@ func (c *Client) GetMailMassMailingContact(id int64) (*MailMassMailingContact, e
 	if err != nil {
 		return nil, err
 	}
-	if mmcs != nil && len(*mmcs) > 0 {
-		return &((*mmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of mail.mass_mailing.contact not found", id)
+	return &((*mmcs)[0]), nil
 }
 
 // GetMailMassMailingContacts gets mail.mass_mailing.contact existing records.
@@ -116,10 +109,7 @@ func (c *Client) FindMailMassMailingContact(criteria *Criteria) (*MailMassMailin
 	if err := c.SearchRead(MailMassMailingContactModel, criteria, NewOptions().Limit(1), mmcs); err != nil {
 		return nil, err
 	}
-	if mmcs != nil && len(*mmcs) > 0 {
-		return &((*mmcs)[0]), nil
-	}
-	return nil, fmt.Errorf("mail.mass_mailing.contact was not found with criteria %v", criteria)
+	return &((*mmcs)[0]), nil
 }
 
 // FindMailMassMailingContacts finds mail.mass_mailing.contact records by querying it
@@ -135,11 +125,7 @@ func (c *Client) FindMailMassMailingContacts(criteria *Criteria, options *Option
 // FindMailMassMailingContactIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindMailMassMailingContactIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(MailMassMailingContactModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(MailMassMailingContactModel, criteria, options)
 }
 
 // FindMailMassMailingContactId finds record id by querying it with criteria.
@@ -148,8 +134,5 @@ func (c *Client) FindMailMassMailingContactId(criteria *Criteria, options *Optio
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("mail.mass_mailing.contact was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

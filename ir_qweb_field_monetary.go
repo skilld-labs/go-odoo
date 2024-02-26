@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrQwebFieldMonetary represents ir.qweb.field.monetary model.
 type IrQwebFieldMonetary struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrQwebFieldMonetarys(iqfms []*IrQwebFieldMonetary) ([]int
 	for _, v := range iqfms {
 		vv = append(vv, v)
 	}
-	return c.Create(IrQwebFieldMonetaryModel, vv)
+	return c.Create(IrQwebFieldMonetaryModel, vv, nil)
 }
 
 // UpdateIrQwebFieldMonetary updates an existing ir.qweb.field.monetary record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrQwebFieldMonetary(iqfm *IrQwebFieldMonetary) error {
 // UpdateIrQwebFieldMonetarys updates existing ir.qweb.field.monetary records.
 // All records (represented by ids) will be updated by iqfm values.
 func (c *Client) UpdateIrQwebFieldMonetarys(ids []int64, iqfm *IrQwebFieldMonetary) error {
-	return c.Update(IrQwebFieldMonetaryModel, ids, iqfm)
+	return c.Update(IrQwebFieldMonetaryModel, ids, iqfm, nil)
 }
 
 // DeleteIrQwebFieldMonetary deletes an existing ir.qweb.field.monetary record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrQwebFieldMonetary(id int64) (*IrQwebFieldMonetary, error) 
 	if err != nil {
 		return nil, err
 	}
-	if iqfms != nil && len(*iqfms) > 0 {
-		return &((*iqfms)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.qweb.field.monetary not found", id)
+	return &((*iqfms)[0]), nil
 }
 
 // GetIrQwebFieldMonetarys gets ir.qweb.field.monetary existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrQwebFieldMonetary(criteria *Criteria) (*IrQwebFieldMoneta
 	if err := c.SearchRead(IrQwebFieldMonetaryModel, criteria, NewOptions().Limit(1), iqfms); err != nil {
 		return nil, err
 	}
-	if iqfms != nil && len(*iqfms) > 0 {
-		return &((*iqfms)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.qweb.field.monetary was not found with criteria %v", criteria)
+	return &((*iqfms)[0]), nil
 }
 
 // FindIrQwebFieldMonetarys finds ir.qweb.field.monetary records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrQwebFieldMonetarys(criteria *Criteria, options *Options) 
 // FindIrQwebFieldMonetaryIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrQwebFieldMonetaryIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrQwebFieldMonetaryModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrQwebFieldMonetaryModel, criteria, options)
 }
 
 // FindIrQwebFieldMonetaryId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrQwebFieldMonetaryId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.qweb.field.monetary was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

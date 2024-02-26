@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // StockLocationRoute represents stock.location.route model.
 type StockLocationRoute struct {
 	LastUpdate             *Time     `xmlrpc:"__last_update,omptempty"`
@@ -59,7 +55,7 @@ func (c *Client) CreateStockLocationRoutes(slrs []*StockLocationRoute) ([]int64,
 	for _, v := range slrs {
 		vv = append(vv, v)
 	}
-	return c.Create(StockLocationRouteModel, vv)
+	return c.Create(StockLocationRouteModel, vv, nil)
 }
 
 // UpdateStockLocationRoute updates an existing stock.location.route record.
@@ -70,7 +66,7 @@ func (c *Client) UpdateStockLocationRoute(slr *StockLocationRoute) error {
 // UpdateStockLocationRoutes updates existing stock.location.route records.
 // All records (represented by ids) will be updated by slr values.
 func (c *Client) UpdateStockLocationRoutes(ids []int64, slr *StockLocationRoute) error {
-	return c.Update(StockLocationRouteModel, ids, slr)
+	return c.Update(StockLocationRouteModel, ids, slr, nil)
 }
 
 // DeleteStockLocationRoute deletes an existing stock.location.route record.
@@ -89,10 +85,7 @@ func (c *Client) GetStockLocationRoute(id int64) (*StockLocationRoute, error) {
 	if err != nil {
 		return nil, err
 	}
-	if slrs != nil && len(*slrs) > 0 {
-		return &((*slrs)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of stock.location.route not found", id)
+	return &((*slrs)[0]), nil
 }
 
 // GetStockLocationRoutes gets stock.location.route existing records.
@@ -110,10 +103,7 @@ func (c *Client) FindStockLocationRoute(criteria *Criteria) (*StockLocationRoute
 	if err := c.SearchRead(StockLocationRouteModel, criteria, NewOptions().Limit(1), slrs); err != nil {
 		return nil, err
 	}
-	if slrs != nil && len(*slrs) > 0 {
-		return &((*slrs)[0]), nil
-	}
-	return nil, fmt.Errorf("stock.location.route was not found with criteria %v", criteria)
+	return &((*slrs)[0]), nil
 }
 
 // FindStockLocationRoutes finds stock.location.route records by querying it
@@ -129,11 +119,7 @@ func (c *Client) FindStockLocationRoutes(criteria *Criteria, options *Options) (
 // FindStockLocationRouteIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindStockLocationRouteIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(StockLocationRouteModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(StockLocationRouteModel, criteria, options)
 }
 
 // FindStockLocationRouteId finds record id by querying it with criteria.
@@ -142,8 +128,5 @@ func (c *Client) FindStockLocationRouteId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("stock.location.route was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrActionsActWindow represents ir.actions.act_window model.
 type IrActionsActWindow struct {
 	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
@@ -69,7 +65,7 @@ func (c *Client) CreateIrActionsActWindows(iaas []*IrActionsActWindow) ([]int64,
 	for _, v := range iaas {
 		vv = append(vv, v)
 	}
-	return c.Create(IrActionsActWindowModel, vv)
+	return c.Create(IrActionsActWindowModel, vv, nil)
 }
 
 // UpdateIrActionsActWindow updates an existing ir.actions.act_window record.
@@ -80,7 +76,7 @@ func (c *Client) UpdateIrActionsActWindow(iaa *IrActionsActWindow) error {
 // UpdateIrActionsActWindows updates existing ir.actions.act_window records.
 // All records (represented by ids) will be updated by iaa values.
 func (c *Client) UpdateIrActionsActWindows(ids []int64, iaa *IrActionsActWindow) error {
-	return c.Update(IrActionsActWindowModel, ids, iaa)
+	return c.Update(IrActionsActWindowModel, ids, iaa, nil)
 }
 
 // DeleteIrActionsActWindow deletes an existing ir.actions.act_window record.
@@ -99,10 +95,7 @@ func (c *Client) GetIrActionsActWindow(id int64) (*IrActionsActWindow, error) {
 	if err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.actions.act_window not found", id)
+	return &((*iaas)[0]), nil
 }
 
 // GetIrActionsActWindows gets ir.actions.act_window existing records.
@@ -120,10 +113,7 @@ func (c *Client) FindIrActionsActWindow(criteria *Criteria) (*IrActionsActWindow
 	if err := c.SearchRead(IrActionsActWindowModel, criteria, NewOptions().Limit(1), iaas); err != nil {
 		return nil, err
 	}
-	if iaas != nil && len(*iaas) > 0 {
-		return &((*iaas)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.actions.act_window was not found with criteria %v", criteria)
+	return &((*iaas)[0]), nil
 }
 
 // FindIrActionsActWindows finds ir.actions.act_window records by querying it
@@ -139,11 +129,7 @@ func (c *Client) FindIrActionsActWindows(criteria *Criteria, options *Options) (
 // FindIrActionsActWindowIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrActionsActWindowIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrActionsActWindowModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrActionsActWindowModel, criteria, options)
 }
 
 // FindIrActionsActWindowId finds record id by querying it with criteria.
@@ -152,8 +138,5 @@ func (c *Client) FindIrActionsActWindowId(criteria *Criteria, options *Options) 
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.actions.act_window was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

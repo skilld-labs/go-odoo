@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // IrAutovacuum represents ir.autovacuum model.
 type IrAutovacuum struct {
 	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
@@ -40,7 +36,7 @@ func (c *Client) CreateIrAutovacuums(ias []*IrAutovacuum) ([]int64, error) {
 	for _, v := range ias {
 		vv = append(vv, v)
 	}
-	return c.Create(IrAutovacuumModel, vv)
+	return c.Create(IrAutovacuumModel, vv, nil)
 }
 
 // UpdateIrAutovacuum updates an existing ir.autovacuum record.
@@ -51,7 +47,7 @@ func (c *Client) UpdateIrAutovacuum(ia *IrAutovacuum) error {
 // UpdateIrAutovacuums updates existing ir.autovacuum records.
 // All records (represented by ids) will be updated by ia values.
 func (c *Client) UpdateIrAutovacuums(ids []int64, ia *IrAutovacuum) error {
-	return c.Update(IrAutovacuumModel, ids, ia)
+	return c.Update(IrAutovacuumModel, ids, ia, nil)
 }
 
 // DeleteIrAutovacuum deletes an existing ir.autovacuum record.
@@ -70,10 +66,7 @@ func (c *Client) GetIrAutovacuum(id int64) (*IrAutovacuum, error) {
 	if err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of ir.autovacuum not found", id)
+	return &((*ias)[0]), nil
 }
 
 // GetIrAutovacuums gets ir.autovacuum existing records.
@@ -91,10 +84,7 @@ func (c *Client) FindIrAutovacuum(criteria *Criteria) (*IrAutovacuum, error) {
 	if err := c.SearchRead(IrAutovacuumModel, criteria, NewOptions().Limit(1), ias); err != nil {
 		return nil, err
 	}
-	if ias != nil && len(*ias) > 0 {
-		return &((*ias)[0]), nil
-	}
-	return nil, fmt.Errorf("ir.autovacuum was not found with criteria %v", criteria)
+	return &((*ias)[0]), nil
 }
 
 // FindIrAutovacuums finds ir.autovacuum records by querying it
@@ -110,11 +100,7 @@ func (c *Client) FindIrAutovacuums(criteria *Criteria, options *Options) (*IrAut
 // FindIrAutovacuumIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindIrAutovacuumIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(IrAutovacuumModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(IrAutovacuumModel, criteria, options)
 }
 
 // FindIrAutovacuumId finds record id by querying it with criteria.
@@ -123,8 +109,5 @@ func (c *Client) FindIrAutovacuumId(criteria *Criteria, options *Options) (int64
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("ir.autovacuum was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

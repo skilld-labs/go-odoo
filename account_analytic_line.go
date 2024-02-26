@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // AccountAnalyticLine represents account.analytic.line model.
 type AccountAnalyticLine struct {
 	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
@@ -72,7 +68,7 @@ func (c *Client) CreateAccountAnalyticLines(aals []*AccountAnalyticLine) ([]int6
 	for _, v := range aals {
 		vv = append(vv, v)
 	}
-	return c.Create(AccountAnalyticLineModel, vv)
+	return c.Create(AccountAnalyticLineModel, vv, nil)
 }
 
 // UpdateAccountAnalyticLine updates an existing account.analytic.line record.
@@ -83,7 +79,7 @@ func (c *Client) UpdateAccountAnalyticLine(aal *AccountAnalyticLine) error {
 // UpdateAccountAnalyticLines updates existing account.analytic.line records.
 // All records (represented by ids) will be updated by aal values.
 func (c *Client) UpdateAccountAnalyticLines(ids []int64, aal *AccountAnalyticLine) error {
-	return c.Update(AccountAnalyticLineModel, ids, aal)
+	return c.Update(AccountAnalyticLineModel, ids, aal, nil)
 }
 
 // DeleteAccountAnalyticLine deletes an existing account.analytic.line record.
@@ -102,10 +98,7 @@ func (c *Client) GetAccountAnalyticLine(id int64) (*AccountAnalyticLine, error) 
 	if err != nil {
 		return nil, err
 	}
-	if aals != nil && len(*aals) > 0 {
-		return &((*aals)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of account.analytic.line not found", id)
+	return &((*aals)[0]), nil
 }
 
 // GetAccountAnalyticLines gets account.analytic.line existing records.
@@ -123,10 +116,7 @@ func (c *Client) FindAccountAnalyticLine(criteria *Criteria) (*AccountAnalyticLi
 	if err := c.SearchRead(AccountAnalyticLineModel, criteria, NewOptions().Limit(1), aals); err != nil {
 		return nil, err
 	}
-	if aals != nil && len(*aals) > 0 {
-		return &((*aals)[0]), nil
-	}
-	return nil, fmt.Errorf("account.analytic.line was not found with criteria %v", criteria)
+	return &((*aals)[0]), nil
 }
 
 // FindAccountAnalyticLines finds account.analytic.line records by querying it
@@ -142,11 +132,7 @@ func (c *Client) FindAccountAnalyticLines(criteria *Criteria, options *Options) 
 // FindAccountAnalyticLineIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindAccountAnalyticLineIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(AccountAnalyticLineModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(AccountAnalyticLineModel, criteria, options)
 }
 
 // FindAccountAnalyticLineId finds record id by querying it with criteria.
@@ -155,8 +141,5 @@ func (c *Client) FindAccountAnalyticLineId(criteria *Criteria, options *Options)
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("account.analytic.line was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }

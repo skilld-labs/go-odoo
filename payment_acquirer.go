@@ -1,9 +1,5 @@
 package odoo
 
-import (
-	"fmt"
-)
-
 // PaymentAcquirer represents payment.acquirer model.
 type PaymentAcquirer struct {
 	LastUpdate                 *Time      `xmlrpc:"__last_update,omptempty"`
@@ -79,7 +75,7 @@ func (c *Client) CreatePaymentAcquirers(pas []*PaymentAcquirer) ([]int64, error)
 	for _, v := range pas {
 		vv = append(vv, v)
 	}
-	return c.Create(PaymentAcquirerModel, vv)
+	return c.Create(PaymentAcquirerModel, vv, nil)
 }
 
 // UpdatePaymentAcquirer updates an existing payment.acquirer record.
@@ -90,7 +86,7 @@ func (c *Client) UpdatePaymentAcquirer(pa *PaymentAcquirer) error {
 // UpdatePaymentAcquirers updates existing payment.acquirer records.
 // All records (represented by ids) will be updated by pa values.
 func (c *Client) UpdatePaymentAcquirers(ids []int64, pa *PaymentAcquirer) error {
-	return c.Update(PaymentAcquirerModel, ids, pa)
+	return c.Update(PaymentAcquirerModel, ids, pa, nil)
 }
 
 // DeletePaymentAcquirer deletes an existing payment.acquirer record.
@@ -109,10 +105,7 @@ func (c *Client) GetPaymentAcquirer(id int64) (*PaymentAcquirer, error) {
 	if err != nil {
 		return nil, err
 	}
-	if pas != nil && len(*pas) > 0 {
-		return &((*pas)[0]), nil
-	}
-	return nil, fmt.Errorf("id %v of payment.acquirer not found", id)
+	return &((*pas)[0]), nil
 }
 
 // GetPaymentAcquirers gets payment.acquirer existing records.
@@ -130,10 +123,7 @@ func (c *Client) FindPaymentAcquirer(criteria *Criteria) (*PaymentAcquirer, erro
 	if err := c.SearchRead(PaymentAcquirerModel, criteria, NewOptions().Limit(1), pas); err != nil {
 		return nil, err
 	}
-	if pas != nil && len(*pas) > 0 {
-		return &((*pas)[0]), nil
-	}
-	return nil, fmt.Errorf("payment.acquirer was not found with criteria %v", criteria)
+	return &((*pas)[0]), nil
 }
 
 // FindPaymentAcquirers finds payment.acquirer records by querying it
@@ -149,11 +139,7 @@ func (c *Client) FindPaymentAcquirers(criteria *Criteria, options *Options) (*Pa
 // FindPaymentAcquirerIds finds records ids by querying it
 // and filtering it with criteria and options.
 func (c *Client) FindPaymentAcquirerIds(criteria *Criteria, options *Options) ([]int64, error) {
-	ids, err := c.Search(PaymentAcquirerModel, criteria, options)
-	if err != nil {
-		return []int64{}, err
-	}
-	return ids, nil
+	return c.Search(PaymentAcquirerModel, criteria, options)
 }
 
 // FindPaymentAcquirerId finds record id by querying it with criteria.
@@ -162,8 +148,5 @@ func (c *Client) FindPaymentAcquirerId(criteria *Criteria, options *Options) (in
 	if err != nil {
 		return -1, err
 	}
-	if len(ids) > 0 {
-		return ids[0], nil
-	}
-	return -1, fmt.Errorf("payment.acquirer was not found with criteria %v and options %v", criteria, options)
+	return ids[0], nil
 }
