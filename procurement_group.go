@@ -2,17 +2,17 @@ package odoo
 
 // ProcurementGroup represents procurement.group model.
 type ProcurementGroup struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	MoveType    *Selection `xmlrpc:"move_type,omptempty"`
-	Name        *String    `xmlrpc:"name,omptempty"`
-	PartnerId   *Many2One  `xmlrpc:"partner_id,omptempty"`
-	SaleId      *Many2One  `xmlrpc:"sale_id,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	MoveType    *Selection `xmlrpc:"move_type,omitempty"`
+	Name        *String    `xmlrpc:"name,omitempty"`
+	PartnerId   *Many2One  `xmlrpc:"partner_id,omitempty"`
+	SaleId      *Many2One  `xmlrpc:"sale_id,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProcurementGroups represents array of procurement.group model.

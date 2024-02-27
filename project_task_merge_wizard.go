@@ -2,19 +2,19 @@ package odoo
 
 // ProjectTaskMergeWizard represents project.task.merge.wizard model.
 type ProjectTaskMergeWizard struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omptempty"`
-	CreateNewTask   *Bool     `xmlrpc:"create_new_task,omptempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omptempty"`
-	Id              *Int      `xmlrpc:"id,omptempty"`
-	TargetProjectId *Many2One `xmlrpc:"target_project_id,omptempty"`
-	TargetTaskId    *Many2One `xmlrpc:"target_task_id,omptempty"`
-	TargetTaskName  *String   `xmlrpc:"target_task_name,omptempty"`
-	TaskIds         *Relation `xmlrpc:"task_ids,omptempty"`
-	UserId          *Many2One `xmlrpc:"user_id,omptempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateNewTask   *Bool     `xmlrpc:"create_new_task,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	TargetProjectId *Many2One `xmlrpc:"target_project_id,omitempty"`
+	TargetTaskId    *Many2One `xmlrpc:"target_task_id,omitempty"`
+	TargetTaskName  *String   `xmlrpc:"target_task_name,omitempty"`
+	TaskIds         *Relation `xmlrpc:"task_ids,omitempty"`
+	UserId          *Many2One `xmlrpc:"user_id,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectTaskMergeWizards represents array of project.task.merge.wizard model.

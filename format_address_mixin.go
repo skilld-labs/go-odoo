@@ -2,9 +2,9 @@ package odoo
 
 // FormatAddressMixin represents format.address.mixin model.
 type FormatAddressMixin struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // FormatAddressMixins represents array of format.address.mixin model.

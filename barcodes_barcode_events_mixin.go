@@ -2,10 +2,10 @@ package odoo
 
 // BarcodesBarcodeEventsMixin represents barcodes.barcode_events_mixin model.
 type BarcodesBarcodeEventsMixin struct {
-	LastUpdate     *Time   `xmlrpc:"__last_update,omptempty"`
-	BarcodeScanned *String `xmlrpc:"_barcode_scanned,omptempty"`
-	DisplayName    *String `xmlrpc:"display_name,omptempty"`
-	Id             *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate     *Time   `xmlrpc:"__last_update,omitempty"`
+	BarcodeScanned *String `xmlrpc:"_barcode_scanned,omitempty"`
+	DisplayName    *String `xmlrpc:"display_name,omitempty"`
+	Id             *Int    `xmlrpc:"id,omitempty"`
 }
 
 // BarcodesBarcodeEventsMixins represents array of barcodes.barcode_events_mixin model.

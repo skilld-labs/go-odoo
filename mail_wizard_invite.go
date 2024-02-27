@@ -2,19 +2,19 @@ package odoo
 
 // MailWizardInvite represents mail.wizard.invite model.
 type MailWizardInvite struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	ChannelIds  *Relation `xmlrpc:"channel_ids,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Message     *String   `xmlrpc:"message,omptempty"`
-	PartnerIds  *Relation `xmlrpc:"partner_ids,omptempty"`
-	ResId       *Int      `xmlrpc:"res_id,omptempty"`
-	ResModel    *String   `xmlrpc:"res_model,omptempty"`
-	SendMail    *Bool     `xmlrpc:"send_mail,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	ChannelIds  *Relation `xmlrpc:"channel_ids,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Message     *String   `xmlrpc:"message,omitempty"`
+	PartnerIds  *Relation `xmlrpc:"partner_ids,omitempty"`
+	ResId       *Int      `xmlrpc:"res_id,omitempty"`
+	ResModel    *String   `xmlrpc:"res_model,omitempty"`
+	SendMail    *Bool     `xmlrpc:"send_mail,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailWizardInvites represents array of mail.wizard.invite model.

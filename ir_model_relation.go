@@ -2,18 +2,18 @@ package odoo
 
 // IrModelRelation represents ir.model.relation model.
 type IrModelRelation struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DateInit    *Time     `xmlrpc:"date_init,omptempty"`
-	DateUpdate  *Time     `xmlrpc:"date_update,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Model       *Many2One `xmlrpc:"model,omptempty"`
-	Module      *Many2One `xmlrpc:"module,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DateInit    *Time     `xmlrpc:"date_init,omitempty"`
+	DateUpdate  *Time     `xmlrpc:"date_update,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Model       *Many2One `xmlrpc:"model,omitempty"`
+	Module      *Many2One `xmlrpc:"module,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrModelRelations represents array of ir.model.relation model.

@@ -2,20 +2,20 @@ package odoo
 
 // ResourceResource represents resource.resource model.
 type ResourceResource struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	Active         *Bool      `xmlrpc:"active,omptempty"`
-	CalendarId     *Many2One  `xmlrpc:"calendar_id,omptempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	Name           *String    `xmlrpc:"name,omptempty"`
-	ResourceType   *Selection `xmlrpc:"resource_type,omptempty"`
-	TimeEfficiency *Float     `xmlrpc:"time_efficiency,omptempty"`
-	UserId         *Many2One  `xmlrpc:"user_id,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	Active         *Bool      `xmlrpc:"active,omitempty"`
+	CalendarId     *Many2One  `xmlrpc:"calendar_id,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	ResourceType   *Selection `xmlrpc:"resource_type,omitempty"`
+	TimeEfficiency *Float     `xmlrpc:"time_efficiency,omitempty"`
+	UserId         *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResourceResources represents array of resource.resource model.

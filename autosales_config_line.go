@@ -2,18 +2,18 @@ package odoo
 
 // AutosalesConfigLine represents autosales.config.line model.
 type AutosalesConfigLine struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	AutosalesConfigId  *Many2One `xmlrpc:"autosales_config_id,omptempty"`
-	CreateDate         *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	PercentProductBase *Float    `xmlrpc:"percent_product_base,omptempty"`
-	ProductAuto        *Many2One `xmlrpc:"product_auto,omptempty"`
-	ProductBase        *Many2One `xmlrpc:"product_base,omptempty"`
-	Sequence           *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	AutosalesConfigId  *Many2One `xmlrpc:"autosales_config_id,omitempty"`
+	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	PercentProductBase *Float    `xmlrpc:"percent_product_base,omitempty"`
+	ProductAuto        *Many2One `xmlrpc:"product_auto,omitempty"`
+	ProductBase        *Many2One `xmlrpc:"product_base,omitempty"`
+	Sequence           *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AutosalesConfigLines represents array of autosales.config.line model.

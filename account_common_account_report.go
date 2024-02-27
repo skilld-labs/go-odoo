@@ -2,19 +2,19 @@ package odoo
 
 // AccountCommonAccountReport represents account.common.account.report model.
 type AccountCommonAccountReport struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom       *Time      `xmlrpc:"date_from,omptempty"`
-	DateTo         *Time      `xmlrpc:"date_to,omptempty"`
-	DisplayAccount *Selection `xmlrpc:"display_account,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	JournalIds     *Relation  `xmlrpc:"journal_ids,omptempty"`
-	TargetMove     *Selection `xmlrpc:"target_move,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom       *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo         *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayAccount *Selection `xmlrpc:"display_account,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	JournalIds     *Relation  `xmlrpc:"journal_ids,omitempty"`
+	TargetMove     *Selection `xmlrpc:"target_move,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountCommonAccountReports represents array of account.common.account.report model.

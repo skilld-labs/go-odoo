@@ -2,20 +2,20 @@ package odoo
 
 // MailThread represents mail.thread model.
 type MailThread struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omptempty"`
-	DisplayName              *String   `xmlrpc:"display_name,omptempty"`
-	Id                       *Int      `xmlrpc:"id,omptempty"`
-	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omptempty"`
-	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omptempty"`
-	MessageIds               *Relation `xmlrpc:"message_ids,omptempty"`
-	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omptempty"`
-	MessageLastPost          *Time     `xmlrpc:"message_last_post,omptempty"`
-	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omptempty"`
-	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omptempty"`
-	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omptempty"`
-	MessageUnread            *Bool     `xmlrpc:"message_unread,omptempty"`
-	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omptempty"`
-	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omptempty"`
+	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	MessageChannelIds        *Relation `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omitempty"`
+	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
+	MessageLastPost          *Time     `xmlrpc:"message_last_post,omitempty"`
+	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread            *Bool     `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter     *Int      `xmlrpc:"message_unread_counter,omitempty"`
+	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
 }
 
 // MailThreads represents array of mail.thread model.

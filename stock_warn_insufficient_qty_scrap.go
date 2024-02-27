@@ -2,17 +2,17 @@ package odoo
 
 // StockWarnInsufficientQtyScrap represents stock.warn.insufficient.qty.scrap model.
 type StockWarnInsufficientQtyScrap struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	LocationId  *Many2One `xmlrpc:"location_id,omptempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omptempty"`
-	QuantIds    *Relation `xmlrpc:"quant_ids,omptempty"`
-	ScrapId     *Many2One `xmlrpc:"scrap_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	LocationId  *Many2One `xmlrpc:"location_id,omitempty"`
+	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
+	QuantIds    *Relation `xmlrpc:"quant_ids,omitempty"`
+	ScrapId     *Many2One `xmlrpc:"scrap_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockWarnInsufficientQtyScraps represents array of stock.warn.insufficient.qty.scrap model.

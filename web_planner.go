@@ -2,21 +2,21 @@ package odoo
 
 // WebPlanner represents web.planner model.
 type WebPlanner struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
-	Active             *Bool      `xmlrpc:"active,omptempty"`
-	CreateDate         *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid          *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Data               *String    `xmlrpc:"data,omptempty"`
-	DisplayName        *String    `xmlrpc:"display_name,omptempty"`
-	Id                 *Int       `xmlrpc:"id,omptempty"`
-	MenuId             *Many2One  `xmlrpc:"menu_id,omptempty"`
-	Name               *String    `xmlrpc:"name,omptempty"`
-	PlannerApplication *Selection `xmlrpc:"planner_application,omptempty"`
-	Progress           *Int       `xmlrpc:"progress,omptempty"`
-	TooltipPlanner     *String    `xmlrpc:"tooltip_planner,omptempty"`
-	ViewId             *Many2One  `xmlrpc:"view_id,omptempty"`
-	WriteDate          *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid           *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
+	Active             *Bool      `xmlrpc:"active,omitempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Data               *String    `xmlrpc:"data,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	MenuId             *Many2One  `xmlrpc:"menu_id,omitempty"`
+	Name               *String    `xmlrpc:"name,omitempty"`
+	PlannerApplication *Selection `xmlrpc:"planner_application,omitempty"`
+	Progress           *Int       `xmlrpc:"progress,omitempty"`
+	TooltipPlanner     *String    `xmlrpc:"tooltip_planner,omitempty"`
+	ViewId             *Many2One  `xmlrpc:"view_id,omitempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // WebPlanners represents array of web.planner model.

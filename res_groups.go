@@ -2,27 +2,27 @@ package odoo
 
 // ResGroups represents res.groups model.
 type ResGroups struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omptempty"`
-	CategoryId      *Many2One `xmlrpc:"category_id,omptempty"`
-	Color           *Int      `xmlrpc:"color,omptempty"`
-	Comment         *String   `xmlrpc:"comment,omptempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omptempty"`
-	FullName        *String   `xmlrpc:"full_name,omptempty"`
-	Id              *Int      `xmlrpc:"id,omptempty"`
-	ImpliedIds      *Relation `xmlrpc:"implied_ids,omptempty"`
-	IsPortal        *Bool     `xmlrpc:"is_portal,omptempty"`
-	MenuAccess      *Relation `xmlrpc:"menu_access,omptempty"`
-	ModelAccess     *Relation `xmlrpc:"model_access,omptempty"`
-	Name            *String   `xmlrpc:"name,omptempty"`
-	RuleGroups      *Relation `xmlrpc:"rule_groups,omptempty"`
-	Share           *Bool     `xmlrpc:"share,omptempty"`
-	TransImpliedIds *Relation `xmlrpc:"trans_implied_ids,omptempty"`
-	Users           *Relation `xmlrpc:"users,omptempty"`
-	ViewAccess      *Relation `xmlrpc:"view_access,omptempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
+	CategoryId      *Many2One `xmlrpc:"category_id,omitempty"`
+	Color           *Int      `xmlrpc:"color,omitempty"`
+	Comment         *String   `xmlrpc:"comment,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	FullName        *String   `xmlrpc:"full_name,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	ImpliedIds      *Relation `xmlrpc:"implied_ids,omitempty"`
+	IsPortal        *Bool     `xmlrpc:"is_portal,omitempty"`
+	MenuAccess      *Relation `xmlrpc:"menu_access,omitempty"`
+	ModelAccess     *Relation `xmlrpc:"model_access,omitempty"`
+	Name            *String   `xmlrpc:"name,omitempty"`
+	RuleGroups      *Relation `xmlrpc:"rule_groups,omitempty"`
+	Share           *Bool     `xmlrpc:"share,omitempty"`
+	TransImpliedIds *Relation `xmlrpc:"trans_implied_ids,omitempty"`
+	Users           *Relation `xmlrpc:"users,omitempty"`
+	ViewAccess      *Relation `xmlrpc:"view_access,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResGroupss represents array of res.groups model.

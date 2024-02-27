@@ -2,22 +2,22 @@ package odoo
 
 // MailActivityType represents mail.activity.type model.
 type MailActivityType struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	Category        *Selection `xmlrpc:"category,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Days            *Int       `xmlrpc:"days,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	Icon            *String    `xmlrpc:"icon,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	Name            *String    `xmlrpc:"name,omptempty"`
-	NextTypeIds     *Relation  `xmlrpc:"next_type_ids,omptempty"`
-	PreviousTypeIds *Relation  `xmlrpc:"previous_type_ids,omptempty"`
-	ResModelId      *Many2One  `xmlrpc:"res_model_id,omptempty"`
-	Sequence        *Int       `xmlrpc:"sequence,omptempty"`
-	Summary         *String    `xmlrpc:"summary,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	Category        *Selection `xmlrpc:"category,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Days            *Int       `xmlrpc:"days,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Icon            *String    `xmlrpc:"icon,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	NextTypeIds     *Relation  `xmlrpc:"next_type_ids,omitempty"`
+	PreviousTypeIds *Relation  `xmlrpc:"previous_type_ids,omitempty"`
+	ResModelId      *Many2One  `xmlrpc:"res_model_id,omitempty"`
+	Sequence        *Int       `xmlrpc:"sequence,omitempty"`
+	Summary         *String    `xmlrpc:"summary,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailActivityTypes represents array of mail.activity.type model.

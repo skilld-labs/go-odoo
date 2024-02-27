@@ -2,16 +2,16 @@ package odoo
 
 // ProductAttributePrice represents product.attribute.price model.
 type ProductAttributePrice struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
-	Id            *Int      `xmlrpc:"id,omptempty"`
-	PriceExtra    *Float    `xmlrpc:"price_extra,omptempty"`
-	ProductTmplId *Many2One `xmlrpc:"product_tmpl_id,omptempty"`
-	ValueId       *Many2One `xmlrpc:"value_id,omptempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	PriceExtra    *Float    `xmlrpc:"price_extra,omitempty"`
+	ProductTmplId *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	ValueId       *Many2One `xmlrpc:"value_id,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributePrices represents array of product.attribute.price model.

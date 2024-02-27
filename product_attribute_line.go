@@ -2,16 +2,16 @@ package odoo
 
 // ProductAttributeLine represents product.attribute.line model.
 type ProductAttributeLine struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
-	AttributeId   *Many2One `xmlrpc:"attribute_id,omptempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
-	Id            *Int      `xmlrpc:"id,omptempty"`
-	ProductTmplId *Many2One `xmlrpc:"product_tmpl_id,omptempty"`
-	ValueIds      *Relation `xmlrpc:"value_ids,omptempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
+	AttributeId   *Many2One `xmlrpc:"attribute_id,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	ProductTmplId *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	ValueIds      *Relation `xmlrpc:"value_ids,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributeLines represents array of product.attribute.line model.

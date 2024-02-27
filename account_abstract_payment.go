@@ -2,21 +2,21 @@ package odoo
 
 // AccountAbstractPayment represents account.abstract.payment model.
 type AccountAbstractPayment struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
-	Amount            *Float     `xmlrpc:"amount,omptempty"`
-	Communication     *String    `xmlrpc:"communication,omptempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omptempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
-	HidePaymentMethod *Bool      `xmlrpc:"hide_payment_method,omptempty"`
-	Id                *Int       `xmlrpc:"id,omptempty"`
-	JournalId         *Many2One  `xmlrpc:"journal_id,omptempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omptempty"`
-	PartnerType       *Selection `xmlrpc:"partner_type,omptempty"`
-	PaymentDate       *Time      `xmlrpc:"payment_date,omptempty"`
-	PaymentMethodCode *String    `xmlrpc:"payment_method_code,omptempty"`
-	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omptempty"`
-	PaymentType       *Selection `xmlrpc:"payment_type,omptempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
+	Amount            *Float     `xmlrpc:"amount,omitempty"`
+	Communication     *String    `xmlrpc:"communication,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	HidePaymentMethod *Bool      `xmlrpc:"hide_payment_method,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
+	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerType       *Selection `xmlrpc:"partner_type,omitempty"`
+	PaymentDate       *Time      `xmlrpc:"payment_date,omitempty"`
+	PaymentMethodCode *String    `xmlrpc:"payment_method_code,omitempty"`
+	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	PaymentType       *Selection `xmlrpc:"payment_type,omitempty"`
 }
 
 // AccountAbstractPayments represents array of account.abstract.payment model.
@@ -42,7 +42,7 @@ func (c *Client) CreateAccountAbstractPayment(aap *AccountAbstractPayment) (int6
 	return ids[0], nil
 }
 
-// CreateAccountAbstractPayment creates a new account.abstract.payment model and returns its id.
+// CreateAccountAbstractPayments creates a new account.abstract.payment model and returns its id.
 func (c *Client) CreateAccountAbstractPayments(aaps []*AccountAbstractPayment) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aaps {

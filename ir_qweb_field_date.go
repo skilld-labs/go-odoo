@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldDate represents ir.qweb.field.date model.
 type IrQwebFieldDate struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldDates represents array of ir.qweb.field.date model.

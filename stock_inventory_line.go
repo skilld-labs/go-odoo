@@ -2,29 +2,29 @@ package odoo
 
 // StockInventoryLine represents stock.inventory.line model.
 type StockInventoryLine struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId           *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate          *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid           *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName         *String    `xmlrpc:"display_name,omptempty"`
-	Id                  *Int       `xmlrpc:"id,omptempty"`
-	InventoryId         *Many2One  `xmlrpc:"inventory_id,omptempty"`
-	InventoryLocationId *Many2One  `xmlrpc:"inventory_location_id,omptempty"`
-	LocationId          *Many2One  `xmlrpc:"location_id,omptempty"`
-	LocationName        *String    `xmlrpc:"location_name,omptempty"`
-	PackageId           *Many2One  `xmlrpc:"package_id,omptempty"`
-	PartnerId           *Many2One  `xmlrpc:"partner_id,omptempty"`
-	ProdLotId           *Many2One  `xmlrpc:"prod_lot_id,omptempty"`
-	ProdlotName         *String    `xmlrpc:"prodlot_name,omptempty"`
-	ProductCode         *String    `xmlrpc:"product_code,omptempty"`
-	ProductId           *Many2One  `xmlrpc:"product_id,omptempty"`
-	ProductName         *String    `xmlrpc:"product_name,omptempty"`
-	ProductQty          *Float     `xmlrpc:"product_qty,omptempty"`
-	ProductUomId        *Many2One  `xmlrpc:"product_uom_id,omptempty"`
-	State               *Selection `xmlrpc:"state,omptempty"`
-	TheoreticalQty      *Float     `xmlrpc:"theoretical_qty,omptempty"`
-	WriteDate           *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid            *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	InventoryId         *Many2One  `xmlrpc:"inventory_id,omitempty"`
+	InventoryLocationId *Many2One  `xmlrpc:"inventory_location_id,omitempty"`
+	LocationId          *Many2One  `xmlrpc:"location_id,omitempty"`
+	LocationName        *String    `xmlrpc:"location_name,omitempty"`
+	PackageId           *Many2One  `xmlrpc:"package_id,omitempty"`
+	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
+	ProdLotId           *Many2One  `xmlrpc:"prod_lot_id,omitempty"`
+	ProdlotName         *String    `xmlrpc:"prodlot_name,omitempty"`
+	ProductCode         *String    `xmlrpc:"product_code,omitempty"`
+	ProductId           *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductName         *String    `xmlrpc:"product_name,omitempty"`
+	ProductQty          *Float     `xmlrpc:"product_qty,omitempty"`
+	ProductUomId        *Many2One  `xmlrpc:"product_uom_id,omitempty"`
+	State               *Selection `xmlrpc:"state,omitempty"`
+	TheoreticalQty      *Float     `xmlrpc:"theoretical_qty,omitempty"`
+	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockInventoryLines represents array of stock.inventory.line model.

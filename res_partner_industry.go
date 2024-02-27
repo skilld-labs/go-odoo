@@ -2,16 +2,16 @@ package odoo
 
 // ResPartnerIndustry represents res.partner.industry model.
 type ResPartnerIndustry struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	FullName    *String   `xmlrpc:"full_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	FullName    *String   `xmlrpc:"full_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResPartnerIndustrys represents array of res.partner.industry model.

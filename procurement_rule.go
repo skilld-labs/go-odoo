@@ -2,31 +2,31 @@ package odoo
 
 // ProcurementRule represents procurement.rule model.
 type ProcurementRule struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
-	Action                 *Selection `xmlrpc:"action,omptempty"`
-	Active                 *Bool      `xmlrpc:"active,omptempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Delay                  *Int       `xmlrpc:"delay,omptempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omptempty"`
-	GroupId                *Many2One  `xmlrpc:"group_id,omptempty"`
-	GroupPropagationOption *Selection `xmlrpc:"group_propagation_option,omptempty"`
-	Id                     *Int       `xmlrpc:"id,omptempty"`
-	LocationId             *Many2One  `xmlrpc:"location_id,omptempty"`
-	LocationSrcId          *Many2One  `xmlrpc:"location_src_id,omptempty"`
-	Name                   *String    `xmlrpc:"name,omptempty"`
-	PartnerAddressId       *Many2One  `xmlrpc:"partner_address_id,omptempty"`
-	PickingTypeId          *Many2One  `xmlrpc:"picking_type_id,omptempty"`
-	ProcureMethod          *Selection `xmlrpc:"procure_method,omptempty"`
-	Propagate              *Bool      `xmlrpc:"propagate,omptempty"`
-	PropagateWarehouseId   *Many2One  `xmlrpc:"propagate_warehouse_id,omptempty"`
-	RouteId                *Many2One  `xmlrpc:"route_id,omptempty"`
-	RouteSequence          *Int       `xmlrpc:"route_sequence,omptempty"`
-	Sequence               *Int       `xmlrpc:"sequence,omptempty"`
-	WarehouseId            *Many2One  `xmlrpc:"warehouse_id,omptempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
+	Action                 *Selection `xmlrpc:"action,omitempty"`
+	Active                 *Bool      `xmlrpc:"active,omitempty"`
+	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Delay                  *Int       `xmlrpc:"delay,omitempty"`
+	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
+	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
+	GroupPropagationOption *Selection `xmlrpc:"group_propagation_option,omitempty"`
+	Id                     *Int       `xmlrpc:"id,omitempty"`
+	LocationId             *Many2One  `xmlrpc:"location_id,omitempty"`
+	LocationSrcId          *Many2One  `xmlrpc:"location_src_id,omitempty"`
+	Name                   *String    `xmlrpc:"name,omitempty"`
+	PartnerAddressId       *Many2One  `xmlrpc:"partner_address_id,omitempty"`
+	PickingTypeId          *Many2One  `xmlrpc:"picking_type_id,omitempty"`
+	ProcureMethod          *Selection `xmlrpc:"procure_method,omitempty"`
+	Propagate              *Bool      `xmlrpc:"propagate,omitempty"`
+	PropagateWarehouseId   *Many2One  `xmlrpc:"propagate_warehouse_id,omitempty"`
+	RouteId                *Many2One  `xmlrpc:"route_id,omitempty"`
+	RouteSequence          *Int       `xmlrpc:"route_sequence,omitempty"`
+	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
+	WarehouseId            *Many2One  `xmlrpc:"warehouse_id,omitempty"`
+	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProcurementRules represents array of procurement.rule model.

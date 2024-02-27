@@ -2,21 +2,21 @@ package odoo
 
 // ResourceCalendarLeaves represents resource.calendar.leaves model.
 type ResourceCalendarLeaves struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CalendarId  *Many2One  `xmlrpc:"calendar_id,omptempty"`
-	CompanyId   *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom    *Time      `xmlrpc:"date_from,omptempty"`
-	DateTo      *Time      `xmlrpc:"date_to,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	HolidayId   *Many2One  `xmlrpc:"holiday_id,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	Name        *String    `xmlrpc:"name,omptempty"`
-	ResourceId  *Many2One  `xmlrpc:"resource_id,omptempty"`
-	Tz          *Selection `xmlrpc:"tz,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CalendarId  *Many2One  `xmlrpc:"calendar_id,omitempty"`
+	CompanyId   *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom    *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo      *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	HolidayId   *Many2One  `xmlrpc:"holiday_id,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Name        *String    `xmlrpc:"name,omitempty"`
+	ResourceId  *Many2One  `xmlrpc:"resource_id,omitempty"`
+	Tz          *Selection `xmlrpc:"tz,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResourceCalendarLeavess represents array of resource.calendar.leaves model.

@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportTrialbalance represents report.account.report_trialbalance model.
 type ReportAccountReportTrialbalance struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportTrialbalances represents array of report.account.report_trialbalance model.

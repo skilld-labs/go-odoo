@@ -2,18 +2,18 @@ package odoo
 
 // ProductPackaging represents product.packaging model.
 type ProductPackaging struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Barcode     *String   `xmlrpc:"barcode,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omptempty"`
-	Qty         *Float    `xmlrpc:"qty,omptempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Barcode     *String   `xmlrpc:"barcode,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
+	Qty         *Float    `xmlrpc:"qty,omitempty"`
+	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductPackagings represents array of product.packaging model.

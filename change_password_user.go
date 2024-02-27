@@ -2,17 +2,17 @@ package odoo
 
 // ChangePasswordUser represents change.password.user model.
 type ChangePasswordUser struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	NewPasswd   *String   `xmlrpc:"new_passwd,omptempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omptempty"`
-	UserLogin   *String   `xmlrpc:"user_login,omptempty"`
-	WizardId    *Many2One `xmlrpc:"wizard_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	NewPasswd   *String   `xmlrpc:"new_passwd,omitempty"`
+	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	UserLogin   *String   `xmlrpc:"user_login,omitempty"`
+	WizardId    *Many2One `xmlrpc:"wizard_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ChangePasswordUsers represents array of change.password.user model.

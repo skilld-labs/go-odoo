@@ -2,28 +2,28 @@ package odoo
 
 // AccountMove represents account.move model.
 type AccountMove struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
-	Amount            *Float     `xmlrpc:"amount,omptempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omptempty"`
-	Date              *Time      `xmlrpc:"date,omptempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
-	DummyAccountId    *Many2One  `xmlrpc:"dummy_account_id,omptempty"`
-	Id                *Int       `xmlrpc:"id,omptempty"`
-	JournalId         *Many2One  `xmlrpc:"journal_id,omptempty"`
-	LineIds           *Relation  `xmlrpc:"line_ids,omptempty"`
-	MatchedPercentage *Float     `xmlrpc:"matched_percentage,omptempty"`
-	Name              *String    `xmlrpc:"name,omptempty"`
-	Narration         *String    `xmlrpc:"narration,omptempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omptempty"`
-	Ref               *String    `xmlrpc:"ref,omptempty"`
-	State             *Selection `xmlrpc:"state,omptempty"`
-	StockMoveId       *Many2One  `xmlrpc:"stock_move_id,omptempty"`
-	TaxCashBasisRecId *Many2One  `xmlrpc:"tax_cash_basis_rec_id,omptempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
+	Amount            *Float     `xmlrpc:"amount,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
+	Date              *Time      `xmlrpc:"date,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	DummyAccountId    *Many2One  `xmlrpc:"dummy_account_id,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
+	LineIds           *Relation  `xmlrpc:"line_ids,omitempty"`
+	MatchedPercentage *Float     `xmlrpc:"matched_percentage,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	Narration         *String    `xmlrpc:"narration,omitempty"`
+	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
+	Ref               *String    `xmlrpc:"ref,omitempty"`
+	State             *Selection `xmlrpc:"state,omitempty"`
+	StockMoveId       *Many2One  `xmlrpc:"stock_move_id,omitempty"`
+	TaxCashBasisRecId *Many2One  `xmlrpc:"tax_cash_basis_rec_id,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountMoves represents array of account.move model.

@@ -2,17 +2,17 @@ package odoo
 
 // SaleLayoutCategory represents sale.layout_category model.
 type SaleLayoutCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	Pagebreak   *Bool     `xmlrpc:"pagebreak,omptempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omptempty"`
-	Subtotal    *Bool     `xmlrpc:"subtotal,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	Pagebreak   *Bool     `xmlrpc:"pagebreak,omitempty"`
+	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
+	Subtotal    *Bool     `xmlrpc:"subtotal,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // SaleLayoutCategorys represents array of sale.layout_category model.

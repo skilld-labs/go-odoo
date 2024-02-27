@@ -2,16 +2,16 @@ package odoo
 
 // StockChangeStandardPrice represents stock.change.standard.price model.
 type StockChangeStandardPrice struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omptempty"`
-	CounterpartAccountId         *Many2One `xmlrpc:"counterpart_account_id,omptempty"`
-	CounterpartAccountIdRequired *Bool     `xmlrpc:"counterpart_account_id_required,omptempty"`
-	CreateDate                   *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid                    *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName                  *String   `xmlrpc:"display_name,omptempty"`
-	Id                           *Int      `xmlrpc:"id,omptempty"`
-	NewPrice                     *Float    `xmlrpc:"new_price,omptempty"`
-	WriteDate                    *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid                     *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
+	CounterpartAccountId         *Many2One `xmlrpc:"counterpart_account_id,omitempty"`
+	CounterpartAccountIdRequired *Bool     `xmlrpc:"counterpart_account_id_required,omitempty"`
+	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
+	Id                           *Int      `xmlrpc:"id,omitempty"`
+	NewPrice                     *Float    `xmlrpc:"new_price,omitempty"`
+	WriteDate                    *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockChangeStandardPrices represents array of stock.change.standard.price model.

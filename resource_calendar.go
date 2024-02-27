@@ -2,18 +2,18 @@ package odoo
 
 // ResourceCalendar represents resource.calendar model.
 type ResourceCalendar struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omptempty"`
-	AttendanceIds  *Relation `xmlrpc:"attendance_ids,omptempty"`
-	CompanyId      *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omptempty"`
-	GlobalLeaveIds *Relation `xmlrpc:"global_leave_ids,omptempty"`
-	Id             *Int      `xmlrpc:"id,omptempty"`
-	LeaveIds       *Relation `xmlrpc:"leave_ids,omptempty"`
-	Name           *String   `xmlrpc:"name,omptempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
+	AttendanceIds  *Relation `xmlrpc:"attendance_ids,omitempty"`
+	CompanyId      *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
+	GlobalLeaveIds *Relation `xmlrpc:"global_leave_ids,omitempty"`
+	Id             *Int      `xmlrpc:"id,omitempty"`
+	LeaveIds       *Relation `xmlrpc:"leave_ids,omitempty"`
+	Name           *String   `xmlrpc:"name,omitempty"`
+	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResourceCalendars represents array of resource.calendar model.

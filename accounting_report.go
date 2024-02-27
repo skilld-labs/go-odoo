@@ -2,25 +2,25 @@ package odoo
 
 // AccountingReport represents accounting.report model.
 type AccountingReport struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountReportId *Many2One  `xmlrpc:"account_report_id,omptempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom        *Time      `xmlrpc:"date_from,omptempty"`
-	DateFromCmp     *Time      `xmlrpc:"date_from_cmp,omptempty"`
-	DateTo          *Time      `xmlrpc:"date_to,omptempty"`
-	DateToCmp       *Time      `xmlrpc:"date_to_cmp,omptempty"`
-	DebitCredit     *Bool      `xmlrpc:"debit_credit,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	EnableFilter    *Bool      `xmlrpc:"enable_filter,omptempty"`
-	FilterCmp       *Selection `xmlrpc:"filter_cmp,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	JournalIds      *Relation  `xmlrpc:"journal_ids,omptempty"`
-	LabelFilter     *String    `xmlrpc:"label_filter,omptempty"`
-	TargetMove      *Selection `xmlrpc:"target_move,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountReportId *Many2One  `xmlrpc:"account_report_id,omitempty"`
+	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom        *Time      `xmlrpc:"date_from,omitempty"`
+	DateFromCmp     *Time      `xmlrpc:"date_from_cmp,omitempty"`
+	DateTo          *Time      `xmlrpc:"date_to,omitempty"`
+	DateToCmp       *Time      `xmlrpc:"date_to_cmp,omitempty"`
+	DebitCredit     *Bool      `xmlrpc:"debit_credit,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	EnableFilter    *Bool      `xmlrpc:"enable_filter,omitempty"`
+	FilterCmp       *Selection `xmlrpc:"filter_cmp,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	JournalIds      *Relation  `xmlrpc:"journal_ids,omitempty"`
+	LabelFilter     *String    `xmlrpc:"label_filter,omitempty"`
+	TargetMove      *Selection `xmlrpc:"target_move,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountingReports represents array of accounting.report model.

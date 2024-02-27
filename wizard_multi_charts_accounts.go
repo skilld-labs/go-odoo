@@ -2,28 +2,28 @@ package odoo
 
 // WizardMultiChartsAccounts represents wizard.multi.charts.accounts model.
 type WizardMultiChartsAccounts struct {
-	LastUpdate            *Time     `xmlrpc:"__last_update,omptempty"`
-	BankAccountCodePrefix *String   `xmlrpc:"bank_account_code_prefix,omptempty"`
-	BankAccountIds        *Relation `xmlrpc:"bank_account_ids,omptempty"`
-	CashAccountCodePrefix *String   `xmlrpc:"cash_account_code_prefix,omptempty"`
-	ChartTemplateId       *Many2One `xmlrpc:"chart_template_id,omptempty"`
-	CodeDigits            *Int      `xmlrpc:"code_digits,omptempty"`
-	CompanyId             *Many2One `xmlrpc:"company_id,omptempty"`
-	CompleteTaxSet        *Bool     `xmlrpc:"complete_tax_set,omptempty"`
-	CreateDate            *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid             *Many2One `xmlrpc:"create_uid,omptempty"`
-	CurrencyId            *Many2One `xmlrpc:"currency_id,omptempty"`
-	DisplayName           *String   `xmlrpc:"display_name,omptempty"`
-	Id                    *Int      `xmlrpc:"id,omptempty"`
-	OnlyOneChartTemplate  *Bool     `xmlrpc:"only_one_chart_template,omptempty"`
-	PurchaseTaxId         *Many2One `xmlrpc:"purchase_tax_id,omptempty"`
-	PurchaseTaxRate       *Float    `xmlrpc:"purchase_tax_rate,omptempty"`
-	SaleTaxId             *Many2One `xmlrpc:"sale_tax_id,omptempty"`
-	SaleTaxRate           *Float    `xmlrpc:"sale_tax_rate,omptempty"`
-	TransferAccountId     *Many2One `xmlrpc:"transfer_account_id,omptempty"`
-	UseAngloSaxon         *Bool     `xmlrpc:"use_anglo_saxon,omptempty"`
-	WriteDate             *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid              *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate            *Time     `xmlrpc:"__last_update,omitempty"`
+	BankAccountCodePrefix *String   `xmlrpc:"bank_account_code_prefix,omitempty"`
+	BankAccountIds        *Relation `xmlrpc:"bank_account_ids,omitempty"`
+	CashAccountCodePrefix *String   `xmlrpc:"cash_account_code_prefix,omitempty"`
+	ChartTemplateId       *Many2One `xmlrpc:"chart_template_id,omitempty"`
+	CodeDigits            *Int      `xmlrpc:"code_digits,omitempty"`
+	CompanyId             *Many2One `xmlrpc:"company_id,omitempty"`
+	CompleteTaxSet        *Bool     `xmlrpc:"complete_tax_set,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId            *Many2One `xmlrpc:"currency_id,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	OnlyOneChartTemplate  *Bool     `xmlrpc:"only_one_chart_template,omitempty"`
+	PurchaseTaxId         *Many2One `xmlrpc:"purchase_tax_id,omitempty"`
+	PurchaseTaxRate       *Float    `xmlrpc:"purchase_tax_rate,omitempty"`
+	SaleTaxId             *Many2One `xmlrpc:"sale_tax_id,omitempty"`
+	SaleTaxRate           *Float    `xmlrpc:"sale_tax_rate,omitempty"`
+	TransferAccountId     *Many2One `xmlrpc:"transfer_account_id,omitempty"`
+	UseAngloSaxon         *Bool     `xmlrpc:"use_anglo_saxon,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // WizardMultiChartsAccountss represents array of wizard.multi.charts.accounts model.

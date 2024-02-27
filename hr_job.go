@@ -2,35 +2,35 @@ package odoo
 
 // HrJob represents hr.job model.
 type HrJob struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId                *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DepartmentId             *Many2One  `xmlrpc:"department_id,omptempty"`
-	Description              *String    `xmlrpc:"description,omptempty"`
-	DisplayName              *String    `xmlrpc:"display_name,omptempty"`
-	EmployeeIds              *Relation  `xmlrpc:"employee_ids,omptempty"`
-	ExpectedEmployees        *Int       `xmlrpc:"expected_employees,omptempty"`
-	Id                       *Int       `xmlrpc:"id,omptempty"`
-	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omptempty"`
-	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omptempty"`
-	MessageIds               *Relation  `xmlrpc:"message_ids,omptempty"`
-	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omptempty"`
-	MessageLastPost          *Time      `xmlrpc:"message_last_post,omptempty"`
-	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omptempty"`
-	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omptempty"`
-	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omptempty"`
-	MessageUnread            *Bool      `xmlrpc:"message_unread,omptempty"`
-	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omptempty"`
-	Name                     *String    `xmlrpc:"name,omptempty"`
-	NoOfEmployee             *Int       `xmlrpc:"no_of_employee,omptempty"`
-	NoOfHiredEmployee        *Int       `xmlrpc:"no_of_hired_employee,omptempty"`
-	NoOfRecruitment          *Int       `xmlrpc:"no_of_recruitment,omptempty"`
-	Requirements             *String    `xmlrpc:"requirements,omptempty"`
-	State                    *Selection `xmlrpc:"state,omptempty"`
-	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omptempty"`
-	WriteDate                *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DepartmentId             *Many2One  `xmlrpc:"department_id,omitempty"`
+	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	EmployeeIds              *Relation  `xmlrpc:"employee_ids,omitempty"`
+	ExpectedEmployees        *Int       `xmlrpc:"expected_employees,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageLastPost          *Time      `xmlrpc:"message_last_post,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread            *Bool      `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	NoOfEmployee             *Int       `xmlrpc:"no_of_employee,omitempty"`
+	NoOfHiredEmployee        *Int       `xmlrpc:"no_of_hired_employee,omitempty"`
+	NoOfRecruitment          *Int       `xmlrpc:"no_of_recruitment,omitempty"`
+	Requirements             *String    `xmlrpc:"requirements,omitempty"`
+	State                    *Selection `xmlrpc:"state,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrJobs represents array of hr.job model.

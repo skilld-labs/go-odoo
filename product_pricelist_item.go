@@ -2,35 +2,35 @@ package odoo
 
 // ProductPricelistItem represents product.pricelist.item model.
 type ProductPricelistItem struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	AppliedOn       *Selection `xmlrpc:"applied_on,omptempty"`
-	Base            *Selection `xmlrpc:"base,omptempty"`
-	BasePricelistId *Many2One  `xmlrpc:"base_pricelist_id,omptempty"`
-	CategId         *Many2One  `xmlrpc:"categ_id,omptempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omptempty"`
-	ComputePrice    *Selection `xmlrpc:"compute_price,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId      *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DateEnd         *Time      `xmlrpc:"date_end,omptempty"`
-	DateStart       *Time      `xmlrpc:"date_start,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	FixedPrice      *Float     `xmlrpc:"fixed_price,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	MinQuantity     *Int       `xmlrpc:"min_quantity,omptempty"`
-	Name            *String    `xmlrpc:"name,omptempty"`
-	PercentPrice    *Float     `xmlrpc:"percent_price,omptempty"`
-	Price           *String    `xmlrpc:"price,omptempty"`
-	PriceDiscount   *Float     `xmlrpc:"price_discount,omptempty"`
-	PriceMaxMargin  *Float     `xmlrpc:"price_max_margin,omptempty"`
-	PriceMinMargin  *Float     `xmlrpc:"price_min_margin,omptempty"`
-	PriceRound      *Float     `xmlrpc:"price_round,omptempty"`
-	PriceSurcharge  *Float     `xmlrpc:"price_surcharge,omptempty"`
-	PricelistId     *Many2One  `xmlrpc:"pricelist_id,omptempty"`
-	ProductId       *Many2One  `xmlrpc:"product_id,omptempty"`
-	ProductTmplId   *Many2One  `xmlrpc:"product_tmpl_id,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	AppliedOn       *Selection `xmlrpc:"applied_on,omitempty"`
+	Base            *Selection `xmlrpc:"base,omitempty"`
+	BasePricelistId *Many2One  `xmlrpc:"base_pricelist_id,omitempty"`
+	CategId         *Many2One  `xmlrpc:"categ_id,omitempty"`
+	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
+	ComputePrice    *Selection `xmlrpc:"compute_price,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId      *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DateEnd         *Time      `xmlrpc:"date_end,omitempty"`
+	DateStart       *Time      `xmlrpc:"date_start,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	FixedPrice      *Float     `xmlrpc:"fixed_price,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	MinQuantity     *Int       `xmlrpc:"min_quantity,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	PercentPrice    *Float     `xmlrpc:"percent_price,omitempty"`
+	Price           *String    `xmlrpc:"price,omitempty"`
+	PriceDiscount   *Float     `xmlrpc:"price_discount,omitempty"`
+	PriceMaxMargin  *Float     `xmlrpc:"price_max_margin,omitempty"`
+	PriceMinMargin  *Float     `xmlrpc:"price_min_margin,omitempty"`
+	PriceRound      *Float     `xmlrpc:"price_round,omitempty"`
+	PriceSurcharge  *Float     `xmlrpc:"price_surcharge,omitempty"`
+	PricelistId     *Many2One  `xmlrpc:"pricelist_id,omitempty"`
+	ProductId       *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductTmplId   *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductPricelistItems represents array of product.pricelist.item model.

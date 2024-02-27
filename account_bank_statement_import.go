@@ -2,15 +2,15 @@ package odoo
 
 // AccountBankStatementImport represents account.bank.statement.import model.
 type AccountBankStatementImport struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DataFile    *String   `xmlrpc:"data_file,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Filename    *String   `xmlrpc:"filename,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DataFile    *String   `xmlrpc:"data_file,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Filename    *String   `xmlrpc:"filename,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountBankStatementImports represents array of account.bank.statement.import model.

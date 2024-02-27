@@ -27,7 +27,7 @@ It is **highly recommanded** to not remove them, since you would not be able to 
 
 #### Custom skilld-labs models
 
-All others models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 11**. (note that models structure changed between odoo major versions).
+All other models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 11**. (note that models structure changed between odoo major versions).
 
 If you're ok to work with those models, you can use this library instance, if not you should fork the repository and generate you own models by following steps above.
 
@@ -66,7 +66,7 @@ func main() {
 ## Models
 
 Generated models contains high level functions to interact with models in an easy and golang way.
-It covers the most common usage and contains for each models those functions :
+It covers the most common usage and contains for each model those functions :
 
 ### Create
 ```go
@@ -170,7 +170,7 @@ cls, err := c.FindCrmLeads(odoo.NewCriteria().Add("user_id.name", "=", "John Doe
 
 All high level functions are based on basic odoo webservices functions.
 
-These functions give you more flexibility but less usability. We recommand you to use models functions (high level).
+These functions give you more flexibility but less usability. We recommend you to use models functions (high level).
 
 Here are available low level functions :
 

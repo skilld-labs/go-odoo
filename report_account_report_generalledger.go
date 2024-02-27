@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportGeneralledger represents report.account.report_generalledger model.
 type ReportAccountReportGeneralledger struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportGeneralledgers represents array of report.account.report_generalledger model.

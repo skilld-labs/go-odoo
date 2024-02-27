@@ -2,15 +2,15 @@ package odoo
 
 // MailActivityMixin represents mail.activity.mixin model.
 type MailActivityMixin struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
-	ActivityDateDeadline *Time      `xmlrpc:"activity_date_deadline,omptempty"`
-	ActivityIds          *Relation  `xmlrpc:"activity_ids,omptempty"`
-	ActivityState        *Selection `xmlrpc:"activity_state,omptempty"`
-	ActivitySummary      *String    `xmlrpc:"activity_summary,omptempty"`
-	ActivityTypeId       *Many2One  `xmlrpc:"activity_type_id,omptempty"`
-	ActivityUserId       *Many2One  `xmlrpc:"activity_user_id,omptempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omptempty"`
-	Id                   *Int       `xmlrpc:"id,omptempty"`
+	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
+	ActivityDateDeadline *Time      `xmlrpc:"activity_date_deadline,omitempty"`
+	ActivityIds          *Relation  `xmlrpc:"activity_ids,omitempty"`
+	ActivityState        *Selection `xmlrpc:"activity_state,omitempty"`
+	ActivitySummary      *String    `xmlrpc:"activity_summary,omitempty"`
+	ActivityTypeId       *Many2One  `xmlrpc:"activity_type_id,omitempty"`
+	ActivityUserId       *Many2One  `xmlrpc:"activity_user_id,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
 }
 
 // MailActivityMixins represents array of mail.activity.mixin model.

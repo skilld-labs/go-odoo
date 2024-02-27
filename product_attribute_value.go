@@ -2,19 +2,19 @@ package odoo
 
 // ProductAttributeValue represents product.attribute.value model.
 type ProductAttributeValue struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	AttributeId *Many2One `xmlrpc:"attribute_id,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	PriceExtra  *Float    `xmlrpc:"price_extra,omptempty"`
-	PriceIds    *Relation `xmlrpc:"price_ids,omptempty"`
-	ProductIds  *Relation `xmlrpc:"product_ids,omptempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	AttributeId *Many2One `xmlrpc:"attribute_id,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	PriceExtra  *Float    `xmlrpc:"price_extra,omitempty"`
+	PriceIds    *Relation `xmlrpc:"price_ids,omitempty"`
+	ProductIds  *Relation `xmlrpc:"product_ids,omitempty"`
+	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributeValues represents array of product.attribute.value model.

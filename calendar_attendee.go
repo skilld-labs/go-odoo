@@ -2,20 +2,20 @@ package odoo
 
 // CalendarAttendee represents calendar.attendee model.
 type CalendarAttendee struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
-	AccessToken  *String    `xmlrpc:"access_token,omptempty"`
-	Availability *Selection `xmlrpc:"availability,omptempty"`
-	CommonName   *String    `xmlrpc:"common_name,omptempty"`
-	CreateDate   *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid    *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omptempty"`
-	Email        *String    `xmlrpc:"email,omptempty"`
-	EventId      *Many2One  `xmlrpc:"event_id,omptempty"`
-	Id           *Int       `xmlrpc:"id,omptempty"`
-	PartnerId    *Many2One  `xmlrpc:"partner_id,omptempty"`
-	State        *Selection `xmlrpc:"state,omptempty"`
-	WriteDate    *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid     *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
+	AccessToken  *String    `xmlrpc:"access_token,omitempty"`
+	Availability *Selection `xmlrpc:"availability,omitempty"`
+	CommonName   *String    `xmlrpc:"common_name,omitempty"`
+	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
+	Email        *String    `xmlrpc:"email,omitempty"`
+	EventId      *Many2One  `xmlrpc:"event_id,omitempty"`
+	Id           *Int       `xmlrpc:"id,omitempty"`
+	PartnerId    *Many2One  `xmlrpc:"partner_id,omitempty"`
+	State        *Selection `xmlrpc:"state,omitempty"`
+	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarAttendees represents array of calendar.attendee model.

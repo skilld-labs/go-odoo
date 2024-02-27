@@ -2,23 +2,23 @@ package odoo
 
 // ProjectTaskType represents project.task.type model.
 type ProjectTaskType struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omptempty"`
-	Description    *String   `xmlrpc:"description,omptempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omptempty"`
-	Fold           *Bool     `xmlrpc:"fold,omptempty"`
-	Id             *Int      `xmlrpc:"id,omptempty"`
-	LegendBlocked  *String   `xmlrpc:"legend_blocked,omptempty"`
-	LegendDone     *String   `xmlrpc:"legend_done,omptempty"`
-	LegendNormal   *String   `xmlrpc:"legend_normal,omptempty"`
-	LegendPriority *String   `xmlrpc:"legend_priority,omptempty"`
-	MailTemplateId *Many2One `xmlrpc:"mail_template_id,omptempty"`
-	Name           *String   `xmlrpc:"name,omptempty"`
-	ProjectIds     *Relation `xmlrpc:"project_ids,omptempty"`
-	Sequence       *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
+	Description    *String   `xmlrpc:"description,omitempty"`
+	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
+	Fold           *Bool     `xmlrpc:"fold,omitempty"`
+	Id             *Int      `xmlrpc:"id,omitempty"`
+	LegendBlocked  *String   `xmlrpc:"legend_blocked,omitempty"`
+	LegendDone     *String   `xmlrpc:"legend_done,omitempty"`
+	LegendNormal   *String   `xmlrpc:"legend_normal,omitempty"`
+	LegendPriority *String   `xmlrpc:"legend_priority,omitempty"`
+	MailTemplateId *Many2One `xmlrpc:"mail_template_id,omitempty"`
+	Name           *String   `xmlrpc:"name,omitempty"`
+	ProjectIds     *Relation `xmlrpc:"project_ids,omitempty"`
+	Sequence       *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectTaskTypes represents array of project.task.type model.

@@ -2,18 +2,18 @@ package odoo
 
 // PortalWizardUser represents portal.wizard.user model.
 type PortalWizardUser struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Email       *String   `xmlrpc:"email,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	InPortal    *Bool     `xmlrpc:"in_portal,omptempty"`
-	PartnerId   *Many2One `xmlrpc:"partner_id,omptempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omptempty"`
-	WizardId    *Many2One `xmlrpc:"wizard_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Email       *String   `xmlrpc:"email,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	InPortal    *Bool     `xmlrpc:"in_portal,omitempty"`
+	PartnerId   *Many2One `xmlrpc:"partner_id,omitempty"`
+	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	WizardId    *Many2One `xmlrpc:"wizard_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // PortalWizardUsers represents array of portal.wizard.user model.

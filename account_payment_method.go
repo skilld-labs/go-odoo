@@ -2,16 +2,16 @@ package odoo
 
 // AccountPaymentMethod represents account.payment.method model.
 type AccountPaymentMethod struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	Code        *String    `xmlrpc:"code,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	Name        *String    `xmlrpc:"name,omptempty"`
-	PaymentType *Selection `xmlrpc:"payment_type,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	Code        *String    `xmlrpc:"code,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Name        *String    `xmlrpc:"name,omitempty"`
+	PaymentType *Selection `xmlrpc:"payment_type,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPaymentMethods represents array of account.payment.method model.

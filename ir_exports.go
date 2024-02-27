@@ -2,16 +2,16 @@ package odoo
 
 // IrExports represents ir.exports model.
 type IrExports struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omptempty"`
-	ExportFields *Relation `xmlrpc:"export_fields,omptempty"`
-	Id           *Int      `xmlrpc:"id,omptempty"`
-	Name         *String   `xmlrpc:"name,omptempty"`
-	Resource     *String   `xmlrpc:"resource,omptempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
+	ExportFields *Relation `xmlrpc:"export_fields,omitempty"`
+	Id           *Int      `xmlrpc:"id,omitempty"`
+	Name         *String   `xmlrpc:"name,omitempty"`
+	Resource     *String   `xmlrpc:"resource,omitempty"`
+	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrExportss represents array of ir.exports model.
