@@ -42,7 +42,7 @@ func (c *Client) CreateIrLogging(il *IrLogging) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrLogging creates a new ir.logging model and returns its id.
+// CreateIrLoggings creates a new ir.logging model and returns its id.
 func (c *Client) CreateIrLoggings(ils []*IrLogging) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ils {

@@ -34,7 +34,7 @@ func (c *Client) CreateResConfig(rc *ResConfig) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResConfig creates a new res.config model and returns its id.
+// CreateResConfigs creates a new res.config model and returns its id.
 func (c *Client) CreateResConfigs(rcs []*ResConfig) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

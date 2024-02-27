@@ -47,7 +47,7 @@ func (c *Client) CreateIrSequence(is *IrSequence) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrSequence creates a new ir.sequence model and returns its id.
+// CreateIrSequences creates a new ir.sequence model and returns its id.
 func (c *Client) CreateIrSequences(iss []*IrSequence) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iss {

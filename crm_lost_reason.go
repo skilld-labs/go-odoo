@@ -36,7 +36,7 @@ func (c *Client) CreateCrmLostReason(clr *CrmLostReason) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmLostReason creates a new crm.lost.reason model and returns its id.
+// CreateCrmLostReasons creates a new crm.lost.reason model and returns its id.
 func (c *Client) CreateCrmLostReasons(clrs []*CrmLostReason) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clrs {

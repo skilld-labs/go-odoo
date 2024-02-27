@@ -71,7 +71,7 @@ func (c *Client) CreateMailMassMailing(mm *MailMassMailing) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailMassMailing creates a new mail.mass_mailing model and returns its id.
+// CreateMailMassMailings creates a new mail.mass_mailing model and returns its id.
 func (c *Client) CreateMailMassMailings(mms []*MailMassMailing) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mms {

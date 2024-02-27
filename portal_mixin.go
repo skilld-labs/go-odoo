@@ -31,7 +31,7 @@ func (c *Client) CreatePortalMixin(pm *PortalMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePortalMixin creates a new portal.mixin model and returns its id.
+// CreatePortalMixins creates a new portal.mixin model and returns its id.
 func (c *Client) CreatePortalMixins(pms []*PortalMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pms {

@@ -41,7 +41,7 @@ func (c *Client) CreateCalendarAttendee(ca *CalendarAttendee) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarAttendee creates a new calendar.attendee model and returns its id.
+// CreateCalendarAttendees creates a new calendar.attendee model and returns its id.
 func (c *Client) CreateCalendarAttendees(cas []*CalendarAttendee) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cas {

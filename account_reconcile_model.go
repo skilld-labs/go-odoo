@@ -52,7 +52,7 @@ func (c *Client) CreateAccountReconcileModel(arm *AccountReconcileModel) (int64,
 	return ids[0], nil
 }
 
-// CreateAccountReconcileModel creates a new account.reconcile.model model and returns its id.
+// CreateAccountReconcileModels creates a new account.reconcile.model model and returns its id.
 func (c *Client) CreateAccountReconcileModels(arms []*AccountReconcileModel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range arms {

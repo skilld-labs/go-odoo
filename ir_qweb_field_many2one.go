@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldMany2One(iqfm *IrQwebFieldMany2One) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldMany2One creates a new ir.qweb.field.many2one model and returns its id.
+// CreateIrQwebFieldMany2Ones creates a new ir.qweb.field.many2one model and returns its id.
 func (c *Client) CreateIrQwebFieldMany2Ones(iqfms []*IrQwebFieldMany2One) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfms {

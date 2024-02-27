@@ -48,7 +48,7 @@ func (c *Client) CreateAccountRegisterPayments(arp *AccountRegisterPayments) (in
 	return ids[0], nil
 }
 
-// CreateAccountRegisterPayments creates a new account.register.payments model and returns its id.
+// CreateAccountRegisterPaymentss creates a new account.register.payments model and returns its id.
 func (c *Client) CreateAccountRegisterPaymentss(arps []*AccountRegisterPayments) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range arps {

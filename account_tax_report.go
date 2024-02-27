@@ -39,7 +39,7 @@ func (c *Client) CreateAccountTaxReport(atr *AccountTaxReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountTaxReport creates a new account.tax.report model and returns its id.
+// CreateAccountTaxReports creates a new account.tax.report model and returns its id.
 func (c *Client) CreateAccountTaxReports(atrs []*AccountTaxReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range atrs {

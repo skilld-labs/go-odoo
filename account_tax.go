@@ -54,7 +54,7 @@ func (c *Client) CreateAccountTax(at *AccountTax) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountTax creates a new account.tax model and returns its id.
+// CreateAccountTaxs creates a new account.tax model and returns its id.
 func (c *Client) CreateAccountTaxs(ats []*AccountTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ats {

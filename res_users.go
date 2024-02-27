@@ -179,7 +179,7 @@ func (c *Client) CreateResUsers(ru *ResUsers) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResUsers creates a new res.users model and returns its id.
+// CreateResUserss creates a new res.users model and returns its id.
 func (c *Client) CreateResUserss(rus []*ResUsers) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rus {

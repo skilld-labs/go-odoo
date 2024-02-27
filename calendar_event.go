@@ -96,7 +96,7 @@ func (c *Client) CreateCalendarEvent(ce *CalendarEvent) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarEvent creates a new calendar.event model and returns its id.
+// CreateCalendarEvents creates a new calendar.event model and returns its id.
 func (c *Client) CreateCalendarEvents(ces []*CalendarEvent) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ces {

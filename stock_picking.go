@@ -88,7 +88,7 @@ func (c *Client) CreateStockPicking(sp *StockPicking) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockPicking creates a new stock.picking model and returns its id.
+// CreateStockPickings creates a new stock.picking model and returns its id.
 func (c *Client) CreateStockPickings(sps []*StockPicking) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sps {

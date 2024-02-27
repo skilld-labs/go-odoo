@@ -48,7 +48,7 @@ func (c *Client) CreateAccountReconcileModelTemplate(armt *AccountReconcileModel
 	return ids[0], nil
 }
 
-// CreateAccountReconcileModelTemplate creates a new account.reconcile.model.template model and returns its id.
+// CreateAccountReconcileModelTemplates creates a new account.reconcile.model.template model and returns its id.
 func (c *Client) CreateAccountReconcileModelTemplates(armts []*AccountReconcileModelTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range armts {

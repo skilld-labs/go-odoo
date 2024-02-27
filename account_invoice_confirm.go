@@ -34,7 +34,7 @@ func (c *Client) CreateAccountInvoiceConfirm(aic *AccountInvoiceConfirm) (int64,
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceConfirm creates a new account.invoice.confirm model and returns its id.
+// CreateAccountInvoiceConfirms creates a new account.invoice.confirm model and returns its id.
 func (c *Client) CreateAccountInvoiceConfirms(aics []*AccountInvoiceConfirm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aics {

@@ -36,7 +36,7 @@ func (c *Client) CreateIrExportsLine(iel *IrExportsLine) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrExportsLine creates a new ir.exports.line model and returns its id.
+// CreateIrExportsLines creates a new ir.exports.line model and returns its id.
 func (c *Client) CreateIrExportsLines(iels []*IrExportsLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iels {

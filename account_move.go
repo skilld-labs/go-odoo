@@ -49,7 +49,7 @@ func (c *Client) CreateAccountMove(am *AccountMove) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountMove creates a new account.move model and returns its id.
+// CreateAccountMoves creates a new account.move model and returns its id.
 func (c *Client) CreateAccountMoves(ams []*AccountMove) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ams {

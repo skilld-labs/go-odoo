@@ -56,7 +56,7 @@ func (c *Client) CreatePurchaseReport(pr *PurchaseReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePurchaseReport creates a new purchase.report model and returns its id.
+// CreatePurchaseReports creates a new purchase.report model and returns its id.
 func (c *Client) CreatePurchaseReports(prs []*PurchaseReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

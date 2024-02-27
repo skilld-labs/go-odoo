@@ -35,7 +35,7 @@ func (c *Client) CreateChangePasswordWizard(cpw *ChangePasswordWizard) (int64, e
 	return ids[0], nil
 }
 
-// CreateChangePasswordWizard creates a new change.password.wizard model and returns its id.
+// CreateChangePasswordWizards creates a new change.password.wizard model and returns its id.
 func (c *Client) CreateChangePasswordWizards(cpws []*ChangePasswordWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cpws {

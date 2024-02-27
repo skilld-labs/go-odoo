@@ -39,7 +39,7 @@ func (c *Client) CreateAccountMoveLineReconcileWriteoff(amlrw *AccountMoveLineRe
 	return ids[0], nil
 }
 
-// CreateAccountMoveLineReconcileWriteoff creates a new account.move.line.reconcile.writeoff model and returns its id.
+// CreateAccountMoveLineReconcileWriteoffs creates a new account.move.line.reconcile.writeoff model and returns its id.
 func (c *Client) CreateAccountMoveLineReconcileWriteoffs(amlrws []*AccountMoveLineReconcileWriteoff) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amlrws {

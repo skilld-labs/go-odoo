@@ -37,7 +37,7 @@ func (c *Client) CreateIapAccount(ia *IapAccount) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIapAccount creates a new iap.account model and returns its id.
+// CreateIapAccounts creates a new iap.account model and returns its id.
 func (c *Client) CreateIapAccounts(ias []*IapAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

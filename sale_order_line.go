@@ -76,7 +76,7 @@ func (c *Client) CreateSaleOrderLine(sol *SaleOrderLine) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSaleOrderLine creates a new sale.order.line model and returns its id.
+// CreateSaleOrderLines creates a new sale.order.line model and returns its id.
 func (c *Client) CreateSaleOrderLines(sols []*SaleOrderLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sols {

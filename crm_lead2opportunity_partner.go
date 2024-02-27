@@ -40,7 +40,7 @@ func (c *Client) CreateCrmLead2OpportunityPartner(clp *CrmLead2OpportunityPartne
 	return ids[0], nil
 }
 
-// CreateCrmLead2OpportunityPartner creates a new crm.lead2opportunity.partner model and returns its id.
+// CreateCrmLead2OpportunityPartners creates a new crm.lead2opportunity.partner model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartners(clps []*CrmLead2OpportunityPartner) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clps {

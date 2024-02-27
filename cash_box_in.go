@@ -37,7 +37,7 @@ func (c *Client) CreateCashBoxIn(cbi *CashBoxIn) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCashBoxIn creates a new cash.box.in model and returns its id.
+// CreateCashBoxIns creates a new cash.box.in model and returns its id.
 func (c *Client) CreateCashBoxIns(cbis []*CashBoxIn) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cbis {

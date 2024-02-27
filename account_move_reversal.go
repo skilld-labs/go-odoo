@@ -36,7 +36,7 @@ func (c *Client) CreateAccountMoveReversal(amr *AccountMoveReversal) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountMoveReversal creates a new account.move.reversal model and returns its id.
+// CreateAccountMoveReversals creates a new account.move.reversal model and returns its id.
 func (c *Client) CreateAccountMoveReversals(amrs []*AccountMoveReversal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amrs {

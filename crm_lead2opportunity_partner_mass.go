@@ -43,7 +43,7 @@ func (c *Client) CreateCrmLead2OpportunityPartnerMass(clpm *CrmLead2OpportunityP
 	return ids[0], nil
 }
 
-// CreateCrmLead2OpportunityPartnerMass creates a new crm.lead2opportunity.partner.mass model and returns its id.
+// CreateCrmLead2OpportunityPartnerMasss creates a new crm.lead2opportunity.partner.mass model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartnerMasss(clpms []*CrmLead2OpportunityPartnerMass) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clpms {

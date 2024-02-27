@@ -60,7 +60,7 @@ func (c *Client) CreateAccountInvoiceReport(air *AccountInvoiceReport) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceReport creates a new account.invoice.report model and returns its id.
+// CreateAccountInvoiceReports creates a new account.invoice.report model and returns its id.
 func (c *Client) CreateAccountInvoiceReports(airs []*AccountInvoiceReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range airs {

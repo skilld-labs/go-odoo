@@ -63,7 +63,7 @@ func (c *Client) CreateMailMessage(mm *MailMessage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailMessage creates a new mail.message model and returns its id.
+// CreateMailMessages creates a new mail.message model and returns its id.
 func (c *Client) CreateMailMessages(mms []*MailMessage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mms {

@@ -54,7 +54,7 @@ func (c *Client) CreateIrAttachment(ia *IrAttachment) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrAttachment creates a new ir.attachment model and returns its id.
+// CreateIrAttachments creates a new ir.attachment model and returns its id.
 func (c *Client) CreateIrAttachments(ias []*IrAttachment) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

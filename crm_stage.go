@@ -42,7 +42,7 @@ func (c *Client) CreateCrmStage(cs *CrmStage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmStage creates a new crm.stage model and returns its id.
+// CreateCrmStages creates a new crm.stage model and returns its id.
 func (c *Client) CreateCrmStages(css []*CrmStage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range css {

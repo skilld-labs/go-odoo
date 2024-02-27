@@ -43,7 +43,7 @@ func (c *Client) CreateAccountPartialReconcile(apr *AccountPartialReconcile) (in
 	return ids[0], nil
 }
 
-// CreateAccountPartialReconcile creates a new account.partial.reconcile model and returns its id.
+// CreateAccountPartialReconciles creates a new account.partial.reconcile model and returns its id.
 func (c *Client) CreateAccountPartialReconciles(aprs []*AccountPartialReconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aprs {

@@ -36,7 +36,7 @@ func (c *Client) CreateSmsSendSms(ss *SmsSendSms) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSmsSendSms creates a new sms.send_sms model and returns its id.
+// CreateSmsSendSmss creates a new sms.send_sms model and returns its id.
 func (c *Client) CreateSmsSendSmss(sss []*SmsSendSms) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sss {

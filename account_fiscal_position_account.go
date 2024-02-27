@@ -37,7 +37,7 @@ func (c *Client) CreateAccountFiscalPositionAccount(afpa *AccountFiscalPositionA
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPositionAccount creates a new account.fiscal.position.account model and returns its id.
+// CreateAccountFiscalPositionAccounts creates a new account.fiscal.position.account model and returns its id.
 func (c *Client) CreateAccountFiscalPositionAccounts(afpas []*AccountFiscalPositionAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afpas {

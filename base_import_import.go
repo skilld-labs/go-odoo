@@ -38,7 +38,7 @@ func (c *Client) CreateBaseImportImport(bi *BaseImportImport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBaseImportImport creates a new base_import.import model and returns its id.
+// CreateBaseImportImports creates a new base_import.import model and returns its id.
 func (c *Client) CreateBaseImportImports(bis []*BaseImportImport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bis {

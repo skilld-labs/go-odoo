@@ -45,7 +45,7 @@ func (c *Client) CreateResCountry(rc *ResCountry) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountry creates a new res.country model and returns its id.
+// CreateResCountrys creates a new res.country model and returns its id.
 func (c *Client) CreateResCountrys(rcs []*ResCountry) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

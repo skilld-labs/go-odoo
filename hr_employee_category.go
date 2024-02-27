@@ -37,7 +37,7 @@ func (c *Client) CreateHrEmployeeCategory(hec *HrEmployeeCategory) (int64, error
 	return ids[0], nil
 }
 
-// CreateHrEmployeeCategory creates a new hr.employee.category model and returns its id.
+// CreateHrEmployeeCategorys creates a new hr.employee.category model and returns its id.
 func (c *Client) CreateHrEmployeeCategorys(hecs []*HrEmployeeCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hecs {

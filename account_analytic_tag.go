@@ -37,7 +37,7 @@ func (c *Client) CreateAccountAnalyticTag(aat *AccountAnalyticTag) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountAnalyticTag creates a new account.analytic.tag model and returns its id.
+// CreateAccountAnalyticTags creates a new account.analytic.tag model and returns its id.
 func (c *Client) CreateAccountAnalyticTags(aats []*AccountAnalyticTag) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aats {

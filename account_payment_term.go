@@ -40,7 +40,7 @@ func (c *Client) CreateAccountPaymentTerm(apt *AccountPaymentTerm) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountPaymentTerm creates a new account.payment.term model and returns its id.
+// CreateAccountPaymentTerms creates a new account.payment.term model and returns its id.
 func (c *Client) CreateAccountPaymentTerms(apts []*AccountPaymentTerm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apts {

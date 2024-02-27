@@ -40,7 +40,7 @@ func (c *Client) CreateMailWizardInvite(mwi *MailWizardInvite) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailWizardInvite creates a new mail.wizard.invite model and returns its id.
+// CreateMailWizardInvites creates a new mail.wizard.invite model and returns its id.
 func (c *Client) CreateMailWizardInvites(mwis []*MailWizardInvite) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mwis {

@@ -39,7 +39,7 @@ func (c *Client) CreateResourceCalendar(rc *ResourceCalendar) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceCalendar creates a new resource.calendar model and returns its id.
+// CreateResourceCalendars creates a new resource.calendar model and returns its id.
 func (c *Client) CreateResourceCalendars(rcs []*ResourceCalendar) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

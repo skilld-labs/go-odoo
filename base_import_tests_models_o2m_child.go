@@ -36,7 +36,7 @@ func (c *Client) CreateBaseImportTestsModelsO2MChild(btmoc *BaseImportTestsModel
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsO2MChild creates a new base_import.tests.models.o2m.child model and returns its id.
+// CreateBaseImportTestsModelsO2MChilds creates a new base_import.tests.models.o2m.child model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsO2MChilds(btmocs []*BaseImportTestsModelsO2MChild) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmocs {

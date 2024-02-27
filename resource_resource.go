@@ -41,7 +41,7 @@ func (c *Client) CreateResourceResource(rr *ResourceResource) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceResource creates a new resource.resource model and returns its id.
+// CreateResourceResources creates a new resource.resource model and returns its id.
 func (c *Client) CreateResourceResources(rrs []*ResourceResource) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rrs {

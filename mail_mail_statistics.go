@@ -52,7 +52,7 @@ func (c *Client) CreateMailMailStatistics(mms *MailMailStatistics) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMailStatistics creates a new mail.mail.statistics model and returns its id.
+// CreateMailMailStatisticss creates a new mail.mail.statistics model and returns its id.
 func (c *Client) CreateMailMailStatisticss(mmss []*MailMailStatistics) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmss {

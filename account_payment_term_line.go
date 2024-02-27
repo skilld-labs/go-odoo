@@ -40,7 +40,7 @@ func (c *Client) CreateAccountPaymentTermLine(aptl *AccountPaymentTermLine) (int
 	return ids[0], nil
 }
 
-// CreateAccountPaymentTermLine creates a new account.payment.term.line model and returns its id.
+// CreateAccountPaymentTermLines creates a new account.payment.term.line model and returns its id.
 func (c *Client) CreateAccountPaymentTermLines(aptls []*AccountPaymentTermLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aptls {

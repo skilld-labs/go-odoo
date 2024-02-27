@@ -39,7 +39,7 @@ func (c *Client) CreateProductAttribute(pa *ProductAttribute) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductAttribute creates a new product.attribute model and returns its id.
+// CreateProductAttributes creates a new product.attribute model and returns its id.
 func (c *Client) CreateProductAttributes(pas []*ProductAttribute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pas {

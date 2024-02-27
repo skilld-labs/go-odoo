@@ -60,7 +60,7 @@ func (c *Client) CreateHrDepartment(hd *HrDepartment) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateHrDepartment creates a new hr.department model and returns its id.
+// CreateHrDepartments creates a new hr.department model and returns its id.
 func (c *Client) CreateHrDepartments(hds []*HrDepartment) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hds {

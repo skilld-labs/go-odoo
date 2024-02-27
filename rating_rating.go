@@ -51,7 +51,7 @@ func (c *Client) CreateRatingRating(rr *RatingRating) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateRatingRating creates a new rating.rating model and returns its id.
+// CreateRatingRatings creates a new rating.rating model and returns its id.
 func (c *Client) CreateRatingRatings(rrs []*RatingRating) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rrs {

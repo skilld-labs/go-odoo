@@ -36,7 +36,7 @@ func (c *Client) CreateWizardIrModelMenuCreate(wimmc *WizardIrModelMenuCreate) (
 	return ids[0], nil
 }
 
-// CreateWizardIrModelMenuCreate creates a new wizard.ir.model.menu.create model and returns its id.
+// CreateWizardIrModelMenuCreates creates a new wizard.ir.model.menu.create model and returns its id.
 func (c *Client) CreateWizardIrModelMenuCreates(wimmcs []*WizardIrModelMenuCreate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wimmcs {

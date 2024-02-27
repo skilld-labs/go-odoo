@@ -38,7 +38,7 @@ func (c *Client) CreateResourceTest(rt *ResourceTest) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceTest creates a new resource.test model and returns its id.
+// CreateResourceTests creates a new resource.test model and returns its id.
 func (c *Client) CreateResourceTests(rts []*ResourceTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rts {

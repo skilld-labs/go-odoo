@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldRelative(iqfr *IrQwebFieldRelative) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldRelative creates a new ir.qweb.field.relative model and returns its id.
+// CreateIrQwebFieldRelatives creates a new ir.qweb.field.relative model and returns its id.
 func (c *Client) CreateIrQwebFieldRelatives(iqfrs []*IrQwebFieldRelative) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfrs {

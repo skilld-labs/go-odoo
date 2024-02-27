@@ -41,7 +41,7 @@ func (c *Client) CreateImLivechatReportChannel(irc *ImLivechatReportChannel) (in
 	return ids[0], nil
 }
 
-// CreateImLivechatReportChannel creates a new im_livechat.report.channel model and returns its id.
+// CreateImLivechatReportChannels creates a new im_livechat.report.channel model and returns its id.
 func (c *Client) CreateImLivechatReportChannels(ircs []*ImLivechatReportChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ircs {

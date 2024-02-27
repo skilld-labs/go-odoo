@@ -40,7 +40,7 @@ func (c *Client) CreateAccountBalanceReport(abr *AccountBalanceReport) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountBalanceReport creates a new account.balance.report model and returns its id.
+// CreateAccountBalanceReports creates a new account.balance.report model and returns its id.
 func (c *Client) CreateAccountBalanceReports(abrs []*AccountBalanceReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abrs {

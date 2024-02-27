@@ -40,7 +40,7 @@ func (c *Client) CreateAccountCommonAccountReport(acar *AccountCommonAccountRepo
 	return ids[0], nil
 }
 
-// CreateAccountCommonAccountReport creates a new account.common.account.report model and returns its id.
+// CreateAccountCommonAccountReports creates a new account.common.account.report model and returns its id.
 func (c *Client) CreateAccountCommonAccountReports(acars []*AccountCommonAccountReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acars {

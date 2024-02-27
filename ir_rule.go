@@ -44,7 +44,7 @@ func (c *Client) CreateIrRule(ir *IrRule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrRule creates a new ir.rule model and returns its id.
+// CreateIrRules creates a new ir.rule model and returns its id.
 func (c *Client) CreateIrRules(irs []*IrRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range irs {

@@ -113,7 +113,7 @@ func (c *Client) CreateResCompany(rc *ResCompany) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCompany creates a new res.company model and returns its id.
+// CreateResCompanys creates a new res.company model and returns its id.
 func (c *Client) CreateResCompanys(rcs []*ResCompany) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

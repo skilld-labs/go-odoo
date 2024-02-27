@@ -36,7 +36,7 @@ func (c *Client) CreateCashBoxOut(cbo *CashBoxOut) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCashBoxOut creates a new cash.box.out model and returns its id.
+// CreateCashBoxOuts creates a new cash.box.out model and returns its id.
 func (c *Client) CreateCashBoxOuts(cbos []*CashBoxOut) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cbos {

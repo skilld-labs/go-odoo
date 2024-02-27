@@ -34,7 +34,7 @@ func (c *Client) CreateResUsersLog(rul *ResUsersLog) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResUsersLog creates a new res.users.log model and returns its id.
+// CreateResUsersLogs creates a new res.users.log model and returns its id.
 func (c *Client) CreateResUsersLogs(ruls []*ResUsersLog) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ruls {

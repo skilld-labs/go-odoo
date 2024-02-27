@@ -33,7 +33,7 @@ func (c *Client) CreateResourceMixin(rm *ResourceMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceMixin creates a new resource.mixin model and returns its id.
+// CreateResourceMixins creates a new resource.mixin model and returns its id.
 func (c *Client) CreateResourceMixins(rms []*ResourceMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rms {

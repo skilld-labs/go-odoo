@@ -37,7 +37,7 @@ func (c *Client) CreateImLivechatReportOperator(iro *ImLivechatReportOperator) (
 	return ids[0], nil
 }
 
-// CreateImLivechatReportOperator creates a new im_livechat.report.operator model and returns its id.
+// CreateImLivechatReportOperators creates a new im_livechat.report.operator model and returns its id.
 func (c *Client) CreateImLivechatReportOperators(iros []*ImLivechatReportOperator) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iros {

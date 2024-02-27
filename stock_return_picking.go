@@ -40,7 +40,7 @@ func (c *Client) CreateStockReturnPicking(srp *StockReturnPicking) (int64, error
 	return ids[0], nil
 }
 
-// CreateStockReturnPicking creates a new stock.return.picking model and returns its id.
+// CreateStockReturnPickings creates a new stock.return.picking model and returns its id.
 func (c *Client) CreateStockReturnPickings(srps []*StockReturnPicking) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range srps {

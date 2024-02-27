@@ -37,7 +37,7 @@ func (c *Client) CreateIrExports(ie *IrExports) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrExports creates a new ir.exports model and returns its id.
+// CreateIrExportss creates a new ir.exports model and returns its id.
 func (c *Client) CreateIrExportss(ies []*IrExports) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ies {

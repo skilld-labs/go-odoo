@@ -81,7 +81,7 @@ func (c *Client) CreatePurchaseOrder(po *PurchaseOrder) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePurchaseOrder creates a new purchase.order model and returns its id.
+// CreatePurchaseOrders creates a new purchase.order model and returns its id.
 func (c *Client) CreatePurchaseOrders(pos []*PurchaseOrder) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pos {

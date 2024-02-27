@@ -36,7 +36,7 @@ func (c *Client) CreateMailMassMailingTag(mmt *MailMassMailingTag) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMassMailingTag creates a new mail.mass_mailing.tag model and returns its id.
+// CreateMailMassMailingTags creates a new mail.mass_mailing.tag model and returns its id.
 func (c *Client) CreateMailMassMailingTags(mmts []*MailMassMailingTag) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmts {

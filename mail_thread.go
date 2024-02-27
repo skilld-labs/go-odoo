@@ -41,7 +41,7 @@ func (c *Client) CreateMailThread(mt *MailThread) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailThread creates a new mail.thread model and returns its id.
+// CreateMailThreads creates a new mail.thread model and returns its id.
 func (c *Client) CreateMailThreads(mts []*MailThread) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mts {

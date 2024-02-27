@@ -43,7 +43,7 @@ func (c *Client) CreateTaxAdjustmentsWizard(taw *TaxAdjustmentsWizard) (int64, e
 	return ids[0], nil
 }
 
-// CreateTaxAdjustmentsWizard creates a new tax.adjustments.wizard model and returns its id.
+// CreateTaxAdjustmentsWizards creates a new tax.adjustments.wizard model and returns its id.
 func (c *Client) CreateTaxAdjustmentsWizards(taws []*TaxAdjustmentsWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range taws {

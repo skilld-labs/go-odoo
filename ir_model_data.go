@@ -43,7 +43,7 @@ func (c *Client) CreateIrModelData(imd *IrModelData) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelData creates a new ir.model.data model and returns its id.
+// CreateIrModelDatas creates a new ir.model.data model and returns its id.
 func (c *Client) CreateIrModelDatas(imds []*IrModelData) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imds {

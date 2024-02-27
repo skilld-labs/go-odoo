@@ -43,7 +43,7 @@ func (c *Client) CreateIrFilters(IF *IrFilters) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrFilters creates a new ir.filters model and returns its id.
+// CreateIrFilterss creates a new ir.filters model and returns its id.
 func (c *Client) CreateIrFilterss(IFs []*IrFilters) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range IFs {

@@ -61,7 +61,7 @@ func (c *Client) CreateEmailTemplatePreview(ep *EmailTemplatePreview) (int64, er
 	return ids[0], nil
 }
 
-// CreateEmailTemplatePreview creates a new email_template.preview model and returns its id.
+// CreateEmailTemplatePreviews creates a new email_template.preview model and returns its id.
 func (c *Client) CreateEmailTemplatePreviews(eps []*EmailTemplatePreview) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range eps {

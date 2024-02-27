@@ -38,7 +38,7 @@ func (c *Client) CreateAccountFullReconcile(afr *AccountFullReconcile) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountFullReconcile creates a new account.full.reconcile model and returns its id.
+// CreateAccountFullReconciles creates a new account.full.reconcile model and returns its id.
 func (c *Client) CreateAccountFullReconciles(afrs []*AccountFullReconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afrs {

@@ -36,7 +36,7 @@ func (c *Client) CreateMailMassMailingTest(mmt *MailMassMailingTest) (int64, err
 	return ids[0], nil
 }
 
-// CreateMailMassMailingTest creates a new mail.mass_mailing.test model and returns its id.
+// CreateMailMassMailingTests creates a new mail.mass_mailing.test model and returns its id.
 func (c *Client) CreateMailMassMailingTests(mmts []*MailMassMailingTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmts {

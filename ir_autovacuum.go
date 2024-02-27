@@ -30,7 +30,7 @@ func (c *Client) CreateIrAutovacuum(ia *IrAutovacuum) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrAutovacuum creates a new ir.autovacuum model and returns its id.
+// CreateIrAutovacuums creates a new ir.autovacuum model and returns its id.
 func (c *Client) CreateIrAutovacuums(ias []*IrAutovacuum) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

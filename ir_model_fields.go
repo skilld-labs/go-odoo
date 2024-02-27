@@ -65,7 +65,7 @@ func (c *Client) CreateIrModelFields(imf *IrModelFields) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelFields creates a new ir.model.fields model and returns its id.
+// CreateIrModelFieldss creates a new ir.model.fields model and returns its id.
 func (c *Client) CreateIrModelFieldss(imfs []*IrModelFields) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imfs {

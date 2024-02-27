@@ -46,7 +46,7 @@ func (c *Client) CreateIrUiMenu(ium *IrUiMenu) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiMenu creates a new ir.ui.menu model and returns its id.
+// CreateIrUiMenus creates a new ir.ui.menu model and returns its id.
 func (c *Client) CreateIrUiMenus(iums []*IrUiMenu) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iums {

@@ -50,7 +50,7 @@ func (c *Client) CreateMailTrackingValue(mtv *MailTrackingValue) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateMailTrackingValue creates a new mail.tracking.value model and returns its id.
+// CreateMailTrackingValues creates a new mail.tracking.value model and returns its id.
 func (c *Client) CreateMailTrackingValues(mtvs []*MailTrackingValue) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mtvs {

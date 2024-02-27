@@ -40,7 +40,7 @@ func (c *Client) CreateIrActionsActWindowClose(iaa *IrActionsActWindowClose) (in
 	return ids[0], nil
 }
 
-// CreateIrActionsActWindowClose creates a new ir.actions.act_window_close model and returns its id.
+// CreateIrActionsActWindowCloses creates a new ir.actions.act_window_close model and returns its id.
 func (c *Client) CreateIrActionsActWindowCloses(iaas []*IrActionsActWindowClose) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

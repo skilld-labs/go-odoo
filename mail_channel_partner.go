@@ -41,7 +41,7 @@ func (c *Client) CreateMailChannelPartner(mcp *MailChannelPartner) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailChannelPartner creates a new mail.channel.partner model and returns its id.
+// CreateMailChannelPartners creates a new mail.channel.partner model and returns its id.
 func (c *Client) CreateMailChannelPartners(mcps []*MailChannelPartner) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mcps {

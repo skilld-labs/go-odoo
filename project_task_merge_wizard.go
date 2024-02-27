@@ -40,7 +40,7 @@ func (c *Client) CreateProjectTaskMergeWizard(ptmw *ProjectTaskMergeWizard) (int
 	return ids[0], nil
 }
 
-// CreateProjectTaskMergeWizard creates a new project.task.merge.wizard model and returns its id.
+// CreateProjectTaskMergeWizards creates a new project.task.merge.wizard model and returns its id.
 func (c *Client) CreateProjectTaskMergeWizards(ptmws []*ProjectTaskMergeWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ptmws {

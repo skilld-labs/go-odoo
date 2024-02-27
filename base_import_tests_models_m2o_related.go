@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsM2ORelated(btmmr *BaseImportTestsMod
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsM2ORelated creates a new base_import.tests.models.m2o.related model and returns its id.
+// CreateBaseImportTestsModelsM2ORelateds creates a new base_import.tests.models.m2o.related model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsM2ORelateds(btmmrs []*BaseImportTestsModelsM2ORelated) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmmrs {

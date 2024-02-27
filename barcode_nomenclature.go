@@ -37,7 +37,7 @@ func (c *Client) CreateBarcodeNomenclature(bn *BarcodeNomenclature) (int64, erro
 	return ids[0], nil
 }
 
-// CreateBarcodeNomenclature creates a new barcode.nomenclature model and returns its id.
+// CreateBarcodeNomenclatures creates a new barcode.nomenclature model and returns its id.
 func (c *Client) CreateBarcodeNomenclatures(bns []*BarcodeNomenclature) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bns {

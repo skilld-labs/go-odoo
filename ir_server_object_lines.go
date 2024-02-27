@@ -38,7 +38,7 @@ func (c *Client) CreateIrServerObjectLines(isol *IrServerObjectLines) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrServerObjectLines creates a new ir.server.object.lines model and returns its id.
+// CreateIrServerObjectLiness creates a new ir.server.object.lines model and returns its id.
 func (c *Client) CreateIrServerObjectLiness(isols []*IrServerObjectLines) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range isols {

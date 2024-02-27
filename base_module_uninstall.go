@@ -38,7 +38,7 @@ func (c *Client) CreateBaseModuleUninstall(bmu *BaseModuleUninstall) (int64, err
 	return ids[0], nil
 }
 
-// CreateBaseModuleUninstall creates a new base.module.uninstall model and returns its id.
+// CreateBaseModuleUninstalls creates a new base.module.uninstall model and returns its id.
 func (c *Client) CreateBaseModuleUninstalls(bmus []*BaseModuleUninstall) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bmus {

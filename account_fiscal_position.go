@@ -49,7 +49,7 @@ func (c *Client) CreateAccountFiscalPosition(afp *AccountFiscalPosition) (int64,
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPosition creates a new account.fiscal.position model and returns its id.
+// CreateAccountFiscalPositions creates a new account.fiscal.position model and returns its id.
 func (c *Client) CreateAccountFiscalPositions(afps []*AccountFiscalPosition) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afps {

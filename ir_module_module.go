@@ -61,7 +61,7 @@ func (c *Client) CreateIrModuleModule(imm *IrModuleModule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleModule creates a new ir.module.module model and returns its id.
+// CreateIrModuleModules creates a new ir.module.module model and returns its id.
 func (c *Client) CreateIrModuleModules(imms []*IrModuleModule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imms {

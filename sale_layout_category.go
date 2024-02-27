@@ -38,7 +38,7 @@ func (c *Client) CreateSaleLayoutCategory(sl *SaleLayoutCategory) (int64, error)
 	return ids[0], nil
 }
 
-// CreateSaleLayoutCategory creates a new sale.layout_category model and returns its id.
+// CreateSaleLayoutCategorys creates a new sale.layout_category model and returns its id.
 func (c *Client) CreateSaleLayoutCategorys(sls []*SaleLayoutCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sls {

@@ -44,7 +44,7 @@ func (c *Client) CreateProjectTaskType(ptt *ProjectTaskType) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectTaskType creates a new project.task.type model and returns its id.
+// CreateProjectTaskTypes creates a new project.task.type model and returns its id.
 func (c *Client) CreateProjectTaskTypes(ptts []*ProjectTaskType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ptts {

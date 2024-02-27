@@ -70,7 +70,7 @@ func (c *Client) CreateHrHolidays(hh *HrHolidays) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateHrHolidays creates a new hr.holidays model and returns its id.
+// CreateHrHolidayss creates a new hr.holidays model and returns its id.
 func (c *Client) CreateHrHolidayss(hhs []*HrHolidays) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhs {

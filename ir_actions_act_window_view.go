@@ -39,7 +39,7 @@ func (c *Client) CreateIrActionsActWindowView(iaav *IrActionsActWindowView) (int
 	return ids[0], nil
 }
 
-// CreateIrActionsActWindowView creates a new ir.actions.act_window.view model and returns its id.
+// CreateIrActionsActWindowViews creates a new ir.actions.act_window.view model and returns its id.
 func (c *Client) CreateIrActionsActWindowViews(iaavs []*IrActionsActWindowView) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaavs {

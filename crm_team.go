@@ -86,7 +86,7 @@ func (c *Client) CreateCrmTeam(ct *CrmTeam) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmTeam creates a new crm.team model and returns its id.
+// CreateCrmTeams creates a new crm.team model and returns its id.
 func (c *Client) CreateCrmTeams(cts []*CrmTeam) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cts {

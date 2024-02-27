@@ -113,7 +113,7 @@ func (c *Client) CreateAccountInvoice(ai *AccountInvoice) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountInvoice creates a new account.invoice model and returns its id.
+// CreateAccountInvoices creates a new account.invoice model and returns its id.
 func (c *Client) CreateAccountInvoices(ais []*AccountInvoice) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ais {

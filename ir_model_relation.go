@@ -39,7 +39,7 @@ func (c *Client) CreateIrModelRelation(imr *IrModelRelation) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelRelation creates a new ir.model.relation model and returns its id.
+// CreateIrModelRelations creates a new ir.model.relation model and returns its id.
 func (c *Client) CreateIrModelRelations(imrs []*IrModelRelation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imrs {

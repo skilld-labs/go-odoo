@@ -47,7 +47,7 @@ func (c *Client) CreateStockLocationPath(slp *StockLocationPath) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateStockLocationPath creates a new stock.location.path model and returns its id.
+// CreateStockLocationPaths creates a new stock.location.path model and returns its id.
 func (c *Client) CreateStockLocationPaths(slps []*StockLocationPath) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range slps {

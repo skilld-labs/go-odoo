@@ -37,7 +37,7 @@ func (c *Client) CreateHrHolidaysSummaryEmployee(hhse *HrHolidaysSummaryEmployee
 	return ids[0], nil
 }
 
-// CreateHrHolidaysSummaryEmployee creates a new hr.holidays.summary.employee model and returns its id.
+// CreateHrHolidaysSummaryEmployees creates a new hr.holidays.summary.employee model and returns its id.
 func (c *Client) CreateHrHolidaysSummaryEmployees(hhses []*HrHolidaysSummaryEmployee) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhses {

@@ -40,7 +40,7 @@ func (c *Client) CreateStockChangeProductQty(scpq *StockChangeProductQty) (int64
 	return ids[0], nil
 }
 
-// CreateStockChangeProductQty creates a new stock.change.product.qty model and returns its id.
+// CreateStockChangeProductQtys creates a new stock.change.product.qty model and returns its id.
 func (c *Client) CreateStockChangeProductQtys(scpqs []*StockChangeProductQty) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range scpqs {

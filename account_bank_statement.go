@@ -67,7 +67,7 @@ func (c *Client) CreateAccountBankStatement(abs *AccountBankStatement) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountBankStatement creates a new account.bank.statement model and returns its id.
+// CreateAccountBankStatements creates a new account.bank.statement model and returns its id.
 func (c *Client) CreateAccountBankStatements(abss []*AccountBankStatement) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abss {

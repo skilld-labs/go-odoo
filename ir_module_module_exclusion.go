@@ -38,7 +38,7 @@ func (c *Client) CreateIrModuleModuleExclusion(imme *IrModuleModuleExclusion) (i
 	return ids[0], nil
 }
 
-// CreateIrModuleModuleExclusion creates a new ir.module.module.exclusion model and returns its id.
+// CreateIrModuleModuleExclusions creates a new ir.module.module.exclusion model and returns its id.
 func (c *Client) CreateIrModuleModuleExclusions(immes []*IrModuleModuleExclusion) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range immes {

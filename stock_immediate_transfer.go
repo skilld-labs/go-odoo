@@ -35,7 +35,7 @@ func (c *Client) CreateStockImmediateTransfer(sit *StockImmediateTransfer) (int6
 	return ids[0], nil
 }
 
-// CreateStockImmediateTransfer creates a new stock.immediate.transfer model and returns its id.
+// CreateStockImmediateTransfers creates a new stock.immediate.transfer model and returns its id.
 func (c *Client) CreateStockImmediateTransfers(sits []*StockImmediateTransfer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sits {

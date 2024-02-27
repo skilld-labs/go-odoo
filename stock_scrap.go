@@ -49,7 +49,7 @@ func (c *Client) CreateStockScrap(ss *StockScrap) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockScrap creates a new stock.scrap model and returns its id.
+// CreateStockScraps creates a new stock.scrap model and returns its id.
 func (c *Client) CreateStockScraps(sss []*StockScrap) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sss {

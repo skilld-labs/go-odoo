@@ -36,7 +36,7 @@ func (c *Client) CreateStockOverprocessedTransfer(sot *StockOverprocessedTransfe
 	return ids[0], nil
 }
 
-// CreateStockOverprocessedTransfer creates a new stock.overprocessed.transfer model and returns its id.
+// CreateStockOverprocessedTransfers creates a new stock.overprocessed.transfer model and returns its id.
 func (c *Client) CreateStockOverprocessedTransfers(sots []*StockOverprocessedTransfer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sots {

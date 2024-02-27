@@ -30,7 +30,7 @@ func (c *Client) CreateBoardBoard(bb *BoardBoard) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBoardBoard creates a new board.board model and returns its id.
+// CreateBoardBoards creates a new board.board model and returns its id.
 func (c *Client) CreateBoardBoards(bbs []*BoardBoard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bbs {

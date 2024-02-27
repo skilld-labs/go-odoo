@@ -37,7 +37,7 @@ func (c *Client) CreateCalendarContacts(cc *CalendarContacts) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarContacts creates a new calendar.contacts model and returns its id.
+// CreateCalendarContactss creates a new calendar.contacts model and returns its id.
 func (c *Client) CreateCalendarContactss(ccs []*CalendarContacts) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ccs {

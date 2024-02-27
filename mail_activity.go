@@ -51,7 +51,7 @@ func (c *Client) CreateMailActivity(ma *MailActivity) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailActivity creates a new mail.activity model and returns its id.
+// CreateMailActivitys creates a new mail.activity model and returns its id.
 func (c *Client) CreateMailActivitys(mas []*MailActivity) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mas {

@@ -47,7 +47,7 @@ func (c *Client) CreateStockWarehouseOrderpoint(swo *StockWarehouseOrderpoint) (
 	return ids[0], nil
 }
 
-// CreateStockWarehouseOrderpoint creates a new stock.warehouse.orderpoint model and returns its id.
+// CreateStockWarehouseOrderpoints creates a new stock.warehouse.orderpoint model and returns its id.
 func (c *Client) CreateStockWarehouseOrderpoints(swos []*StockWarehouseOrderpoint) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range swos {

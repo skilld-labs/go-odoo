@@ -42,7 +42,7 @@ func (c *Client) CreatePaymentToken(pt *PaymentToken) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentToken creates a new payment.token model and returns its id.
+// CreatePaymentTokens creates a new payment.token model and returns its id.
 func (c *Client) CreatePaymentTokens(pts []*PaymentToken) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

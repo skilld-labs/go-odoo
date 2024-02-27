@@ -40,7 +40,7 @@ func (c *Client) CreateIrActionsActions(iaa *IrActionsActions) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsActions creates a new ir.actions.actions model and returns its id.
+// CreateIrActionsActionss creates a new ir.actions.actions model and returns its id.
 func (c *Client) CreateIrActionsActionss(iaas []*IrActionsActions) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

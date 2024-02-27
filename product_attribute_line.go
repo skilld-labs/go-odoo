@@ -37,7 +37,7 @@ func (c *Client) CreateProductAttributeLine(pal *ProductAttributeLine) (int64, e
 	return ids[0], nil
 }
 
-// CreateProductAttributeLine creates a new product.attribute.line model and returns its id.
+// CreateProductAttributeLines creates a new product.attribute.line model and returns its id.
 func (c *Client) CreateProductAttributeLines(pals []*ProductAttributeLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pals {

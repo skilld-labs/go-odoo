@@ -38,7 +38,7 @@ func (c *Client) CreateIrActionsTodo(iat *IrActionsTodo) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsTodo creates a new ir.actions.todo model and returns its id.
+// CreateIrActionsTodos creates a new ir.actions.todo model and returns its id.
 func (c *Client) CreateIrActionsTodos(iats []*IrActionsTodo) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iats {

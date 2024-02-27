@@ -35,7 +35,7 @@ func (c *Client) CreateStockBackorderConfirmation(sbc *StockBackorderConfirmatio
 	return ids[0], nil
 }
 
-// CreateStockBackorderConfirmation creates a new stock.backorder.confirmation model and returns its id.
+// CreateStockBackorderConfirmations creates a new stock.backorder.confirmation model and returns its id.
 func (c *Client) CreateStockBackorderConfirmations(sbcs []*StockBackorderConfirmation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sbcs {

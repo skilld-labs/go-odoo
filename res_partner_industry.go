@@ -37,7 +37,7 @@ func (c *Client) CreateResPartnerIndustry(rpi *ResPartnerIndustry) (int64, error
 	return ids[0], nil
 }
 
-// CreateResPartnerIndustry creates a new res.partner.industry model and returns its id.
+// CreateResPartnerIndustrys creates a new res.partner.industry model and returns its id.
 func (c *Client) CreateResPartnerIndustrys(rpis []*ResPartnerIndustry) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpis {

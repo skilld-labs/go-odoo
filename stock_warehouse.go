@@ -62,7 +62,7 @@ func (c *Client) CreateStockWarehouse(sw *StockWarehouse) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockWarehouse creates a new stock.warehouse model and returns its id.
+// CreateStockWarehouses creates a new stock.warehouse model and returns its id.
 func (c *Client) CreateStockWarehouses(sws []*StockWarehouse) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sws {

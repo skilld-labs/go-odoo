@@ -33,7 +33,7 @@ func (c *Client) CreateUtmMixin(um *UtmMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmMixin creates a new utm.mixin model and returns its id.
+// CreateUtmMixins creates a new utm.mixin model and returns its id.
 func (c *Client) CreateUtmMixins(ums []*UtmMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ums {

@@ -37,7 +37,7 @@ func (c *Client) CreatePortalWizard(pw *PortalWizard) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePortalWizard creates a new portal.wizard model and returns its id.
+// CreatePortalWizards creates a new portal.wizard model and returns its id.
 func (c *Client) CreatePortalWizards(pws []*PortalWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pws {

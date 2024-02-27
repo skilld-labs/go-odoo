@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldDate(iqfd *IrQwebFieldDate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldDate creates a new ir.qweb.field.date model and returns its id.
+// CreateIrQwebFieldDates creates a new ir.qweb.field.date model and returns its id.
 func (c *Client) CreateIrQwebFieldDates(iqfds []*IrQwebFieldDate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfds {

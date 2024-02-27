@@ -36,7 +36,7 @@ func (c *Client) CreateDecimalPrecision(dp *DecimalPrecision) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateDecimalPrecision creates a new decimal.precision model and returns its id.
+// CreateDecimalPrecisions creates a new decimal.precision model and returns its id.
 func (c *Client) CreateDecimalPrecisions(dps []*DecimalPrecision) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range dps {

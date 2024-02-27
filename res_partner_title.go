@@ -36,7 +36,7 @@ func (c *Client) CreateResPartnerTitle(rpt *ResPartnerTitle) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResPartnerTitle creates a new res.partner.title model and returns its id.
+// CreateResPartnerTitles creates a new res.partner.title model and returns its id.
 func (c *Client) CreateResPartnerTitles(rpts []*ResPartnerTitle) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpts {

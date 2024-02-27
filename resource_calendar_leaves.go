@@ -42,7 +42,7 @@ func (c *Client) CreateResourceCalendarLeaves(rcl *ResourceCalendarLeaves) (int6
 	return ids[0], nil
 }
 
-// CreateResourceCalendarLeaves creates a new resource.calendar.leaves model and returns its id.
+// CreateResourceCalendarLeavess creates a new resource.calendar.leaves model and returns its id.
 func (c *Client) CreateResourceCalendarLeavess(rcls []*ResourceCalendarLeaves) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcls {

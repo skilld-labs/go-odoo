@@ -35,7 +35,7 @@ func (c *Client) CreateAccountBankStatementCashbox(absc *AccountBankStatementCas
 	return ids[0], nil
 }
 
-// CreateAccountBankStatementCashbox creates a new account.bank.statement.cashbox model and returns its id.
+// CreateAccountBankStatementCashboxs creates a new account.bank.statement.cashbox model and returns its id.
 func (c *Client) CreateAccountBankStatementCashboxs(abscs []*AccountBankStatementCashbox) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abscs {

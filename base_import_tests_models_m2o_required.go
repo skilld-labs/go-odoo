@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsM2ORequired(btmmr *BaseImportTestsMo
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsM2ORequired creates a new base_import.tests.models.m2o.required model and returns its id.
+// CreateBaseImportTestsModelsM2ORequireds creates a new base_import.tests.models.m2o.required model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsM2ORequireds(btmmrs []*BaseImportTestsModelsM2ORequired) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmmrs {

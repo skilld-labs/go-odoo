@@ -78,7 +78,7 @@ func (c *Client) CreateMailMail(mm *MailMail) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailMail creates a new mail.mail model and returns its id.
+// CreateMailMails creates a new mail.mail model and returns its id.
 func (c *Client) CreateMailMails(mms []*MailMail) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mms {

@@ -56,7 +56,7 @@ func (c *Client) CreateHrJob(hj *HrJob) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateHrJob creates a new hr.job model and returns its id.
+// CreateHrJobs creates a new hr.job model and returns its id.
 func (c *Client) CreateHrJobs(hjs []*HrJob) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hjs {

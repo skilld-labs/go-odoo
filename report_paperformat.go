@@ -48,7 +48,7 @@ func (c *Client) CreateReportPaperformat(rp *ReportPaperformat) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateReportPaperformat creates a new report.paperformat model and returns its id.
+// CreateReportPaperformats creates a new report.paperformat model and returns its id.
 func (c *Client) CreateReportPaperformats(rps []*ReportPaperformat) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rps {

@@ -35,7 +35,7 @@ func (c *Client) CreateCalendarEventType(cet *CalendarEventType) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateCalendarEventType creates a new calendar.event.type model and returns its id.
+// CreateCalendarEventTypes creates a new calendar.event.type model and returns its id.
 func (c *Client) CreateCalendarEventTypes(cets []*CalendarEventType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cets {

@@ -35,7 +35,7 @@ func (c *Client) CreateMailFollowers(mf *MailFollowers) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailFollowers creates a new mail.followers model and returns its id.
+// CreateMailFollowerss creates a new mail.followers model and returns its id.
 func (c *Client) CreateMailFollowerss(mfs []*MailFollowers) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mfs {

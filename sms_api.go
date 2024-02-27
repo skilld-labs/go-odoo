@@ -30,7 +30,7 @@ func (c *Client) CreateSmsApi(sa *SmsApi) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSmsApi creates a new sms.api model and returns its id.
+// CreateSmsApis creates a new sms.api model and returns its id.
 func (c *Client) CreateSmsApis(sas []*SmsApi) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sas {

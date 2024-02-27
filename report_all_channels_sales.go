@@ -45,7 +45,7 @@ func (c *Client) CreateReportAllChannelsSales(racs *ReportAllChannelsSales) (int
 	return ids[0], nil
 }
 
-// CreateReportAllChannelsSales creates a new report.all.channels.sales model and returns its id.
+// CreateReportAllChannelsSaless creates a new report.all.channels.sales model and returns its id.
 func (c *Client) CreateReportAllChannelsSaless(racss []*ReportAllChannelsSales) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range racss {

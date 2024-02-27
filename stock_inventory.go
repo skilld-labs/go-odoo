@@ -50,7 +50,7 @@ func (c *Client) CreateStockInventory(si *StockInventory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockInventory creates a new stock.inventory model and returns its id.
+// CreateStockInventorys creates a new stock.inventory model and returns its id.
 func (c *Client) CreateStockInventorys(sis []*StockInventory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sis {

@@ -42,7 +42,7 @@ func (c *Client) CreateAccountReportPartnerLedger(arpl *AccountReportPartnerLedg
 	return ids[0], nil
 }
 
-// CreateAccountReportPartnerLedger creates a new account.report.partner.ledger model and returns its id.
+// CreateAccountReportPartnerLedgers creates a new account.report.partner.ledger model and returns its id.
 func (c *Client) CreateAccountReportPartnerLedgers(arpls []*AccountReportPartnerLedger) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range arpls {

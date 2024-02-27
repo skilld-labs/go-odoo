@@ -35,7 +35,7 @@ func (c *Client) CreateReportStockForecast(rsf *ReportStockForecast) (int64, err
 	return ids[0], nil
 }
 
-// CreateReportStockForecast creates a new report.stock.forecast model and returns its id.
+// CreateReportStockForecasts creates a new report.stock.forecast model and returns its id.
 func (c *Client) CreateReportStockForecasts(rsfs []*ReportStockForecast) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rsfs {

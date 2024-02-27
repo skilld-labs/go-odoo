@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportOverdue(rar *ReportAccountReportOverdu
 	return ids[0], nil
 }
 
-// CreateReportAccountReportOverdue creates a new report.account.report_overdue model and returns its id.
+// CreateReportAccountReportOverdues creates a new report.account.report_overdue model and returns its id.
 func (c *Client) CreateReportAccountReportOverdues(rars []*ReportAccountReportOverdue) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

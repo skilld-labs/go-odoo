@@ -48,7 +48,7 @@ func (c *Client) CreateBasePartnerMergeAutomaticWizard(bpmaw *BasePartnerMergeAu
 	return ids[0], nil
 }
 
-// CreateBasePartnerMergeAutomaticWizard creates a new base.partner.merge.automatic.wizard model and returns its id.
+// CreateBasePartnerMergeAutomaticWizards creates a new base.partner.merge.automatic.wizard model and returns its id.
 func (c *Client) CreateBasePartnerMergeAutomaticWizards(bpmaws []*BasePartnerMergeAutomaticWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bpmaws {

@@ -75,7 +75,7 @@ func (c *Client) CreateMailComposeMessage(mcm *MailComposeMessage) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailComposeMessage creates a new mail.compose.message model and returns its id.
+// CreateMailComposeMessages creates a new mail.compose.message model and returns its id.
 func (c *Client) CreateMailComposeMessages(mcms []*MailComposeMessage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mcms {

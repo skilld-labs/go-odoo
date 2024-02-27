@@ -37,7 +37,7 @@ func (c *Client) CreateStockIncoterms(si *StockIncoterms) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockIncoterms creates a new stock.incoterms model and returns its id.
+// CreateStockIncotermss creates a new stock.incoterms model and returns its id.
 func (c *Client) CreateStockIncotermss(sis []*StockIncoterms) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sis {

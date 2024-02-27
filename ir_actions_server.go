@@ -54,7 +54,7 @@ func (c *Client) CreateIrActionsServer(ias *IrActionsServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsServer creates a new ir.actions.server model and returns its id.
+// CreateIrActionsServers creates a new ir.actions.server model and returns its id.
 func (c *Client) CreateIrActionsServers(iass []*IrActionsServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iass {

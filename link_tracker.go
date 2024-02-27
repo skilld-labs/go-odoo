@@ -50,7 +50,7 @@ func (c *Client) CreateLinkTracker(lt *LinkTracker) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateLinkTracker creates a new link.tracker model and returns its id.
+// CreateLinkTrackers creates a new link.tracker model and returns its id.
 func (c *Client) CreateLinkTrackers(lts []*LinkTracker) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range lts {

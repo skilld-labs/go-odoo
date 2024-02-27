@@ -41,7 +41,7 @@ func (c *Client) CreateProductUom(pu *ProductUom) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductUom creates a new product.uom model and returns its id.
+// CreateProductUoms creates a new product.uom model and returns its id.
 func (c *Client) CreateProductUoms(pus []*ProductUom) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pus {

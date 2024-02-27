@@ -45,7 +45,7 @@ func (c *Client) CreateResCurrency(rc *ResCurrency) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCurrency creates a new res.currency model and returns its id.
+// CreateResCurrencys creates a new res.currency model and returns its id.
 func (c *Client) CreateResCurrencys(rcs []*ResCurrency) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

@@ -46,7 +46,7 @@ func (c *Client) CreateWebEditorConverterTest(wct *WebEditorConverterTest) (int6
 	return ids[0], nil
 }
 
-// CreateWebEditorConverterTest creates a new web_editor.converter.test model and returns its id.
+// CreateWebEditorConverterTests creates a new web_editor.converter.test model and returns its id.
 func (c *Client) CreateWebEditorConverterTests(wcts []*WebEditorConverterTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wcts {

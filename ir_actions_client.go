@@ -46,7 +46,7 @@ func (c *Client) CreateIrActionsClient(iac *IrActionsClient) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsClient creates a new ir.actions.client model and returns its id.
+// CreateIrActionsClients creates a new ir.actions.client model and returns its id.
 func (c *Client) CreateIrActionsClients(iacs []*IrActionsClient) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iacs {

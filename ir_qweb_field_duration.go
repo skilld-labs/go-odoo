@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldDuration(iqfd *IrQwebFieldDuration) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldDuration creates a new ir.qweb.field.duration model and returns its id.
+// CreateIrQwebFieldDurations creates a new ir.qweb.field.duration model and returns its id.
 func (c *Client) CreateIrQwebFieldDurations(iqfds []*IrQwebFieldDuration) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfds {

@@ -40,7 +40,7 @@ func (c *Client) CreateIrTranslation(it *IrTranslation) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrTranslation creates a new ir.translation model and returns its id.
+// CreateIrTranslations creates a new ir.translation model and returns its id.
 func (c *Client) CreateIrTranslations(its []*IrTranslation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range its {

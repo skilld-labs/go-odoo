@@ -35,7 +35,7 @@ func (c *Client) CreateBaseUpdateTranslations(but *BaseUpdateTranslations) (int6
 	return ids[0], nil
 }
 
-// CreateBaseUpdateTranslations creates a new base.update.translations model and returns its id.
+// CreateBaseUpdateTranslationss creates a new base.update.translations model and returns its id.
 func (c *Client) CreateBaseUpdateTranslationss(buts []*BaseUpdateTranslations) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range buts {

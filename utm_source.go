@@ -35,7 +35,7 @@ func (c *Client) CreateUtmSource(us *UtmSource) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmSource creates a new utm.source model and returns its id.
+// CreateUtmSources creates a new utm.source model and returns its id.
 func (c *Client) CreateUtmSources(uss []*UtmSource) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range uss {

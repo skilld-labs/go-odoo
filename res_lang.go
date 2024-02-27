@@ -45,7 +45,7 @@ func (c *Client) CreateResLang(rl *ResLang) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResLang creates a new res.lang model and returns its id.
+// CreateResLangs creates a new res.lang model and returns its id.
 func (c *Client) CreateResLangs(rls []*ResLang) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rls {

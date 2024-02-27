@@ -41,7 +41,7 @@ func (c *Client) CreateResourceCalendarAttendance(rca *ResourceCalendarAttendanc
 	return ids[0], nil
 }
 
-// CreateResourceCalendarAttendance creates a new resource.calendar.attendance model and returns its id.
+// CreateResourceCalendarAttendances creates a new resource.calendar.attendance model and returns its id.
 func (c *Client) CreateResourceCalendarAttendances(rcas []*ResourceCalendarAttendance) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcas {

@@ -49,7 +49,7 @@ func (c *Client) CreateStockLocationRoute(slr *StockLocationRoute) (int64, error
 	return ids[0], nil
 }
 
-// CreateStockLocationRoute creates a new stock.location.route model and returns its id.
+// CreateStockLocationRoutes creates a new stock.location.route model and returns its id.
 func (c *Client) CreateStockLocationRoutes(slrs []*StockLocationRoute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range slrs {

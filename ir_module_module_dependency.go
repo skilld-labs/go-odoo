@@ -38,7 +38,7 @@ func (c *Client) CreateIrModuleModuleDependency(immd *IrModuleModuleDependency) 
 	return ids[0], nil
 }
 
-// CreateIrModuleModuleDependency creates a new ir.module.module.dependency model and returns its id.
+// CreateIrModuleModuleDependencys creates a new ir.module.module.dependency model and returns its id.
 func (c *Client) CreateIrModuleModuleDependencys(immds []*IrModuleModuleDependency) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range immds {

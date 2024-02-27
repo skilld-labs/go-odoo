@@ -42,7 +42,7 @@ func (c *Client) CreateIrModelAccess(ima *IrModelAccess) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelAccess creates a new ir.model.access model and returns its id.
+// CreateIrModelAccesss creates a new ir.model.access model and returns its id.
 func (c *Client) CreateIrModelAccesss(imas []*IrModelAccess) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imas {

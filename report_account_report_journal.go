@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportJournal(rar *ReportAccountReportJourna
 	return ids[0], nil
 }
 
-// CreateReportAccountReportJournal creates a new report.account.report_journal model and returns its id.
+// CreateReportAccountReportJournals creates a new report.account.report_journal model and returns its id.
 func (c *Client) CreateReportAccountReportJournals(rars []*ReportAccountReportJournal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

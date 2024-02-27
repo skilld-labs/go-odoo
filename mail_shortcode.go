@@ -39,7 +39,7 @@ func (c *Client) CreateMailShortcode(ms *MailShortcode) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailShortcode creates a new mail.shortcode model and returns its id.
+// CreateMailShortcodes creates a new mail.shortcode model and returns its id.
 func (c *Client) CreateMailShortcodes(mss []*MailShortcode) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mss {

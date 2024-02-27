@@ -40,7 +40,7 @@ func (c *Client) CreateAccountCommonJournalReport(acjr *AccountCommonJournalRepo
 	return ids[0], nil
 }
 
-// CreateAccountCommonJournalReport creates a new account.common.journal.report model and returns its id.
+// CreateAccountCommonJournalReports creates a new account.common.journal.report model and returns its id.
 func (c *Client) CreateAccountCommonJournalReports(acjrs []*AccountCommonJournalReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acjrs {

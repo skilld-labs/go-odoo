@@ -37,7 +37,7 @@ func (c *Client) CreateIrUiViewCustom(iuvc *IrUiViewCustom) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiViewCustom creates a new ir.ui.view.custom model and returns its id.
+// CreateIrUiViewCustoms creates a new ir.ui.view.custom model and returns its id.
 func (c *Client) CreateIrUiViewCustoms(iuvcs []*IrUiViewCustom) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iuvcs {

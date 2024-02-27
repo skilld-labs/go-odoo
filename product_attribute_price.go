@@ -37,7 +37,7 @@ func (c *Client) CreateProductAttributePrice(pap *ProductAttributePrice) (int64,
 	return ids[0], nil
 }
 
-// CreateProductAttributePrice creates a new product.attribute.price model and returns its id.
+// CreateProductAttributePrices creates a new product.attribute.price model and returns its id.
 func (c *Client) CreateProductAttributePrices(paps []*ProductAttributePrice) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range paps {

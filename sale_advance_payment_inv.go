@@ -40,7 +40,7 @@ func (c *Client) CreateSaleAdvancePaymentInv(sapi *SaleAdvancePaymentInv) (int64
 	return ids[0], nil
 }
 
-// CreateSaleAdvancePaymentInv creates a new sale.advance.payment.inv model and returns its id.
+// CreateSaleAdvancePaymentInvs creates a new sale.advance.payment.inv model and returns its id.
 func (c *Client) CreateSaleAdvancePaymentInvs(sapis []*SaleAdvancePaymentInv) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sapis {

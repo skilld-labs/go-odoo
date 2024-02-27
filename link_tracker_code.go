@@ -36,7 +36,7 @@ func (c *Client) CreateLinkTrackerCode(ltc *LinkTrackerCode) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateLinkTrackerCode creates a new link.tracker.code model and returns its id.
+// CreateLinkTrackerCodes creates a new link.tracker.code model and returns its id.
 func (c *Client) CreateLinkTrackerCodes(ltcs []*LinkTrackerCode) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ltcs {

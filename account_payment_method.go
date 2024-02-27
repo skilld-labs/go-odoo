@@ -37,7 +37,7 @@ func (c *Client) CreateAccountPaymentMethod(apm *AccountPaymentMethod) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountPaymentMethod creates a new account.payment.method model and returns its id.
+// CreateAccountPaymentMethods creates a new account.payment.method model and returns its id.
 func (c *Client) CreateAccountPaymentMethods(apms []*AccountPaymentMethod) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apms {

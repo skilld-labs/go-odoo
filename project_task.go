@@ -99,7 +99,7 @@ func (c *Client) CreateProjectTask(pt *ProjectTask) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectTask creates a new project.task model and returns its id.
+// CreateProjectTasks creates a new project.task model and returns its id.
 func (c *Client) CreateProjectTasks(pts []*ProjectTask) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

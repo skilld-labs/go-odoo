@@ -39,7 +39,7 @@ func (c *Client) CreateProductPackaging(pp *ProductPackaging) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductPackaging creates a new product.packaging model and returns its id.
+// CreateProductPackagings creates a new product.packaging model and returns its id.
 func (c *Client) CreateProductPackagings(pps []*ProductPackaging) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

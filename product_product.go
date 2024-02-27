@@ -146,7 +146,7 @@ func (c *Client) CreateProductProduct(pp *ProductProduct) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductProduct creates a new product.product model and returns its id.
+// CreateProductProducts creates a new product.product model and returns its id.
 func (c *Client) CreateProductProducts(pps []*ProductProduct) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

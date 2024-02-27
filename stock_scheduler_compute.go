@@ -34,7 +34,7 @@ func (c *Client) CreateStockSchedulerCompute(ssc *StockSchedulerCompute) (int64,
 	return ids[0], nil
 }
 
-// CreateStockSchedulerCompute creates a new stock.scheduler.compute model and returns its id.
+// CreateStockSchedulerComputes creates a new stock.scheduler.compute model and returns its id.
 func (c *Client) CreateStockSchedulerComputes(sscs []*StockSchedulerCompute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sscs {

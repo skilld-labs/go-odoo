@@ -45,7 +45,7 @@ func (c *Client) CreateResBank(rb *ResBank) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResBank creates a new res.bank model and returns its id.
+// CreateResBanks creates a new res.bank model and returns its id.
 func (c *Client) CreateResBanks(rbs []*ResBank) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rbs {

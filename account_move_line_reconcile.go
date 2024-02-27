@@ -39,7 +39,7 @@ func (c *Client) CreateAccountMoveLineReconcile(amlr *AccountMoveLineReconcile) 
 	return ids[0], nil
 }
 
-// CreateAccountMoveLineReconcile creates a new account.move.line.reconcile model and returns its id.
+// CreateAccountMoveLineReconciles creates a new account.move.line.reconcile model and returns its id.
 func (c *Client) CreateAccountMoveLineReconciles(amlrs []*AccountMoveLineReconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amlrs {

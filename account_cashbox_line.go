@@ -38,7 +38,7 @@ func (c *Client) CreateAccountCashboxLine(acl *AccountCashboxLine) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountCashboxLine creates a new account.cashbox.line model and returns its id.
+// CreateAccountCashboxLines creates a new account.cashbox.line model and returns its id.
 func (c *Client) CreateAccountCashboxLines(acls []*AccountCashboxLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acls {

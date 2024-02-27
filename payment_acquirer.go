@@ -69,7 +69,7 @@ func (c *Client) CreatePaymentAcquirer(pa *PaymentAcquirer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentAcquirer creates a new payment.acquirer model and returns its id.
+// CreatePaymentAcquirers creates a new payment.acquirer model and returns its id.
 func (c *Client) CreatePaymentAcquirers(pas []*PaymentAcquirer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pas {

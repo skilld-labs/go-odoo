@@ -62,7 +62,7 @@ func (c *Client) CreateAccountInvoiceLine(ail *AccountInvoiceLine) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceLine creates a new account.invoice.line model and returns its id.
+// CreateAccountInvoiceLines creates a new account.invoice.line model and returns its id.
 func (c *Client) CreateAccountInvoiceLines(ails []*AccountInvoiceLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ails {

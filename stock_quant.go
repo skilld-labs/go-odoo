@@ -45,7 +45,7 @@ func (c *Client) CreateStockQuant(sq *StockQuant) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockQuant creates a new stock.quant model and returns its id.
+// CreateStockQuants creates a new stock.quant model and returns its id.
 func (c *Client) CreateStockQuants(sqs []*StockQuant) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sqs {

@@ -36,7 +36,7 @@ func (c *Client) CreateCrmPartnerBinding(cpb *CrmPartnerBinding) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateCrmPartnerBinding creates a new crm.partner.binding model and returns its id.
+// CreateCrmPartnerBindings creates a new crm.partner.binding model and returns its id.
 func (c *Client) CreateCrmPartnerBindings(cpbs []*CrmPartnerBinding) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cpbs {

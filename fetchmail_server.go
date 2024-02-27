@@ -52,7 +52,7 @@ func (c *Client) CreateFetchmailServer(fs *FetchmailServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateFetchmailServer creates a new fetchmail.server model and returns its id.
+// CreateFetchmailServers creates a new fetchmail.server model and returns its id.
 func (c *Client) CreateFetchmailServers(fss []*FetchmailServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range fss {

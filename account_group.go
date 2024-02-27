@@ -39,7 +39,7 @@ func (c *Client) CreateAccountGroup(ag *AccountGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountGroup creates a new account.group model and returns its id.
+// CreateAccountGroups creates a new account.group model and returns its id.
 func (c *Client) CreateAccountGroups(ags []*AccountGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ags {

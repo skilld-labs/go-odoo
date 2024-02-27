@@ -73,7 +73,7 @@ func (c *Client) CreateAccountPayment(ap *AccountPayment) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountPayment creates a new account.payment model and returns its id.
+// CreateAccountPayments creates a new account.payment model and returns its id.
 func (c *Client) CreateAccountPayments(aps []*AccountPayment) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aps {

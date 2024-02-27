@@ -36,7 +36,7 @@ func (c *Client) CreateMailActivityMixin(mam *MailActivityMixin) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateMailActivityMixin creates a new mail.activity.mixin model and returns its id.
+// CreateMailActivityMixins creates a new mail.activity.mixin model and returns its id.
 func (c *Client) CreateMailActivityMixins(mams []*MailActivityMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mams {

@@ -35,7 +35,7 @@ func (c *Client) CreateProductUomCateg(puc *ProductUomCateg) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductUomCateg creates a new product.uom.categ model and returns its id.
+// CreateProductUomCategs creates a new product.uom.categ model and returns its id.
 func (c *Client) CreateProductUomCategs(pucs []*ProductUomCateg) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pucs {

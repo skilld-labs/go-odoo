@@ -37,7 +37,7 @@ func (c *Client) CreateAutosalesConfig(ac *AutosalesConfig) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAutosalesConfig creates a new autosales.config model and returns its id.
+// CreateAutosalesConfigs creates a new autosales.config model and returns its id.
 func (c *Client) CreateAutosalesConfigs(acs []*AutosalesConfig) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acs {

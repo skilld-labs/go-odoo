@@ -132,7 +132,7 @@ func (c *Client) CreateProductTemplate(pt *ProductTemplate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductTemplate creates a new product.template model and returns its id.
+// CreateProductTemplates creates a new product.template model and returns its id.
 func (c *Client) CreateProductTemplates(pts []*ProductTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

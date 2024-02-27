@@ -38,7 +38,7 @@ func (c *Client) CreateProcurementGroup(pg *ProcurementGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProcurementGroup creates a new procurement.group model and returns its id.
+// CreateProcurementGroups creates a new procurement.group model and returns its id.
 func (c *Client) CreateProcurementGroups(pgs []*ProcurementGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pgs {

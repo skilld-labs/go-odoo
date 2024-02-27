@@ -40,7 +40,7 @@ func (c *Client) CreateStockReturnPickingLine(srpl *StockReturnPickingLine) (int
 	return ids[0], nil
 }
 
-// CreateStockReturnPickingLine creates a new stock.return.picking.line model and returns its id.
+// CreateStockReturnPickingLines creates a new stock.return.picking.line model and returns its id.
 func (c *Client) CreateStockReturnPickingLines(srpls []*StockReturnPickingLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range srpls {

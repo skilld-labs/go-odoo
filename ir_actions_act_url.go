@@ -42,7 +42,7 @@ func (c *Client) CreateIrActionsActUrl(iaa *IrActionsActUrl) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsActUrl creates a new ir.actions.act_url model and returns its id.
+// CreateIrActionsActUrls creates a new ir.actions.act_url model and returns its id.
 func (c *Client) CreateIrActionsActUrls(iaas []*IrActionsActUrl) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

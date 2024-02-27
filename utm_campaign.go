@@ -35,7 +35,7 @@ func (c *Client) CreateUtmCampaign(uc *UtmCampaign) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmCampaign creates a new utm.campaign model and returns its id.
+// CreateUtmCampaigns creates a new utm.campaign model and returns its id.
 func (c *Client) CreateUtmCampaigns(ucs []*UtmCampaign) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ucs {

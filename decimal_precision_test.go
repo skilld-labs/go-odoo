@@ -37,7 +37,7 @@ func (c *Client) CreateDecimalPrecisionTest(dpt *DecimalPrecisionTest) (int64, e
 	return ids[0], nil
 }
 
-// CreateDecimalPrecisionTest creates a new decimal.precision.test model and returns its id.
+// CreateDecimalPrecisionTests creates a new decimal.precision.test model and returns its id.
 func (c *Client) CreateDecimalPrecisionTests(dpts []*DecimalPrecisionTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range dpts {

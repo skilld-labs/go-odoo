@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsCharNoreadonly(btmcn *BaseImportTest
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsCharNoreadonly creates a new base_import.tests.models.char.noreadonly model and returns its id.
+// CreateBaseImportTestsModelsCharNoreadonlys creates a new base_import.tests.models.char.noreadonly model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharNoreadonlys(btmcns []*BaseImportTestsModelsCharNoreadonly) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmcns {

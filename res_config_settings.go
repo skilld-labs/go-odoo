@@ -187,7 +187,7 @@ func (c *Client) CreateResConfigSettings(rcs *ResConfigSettings) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateResConfigSettings creates a new res.config.settings model and returns its id.
+// CreateResConfigSettingss creates a new res.config.settings model and returns its id.
 func (c *Client) CreateResConfigSettingss(rcss []*ResConfigSettings) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcss {

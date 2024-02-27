@@ -58,7 +58,7 @@ func (c *Client) CreateCrmOpportunityReport(cor *CrmOpportunityReport) (int64, e
 	return ids[0], nil
 }
 
-// CreateCrmOpportunityReport creates a new crm.opportunity.report model and returns its id.
+// CreateCrmOpportunityReports creates a new crm.opportunity.report model and returns its id.
 func (c *Client) CreateCrmOpportunityReports(cors []*CrmOpportunityReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cors {

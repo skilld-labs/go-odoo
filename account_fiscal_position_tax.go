@@ -37,7 +37,7 @@ func (c *Client) CreateAccountFiscalPositionTax(afpt *AccountFiscalPositionTax) 
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPositionTax creates a new account.fiscal.position.tax model and returns its id.
+// CreateAccountFiscalPositionTaxs creates a new account.fiscal.position.tax model and returns its id.
 func (c *Client) CreateAccountFiscalPositionTaxs(afpts []*AccountFiscalPositionTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afpts {

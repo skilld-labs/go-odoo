@@ -34,7 +34,7 @@ func (c *Client) CreateResConfigInstaller(rci *ResConfigInstaller) (int64, error
 	return ids[0], nil
 }
 
-// CreateResConfigInstaller creates a new res.config.installer model and returns its id.
+// CreateResConfigInstallers creates a new res.config.installer model and returns its id.
 func (c *Client) CreateResConfigInstallers(rcis []*ResConfigInstaller) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcis {

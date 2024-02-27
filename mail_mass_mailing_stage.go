@@ -36,7 +36,7 @@ func (c *Client) CreateMailMassMailingStage(mms *MailMassMailingStage) (int64, e
 	return ids[0], nil
 }
 
-// CreateMailMassMailingStage creates a new mail.mass_mailing.stage model and returns its id.
+// CreateMailMassMailingStages creates a new mail.mass_mailing.stage model and returns its id.
 func (c *Client) CreateMailMassMailingStages(mmss []*MailMassMailingStage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmss {

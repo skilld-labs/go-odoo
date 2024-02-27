@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldFloatTime(iqff *IrQwebFieldFloatTime) (int64, 
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldFloatTime creates a new ir.qweb.field.float_time model and returns its id.
+// CreateIrQwebFieldFloatTimes creates a new ir.qweb.field.float_time model and returns its id.
 func (c *Client) CreateIrQwebFieldFloatTimes(iqffs []*IrQwebFieldFloatTime) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqffs {

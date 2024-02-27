@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsCharStates(btmcs *BaseImportTestsMod
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsCharStates creates a new base_import.tests.models.char.states model and returns its id.
+// CreateBaseImportTestsModelsCharStatess creates a new base_import.tests.models.char.states model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharStatess(btmcss []*BaseImportTestsModelsCharStates) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmcss {

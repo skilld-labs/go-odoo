@@ -34,7 +34,7 @@ func (c *Client) CreateHrHolidaysRemainingLeavesUser(hhrlu *HrHolidaysRemainingL
 	return ids[0], nil
 }
 
-// CreateHrHolidaysRemainingLeavesUser creates a new hr.holidays.remaining.leaves.user model and returns its id.
+// CreateHrHolidaysRemainingLeavesUsers creates a new hr.holidays.remaining.leaves.user model and returns its id.
 func (c *Client) CreateHrHolidaysRemainingLeavesUsers(hhrlus []*HrHolidaysRemainingLeavesUser) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhrlus {

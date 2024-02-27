@@ -38,7 +38,7 @@ func (c *Client) CreateAccountBankAccountsWizard(abaw *AccountBankAccountsWizard
 	return ids[0], nil
 }
 
-// CreateAccountBankAccountsWizard creates a new account.bank.accounts.wizard model and returns its id.
+// CreateAccountBankAccountsWizards creates a new account.bank.accounts.wizard model and returns its id.
 func (c *Client) CreateAccountBankAccountsWizards(abaws []*AccountBankAccountsWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abaws {

@@ -34,7 +34,7 @@ func (c *Client) CreateValidateAccountMove(vam *ValidateAccountMove) (int64, err
 	return ids[0], nil
 }
 
-// CreateValidateAccountMove creates a new validate.account.move model and returns its id.
+// CreateValidateAccountMoves creates a new validate.account.move model and returns its id.
 func (c *Client) CreateValidateAccountMoves(vams []*ValidateAccountMove) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range vams {

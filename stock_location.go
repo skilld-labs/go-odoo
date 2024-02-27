@@ -56,7 +56,7 @@ func (c *Client) CreateStockLocation(sl *StockLocation) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockLocation creates a new stock.location model and returns its id.
+// CreateStockLocations creates a new stock.location model and returns its id.
 func (c *Client) CreateStockLocations(sls []*StockLocation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sls {

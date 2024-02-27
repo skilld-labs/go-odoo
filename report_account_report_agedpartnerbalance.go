@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportAgedpartnerbalance(rar *ReportAccountR
 	return ids[0], nil
 }
 
-// CreateReportAccountReportAgedpartnerbalance creates a new report.account.report_agedpartnerbalance model and returns its id.
+// CreateReportAccountReportAgedpartnerbalances creates a new report.account.report_agedpartnerbalance model and returns its id.
 func (c *Client) CreateReportAccountReportAgedpartnerbalances(rars []*ReportAccountReportAgedpartnerbalance) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

@@ -47,7 +47,7 @@ func (c *Client) CreateAccountInvoiceTax(ait *AccountInvoiceTax) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceTax creates a new account.invoice.tax model and returns its id.
+// CreateAccountInvoiceTaxs creates a new account.invoice.tax model and returns its id.
 func (c *Client) CreateAccountInvoiceTaxs(aits []*AccountInvoiceTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aits {

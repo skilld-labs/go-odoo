@@ -69,7 +69,7 @@ func (c *Client) CreateAccountBankStatementImportJournalCreation(absijc *Account
 	return ids[0], nil
 }
 
-// CreateAccountBankStatementImportJournalCreation creates a new account.bank.statement.import.journal.creation model and returns its id.
+// CreateAccountBankStatementImportJournalCreations creates a new account.bank.statement.import.journal.creation model and returns its id.
 func (c *Client) CreateAccountBankStatementImportJournalCreations(absijcs []*AccountBankStatementImportJournalCreation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range absijcs {

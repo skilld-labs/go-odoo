@@ -51,7 +51,7 @@ func (c *Client) CreateStockProductionLot(spl *StockProductionLot) (int64, error
 	return ids[0], nil
 }
 
-// CreateStockProductionLot creates a new stock.production.lot model and returns its id.
+// CreateStockProductionLots creates a new stock.production.lot model and returns its id.
 func (c *Client) CreateStockProductionLots(spls []*StockProductionLot) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range spls {

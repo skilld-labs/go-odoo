@@ -36,7 +36,7 @@ func (c *Client) CreateProjectTags(pt *ProjectTags) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectTags creates a new project.tags model and returns its id.
+// CreateProjectTagss creates a new project.tags model and returns its id.
 func (c *Client) CreateProjectTagss(pts []*ProjectTags) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

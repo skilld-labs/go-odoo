@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportTax(rar *ReportAccountReportTax) (int6
 	return ids[0], nil
 }
 
-// CreateReportAccountReportTax creates a new report.account.report_tax model and returns its id.
+// CreateReportAccountReportTaxs creates a new report.account.report_tax model and returns its id.
 func (c *Client) CreateReportAccountReportTaxs(rars []*ReportAccountReportTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

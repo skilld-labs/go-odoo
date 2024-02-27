@@ -37,7 +37,7 @@ func (c *Client) CreateResCountryState(rcs *ResCountryState) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountryState creates a new res.country.state model and returns its id.
+// CreateResCountryStates creates a new res.country.state model and returns its id.
 func (c *Client) CreateResCountryStates(rcss []*ResCountryState) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcss {

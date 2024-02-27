@@ -37,7 +37,7 @@ func (c *Client) CreateCrmMergeOpportunity(cmo *CrmMergeOpportunity) (int64, err
 	return ids[0], nil
 }
 
-// CreateCrmMergeOpportunity creates a new crm.merge.opportunity model and returns its id.
+// CreateCrmMergeOpportunitys creates a new crm.merge.opportunity model and returns its id.
 func (c *Client) CreateCrmMergeOpportunitys(cmos []*CrmMergeOpportunity) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cmos {

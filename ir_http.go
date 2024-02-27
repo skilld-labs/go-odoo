@@ -30,7 +30,7 @@ func (c *Client) CreateIrHttp(ih *IrHttp) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrHttp creates a new ir.http model and returns its id.
+// CreateIrHttps creates a new ir.http model and returns its id.
 func (c *Client) CreateIrHttps(ihs []*IrHttp) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ihs {

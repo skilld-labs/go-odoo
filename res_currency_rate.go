@@ -38,7 +38,7 @@ func (c *Client) CreateResCurrencyRate(rcr *ResCurrencyRate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCurrencyRate creates a new res.currency.rate model and returns its id.
+// CreateResCurrencyRates creates a new res.currency.rate model and returns its id.
 func (c *Client) CreateResCurrencyRates(rcrs []*ResCurrencyRate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcrs {

@@ -41,7 +41,7 @@ func (c *Client) CreateIrModelConstraint(imc *IrModelConstraint) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateIrModelConstraint creates a new ir.model.constraint model and returns its id.
+// CreateIrModelConstraints creates a new ir.model.constraint model and returns its id.
 func (c *Client) CreateIrModelConstraints(imcs []*IrModelConstraint) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imcs {

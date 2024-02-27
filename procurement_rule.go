@@ -52,7 +52,7 @@ func (c *Client) CreateProcurementRule(pr *ProcurementRule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProcurementRule creates a new procurement.rule model and returns its id.
+// CreateProcurementRules creates a new procurement.rule model and returns its id.
 func (c *Client) CreateProcurementRules(prs []*ProcurementRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

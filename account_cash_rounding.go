@@ -39,7 +39,7 @@ func (c *Client) CreateAccountCashRounding(acr *AccountCashRounding) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountCashRounding creates a new account.cash.rounding model and returns its id.
+// CreateAccountCashRoundings creates a new account.cash.rounding model and returns its id.
 func (c *Client) CreateAccountCashRoundings(acrs []*AccountCashRounding) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acrs {

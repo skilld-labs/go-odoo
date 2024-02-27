@@ -39,7 +39,7 @@ func (c *Client) CreateAccountCommonReport(acr *AccountCommonReport) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountCommonReport creates a new account.common.report model and returns its id.
+// CreateAccountCommonReports creates a new account.common.report model and returns its id.
 func (c *Client) CreateAccountCommonReports(acrs []*AccountCommonReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acrs {

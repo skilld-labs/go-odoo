@@ -40,7 +40,7 @@ func (c *Client) CreateProductAttributeValue(pav *ProductAttributeValue) (int64,
 	return ids[0], nil
 }
 
-// CreateProductAttributeValue creates a new product.attribute.value model and returns its id.
+// CreateProductAttributeValues creates a new product.attribute.value model and returns its id.
 func (c *Client) CreateProductAttributeValues(pavs []*ProductAttributeValue) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pavs {

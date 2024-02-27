@@ -60,7 +60,7 @@ func (c *Client) CreatePaymentTransaction(pt *PaymentTransaction) (int64, error)
 	return ids[0], nil
 }
 
-// CreatePaymentTransaction creates a new payment.transaction model and returns its id.
+// CreatePaymentTransactions creates a new payment.transaction model and returns its id.
 func (c *Client) CreatePaymentTransactions(pts []*PaymentTransaction) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

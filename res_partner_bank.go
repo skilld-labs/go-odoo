@@ -45,7 +45,7 @@ func (c *Client) CreateResPartnerBank(rpb *ResPartnerBank) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResPartnerBank creates a new res.partner.bank model and returns its id.
+// CreateResPartnerBanks creates a new res.partner.bank model and returns its id.
 func (c *Client) CreateResPartnerBanks(rpbs []*ResPartnerBank) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpbs {

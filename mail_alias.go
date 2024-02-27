@@ -43,7 +43,7 @@ func (c *Client) CreateMailAlias(ma *MailAlias) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailAlias creates a new mail.alias model and returns its id.
+// CreateMailAliass creates a new mail.alias model and returns its id.
 func (c *Client) CreateMailAliass(mas []*MailAlias) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mas {

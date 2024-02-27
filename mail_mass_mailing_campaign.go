@@ -58,7 +58,7 @@ func (c *Client) CreateMailMassMailingCampaign(mmc *MailMassMailingCampaign) (in
 	return ids[0], nil
 }
 
-// CreateMailMassMailingCampaign creates a new mail.mass_mailing.campaign model and returns its id.
+// CreateMailMassMailingCampaigns creates a new mail.mass_mailing.campaign model and returns its id.
 func (c *Client) CreateMailMassMailingCampaigns(mmcs []*MailMassMailingCampaign) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmcs {

@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsCharRequired(btmcr *BaseImportTestsM
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsCharRequired creates a new base_import.tests.models.char.required model and returns its id.
+// CreateBaseImportTestsModelsCharRequireds creates a new base_import.tests.models.char.required model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharRequireds(btmcrs []*BaseImportTestsModelsCharRequired) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmcrs {

@@ -46,7 +46,7 @@ func (c *Client) CreateStockQuantPackage(sqp *StockQuantPackage) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateStockQuantPackage creates a new stock.quant.package model and returns its id.
+// CreateStockQuantPackages creates a new stock.quant.package model and returns its id.
 func (c *Client) CreateStockQuantPackages(sqps []*StockQuantPackage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sqps {

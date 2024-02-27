@@ -30,7 +30,7 @@ func (c *Client) CreateFormatAddressMixin(fam *FormatAddressMixin) (int64, error
 	return ids[0], nil
 }
 
-// CreateFormatAddressMixin creates a new format.address.mixin model and returns its id.
+// CreateFormatAddressMixins creates a new format.address.mixin model and returns its id.
 func (c *Client) CreateFormatAddressMixins(fams []*FormatAddressMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range fams {

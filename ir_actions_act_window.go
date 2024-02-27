@@ -59,7 +59,7 @@ func (c *Client) CreateIrActionsActWindow(iaa *IrActionsActWindow) (int64, error
 	return ids[0], nil
 }
 
-// CreateIrActionsActWindow creates a new ir.actions.act_window model and returns its id.
+// CreateIrActionsActWindows creates a new ir.actions.act_window model and returns its id.
 func (c *Client) CreateIrActionsActWindows(iaas []*IrActionsActWindow) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

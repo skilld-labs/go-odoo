@@ -37,7 +37,7 @@ func (c *Client) CreateBasePartnerMergeLine(bpml *BasePartnerMergeLine) (int64, 
 	return ids[0], nil
 }
 
-// CreateBasePartnerMergeLine creates a new base.partner.merge.line model and returns its id.
+// CreateBasePartnerMergeLines creates a new base.partner.merge.line model and returns its id.
 func (c *Client) CreateBasePartnerMergeLines(bpmls []*BasePartnerMergeLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bpmls {

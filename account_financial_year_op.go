@@ -40,7 +40,7 @@ func (c *Client) CreateAccountFinancialYearOp(afyo *AccountFinancialYearOp) (int
 	return ids[0], nil
 }
 
-// CreateAccountFinancialYearOp creates a new account.financial.year.op model and returns its id.
+// CreateAccountFinancialYearOps creates a new account.financial.year.op model and returns its id.
 func (c *Client) CreateAccountFinancialYearOps(afyos []*AccountFinancialYearOp) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afyos {

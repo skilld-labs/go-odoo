@@ -39,7 +39,7 @@ func (c *Client) CreatePortalWizardUser(pwu *PortalWizardUser) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePortalWizardUser creates a new portal.wizard.user model and returns its id.
+// CreatePortalWizardUsers creates a new portal.wizard.user model and returns its id.
 func (c *Client) CreatePortalWizardUsers(pwus []*PortalWizardUser) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pwus {

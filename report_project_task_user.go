@@ -52,7 +52,7 @@ func (c *Client) CreateReportProjectTaskUser(rptu *ReportProjectTaskUser) (int64
 	return ids[0], nil
 }
 
-// CreateReportProjectTaskUser creates a new report.project.task.user model and returns its id.
+// CreateReportProjectTaskUsers creates a new report.project.task.user model and returns its id.
 func (c *Client) CreateReportProjectTaskUsers(rptus []*ReportProjectTaskUser) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rptus {

@@ -106,7 +106,7 @@ func (c *Client) CreateCrmLead(cl *CrmLead) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmLead creates a new crm.lead model and returns its id.
+// CreateCrmLeads creates a new crm.lead model and returns its id.
 func (c *Client) CreateCrmLeads(cls []*CrmLead) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cls {

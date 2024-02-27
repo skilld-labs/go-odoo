@@ -154,7 +154,7 @@ func (c *Client) CreateResPartner(rp *ResPartner) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResPartner creates a new res.partner model and returns its id.
+// CreateResPartners creates a new res.partner model and returns its id.
 func (c *Client) CreateResPartners(rps []*ResPartner) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rps {

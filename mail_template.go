@@ -59,7 +59,7 @@ func (c *Client) CreateMailTemplate(mt *MailTemplate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailTemplate creates a new mail.template model and returns its id.
+// CreateMailTemplates creates a new mail.template model and returns its id.
 func (c *Client) CreateMailTemplates(mts []*MailTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mts {

@@ -42,7 +42,7 @@ func (c *Client) CreateAccountReportGeneralLedger(argl *AccountReportGeneralLedg
 	return ids[0], nil
 }
 
-// CreateAccountReportGeneralLedger creates a new account.report.general.ledger model and returns its id.
+// CreateAccountReportGeneralLedgers creates a new account.report.general.ledger model and returns its id.
 func (c *Client) CreateAccountReportGeneralLedgers(argls []*AccountReportGeneralLedger) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range argls {

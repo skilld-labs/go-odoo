@@ -37,7 +37,7 @@ func (c *Client) CreateStockChangeStandardPrice(scsp *StockChangeStandardPrice) 
 	return ids[0], nil
 }
 
-// CreateStockChangeStandardPrice creates a new stock.change.standard.price model and returns its id.
+// CreateStockChangeStandardPrices creates a new stock.change.standard.price model and returns its id.
 func (c *Client) CreateStockChangeStandardPrices(scsps []*StockChangeStandardPrice) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range scsps {

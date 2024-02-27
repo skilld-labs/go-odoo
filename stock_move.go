@@ -99,7 +99,7 @@ func (c *Client) CreateStockMove(sm *StockMove) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockMove creates a new stock.move model and returns its id.
+// CreateStockMoves creates a new stock.move model and returns its id.
 func (c *Client) CreateStockMoves(sms []*StockMove) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sms {

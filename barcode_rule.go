@@ -41,7 +41,7 @@ func (c *Client) CreateBarcodeRule(br *BarcodeRule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBarcodeRule creates a new barcode.rule model and returns its id.
+// CreateBarcodeRules creates a new barcode.rule model and returns its id.
 func (c *Client) CreateBarcodeRules(brs []*BarcodeRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range brs {

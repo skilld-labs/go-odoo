@@ -49,7 +49,7 @@ func (c *Client) CreateWizardMultiChartsAccounts(wmca *WizardMultiChartsAccounts
 	return ids[0], nil
 }
 
-// CreateWizardMultiChartsAccounts creates a new wizard.multi.charts.accounts model and returns its id.
+// CreateWizardMultiChartsAccountss creates a new wizard.multi.charts.accounts model and returns its id.
 func (c *Client) CreateWizardMultiChartsAccountss(wmcas []*WizardMultiChartsAccounts) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wmcas {

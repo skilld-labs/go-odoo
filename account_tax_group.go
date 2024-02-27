@@ -36,7 +36,7 @@ func (c *Client) CreateAccountTaxGroup(atg *AccountTaxGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountTaxGroup creates a new account.tax.group model and returns its id.
+// CreateAccountTaxGroups creates a new account.tax.group model and returns its id.
 func (c *Client) CreateAccountTaxGroups(atgs []*AccountTaxGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range atgs {

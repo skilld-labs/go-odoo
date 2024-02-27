@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldSelection(iqfs *IrQwebFieldSelection) (int64, 
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldSelection creates a new ir.qweb.field.selection model and returns its id.
+// CreateIrQwebFieldSelections creates a new ir.qweb.field.selection model and returns its id.
 func (c *Client) CreateIrQwebFieldSelections(iqfss []*IrQwebFieldSelection) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfss {

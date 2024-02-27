@@ -35,7 +35,7 @@ func (c *Client) CreateMailNotification(mn *MailNotification) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailNotification creates a new mail.notification model and returns its id.
+// CreateMailNotifications creates a new mail.notification model and returns its id.
 func (c *Client) CreateMailNotifications(mns []*MailNotification) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mns {

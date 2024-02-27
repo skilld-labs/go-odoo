@@ -58,7 +58,7 @@ func (c *Client) CreateSaleReport(sr *SaleReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSaleReport creates a new sale.report model and returns its id.
+// CreateSaleReports creates a new sale.report model and returns its id.
 func (c *Client) CreateSaleReports(srs []*SaleReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range srs {

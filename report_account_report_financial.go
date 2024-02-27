@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportFinancial(rar *ReportAccountReportFina
 	return ids[0], nil
 }
 
-// CreateReportAccountReportFinancial creates a new report.account.report_financial model and returns its id.
+// CreateReportAccountReportFinancials creates a new report.account.report_financial model and returns its id.
 func (c *Client) CreateReportAccountReportFinancials(rars []*ReportAccountReportFinancial) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

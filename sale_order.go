@@ -103,7 +103,7 @@ func (c *Client) CreateSaleOrder(so *SaleOrder) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSaleOrder creates a new sale.order model and returns its id.
+// CreateSaleOrders creates a new sale.order model and returns its id.
 func (c *Client) CreateSaleOrders(sos []*SaleOrder) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sos {

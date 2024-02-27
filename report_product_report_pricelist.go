@@ -30,7 +30,7 @@ func (c *Client) CreateReportProductReportPricelist(rpr *ReportProductReportPric
 	return ids[0], nil
 }
 
-// CreateReportProductReportPricelist creates a new report.product.report_pricelist model and returns its id.
+// CreateReportProductReportPricelists creates a new report.product.report_pricelist model and returns its id.
 func (c *Client) CreateReportProductReportPricelists(rprs []*ReportProductReportPricelist) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rprs {

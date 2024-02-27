@@ -36,7 +36,7 @@ func (c *Client) CreateAccountBankStatementImport(absi *AccountBankStatementImpo
 	return ids[0], nil
 }
 
-// CreateAccountBankStatementImport creates a new account.bank.statement.import model and returns its id.
+// CreateAccountBankStatementImports creates a new account.bank.statement.import model and returns its id.
 func (c *Client) CreateAccountBankStatementImports(absis []*AccountBankStatementImport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range absis {

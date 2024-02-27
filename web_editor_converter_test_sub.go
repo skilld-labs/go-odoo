@@ -35,7 +35,7 @@ func (c *Client) CreateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub
 	return ids[0], nil
 }
 
-// CreateWebEditorConverterTestSub creates a new web_editor.converter.test.sub model and returns its id.
+// CreateWebEditorConverterTestSubs creates a new web_editor.converter.test.sub model and returns its id.
 func (c *Client) CreateWebEditorConverterTestSubs(wctss []*WebEditorConverterTestSub) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wctss {

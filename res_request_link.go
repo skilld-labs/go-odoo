@@ -37,7 +37,7 @@ func (c *Client) CreateResRequestLink(rrl *ResRequestLink) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResRequestLink creates a new res.request.link model and returns its id.
+// CreateResRequestLinks creates a new res.request.link model and returns its id.
 func (c *Client) CreateResRequestLinks(rrls []*ResRequestLink) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rrls {

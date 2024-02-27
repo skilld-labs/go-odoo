@@ -43,7 +43,7 @@ func (c *Client) CreateMailActivityType(mat *MailActivityType) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailActivityType creates a new mail.activity.type model and returns its id.
+// CreateMailActivityTypes creates a new mail.activity.type model and returns its id.
 func (c *Client) CreateMailActivityTypes(mats []*MailActivityType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mats {

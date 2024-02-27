@@ -30,7 +30,7 @@ func (c *Client) CreatePublisherWarrantyContract(pc *PublisherWarrantyContract) 
 	return ids[0], nil
 }
 
-// CreatePublisherWarrantyContract creates a new publisher_warranty.contract model and returns its id.
+// CreatePublisherWarrantyContracts creates a new publisher_warranty.contract model and returns its id.
 func (c *Client) CreatePublisherWarrantyContracts(pcs []*PublisherWarrantyContract) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pcs {

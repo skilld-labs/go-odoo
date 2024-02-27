@@ -37,7 +37,7 @@ func (c *Client) CreateResCountryGroup(rcg *ResCountryGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountryGroup creates a new res.country.group model and returns its id.
+// CreateResCountryGroups creates a new res.country.group model and returns its id.
 func (c *Client) CreateResCountryGroups(rcgs []*ResCountryGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcgs {

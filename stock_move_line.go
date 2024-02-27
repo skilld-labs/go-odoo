@@ -60,7 +60,7 @@ func (c *Client) CreateStockMoveLine(sml *StockMoveLine) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockMoveLine creates a new stock.move.line model and returns its id.
+// CreateStockMoveLines creates a new stock.move.line model and returns its id.
 func (c *Client) CreateStockMoveLines(smls []*StockMoveLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range smls {

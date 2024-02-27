@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportGeneralledger(rar *ReportAccountReport
 	return ids[0], nil
 }
 
-// CreateReportAccountReportGeneralledger creates a new report.account.report_generalledger model and returns its id.
+// CreateReportAccountReportGeneralledgers creates a new report.account.report_generalledger model and returns its id.
 func (c *Client) CreateReportAccountReportGeneralledgers(rars []*ReportAccountReportGeneralledger) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

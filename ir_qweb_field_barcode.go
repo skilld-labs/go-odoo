@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) (int64, erro
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldBarcode creates a new ir.qweb.field.barcode model and returns its id.
+// CreateIrQwebFieldBarcodes creates a new ir.qweb.field.barcode model and returns its id.
 func (c *Client) CreateIrQwebFieldBarcodes(iqfbs []*IrQwebFieldBarcode) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfbs {

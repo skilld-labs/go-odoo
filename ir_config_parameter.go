@@ -36,7 +36,7 @@ func (c *Client) CreateIrConfigParameter(ic *IrConfigParameter) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrConfigParameter creates a new ir.config_parameter model and returns its id.
+// CreateIrConfigParameters creates a new ir.config_parameter model and returns its id.
 func (c *Client) CreateIrConfigParameters(ics []*IrConfigParameter) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

@@ -34,7 +34,7 @@ func (c *Client) CreateAccountUnreconcile(au *AccountUnreconcile) (int64, error)
 	return ids[0], nil
 }
 
-// CreateAccountUnreconcile creates a new account.unreconcile model and returns its id.
+// CreateAccountUnreconciles creates a new account.unreconcile model and returns its id.
 func (c *Client) CreateAccountUnreconciles(aus []*AccountUnreconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aus {

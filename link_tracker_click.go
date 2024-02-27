@@ -41,7 +41,7 @@ func (c *Client) CreateLinkTrackerClick(ltc *LinkTrackerClick) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateLinkTrackerClick creates a new link.tracker.click model and returns its id.
+// CreateLinkTrackerClicks creates a new link.tracker.click model and returns its id.
 func (c *Client) CreateLinkTrackerClicks(ltcs []*LinkTrackerClick) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ltcs {

@@ -64,7 +64,7 @@ func (c *Client) CreateIrCron(ic *IrCron) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrCron creates a new ir.cron model and returns its id.
+// CreateIrCrons creates a new ir.cron model and returns its id.
 func (c *Client) CreateIrCrons(ics []*IrCron) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

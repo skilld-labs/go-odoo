@@ -54,7 +54,7 @@ func (c *Client) CreateAccountBankStatementLine(absl *AccountBankStatementLine) 
 	return ids[0], nil
 }
 
-// CreateAccountBankStatementLine creates a new account.bank.statement.line model and returns its id.
+// CreateAccountBankStatementLines creates a new account.bank.statement.line model and returns its id.
 func (c *Client) CreateAccountBankStatementLines(absls []*AccountBankStatementLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range absls {

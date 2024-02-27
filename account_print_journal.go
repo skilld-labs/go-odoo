@@ -41,7 +41,7 @@ func (c *Client) CreateAccountPrintJournal(apj *AccountPrintJournal) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountPrintJournal creates a new account.print.journal model and returns its id.
+// CreateAccountPrintJournals creates a new account.print.journal model and returns its id.
 func (c *Client) CreateAccountPrintJournals(apjs []*AccountPrintJournal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apjs {

@@ -39,7 +39,7 @@ func (c *Client) CreateCalendarAlarm(ca *CalendarAlarm) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarAlarm creates a new calendar.alarm model and returns its id.
+// CreateCalendarAlarms creates a new calendar.alarm model and returns its id.
 func (c *Client) CreateCalendarAlarms(cas []*CalendarAlarm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cas {

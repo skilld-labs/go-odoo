@@ -38,7 +38,7 @@ func (c *Client) CreateStockFixedPutawayStrat(sfps *StockFixedPutawayStrat) (int
 	return ids[0], nil
 }
 
-// CreateStockFixedPutawayStrat creates a new stock.fixed.putaway.strat model and returns its id.
+// CreateStockFixedPutawayStrats creates a new stock.fixed.putaway.strat model and returns its id.
 func (c *Client) CreateStockFixedPutawayStrats(sfpss []*StockFixedPutawayStrat) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sfpss {

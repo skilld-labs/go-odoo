@@ -52,7 +52,7 @@ func (c *Client) CreateIrUiView(iuv *IrUiView) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiView creates a new ir.ui.view model and returns its id.
+// CreateIrUiViews creates a new ir.ui.view model and returns its id.
 func (c *Client) CreateIrUiViews(iuvs []*IrUiView) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iuvs {

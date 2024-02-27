@@ -60,7 +60,7 @@ func (c *Client) CreatePurchaseOrderLine(pol *PurchaseOrderLine) (int64, error) 
 	return ids[0], nil
 }
 
-// CreatePurchaseOrderLine creates a new purchase.order.line model and returns its id.
+// CreatePurchaseOrderLines creates a new purchase.order.line model and returns its id.
 func (c *Client) CreatePurchaseOrderLines(pols []*PurchaseOrderLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pols {

@@ -39,7 +39,7 @@ func (c *Client) CreateIrDefault(ID *IrDefault) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrDefault creates a new ir.default model and returns its id.
+// CreateIrDefaults creates a new ir.default model and returns its id.
 func (c *Client) CreateIrDefaults(IDs []*IrDefault) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range IDs {

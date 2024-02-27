@@ -50,7 +50,7 @@ func (c *Client) CreateIrActionsReport(iar *IrActionsReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsReport creates a new ir.actions.report model and returns its id.
+// CreateIrActionsReports creates a new ir.actions.report model and returns its id.
 func (c *Client) CreateIrActionsReports(iars []*IrActionsReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iars {

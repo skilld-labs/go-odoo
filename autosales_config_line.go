@@ -39,7 +39,7 @@ func (c *Client) CreateAutosalesConfigLine(acl *AutosalesConfigLine) (int64, err
 	return ids[0], nil
 }
 
-// CreateAutosalesConfigLine creates a new autosales.config.line model and returns its id.
+// CreateAutosalesConfigLines creates a new autosales.config.line model and returns its id.
 func (c *Client) CreateAutosalesConfigLines(acls []*AutosalesConfigLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acls {

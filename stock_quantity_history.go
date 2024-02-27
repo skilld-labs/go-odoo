@@ -36,7 +36,7 @@ func (c *Client) CreateStockQuantityHistory(sqh *StockQuantityHistory) (int64, e
 	return ids[0], nil
 }
 
-// CreateStockQuantityHistory creates a new stock.quantity.history model and returns its id.
+// CreateStockQuantityHistorys creates a new stock.quantity.history model and returns its id.
 func (c *Client) CreateStockQuantityHistorys(sqhs []*StockQuantityHistory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sqhs {

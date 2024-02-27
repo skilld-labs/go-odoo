@@ -49,7 +49,7 @@ func (c *Client) CreateImLivechatChannel(ic *ImLivechatChannel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateImLivechatChannel creates a new im_livechat.channel model and returns its id.
+// CreateImLivechatChannels creates a new im_livechat.channel model and returns its id.
 func (c *Client) CreateImLivechatChannels(ics []*ImLivechatChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

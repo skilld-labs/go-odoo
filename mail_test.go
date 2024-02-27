@@ -57,7 +57,7 @@ func (c *Client) CreateMailTest(mt *MailTest) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailTest creates a new mail.test model and returns its id.
+// CreateMailTests creates a new mail.test model and returns its id.
 func (c *Client) CreateMailTests(mts []*MailTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mts {

@@ -40,7 +40,7 @@ func (c *Client) CreateMailStatisticsReport(msr *MailStatisticsReport) (int64, e
 	return ids[0], nil
 }
 
-// CreateMailStatisticsReport creates a new mail.statistics.report model and returns its id.
+// CreateMailStatisticsReports creates a new mail.statistics.report model and returns its id.
 func (c *Client) CreateMailStatisticsReports(msrs []*MailStatisticsReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range msrs {

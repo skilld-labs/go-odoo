@@ -78,7 +78,7 @@ func (c *Client) CreateAccountMoveLine(aml *AccountMoveLine) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountMoveLine creates a new account.move.line model and returns its id.
+// CreateAccountMoveLines creates a new account.move.line model and returns its id.
 func (c *Client) CreateAccountMoveLines(amls []*AccountMoveLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amls {

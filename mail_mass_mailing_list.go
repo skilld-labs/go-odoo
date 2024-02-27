@@ -37,7 +37,7 @@ func (c *Client) CreateMailMassMailingList(mml *MailMassMailingList) (int64, err
 	return ids[0], nil
 }
 
-// CreateMailMassMailingList creates a new mail.mass_mailing.list model and returns its id.
+// CreateMailMassMailingLists creates a new mail.mass_mailing.list model and returns its id.
 func (c *Client) CreateMailMassMailingLists(mmls []*MailMassMailingList) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmls {

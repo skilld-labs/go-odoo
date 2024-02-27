@@ -58,7 +58,7 @@ func (c *Client) CreateAccountChartTemplate(act *AccountChartTemplate) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountChartTemplate creates a new account.chart.template model and returns its id.
+// CreateAccountChartTemplates creates a new account.chart.template model and returns its id.
 func (c *Client) CreateAccountChartTemplates(acts []*AccountChartTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acts {

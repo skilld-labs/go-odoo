@@ -40,7 +40,7 @@ func (c *Client) CreateAccountOpening(ao *AccountOpening) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountOpening creates a new account.opening model and returns its id.
+// CreateAccountOpenings creates a new account.opening model and returns its id.
 func (c *Client) CreateAccountOpenings(aos []*AccountOpening) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aos {

@@ -34,7 +34,7 @@ func (c *Client) CreateBusPresence(bp *BusPresence) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBusPresence creates a new bus.presence model and returns its id.
+// CreateBusPresences creates a new bus.presence model and returns its id.
 func (c *Client) CreateBusPresences(bps []*BusPresence) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bps {

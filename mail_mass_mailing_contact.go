@@ -55,7 +55,7 @@ func (c *Client) CreateMailMassMailingContact(mmc *MailMassMailingContact) (int6
 	return ids[0], nil
 }
 
-// CreateMailMassMailingContact creates a new mail.mass_mailing.contact model and returns its id.
+// CreateMailMassMailingContacts creates a new mail.mass_mailing.contact model and returns its id.
 func (c *Client) CreateMailMassMailingContacts(mmcs []*MailMassMailingContact) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmcs {

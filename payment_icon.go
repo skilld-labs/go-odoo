@@ -38,7 +38,7 @@ func (c *Client) CreatePaymentIcon(pi *PaymentIcon) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentIcon creates a new payment.icon model and returns its id.
+// CreatePaymentIcons creates a new payment.icon model and returns its id.
 func (c *Client) CreatePaymentIcons(pis []*PaymentIcon) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pis {

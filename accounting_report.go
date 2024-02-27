@@ -46,7 +46,7 @@ func (c *Client) CreateAccountingReport(ar *AccountingReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountingReport creates a new accounting.report model and returns its id.
+// CreateAccountingReports creates a new accounting.report model and returns its id.
 func (c *Client) CreateAccountingReports(ars []*AccountingReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ars {

@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldText(iqft *IrQwebFieldText) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldText creates a new ir.qweb.field.text model and returns its id.
+// CreateIrQwebFieldTexts creates a new ir.qweb.field.text model and returns its id.
 func (c *Client) CreateIrQwebFieldTexts(iqfts []*IrQwebFieldText) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfts {

@@ -93,7 +93,7 @@ func (c *Client) CreateProjectProject(pp *ProjectProject) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectProject creates a new project.project model and returns its id.
+// CreateProjectProjects creates a new project.project model and returns its id.
 func (c *Client) CreateProjectProjects(pps []*ProjectProject) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

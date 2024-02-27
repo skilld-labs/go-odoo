@@ -48,7 +48,7 @@ func (c *Client) CreateHrHolidaysStatus(hhs *HrHolidaysStatus) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateHrHolidaysStatus creates a new hr.holidays.status model and returns its id.
+// CreateHrHolidaysStatuss creates a new hr.holidays.status model and returns its id.
 func (c *Client) CreateHrHolidaysStatuss(hhss []*HrHolidaysStatus) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhss {

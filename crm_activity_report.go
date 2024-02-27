@@ -45,7 +45,7 @@ func (c *Client) CreateCrmActivityReport(car *CrmActivityReport) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateCrmActivityReport creates a new crm.activity.report model and returns its id.
+// CreateCrmActivityReports creates a new crm.activity.report model and returns its id.
 func (c *Client) CreateCrmActivityReports(cars []*CrmActivityReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cars {

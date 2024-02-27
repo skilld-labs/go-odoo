@@ -68,7 +68,7 @@ func (c *Client) CreateAccountJournal(aj *AccountJournal) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountJournal creates a new account.journal model and returns its id.
+// CreateAccountJournals creates a new account.journal model and returns its id.
 func (c *Client) CreateAccountJournals(ajs []*AccountJournal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ajs {

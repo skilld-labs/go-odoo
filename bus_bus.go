@@ -36,7 +36,7 @@ func (c *Client) CreateBusBus(bb *BusBus) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBusBus creates a new bus.bus model and returns its id.
+// CreateBusBuss creates a new bus.bus model and returns its id.
 func (c *Client) CreateBusBuss(bbs []*BusBus) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bbs {

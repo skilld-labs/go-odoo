@@ -35,7 +35,7 @@ func (c *Client) CreateBaseModuleUpgrade(bmu *BaseModuleUpgrade) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateBaseModuleUpgrade creates a new base.module.upgrade model and returns its id.
+// CreateBaseModuleUpgrades creates a new base.module.upgrade model and returns its id.
 func (c *Client) CreateBaseModuleUpgrades(bmus []*BaseModuleUpgrade) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bmus {

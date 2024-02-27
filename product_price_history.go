@@ -38,7 +38,7 @@ func (c *Client) CreateProductPriceHistory(pph *ProductPriceHistory) (int64, err
 	return ids[0], nil
 }
 
-// CreateProductPriceHistory creates a new product.price.history model and returns its id.
+// CreateProductPriceHistorys creates a new product.price.history model and returns its id.
 func (c *Client) CreateProductPriceHistorys(pphs []*ProductPriceHistory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pphs {

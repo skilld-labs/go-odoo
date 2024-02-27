@@ -44,7 +44,7 @@ func (c *Client) CreateMailAliasMixin(mam *MailAliasMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailAliasMixin creates a new mail.alias.mixin model and returns its id.
+// CreateMailAliasMixins creates a new mail.alias.mixin model and returns its id.
 func (c *Client) CreateMailAliasMixins(mams []*MailAliasMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mams {

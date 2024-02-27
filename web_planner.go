@@ -42,7 +42,7 @@ func (c *Client) CreateWebPlanner(wp *WebPlanner) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateWebPlanner creates a new web.planner model and returns its id.
+// CreateWebPlanners creates a new web.planner model and returns its id.
 func (c *Client) CreateWebPlanners(wps []*WebPlanner) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wps {

@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsO2M(btmo *BaseImportTestsModelsO2M) 
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsO2M creates a new base_import.tests.models.o2m model and returns its id.
+// CreateBaseImportTestsModelsO2Ms creates a new base_import.tests.models.o2m model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsO2Ms(btmos []*BaseImportTestsModelsO2M) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmos {

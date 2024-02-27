@@ -42,7 +42,7 @@ func (c *Client) CreateProductPricelist(pp *ProductPricelist) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductPricelist creates a new product.pricelist model and returns its id.
+// CreateProductPricelists creates a new product.pricelist model and returns its id.
 func (c *Client) CreateProductPricelists(pps []*ProductPricelist) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

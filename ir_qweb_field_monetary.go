@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldMonetary(iqfm *IrQwebFieldMonetary) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldMonetary creates a new ir.qweb.field.monetary model and returns its id.
+// CreateIrQwebFieldMonetarys creates a new ir.qweb.field.monetary model and returns its id.
 func (c *Client) CreateIrQwebFieldMonetarys(iqfms []*IrQwebFieldMonetary) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfms {

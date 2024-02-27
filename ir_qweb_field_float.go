@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldFloat(iqff *IrQwebFieldFloat) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldFloat creates a new ir.qweb.field.float model and returns its id.
+// CreateIrQwebFieldFloats creates a new ir.qweb.field.float model and returns its id.
 func (c *Client) CreateIrQwebFieldFloats(iqffs []*IrQwebFieldFloat) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqffs {

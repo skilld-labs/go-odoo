@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldImage(iqfi *IrQwebFieldImage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldImage creates a new ir.qweb.field.image model and returns its id.
+// CreateIrQwebFieldImages creates a new ir.qweb.field.image model and returns its id.
 func (c *Client) CreateIrQwebFieldImages(iqfis []*IrQwebFieldImage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfis {

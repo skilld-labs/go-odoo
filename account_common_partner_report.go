@@ -40,7 +40,7 @@ func (c *Client) CreateAccountCommonPartnerReport(acpr *AccountCommonPartnerRepo
 	return ids[0], nil
 }
 
-// CreateAccountCommonPartnerReport creates a new account.common.partner.report model and returns its id.
+// CreateAccountCommonPartnerReports creates a new account.common.partner.report model and returns its id.
 func (c *Client) CreateAccountCommonPartnerReports(acprs []*AccountCommonPartnerReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acprs {

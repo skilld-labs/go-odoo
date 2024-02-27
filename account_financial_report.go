@@ -46,7 +46,7 @@ func (c *Client) CreateAccountFinancialReport(afr *AccountFinancialReport) (int6
 	return ids[0], nil
 }
 
-// CreateAccountFinancialReport creates a new account.financial.report model and returns its id.
+// CreateAccountFinancialReports creates a new account.financial.report model and returns its id.
 func (c *Client) CreateAccountFinancialReports(afrs []*AccountFinancialReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afrs {

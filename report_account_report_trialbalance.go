@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportTrialbalance(rar *ReportAccountReportT
 	return ids[0], nil
 }
 
-// CreateReportAccountReportTrialbalance creates a new report.account.report_trialbalance model and returns its id.
+// CreateReportAccountReportTrialbalances creates a new report.account.report_trialbalance model and returns its id.
 func (c *Client) CreateReportAccountReportTrialbalances(rars []*ReportAccountReportTrialbalance) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

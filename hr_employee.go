@@ -92,7 +92,7 @@ func (c *Client) CreateHrEmployee(he *HrEmployee) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateHrEmployee creates a new hr.employee model and returns its id.
+// CreateHrEmployees creates a new hr.employee model and returns its id.
 func (c *Client) CreateHrEmployees(hes []*HrEmployee) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hes {

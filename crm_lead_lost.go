@@ -35,7 +35,7 @@ func (c *Client) CreateCrmLeadLost(cll *CrmLeadLost) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmLeadLost creates a new crm.lead.lost model and returns its id.
+// CreateCrmLeadLosts creates a new crm.lead.lost model and returns its id.
 func (c *Client) CreateCrmLeadLosts(clls []*CrmLeadLost) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clls {

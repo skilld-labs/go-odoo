@@ -78,7 +78,7 @@ func (c *Client) CreateMailChannel(mc *MailChannel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailChannel creates a new mail.channel model and returns its id.
+// CreateMailChannels creates a new mail.channel model and returns its id.
 func (c *Client) CreateMailChannels(mcs []*MailChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mcs {

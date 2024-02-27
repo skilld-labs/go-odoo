@@ -36,7 +36,7 @@ func (c *Client) CreateUtmMedium(um *UtmMedium) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmMedium creates a new utm.medium model and returns its id.
+// CreateUtmMediums creates a new utm.medium model and returns its id.
 func (c *Client) CreateUtmMediums(ums []*UtmMedium) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ums {

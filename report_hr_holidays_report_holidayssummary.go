@@ -30,7 +30,7 @@ func (c *Client) CreateReportHrHolidaysReportHolidayssummary(rhr *ReportHrHolida
 	return ids[0], nil
 }
 
-// CreateReportHrHolidaysReportHolidayssummary creates a new report.hr_holidays.report_holidayssummary model and returns its id.
+// CreateReportHrHolidaysReportHolidayssummarys creates a new report.hr_holidays.report_holidayssummary model and returns its id.
 func (c *Client) CreateReportHrHolidaysReportHolidayssummarys(rhrs []*ReportHrHolidaysReportHolidayssummary) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rhrs {

@@ -42,7 +42,7 @@ func (c *Client) CreateResPartnerCategory(rpc *ResPartnerCategory) (int64, error
 	return ids[0], nil
 }
 
-// CreateResPartnerCategory creates a new res.partner.category model and returns its id.
+// CreateResPartnerCategorys creates a new res.partner.category model and returns its id.
 func (c *Client) CreateResPartnerCategorys(rpcs []*ResPartnerCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpcs {

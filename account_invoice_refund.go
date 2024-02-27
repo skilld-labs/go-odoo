@@ -39,7 +39,7 @@ func (c *Client) CreateAccountInvoiceRefund(air *AccountInvoiceRefund) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceRefund creates a new account.invoice.refund model and returns its id.
+// CreateAccountInvoiceRefunds creates a new account.invoice.refund model and returns its id.
 func (c *Client) CreateAccountInvoiceRefunds(airs []*AccountInvoiceRefund) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range airs {

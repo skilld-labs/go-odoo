@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsCharStillreadonly(btmcs *BaseImportT
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsCharStillreadonly creates a new base_import.tests.models.char.stillreadonly model and returns its id.
+// CreateBaseImportTestsModelsCharStillreadonlys creates a new base_import.tests.models.char.stillreadonly model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharStillreadonlys(btmcss []*BaseImportTestsModelsCharStillreadonly) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmcss {

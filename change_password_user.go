@@ -38,7 +38,7 @@ func (c *Client) CreateChangePasswordUser(cpu *ChangePasswordUser) (int64, error
 	return ids[0], nil
 }
 
-// CreateChangePasswordUser creates a new change.password.user model and returns its id.
+// CreateChangePasswordUsers creates a new change.password.user model and returns its id.
 func (c *Client) CreateChangePasswordUsers(cpus []*ChangePasswordUser) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cpus {

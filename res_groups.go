@@ -48,7 +48,7 @@ func (c *Client) CreateResGroups(rg *ResGroups) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResGroups creates a new res.groups model and returns its id.
+// CreateResGroupss creates a new res.groups model and returns its id.
 func (c *Client) CreateResGroupss(rgs []*ResGroups) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rgs {

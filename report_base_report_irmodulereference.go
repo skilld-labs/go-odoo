@@ -30,7 +30,7 @@ func (c *Client) CreateReportBaseReportIrmodulereference(rbr *ReportBaseReportIr
 	return ids[0], nil
 }
 
-// CreateReportBaseReportIrmodulereference creates a new report.base.report_irmodulereference model and returns its id.
+// CreateReportBaseReportIrmodulereferences creates a new report.base.report_irmodulereference model and returns its id.
 func (c *Client) CreateReportBaseReportIrmodulereferences(rbrs []*ReportBaseReportIrmodulereference) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rbrs {

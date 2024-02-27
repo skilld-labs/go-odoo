@@ -43,7 +43,7 @@ func (c *Client) CreateMailMessageSubtype(mms *MailMessageSubtype) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMessageSubtype creates a new mail.message.subtype model and returns its id.
+// CreateMailMessageSubtypes creates a new mail.message.subtype model and returns its id.
 func (c *Client) CreateMailMessageSubtypes(mmss []*MailMessageSubtype) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmss {

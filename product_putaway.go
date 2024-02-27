@@ -36,7 +36,7 @@ func (c *Client) CreateProductPutaway(pp *ProductPutaway) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductPutaway creates a new product.putaway model and returns its id.
+// CreateProductPutaways creates a new product.putaway model and returns its id.
 func (c *Client) CreateProductPutaways(pps []*ProductPutaway) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

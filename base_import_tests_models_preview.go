@@ -37,7 +37,7 @@ func (c *Client) CreateBaseImportTestsModelsPreview(btmp *BaseImportTestsModelsP
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsPreview creates a new base_import.tests.models.preview model and returns its id.
+// CreateBaseImportTestsModelsPreviews creates a new base_import.tests.models.preview model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsPreviews(btmps []*BaseImportTestsModelsPreview) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmps {

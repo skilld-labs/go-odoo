@@ -30,7 +30,7 @@ func (c *Client) CreateReportSaleReportSaleproforma(rsr *ReportSaleReportSalepro
 	return ids[0], nil
 }
 
-// CreateReportSaleReportSaleproforma creates a new report.sale.report_saleproforma model and returns its id.
+// CreateReportSaleReportSaleproformas creates a new report.sale.report_saleproforma model and returns its id.
 func (c *Client) CreateReportSaleReportSaleproformas(rsrs []*ReportSaleReportSaleproforma) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rsrs {

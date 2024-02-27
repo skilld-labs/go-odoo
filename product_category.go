@@ -53,7 +53,7 @@ func (c *Client) CreateProductCategory(pc *ProductCategory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductCategory creates a new product.category model and returns its id.
+// CreateProductCategorys creates a new product.category model and returns its id.
 func (c *Client) CreateProductCategorys(pcs []*ProductCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pcs {

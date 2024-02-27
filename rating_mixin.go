@@ -35,7 +35,7 @@ func (c *Client) CreateRatingMixin(rm *RatingMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateRatingMixin creates a new rating.mixin model and returns its id.
+// CreateRatingMixins creates a new rating.mixin model and returns its id.
 func (c *Client) CreateRatingMixins(rms []*RatingMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rms {
