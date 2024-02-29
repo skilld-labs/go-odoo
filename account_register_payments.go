@@ -2,27 +2,27 @@ package odoo
 
 // AccountRegisterPayments represents account.register.payments model.
 type AccountRegisterPayments struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
-	Amount            *Float     `xmlrpc:"amount,omptempty"`
-	Communication     *String    `xmlrpc:"communication,omptempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
-	HidePaymentMethod *Bool      `xmlrpc:"hide_payment_method,omptempty"`
-	Id                *Int       `xmlrpc:"id,omptempty"`
-	InvoiceIds        *Relation  `xmlrpc:"invoice_ids,omptempty"`
-	JournalId         *Many2One  `xmlrpc:"journal_id,omptempty"`
-	Multi             *Bool      `xmlrpc:"multi,omptempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omptempty"`
-	PartnerType       *Selection `xmlrpc:"partner_type,omptempty"`
-	PaymentDate       *Time      `xmlrpc:"payment_date,omptempty"`
-	PaymentMethodCode *String    `xmlrpc:"payment_method_code,omptempty"`
-	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omptempty"`
-	PaymentType       *Selection `xmlrpc:"payment_type,omptempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
+	Amount            *Float     `xmlrpc:"amount,omitempty"`
+	Communication     *String    `xmlrpc:"communication,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	HidePaymentMethod *Bool      `xmlrpc:"hide_payment_method,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	InvoiceIds        *Relation  `xmlrpc:"invoice_ids,omitempty"`
+	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
+	Multi             *Bool      `xmlrpc:"multi,omitempty"`
+	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerType       *Selection `xmlrpc:"partner_type,omitempty"`
+	PaymentDate       *Time      `xmlrpc:"payment_date,omitempty"`
+	PaymentMethodCode *String    `xmlrpc:"payment_method_code,omitempty"`
+	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	PaymentType       *Selection `xmlrpc:"payment_type,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountRegisterPaymentss represents array of account.register.payments model.
@@ -48,7 +48,7 @@ func (c *Client) CreateAccountRegisterPayments(arp *AccountRegisterPayments) (in
 	return ids[0], nil
 }
 
-// CreateAccountRegisterPayments creates a new account.register.payments model and returns its id.
+// CreateAccountRegisterPaymentss creates a new account.register.payments model and returns its id.
 func (c *Client) CreateAccountRegisterPaymentss(arps []*AccountRegisterPayments) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range arps {

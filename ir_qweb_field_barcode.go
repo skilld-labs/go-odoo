@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldBarcode represents ir.qweb.field.barcode model.
 type IrQwebFieldBarcode struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldBarcodes represents array of ir.qweb.field.barcode model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldBarcode(iqfb *IrQwebFieldBarcode) (int64, erro
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldBarcode creates a new ir.qweb.field.barcode model and returns its id.
+// CreateIrQwebFieldBarcodes creates a new ir.qweb.field.barcode model and returns its id.
 func (c *Client) CreateIrQwebFieldBarcodes(iqfbs []*IrQwebFieldBarcode) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfbs {

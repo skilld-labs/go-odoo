@@ -2,10 +2,10 @@ package odoo
 
 // BarcodesBarcodeEventsMixin represents barcodes.barcode_events_mixin model.
 type BarcodesBarcodeEventsMixin struct {
-	LastUpdate     *Time   `xmlrpc:"__last_update,omptempty"`
-	BarcodeScanned *String `xmlrpc:"_barcode_scanned,omptempty"`
-	DisplayName    *String `xmlrpc:"display_name,omptempty"`
-	Id             *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate     *Time   `xmlrpc:"__last_update,omitempty"`
+	BarcodeScanned *String `xmlrpc:"_barcode_scanned,omitempty"`
+	DisplayName    *String `xmlrpc:"display_name,omitempty"`
+	Id             *Int    `xmlrpc:"id,omitempty"`
 }
 
 // BarcodesBarcodeEventsMixins represents array of barcodes.barcode_events_mixin model.
@@ -31,7 +31,7 @@ func (c *Client) CreateBarcodesBarcodeEventsMixin(bb *BarcodesBarcodeEventsMixin
 	return ids[0], nil
 }
 
-// CreateBarcodesBarcodeEventsMixin creates a new barcodes.barcode_events_mixin model and returns its id.
+// CreateBarcodesBarcodeEventsMixins creates a new barcodes.barcode_events_mixin model and returns its id.
 func (c *Client) CreateBarcodesBarcodeEventsMixins(bbs []*BarcodesBarcodeEventsMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bbs {

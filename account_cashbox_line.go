@@ -2,17 +2,17 @@ package odoo
 
 // AccountCashboxLine represents account.cashbox.line model.
 type AccountCashboxLine struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CashboxId   *Many2One `xmlrpc:"cashbox_id,omptempty"`
-	CoinValue   *Float    `xmlrpc:"coin_value,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Number      *Int      `xmlrpc:"number,omptempty"`
-	Subtotal    *Float    `xmlrpc:"subtotal,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CashboxId   *Many2One `xmlrpc:"cashbox_id,omitempty"`
+	CoinValue   *Float    `xmlrpc:"coin_value,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Number      *Int      `xmlrpc:"number,omitempty"`
+	Subtotal    *Float    `xmlrpc:"subtotal,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountCashboxLines represents array of account.cashbox.line model.
@@ -38,7 +38,7 @@ func (c *Client) CreateAccountCashboxLine(acl *AccountCashboxLine) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountCashboxLine creates a new account.cashbox.line model and returns its id.
+// CreateAccountCashboxLines creates a new account.cashbox.line model and returns its id.
 func (c *Client) CreateAccountCashboxLines(acls []*AccountCashboxLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acls {

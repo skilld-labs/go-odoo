@@ -2,10 +2,10 @@ package odoo
 
 // PortalMixin represents portal.mixin model.
 type PortalMixin struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
-	PortalUrl   *String `xmlrpc:"portal_url,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
+	PortalUrl   *String `xmlrpc:"portal_url,omitempty"`
 }
 
 // PortalMixins represents array of portal.mixin model.
@@ -31,7 +31,7 @@ func (c *Client) CreatePortalMixin(pm *PortalMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePortalMixin creates a new portal.mixin model and returns its id.
+// CreatePortalMixins creates a new portal.mixin model and returns its id.
 func (c *Client) CreatePortalMixins(pms []*PortalMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pms {

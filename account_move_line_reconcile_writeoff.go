@@ -2,18 +2,18 @@ package odoo
 
 // AccountMoveLineReconcileWriteoff represents account.move.line.reconcile.writeoff model.
 type AccountMoveLineReconcileWriteoff struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
-	AnalyticId    *Many2One `xmlrpc:"analytic_id,omptempty"`
-	Comment       *String   `xmlrpc:"comment,omptempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
-	DateP         *Time     `xmlrpc:"date_p,omptempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
-	Id            *Int      `xmlrpc:"id,omptempty"`
-	JournalId     *Many2One `xmlrpc:"journal_id,omptempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
-	WriteoffAccId *Many2One `xmlrpc:"writeoff_acc_id,omptempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
+	AnalyticId    *Many2One `xmlrpc:"analytic_id,omitempty"`
+	Comment       *String   `xmlrpc:"comment,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DateP         *Time     `xmlrpc:"date_p,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	JournalId     *Many2One `xmlrpc:"journal_id,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	WriteoffAccId *Many2One `xmlrpc:"writeoff_acc_id,omitempty"`
 }
 
 // AccountMoveLineReconcileWriteoffs represents array of account.move.line.reconcile.writeoff model.
@@ -39,7 +39,7 @@ func (c *Client) CreateAccountMoveLineReconcileWriteoff(amlrw *AccountMoveLineRe
 	return ids[0], nil
 }
 
-// CreateAccountMoveLineReconcileWriteoff creates a new account.move.line.reconcile.writeoff model and returns its id.
+// CreateAccountMoveLineReconcileWriteoffs creates a new account.move.line.reconcile.writeoff model and returns its id.
 func (c *Client) CreateAccountMoveLineReconcileWriteoffs(amlrws []*AccountMoveLineReconcileWriteoff) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amlrws {

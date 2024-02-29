@@ -2,19 +2,19 @@ package odoo
 
 // AccountFinancialYearOp represents account.financial.year.op model.
 type AccountFinancialYearOp struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountSetupFyDataDone *Bool      `xmlrpc:"account_setup_fy_data_done,omptempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omptempty"`
-	FiscalyearLastDay      *Int       `xmlrpc:"fiscalyear_last_day,omptempty"`
-	FiscalyearLastMonth    *Selection `xmlrpc:"fiscalyear_last_month,omptempty"`
-	Id                     *Int       `xmlrpc:"id,omptempty"`
-	OpeningDate            *Time      `xmlrpc:"opening_date,omptempty"`
-	OpeningMovePosted      *Bool      `xmlrpc:"opening_move_posted,omptempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountSetupFyDataDone *Bool      `xmlrpc:"account_setup_fy_data_done,omitempty"`
+	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
+	FiscalyearLastDay      *Int       `xmlrpc:"fiscalyear_last_day,omitempty"`
+	FiscalyearLastMonth    *Selection `xmlrpc:"fiscalyear_last_month,omitempty"`
+	Id                     *Int       `xmlrpc:"id,omitempty"`
+	OpeningDate            *Time      `xmlrpc:"opening_date,omitempty"`
+	OpeningMovePosted      *Bool      `xmlrpc:"opening_move_posted,omitempty"`
+	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountFinancialYearOps represents array of account.financial.year.op model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountFinancialYearOp(afyo *AccountFinancialYearOp) (int
 	return ids[0], nil
 }
 
-// CreateAccountFinancialYearOp creates a new account.financial.year.op model and returns its id.
+// CreateAccountFinancialYearOps creates a new account.financial.year.op model and returns its id.
 func (c *Client) CreateAccountFinancialYearOps(afyos []*AccountFinancialYearOp) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afyos {

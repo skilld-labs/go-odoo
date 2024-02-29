@@ -2,75 +2,75 @@ package odoo
 
 // CalendarEvent represents calendar.event model.
 type CalendarEvent struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
-	Active                   *Bool      `xmlrpc:"active,omptempty"`
-	ActivityIds              *Relation  `xmlrpc:"activity_ids,omptempty"`
-	AlarmIds                 *Relation  `xmlrpc:"alarm_ids,omptempty"`
-	Allday                   *Bool      `xmlrpc:"allday,omptempty"`
-	AttendeeIds              *Relation  `xmlrpc:"attendee_ids,omptempty"`
-	AttendeeStatus           *Selection `xmlrpc:"attendee_status,omptempty"`
-	Byday                    *Selection `xmlrpc:"byday,omptempty"`
-	CategIds                 *Relation  `xmlrpc:"categ_ids,omptempty"`
-	Count                    *Int       `xmlrpc:"count,omptempty"`
-	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Day                      *Int       `xmlrpc:"day,omptempty"`
-	Description              *String    `xmlrpc:"description,omptempty"`
-	DisplayName              *String    `xmlrpc:"display_name,omptempty"`
-	DisplayStart             *String    `xmlrpc:"display_start,omptempty"`
-	DisplayTime              *String    `xmlrpc:"display_time,omptempty"`
-	Duration                 *Float     `xmlrpc:"duration,omptempty"`
-	EndType                  *Selection `xmlrpc:"end_type,omptempty"`
-	FinalDate                *Time      `xmlrpc:"final_date,omptempty"`
-	Fr                       *Bool      `xmlrpc:"fr,omptempty"`
-	Id                       *Int       `xmlrpc:"id,omptempty"`
-	Interval                 *Int       `xmlrpc:"interval,omptempty"`
-	IsAttendee               *Bool      `xmlrpc:"is_attendee,omptempty"`
-	IsHighlighted            *Bool      `xmlrpc:"is_highlighted,omptempty"`
-	Location                 *String    `xmlrpc:"location,omptempty"`
-	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omptempty"`
-	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omptempty"`
-	MessageIds               *Relation  `xmlrpc:"message_ids,omptempty"`
-	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omptempty"`
-	MessageLastPost          *Time      `xmlrpc:"message_last_post,omptempty"`
-	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omptempty"`
-	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omptempty"`
-	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omptempty"`
-	MessageUnread            *Bool      `xmlrpc:"message_unread,omptempty"`
-	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omptempty"`
-	Mo                       *Bool      `xmlrpc:"mo,omptempty"`
-	MonthBy                  *Selection `xmlrpc:"month_by,omptempty"`
-	Name                     *String    `xmlrpc:"name,omptempty"`
-	OpportunityId            *Many2One  `xmlrpc:"opportunity_id,omptempty"`
-	PartnerId                *Many2One  `xmlrpc:"partner_id,omptempty"`
-	PartnerIds               *Relation  `xmlrpc:"partner_ids,omptempty"`
-	Privacy                  *Selection `xmlrpc:"privacy,omptempty"`
-	Recurrency               *Bool      `xmlrpc:"recurrency,omptempty"`
-	RecurrentId              *Int       `xmlrpc:"recurrent_id,omptempty"`
-	RecurrentIdDate          *Time      `xmlrpc:"recurrent_id_date,omptempty"`
-	ResId                    *Int       `xmlrpc:"res_id,omptempty"`
-	ResModel                 *String    `xmlrpc:"res_model,omptempty"`
-	ResModelId               *Many2One  `xmlrpc:"res_model_id,omptempty"`
-	Rrule                    *String    `xmlrpc:"rrule,omptempty"`
-	RruleType                *Selection `xmlrpc:"rrule_type,omptempty"`
-	Sa                       *Bool      `xmlrpc:"sa,omptempty"`
-	ShowAs                   *Selection `xmlrpc:"show_as,omptempty"`
-	Start                    *Time      `xmlrpc:"start,omptempty"`
-	StartDate                *Time      `xmlrpc:"start_date,omptempty"`
-	StartDatetime            *Time      `xmlrpc:"start_datetime,omptempty"`
-	State                    *Selection `xmlrpc:"state,omptempty"`
-	Stop                     *Time      `xmlrpc:"stop,omptempty"`
-	StopDate                 *Time      `xmlrpc:"stop_date,omptempty"`
-	StopDatetime             *Time      `xmlrpc:"stop_datetime,omptempty"`
-	Su                       *Bool      `xmlrpc:"su,omptempty"`
-	Th                       *Bool      `xmlrpc:"th,omptempty"`
-	Tu                       *Bool      `xmlrpc:"tu,omptempty"`
-	UserId                   *Many2One  `xmlrpc:"user_id,omptempty"`
-	We                       *Bool      `xmlrpc:"we,omptempty"`
-	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omptempty"`
-	WeekList                 *Selection `xmlrpc:"week_list,omptempty"`
-	WriteDate                *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	Active                   *Bool      `xmlrpc:"active,omitempty"`
+	ActivityIds              *Relation  `xmlrpc:"activity_ids,omitempty"`
+	AlarmIds                 *Relation  `xmlrpc:"alarm_ids,omitempty"`
+	Allday                   *Bool      `xmlrpc:"allday,omitempty"`
+	AttendeeIds              *Relation  `xmlrpc:"attendee_ids,omitempty"`
+	AttendeeStatus           *Selection `xmlrpc:"attendee_status,omitempty"`
+	Byday                    *Selection `xmlrpc:"byday,omitempty"`
+	CategIds                 *Relation  `xmlrpc:"categ_ids,omitempty"`
+	Count                    *Int       `xmlrpc:"count,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Day                      *Int       `xmlrpc:"day,omitempty"`
+	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	DisplayStart             *String    `xmlrpc:"display_start,omitempty"`
+	DisplayTime              *String    `xmlrpc:"display_time,omitempty"`
+	Duration                 *Float     `xmlrpc:"duration,omitempty"`
+	EndType                  *Selection `xmlrpc:"end_type,omitempty"`
+	FinalDate                *Time      `xmlrpc:"final_date,omitempty"`
+	Fr                       *Bool      `xmlrpc:"fr,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	Interval                 *Int       `xmlrpc:"interval,omitempty"`
+	IsAttendee               *Bool      `xmlrpc:"is_attendee,omitempty"`
+	IsHighlighted            *Bool      `xmlrpc:"is_highlighted,omitempty"`
+	Location                 *String    `xmlrpc:"location,omitempty"`
+	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageLastPost          *Time      `xmlrpc:"message_last_post,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread            *Bool      `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omitempty"`
+	Mo                       *Bool      `xmlrpc:"mo,omitempty"`
+	MonthBy                  *Selection `xmlrpc:"month_by,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	OpportunityId            *Many2One  `xmlrpc:"opportunity_id,omitempty"`
+	PartnerId                *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerIds               *Relation  `xmlrpc:"partner_ids,omitempty"`
+	Privacy                  *Selection `xmlrpc:"privacy,omitempty"`
+	Recurrency               *Bool      `xmlrpc:"recurrency,omitempty"`
+	RecurrentId              *Int       `xmlrpc:"recurrent_id,omitempty"`
+	RecurrentIdDate          *Time      `xmlrpc:"recurrent_id_date,omitempty"`
+	ResId                    *Int       `xmlrpc:"res_id,omitempty"`
+	ResModel                 *String    `xmlrpc:"res_model,omitempty"`
+	ResModelId               *Many2One  `xmlrpc:"res_model_id,omitempty"`
+	Rrule                    *String    `xmlrpc:"rrule,omitempty"`
+	RruleType                *Selection `xmlrpc:"rrule_type,omitempty"`
+	Sa                       *Bool      `xmlrpc:"sa,omitempty"`
+	ShowAs                   *Selection `xmlrpc:"show_as,omitempty"`
+	Start                    *Time      `xmlrpc:"start,omitempty"`
+	StartDate                *Time      `xmlrpc:"start_date,omitempty"`
+	StartDatetime            *Time      `xmlrpc:"start_datetime,omitempty"`
+	State                    *Selection `xmlrpc:"state,omitempty"`
+	Stop                     *Time      `xmlrpc:"stop,omitempty"`
+	StopDate                 *Time      `xmlrpc:"stop_date,omitempty"`
+	StopDatetime             *Time      `xmlrpc:"stop_datetime,omitempty"`
+	Su                       *Bool      `xmlrpc:"su,omitempty"`
+	Th                       *Bool      `xmlrpc:"th,omitempty"`
+	Tu                       *Bool      `xmlrpc:"tu,omitempty"`
+	UserId                   *Many2One  `xmlrpc:"user_id,omitempty"`
+	We                       *Bool      `xmlrpc:"we,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WeekList                 *Selection `xmlrpc:"week_list,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarEvents represents array of calendar.event model.
@@ -96,7 +96,7 @@ func (c *Client) CreateCalendarEvent(ce *CalendarEvent) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarEvent creates a new calendar.event model and returns its id.
+// CreateCalendarEvents creates a new calendar.event model and returns its id.
 func (c *Client) CreateCalendarEvents(ces []*CalendarEvent) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ces {

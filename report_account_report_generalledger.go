@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportGeneralledger represents report.account.report_generalledger model.
 type ReportAccountReportGeneralledger struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportGeneralledgers represents array of report.account.report_generalledger model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportGeneralledger(rar *ReportAccountReport
 	return ids[0], nil
 }
 
-// CreateReportAccountReportGeneralledger creates a new report.account.report_generalledger model and returns its id.
+// CreateReportAccountReportGeneralledgers creates a new report.account.report_generalledger model and returns its id.
 func (c *Client) CreateReportAccountReportGeneralledgers(rars []*ReportAccountReportGeneralledger) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

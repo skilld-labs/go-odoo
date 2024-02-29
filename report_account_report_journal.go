@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportJournal represents report.account.report_journal model.
 type ReportAccountReportJournal struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportJournals represents array of report.account.report_journal model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportJournal(rar *ReportAccountReportJourna
 	return ids[0], nil
 }
 
-// CreateReportAccountReportJournal creates a new report.account.report_journal model and returns its id.
+// CreateReportAccountReportJournals creates a new report.account.report_journal model and returns its id.
 func (c *Client) CreateReportAccountReportJournals(rars []*ReportAccountReportJournal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

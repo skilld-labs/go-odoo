@@ -2,14 +2,14 @@ package odoo
 
 // ReportStockForecast represents report.stock.forecast model.
 type ReportStockForecast struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	CumulativeQuantity *Float    `xmlrpc:"cumulative_quantity,omptempty"`
-	Date               *Time     `xmlrpc:"date,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	ProductId          *Many2One `xmlrpc:"product_id,omptempty"`
-	ProductTmplId      *Many2One `xmlrpc:"product_tmpl_id,omptempty"`
-	Quantity           *Float    `xmlrpc:"quantity,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	CumulativeQuantity *Float    `xmlrpc:"cumulative_quantity,omitempty"`
+	Date               *Time     `xmlrpc:"date,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	ProductId          *Many2One `xmlrpc:"product_id,omitempty"`
+	ProductTmplId      *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	Quantity           *Float    `xmlrpc:"quantity,omitempty"`
 }
 
 // ReportStockForecasts represents array of report.stock.forecast model.
@@ -35,7 +35,7 @@ func (c *Client) CreateReportStockForecast(rsf *ReportStockForecast) (int64, err
 	return ids[0], nil
 }
 
-// CreateReportStockForecast creates a new report.stock.forecast model and returns its id.
+// CreateReportStockForecasts creates a new report.stock.forecast model and returns its id.
 func (c *Client) CreateReportStockForecasts(rsfs []*ReportStockForecast) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rsfs {

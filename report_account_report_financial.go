@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportFinancial represents report.account.report_financial model.
 type ReportAccountReportFinancial struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportFinancials represents array of report.account.report_financial model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportFinancial(rar *ReportAccountReportFina
 	return ids[0], nil
 }
 
-// CreateReportAccountReportFinancial creates a new report.account.report_financial model and returns its id.
+// CreateReportAccountReportFinancials creates a new report.account.report_financial model and returns its id.
 func (c *Client) CreateReportAccountReportFinancials(rars []*ReportAccountReportFinancial) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

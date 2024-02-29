@@ -2,27 +2,27 @@ package odoo
 
 // AccountReconcileModelTemplate represents account.reconcile.model.template model.
 type AccountReconcileModelTemplate struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountId        *Many2One  `xmlrpc:"account_id,omptempty"`
-	Amount           *Float     `xmlrpc:"amount,omptempty"`
-	AmountType       *Selection `xmlrpc:"amount_type,omptempty"`
-	ChartTemplateId  *Many2One  `xmlrpc:"chart_template_id,omptempty"`
-	CreateDate       *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName      *String    `xmlrpc:"display_name,omptempty"`
-	HasSecondLine    *Bool      `xmlrpc:"has_second_line,omptempty"`
-	Id               *Int       `xmlrpc:"id,omptempty"`
-	Label            *String    `xmlrpc:"label,omptempty"`
-	Name             *String    `xmlrpc:"name,omptempty"`
-	SecondAccountId  *Many2One  `xmlrpc:"second_account_id,omptempty"`
-	SecondAmount     *Float     `xmlrpc:"second_amount,omptempty"`
-	SecondAmountType *Selection `xmlrpc:"second_amount_type,omptempty"`
-	SecondLabel      *String    `xmlrpc:"second_label,omptempty"`
-	SecondTaxId      *Many2One  `xmlrpc:"second_tax_id,omptempty"`
-	Sequence         *Int       `xmlrpc:"sequence,omptempty"`
-	TaxId            *Many2One  `xmlrpc:"tax_id,omptempty"`
-	WriteDate        *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountId        *Many2One  `xmlrpc:"account_id,omitempty"`
+	Amount           *Float     `xmlrpc:"amount,omitempty"`
+	AmountType       *Selection `xmlrpc:"amount_type,omitempty"`
+	ChartTemplateId  *Many2One  `xmlrpc:"chart_template_id,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	HasSecondLine    *Bool      `xmlrpc:"has_second_line,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	Label            *String    `xmlrpc:"label,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	SecondAccountId  *Many2One  `xmlrpc:"second_account_id,omitempty"`
+	SecondAmount     *Float     `xmlrpc:"second_amount,omitempty"`
+	SecondAmountType *Selection `xmlrpc:"second_amount_type,omitempty"`
+	SecondLabel      *String    `xmlrpc:"second_label,omitempty"`
+	SecondTaxId      *Many2One  `xmlrpc:"second_tax_id,omitempty"`
+	Sequence         *Int       `xmlrpc:"sequence,omitempty"`
+	TaxId            *Many2One  `xmlrpc:"tax_id,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountReconcileModelTemplates represents array of account.reconcile.model.template model.
@@ -48,7 +48,7 @@ func (c *Client) CreateAccountReconcileModelTemplate(armt *AccountReconcileModel
 	return ids[0], nil
 }
 
-// CreateAccountReconcileModelTemplate creates a new account.reconcile.model.template model and returns its id.
+// CreateAccountReconcileModelTemplates creates a new account.reconcile.model.template model and returns its id.
 func (c *Client) CreateAccountReconcileModelTemplates(armts []*AccountReconcileModelTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range armts {

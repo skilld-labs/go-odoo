@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldText represents ir.qweb.field.text model.
 type IrQwebFieldText struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldTexts represents array of ir.qweb.field.text model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldText(iqft *IrQwebFieldText) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldText creates a new ir.qweb.field.text model and returns its id.
+// CreateIrQwebFieldTexts creates a new ir.qweb.field.text model and returns its id.
 func (c *Client) CreateIrQwebFieldTexts(iqfts []*IrQwebFieldText) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfts {

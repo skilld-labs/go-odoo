@@ -2,19 +2,19 @@ package odoo
 
 // AccountCommonPartnerReport represents account.common.partner.report model.
 type AccountCommonPartnerReport struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom        *Time      `xmlrpc:"date_from,omptempty"`
-	DateTo          *Time      `xmlrpc:"date_to,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	JournalIds      *Relation  `xmlrpc:"journal_ids,omptempty"`
-	ResultSelection *Selection `xmlrpc:"result_selection,omptempty"`
-	TargetMove      *Selection `xmlrpc:"target_move,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom        *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo          *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	JournalIds      *Relation  `xmlrpc:"journal_ids,omitempty"`
+	ResultSelection *Selection `xmlrpc:"result_selection,omitempty"`
+	TargetMove      *Selection `xmlrpc:"target_move,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountCommonPartnerReports represents array of account.common.partner.report model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountCommonPartnerReport(acpr *AccountCommonPartnerRepo
 	return ids[0], nil
 }
 
-// CreateAccountCommonPartnerReport creates a new account.common.partner.report model and returns its id.
+// CreateAccountCommonPartnerReports creates a new account.common.partner.report model and returns its id.
 func (c *Client) CreateAccountCommonPartnerReports(acprs []*AccountCommonPartnerReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acprs {

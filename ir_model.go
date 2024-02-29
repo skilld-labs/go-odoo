@@ -2,25 +2,25 @@ package odoo
 
 // IrModel represents ir.model model.
 type IrModel struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
-	AccessIds         *Relation  `xmlrpc:"access_ids,omptempty"`
-	Count             *Int       `xmlrpc:"count,omptempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
-	FieldId           *Relation  `xmlrpc:"field_id,omptempty"`
-	Id                *Int       `xmlrpc:"id,omptempty"`
-	Info              *String    `xmlrpc:"info,omptempty"`
-	InheritedModelIds *Relation  `xmlrpc:"inherited_model_ids,omptempty"`
-	IsMailThread      *Bool      `xmlrpc:"is_mail_thread,omptempty"`
-	Model             *String    `xmlrpc:"model,omptempty"`
-	Modules           *String    `xmlrpc:"modules,omptempty"`
-	Name              *String    `xmlrpc:"name,omptempty"`
-	State             *Selection `xmlrpc:"state,omptempty"`
-	Transient         *Bool      `xmlrpc:"transient,omptempty"`
-	ViewIds           *Relation  `xmlrpc:"view_ids,omptempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
+	AccessIds         *Relation  `xmlrpc:"access_ids,omitempty"`
+	Count             *Int       `xmlrpc:"count,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	FieldId           *Relation  `xmlrpc:"field_id,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	Info              *String    `xmlrpc:"info,omitempty"`
+	InheritedModelIds *Relation  `xmlrpc:"inherited_model_ids,omitempty"`
+	IsMailThread      *Bool      `xmlrpc:"is_mail_thread,omitempty"`
+	Model             *String    `xmlrpc:"model,omitempty"`
+	Modules           *String    `xmlrpc:"modules,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	State             *Selection `xmlrpc:"state,omitempty"`
+	Transient         *Bool      `xmlrpc:"transient,omitempty"`
+	ViewIds           *Relation  `xmlrpc:"view_ids,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrModels represents array of ir.model model.
@@ -46,7 +46,7 @@ func (c *Client) CreateIrModel(im *IrModel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModel creates a new ir.model model and returns its id.
+// CreateIrModels creates a new ir.model model and returns its id.
 func (c *Client) CreateIrModels(ims []*IrModel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ims {

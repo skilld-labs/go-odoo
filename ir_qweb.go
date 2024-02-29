@@ -2,9 +2,9 @@ package odoo
 
 // IrQweb represents ir.qweb model.
 type IrQweb struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebs represents array of ir.qweb model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQweb(iq *IrQweb) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQweb creates a new ir.qweb model and returns its id.
+// CreateIrQwebs creates a new ir.qweb model and returns its id.
 func (c *Client) CreateIrQwebs(iqs []*IrQweb) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqs {

@@ -2,16 +2,16 @@ package odoo
 
 // BaseModuleUpdate represents base.module.update model.
 type BaseModuleUpdate struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	Added       *Int       `xmlrpc:"added,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	State       *Selection `xmlrpc:"state,omptempty"`
-	Updated     *Int       `xmlrpc:"updated,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	Added       *Int       `xmlrpc:"added,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	State       *Selection `xmlrpc:"state,omitempty"`
+	Updated     *Int       `xmlrpc:"updated,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseModuleUpdates represents array of base.module.update model.
@@ -37,7 +37,7 @@ func (c *Client) CreateBaseModuleUpdate(bmu *BaseModuleUpdate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBaseModuleUpdate creates a new base.module.update model and returns its id.
+// CreateBaseModuleUpdates creates a new base.module.update model and returns its id.
 func (c *Client) CreateBaseModuleUpdates(bmus []*BaseModuleUpdate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bmus {

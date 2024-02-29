@@ -2,24 +2,24 @@ package odoo
 
 // CrmActivityReport represents crm.activity.report model.
 type CrmActivityReport struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	Active             *Bool     `xmlrpc:"active,omptempty"`
-	AuthorId           *Many2One `xmlrpc:"author_id,omptempty"`
-	CompanyId          *Many2One `xmlrpc:"company_id,omptempty"`
-	CountryId          *Many2One `xmlrpc:"country_id,omptempty"`
-	Date               *Time     `xmlrpc:"date,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	LeadId             *Many2One `xmlrpc:"lead_id,omptempty"`
-	LeadType           *String   `xmlrpc:"lead_type,omptempty"`
-	MailActivityTypeId *Many2One `xmlrpc:"mail_activity_type_id,omptempty"`
-	PartnerId          *Many2One `xmlrpc:"partner_id,omptempty"`
-	Probability        *Float    `xmlrpc:"probability,omptempty"`
-	StageId            *Many2One `xmlrpc:"stage_id,omptempty"`
-	Subject            *String   `xmlrpc:"subject,omptempty"`
-	SubtypeId          *Many2One `xmlrpc:"subtype_id,omptempty"`
-	TeamId             *Many2One `xmlrpc:"team_id,omptempty"`
-	UserId             *Many2One `xmlrpc:"user_id,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	Active             *Bool     `xmlrpc:"active,omitempty"`
+	AuthorId           *Many2One `xmlrpc:"author_id,omitempty"`
+	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
+	CountryId          *Many2One `xmlrpc:"country_id,omitempty"`
+	Date               *Time     `xmlrpc:"date,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	LeadId             *Many2One `xmlrpc:"lead_id,omitempty"`
+	LeadType           *String   `xmlrpc:"lead_type,omitempty"`
+	MailActivityTypeId *Many2One `xmlrpc:"mail_activity_type_id,omitempty"`
+	PartnerId          *Many2One `xmlrpc:"partner_id,omitempty"`
+	Probability        *Float    `xmlrpc:"probability,omitempty"`
+	StageId            *Many2One `xmlrpc:"stage_id,omitempty"`
+	Subject            *String   `xmlrpc:"subject,omitempty"`
+	SubtypeId          *Many2One `xmlrpc:"subtype_id,omitempty"`
+	TeamId             *Many2One `xmlrpc:"team_id,omitempty"`
+	UserId             *Many2One `xmlrpc:"user_id,omitempty"`
 }
 
 // CrmActivityReports represents array of crm.activity.report model.
@@ -45,7 +45,7 @@ func (c *Client) CreateCrmActivityReport(car *CrmActivityReport) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateCrmActivityReport creates a new crm.activity.report model and returns its id.
+// CreateCrmActivityReports creates a new crm.activity.report model and returns its id.
 func (c *Client) CreateCrmActivityReports(cars []*CrmActivityReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cars {

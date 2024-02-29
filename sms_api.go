@@ -2,9 +2,9 @@ package odoo
 
 // SmsApi represents sms.api model.
 type SmsApi struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // SmsApis represents array of sms.api model.
@@ -30,7 +30,7 @@ func (c *Client) CreateSmsApi(sa *SmsApi) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateSmsApi creates a new sms.api model and returns its id.
+// CreateSmsApis creates a new sms.api model and returns its id.
 func (c *Client) CreateSmsApis(sas []*SmsApi) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sas {

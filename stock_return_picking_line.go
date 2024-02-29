@@ -2,19 +2,19 @@ package odoo
 
 // StockReturnPickingLine represents stock.return.picking.line model.
 type StockReturnPickingLine struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	MoveId      *Many2One `xmlrpc:"move_id,omptempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omptempty"`
-	Quantity    *Float    `xmlrpc:"quantity,omptempty"`
-	ToRefund    *Bool     `xmlrpc:"to_refund,omptempty"`
-	UomId       *Many2One `xmlrpc:"uom_id,omptempty"`
-	WizardId    *Many2One `xmlrpc:"wizard_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	MoveId      *Many2One `xmlrpc:"move_id,omitempty"`
+	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
+	Quantity    *Float    `xmlrpc:"quantity,omitempty"`
+	ToRefund    *Bool     `xmlrpc:"to_refund,omitempty"`
+	UomId       *Many2One `xmlrpc:"uom_id,omitempty"`
+	WizardId    *Many2One `xmlrpc:"wizard_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockReturnPickingLines represents array of stock.return.picking.line model.
@@ -40,7 +40,7 @@ func (c *Client) CreateStockReturnPickingLine(srpl *StockReturnPickingLine) (int
 	return ids[0], nil
 }
 
-// CreateStockReturnPickingLine creates a new stock.return.picking.line model and returns its id.
+// CreateStockReturnPickingLines creates a new stock.return.picking.line model and returns its id.
 func (c *Client) CreateStockReturnPickingLines(srpls []*StockReturnPickingLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range srpls {

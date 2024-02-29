@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldFloat represents ir.qweb.field.float model.
 type IrQwebFieldFloat struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldFloats represents array of ir.qweb.field.float model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldFloat(iqff *IrQwebFieldFloat) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldFloat creates a new ir.qweb.field.float model and returns its id.
+// CreateIrQwebFieldFloats creates a new ir.qweb.field.float model and returns its id.
 func (c *Client) CreateIrQwebFieldFloats(iqffs []*IrQwebFieldFloat) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqffs {

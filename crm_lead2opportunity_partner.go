@@ -2,19 +2,19 @@ package odoo
 
 // CrmLead2OpportunityPartner represents crm.lead2opportunity.partner model.
 type CrmLead2OpportunityPartner struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	Action         *Selection `xmlrpc:"action,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	Name           *Selection `xmlrpc:"name,omptempty"`
-	OpportunityIds *Relation  `xmlrpc:"opportunity_ids,omptempty"`
-	PartnerId      *Many2One  `xmlrpc:"partner_id,omptempty"`
-	TeamId         *Many2One  `xmlrpc:"team_id,omptempty"`
-	UserId         *Many2One  `xmlrpc:"user_id,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	Action         *Selection `xmlrpc:"action,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	Name           *Selection `xmlrpc:"name,omitempty"`
+	OpportunityIds *Relation  `xmlrpc:"opportunity_ids,omitempty"`
+	PartnerId      *Many2One  `xmlrpc:"partner_id,omitempty"`
+	TeamId         *Many2One  `xmlrpc:"team_id,omitempty"`
+	UserId         *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CrmLead2OpportunityPartners represents array of crm.lead2opportunity.partner model.
@@ -40,7 +40,7 @@ func (c *Client) CreateCrmLead2OpportunityPartner(clp *CrmLead2OpportunityPartne
 	return ids[0], nil
 }
 
-// CreateCrmLead2OpportunityPartner creates a new crm.lead2opportunity.partner model and returns its id.
+// CreateCrmLead2OpportunityPartners creates a new crm.lead2opportunity.partner model and returns its id.
 func (c *Client) CreateCrmLead2OpportunityPartners(clps []*CrmLead2OpportunityPartner) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clps {

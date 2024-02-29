@@ -2,24 +2,24 @@ package odoo
 
 // ResBank represents res.bank model.
 type ResBank struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	Bic         *String   `xmlrpc:"bic,omptempty"`
-	City        *String   `xmlrpc:"city,omptempty"`
-	Country     *Many2One `xmlrpc:"country,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Email       *String   `xmlrpc:"email,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	Phone       *String   `xmlrpc:"phone,omptempty"`
-	State       *Many2One `xmlrpc:"state,omptempty"`
-	Street      *String   `xmlrpc:"street,omptempty"`
-	Street2     *String   `xmlrpc:"street2,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
-	Zip         *String   `xmlrpc:"zip,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	Bic         *String   `xmlrpc:"bic,omitempty"`
+	City        *String   `xmlrpc:"city,omitempty"`
+	Country     *Many2One `xmlrpc:"country,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Email       *String   `xmlrpc:"email,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	Phone       *String   `xmlrpc:"phone,omitempty"`
+	State       *Many2One `xmlrpc:"state,omitempty"`
+	Street      *String   `xmlrpc:"street,omitempty"`
+	Street2     *String   `xmlrpc:"street2,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Zip         *String   `xmlrpc:"zip,omitempty"`
 }
 
 // ResBanks represents array of res.bank model.
@@ -45,7 +45,7 @@ func (c *Client) CreateResBank(rb *ResBank) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResBank creates a new res.bank model and returns its id.
+// CreateResBanks creates a new res.bank model and returns its id.
 func (c *Client) CreateResBanks(rbs []*ResBank) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rbs {

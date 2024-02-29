@@ -2,15 +2,15 @@ package odoo
 
 // BusBus represents bus.bus model.
 type BusBus struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Channel     *String   `xmlrpc:"channel,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Message     *String   `xmlrpc:"message,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Channel     *String   `xmlrpc:"channel,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Message     *String   `xmlrpc:"message,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BusBuss represents array of bus.bus model.
@@ -36,7 +36,7 @@ func (c *Client) CreateBusBus(bb *BusBus) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBusBus creates a new bus.bus model and returns its id.
+// CreateBusBuss creates a new bus.bus model and returns its id.
 func (c *Client) CreateBusBuss(bbs []*BusBus) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bbs {

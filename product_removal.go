@@ -2,15 +2,15 @@ package odoo
 
 // ProductRemoval represents product.removal model.
 type ProductRemoval struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Method      *String   `xmlrpc:"method,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Method      *String   `xmlrpc:"method,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductRemovals represents array of product.removal model.
@@ -36,7 +36,7 @@ func (c *Client) CreateProductRemoval(pr *ProductRemoval) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductRemoval creates a new product.removal model and returns its id.
+// CreateProductRemovals creates a new product.removal model and returns its id.
 func (c *Client) CreateProductRemovals(prs []*ProductRemoval) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

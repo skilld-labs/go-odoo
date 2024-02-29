@@ -2,14 +2,14 @@ package odoo
 
 // BaseImportTestsModelsCharStates represents base_import.tests.models.char.states model.
 type BaseImportTestsModelsCharStates struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Value       *String   `xmlrpc:"value,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Value       *String   `xmlrpc:"value,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseImportTestsModelsCharStatess represents array of base_import.tests.models.char.states model.
@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsCharStates(btmcs *BaseImportTestsMod
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsCharStates creates a new base_import.tests.models.char.states model and returns its id.
+// CreateBaseImportTestsModelsCharStatess creates a new base_import.tests.models.char.states model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsCharStatess(btmcss []*BaseImportTestsModelsCharStates) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmcss {

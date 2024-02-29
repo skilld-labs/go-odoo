@@ -2,19 +2,19 @@ package odoo
 
 // StockChangeProductQty represents stock.change.product.qty model.
 type StockChangeProductQty struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate          *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid           *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName         *String   `xmlrpc:"display_name,omptempty"`
-	Id                  *Int      `xmlrpc:"id,omptempty"`
-	LocationId          *Many2One `xmlrpc:"location_id,omptempty"`
-	LotId               *Many2One `xmlrpc:"lot_id,omptempty"`
-	NewQuantity         *Float    `xmlrpc:"new_quantity,omptempty"`
-	ProductId           *Many2One `xmlrpc:"product_id,omptempty"`
-	ProductTmplId       *Many2One `xmlrpc:"product_tmpl_id,omptempty"`
-	ProductVariantCount *Int      `xmlrpc:"product_variant_count,omptempty"`
-	WriteDate           *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid            *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
+	Id                  *Int      `xmlrpc:"id,omitempty"`
+	LocationId          *Many2One `xmlrpc:"location_id,omitempty"`
+	LotId               *Many2One `xmlrpc:"lot_id,omitempty"`
+	NewQuantity         *Float    `xmlrpc:"new_quantity,omitempty"`
+	ProductId           *Many2One `xmlrpc:"product_id,omitempty"`
+	ProductTmplId       *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	ProductVariantCount *Int      `xmlrpc:"product_variant_count,omitempty"`
+	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockChangeProductQtys represents array of stock.change.product.qty model.
@@ -40,7 +40,7 @@ func (c *Client) CreateStockChangeProductQty(scpq *StockChangeProductQty) (int64
 	return ids[0], nil
 }
 
-// CreateStockChangeProductQty creates a new stock.change.product.qty model and returns its id.
+// CreateStockChangeProductQtys creates a new stock.change.product.qty model and returns its id.
 func (c *Client) CreateStockChangeProductQtys(scpqs []*StockChangeProductQty) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range scpqs {

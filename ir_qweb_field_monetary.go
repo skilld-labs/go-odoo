@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldMonetary represents ir.qweb.field.monetary model.
 type IrQwebFieldMonetary struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldMonetarys represents array of ir.qweb.field.monetary model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldMonetary(iqfm *IrQwebFieldMonetary) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldMonetary creates a new ir.qweb.field.monetary model and returns its id.
+// CreateIrQwebFieldMonetarys creates a new ir.qweb.field.monetary model and returns its id.
 func (c *Client) CreateIrQwebFieldMonetarys(iqfms []*IrQwebFieldMonetary) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfms {

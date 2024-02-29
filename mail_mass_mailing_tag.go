@@ -2,15 +2,15 @@ package odoo
 
 // MailMassMailingTag represents mail.mass_mailing.tag model.
 type MailMassMailingTag struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Color       *Int      `xmlrpc:"color,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Color       *Int      `xmlrpc:"color,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailMassMailingTags represents array of mail.mass_mailing.tag model.
@@ -36,7 +36,7 @@ func (c *Client) CreateMailMassMailingTag(mmt *MailMassMailingTag) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMassMailingTag creates a new mail.mass_mailing.tag model and returns its id.
+// CreateMailMassMailingTags creates a new mail.mass_mailing.tag model and returns its id.
 func (c *Client) CreateMailMassMailingTags(mmts []*MailMassMailingTag) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmts {

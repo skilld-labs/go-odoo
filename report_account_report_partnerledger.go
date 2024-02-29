@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportPartnerledger represents report.account.report_partnerledger model.
 type ReportAccountReportPartnerledger struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportPartnerledgers represents array of report.account.report_partnerledger model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportPartnerledger(rar *ReportAccountReport
 	return ids[0], nil
 }
 
-// CreateReportAccountReportPartnerledger creates a new report.account.report_partnerledger model and returns its id.
+// CreateReportAccountReportPartnerledgers creates a new report.account.report_partnerledger model and returns its id.
 func (c *Client) CreateReportAccountReportPartnerledgers(rars []*ReportAccountReportPartnerledger) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

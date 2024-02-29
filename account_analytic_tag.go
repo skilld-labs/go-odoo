@@ -2,16 +2,16 @@ package odoo
 
 // AccountAnalyticTag represents account.analytic.tag model.
 type AccountAnalyticTag struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	Color       *Int      `xmlrpc:"color,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	Color       *Int      `xmlrpc:"color,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAnalyticTags represents array of account.analytic.tag model.
@@ -37,7 +37,7 @@ func (c *Client) CreateAccountAnalyticTag(aat *AccountAnalyticTag) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountAnalyticTag creates a new account.analytic.tag model and returns its id.
+// CreateAccountAnalyticTags creates a new account.analytic.tag model and returns its id.
 func (c *Client) CreateAccountAnalyticTags(aats []*AccountAnalyticTag) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aats {

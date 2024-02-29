@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportTax represents report.account.report_tax model.
 type ReportAccountReportTax struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportTaxs represents array of report.account.report_tax model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportTax(rar *ReportAccountReportTax) (int6
 	return ids[0], nil
 }
 
-// CreateReportAccountReportTax creates a new report.account.report_tax model and returns its id.
+// CreateReportAccountReportTaxs creates a new report.account.report_tax model and returns its id.
 func (c *Client) CreateReportAccountReportTaxs(rars []*ReportAccountReportTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

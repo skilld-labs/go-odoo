@@ -2,43 +2,43 @@ package odoo
 
 // IrCron represents ir.cron model.
 type IrCron struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omptempty"`
-	Active            *Bool      `xmlrpc:"active,omptempty"`
-	BindingModelId    *Many2One  `xmlrpc:"binding_model_id,omptempty"`
-	BindingType       *Selection `xmlrpc:"binding_type,omptempty"`
-	ChannelIds        *Relation  `xmlrpc:"channel_ids,omptempty"`
-	ChildIds          *Relation  `xmlrpc:"child_ids,omptempty"`
-	Code              *String    `xmlrpc:"code,omptempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CronName          *String    `xmlrpc:"cron_name,omptempty"`
-	CrudModelId       *Many2One  `xmlrpc:"crud_model_id,omptempty"`
-	CrudModelName     *String    `xmlrpc:"crud_model_name,omptempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omptempty"`
-	Doall             *Bool      `xmlrpc:"doall,omptempty"`
-	FieldsLines       *Relation  `xmlrpc:"fields_lines,omptempty"`
-	Help              *String    `xmlrpc:"help,omptempty"`
-	Id                *Int       `xmlrpc:"id,omptempty"`
-	IntervalNumber    *Int       `xmlrpc:"interval_number,omptempty"`
-	IntervalType      *Selection `xmlrpc:"interval_type,omptempty"`
-	IrActionsServerId *Many2One  `xmlrpc:"ir_actions_server_id,omptempty"`
-	LinkFieldId       *Many2One  `xmlrpc:"link_field_id,omptempty"`
-	ModelId           *Many2One  `xmlrpc:"model_id,omptempty"`
-	ModelName         *String    `xmlrpc:"model_name,omptempty"`
-	Name              *String    `xmlrpc:"name,omptempty"`
-	Nextcall          *Time      `xmlrpc:"nextcall,omptempty"`
-	Numbercall        *Int       `xmlrpc:"numbercall,omptempty"`
-	PartnerIds        *Relation  `xmlrpc:"partner_ids,omptempty"`
-	Priority          *Int       `xmlrpc:"priority,omptempty"`
-	Sequence          *Int       `xmlrpc:"sequence,omptempty"`
-	State             *Selection `xmlrpc:"state,omptempty"`
-	TemplateId        *Many2One  `xmlrpc:"template_id,omptempty"`
-	Type              *String    `xmlrpc:"type,omptempty"`
-	Usage             *Selection `xmlrpc:"usage,omptempty"`
-	UserId            *Many2One  `xmlrpc:"user_id,omptempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omptempty"`
-	XmlId             *String    `xmlrpc:"xml_id,omptempty"`
+	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	BindingModelId    *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType       *Selection `xmlrpc:"binding_type,omitempty"`
+	ChannelIds        *Relation  `xmlrpc:"channel_ids,omitempty"`
+	ChildIds          *Relation  `xmlrpc:"child_ids,omitempty"`
+	Code              *String    `xmlrpc:"code,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CronName          *String    `xmlrpc:"cron_name,omitempty"`
+	CrudModelId       *Many2One  `xmlrpc:"crud_model_id,omitempty"`
+	CrudModelName     *String    `xmlrpc:"crud_model_name,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Doall             *Bool      `xmlrpc:"doall,omitempty"`
+	FieldsLines       *Relation  `xmlrpc:"fields_lines,omitempty"`
+	Help              *String    `xmlrpc:"help,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	IntervalNumber    *Int       `xmlrpc:"interval_number,omitempty"`
+	IntervalType      *Selection `xmlrpc:"interval_type,omitempty"`
+	IrActionsServerId *Many2One  `xmlrpc:"ir_actions_server_id,omitempty"`
+	LinkFieldId       *Many2One  `xmlrpc:"link_field_id,omitempty"`
+	ModelId           *Many2One  `xmlrpc:"model_id,omitempty"`
+	ModelName         *String    `xmlrpc:"model_name,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	Nextcall          *Time      `xmlrpc:"nextcall,omitempty"`
+	Numbercall        *Int       `xmlrpc:"numbercall,omitempty"`
+	PartnerIds        *Relation  `xmlrpc:"partner_ids,omitempty"`
+	Priority          *Int       `xmlrpc:"priority,omitempty"`
+	Sequence          *Int       `xmlrpc:"sequence,omitempty"`
+	State             *Selection `xmlrpc:"state,omitempty"`
+	TemplateId        *Many2One  `xmlrpc:"template_id,omitempty"`
+	Type              *String    `xmlrpc:"type,omitempty"`
+	Usage             *Selection `xmlrpc:"usage,omitempty"`
+	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId             *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrCrons represents array of ir.cron model.
@@ -64,7 +64,7 @@ func (c *Client) CreateIrCron(ic *IrCron) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrCron creates a new ir.cron model and returns its id.
+// CreateIrCrons creates a new ir.cron model and returns its id.
 func (c *Client) CreateIrCrons(ics []*IrCron) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

@@ -2,18 +2,18 @@ package odoo
 
 // AccountCashRounding represents account.cash.rounding model.
 type AccountCashRounding struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountId      *Many2One  `xmlrpc:"account_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	Name           *String    `xmlrpc:"name,omptempty"`
-	Rounding       *Float     `xmlrpc:"rounding,omptempty"`
-	RoundingMethod *Selection `xmlrpc:"rounding_method,omptempty"`
-	Strategy       *Selection `xmlrpc:"strategy,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountId      *Many2One  `xmlrpc:"account_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	Rounding       *Float     `xmlrpc:"rounding,omitempty"`
+	RoundingMethod *Selection `xmlrpc:"rounding_method,omitempty"`
+	Strategy       *Selection `xmlrpc:"strategy,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountCashRoundings represents array of account.cash.rounding model.
@@ -39,7 +39,7 @@ func (c *Client) CreateAccountCashRounding(acr *AccountCashRounding) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountCashRounding creates a new account.cash.rounding model and returns its id.
+// CreateAccountCashRoundings creates a new account.cash.rounding model and returns its id.
 func (c *Client) CreateAccountCashRoundings(acrs []*AccountCashRounding) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acrs {

@@ -2,17 +2,17 @@ package odoo
 
 // PaymentIcon represents payment.icon model.
 type PaymentIcon struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
-	AcquirerIds      *Relation `xmlrpc:"acquirer_ids,omptempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
-	Id               *Int      `xmlrpc:"id,omptempty"`
-	Image            *String   `xmlrpc:"image,omptempty"`
-	ImagePaymentForm *String   `xmlrpc:"image_payment_form,omptempty"`
-	Name             *String   `xmlrpc:"name,omptempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
+	AcquirerIds      *Relation `xmlrpc:"acquirer_ids,omitempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
+	Id               *Int      `xmlrpc:"id,omitempty"`
+	Image            *String   `xmlrpc:"image,omitempty"`
+	ImagePaymentForm *String   `xmlrpc:"image_payment_form,omitempty"`
+	Name             *String   `xmlrpc:"name,omitempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // PaymentIcons represents array of payment.icon model.
@@ -38,7 +38,7 @@ func (c *Client) CreatePaymentIcon(pi *PaymentIcon) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentIcon creates a new payment.icon model and returns its id.
+// CreatePaymentIcons creates a new payment.icon model and returns its id.
 func (c *Client) CreatePaymentIcons(pis []*PaymentIcon) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pis {

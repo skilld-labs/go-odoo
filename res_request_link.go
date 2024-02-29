@@ -2,16 +2,16 @@ package odoo
 
 // ResRequestLink represents res.request.link model.
 type ResRequestLink struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	Object      *String   `xmlrpc:"object,omptempty"`
-	Priority    *Int      `xmlrpc:"priority,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	Object      *String   `xmlrpc:"object,omitempty"`
+	Priority    *Int      `xmlrpc:"priority,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResRequestLinks represents array of res.request.link model.
@@ -37,7 +37,7 @@ func (c *Client) CreateResRequestLink(rrl *ResRequestLink) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResRequestLink creates a new res.request.link model and returns its id.
+// CreateResRequestLinks creates a new res.request.link model and returns its id.
 func (c *Client) CreateResRequestLinks(rrls []*ResRequestLink) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rrls {

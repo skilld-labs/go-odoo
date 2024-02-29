@@ -2,42 +2,42 @@ package odoo
 
 // MailMessage represents mail.message model.
 type MailMessage struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
-	AttachmentIds        *Relation  `xmlrpc:"attachment_ids,omptempty"`
-	AuthorAvatar         *String    `xmlrpc:"author_avatar,omptempty"`
-	AuthorId             *Many2One  `xmlrpc:"author_id,omptempty"`
-	Body                 *String    `xmlrpc:"body,omptempty"`
-	ChannelIds           *Relation  `xmlrpc:"channel_ids,omptempty"`
-	ChildIds             *Relation  `xmlrpc:"child_ids,omptempty"`
-	CreateDate           *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid            *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Date                 *Time      `xmlrpc:"date,omptempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omptempty"`
-	EmailFrom            *String    `xmlrpc:"email_from,omptempty"`
-	Id                   *Int       `xmlrpc:"id,omptempty"`
-	MailActivityTypeId   *Many2One  `xmlrpc:"mail_activity_type_id,omptempty"`
-	MailServerId         *Many2One  `xmlrpc:"mail_server_id,omptempty"`
-	MessageId            *String    `xmlrpc:"message_id,omptempty"`
-	MessageType          *Selection `xmlrpc:"message_type,omptempty"`
-	Model                *String    `xmlrpc:"model,omptempty"`
-	Needaction           *Bool      `xmlrpc:"needaction,omptempty"`
-	NeedactionPartnerIds *Relation  `xmlrpc:"needaction_partner_ids,omptempty"`
-	NoAutoThread         *Bool      `xmlrpc:"no_auto_thread,omptempty"`
-	NotificationIds      *Relation  `xmlrpc:"notification_ids,omptempty"`
-	ParentId             *Many2One  `xmlrpc:"parent_id,omptempty"`
-	PartnerIds           *Relation  `xmlrpc:"partner_ids,omptempty"`
-	RatingIds            *Relation  `xmlrpc:"rating_ids,omptempty"`
-	RatingValue          *Float     `xmlrpc:"rating_value,omptempty"`
-	RecordName           *String    `xmlrpc:"record_name,omptempty"`
-	ReplyTo              *String    `xmlrpc:"reply_to,omptempty"`
-	ResId                *Int       `xmlrpc:"res_id,omptempty"`
-	Starred              *Bool      `xmlrpc:"starred,omptempty"`
-	StarredPartnerIds    *Relation  `xmlrpc:"starred_partner_ids,omptempty"`
-	Subject              *String    `xmlrpc:"subject,omptempty"`
-	SubtypeId            *Many2One  `xmlrpc:"subtype_id,omptempty"`
-	TrackingValueIds     *Relation  `xmlrpc:"tracking_value_ids,omptempty"`
-	WriteDate            *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid             *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
+	AttachmentIds        *Relation  `xmlrpc:"attachment_ids,omitempty"`
+	AuthorAvatar         *String    `xmlrpc:"author_avatar,omitempty"`
+	AuthorId             *Many2One  `xmlrpc:"author_id,omitempty"`
+	Body                 *String    `xmlrpc:"body,omitempty"`
+	ChannelIds           *Relation  `xmlrpc:"channel_ids,omitempty"`
+	ChildIds             *Relation  `xmlrpc:"child_ids,omitempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Date                 *Time      `xmlrpc:"date,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	EmailFrom            *String    `xmlrpc:"email_from,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
+	MailActivityTypeId   *Many2One  `xmlrpc:"mail_activity_type_id,omitempty"`
+	MailServerId         *Many2One  `xmlrpc:"mail_server_id,omitempty"`
+	MessageId            *String    `xmlrpc:"message_id,omitempty"`
+	MessageType          *Selection `xmlrpc:"message_type,omitempty"`
+	Model                *String    `xmlrpc:"model,omitempty"`
+	Needaction           *Bool      `xmlrpc:"needaction,omitempty"`
+	NeedactionPartnerIds *Relation  `xmlrpc:"needaction_partner_ids,omitempty"`
+	NoAutoThread         *Bool      `xmlrpc:"no_auto_thread,omitempty"`
+	NotificationIds      *Relation  `xmlrpc:"notification_ids,omitempty"`
+	ParentId             *Many2One  `xmlrpc:"parent_id,omitempty"`
+	PartnerIds           *Relation  `xmlrpc:"partner_ids,omitempty"`
+	RatingIds            *Relation  `xmlrpc:"rating_ids,omitempty"`
+	RatingValue          *Float     `xmlrpc:"rating_value,omitempty"`
+	RecordName           *String    `xmlrpc:"record_name,omitempty"`
+	ReplyTo              *String    `xmlrpc:"reply_to,omitempty"`
+	ResId                *Int       `xmlrpc:"res_id,omitempty"`
+	Starred              *Bool      `xmlrpc:"starred,omitempty"`
+	StarredPartnerIds    *Relation  `xmlrpc:"starred_partner_ids,omitempty"`
+	Subject              *String    `xmlrpc:"subject,omitempty"`
+	SubtypeId            *Many2One  `xmlrpc:"subtype_id,omitempty"`
+	TrackingValueIds     *Relation  `xmlrpc:"tracking_value_ids,omitempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailMessages represents array of mail.message model.
@@ -63,7 +63,7 @@ func (c *Client) CreateMailMessage(mm *MailMessage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailMessage creates a new mail.message model and returns its id.
+// CreateMailMessages creates a new mail.message model and returns its id.
 func (c *Client) CreateMailMessages(mms []*MailMessage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mms {

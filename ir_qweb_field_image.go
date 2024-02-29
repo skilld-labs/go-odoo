@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldImage represents ir.qweb.field.image model.
 type IrQwebFieldImage struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldImages represents array of ir.qweb.field.image model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldImage(iqfi *IrQwebFieldImage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldImage creates a new ir.qweb.field.image model and returns its id.
+// CreateIrQwebFieldImages creates a new ir.qweb.field.image model and returns its id.
 func (c *Client) CreateIrQwebFieldImages(iqfis []*IrQwebFieldImage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfis {

@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldMany2One represents ir.qweb.field.many2one model.
 type IrQwebFieldMany2One struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldMany2Ones represents array of ir.qweb.field.many2one model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldMany2One(iqfm *IrQwebFieldMany2One) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldMany2One creates a new ir.qweb.field.many2one model and returns its id.
+// CreateIrQwebFieldMany2Ones creates a new ir.qweb.field.many2one model and returns its id.
 func (c *Client) CreateIrQwebFieldMany2Ones(iqfms []*IrQwebFieldMany2One) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfms {

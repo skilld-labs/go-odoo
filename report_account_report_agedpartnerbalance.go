@@ -2,9 +2,9 @@ package odoo
 
 // ReportAccountReportAgedpartnerbalance represents report.account.report_agedpartnerbalance model.
 type ReportAccountReportAgedpartnerbalance struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportAccountReportAgedpartnerbalances represents array of report.account.report_agedpartnerbalance model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportAccountReportAgedpartnerbalance(rar *ReportAccountR
 	return ids[0], nil
 }
 
-// CreateReportAccountReportAgedpartnerbalance creates a new report.account.report_agedpartnerbalance model and returns its id.
+// CreateReportAccountReportAgedpartnerbalances creates a new report.account.report_agedpartnerbalance model and returns its id.
 func (c *Client) CreateReportAccountReportAgedpartnerbalances(rars []*ReportAccountReportAgedpartnerbalance) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rars {

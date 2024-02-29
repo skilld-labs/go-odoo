@@ -2,18 +2,18 @@ package odoo
 
 // AccountMoveLineReconcile represents account.move.line.reconcile model.
 type AccountMoveLineReconcile struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	Credit      *Float    `xmlrpc:"credit,omptempty"`
-	Debit       *Float    `xmlrpc:"debit,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	TransNbr    *Int      `xmlrpc:"trans_nbr,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
-	Writeoff    *Float    `xmlrpc:"writeoff,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	Credit      *Float    `xmlrpc:"credit,omitempty"`
+	Debit       *Float    `xmlrpc:"debit,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	TransNbr    *Int      `xmlrpc:"trans_nbr,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Writeoff    *Float    `xmlrpc:"writeoff,omitempty"`
 }
 
 // AccountMoveLineReconciles represents array of account.move.line.reconcile model.
@@ -39,7 +39,7 @@ func (c *Client) CreateAccountMoveLineReconcile(amlr *AccountMoveLineReconcile) 
 	return ids[0], nil
 }
 
-// CreateAccountMoveLineReconcile creates a new account.move.line.reconcile model and returns its id.
+// CreateAccountMoveLineReconciles creates a new account.move.line.reconcile model and returns its id.
 func (c *Client) CreateAccountMoveLineReconciles(amlrs []*AccountMoveLineReconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amlrs {

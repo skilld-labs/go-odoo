@@ -2,15 +2,15 @@ package odoo
 
 // ProductPutaway represents product.putaway model.
 type ProductPutaway struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
-	FixedLocationIds *Relation `xmlrpc:"fixed_location_ids,omptempty"`
-	Id               *Int      `xmlrpc:"id,omptempty"`
-	Name             *String   `xmlrpc:"name,omptempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
+	FixedLocationIds *Relation `xmlrpc:"fixed_location_ids,omitempty"`
+	Id               *Int      `xmlrpc:"id,omitempty"`
+	Name             *String   `xmlrpc:"name,omitempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductPutaways represents array of product.putaway model.
@@ -36,7 +36,7 @@ func (c *Client) CreateProductPutaway(pp *ProductPutaway) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductPutaway creates a new product.putaway model and returns its id.
+// CreateProductPutaways creates a new product.putaway model and returns its id.
 func (c *Client) CreateProductPutaways(pps []*ProductPutaway) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

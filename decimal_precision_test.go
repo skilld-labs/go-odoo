@@ -2,16 +2,16 @@ package odoo
 
 // DecimalPrecisionTest represents decimal.precision.test model.
 type DecimalPrecisionTest struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Float       *Float    `xmlrpc:"float,omptempty"`
-	Float2      *Float    `xmlrpc:"float_2,omptempty"`
-	Float4      *Float    `xmlrpc:"float_4,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Float       *Float    `xmlrpc:"float,omitempty"`
+	Float2      *Float    `xmlrpc:"float_2,omitempty"`
+	Float4      *Float    `xmlrpc:"float_4,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // DecimalPrecisionTests represents array of decimal.precision.test model.
@@ -37,7 +37,7 @@ func (c *Client) CreateDecimalPrecisionTest(dpt *DecimalPrecisionTest) (int64, e
 	return ids[0], nil
 }
 
-// CreateDecimalPrecisionTest creates a new decimal.precision.test model and returns its id.
+// CreateDecimalPrecisionTests creates a new decimal.precision.test model and returns its id.
 func (c *Client) CreateDecimalPrecisionTests(dpts []*DecimalPrecisionTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range dpts {

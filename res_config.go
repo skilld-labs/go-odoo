@@ -2,13 +2,13 @@ package odoo
 
 // ResConfig represents res.config model.
 type ResConfig struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResConfigs represents array of res.config model.
@@ -34,7 +34,7 @@ func (c *Client) CreateResConfig(rc *ResConfig) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResConfig creates a new res.config model and returns its id.
+// CreateResConfigs creates a new res.config model and returns its id.
 func (c *Client) CreateResConfigs(rcs []*ResConfig) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

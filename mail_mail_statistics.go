@@ -2,31 +2,31 @@ package odoo
 
 // MailMailStatistics represents mail.mail.statistics model.
 type MailMailStatistics struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omptempty"`
-	Bounced               *Time      `xmlrpc:"bounced,omptempty"`
-	Clicked               *Time      `xmlrpc:"clicked,omptempty"`
-	CreateDate            *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid             *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName           *String    `xmlrpc:"display_name,omptempty"`
-	Exception             *Time      `xmlrpc:"exception,omptempty"`
-	Id                    *Int       `xmlrpc:"id,omptempty"`
-	LinksClickIds         *Relation  `xmlrpc:"links_click_ids,omptempty"`
-	MailMailId            *Many2One  `xmlrpc:"mail_mail_id,omptempty"`
-	MailMailIdInt         *Int       `xmlrpc:"mail_mail_id_int,omptempty"`
-	MassMailingCampaignId *Many2One  `xmlrpc:"mass_mailing_campaign_id,omptempty"`
-	MassMailingId         *Many2One  `xmlrpc:"mass_mailing_id,omptempty"`
-	MessageId             *String    `xmlrpc:"message_id,omptempty"`
-	Model                 *String    `xmlrpc:"model,omptempty"`
-	Opened                *Time      `xmlrpc:"opened,omptempty"`
-	Recipient             *String    `xmlrpc:"recipient,omptempty"`
-	Replied               *Time      `xmlrpc:"replied,omptempty"`
-	ResId                 *Int       `xmlrpc:"res_id,omptempty"`
-	Scheduled             *Time      `xmlrpc:"scheduled,omptempty"`
-	Sent                  *Time      `xmlrpc:"sent,omptempty"`
-	State                 *Selection `xmlrpc:"state,omptempty"`
-	StateUpdate           *Time      `xmlrpc:"state_update,omptempty"`
-	WriteDate             *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid              *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
+	Bounced               *Time      `xmlrpc:"bounced,omitempty"`
+	Clicked               *Time      `xmlrpc:"clicked,omitempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	Exception             *Time      `xmlrpc:"exception,omitempty"`
+	Id                    *Int       `xmlrpc:"id,omitempty"`
+	LinksClickIds         *Relation  `xmlrpc:"links_click_ids,omitempty"`
+	MailMailId            *Many2One  `xmlrpc:"mail_mail_id,omitempty"`
+	MailMailIdInt         *Int       `xmlrpc:"mail_mail_id_int,omitempty"`
+	MassMailingCampaignId *Many2One  `xmlrpc:"mass_mailing_campaign_id,omitempty"`
+	MassMailingId         *Many2One  `xmlrpc:"mass_mailing_id,omitempty"`
+	MessageId             *String    `xmlrpc:"message_id,omitempty"`
+	Model                 *String    `xmlrpc:"model,omitempty"`
+	Opened                *Time      `xmlrpc:"opened,omitempty"`
+	Recipient             *String    `xmlrpc:"recipient,omitempty"`
+	Replied               *Time      `xmlrpc:"replied,omitempty"`
+	ResId                 *Int       `xmlrpc:"res_id,omitempty"`
+	Scheduled             *Time      `xmlrpc:"scheduled,omitempty"`
+	Sent                  *Time      `xmlrpc:"sent,omitempty"`
+	State                 *Selection `xmlrpc:"state,omitempty"`
+	StateUpdate           *Time      `xmlrpc:"state_update,omitempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailMailStatisticss represents array of mail.mail.statistics model.
@@ -52,7 +52,7 @@ func (c *Client) CreateMailMailStatistics(mms *MailMailStatistics) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMailStatistics creates a new mail.mail.statistics model and returns its id.
+// CreateMailMailStatisticss creates a new mail.mail.statistics model and returns its id.
 func (c *Client) CreateMailMailStatisticss(mmss []*MailMailStatistics) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmss {

@@ -2,18 +2,18 @@ package odoo
 
 // ProductAttribute represents product.attribute model.
 type ProductAttribute struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
-	AttributeLineIds *Relation `xmlrpc:"attribute_line_ids,omptempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
-	CreateVariant    *Bool     `xmlrpc:"create_variant,omptempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
-	Id               *Int      `xmlrpc:"id,omptempty"`
-	Name             *String   `xmlrpc:"name,omptempty"`
-	Sequence         *Int      `xmlrpc:"sequence,omptempty"`
-	ValueIds         *Relation `xmlrpc:"value_ids,omptempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
+	AttributeLineIds *Relation `xmlrpc:"attribute_line_ids,omitempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
+	CreateVariant    *Bool     `xmlrpc:"create_variant,omitempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
+	Id               *Int      `xmlrpc:"id,omitempty"`
+	Name             *String   `xmlrpc:"name,omitempty"`
+	Sequence         *Int      `xmlrpc:"sequence,omitempty"`
+	ValueIds         *Relation `xmlrpc:"value_ids,omitempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributes represents array of product.attribute model.
@@ -39,7 +39,7 @@ func (c *Client) CreateProductAttribute(pa *ProductAttribute) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductAttribute creates a new product.attribute model and returns its id.
+// CreateProductAttributes creates a new product.attribute model and returns its id.
 func (c *Client) CreateProductAttributes(pas []*ProductAttribute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pas {

@@ -2,31 +2,31 @@ package odoo
 
 // AccountReconcileModel represents account.reconcile.model model.
 type AccountReconcileModel struct {
-	LastUpdate              *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountId               *Many2One  `xmlrpc:"account_id,omptempty"`
-	Amount                  *Float     `xmlrpc:"amount,omptempty"`
-	AmountType              *Selection `xmlrpc:"amount_type,omptempty"`
-	AnalyticAccountId       *Many2One  `xmlrpc:"analytic_account_id,omptempty"`
-	CompanyId               *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate              *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid               *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName             *String    `xmlrpc:"display_name,omptempty"`
-	HasSecondLine           *Bool      `xmlrpc:"has_second_line,omptempty"`
-	Id                      *Int       `xmlrpc:"id,omptempty"`
-	JournalId               *Many2One  `xmlrpc:"journal_id,omptempty"`
-	Label                   *String    `xmlrpc:"label,omptempty"`
-	Name                    *String    `xmlrpc:"name,omptempty"`
-	SecondAccountId         *Many2One  `xmlrpc:"second_account_id,omptempty"`
-	SecondAmount            *Float     `xmlrpc:"second_amount,omptempty"`
-	SecondAmountType        *Selection `xmlrpc:"second_amount_type,omptempty"`
-	SecondAnalyticAccountId *Many2One  `xmlrpc:"second_analytic_account_id,omptempty"`
-	SecondJournalId         *Many2One  `xmlrpc:"second_journal_id,omptempty"`
-	SecondLabel             *String    `xmlrpc:"second_label,omptempty"`
-	SecondTaxId             *Many2One  `xmlrpc:"second_tax_id,omptempty"`
-	Sequence                *Int       `xmlrpc:"sequence,omptempty"`
-	TaxId                   *Many2One  `xmlrpc:"tax_id,omptempty"`
-	WriteDate               *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid                *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate              *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountId               *Many2One  `xmlrpc:"account_id,omitempty"`
+	Amount                  *Float     `xmlrpc:"amount,omitempty"`
+	AmountType              *Selection `xmlrpc:"amount_type,omitempty"`
+	AnalyticAccountId       *Many2One  `xmlrpc:"analytic_account_id,omitempty"`
+	CompanyId               *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate              *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid               *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName             *String    `xmlrpc:"display_name,omitempty"`
+	HasSecondLine           *Bool      `xmlrpc:"has_second_line,omitempty"`
+	Id                      *Int       `xmlrpc:"id,omitempty"`
+	JournalId               *Many2One  `xmlrpc:"journal_id,omitempty"`
+	Label                   *String    `xmlrpc:"label,omitempty"`
+	Name                    *String    `xmlrpc:"name,omitempty"`
+	SecondAccountId         *Many2One  `xmlrpc:"second_account_id,omitempty"`
+	SecondAmount            *Float     `xmlrpc:"second_amount,omitempty"`
+	SecondAmountType        *Selection `xmlrpc:"second_amount_type,omitempty"`
+	SecondAnalyticAccountId *Many2One  `xmlrpc:"second_analytic_account_id,omitempty"`
+	SecondJournalId         *Many2One  `xmlrpc:"second_journal_id,omitempty"`
+	SecondLabel             *String    `xmlrpc:"second_label,omitempty"`
+	SecondTaxId             *Many2One  `xmlrpc:"second_tax_id,omitempty"`
+	Sequence                *Int       `xmlrpc:"sequence,omitempty"`
+	TaxId                   *Many2One  `xmlrpc:"tax_id,omitempty"`
+	WriteDate               *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountReconcileModels represents array of account.reconcile.model model.
@@ -52,7 +52,7 @@ func (c *Client) CreateAccountReconcileModel(arm *AccountReconcileModel) (int64,
 	return ids[0], nil
 }
 
-// CreateAccountReconcileModel creates a new account.reconcile.model model and returns its id.
+// CreateAccountReconcileModels creates a new account.reconcile.model model and returns its id.
 func (c *Client) CreateAccountReconcileModels(arms []*AccountReconcileModel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range arms {

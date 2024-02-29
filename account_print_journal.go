@@ -2,20 +2,20 @@ package odoo
 
 // AccountPrintJournal represents account.print.journal model.
 type AccountPrintJournal struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	AmountCurrency *Bool      `xmlrpc:"amount_currency,omptempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom       *Time      `xmlrpc:"date_from,omptempty"`
-	DateTo         *Time      `xmlrpc:"date_to,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	JournalIds     *Relation  `xmlrpc:"journal_ids,omptempty"`
-	SortSelection  *Selection `xmlrpc:"sort_selection,omptempty"`
-	TargetMove     *Selection `xmlrpc:"target_move,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	AmountCurrency *Bool      `xmlrpc:"amount_currency,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom       *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo         *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	JournalIds     *Relation  `xmlrpc:"journal_ids,omitempty"`
+	SortSelection  *Selection `xmlrpc:"sort_selection,omitempty"`
+	TargetMove     *Selection `xmlrpc:"target_move,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPrintJournals represents array of account.print.journal model.
@@ -41,7 +41,7 @@ func (c *Client) CreateAccountPrintJournal(apj *AccountPrintJournal) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountPrintJournal creates a new account.print.journal model and returns its id.
+// CreateAccountPrintJournals creates a new account.print.journal model and returns its id.
 func (c *Client) CreateAccountPrintJournals(apjs []*AccountPrintJournal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apjs {

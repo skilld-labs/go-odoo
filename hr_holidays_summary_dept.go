@@ -2,16 +2,16 @@ package odoo
 
 // HrHolidaysSummaryDept represents hr.holidays.summary.dept model.
 type HrHolidaysSummaryDept struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom    *Time      `xmlrpc:"date_from,omptempty"`
-	Depts       *Relation  `xmlrpc:"depts,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	HolidayType *Selection `xmlrpc:"holiday_type,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom    *Time      `xmlrpc:"date_from,omitempty"`
+	Depts       *Relation  `xmlrpc:"depts,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	HolidayType *Selection `xmlrpc:"holiday_type,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrHolidaysSummaryDepts represents array of hr.holidays.summary.dept model.
@@ -37,7 +37,7 @@ func (c *Client) CreateHrHolidaysSummaryDept(hhsd *HrHolidaysSummaryDept) (int64
 	return ids[0], nil
 }
 
-// CreateHrHolidaysSummaryDept creates a new hr.holidays.summary.dept model and returns its id.
+// CreateHrHolidaysSummaryDepts creates a new hr.holidays.summary.dept model and returns its id.
 func (c *Client) CreateHrHolidaysSummaryDepts(hhsds []*HrHolidaysSummaryDept) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhsds {

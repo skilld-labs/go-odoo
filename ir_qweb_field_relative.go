@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldRelative represents ir.qweb.field.relative model.
 type IrQwebFieldRelative struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldRelatives represents array of ir.qweb.field.relative model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldRelative(iqfr *IrQwebFieldRelative) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldRelative creates a new ir.qweb.field.relative model and returns its id.
+// CreateIrQwebFieldRelatives creates a new ir.qweb.field.relative model and returns its id.
 func (c *Client) CreateIrQwebFieldRelatives(iqfrs []*IrQwebFieldRelative) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfrs {

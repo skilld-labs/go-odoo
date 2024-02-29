@@ -2,16 +2,16 @@ package odoo
 
 // ImLivechatReportOperator represents im_livechat.report.operator model.
 type ImLivechatReportOperator struct {
-	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
-	ChannelId         *Many2One `xmlrpc:"channel_id,omptempty"`
-	DisplayName       *String   `xmlrpc:"display_name,omptempty"`
-	Duration          *Float    `xmlrpc:"duration,omptempty"`
-	Id                *Int      `xmlrpc:"id,omptempty"`
-	LivechatChannelId *Many2One `xmlrpc:"livechat_channel_id,omptempty"`
-	NbrChannel        *Int      `xmlrpc:"nbr_channel,omptempty"`
-	PartnerId         *Many2One `xmlrpc:"partner_id,omptempty"`
-	StartDate         *Time     `xmlrpc:"start_date,omptempty"`
-	TimeToAnswer      *Float    `xmlrpc:"time_to_answer,omptempty"`
+	LastUpdate        *Time     `xmlrpc:"__last_update,omitempty"`
+	ChannelId         *Many2One `xmlrpc:"channel_id,omitempty"`
+	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
+	Duration          *Float    `xmlrpc:"duration,omitempty"`
+	Id                *Int      `xmlrpc:"id,omitempty"`
+	LivechatChannelId *Many2One `xmlrpc:"livechat_channel_id,omitempty"`
+	NbrChannel        *Int      `xmlrpc:"nbr_channel,omitempty"`
+	PartnerId         *Many2One `xmlrpc:"partner_id,omitempty"`
+	StartDate         *Time     `xmlrpc:"start_date,omitempty"`
+	TimeToAnswer      *Float    `xmlrpc:"time_to_answer,omitempty"`
 }
 
 // ImLivechatReportOperators represents array of im_livechat.report.operator model.
@@ -37,7 +37,7 @@ func (c *Client) CreateImLivechatReportOperator(iro *ImLivechatReportOperator) (
 	return ids[0], nil
 }
 
-// CreateImLivechatReportOperator creates a new im_livechat.report.operator model and returns its id.
+// CreateImLivechatReportOperators creates a new im_livechat.report.operator model and returns its id.
 func (c *Client) CreateImLivechatReportOperators(iros []*ImLivechatReportOperator) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iros {

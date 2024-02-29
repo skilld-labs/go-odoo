@@ -2,14 +2,14 @@ package odoo
 
 // BaseImportTestsModelsM2ORelated represents base_import.tests.models.m2o.related model.
 type BaseImportTestsModelsM2ORelated struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Value       *Int      `xmlrpc:"value,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Value       *Int      `xmlrpc:"value,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseImportTestsModelsM2ORelateds represents array of base_import.tests.models.m2o.related model.
@@ -35,7 +35,7 @@ func (c *Client) CreateBaseImportTestsModelsM2ORelated(btmmr *BaseImportTestsMod
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsM2ORelated creates a new base_import.tests.models.m2o.related model and returns its id.
+// CreateBaseImportTestsModelsM2ORelateds creates a new base_import.tests.models.m2o.related model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsM2ORelateds(btmmrs []*BaseImportTestsModelsM2ORelated) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmmrs {

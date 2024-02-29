@@ -2,16 +2,16 @@ package odoo
 
 // IrUiViewCustom represents ir.ui.view.custom model.
 type IrUiViewCustom struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Arch        *String   `xmlrpc:"arch,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	RefId       *Many2One `xmlrpc:"ref_id,omptempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Arch        *String   `xmlrpc:"arch,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	RefId       *Many2One `xmlrpc:"ref_id,omitempty"`
+	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrUiViewCustoms represents array of ir.ui.view.custom model.
@@ -37,7 +37,7 @@ func (c *Client) CreateIrUiViewCustom(iuvc *IrUiViewCustom) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiViewCustom creates a new ir.ui.view.custom model and returns its id.
+// CreateIrUiViewCustoms creates a new ir.ui.view.custom model and returns its id.
 func (c *Client) CreateIrUiViewCustoms(iuvcs []*IrUiViewCustom) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iuvcs {

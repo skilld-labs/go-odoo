@@ -2,9 +2,9 @@ package odoo
 
 // ReportHrHolidaysReportHolidayssummary represents report.hr_holidays.report_holidayssummary model.
 type ReportHrHolidaysReportHolidayssummary struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // ReportHrHolidaysReportHolidayssummarys represents array of report.hr_holidays.report_holidayssummary model.
@@ -30,7 +30,7 @@ func (c *Client) CreateReportHrHolidaysReportHolidayssummary(rhr *ReportHrHolida
 	return ids[0], nil
 }
 
-// CreateReportHrHolidaysReportHolidayssummary creates a new report.hr_holidays.report_holidayssummary model and returns its id.
+// CreateReportHrHolidaysReportHolidayssummarys creates a new report.hr_holidays.report_holidayssummary model and returns its id.
 func (c *Client) CreateReportHrHolidaysReportHolidayssummarys(rhrs []*ReportHrHolidaysReportHolidayssummary) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rhrs {

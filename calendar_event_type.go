@@ -2,14 +2,14 @@ package odoo
 
 // CalendarEventType represents calendar.event.type model.
 type CalendarEventType struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarEventTypes represents array of calendar.event.type model.
@@ -35,7 +35,7 @@ func (c *Client) CreateCalendarEventType(cet *CalendarEventType) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateCalendarEventType creates a new calendar.event.type model and returns its id.
+// CreateCalendarEventTypes creates a new calendar.event.type model and returns its id.
 func (c *Client) CreateCalendarEventTypes(cets []*CalendarEventType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cets {

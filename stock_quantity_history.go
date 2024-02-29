@@ -2,15 +2,15 @@ package odoo
 
 // StockQuantityHistory represents stock.quantity.history model.
 type StockQuantityHistory struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
-	ComputeAtDate *Selection `xmlrpc:"compute_at_date,omptempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Date          *Time      `xmlrpc:"date,omptempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
-	Id            *Int       `xmlrpc:"id,omptempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
+	ComputeAtDate *Selection `xmlrpc:"compute_at_date,omitempty"`
+	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Date          *Time      `xmlrpc:"date,omitempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
+	Id            *Int       `xmlrpc:"id,omitempty"`
+	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockQuantityHistorys represents array of stock.quantity.history model.
@@ -36,7 +36,7 @@ func (c *Client) CreateStockQuantityHistory(sqh *StockQuantityHistory) (int64, e
 	return ids[0], nil
 }
 
-// CreateStockQuantityHistory creates a new stock.quantity.history model and returns its id.
+// CreateStockQuantityHistorys creates a new stock.quantity.history model and returns its id.
 func (c *Client) CreateStockQuantityHistorys(sqhs []*StockQuantityHistory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sqhs {

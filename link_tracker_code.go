@@ -2,15 +2,15 @@ package odoo
 
 // LinkTrackerCode represents link.tracker.code model.
 type LinkTrackerCode struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Code        *String   `xmlrpc:"code,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	LinkId      *Many2One `xmlrpc:"link_id,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Code        *String   `xmlrpc:"code,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	LinkId      *Many2One `xmlrpc:"link_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // LinkTrackerCodes represents array of link.tracker.code model.
@@ -36,7 +36,7 @@ func (c *Client) CreateLinkTrackerCode(ltc *LinkTrackerCode) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateLinkTrackerCode creates a new link.tracker.code model and returns its id.
+// CreateLinkTrackerCodes creates a new link.tracker.code model and returns its id.
 func (c *Client) CreateLinkTrackerCodes(ltcs []*LinkTrackerCode) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ltcs {

@@ -2,15 +2,15 @@ package odoo
 
 // DecimalPrecision represents decimal.precision model.
 type DecimalPrecision struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	Digits      *Int      `xmlrpc:"digits,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	Digits      *Int      `xmlrpc:"digits,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // DecimalPrecisions represents array of decimal.precision model.
@@ -36,7 +36,7 @@ func (c *Client) CreateDecimalPrecision(dp *DecimalPrecision) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateDecimalPrecision creates a new decimal.precision model and returns its id.
+// CreateDecimalPrecisions creates a new decimal.precision model and returns its id.
 func (c *Client) CreateDecimalPrecisions(dps []*DecimalPrecision) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range dps {

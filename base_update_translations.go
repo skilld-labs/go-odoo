@@ -2,14 +2,14 @@ package odoo
 
 // BaseUpdateTranslations represents base.update.translations model.
 type BaseUpdateTranslations struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	Lang        *Selection `xmlrpc:"lang,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Lang        *Selection `xmlrpc:"lang,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseUpdateTranslationss represents array of base.update.translations model.
@@ -35,7 +35,7 @@ func (c *Client) CreateBaseUpdateTranslations(but *BaseUpdateTranslations) (int6
 	return ids[0], nil
 }
 
-// CreateBaseUpdateTranslations creates a new base.update.translations model and returns its id.
+// CreateBaseUpdateTranslationss creates a new base.update.translations model and returns its id.
 func (c *Client) CreateBaseUpdateTranslationss(buts []*BaseUpdateTranslations) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range buts {

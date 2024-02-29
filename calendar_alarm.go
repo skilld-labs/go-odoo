@@ -2,18 +2,18 @@ package odoo
 
 // CalendarAlarm represents calendar.alarm model.
 type CalendarAlarm struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	Duration        *Int       `xmlrpc:"duration,omptempty"`
-	DurationMinutes *Int       `xmlrpc:"duration_minutes,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	Interval        *Selection `xmlrpc:"interval,omptempty"`
-	Name            *String    `xmlrpc:"name,omptempty"`
-	Type            *Selection `xmlrpc:"type,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Duration        *Int       `xmlrpc:"duration,omitempty"`
+	DurationMinutes *Int       `xmlrpc:"duration_minutes,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	Interval        *Selection `xmlrpc:"interval,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	Type            *Selection `xmlrpc:"type,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarAlarms represents array of calendar.alarm model.
@@ -39,7 +39,7 @@ func (c *Client) CreateCalendarAlarm(ca *CalendarAlarm) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarAlarm creates a new calendar.alarm model and returns its id.
+// CreateCalendarAlarms creates a new calendar.alarm model and returns its id.
 func (c *Client) CreateCalendarAlarms(cas []*CalendarAlarm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cas {

@@ -2,22 +2,22 @@ package odoo
 
 // IrModelData represents ir.model.data model.
 type IrModelData struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omptempty"`
-	CompleteName *String   `xmlrpc:"complete_name,omptempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omptempty"`
-	DateInit     *Time     `xmlrpc:"date_init,omptempty"`
-	DateUpdate   *Time     `xmlrpc:"date_update,omptempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omptempty"`
-	Id           *Int      `xmlrpc:"id,omptempty"`
-	Model        *String   `xmlrpc:"model,omptempty"`
-	Module       *String   `xmlrpc:"module,omptempty"`
-	Name         *String   `xmlrpc:"name,omptempty"`
-	Noupdate     *Bool     `xmlrpc:"noupdate,omptempty"`
-	Reference    *String   `xmlrpc:"reference,omptempty"`
-	ResId        *Int      `xmlrpc:"res_id,omptempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
+	CompleteName *String   `xmlrpc:"complete_name,omitempty"`
+	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
+	DateInit     *Time     `xmlrpc:"date_init,omitempty"`
+	DateUpdate   *Time     `xmlrpc:"date_update,omitempty"`
+	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
+	Id           *Int      `xmlrpc:"id,omitempty"`
+	Model        *String   `xmlrpc:"model,omitempty"`
+	Module       *String   `xmlrpc:"module,omitempty"`
+	Name         *String   `xmlrpc:"name,omitempty"`
+	Noupdate     *Bool     `xmlrpc:"noupdate,omitempty"`
+	Reference    *String   `xmlrpc:"reference,omitempty"`
+	ResId        *Int      `xmlrpc:"res_id,omitempty"`
+	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrModelDatas represents array of ir.model.data model.
@@ -43,7 +43,7 @@ func (c *Client) CreateIrModelData(imd *IrModelData) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelData creates a new ir.model.data model and returns its id.
+// CreateIrModelDatas creates a new ir.model.data model and returns its id.
 func (c *Client) CreateIrModelDatas(imds []*IrModelData) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imds {

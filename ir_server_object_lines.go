@@ -2,17 +2,17 @@ package odoo
 
 // IrServerObjectLines represents ir.server.object.lines model.
 type IrServerObjectLines struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	Col1        *Many2One  `xmlrpc:"col1,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	ServerId    *Many2One  `xmlrpc:"server_id,omptempty"`
-	Type        *Selection `xmlrpc:"type,omptempty"`
-	Value       *String    `xmlrpc:"value,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	Col1        *Many2One  `xmlrpc:"col1,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	ServerId    *Many2One  `xmlrpc:"server_id,omitempty"`
+	Type        *Selection `xmlrpc:"type,omitempty"`
+	Value       *String    `xmlrpc:"value,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrServerObjectLiness represents array of ir.server.object.lines model.
@@ -38,7 +38,7 @@ func (c *Client) CreateIrServerObjectLines(isol *IrServerObjectLines) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrServerObjectLines creates a new ir.server.object.lines model and returns its id.
+// CreateIrServerObjectLiness creates a new ir.server.object.lines model and returns its id.
 func (c *Client) CreateIrServerObjectLiness(isols []*IrServerObjectLines) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range isols {

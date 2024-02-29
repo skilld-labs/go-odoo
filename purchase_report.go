@@ -2,35 +2,35 @@ package odoo
 
 // PurchaseReport represents purchase.report model.
 type PurchaseReport struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountAnalyticId   *Many2One  `xmlrpc:"account_analytic_id,omptempty"`
-	CategoryId          *Many2One  `xmlrpc:"category_id,omptempty"`
-	CommercialPartnerId *Many2One  `xmlrpc:"commercial_partner_id,omptempty"`
-	CompanyId           *Many2One  `xmlrpc:"company_id,omptempty"`
-	CountryId           *Many2One  `xmlrpc:"country_id,omptempty"`
-	CurrencyId          *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DateApprove         *Time      `xmlrpc:"date_approve,omptempty"`
-	DateOrder           *Time      `xmlrpc:"date_order,omptempty"`
-	Delay               *Float     `xmlrpc:"delay,omptempty"`
-	DelayPass           *Float     `xmlrpc:"delay_pass,omptempty"`
-	DisplayName         *String    `xmlrpc:"display_name,omptempty"`
-	FiscalPositionId    *Many2One  `xmlrpc:"fiscal_position_id,omptempty"`
-	Id                  *Int       `xmlrpc:"id,omptempty"`
-	NbrLines            *Int       `xmlrpc:"nbr_lines,omptempty"`
-	Negociation         *Float     `xmlrpc:"negociation,omptempty"`
-	PartnerId           *Many2One  `xmlrpc:"partner_id,omptempty"`
-	PickingTypeId       *Many2One  `xmlrpc:"picking_type_id,omptempty"`
-	PriceAverage        *Float     `xmlrpc:"price_average,omptempty"`
-	PriceStandard       *Float     `xmlrpc:"price_standard,omptempty"`
-	PriceTotal          *Float     `xmlrpc:"price_total,omptempty"`
-	ProductId           *Many2One  `xmlrpc:"product_id,omptempty"`
-	ProductTmplId       *Many2One  `xmlrpc:"product_tmpl_id,omptempty"`
-	ProductUom          *Many2One  `xmlrpc:"product_uom,omptempty"`
-	State               *Selection `xmlrpc:"state,omptempty"`
-	UnitQuantity        *Float     `xmlrpc:"unit_quantity,omptempty"`
-	UserId              *Many2One  `xmlrpc:"user_id,omptempty"`
-	Volume              *Float     `xmlrpc:"volume,omptempty"`
-	Weight              *Float     `xmlrpc:"weight,omptempty"`
+	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountAnalyticId   *Many2One  `xmlrpc:"account_analytic_id,omitempty"`
+	CategoryId          *Many2One  `xmlrpc:"category_id,omitempty"`
+	CommercialPartnerId *Many2One  `xmlrpc:"commercial_partner_id,omitempty"`
+	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
+	CountryId           *Many2One  `xmlrpc:"country_id,omitempty"`
+	CurrencyId          *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DateApprove         *Time      `xmlrpc:"date_approve,omitempty"`
+	DateOrder           *Time      `xmlrpc:"date_order,omitempty"`
+	Delay               *Float     `xmlrpc:"delay,omitempty"`
+	DelayPass           *Float     `xmlrpc:"delay_pass,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	FiscalPositionId    *Many2One  `xmlrpc:"fiscal_position_id,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	NbrLines            *Int       `xmlrpc:"nbr_lines,omitempty"`
+	Negociation         *Float     `xmlrpc:"negociation,omitempty"`
+	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PickingTypeId       *Many2One  `xmlrpc:"picking_type_id,omitempty"`
+	PriceAverage        *Float     `xmlrpc:"price_average,omitempty"`
+	PriceStandard       *Float     `xmlrpc:"price_standard,omitempty"`
+	PriceTotal          *Float     `xmlrpc:"price_total,omitempty"`
+	ProductId           *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductTmplId       *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
+	ProductUom          *Many2One  `xmlrpc:"product_uom,omitempty"`
+	State               *Selection `xmlrpc:"state,omitempty"`
+	UnitQuantity        *Float     `xmlrpc:"unit_quantity,omitempty"`
+	UserId              *Many2One  `xmlrpc:"user_id,omitempty"`
+	Volume              *Float     `xmlrpc:"volume,omitempty"`
+	Weight              *Float     `xmlrpc:"weight,omitempty"`
 }
 
 // PurchaseReports represents array of purchase.report model.
@@ -56,7 +56,7 @@ func (c *Client) CreatePurchaseReport(pr *PurchaseReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePurchaseReport creates a new purchase.report model and returns its id.
+// CreatePurchaseReports creates a new purchase.report model and returns its id.
 func (c *Client) CreatePurchaseReports(prs []*PurchaseReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

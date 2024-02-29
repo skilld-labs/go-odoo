@@ -2,17 +2,17 @@ package odoo
 
 // AccountBankAccountsWizard represents account.bank.accounts.wizard model.
 type AccountBankAccountsWizard struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
-	AccName       *String    `xmlrpc:"acc_name,omptempty"`
-	AccountType   *Selection `xmlrpc:"account_type,omptempty"`
-	BankAccountId *Many2One  `xmlrpc:"bank_account_id,omptempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId    *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
-	Id            *Int       `xmlrpc:"id,omptempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
+	AccName       *String    `xmlrpc:"acc_name,omitempty"`
+	AccountType   *Selection `xmlrpc:"account_type,omitempty"`
+	BankAccountId *Many2One  `xmlrpc:"bank_account_id,omitempty"`
+	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId    *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
+	Id            *Int       `xmlrpc:"id,omitempty"`
+	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountBankAccountsWizards represents array of account.bank.accounts.wizard model.
@@ -38,7 +38,7 @@ func (c *Client) CreateAccountBankAccountsWizard(abaw *AccountBankAccountsWizard
 	return ids[0], nil
 }
 
-// CreateAccountBankAccountsWizard creates a new account.bank.accounts.wizard model and returns its id.
+// CreateAccountBankAccountsWizards creates a new account.bank.accounts.wizard model and returns its id.
 func (c *Client) CreateAccountBankAccountsWizards(abaws []*AccountBankAccountsWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abaws {

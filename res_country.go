@@ -2,24 +2,24 @@ package odoo
 
 // ResCountry represents res.country model.
 type ResCountry struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	AddressFormat   *String    `xmlrpc:"address_format,omptempty"`
-	AddressViewId   *Many2One  `xmlrpc:"address_view_id,omptempty"`
-	Code            *String    `xmlrpc:"code,omptempty"`
-	CountryGroupIds *Relation  `xmlrpc:"country_group_ids,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId      *Many2One  `xmlrpc:"currency_id,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	Image           *String    `xmlrpc:"image,omptempty"`
-	Name            *String    `xmlrpc:"name,omptempty"`
-	NamePosition    *Selection `xmlrpc:"name_position,omptempty"`
-	PhoneCode       *Int       `xmlrpc:"phone_code,omptempty"`
-	StateIds        *Relation  `xmlrpc:"state_ids,omptempty"`
-	VatLabel        *String    `xmlrpc:"vat_label,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	AddressFormat   *String    `xmlrpc:"address_format,omitempty"`
+	AddressViewId   *Many2One  `xmlrpc:"address_view_id,omitempty"`
+	Code            *String    `xmlrpc:"code,omitempty"`
+	CountryGroupIds *Relation  `xmlrpc:"country_group_ids,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId      *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	Image           *String    `xmlrpc:"image,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	NamePosition    *Selection `xmlrpc:"name_position,omitempty"`
+	PhoneCode       *Int       `xmlrpc:"phone_code,omitempty"`
+	StateIds        *Relation  `xmlrpc:"state_ids,omitempty"`
+	VatLabel        *String    `xmlrpc:"vat_label,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResCountrys represents array of res.country model.
@@ -45,7 +45,7 @@ func (c *Client) CreateResCountry(rc *ResCountry) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountry creates a new res.country model and returns its id.
+// CreateResCountrys creates a new res.country model and returns its id.
 func (c *Client) CreateResCountrys(rcs []*ResCountry) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

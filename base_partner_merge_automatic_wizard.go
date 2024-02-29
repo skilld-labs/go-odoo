@@ -2,27 +2,27 @@ package odoo
 
 // BasePartnerMergeAutomaticWizard represents base.partner.merge.automatic.wizard model.
 type BasePartnerMergeAutomaticWizard struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate         *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid          *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrentLineId      *Many2One  `xmlrpc:"current_line_id,omptempty"`
-	DisplayName        *String    `xmlrpc:"display_name,omptempty"`
-	DstPartnerId       *Many2One  `xmlrpc:"dst_partner_id,omptempty"`
-	ExcludeContact     *Bool      `xmlrpc:"exclude_contact,omptempty"`
-	ExcludeJournalItem *Bool      `xmlrpc:"exclude_journal_item,omptempty"`
-	GroupByEmail       *Bool      `xmlrpc:"group_by_email,omptempty"`
-	GroupByIsCompany   *Bool      `xmlrpc:"group_by_is_company,omptempty"`
-	GroupByName        *Bool      `xmlrpc:"group_by_name,omptempty"`
-	GroupByParentId    *Bool      `xmlrpc:"group_by_parent_id,omptempty"`
-	GroupByVat         *Bool      `xmlrpc:"group_by_vat,omptempty"`
-	Id                 *Int       `xmlrpc:"id,omptempty"`
-	LineIds            *Relation  `xmlrpc:"line_ids,omptempty"`
-	MaximumGroup       *Int       `xmlrpc:"maximum_group,omptempty"`
-	NumberGroup        *Int       `xmlrpc:"number_group,omptempty"`
-	PartnerIds         *Relation  `xmlrpc:"partner_ids,omptempty"`
-	State              *Selection `xmlrpc:"state,omptempty"`
-	WriteDate          *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid           *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrentLineId      *Many2One  `xmlrpc:"current_line_id,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	DstPartnerId       *Many2One  `xmlrpc:"dst_partner_id,omitempty"`
+	ExcludeContact     *Bool      `xmlrpc:"exclude_contact,omitempty"`
+	ExcludeJournalItem *Bool      `xmlrpc:"exclude_journal_item,omitempty"`
+	GroupByEmail       *Bool      `xmlrpc:"group_by_email,omitempty"`
+	GroupByIsCompany   *Bool      `xmlrpc:"group_by_is_company,omitempty"`
+	GroupByName        *Bool      `xmlrpc:"group_by_name,omitempty"`
+	GroupByParentId    *Bool      `xmlrpc:"group_by_parent_id,omitempty"`
+	GroupByVat         *Bool      `xmlrpc:"group_by_vat,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	LineIds            *Relation  `xmlrpc:"line_ids,omitempty"`
+	MaximumGroup       *Int       `xmlrpc:"maximum_group,omitempty"`
+	NumberGroup        *Int       `xmlrpc:"number_group,omitempty"`
+	PartnerIds         *Relation  `xmlrpc:"partner_ids,omitempty"`
+	State              *Selection `xmlrpc:"state,omitempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // BasePartnerMergeAutomaticWizards represents array of base.partner.merge.automatic.wizard model.
@@ -48,7 +48,7 @@ func (c *Client) CreateBasePartnerMergeAutomaticWizard(bpmaw *BasePartnerMergeAu
 	return ids[0], nil
 }
 
-// CreateBasePartnerMergeAutomaticWizard creates a new base.partner.merge.automatic.wizard model and returns its id.
+// CreateBasePartnerMergeAutomaticWizards creates a new base.partner.merge.automatic.wizard model and returns its id.
 func (c *Client) CreateBasePartnerMergeAutomaticWizards(bpmaws []*BasePartnerMergeAutomaticWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bpmaws {

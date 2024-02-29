@@ -2,24 +2,24 @@ package odoo
 
 // ResPartnerBank represents res.partner.bank model.
 type ResPartnerBank struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	AccNumber          *String   `xmlrpc:"acc_number,omptempty"`
-	AccType            *String   `xmlrpc:"acc_type,omptempty"`
-	BankBic            *String   `xmlrpc:"bank_bic,omptempty"`
-	BankId             *Many2One `xmlrpc:"bank_id,omptempty"`
-	BankName           *String   `xmlrpc:"bank_name,omptempty"`
-	CompanyId          *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate         *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omptempty"`
-	CurrencyId         *Many2One `xmlrpc:"currency_id,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	JournalId          *Relation `xmlrpc:"journal_id,omptempty"`
-	PartnerId          *Many2One `xmlrpc:"partner_id,omptempty"`
-	SanitizedAccNumber *String   `xmlrpc:"sanitized_acc_number,omptempty"`
-	Sequence           *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	AccNumber          *String   `xmlrpc:"acc_number,omitempty"`
+	AccType            *String   `xmlrpc:"acc_type,omitempty"`
+	BankBic            *String   `xmlrpc:"bank_bic,omitempty"`
+	BankId             *Many2One `xmlrpc:"bank_id,omitempty"`
+	BankName           *String   `xmlrpc:"bank_name,omitempty"`
+	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId         *Many2One `xmlrpc:"currency_id,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	JournalId          *Relation `xmlrpc:"journal_id,omitempty"`
+	PartnerId          *Many2One `xmlrpc:"partner_id,omitempty"`
+	SanitizedAccNumber *String   `xmlrpc:"sanitized_acc_number,omitempty"`
+	Sequence           *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResPartnerBanks represents array of res.partner.bank model.
@@ -45,7 +45,7 @@ func (c *Client) CreateResPartnerBank(rpb *ResPartnerBank) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResPartnerBank creates a new res.partner.bank model and returns its id.
+// CreateResPartnerBanks creates a new res.partner.bank model and returns its id.
 func (c *Client) CreateResPartnerBanks(rpbs []*ResPartnerBank) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpbs {

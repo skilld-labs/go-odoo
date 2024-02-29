@@ -2,17 +2,17 @@ package odoo
 
 // IrModuleModuleExclusion represents ir.module.module.exclusion model.
 type IrModuleModuleExclusion struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	ExclusionId *Many2One  `xmlrpc:"exclusion_id,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	ModuleId    *Many2One  `xmlrpc:"module_id,omptempty"`
-	Name        *String    `xmlrpc:"name,omptempty"`
-	State       *Selection `xmlrpc:"state,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	ExclusionId *Many2One  `xmlrpc:"exclusion_id,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	ModuleId    *Many2One  `xmlrpc:"module_id,omitempty"`
+	Name        *String    `xmlrpc:"name,omitempty"`
+	State       *Selection `xmlrpc:"state,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrModuleModuleExclusions represents array of ir.module.module.exclusion model.
@@ -38,7 +38,7 @@ func (c *Client) CreateIrModuleModuleExclusion(imme *IrModuleModuleExclusion) (i
 	return ids[0], nil
 }
 
-// CreateIrModuleModuleExclusion creates a new ir.module.module.exclusion model and returns its id.
+// CreateIrModuleModuleExclusions creates a new ir.module.module.exclusion model and returns its id.
 func (c *Client) CreateIrModuleModuleExclusions(immes []*IrModuleModuleExclusion) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range immes {

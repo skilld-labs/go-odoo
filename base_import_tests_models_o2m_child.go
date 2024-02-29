@@ -2,15 +2,15 @@ package odoo
 
 // BaseImportTestsModelsO2MChild represents base_import.tests.models.o2m.child model.
 type BaseImportTestsModelsO2MChild struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omptempty"`
-	Value       *Int      `xmlrpc:"value,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
+	Value       *Int      `xmlrpc:"value,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseImportTestsModelsO2MChilds represents array of base_import.tests.models.o2m.child model.
@@ -36,7 +36,7 @@ func (c *Client) CreateBaseImportTestsModelsO2MChild(btmoc *BaseImportTestsModel
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsO2MChild creates a new base_import.tests.models.o2m.child model and returns its id.
+// CreateBaseImportTestsModelsO2MChilds creates a new base_import.tests.models.o2m.child model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsO2MChilds(btmocs []*BaseImportTestsModelsO2MChild) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmocs {

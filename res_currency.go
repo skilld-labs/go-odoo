@@ -2,24 +2,24 @@ package odoo
 
 // ResCurrency represents res.currency model.
 type ResCurrency struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omptempty"`
-	Active               *Bool      `xmlrpc:"active,omptempty"`
-	CreateDate           *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid            *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencySubunitLabel *String    `xmlrpc:"currency_subunit_label,omptempty"`
-	CurrencyUnitLabel    *String    `xmlrpc:"currency_unit_label,omptempty"`
-	Date                 *Time      `xmlrpc:"date,omptempty"`
-	DecimalPlaces        *Int       `xmlrpc:"decimal_places,omptempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omptempty"`
-	Id                   *Int       `xmlrpc:"id,omptempty"`
-	Name                 *String    `xmlrpc:"name,omptempty"`
-	Position             *Selection `xmlrpc:"position,omptempty"`
-	Rate                 *Float     `xmlrpc:"rate,omptempty"`
-	RateIds              *Relation  `xmlrpc:"rate_ids,omptempty"`
-	Rounding             *Float     `xmlrpc:"rounding,omptempty"`
-	Symbol               *String    `xmlrpc:"symbol,omptempty"`
-	WriteDate            *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid             *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
+	Active               *Bool      `xmlrpc:"active,omitempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencySubunitLabel *String    `xmlrpc:"currency_subunit_label,omitempty"`
+	CurrencyUnitLabel    *String    `xmlrpc:"currency_unit_label,omitempty"`
+	Date                 *Time      `xmlrpc:"date,omitempty"`
+	DecimalPlaces        *Int       `xmlrpc:"decimal_places,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
+	Name                 *String    `xmlrpc:"name,omitempty"`
+	Position             *Selection `xmlrpc:"position,omitempty"`
+	Rate                 *Float     `xmlrpc:"rate,omitempty"`
+	RateIds              *Relation  `xmlrpc:"rate_ids,omitempty"`
+	Rounding             *Float     `xmlrpc:"rounding,omitempty"`
+	Symbol               *String    `xmlrpc:"symbol,omitempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResCurrencys represents array of res.currency model.
@@ -45,7 +45,7 @@ func (c *Client) CreateResCurrency(rc *ResCurrency) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCurrency creates a new res.currency model and returns its id.
+// CreateResCurrencys creates a new res.currency model and returns its id.
 func (c *Client) CreateResCurrencys(rcs []*ResCurrency) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

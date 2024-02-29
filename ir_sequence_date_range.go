@@ -2,18 +2,18 @@ package odoo
 
 // IrSequenceDateRange represents ir.sequence.date_range model.
 type IrSequenceDateRange struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omptempty"`
-	DateFrom         *Time     `xmlrpc:"date_from,omptempty"`
-	DateTo           *Time     `xmlrpc:"date_to,omptempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omptempty"`
-	Id               *Int      `xmlrpc:"id,omptempty"`
-	NumberNext       *Int      `xmlrpc:"number_next,omptempty"`
-	NumberNextActual *Int      `xmlrpc:"number_next_actual,omptempty"`
-	SequenceId       *Many2One `xmlrpc:"sequence_id,omptempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
+	DateFrom         *Time     `xmlrpc:"date_from,omitempty"`
+	DateTo           *Time     `xmlrpc:"date_to,omitempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
+	Id               *Int      `xmlrpc:"id,omitempty"`
+	NumberNext       *Int      `xmlrpc:"number_next,omitempty"`
+	NumberNextActual *Int      `xmlrpc:"number_next_actual,omitempty"`
+	SequenceId       *Many2One `xmlrpc:"sequence_id,omitempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrSequenceDateRanges represents array of ir.sequence.date_range model.
@@ -39,7 +39,7 @@ func (c *Client) CreateIrSequenceDateRange(isd *IrSequenceDateRange) (int64, err
 	return ids[0], nil
 }
 
-// CreateIrSequenceDateRange creates a new ir.sequence.date_range model and returns its id.
+// CreateIrSequenceDateRanges creates a new ir.sequence.date_range model and returns its id.
 func (c *Client) CreateIrSequenceDateRanges(isds []*IrSequenceDateRange) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range isds {

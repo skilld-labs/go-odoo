@@ -2,12 +2,12 @@ package odoo
 
 // ResourceMixin represents resource.mixin model.
 type ResourceMixin struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	CompanyId          *Many2One `xmlrpc:"company_id,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	ResourceCalendarId *Many2One `xmlrpc:"resource_calendar_id,omptempty"`
-	ResourceId         *Many2One `xmlrpc:"resource_id,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	ResourceCalendarId *Many2One `xmlrpc:"resource_calendar_id,omitempty"`
+	ResourceId         *Many2One `xmlrpc:"resource_id,omitempty"`
 }
 
 // ResourceMixins represents array of resource.mixin model.
@@ -33,7 +33,7 @@ func (c *Client) CreateResourceMixin(rm *ResourceMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceMixin creates a new resource.mixin model and returns its id.
+// CreateResourceMixins creates a new resource.mixin model and returns its id.
 func (c *Client) CreateResourceMixins(rms []*ResourceMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rms {

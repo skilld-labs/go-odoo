@@ -2,19 +2,19 @@ package odoo
 
 // AccountBalanceReport represents account.balance.report model.
 type AccountBalanceReport struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateFrom       *Time      `xmlrpc:"date_from,omptempty"`
-	DateTo         *Time      `xmlrpc:"date_to,omptempty"`
-	DisplayAccount *Selection `xmlrpc:"display_account,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	JournalIds     *Relation  `xmlrpc:"journal_ids,omptempty"`
-	TargetMove     *Selection `xmlrpc:"target_move,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom       *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo         *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayAccount *Selection `xmlrpc:"display_account,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	JournalIds     *Relation  `xmlrpc:"journal_ids,omitempty"`
+	TargetMove     *Selection `xmlrpc:"target_move,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountBalanceReports represents array of account.balance.report model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountBalanceReport(abr *AccountBalanceReport) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountBalanceReport creates a new account.balance.report model and returns its id.
+// CreateAccountBalanceReports creates a new account.balance.report model and returns its id.
 func (c *Client) CreateAccountBalanceReports(abrs []*AccountBalanceReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range abrs {

@@ -2,22 +2,22 @@ package odoo
 
 // IrMailServer represents ir.mail_server model.
 type IrMailServer struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	Active         *Bool      `xmlrpc:"active,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	Name           *String    `xmlrpc:"name,omptempty"`
-	Sequence       *Int       `xmlrpc:"sequence,omptempty"`
-	SmtpDebug      *Bool      `xmlrpc:"smtp_debug,omptempty"`
-	SmtpEncryption *Selection `xmlrpc:"smtp_encryption,omptempty"`
-	SmtpHost       *String    `xmlrpc:"smtp_host,omptempty"`
-	SmtpPass       *String    `xmlrpc:"smtp_pass,omptempty"`
-	SmtpPort       *Int       `xmlrpc:"smtp_port,omptempty"`
-	SmtpUser       *String    `xmlrpc:"smtp_user,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	Active         *Bool      `xmlrpc:"active,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	Sequence       *Int       `xmlrpc:"sequence,omitempty"`
+	SmtpDebug      *Bool      `xmlrpc:"smtp_debug,omitempty"`
+	SmtpEncryption *Selection `xmlrpc:"smtp_encryption,omitempty"`
+	SmtpHost       *String    `xmlrpc:"smtp_host,omitempty"`
+	SmtpPass       *String    `xmlrpc:"smtp_pass,omitempty"`
+	SmtpPort       *Int       `xmlrpc:"smtp_port,omitempty"`
+	SmtpUser       *String    `xmlrpc:"smtp_user,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrMailServers represents array of ir.mail_server model.
@@ -43,7 +43,7 @@ func (c *Client) CreateIrMailServer(im *IrMailServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrMailServer creates a new ir.mail_server model and returns its id.
+// CreateIrMailServers creates a new ir.mail_server model and returns its id.
 func (c *Client) CreateIrMailServers(ims []*IrMailServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ims {

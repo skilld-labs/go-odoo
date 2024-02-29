@@ -2,13 +2,13 @@ package odoo
 
 // BusPresence represents bus.presence model.
 type BusPresence struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omptempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omptempty"`
-	Id           *Int       `xmlrpc:"id,omptempty"`
-	LastPoll     *Time      `xmlrpc:"last_poll,omptempty"`
-	LastPresence *Time      `xmlrpc:"last_presence,omptempty"`
-	Status       *Selection `xmlrpc:"status,omptempty"`
-	UserId       *Many2One  `xmlrpc:"user_id,omptempty"`
+	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
+	Id           *Int       `xmlrpc:"id,omitempty"`
+	LastPoll     *Time      `xmlrpc:"last_poll,omitempty"`
+	LastPresence *Time      `xmlrpc:"last_presence,omitempty"`
+	Status       *Selection `xmlrpc:"status,omitempty"`
+	UserId       *Many2One  `xmlrpc:"user_id,omitempty"`
 }
 
 // BusPresences represents array of bus.presence model.
@@ -34,7 +34,7 @@ func (c *Client) CreateBusPresence(bp *BusPresence) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBusPresence creates a new bus.presence model and returns its id.
+// CreateBusPresences creates a new bus.presence model and returns its id.
 func (c *Client) CreateBusPresences(bps []*BusPresence) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bps {

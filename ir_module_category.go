@@ -2,23 +2,23 @@ package odoo
 
 // IrModuleCategory represents ir.module.category model.
 type IrModuleCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	ChildIds    *Relation `xmlrpc:"child_ids,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	Description *String   `xmlrpc:"description,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Exclusive   *Bool     `xmlrpc:"exclusive,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	ModuleIds   *Relation `xmlrpc:"module_ids,omptempty"`
-	ModuleNr    *Int      `xmlrpc:"module_nr,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omptempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omptempty"`
-	Visible     *Bool     `xmlrpc:"visible,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
-	XmlId       *String   `xmlrpc:"xml_id,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	Description *String   `xmlrpc:"description,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Exclusive   *Bool     `xmlrpc:"exclusive,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	ModuleIds   *Relation `xmlrpc:"module_ids,omitempty"`
+	ModuleNr    *Int      `xmlrpc:"module_nr,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
+	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
+	Visible     *Bool     `xmlrpc:"visible,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	XmlId       *String   `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrModuleCategorys represents array of ir.module.category model.
@@ -44,7 +44,7 @@ func (c *Client) CreateIrModuleCategory(imc *IrModuleCategory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleCategory creates a new ir.module.category model and returns its id.
+// CreateIrModuleCategorys creates a new ir.module.category model and returns its id.
 func (c *Client) CreateIrModuleCategorys(imcs []*IrModuleCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imcs {

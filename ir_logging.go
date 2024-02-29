@@ -2,21 +2,21 @@ package odoo
 
 // IrLogging represents ir.logging model.
 type IrLogging struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Int       `xmlrpc:"create_uid,omptempty"`
-	Dbname      *String    `xmlrpc:"dbname,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Func        *String    `xmlrpc:"func,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	Level       *String    `xmlrpc:"level,omptempty"`
-	Line        *String    `xmlrpc:"line,omptempty"`
-	Message     *String    `xmlrpc:"message,omptempty"`
-	Name        *String    `xmlrpc:"name,omptempty"`
-	Path        *String    `xmlrpc:"path,omptempty"`
-	Type        *Selection `xmlrpc:"type,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Int       `xmlrpc:"create_uid,omitempty"`
+	Dbname      *String    `xmlrpc:"dbname,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Func        *String    `xmlrpc:"func,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Level       *String    `xmlrpc:"level,omitempty"`
+	Line        *String    `xmlrpc:"line,omitempty"`
+	Message     *String    `xmlrpc:"message,omitempty"`
+	Name        *String    `xmlrpc:"name,omitempty"`
+	Path        *String    `xmlrpc:"path,omitempty"`
+	Type        *Selection `xmlrpc:"type,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrLoggings represents array of ir.logging model.
@@ -42,7 +42,7 @@ func (c *Client) CreateIrLogging(il *IrLogging) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrLogging creates a new ir.logging model and returns its id.
+// CreateIrLoggings creates a new ir.logging model and returns its id.
 func (c *Client) CreateIrLoggings(ils []*IrLogging) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ils {

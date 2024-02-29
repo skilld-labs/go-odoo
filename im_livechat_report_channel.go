@@ -2,20 +2,20 @@ package odoo
 
 // ImLivechatReportChannel represents im_livechat.report.channel model.
 type ImLivechatReportChannel struct {
-	LastUpdate        *Time     `xmlrpc:"__last_update,omptempty"`
-	ChannelId         *Many2One `xmlrpc:"channel_id,omptempty"`
-	ChannelName       *String   `xmlrpc:"channel_name,omptempty"`
-	DisplayName       *String   `xmlrpc:"display_name,omptempty"`
-	Duration          *Float    `xmlrpc:"duration,omptempty"`
-	Id                *Int      `xmlrpc:"id,omptempty"`
-	LivechatChannelId *Many2One `xmlrpc:"livechat_channel_id,omptempty"`
-	NbrMessage        *Int      `xmlrpc:"nbr_message,omptempty"`
-	NbrSpeaker        *Int      `xmlrpc:"nbr_speaker,omptempty"`
-	PartnerId         *Many2One `xmlrpc:"partner_id,omptempty"`
-	StartDate         *Time     `xmlrpc:"start_date,omptempty"`
-	StartDateHour     *String   `xmlrpc:"start_date_hour,omptempty"`
-	TechnicalName     *String   `xmlrpc:"technical_name,omptempty"`
-	Uuid              *String   `xmlrpc:"uuid,omptempty"`
+	LastUpdate        *Time     `xmlrpc:"__last_update,omitempty"`
+	ChannelId         *Many2One `xmlrpc:"channel_id,omitempty"`
+	ChannelName       *String   `xmlrpc:"channel_name,omitempty"`
+	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
+	Duration          *Float    `xmlrpc:"duration,omitempty"`
+	Id                *Int      `xmlrpc:"id,omitempty"`
+	LivechatChannelId *Many2One `xmlrpc:"livechat_channel_id,omitempty"`
+	NbrMessage        *Int      `xmlrpc:"nbr_message,omitempty"`
+	NbrSpeaker        *Int      `xmlrpc:"nbr_speaker,omitempty"`
+	PartnerId         *Many2One `xmlrpc:"partner_id,omitempty"`
+	StartDate         *Time     `xmlrpc:"start_date,omitempty"`
+	StartDateHour     *String   `xmlrpc:"start_date_hour,omitempty"`
+	TechnicalName     *String   `xmlrpc:"technical_name,omitempty"`
+	Uuid              *String   `xmlrpc:"uuid,omitempty"`
 }
 
 // ImLivechatReportChannels represents array of im_livechat.report.channel model.
@@ -41,7 +41,7 @@ func (c *Client) CreateImLivechatReportChannel(irc *ImLivechatReportChannel) (in
 	return ids[0], nil
 }
 
-// CreateImLivechatReportChannel creates a new im_livechat.report.channel model and returns its id.
+// CreateImLivechatReportChannels creates a new im_livechat.report.channel model and returns its id.
 func (c *Client) CreateImLivechatReportChannels(ircs []*ImLivechatReportChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ircs {

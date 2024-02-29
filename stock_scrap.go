@@ -2,28 +2,28 @@ package odoo
 
 // StockScrap represents stock.scrap model.
 type StockScrap struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DateExpected    *Time      `xmlrpc:"date_expected,omptempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omptempty"`
-	Id              *Int       `xmlrpc:"id,omptempty"`
-	LocationId      *Many2One  `xmlrpc:"location_id,omptempty"`
-	LotId           *Many2One  `xmlrpc:"lot_id,omptempty"`
-	MoveId          *Many2One  `xmlrpc:"move_id,omptempty"`
-	Name            *String    `xmlrpc:"name,omptempty"`
-	Origin          *String    `xmlrpc:"origin,omptempty"`
-	OwnerId         *Many2One  `xmlrpc:"owner_id,omptempty"`
-	PackageId       *Many2One  `xmlrpc:"package_id,omptempty"`
-	PickingId       *Many2One  `xmlrpc:"picking_id,omptempty"`
-	ProductId       *Many2One  `xmlrpc:"product_id,omptempty"`
-	ProductUomId    *Many2One  `xmlrpc:"product_uom_id,omptempty"`
-	ScrapLocationId *Many2One  `xmlrpc:"scrap_location_id,omptempty"`
-	ScrapQty        *Float     `xmlrpc:"scrap_qty,omptempty"`
-	State           *Selection `xmlrpc:"state,omptempty"`
-	Tracking        *Selection `xmlrpc:"tracking,omptempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateExpected    *Time      `xmlrpc:"date_expected,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	LocationId      *Many2One  `xmlrpc:"location_id,omitempty"`
+	LotId           *Many2One  `xmlrpc:"lot_id,omitempty"`
+	MoveId          *Many2One  `xmlrpc:"move_id,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	Origin          *String    `xmlrpc:"origin,omitempty"`
+	OwnerId         *Many2One  `xmlrpc:"owner_id,omitempty"`
+	PackageId       *Many2One  `xmlrpc:"package_id,omitempty"`
+	PickingId       *Many2One  `xmlrpc:"picking_id,omitempty"`
+	ProductId       *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductUomId    *Many2One  `xmlrpc:"product_uom_id,omitempty"`
+	ScrapLocationId *Many2One  `xmlrpc:"scrap_location_id,omitempty"`
+	ScrapQty        *Float     `xmlrpc:"scrap_qty,omitempty"`
+	State           *Selection `xmlrpc:"state,omitempty"`
+	Tracking        *Selection `xmlrpc:"tracking,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockScraps represents array of stock.scrap model.
@@ -49,7 +49,7 @@ func (c *Client) CreateStockScrap(ss *StockScrap) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockScrap creates a new stock.scrap model and returns its id.
+// CreateStockScraps creates a new stock.scrap model and returns its id.
 func (c *Client) CreateStockScraps(sss []*StockScrap) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sss {

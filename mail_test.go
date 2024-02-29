@@ -2,36 +2,36 @@ package odoo
 
 // MailTest represents mail.test model.
 type MailTest struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omptempty"`
-	AliasContact             *Selection `xmlrpc:"alias_contact,omptempty"`
-	AliasDefaults            *String    `xmlrpc:"alias_defaults,omptempty"`
-	AliasDomain              *String    `xmlrpc:"alias_domain,omptempty"`
-	AliasForceThreadId       *Int       `xmlrpc:"alias_force_thread_id,omptempty"`
-	AliasId                  *Many2One  `xmlrpc:"alias_id,omptempty"`
-	AliasModelId             *Many2One  `xmlrpc:"alias_model_id,omptempty"`
-	AliasName                *String    `xmlrpc:"alias_name,omptempty"`
-	AliasParentModelId       *Many2One  `xmlrpc:"alias_parent_model_id,omptempty"`
-	AliasParentThreadId      *Int       `xmlrpc:"alias_parent_thread_id,omptempty"`
-	AliasUserId              *Many2One  `xmlrpc:"alias_user_id,omptempty"`
-	CreateDate               *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid                *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Description              *String    `xmlrpc:"description,omptempty"`
-	DisplayName              *String    `xmlrpc:"display_name,omptempty"`
-	Id                       *Int       `xmlrpc:"id,omptempty"`
-	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omptempty"`
-	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omptempty"`
-	MessageIds               *Relation  `xmlrpc:"message_ids,omptempty"`
-	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omptempty"`
-	MessageLastPost          *Time      `xmlrpc:"message_last_post,omptempty"`
-	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omptempty"`
-	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omptempty"`
-	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omptempty"`
-	MessageUnread            *Bool      `xmlrpc:"message_unread,omptempty"`
-	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omptempty"`
-	Name                     *String    `xmlrpc:"name,omptempty"`
-	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omptempty"`
-	WriteDate                *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid                 *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	AliasContact             *Selection `xmlrpc:"alias_contact,omitempty"`
+	AliasDefaults            *String    `xmlrpc:"alias_defaults,omitempty"`
+	AliasDomain              *String    `xmlrpc:"alias_domain,omitempty"`
+	AliasForceThreadId       *Int       `xmlrpc:"alias_force_thread_id,omitempty"`
+	AliasId                  *Many2One  `xmlrpc:"alias_id,omitempty"`
+	AliasModelId             *Many2One  `xmlrpc:"alias_model_id,omitempty"`
+	AliasName                *String    `xmlrpc:"alias_name,omitempty"`
+	AliasParentModelId       *Many2One  `xmlrpc:"alias_parent_model_id,omitempty"`
+	AliasParentThreadId      *Int       `xmlrpc:"alias_parent_thread_id,omitempty"`
+	AliasUserId              *Many2One  `xmlrpc:"alias_user_id,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageLastPost          *Time      `xmlrpc:"message_last_post,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MessageUnread            *Bool      `xmlrpc:"message_unread,omitempty"`
+	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailTests represents array of mail.test model.
@@ -57,7 +57,7 @@ func (c *Client) CreateMailTest(mt *MailTest) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailTest creates a new mail.test model and returns its id.
+// CreateMailTests creates a new mail.test model and returns its id.
 func (c *Client) CreateMailTests(mts []*MailTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mts {

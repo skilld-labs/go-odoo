@@ -2,19 +2,19 @@ package odoo
 
 // AccountOpening represents account.opening model.
 type AccountOpening struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omptempty"`
-	CompanyId          *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate         *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omptempty"`
-	CurrencyId         *Many2One `xmlrpc:"currency_id,omptempty"`
-	Date               *Time     `xmlrpc:"date,omptempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omptempty"`
-	Id                 *Int      `xmlrpc:"id,omptempty"`
-	JournalId          *Many2One `xmlrpc:"journal_id,omptempty"`
-	OpeningMoveId      *Many2One `xmlrpc:"opening_move_id,omptempty"`
-	OpeningMoveLineIds *Relation `xmlrpc:"opening_move_line_ids,omptempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
+	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId         *Many2One `xmlrpc:"currency_id,omitempty"`
+	Date               *Time     `xmlrpc:"date,omitempty"`
+	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
+	Id                 *Int      `xmlrpc:"id,omitempty"`
+	JournalId          *Many2One `xmlrpc:"journal_id,omitempty"`
+	OpeningMoveId      *Many2One `xmlrpc:"opening_move_id,omitempty"`
+	OpeningMoveLineIds *Relation `xmlrpc:"opening_move_line_ids,omitempty"`
+	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountOpenings represents array of account.opening model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountOpening(ao *AccountOpening) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountOpening creates a new account.opening model and returns its id.
+// CreateAccountOpenings creates a new account.opening model and returns its id.
 func (c *Client) CreateAccountOpenings(aos []*AccountOpening) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aos {

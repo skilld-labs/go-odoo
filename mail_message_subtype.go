@@ -2,22 +2,22 @@ package odoo
 
 // MailMessageSubtype represents mail.message.subtype model.
 type MailMessageSubtype struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
-	Default       *Bool     `xmlrpc:"default,omptempty"`
-	Description   *String   `xmlrpc:"description,omptempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
-	Hidden        *Bool     `xmlrpc:"hidden,omptempty"`
-	Id            *Int      `xmlrpc:"id,omptempty"`
-	Internal      *Bool     `xmlrpc:"internal,omptempty"`
-	Name          *String   `xmlrpc:"name,omptempty"`
-	ParentId      *Many2One `xmlrpc:"parent_id,omptempty"`
-	RelationField *String   `xmlrpc:"relation_field,omptempty"`
-	ResModel      *String   `xmlrpc:"res_model,omptempty"`
-	Sequence      *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	Default       *Bool     `xmlrpc:"default,omitempty"`
+	Description   *String   `xmlrpc:"description,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Hidden        *Bool     `xmlrpc:"hidden,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	Internal      *Bool     `xmlrpc:"internal,omitempty"`
+	Name          *String   `xmlrpc:"name,omitempty"`
+	ParentId      *Many2One `xmlrpc:"parent_id,omitempty"`
+	RelationField *String   `xmlrpc:"relation_field,omitempty"`
+	ResModel      *String   `xmlrpc:"res_model,omitempty"`
+	Sequence      *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailMessageSubtypes represents array of mail.message.subtype model.
@@ -43,7 +43,7 @@ func (c *Client) CreateMailMessageSubtype(mms *MailMessageSubtype) (int64, error
 	return ids[0], nil
 }
 
-// CreateMailMessageSubtype creates a new mail.message.subtype model and returns its id.
+// CreateMailMessageSubtypes creates a new mail.message.subtype model and returns its id.
 func (c *Client) CreateMailMessageSubtypes(mmss []*MailMessageSubtype) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmss {

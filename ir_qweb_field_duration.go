@@ -2,9 +2,9 @@ package odoo
 
 // IrQwebFieldDuration represents ir.qweb.field.duration model.
 type IrQwebFieldDuration struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // IrQwebFieldDurations represents array of ir.qweb.field.duration model.
@@ -30,7 +30,7 @@ func (c *Client) CreateIrQwebFieldDuration(iqfd *IrQwebFieldDuration) (int64, er
 	return ids[0], nil
 }
 
-// CreateIrQwebFieldDuration creates a new ir.qweb.field.duration model and returns its id.
+// CreateIrQwebFieldDurations creates a new ir.qweb.field.duration model and returns its id.
 func (c *Client) CreateIrQwebFieldDurations(iqfds []*IrQwebFieldDuration) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iqfds {

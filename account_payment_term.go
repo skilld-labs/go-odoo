@@ -2,19 +2,19 @@ package odoo
 
 // AccountPaymentTerm represents account.payment.term model.
 type AccountPaymentTerm struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	LineIds     *Relation `xmlrpc:"line_ids,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	Note        *String   `xmlrpc:"note,omptempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	LineIds     *Relation `xmlrpc:"line_ids,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	Note        *String   `xmlrpc:"note,omitempty"`
+	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPaymentTerms represents array of account.payment.term model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountPaymentTerm(apt *AccountPaymentTerm) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountPaymentTerm creates a new account.payment.term model and returns its id.
+// CreateAccountPaymentTerms creates a new account.payment.term model and returns its id.
 func (c *Client) CreateAccountPaymentTerms(apts []*AccountPaymentTerm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apts {

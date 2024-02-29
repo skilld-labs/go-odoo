@@ -2,15 +2,15 @@ package odoo
 
 // MailMassMailingTest represents mail.mass_mailing.test model.
 type MailMassMailingTest struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omptempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omptempty"`
-	EmailTo       *String   `xmlrpc:"email_to,omptempty"`
-	Id            *Int      `xmlrpc:"id,omptempty"`
-	MassMailingId *Many2One `xmlrpc:"mass_mailing_id,omptempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	EmailTo       *String   `xmlrpc:"email_to,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	MassMailingId *Many2One `xmlrpc:"mass_mailing_id,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailMassMailingTests represents array of mail.mass_mailing.test model.
@@ -36,7 +36,7 @@ func (c *Client) CreateMailMassMailingTest(mmt *MailMassMailingTest) (int64, err
 	return ids[0], nil
 }
 
-// CreateMailMassMailingTest creates a new mail.mass_mailing.test model and returns its id.
+// CreateMailMassMailingTests creates a new mail.mass_mailing.test model and returns its id.
 func (c *Client) CreateMailMassMailingTests(mmts []*MailMassMailingTest) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mmts {

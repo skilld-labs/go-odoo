@@ -2,23 +2,23 @@ package odoo
 
 // IrRule represents ir.rule model.
 type IrRule struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	Active      *Bool     `xmlrpc:"active,omptempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	DomainForce *String   `xmlrpc:"domain_force,omptempty"`
-	Global      *Bool     `xmlrpc:"global,omptempty"`
-	Groups      *Relation `xmlrpc:"groups,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	ModelId     *Many2One `xmlrpc:"model_id,omptempty"`
-	Name        *String   `xmlrpc:"name,omptempty"`
-	PermCreate  *Bool     `xmlrpc:"perm_create,omptempty"`
-	PermRead    *Bool     `xmlrpc:"perm_read,omptempty"`
-	PermUnlink  *Bool     `xmlrpc:"perm_unlink,omptempty"`
-	PermWrite   *Bool     `xmlrpc:"perm_write,omptempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Active      *Bool     `xmlrpc:"active,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	DomainForce *String   `xmlrpc:"domain_force,omitempty"`
+	Global      *Bool     `xmlrpc:"global,omitempty"`
+	Groups      *Relation `xmlrpc:"groups,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	ModelId     *Many2One `xmlrpc:"model_id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
+	PermCreate  *Bool     `xmlrpc:"perm_create,omitempty"`
+	PermRead    *Bool     `xmlrpc:"perm_read,omitempty"`
+	PermUnlink  *Bool     `xmlrpc:"perm_unlink,omitempty"`
+	PermWrite   *Bool     `xmlrpc:"perm_write,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrRules represents array of ir.rule model.
@@ -44,7 +44,7 @@ func (c *Client) CreateIrRule(ir *IrRule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrRule creates a new ir.rule model and returns its id.
+// CreateIrRules creates a new ir.rule model and returns its id.
 func (c *Client) CreateIrRules(irs []*IrRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range irs {

@@ -2,9 +2,9 @@ package odoo
 
 // Base represents base model.
 type Base struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omptempty"`
-	DisplayName *String `xmlrpc:"display_name,omptempty"`
-	Id          *Int    `xmlrpc:"id,omptempty"`
+	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // Bases represents array of base model.
@@ -30,7 +30,7 @@ func (c *Client) CreateBase(b *Base) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBase creates a new base model and returns its id.
+// CreateBases creates a new base model and returns its id.
 func (c *Client) CreateBases(bs []*Base) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bs {

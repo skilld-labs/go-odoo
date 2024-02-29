@@ -2,24 +2,24 @@ package odoo
 
 // IrProperty represents ir.property model.
 type IrProperty struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	FieldsId       *Many2One  `xmlrpc:"fields_id,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	Name           *String    `xmlrpc:"name,omptempty"`
-	ResId          *String    `xmlrpc:"res_id,omptempty"`
-	Type           *Selection `xmlrpc:"type,omptempty"`
-	ValueBinary    *String    `xmlrpc:"value_binary,omptempty"`
-	ValueDatetime  *Time      `xmlrpc:"value_datetime,omptempty"`
-	ValueFloat     *Float     `xmlrpc:"value_float,omptempty"`
-	ValueInteger   *Int       `xmlrpc:"value_integer,omptempty"`
-	ValueReference *String    `xmlrpc:"value_reference,omptempty"`
-	ValueText      *String    `xmlrpc:"value_text,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	FieldsId       *Many2One  `xmlrpc:"fields_id,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	ResId          *String    `xmlrpc:"res_id,omitempty"`
+	Type           *Selection `xmlrpc:"type,omitempty"`
+	ValueBinary    *String    `xmlrpc:"value_binary,omitempty"`
+	ValueDatetime  *Time      `xmlrpc:"value_datetime,omitempty"`
+	ValueFloat     *Float     `xmlrpc:"value_float,omitempty"`
+	ValueInteger   *Int       `xmlrpc:"value_integer,omitempty"`
+	ValueReference *String    `xmlrpc:"value_reference,omitempty"`
+	ValueText      *String    `xmlrpc:"value_text,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrPropertys represents array of ir.property model.
@@ -45,7 +45,7 @@ func (c *Client) CreateIrProperty(ip *IrProperty) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrProperty creates a new ir.property model and returns its id.
+// CreateIrPropertys creates a new ir.property model and returns its id.
 func (c *Client) CreateIrPropertys(ips []*IrProperty) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ips {

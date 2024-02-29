@@ -2,14 +2,14 @@ package odoo
 
 // MailNotification represents mail.notification model.
 type MailNotification struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omptempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omptempty"`
-	EmailStatus   *Selection `xmlrpc:"email_status,omptempty"`
-	Id            *Int       `xmlrpc:"id,omptempty"`
-	IsEmail       *Bool      `xmlrpc:"is_email,omptempty"`
-	IsRead        *Bool      `xmlrpc:"is_read,omptempty"`
-	MailMessageId *Many2One  `xmlrpc:"mail_message_id,omptempty"`
-	ResPartnerId  *Many2One  `xmlrpc:"res_partner_id,omptempty"`
+	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
+	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
+	EmailStatus   *Selection `xmlrpc:"email_status,omitempty"`
+	Id            *Int       `xmlrpc:"id,omitempty"`
+	IsEmail       *Bool      `xmlrpc:"is_email,omitempty"`
+	IsRead        *Bool      `xmlrpc:"is_read,omitempty"`
+	MailMessageId *Many2One  `xmlrpc:"mail_message_id,omitempty"`
+	ResPartnerId  *Many2One  `xmlrpc:"res_partner_id,omitempty"`
 }
 
 // MailNotifications represents array of mail.notification model.
@@ -35,7 +35,7 @@ func (c *Client) CreateMailNotification(mn *MailNotification) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailNotification creates a new mail.notification model and returns its id.
+// CreateMailNotifications creates a new mail.notification model and returns its id.
 func (c *Client) CreateMailNotifications(mns []*MailNotification) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mns {

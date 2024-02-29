@@ -2,41 +2,41 @@ package odoo
 
 // AccountInvoiceLine represents account.invoice.line model.
 type AccountInvoiceLine struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omptempty"`
-	AccountAnalyticId      *Many2One  `xmlrpc:"account_analytic_id,omptempty"`
-	AccountId              *Many2One  `xmlrpc:"account_id,omptempty"`
-	AnalyticTagIds         *Relation  `xmlrpc:"analytic_tag_ids,omptempty"`
-	CompanyCurrencyId      *Many2One  `xmlrpc:"company_currency_id,omptempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omptempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omptempty"`
-	CurrencyId             *Many2One  `xmlrpc:"currency_id,omptempty"`
-	Discount               *Float     `xmlrpc:"discount,omptempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omptempty"`
-	Id                     *Int       `xmlrpc:"id,omptempty"`
-	InvoiceId              *Many2One  `xmlrpc:"invoice_id,omptempty"`
-	InvoiceLineTaxIds      *Relation  `xmlrpc:"invoice_line_tax_ids,omptempty"`
-	InvoiceType            *Selection `xmlrpc:"invoice_type,omptempty"`
-	IsRoundingLine         *Bool      `xmlrpc:"is_rounding_line,omptempty"`
-	LayoutCategoryId       *Many2One  `xmlrpc:"layout_category_id,omptempty"`
-	LayoutCategorySequence *Int       `xmlrpc:"layout_category_sequence,omptempty"`
-	Name                   *String    `xmlrpc:"name,omptempty"`
-	Origin                 *String    `xmlrpc:"origin,omptempty"`
-	PartnerId              *Many2One  `xmlrpc:"partner_id,omptempty"`
-	PriceSubtotal          *Float     `xmlrpc:"price_subtotal,omptempty"`
-	PriceSubtotalSigned    *Float     `xmlrpc:"price_subtotal_signed,omptempty"`
-	PriceTotal             *Float     `xmlrpc:"price_total,omptempty"`
-	PriceUnit              *Float     `xmlrpc:"price_unit,omptempty"`
-	ProductId              *Many2One  `xmlrpc:"product_id,omptempty"`
-	ProductImage           *String    `xmlrpc:"product_image,omptempty"`
-	PurchaseId             *Many2One  `xmlrpc:"purchase_id,omptempty"`
-	PurchaseLineId         *Many2One  `xmlrpc:"purchase_line_id,omptempty"`
-	Quantity               *Float     `xmlrpc:"quantity,omptempty"`
-	SaleLineIds            *Relation  `xmlrpc:"sale_line_ids,omptempty"`
-	Sequence               *Int       `xmlrpc:"sequence,omptempty"`
-	UomId                  *Many2One  `xmlrpc:"uom_id,omptempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountAnalyticId      *Many2One  `xmlrpc:"account_analytic_id,omitempty"`
+	AccountId              *Many2One  `xmlrpc:"account_id,omitempty"`
+	AnalyticTagIds         *Relation  `xmlrpc:"analytic_tag_ids,omitempty"`
+	CompanyCurrencyId      *Many2One  `xmlrpc:"company_currency_id,omitempty"`
+	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId             *Many2One  `xmlrpc:"currency_id,omitempty"`
+	Discount               *Float     `xmlrpc:"discount,omitempty"`
+	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
+	Id                     *Int       `xmlrpc:"id,omitempty"`
+	InvoiceId              *Many2One  `xmlrpc:"invoice_id,omitempty"`
+	InvoiceLineTaxIds      *Relation  `xmlrpc:"invoice_line_tax_ids,omitempty"`
+	InvoiceType            *Selection `xmlrpc:"invoice_type,omitempty"`
+	IsRoundingLine         *Bool      `xmlrpc:"is_rounding_line,omitempty"`
+	LayoutCategoryId       *Many2One  `xmlrpc:"layout_category_id,omitempty"`
+	LayoutCategorySequence *Int       `xmlrpc:"layout_category_sequence,omitempty"`
+	Name                   *String    `xmlrpc:"name,omitempty"`
+	Origin                 *String    `xmlrpc:"origin,omitempty"`
+	PartnerId              *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PriceSubtotal          *Float     `xmlrpc:"price_subtotal,omitempty"`
+	PriceSubtotalSigned    *Float     `xmlrpc:"price_subtotal_signed,omitempty"`
+	PriceTotal             *Float     `xmlrpc:"price_total,omitempty"`
+	PriceUnit              *Float     `xmlrpc:"price_unit,omitempty"`
+	ProductId              *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductImage           *String    `xmlrpc:"product_image,omitempty"`
+	PurchaseId             *Many2One  `xmlrpc:"purchase_id,omitempty"`
+	PurchaseLineId         *Many2One  `xmlrpc:"purchase_line_id,omitempty"`
+	Quantity               *Float     `xmlrpc:"quantity,omitempty"`
+	SaleLineIds            *Relation  `xmlrpc:"sale_line_ids,omitempty"`
+	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
+	UomId                  *Many2One  `xmlrpc:"uom_id,omitempty"`
+	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountInvoiceLines represents array of account.invoice.line model.
@@ -62,7 +62,7 @@ func (c *Client) CreateAccountInvoiceLine(ail *AccountInvoiceLine) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountInvoiceLine creates a new account.invoice.line model and returns its id.
+// CreateAccountInvoiceLines creates a new account.invoice.line model and returns its id.
 func (c *Client) CreateAccountInvoiceLines(ails []*AccountInvoiceLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ails {

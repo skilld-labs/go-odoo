@@ -2,19 +2,19 @@ package odoo
 
 // AccountPaymentTermLine represents account.payment.term.line model.
 type AccountPaymentTermLine struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omptempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omptempty"`
-	Days        *Int       `xmlrpc:"days,omptempty"`
-	DisplayName *String    `xmlrpc:"display_name,omptempty"`
-	Id          *Int       `xmlrpc:"id,omptempty"`
-	Option      *Selection `xmlrpc:"option,omptempty"`
-	PaymentId   *Many2One  `xmlrpc:"payment_id,omptempty"`
-	Sequence    *Int       `xmlrpc:"sequence,omptempty"`
-	Value       *Selection `xmlrpc:"value,omptempty"`
-	ValueAmount *Float     `xmlrpc:"value_amount,omptempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Days        *Int       `xmlrpc:"days,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Option      *Selection `xmlrpc:"option,omitempty"`
+	PaymentId   *Many2One  `xmlrpc:"payment_id,omitempty"`
+	Sequence    *Int       `xmlrpc:"sequence,omitempty"`
+	Value       *Selection `xmlrpc:"value,omitempty"`
+	ValueAmount *Float     `xmlrpc:"value_amount,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPaymentTermLines represents array of account.payment.term.line model.
@@ -40,7 +40,7 @@ func (c *Client) CreateAccountPaymentTermLine(aptl *AccountPaymentTermLine) (int
 	return ids[0], nil
 }
 
-// CreateAccountPaymentTermLine creates a new account.payment.term.line model and returns its id.
+// CreateAccountPaymentTermLines creates a new account.payment.term.line model and returns its id.
 func (c *Client) CreateAccountPaymentTermLines(aptls []*AccountPaymentTermLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aptls {

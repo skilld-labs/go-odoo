@@ -2,12 +2,12 @@ package odoo
 
 // UtmMixin represents utm.mixin model.
 type UtmMixin struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omptempty"`
-	CampaignId  *Many2One `xmlrpc:"campaign_id,omptempty"`
-	DisplayName *String   `xmlrpc:"display_name,omptempty"`
-	Id          *Int      `xmlrpc:"id,omptempty"`
-	MediumId    *Many2One `xmlrpc:"medium_id,omptempty"`
-	SourceId    *Many2One `xmlrpc:"source_id,omptempty"`
+	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	CampaignId  *Many2One `xmlrpc:"campaign_id,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	MediumId    *Many2One `xmlrpc:"medium_id,omitempty"`
+	SourceId    *Many2One `xmlrpc:"source_id,omitempty"`
 }
 
 // UtmMixins represents array of utm.mixin model.
@@ -33,7 +33,7 @@ func (c *Client) CreateUtmMixin(um *UtmMixin) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmMixin creates a new utm.mixin model and returns its id.
+// CreateUtmMixins creates a new utm.mixin model and returns its id.
 func (c *Client) CreateUtmMixins(ums []*UtmMixin) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ums {

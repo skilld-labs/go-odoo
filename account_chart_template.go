@@ -2,37 +2,37 @@ package odoo
 
 // AccountChartTemplate represents account.chart.template model.
 type AccountChartTemplate struct {
-	LastUpdate                        *Time     `xmlrpc:"__last_update,omptempty"`
-	AccountIds                        *Relation `xmlrpc:"account_ids,omptempty"`
-	BankAccountCodePrefix             *String   `xmlrpc:"bank_account_code_prefix,omptempty"`
-	CashAccountCodePrefix             *String   `xmlrpc:"cash_account_code_prefix,omptempty"`
-	CodeDigits                        *Int      `xmlrpc:"code_digits,omptempty"`
-	CompanyId                         *Many2One `xmlrpc:"company_id,omptempty"`
-	CompleteTaxSet                    *Bool     `xmlrpc:"complete_tax_set,omptempty"`
-	CreateDate                        *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid                         *Many2One `xmlrpc:"create_uid,omptempty"`
-	CurrencyId                        *Many2One `xmlrpc:"currency_id,omptempty"`
-	DisplayName                       *String   `xmlrpc:"display_name,omptempty"`
-	ExpenseCurrencyExchangeAccountId  *Many2One `xmlrpc:"expense_currency_exchange_account_id,omptempty"`
-	Id                                *Int      `xmlrpc:"id,omptempty"`
-	IncomeCurrencyExchangeAccountId   *Many2One `xmlrpc:"income_currency_exchange_account_id,omptempty"`
-	Name                              *String   `xmlrpc:"name,omptempty"`
-	ParentId                          *Many2One `xmlrpc:"parent_id,omptempty"`
-	PropertyAccountExpenseCategId     *Many2One `xmlrpc:"property_account_expense_categ_id,omptempty"`
-	PropertyAccountExpenseId          *Many2One `xmlrpc:"property_account_expense_id,omptempty"`
-	PropertyAccountIncomeCategId      *Many2One `xmlrpc:"property_account_income_categ_id,omptempty"`
-	PropertyAccountIncomeId           *Many2One `xmlrpc:"property_account_income_id,omptempty"`
-	PropertyAccountPayableId          *Many2One `xmlrpc:"property_account_payable_id,omptempty"`
-	PropertyAccountReceivableId       *Many2One `xmlrpc:"property_account_receivable_id,omptempty"`
-	PropertyStockAccountInputCategId  *Many2One `xmlrpc:"property_stock_account_input_categ_id,omptempty"`
-	PropertyStockAccountOutputCategId *Many2One `xmlrpc:"property_stock_account_output_categ_id,omptempty"`
-	PropertyStockValuationAccountId   *Many2One `xmlrpc:"property_stock_valuation_account_id,omptempty"`
-	TaxTemplateIds                    *Relation `xmlrpc:"tax_template_ids,omptempty"`
-	TransferAccountId                 *Many2One `xmlrpc:"transfer_account_id,omptempty"`
-	UseAngloSaxon                     *Bool     `xmlrpc:"use_anglo_saxon,omptempty"`
-	Visible                           *Bool     `xmlrpc:"visible,omptempty"`
-	WriteDate                         *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid                          *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate                        *Time     `xmlrpc:"__last_update,omitempty"`
+	AccountIds                        *Relation `xmlrpc:"account_ids,omitempty"`
+	BankAccountCodePrefix             *String   `xmlrpc:"bank_account_code_prefix,omitempty"`
+	CashAccountCodePrefix             *String   `xmlrpc:"cash_account_code_prefix,omitempty"`
+	CodeDigits                        *Int      `xmlrpc:"code_digits,omitempty"`
+	CompanyId                         *Many2One `xmlrpc:"company_id,omitempty"`
+	CompleteTaxSet                    *Bool     `xmlrpc:"complete_tax_set,omitempty"`
+	CreateDate                        *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                         *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                        *Many2One `xmlrpc:"currency_id,omitempty"`
+	DisplayName                       *String   `xmlrpc:"display_name,omitempty"`
+	ExpenseCurrencyExchangeAccountId  *Many2One `xmlrpc:"expense_currency_exchange_account_id,omitempty"`
+	Id                                *Int      `xmlrpc:"id,omitempty"`
+	IncomeCurrencyExchangeAccountId   *Many2One `xmlrpc:"income_currency_exchange_account_id,omitempty"`
+	Name                              *String   `xmlrpc:"name,omitempty"`
+	ParentId                          *Many2One `xmlrpc:"parent_id,omitempty"`
+	PropertyAccountExpenseCategId     *Many2One `xmlrpc:"property_account_expense_categ_id,omitempty"`
+	PropertyAccountExpenseId          *Many2One `xmlrpc:"property_account_expense_id,omitempty"`
+	PropertyAccountIncomeCategId      *Many2One `xmlrpc:"property_account_income_categ_id,omitempty"`
+	PropertyAccountIncomeId           *Many2One `xmlrpc:"property_account_income_id,omitempty"`
+	PropertyAccountPayableId          *Many2One `xmlrpc:"property_account_payable_id,omitempty"`
+	PropertyAccountReceivableId       *Many2One `xmlrpc:"property_account_receivable_id,omitempty"`
+	PropertyStockAccountInputCategId  *Many2One `xmlrpc:"property_stock_account_input_categ_id,omitempty"`
+	PropertyStockAccountOutputCategId *Many2One `xmlrpc:"property_stock_account_output_categ_id,omitempty"`
+	PropertyStockValuationAccountId   *Many2One `xmlrpc:"property_stock_valuation_account_id,omitempty"`
+	TaxTemplateIds                    *Relation `xmlrpc:"tax_template_ids,omitempty"`
+	TransferAccountId                 *Many2One `xmlrpc:"transfer_account_id,omitempty"`
+	UseAngloSaxon                     *Bool     `xmlrpc:"use_anglo_saxon,omitempty"`
+	Visible                           *Bool     `xmlrpc:"visible,omitempty"`
+	WriteDate                         *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                          *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountChartTemplates represents array of account.chart.template model.
@@ -58,7 +58,7 @@ func (c *Client) CreateAccountChartTemplate(act *AccountChartTemplate) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountChartTemplate creates a new account.chart.template model and returns its id.
+// CreateAccountChartTemplates creates a new account.chart.template model and returns its id.
 func (c *Client) CreateAccountChartTemplates(acts []*AccountChartTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acts {

@@ -2,19 +2,19 @@ package odoo
 
 // ImLivechatChannelRule represents im_livechat.channel.rule model.
 type ImLivechatChannelRule struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omptempty"`
-	Action         *Selection `xmlrpc:"action,omptempty"`
-	AutoPopupTimer *Int       `xmlrpc:"auto_popup_timer,omptempty"`
-	ChannelId      *Many2One  `xmlrpc:"channel_id,omptempty"`
-	CountryIds     *Relation  `xmlrpc:"country_ids,omptempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omptempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omptempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omptempty"`
-	Id             *Int       `xmlrpc:"id,omptempty"`
-	RegexUrl       *String    `xmlrpc:"regex_url,omptempty"`
-	Sequence       *Int       `xmlrpc:"sequence,omptempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omptempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omptempty"`
+	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
+	Action         *Selection `xmlrpc:"action,omitempty"`
+	AutoPopupTimer *Int       `xmlrpc:"auto_popup_timer,omitempty"`
+	ChannelId      *Many2One  `xmlrpc:"channel_id,omitempty"`
+	CountryIds     *Relation  `xmlrpc:"country_ids,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	RegexUrl       *String    `xmlrpc:"regex_url,omitempty"`
+	Sequence       *Int       `xmlrpc:"sequence,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ImLivechatChannelRules represents array of im_livechat.channel.rule model.
@@ -40,7 +40,7 @@ func (c *Client) CreateImLivechatChannelRule(icr *ImLivechatChannelRule) (int64,
 	return ids[0], nil
 }
 
-// CreateImLivechatChannelRule creates a new im_livechat.channel.rule model and returns its id.
+// CreateImLivechatChannelRules creates a new im_livechat.channel.rule model and returns its id.
 func (c *Client) CreateImLivechatChannelRules(icrs []*ImLivechatChannelRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range icrs {

@@ -2,28 +2,28 @@ package odoo
 
 // StockLocationRoute represents stock.location.route model.
 type StockLocationRoute struct {
-	LastUpdate             *Time     `xmlrpc:"__last_update,omptempty"`
-	Active                 *Bool     `xmlrpc:"active,omptempty"`
-	CategIds               *Relation `xmlrpc:"categ_ids,omptempty"`
-	CompanyId              *Many2One `xmlrpc:"company_id,omptempty"`
-	CreateDate             *Time     `xmlrpc:"create_date,omptempty"`
-	CreateUid              *Many2One `xmlrpc:"create_uid,omptempty"`
-	DisplayName            *String   `xmlrpc:"display_name,omptempty"`
-	Id                     *Int      `xmlrpc:"id,omptempty"`
-	Name                   *String   `xmlrpc:"name,omptempty"`
-	ProductCategSelectable *Bool     `xmlrpc:"product_categ_selectable,omptempty"`
-	ProductIds             *Relation `xmlrpc:"product_ids,omptempty"`
-	ProductSelectable      *Bool     `xmlrpc:"product_selectable,omptempty"`
-	PullIds                *Relation `xmlrpc:"pull_ids,omptempty"`
-	PushIds                *Relation `xmlrpc:"push_ids,omptempty"`
-	SaleSelectable         *Bool     `xmlrpc:"sale_selectable,omptempty"`
-	Sequence               *Int      `xmlrpc:"sequence,omptempty"`
-	SuppliedWhId           *Many2One `xmlrpc:"supplied_wh_id,omptempty"`
-	SupplierWhId           *Many2One `xmlrpc:"supplier_wh_id,omptempty"`
-	WarehouseIds           *Relation `xmlrpc:"warehouse_ids,omptempty"`
-	WarehouseSelectable    *Bool     `xmlrpc:"warehouse_selectable,omptempty"`
-	WriteDate              *Time     `xmlrpc:"write_date,omptempty"`
-	WriteUid               *Many2One `xmlrpc:"write_uid,omptempty"`
+	LastUpdate             *Time     `xmlrpc:"__last_update,omitempty"`
+	Active                 *Bool     `xmlrpc:"active,omitempty"`
+	CategIds               *Relation `xmlrpc:"categ_ids,omitempty"`
+	CompanyId              *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate             *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid              *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName            *String   `xmlrpc:"display_name,omitempty"`
+	Id                     *Int      `xmlrpc:"id,omitempty"`
+	Name                   *String   `xmlrpc:"name,omitempty"`
+	ProductCategSelectable *Bool     `xmlrpc:"product_categ_selectable,omitempty"`
+	ProductIds             *Relation `xmlrpc:"product_ids,omitempty"`
+	ProductSelectable      *Bool     `xmlrpc:"product_selectable,omitempty"`
+	PullIds                *Relation `xmlrpc:"pull_ids,omitempty"`
+	PushIds                *Relation `xmlrpc:"push_ids,omitempty"`
+	SaleSelectable         *Bool     `xmlrpc:"sale_selectable,omitempty"`
+	Sequence               *Int      `xmlrpc:"sequence,omitempty"`
+	SuppliedWhId           *Many2One `xmlrpc:"supplied_wh_id,omitempty"`
+	SupplierWhId           *Many2One `xmlrpc:"supplier_wh_id,omitempty"`
+	WarehouseIds           *Relation `xmlrpc:"warehouse_ids,omitempty"`
+	WarehouseSelectable    *Bool     `xmlrpc:"warehouse_selectable,omitempty"`
+	WriteDate              *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid               *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockLocationRoutes represents array of stock.location.route model.
@@ -49,7 +49,7 @@ func (c *Client) CreateStockLocationRoute(slr *StockLocationRoute) (int64, error
 	return ids[0], nil
 }
 
-// CreateStockLocationRoute creates a new stock.location.route model and returns its id.
+// CreateStockLocationRoutes creates a new stock.location.route model and returns its id.
 func (c *Client) CreateStockLocationRoutes(slrs []*StockLocationRoute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range slrs {
