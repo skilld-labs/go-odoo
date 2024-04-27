@@ -129,8 +129,13 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 			t, _ := time.Parse(format, dynamicValue.(string))
 			staticValue = NewTime(t)
 		case "Many2One":
-			name, _ := dynamicValue.([]interface{})[1].(string)
-			staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), name)
+			if intVal, ok := dynamicValue.(int64); ok {
+				// for many2one_reference field type
+				staticValue = NewMany2One(intVal, "")
+			} else {
+				name, _ := dynamicValue.([]interface{})[1].(string)
+				staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), name)
+			}
 		case "Relation":
 			staticValue = NewRelation()
 			staticValue.(*Relation).ids = sliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
