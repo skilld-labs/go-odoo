@@ -2,41 +2,53 @@ package odoo
 
 // StockWarehouse represents stock.warehouse model.
 type StockWarehouse struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
-	Active              *Bool      `xmlrpc:"active,omitempty"`
-	BuyPullId           *Many2One  `xmlrpc:"buy_pull_id,omitempty"`
-	BuyToResupply       *Bool      `xmlrpc:"buy_to_resupply,omitempty"`
-	Code                *String    `xmlrpc:"code,omitempty"`
-	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CrossdockRouteId    *Many2One  `xmlrpc:"crossdock_route_id,omitempty"`
-	DefaultResupplyWhId *Many2One  `xmlrpc:"default_resupply_wh_id,omitempty"`
-	DeliveryRouteId     *Many2One  `xmlrpc:"delivery_route_id,omitempty"`
-	DeliverySteps       *Selection `xmlrpc:"delivery_steps,omitempty"`
-	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
-	Id                  *Int       `xmlrpc:"id,omitempty"`
-	InTypeId            *Many2One  `xmlrpc:"in_type_id,omitempty"`
-	IntTypeId           *Many2One  `xmlrpc:"int_type_id,omitempty"`
-	LotStockId          *Many2One  `xmlrpc:"lot_stock_id,omitempty"`
-	MtoPullId           *Many2One  `xmlrpc:"mto_pull_id,omitempty"`
-	Name                *String    `xmlrpc:"name,omitempty"`
-	OutTypeId           *Many2One  `xmlrpc:"out_type_id,omitempty"`
-	PackTypeId          *Many2One  `xmlrpc:"pack_type_id,omitempty"`
-	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PickTypeId          *Many2One  `xmlrpc:"pick_type_id,omitempty"`
-	ReceptionRouteId    *Many2One  `xmlrpc:"reception_route_id,omitempty"`
-	ReceptionSteps      *Selection `xmlrpc:"reception_steps,omitempty"`
-	ResupplyRouteIds    *Relation  `xmlrpc:"resupply_route_ids,omitempty"`
-	ResupplyWhIds       *Relation  `xmlrpc:"resupply_wh_ids,omitempty"`
-	RouteIds            *Relation  `xmlrpc:"route_ids,omitempty"`
-	ViewLocationId      *Many2One  `xmlrpc:"view_location_id,omitempty"`
-	WhInputStockLocId   *Many2One  `xmlrpc:"wh_input_stock_loc_id,omitempty"`
-	WhOutputStockLocId  *Many2One  `xmlrpc:"wh_output_stock_loc_id,omitempty"`
-	WhPackStockLocId    *Many2One  `xmlrpc:"wh_pack_stock_loc_id,omitempty"`
-	WhQcStockLocId      *Many2One  `xmlrpc:"wh_qc_stock_loc_id,omitempty"`
-	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                *Bool      `xmlrpc:"active,omitempty"`
+	BuyPullId             *Many2One  `xmlrpc:"buy_pull_id,omitempty"`
+	BuyToResupply         *Bool      `xmlrpc:"buy_to_resupply,omitempty"`
+	Code                  *String    `xmlrpc:"code,omitempty"`
+	CompanyId             *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CrossdockRouteId      *Many2One  `xmlrpc:"crossdock_route_id,omitempty"`
+	DeliveryRouteId       *Many2One  `xmlrpc:"delivery_route_id,omitempty"`
+	DeliverySteps         *Selection `xmlrpc:"delivery_steps,omitempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	Id                    *Int       `xmlrpc:"id,omitempty"`
+	InTypeId              *Many2One  `xmlrpc:"in_type_id,omitempty"`
+	IntTypeId             *Many2One  `xmlrpc:"int_type_id,omitempty"`
+	LotStockId            *Many2One  `xmlrpc:"lot_stock_id,omitempty"`
+	ManuTypeId            *Many2One  `xmlrpc:"manu_type_id,omitempty"`
+	ManufactureMtoPullId  *Many2One  `xmlrpc:"manufacture_mto_pull_id,omitempty"`
+	ManufacturePullId     *Many2One  `xmlrpc:"manufacture_pull_id,omitempty"`
+	ManufactureSteps      *Selection `xmlrpc:"manufacture_steps,omitempty"`
+	ManufactureToResupply *Bool      `xmlrpc:"manufacture_to_resupply,omitempty"`
+	MtoPullId             *Many2One  `xmlrpc:"mto_pull_id,omitempty"`
+	Name                  *String    `xmlrpc:"name,omitempty"`
+	OutTypeId             *Many2One  `xmlrpc:"out_type_id,omitempty"`
+	PackTypeId            *Many2One  `xmlrpc:"pack_type_id,omitempty"`
+	PartnerId             *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PbmLocId              *Many2One  `xmlrpc:"pbm_loc_id,omitempty"`
+	PbmMtoPullId          *Many2One  `xmlrpc:"pbm_mto_pull_id,omitempty"`
+	PbmRouteId            *Many2One  `xmlrpc:"pbm_route_id,omitempty"`
+	PbmTypeId             *Many2One  `xmlrpc:"pbm_type_id,omitempty"`
+	PickTypeId            *Many2One  `xmlrpc:"pick_type_id,omitempty"`
+	PosTypeId             *Many2One  `xmlrpc:"pos_type_id,omitempty"`
+	ReceptionRouteId      *Many2One  `xmlrpc:"reception_route_id,omitempty"`
+	ReceptionSteps        *Selection `xmlrpc:"reception_steps,omitempty"`
+	ResupplyRouteIds      *Relation  `xmlrpc:"resupply_route_ids,omitempty"`
+	ResupplyWhIds         *Relation  `xmlrpc:"resupply_wh_ids,omitempty"`
+	RouteIds              *Relation  `xmlrpc:"route_ids,omitempty"`
+	SamLocId              *Many2One  `xmlrpc:"sam_loc_id,omitempty"`
+	SamRuleId             *Many2One  `xmlrpc:"sam_rule_id,omitempty"`
+	SamTypeId             *Many2One  `xmlrpc:"sam_type_id,omitempty"`
+	Sequence              *Int       `xmlrpc:"sequence,omitempty"`
+	ViewLocationId        *Many2One  `xmlrpc:"view_location_id,omitempty"`
+	WhInputStockLocId     *Many2One  `xmlrpc:"wh_input_stock_loc_id,omitempty"`
+	WhOutputStockLocId    *Many2One  `xmlrpc:"wh_output_stock_loc_id,omitempty"`
+	WhPackStockLocId      *Many2One  `xmlrpc:"wh_pack_stock_loc_id,omitempty"`
+	WhQcStockLocId        *Many2One  `xmlrpc:"wh_qc_stock_loc_id,omitempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockWarehouses represents array of stock.warehouse model.
@@ -62,7 +74,7 @@ func (c *Client) CreateStockWarehouse(sw *StockWarehouse) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockWarehouses creates a new stock.warehouse model and returns its id.
+// CreateStockWarehouse creates a new stock.warehouse model and returns its id.
 func (c *Client) CreateStockWarehouses(sws []*StockWarehouse) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sws {
