@@ -10,9 +10,14 @@ An Odoo API client enabling Go programs to interact with Odoo in a simple and un
 ## Usage
 
 ### Generate your models
-
+Local Odoo example:
 ```bash
 ./generator/generator -u admin_name -p admin_password -d database_name -o /the/directory/you/want/the/files/to/be/generated/in --url http://localhost:8069 -t ./generator/cmd/tmpl/model.tmpl -m crm.lead,res.users
+```
+
+Odoo.sh example:
+```bash
+./generator/generator -u admin_name -p apiKey_or_password -d database_name -o /the/directory/you/want/the/files/to/be/generated/in --url odoosh_url -t ./generator/cmd/tmpl/model.tmpl -m crm.lead,res.users
 ```
 
 That's it ! Your models have been generated !
@@ -23,13 +28,11 @@ That's it ! Your models have been generated !
 
 Core models are `ir_model.go` and `ir_model_fields.go` since there are used to generate models.
 
-It is **highly recommanded** to not remove them, since you would not be able to generate models again.
+It is **highly recommended** to not remove them, since you would not be able to generate models again.
 
-#### Custom skilld-labs models
+#### Custom models
 
-All other models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 11**. (note that models structure changed between odoo major versions).
-
-If you're ok to work with those models, you can use this library instance, if not you should fork the repository and generate you own models by following steps above.
+This fork only updates selected models to Odoo 17 and may not cater to all models. Forking the original repository is recommended.
 
 ### Enjoy coding!
 
