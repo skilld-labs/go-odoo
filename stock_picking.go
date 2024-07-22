@@ -114,8 +114,14 @@ type StockPicking struct {
 	WriteUid                         *Many2One   `xmlrpc:"write_uid,omitempty"`
 	XStudioCharField8S21I1Tlp844     *String     `xmlrpc:"x_studio_char_field_8s2_1i1tlp844,omitempty"`
 	XStudioDatetimeField10P1I2Iovv3K *Time       `xmlrpc:"x_studio_datetime_field_10p_1i2iovv3k,omitempty"`
-	XStudioPickUpDate                *Time       `xmlrpc:"x_studio_pick_up_date,omitempty"`
+	XStudioDeadline                  *Time       `xmlrpc:"x_studio_deadline,omitempty"`
+	XStudioDeadline1                 *Time       `xmlrpc:"x_studio_deadline_1,omitempty"`
+	XStudioDeliverTo                 *Relation   `xmlrpc:"x_studio_deliver_to,omitempty"`
+	XStudioDeliverTo1                *Many2One   `xmlrpc:"x_studio_deliver_to_1,omitempty"`
+	XStudioDeliveryAddress           *Many2One   `xmlrpc:"x_studio_delivery_address,omitempty"`
 	XStudioPickUpDatetime            *Time       `xmlrpc:"x_studio_pick_up_datetime,omitempty"`
+	XStudioPickupDate                *Time       `xmlrpc:"x_studio_pickup_date,omitempty"`
+	XStudioReceiveFrom               *Many2One   `xmlrpc:"x_studio_receive_from,omitempty"`
 	XStudioRequestedDeliveryDate     *Time       `xmlrpc:"x_studio_requested_delivery_date,omitempty"`
 }
 
