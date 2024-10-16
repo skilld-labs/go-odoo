@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"sync"
 
 	"github.com/kolo/xmlrpc"
 )
@@ -21,10 +22,11 @@ var (
 
 // ClientConfig is the configuration to create a new *Client by givin connection infomations.
 type ClientConfig struct {
-	Database string
-	Admin    string
-	Password string
-	URL      string
+	Database          string
+	Admin             string
+	Password          string
+	URL               string
+	SyncWriteRequests bool
 }
 
 func (c *ClientConfig) valid() bool {
@@ -36,11 +38,13 @@ func (c *ClientConfig) valid() bool {
 
 // Client provides high and low level functions to interact with odoo
 type Client struct {
-	common *xmlrpc.Client
-	object *xmlrpc.Client
-	cfg    *ClientConfig
-	uid    int64
-	auth   bool
+	common            *xmlrpc.Client
+	object            *xmlrpc.Client
+	cfg               *ClientConfig
+	uid               int64
+	auth              bool
+	syncWriteRequests bool
+	writeSyncer       *sync.Mutex
 }
 
 // NewClient creates a new *Client.
@@ -53,6 +57,9 @@ func NewClient(cfg *ClientConfig) (*Client, error) {
 		common: &xmlrpc.Client{},
 		object: &xmlrpc.Client{},
 		auth:   false,
+	}
+	if c.cfg.SyncWriteRequests {
+		c.writeSyncer = &sync.Mutex{}
 	}
 	if err := c.authenticate(); err != nil {
 		return nil, err
@@ -353,6 +360,11 @@ func (c *Client) ExecuteKw(method, model string, args []interface{}, options *Op
 	if err := c.checkForAuthentication(); err != nil {
 		return nil, err
 	}
+	if c.cfg.SyncWriteRequests && isWriteMethod(method) {
+		c.writeSyncer.Lock()
+		defer c.writeSyncer.Unlock()
+	}
+
 	resp, err := c.objectCall("execute_kw", []interface{}{c.cfg.Database, c.uid, c.cfg.Password, model, method, args, options})
 	if err != nil {
 		return nil, err
@@ -448,4 +460,13 @@ func argsFromCriteria(c *Criteria) []interface{} {
 		return []interface{}{*c}
 	}
 	return []interface{}{}
+}
+
+func isWriteMethod(method string) bool {
+	switch method {
+	case "create", "write", "unlink":
+		return true
+	default:
+		return false
+	}
 }

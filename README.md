@@ -48,6 +48,7 @@ func main() {
 		Password: "admin_password",
 		Database: "database_name",
 		URL:      "http://localhost:8069",
+		SyncWriteRequests: true, // prevent concurrency issues in case of simultaneous write requests
 	})
 	if err != nil {
 		log.Fatal(err)
