@@ -2,8 +2,10 @@ package odoo
 
 // AccountMoveLine represents account.move.line model.
 type AccountMoveLine struct {
+	AccountCode                    *String     `xmlrpc:"account_code,omitempty"`
 	AccountId                      *Many2One   `xmlrpc:"account_id,omitempty"`
 	AccountInternalGroup           *Selection  `xmlrpc:"account_internal_group,omitempty"`
+	AccountName                    *String     `xmlrpc:"account_name,omitempty"`
 	AccountRootId                  *Many2One   `xmlrpc:"account_root_id,omitempty"`
 	AccountType                    *Selection  `xmlrpc:"account_type,omitempty"`
 	AmountCurrency                 *Float      `xmlrpc:"amount_currency,omitempty"`
@@ -12,9 +14,11 @@ type AccountMoveLine struct {
 	AnalyticDistribution           interface{} `xmlrpc:"analytic_distribution,omitempty"`
 	AnalyticLineIds                *Relation   `xmlrpc:"analytic_line_ids,omitempty"`
 	AnalyticPrecision              *Int        `xmlrpc:"analytic_precision,omitempty"`
-	AnalyticTagIds                 *Relation   `xmlrpc:"analytic_tag_ids,omitempty"`
+	AssetIds                       *Relation   `xmlrpc:"asset_ids,omitempty"`
 	Balance                        *Float      `xmlrpc:"balance,omitempty"`
+	CashpadTicket                  *Many2One   `xmlrpc:"cashpad_ticket,omitempty"`
 	CogsOriginId                   *Many2One   `xmlrpc:"cogs_origin_id,omitempty"`
+	CommercialPartnerCountry       *Many2One   `xmlrpc:"commercial_partner_country,omitempty"`
 	CompanyCurrencyId              *Many2One   `xmlrpc:"company_currency_id,omitempty"`
 	CompanyId                      *Many2One   `xmlrpc:"company_id,omitempty"`
 	CreateDate                     *Time       `xmlrpc:"create_date,omitempty"`
@@ -26,6 +30,8 @@ type AccountMoveLine struct {
 	Date                           *Time       `xmlrpc:"date,omitempty"`
 	DateMaturity                   *Time       `xmlrpc:"date_maturity,omitempty"`
 	Debit                          *Float      `xmlrpc:"debit,omitempty"`
+	DeferredEndDate                *Time       `xmlrpc:"deferred_end_date,omitempty"`
+	DeferredStartDate              *Time       `xmlrpc:"deferred_start_date,omitempty"`
 	Discount                       *Float      `xmlrpc:"discount,omitempty"`
 	DiscountAllocationDirty        *Bool       `xmlrpc:"discount_allocation_dirty,omitempty"`
 	DiscountAllocationKey          *String     `xmlrpc:"discount_allocation_key,omitempty"`
@@ -39,10 +45,15 @@ type AccountMoveLine struct {
 	EpdDirty                       *Bool       `xmlrpc:"epd_dirty,omitempty"`
 	EpdKey                         *String     `xmlrpc:"epd_key,omitempty"`
 	EpdNeeded                      *String     `xmlrpc:"epd_needed,omitempty"`
+	ExcludeBankLines               *Bool       `xmlrpc:"exclude_bank_lines,omitempty"`
+	FollowupLineId                 *Many2One   `xmlrpc:"followup_line_id,omitempty"`
 	FullReconcileId                *Many2One   `xmlrpc:"full_reconcile_id,omitempty"`
 	GroupTaxId                     *Many2One   `xmlrpc:"group_tax_id,omitempty"`
+	HasAbnormalDeferredDates       *Bool       `xmlrpc:"has_abnormal_deferred_dates,omitempty"`
+	HasDeferredMoves               *Bool       `xmlrpc:"has_deferred_moves,omitempty"`
 	Id                             *Int        `xmlrpc:"id,omitempty"`
 	InvoiceDate                    *Time       `xmlrpc:"invoice_date,omitempty"`
+	InvoiceOrigin                  *String     `xmlrpc:"invoice_origin,omitempty"`
 	IsAccountReconcile             *Bool       `xmlrpc:"is_account_reconcile,omitempty"`
 	IsDownpayment                  *Bool       `xmlrpc:"is_downpayment,omitempty"`
 	IsImported                     *Bool       `xmlrpc:"is_imported,omitempty"`
@@ -54,15 +65,18 @@ type AccountMoveLine struct {
 	MatchedCreditIds               *Relation   `xmlrpc:"matched_credit_ids,omitempty"`
 	MatchedDebitIds                *Relation   `xmlrpc:"matched_debit_ids,omitempty"`
 	MatchingNumber                 *String     `xmlrpc:"matching_number,omitempty"`
+	MoveAttachmentIds              *Relation   `xmlrpc:"move_attachment_ids,omitempty"`
 	MoveId                         *Many2One   `xmlrpc:"move_id,omitempty"`
 	MoveName                       *String     `xmlrpc:"move_name,omitempty"`
 	MoveType                       *Selection  `xmlrpc:"move_type,omitempty"`
 	Name                           *String     `xmlrpc:"name,omitempty"`
+	NonDeductibleTaxValue          *Float      `xmlrpc:"non_deductible_tax_value,omitempty"`
 	ParentState                    *Selection  `xmlrpc:"parent_state,omitempty"`
 	PartnerId                      *Many2One   `xmlrpc:"partner_id,omitempty"`
 	PaymentDate                    *Time       `xmlrpc:"payment_date,omitempty"`
 	PaymentId                      *Many2One   `xmlrpc:"payment_id,omitempty"`
 	PriceSubtotal                  *Float      `xmlrpc:"price_subtotal,omitempty"`
+	PriceTax                       *Float      `xmlrpc:"price_tax,omitempty"`
 	PriceTotal                     *Float      `xmlrpc:"price_total,omitempty"`
 	PriceUnit                      *Float      `xmlrpc:"price_unit,omitempty"`
 	ProductCategoryId              *Many2One   `xmlrpc:"product_category_id,omitempty"`
@@ -91,6 +105,10 @@ type AccountMoveLine struct {
 	TermKey                        *String     `xmlrpc:"term_key,omitempty"`
 	WriteDate                      *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                       *Many2One   `xmlrpc:"write_uid,omitempty"`
+	XStudioBalanceAbsolue          *Float      `xmlrpc:"x_studio_balance_absolue,omitempty"`
+	XStudioDateEchance             *Time       `xmlrpc:"x_studio_date_echance,omitempty"`
+	XStudioNPiceYooz               *String     `xmlrpc:"x_studio_n_pice_yooz,omitempty"`
+	XStudioSens1                   *String     `xmlrpc:"x_studio_sens_1,omitempty"`
 }
 
 // AccountMoveLines represents array of account.move.line model.

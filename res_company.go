@@ -6,8 +6,10 @@ type ResCompany struct {
 	AccountDefaultPosReceivableAccountId        *Many2One   `xmlrpc:"account_default_pos_receivable_account_id,omitempty"`
 	AccountDiscountExpenseAllocationId          *Many2One   `xmlrpc:"account_discount_expense_allocation_id,omitempty"`
 	AccountDiscountIncomeAllocationId           *Many2One   `xmlrpc:"account_discount_income_allocation_id,omitempty"`
+	AccountDisplayRepresentativeField           *Bool       `xmlrpc:"account_display_representative_field,omitempty"`
 	AccountEnabledTaxCountryIds                 *Relation   `xmlrpc:"account_enabled_tax_country_ids,omitempty"`
 	AccountFiscalCountryId                      *Many2One   `xmlrpc:"account_fiscal_country_id,omitempty"`
+	AccountFolderId                             *Many2One   `xmlrpc:"account_folder_id,omitempty"`
 	AccountJournalEarlyPayDiscountGainAccountId *Many2One   `xmlrpc:"account_journal_early_pay_discount_gain_account_id,omitempty"`
 	AccountJournalEarlyPayDiscountLossAccountId *Many2One   `xmlrpc:"account_journal_early_pay_discount_loss_account_id,omitempty"`
 	AccountJournalSuspenseAccountId             *Many2One   `xmlrpc:"account_journal_suspense_account_id,omitempty"`
@@ -18,8 +20,16 @@ type ResCompany struct {
 	AccountProductionWipAccountId               *Many2One   `xmlrpc:"account_production_wip_account_id,omitempty"`
 	AccountProductionWipOverheadAccountId       *Many2One   `xmlrpc:"account_production_wip_overhead_account_id,omitempty"`
 	AccountPurchaseTaxId                        *Many2One   `xmlrpc:"account_purchase_tax_id,omitempty"`
+	AccountRepresentativeId                     *Many2One   `xmlrpc:"account_representative_id,omitempty"`
+	AccountRevaluationExpenseProvisionAccountId *Many2One   `xmlrpc:"account_revaluation_expense_provision_account_id,omitempty"`
+	AccountRevaluationIncomeProvisionAccountId  *Many2One   `xmlrpc:"account_revaluation_income_provision_account_id,omitempty"`
+	AccountRevaluationJournalId                 *Many2One   `xmlrpc:"account_revaluation_journal_id,omitempty"`
 	AccountSaleTaxId                            *Many2One   `xmlrpc:"account_sale_tax_id,omitempty"`
 	AccountStorno                               *Bool       `xmlrpc:"account_storno,omitempty"`
+	AccountTaxPeriodicity                       *Selection  `xmlrpc:"account_tax_periodicity,omitempty"`
+	AccountTaxPeriodicityJournalId              *Many2One   `xmlrpc:"account_tax_periodicity_journal_id,omitempty"`
+	AccountTaxPeriodicityReminderDay            *Int        `xmlrpc:"account_tax_periodicity_reminder_day,omitempty"`
+	AccountTaxUnitIds                           *Relation   `xmlrpc:"account_tax_unit_ids,omitempty"`
 	AccountUseCreditLimit                       *Bool       `xmlrpc:"account_use_credit_limit,omitempty"`
 	Active                                      *Bool       `xmlrpc:"active,omitempty"`
 	AliasDomainId                               *Many2One   `xmlrpc:"alias_domain_id,omitempty"`
@@ -31,6 +41,7 @@ type ResCompany struct {
 	Ape                                         *String     `xmlrpc:"ape,omitempty"`
 	AutomaticEntryDefaultJournalId              *Many2One   `xmlrpc:"automatic_entry_default_journal_id,omitempty"`
 	AutopostBills                               *Bool       `xmlrpc:"autopost_bills,omitempty"`
+	BackgroundImage                             *String     `xmlrpc:"background_image,omitempty"`
 	BankAccountCodePrefix                       *String     `xmlrpc:"bank_account_code_prefix,omitempty"`
 	BankIds                                     *Relation   `xmlrpc:"bank_ids,omitempty"`
 	BankJournalIds                              *Relation   `xmlrpc:"bank_journal_ids,omitempty"`
@@ -38,6 +49,10 @@ type ResCompany struct {
 	BounceEmail                                 *String     `xmlrpc:"bounce_email,omitempty"`
 	BounceFormatted                             *String     `xmlrpc:"bounce_formatted,omitempty"`
 	CashAccountCodePrefix                       *String     `xmlrpc:"cash_account_code_prefix,omitempty"`
+	CashpadApiUrl                               *String     `xmlrpc:"cashpad_api_url,omitempty"`
+	CashpadEmail                                *String     `xmlrpc:"cashpad_email,omitempty"`
+	CashpadInstallationId                       *String     `xmlrpc:"cashpad_installation_id,omitempty"`
+	CashpadToken                                *String     `xmlrpc:"cashpad_token,omitempty"`
 	CatchallEmail                               *String     `xmlrpc:"catchall_email,omitempty"`
 	CatchallFormatted                           *String     `xmlrpc:"catchall_formatted,omitempty"`
 	ChartTemplate                               *Selection  `xmlrpc:"chart_template,omitempty"`
@@ -47,6 +62,7 @@ type ResCompany struct {
 	Color                                       *Int        `xmlrpc:"color,omitempty"`
 	CompanyDetails                              *String     `xmlrpc:"company_details,omitempty"`
 	CompanyRegistry                             *String     `xmlrpc:"company_registry,omitempty"`
+	CompanyRegistryPlaceholder                  *String     `xmlrpc:"company_registry_placeholder,omitempty"`
 	CompanyVatPlaceholder                       *String     `xmlrpc:"company_vat_placeholder,omitempty"`
 	CountryCode                                 *String     `xmlrpc:"country_code,omitempty"`
 	CountryId                                   *Many2One   `xmlrpc:"country_id,omitempty"`
@@ -54,13 +70,27 @@ type ResCompany struct {
 	CreateUid                                   *Many2One   `xmlrpc:"create_uid,omitempty"`
 	CurrencyExchangeJournalId                   *Many2One   `xmlrpc:"currency_exchange_journal_id,omitempty"`
 	CurrencyId                                  *Many2One   `xmlrpc:"currency_id,omitempty"`
+	CurrencyIntervalUnit                        *Selection  `xmlrpc:"currency_interval_unit,omitempty"`
+	CurrencyNextExecutionDate                   *Time       `xmlrpc:"currency_next_execution_date,omitempty"`
+	CurrencyProvider                            *Selection  `xmlrpc:"currency_provider,omitempty"`
 	DaysToPurchase                              *Float      `xmlrpc:"days_to_purchase,omitempty"`
 	DefaultCashDifferenceExpenseAccountId       *Many2One   `xmlrpc:"default_cash_difference_expense_account_id,omitempty"`
 	DefaultCashDifferenceIncomeAccountId        *Many2One   `xmlrpc:"default_cash_difference_income_account_id,omitempty"`
 	DefaultFromEmail                            *String     `xmlrpc:"default_from_email,omitempty"`
+	DeferredExpenseAccountId                    *Many2One   `xmlrpc:"deferred_expense_account_id,omitempty"`
+	DeferredExpenseAmountComputationMethod      *Selection  `xmlrpc:"deferred_expense_amount_computation_method,omitempty"`
+	DeferredExpenseJournalId                    *Many2One   `xmlrpc:"deferred_expense_journal_id,omitempty"`
+	DeferredRevenueAccountId                    *Many2One   `xmlrpc:"deferred_revenue_account_id,omitempty"`
+	DeferredRevenueAmountComputationMethod      *Selection  `xmlrpc:"deferred_revenue_amount_computation_method,omitempty"`
+	DeferredRevenueJournalId                    *Many2One   `xmlrpc:"deferred_revenue_journal_id,omitempty"`
 	DisplayInvoiceAmountTotalWords              *Bool       `xmlrpc:"display_invoice_amount_total_words,omitempty"`
 	DisplayInvoiceTaxCompanyCurrency            *Bool       `xmlrpc:"display_invoice_tax_company_currency,omitempty"`
 	DisplayName                                 *String     `xmlrpc:"display_name,omitempty"`
+	DocumentSpreadsheetFolderId                 *Many2One   `xmlrpc:"document_spreadsheet_folder_id,omitempty"`
+	DocumentsAccountSettings                    *Bool       `xmlrpc:"documents_account_settings,omitempty"`
+	DocumentsHrFolder                           *Many2One   `xmlrpc:"documents_hr_folder,omitempty"`
+	DocumentsHrSettings                         *Bool       `xmlrpc:"documents_hr_settings,omitempty"`
+	DocumentsProductSettings                    *Bool       `xmlrpc:"documents_product_settings,omitempty"`
 	Email                                       *String     `xmlrpc:"email,omitempty"`
 	EmailFormatted                              *String     `xmlrpc:"email_formatted,omitempty"`
 	EmailPrimaryColor                           *String     `xmlrpc:"email_primary_color,omitempty"`
@@ -70,11 +100,18 @@ type ResCompany struct {
 	ExpenseAccrualAccountId                     *Many2One   `xmlrpc:"expense_accrual_account_id,omitempty"`
 	ExpenseCurrencyExchangeAccountId            *Many2One   `xmlrpc:"expense_currency_exchange_account_id,omitempty"`
 	ExternalReportLayoutId                      *Many2One   `xmlrpc:"external_report_layout_id,omitempty"`
+	ExtractBankStatementDigitalizationMode      *Selection  `xmlrpc:"extract_bank_statement_digitalization_mode,omitempty"`
+	ExtractInInvoiceDigitalizationMode          *Selection  `xmlrpc:"extract_in_invoice_digitalization_mode,omitempty"`
+	ExtractOutInvoiceDigitalizationMode         *Selection  `xmlrpc:"extract_out_invoice_digitalization_mode,omitempty"`
+	ExtractSingleLinePerTax                     *Bool       `xmlrpc:"extract_single_line_per_tax,omitempty"`
 	FiscalPositionIds                           *Relation   `xmlrpc:"fiscal_position_ids,omitempty"`
 	FiscalyearLastDay                           *Int        `xmlrpc:"fiscalyear_last_day,omitempty"`
 	FiscalyearLastMonth                         *Selection  `xmlrpc:"fiscalyear_last_month,omitempty"`
 	FiscalyearLockDate                          *Time       `xmlrpc:"fiscalyear_lock_date,omitempty"`
 	Font                                        *Selection  `xmlrpc:"font,omitempty"`
+	GainAccountId                               *Many2One   `xmlrpc:"gain_account_id,omitempty"`
+	GenerateDeferredExpenseEntriesMethod        *Selection  `xmlrpc:"generate_deferred_expense_entries_method,omitempty"`
+	GenerateDeferredRevenueEntriesMethod        *Selection  `xmlrpc:"generate_deferred_revenue_entries_method,omitempty"`
 	HardLockDate                                *Time       `xmlrpc:"hard_lock_date,omitempty"`
 	HasMessage                                  *Bool       `xmlrpc:"has_message,omitempty"`
 	HasReceivedWarningStockSms                  *Bool       `xmlrpc:"has_received_warning_stock_sms,omitempty"`
@@ -92,15 +129,21 @@ type ResCompany struct {
 	InternalTransitLocationId                   *Many2One   `xmlrpc:"internal_transit_location_id,omitempty"`
 	InvoiceTerms                                *String     `xmlrpc:"invoice_terms,omitempty"`
 	InvoiceTermsHtml                            *String     `xmlrpc:"invoice_terms_html,omitempty"`
+	InvoicingSwitchThreshold                    *Time       `xmlrpc:"invoicing_switch_threshold,omitempty"`
 	IsCompanyDetailsEmpty                       *Bool       `xmlrpc:"is_company_details_empty,omitempty"`
 	IsFranceCountry                             *Bool       `xmlrpc:"is_france_country,omitempty"`
+	Iso20022InitiatingPartyName                 *String     `xmlrpc:"iso20022_initiating_party_name,omitempty"`
+	Iso20022Lei                                 *String     `xmlrpc:"iso20022_lei,omitempty"`
+	Iso20022OrgidId                             *String     `xmlrpc:"iso20022_orgid_id,omitempty"`
+	Iso20022OrgidIssr                           *String     `xmlrpc:"iso20022_orgid_issr,omitempty"`
 	L10NFrClosingSequenceId                     *Many2One   `xmlrpc:"l10n_fr_closing_sequence_id,omitempty"`
+	L10NFrRoundingDifferenceLossAccountId       *Many2One   `xmlrpc:"l10n_fr_rounding_difference_loss_account_id,omitempty"`
+	L10NFrRoundingDifferenceProfitAccountId     *Many2One   `xmlrpc:"l10n_fr_rounding_difference_profit_account_id,omitempty"`
 	LayoutBackground                            *Selection  `xmlrpc:"layout_background,omitempty"`
 	LayoutBackgroundImage                       *String     `xmlrpc:"layout_background_image,omitempty"`
-	Ldaps                                       *Relation   `xmlrpc:"ldaps,omitempty"`
-	LeaveTimesheetTaskId                        *Many2One   `xmlrpc:"leave_timesheet_task_id,omitempty"`
 	Logo                                        *String     `xmlrpc:"logo,omitempty"`
 	LogoWeb                                     *String     `xmlrpc:"logo_web,omitempty"`
+	LossAccountId                               *Many2One   `xmlrpc:"loss_account_id,omitempty"`
 	MessageAttachmentCount                      *Int        `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds                          *Relation   `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError                             *Bool       `xmlrpc:"message_has_error,omitempty"`
@@ -114,6 +157,7 @@ type ResCompany struct {
 	Mobile                                      *String     `xmlrpc:"mobile,omitempty"`
 	MultiVatForeignCountryIds                   *Relation   `xmlrpc:"multi_vat_foreign_country_ids,omitempty"`
 	Name                                        *String     `xmlrpc:"name,omitempty"`
+	Nic                                         *String     `xmlrpc:"nic,omitempty"`
 	NomenclatureId                              *Many2One   `xmlrpc:"nomenclature_id,omitempty"`
 	PaperformatId                               *Many2One   `xmlrpc:"paperformat_id,omitempty"`
 	ParentId                                    *Many2One   `xmlrpc:"parent_id,omitempty"`
@@ -127,10 +171,17 @@ type ResCompany struct {
 	PoDoubleValidationAmount                    *Float      `xmlrpc:"po_double_validation_amount,omitempty"`
 	PoLead                                      *Float      `xmlrpc:"po_lead,omitempty"`
 	PoLock                                      *Selection  `xmlrpc:"po_lock,omitempty"`
+	PointOfSaleTicketPortalUrlDisplayMode       *Selection  `xmlrpc:"point_of_sale_ticket_portal_url_display_mode,omitempty"`
+	PointOfSaleTicketUniqueCode                 *Bool       `xmlrpc:"point_of_sale_ticket_unique_code,omitempty"`
+	PointOfSaleUpdateStockQuantities            *Selection  `xmlrpc:"point_of_sale_update_stock_quantities,omitempty"`
+	PointOfSaleUseTicketQrCode                  *Bool       `xmlrpc:"point_of_sale_use_ticket_qr_code,omitempty"`
 	PortalConfirmationPay                       *Bool       `xmlrpc:"portal_confirmation_pay,omitempty"`
 	PortalConfirmationSign                      *Bool       `xmlrpc:"portal_confirmation_sign,omitempty"`
+	PredictBillProduct                          *Bool       `xmlrpc:"predict_bill_product,omitempty"`
 	PrepaymentPercent                           *Float      `xmlrpc:"prepayment_percent,omitempty"`
 	PrimaryColor                                *String     `xmlrpc:"primary_color,omitempty"`
+	ProductFolderId                             *Many2One   `xmlrpc:"product_folder_id,omitempty"`
+	ProductTagIds                               *Relation   `xmlrpc:"product_tag_ids,omitempty"`
 	ProjectTimeModeId                           *Many2One   `xmlrpc:"project_time_mode_id,omitempty"`
 	PurchaseLockDate                            *Time       `xmlrpc:"purchase_lock_date,omitempty"`
 	QrCode                                      *Bool       `xmlrpc:"qr_code,omitempty"`
@@ -150,6 +201,9 @@ type ResCompany struct {
 	SecondaryColor                              *String     `xmlrpc:"secondary_color,omitempty"`
 	SecurityLead                                *Float      `xmlrpc:"security_lead,omitempty"`
 	Sequence                                    *Int        `xmlrpc:"sequence,omitempty"`
+	SignInvoice                                 *Bool       `xmlrpc:"sign_invoice,omitempty"`
+	SigningUser                                 *Many2One   `xmlrpc:"signing_user,omitempty"`
+	Siren                                       *String     `xmlrpc:"siren,omitempty"`
 	Siret                                       *String     `xmlrpc:"siret,omitempty"`
 	SnailmailColor                              *Bool       `xmlrpc:"snailmail_color,omitempty"`
 	SnailmailCover                              *Bool       `xmlrpc:"snailmail_cover,omitempty"`
@@ -174,6 +228,17 @@ type ResCompany struct {
 	TaxLockDate                                 *Time       `xmlrpc:"tax_lock_date,omitempty"`
 	TermsType                                   *Selection  `xmlrpc:"terms_type,omitempty"`
 	TimesheetEncodeUomId                        *Many2One   `xmlrpc:"timesheet_encode_uom_id,omitempty"`
+	TimesheetMailAllow                          *Bool       `xmlrpc:"timesheet_mail_allow,omitempty"`
+	TimesheetMailDelay                          *Int        `xmlrpc:"timesheet_mail_delay,omitempty"`
+	TimesheetMailEmployeeAllow                  *Bool       `xmlrpc:"timesheet_mail_employee_allow,omitempty"`
+	TimesheetMailEmployeeDelay                  *Int        `xmlrpc:"timesheet_mail_employee_delay,omitempty"`
+	TimesheetMailEmployeeInterval               *Selection  `xmlrpc:"timesheet_mail_employee_interval,omitempty"`
+	TimesheetMailEmployeeNextdate               *Time       `xmlrpc:"timesheet_mail_employee_nextdate,omitempty"`
+	TimesheetMailInterval                       *Selection  `xmlrpc:"timesheet_mail_interval,omitempty"`
+	TimesheetMailNextdate                       *Time       `xmlrpc:"timesheet_mail_nextdate,omitempty"`
+	TimesheetShowLeaderboard                    *Bool       `xmlrpc:"timesheet_show_leaderboard,omitempty"`
+	TimesheetShowRates                          *Bool       `xmlrpc:"timesheet_show_rates,omitempty"`
+	TotalsBelowSections                         *Bool       `xmlrpc:"totals_below_sections,omitempty"`
 	TransferAccountCodePrefix                   *String     `xmlrpc:"transfer_account_code_prefix,omitempty"`
 	TransferAccountId                           *Many2One   `xmlrpc:"transfer_account_id,omitempty"`
 	UninstalledL10NModuleIds                    *Relation   `xmlrpc:"uninstalled_l10n_module_ids,omitempty"`
@@ -187,9 +252,18 @@ type ResCompany struct {
 	Vat                                         *String     `xmlrpc:"vat,omitempty"`
 	VatCheckVies                                *Bool       `xmlrpc:"vat_check_vies,omitempty"`
 	Website                                     *String     `xmlrpc:"website,omitempty"`
+	WebsiteId                                   *Many2One   `xmlrpc:"website_id,omitempty"`
 	WebsiteMessageIds                           *Relation   `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                                   *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                                    *Many2One   `xmlrpc:"write_uid,omitempty"`
+	XStudioCashpadInstallationId                *String     `xmlrpc:"x_studio_cashpad_installation_id,omitempty"`
+	XStudioGoogleStorecode                      *String     `xmlrpc:"x_studio_google_storecode,omitempty"`
+	XStudioIntercardId                          *Int        `xmlrpc:"x_studio_intercard_id,omitempty"`
+	XStudioIntranetPowerBiReport                *String     `xmlrpc:"x_studio_intranet_power_bi_report,omitempty"`
+	XStudioNedapLocationId                      *Int        `xmlrpc:"x_studio_nedap_location_id,omitempty"`
+	XStudioPiedDePageFacture                    *String     `xmlrpc:"x_studio_pied_de_page_facture,omitempty"`
+	XStudioQrcodeAreaId                         *Int        `xmlrpc:"x_studio_qrcode_area_id,omitempty"`
+	XStudioShortName                            *String     `xmlrpc:"x_studio_short_name,omitempty"`
 	Zip                                         *String     `xmlrpc:"zip,omitempty"`
 }
 

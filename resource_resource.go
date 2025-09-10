@@ -12,7 +12,6 @@ type ResourceResource struct {
 	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
 	Email             *String    `xmlrpc:"email,omitempty"`
 	EmployeeId        *Relation  `xmlrpc:"employee_id,omitempty"`
-	EmployeeSkillIds  *Relation  `xmlrpc:"employee_skill_ids,omitempty"`
 	HrIconDisplay     *Selection `xmlrpc:"hr_icon_display,omitempty"`
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	ImStatus          *String    `xmlrpc:"im_status,omitempty"`
@@ -29,6 +28,7 @@ type ResourceResource struct {
 	WorkPhone         *String    `xmlrpc:"work_phone,omitempty"`
 	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XStudioPosition   *Int       `xmlrpc:"x_studio_position,omitempty"`
 }
 
 // ResourceResources represents array of resource.resource model.
