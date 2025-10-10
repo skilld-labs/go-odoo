@@ -2,22 +2,23 @@ package odoo
 
 // IrFilters represents ir.filters model.
 type IrFilters struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	ActionId    *Many2One  `xmlrpc:"action_id,omitempty"`
-	Active      *Bool      `xmlrpc:"active,omitempty"`
-	Context     *String    `xmlrpc:"context,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Domain      *String    `xmlrpc:"domain,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	IsDefault   *Bool      `xmlrpc:"is_default,omitempty"`
-	ModelId     *Selection `xmlrpc:"model_id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	Sort        *String    `xmlrpc:"sort,omitempty"`
-	UserId      *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	ActionId            *Many2One  `xmlrpc:"action_id,omitempty"`
+	Active              *Bool      `xmlrpc:"active,omitempty"`
+	Context             *String    `xmlrpc:"context,omitempty"`
+	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	Domain              *String    `xmlrpc:"domain,omitempty"`
+	EmbeddedActionId    *Many2One  `xmlrpc:"embedded_action_id,omitempty"`
+	EmbeddedParentResId *Int       `xmlrpc:"embedded_parent_res_id,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	IsDefault           *Bool      `xmlrpc:"is_default,omitempty"`
+	ModelId             *Selection `xmlrpc:"model_id,omitempty"`
+	Name                *String    `xmlrpc:"name,omitempty"`
+	Sort                *String    `xmlrpc:"sort,omitempty"`
+	UserId              *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrFilterss represents array of ir.filters model.
@@ -43,7 +44,7 @@ func (c *Client) CreateIrFilters(IF *IrFilters) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrFilterss creates a new ir.filters model and returns its id.
+// CreateIrFilters creates a new ir.filters model and returns its id.
 func (c *Client) CreateIrFilterss(IFs []*IrFilters) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range IFs {

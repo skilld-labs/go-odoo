@@ -2,21 +2,22 @@ package odoo
 
 // IrActionsActUrl represents ir.actions.act_url model.
 type IrActionsActUrl struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType    *Selection `xmlrpc:"binding_type,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Help           *String    `xmlrpc:"help,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Target         *Selection `xmlrpc:"target,omitempty"`
-	Type           *String    `xmlrpc:"type,omitempty"`
-	Url            *String    `xmlrpc:"url,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId          *String    `xmlrpc:"xml_id,omitempty"`
+	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
+	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Help             *String    `xmlrpc:"help,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
+	Target           *Selection `xmlrpc:"target,omitempty"`
+	Type             *String    `xmlrpc:"type,omitempty"`
+	Url              *String    `xmlrpc:"url,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId            *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrActionsActUrls represents array of ir.actions.act_url model.
@@ -42,7 +43,7 @@ func (c *Client) CreateIrActionsActUrl(iaa *IrActionsActUrl) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsActUrls creates a new ir.actions.act_url model and returns its id.
+// CreateIrActionsActUrl creates a new ir.actions.act_url model and returns its id.
 func (c *Client) CreateIrActionsActUrls(iaas []*IrActionsActUrl) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

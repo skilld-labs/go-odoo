@@ -2,7 +2,6 @@ package odoo
 
 // AutosalesConfig represents autosales.config model.
 type AutosalesConfig struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	ConfigLine  *Relation `xmlrpc:"config_line,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateAutosalesConfig(ac *AutosalesConfig) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAutosalesConfigs creates a new autosales.config model and returns its id.
+// CreateAutosalesConfig creates a new autosales.config model and returns its id.
 func (c *Client) CreateAutosalesConfigs(acs []*AutosalesConfig) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range acs {

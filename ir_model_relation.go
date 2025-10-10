@@ -2,11 +2,8 @@ package odoo
 
 // IrModelRelation represents ir.model.relation model.
 type IrModelRelation struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DateInit    *Time     `xmlrpc:"date_init,omitempty"`
-	DateUpdate  *Time     `xmlrpc:"date_update,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Model       *Many2One `xmlrpc:"model,omitempty"`
@@ -39,7 +36,7 @@ func (c *Client) CreateIrModelRelation(imr *IrModelRelation) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelRelations creates a new ir.model.relation model and returns its id.
+// CreateIrModelRelation creates a new ir.model.relation model and returns its id.
 func (c *Client) CreateIrModelRelations(imrs []*IrModelRelation) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imrs {

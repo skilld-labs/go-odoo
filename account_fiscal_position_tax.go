@@ -2,16 +2,17 @@ package odoo
 
 // AccountFiscalPositionTax represents account.fiscal.position.tax model.
 type AccountFiscalPositionTax struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	PositionId  *Many2One `xmlrpc:"position_id,omitempty"`
-	TaxDestId   *Many2One `xmlrpc:"tax_dest_id,omitempty"`
-	TaxSrcId    *Many2One `xmlrpc:"tax_src_id,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	PositionId    *Many2One `xmlrpc:"position_id,omitempty"`
+	TaxDestActive *Bool     `xmlrpc:"tax_dest_active,omitempty"`
+	TaxDestId     *Many2One `xmlrpc:"tax_dest_id,omitempty"`
+	TaxSrcId      *Many2One `xmlrpc:"tax_src_id,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountFiscalPositionTaxs represents array of account.fiscal.position.tax model.
@@ -37,7 +38,7 @@ func (c *Client) CreateAccountFiscalPositionTax(afpt *AccountFiscalPositionTax) 
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPositionTaxs creates a new account.fiscal.position.tax model and returns its id.
+// CreateAccountFiscalPositionTax creates a new account.fiscal.position.tax model and returns its id.
 func (c *Client) CreateAccountFiscalPositionTaxs(afpts []*AccountFiscalPositionTax) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afpts {

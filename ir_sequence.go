@@ -2,7 +2,6 @@ package odoo
 
 // IrSequence represents ir.sequence model.
 type IrSequence struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	Active           *Bool      `xmlrpc:"active,omitempty"`
 	Code             *String    `xmlrpc:"code,omitempty"`
 	CompanyId        *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -47,7 +46,7 @@ func (c *Client) CreateIrSequence(is *IrSequence) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrSequences creates a new ir.sequence model and returns its id.
+// CreateIrSequence creates a new ir.sequence model and returns its id.
 func (c *Client) CreateIrSequences(iss []*IrSequence) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iss {

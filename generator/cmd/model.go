@@ -61,7 +61,7 @@ func newModelField(name string, odooType string) *modelField {
 	if modelType, ok := odooToType[odooType]; ok {
 		mf.Type = modelType
 	} else {
-		fmt.Printf("warn: cannot find a go-odoo type for odoo type %s\n", odooType)
+		fmt.Printf("warn: cannot find a go-odoo type for %s field of odoo %s type\n", name, odooType)
 		mf.Type = "interface{}"
 	}
 	return mf

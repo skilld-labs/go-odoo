@@ -2,19 +2,25 @@ package odoo
 
 // ProductAttributeValue represents product.attribute.value model.
 type ProductAttributeValue struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	AttributeId *Many2One `xmlrpc:"attribute_id,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	PriceExtra  *Float    `xmlrpc:"price_extra,omitempty"`
-	PriceIds    *Relation `xmlrpc:"price_ids,omitempty"`
-	ProductIds  *Relation `xmlrpc:"product_ids,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                   *Bool      `xmlrpc:"active,omitempty"`
+	AttributeId              *Many2One  `xmlrpc:"attribute_id,omitempty"`
+	Color                    *Int       `xmlrpc:"color,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DefaultExtraPrice        *Float     `xmlrpc:"default_extra_price,omitempty"`
+	DefaultExtraPriceChanged *Bool      `xmlrpc:"default_extra_price_changed,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	DisplayType              *Selection `xmlrpc:"display_type,omitempty"`
+	HtmlColor                *String    `xmlrpc:"html_color,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	Image                    *String    `xmlrpc:"image,omitempty"`
+	IsCustom                 *Bool      `xmlrpc:"is_custom,omitempty"`
+	IsUsedOnProducts         *Bool      `xmlrpc:"is_used_on_products,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	PavAttributeLineIds      *Relation  `xmlrpc:"pav_attribute_line_ids,omitempty"`
+	Sequence                 *Int       `xmlrpc:"sequence,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributeValues represents array of product.attribute.value model.
@@ -40,7 +46,7 @@ func (c *Client) CreateProductAttributeValue(pav *ProductAttributeValue) (int64,
 	return ids[0], nil
 }
 
-// CreateProductAttributeValues creates a new product.attribute.value model and returns its id.
+// CreateProductAttributeValue creates a new product.attribute.value model and returns its id.
 func (c *Client) CreateProductAttributeValues(pavs []*ProductAttributeValue) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pavs {

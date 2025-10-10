@@ -2,8 +2,6 @@ package odoo
 
 // PurchaseReport represents purchase.report model.
 type PurchaseReport struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
-	AccountAnalyticId   *Many2One  `xmlrpc:"account_analytic_id,omitempty"`
 	CategoryId          *Many2One  `xmlrpc:"category_id,omitempty"`
 	CommercialPartnerId *Many2One  `xmlrpc:"commercial_partner_id,omitempty"`
 	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -11,23 +9,28 @@ type PurchaseReport struct {
 	CurrencyId          *Many2One  `xmlrpc:"currency_id,omitempty"`
 	DateApprove         *Time      `xmlrpc:"date_approve,omitempty"`
 	DateOrder           *Time      `xmlrpc:"date_order,omitempty"`
+	DaysToArrival       *Float     `xmlrpc:"days_to_arrival,omitempty"`
 	Delay               *Float     `xmlrpc:"delay,omitempty"`
 	DelayPass           *Float     `xmlrpc:"delay_pass,omitempty"`
 	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	EffectiveDate       *Time      `xmlrpc:"effective_date,omitempty"`
 	FiscalPositionId    *Many2One  `xmlrpc:"fiscal_position_id,omitempty"`
 	Id                  *Int       `xmlrpc:"id,omitempty"`
 	NbrLines            *Int       `xmlrpc:"nbr_lines,omitempty"`
-	Negociation         *Float     `xmlrpc:"negociation,omitempty"`
+	OrderId             *Many2One  `xmlrpc:"order_id,omitempty"`
 	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PickingTypeId       *Many2One  `xmlrpc:"picking_type_id,omitempty"`
 	PriceAverage        *Float     `xmlrpc:"price_average,omitempty"`
-	PriceStandard       *Float     `xmlrpc:"price_standard,omitempty"`
 	PriceTotal          *Float     `xmlrpc:"price_total,omitempty"`
 	ProductId           *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductTmplId       *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
 	ProductUom          *Many2One  `xmlrpc:"product_uom,omitempty"`
+	QtyBilled           *Float     `xmlrpc:"qty_billed,omitempty"`
+	QtyOrdered          *Float     `xmlrpc:"qty_ordered,omitempty"`
+	QtyReceived         *Float     `xmlrpc:"qty_received,omitempty"`
+	QtyToBeBilled       *Float     `xmlrpc:"qty_to_be_billed,omitempty"`
 	State               *Selection `xmlrpc:"state,omitempty"`
-	UnitQuantity        *Float     `xmlrpc:"unit_quantity,omitempty"`
+	UntaxedTotal        *Float     `xmlrpc:"untaxed_total,omitempty"`
 	UserId              *Many2One  `xmlrpc:"user_id,omitempty"`
 	Volume              *Float     `xmlrpc:"volume,omitempty"`
 	Weight              *Float     `xmlrpc:"weight,omitempty"`
@@ -56,7 +59,7 @@ func (c *Client) CreatePurchaseReport(pr *PurchaseReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePurchaseReports creates a new purchase.report model and returns its id.
+// CreatePurchaseReport creates a new purchase.report model and returns its id.
 func (c *Client) CreatePurchaseReports(prs []*PurchaseReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

@@ -2,14 +2,23 @@ package odoo
 
 // MailNotification represents mail.notification model.
 type MailNotification struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	EmailStatus   *Selection `xmlrpc:"email_status,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	IsEmail       *Bool      `xmlrpc:"is_email,omitempty"`
-	IsRead        *Bool      `xmlrpc:"is_read,omitempty"`
-	MailMessageId *Many2One  `xmlrpc:"mail_message_id,omitempty"`
-	ResPartnerId  *Many2One  `xmlrpc:"res_partner_id,omitempty"`
+	AuthorId           *Many2One  `xmlrpc:"author_id,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	FailureReason      *String    `xmlrpc:"failure_reason,omitempty"`
+	FailureType        *Selection `xmlrpc:"failure_type,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	IsRead             *Bool      `xmlrpc:"is_read,omitempty"`
+	LetterId           *Many2One  `xmlrpc:"letter_id,omitempty"`
+	MailMailId         *Many2One  `xmlrpc:"mail_mail_id,omitempty"`
+	MailMessageId      *Many2One  `xmlrpc:"mail_message_id,omitempty"`
+	NotificationStatus *Selection `xmlrpc:"notification_status,omitempty"`
+	NotificationType   *Selection `xmlrpc:"notification_type,omitempty"`
+	ReadDate           *Time      `xmlrpc:"read_date,omitempty"`
+	ResPartnerId       *Many2One  `xmlrpc:"res_partner_id,omitempty"`
+	SmsId              *Many2One  `xmlrpc:"sms_id,omitempty"`
+	SmsIdInt           *Int       `xmlrpc:"sms_id_int,omitempty"`
+	SmsNumber          *String    `xmlrpc:"sms_number,omitempty"`
+	SmsTrackerIds      *Relation  `xmlrpc:"sms_tracker_ids,omitempty"`
 }
 
 // MailNotifications represents array of mail.notification model.
@@ -35,7 +44,7 @@ func (c *Client) CreateMailNotification(mn *MailNotification) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailNotifications creates a new mail.notification model and returns its id.
+// CreateMailNotification creates a new mail.notification model and returns its id.
 func (c *Client) CreateMailNotifications(mns []*MailNotification) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mns {

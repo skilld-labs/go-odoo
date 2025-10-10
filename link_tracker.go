@@ -2,29 +2,27 @@ package odoo
 
 // LinkTracker represents link.tracker model.
 type LinkTracker struct {
-	LastUpdate            *Time     `xmlrpc:"__last_update,omitempty"`
-	CampaignId            *Many2One `xmlrpc:"campaign_id,omitempty"`
-	Code                  *String   `xmlrpc:"code,omitempty"`
-	Count                 *Int      `xmlrpc:"count,omitempty"`
-	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
-	Favicon               *String   `xmlrpc:"favicon,omitempty"`
-	IconSrc               *String   `xmlrpc:"icon_src,omitempty"`
-	Id                    *Int      `xmlrpc:"id,omitempty"`
-	LinkClickIds          *Relation `xmlrpc:"link_click_ids,omitempty"`
-	LinkCodeIds           *Relation `xmlrpc:"link_code_ids,omitempty"`
-	MassMailingCampaignId *Many2One `xmlrpc:"mass_mailing_campaign_id,omitempty"`
-	MassMailingId         *Many2One `xmlrpc:"mass_mailing_id,omitempty"`
-	MediumId              *Many2One `xmlrpc:"medium_id,omitempty"`
-	RedirectedUrl         *String   `xmlrpc:"redirected_url,omitempty"`
-	ShortUrl              *String   `xmlrpc:"short_url,omitempty"`
-	ShortUrlHost          *String   `xmlrpc:"short_url_host,omitempty"`
-	SourceId              *Many2One `xmlrpc:"source_id,omitempty"`
-	Title                 *String   `xmlrpc:"title,omitempty"`
-	Url                   *String   `xmlrpc:"url,omitempty"`
-	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
+	AbsoluteUrl   *String   `xmlrpc:"absolute_url,omitempty"`
+	CampaignId    *Many2One `xmlrpc:"campaign_id,omitempty"`
+	Code          *String   `xmlrpc:"code,omitempty"`
+	Count         *Int      `xmlrpc:"count,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	Label         *String   `xmlrpc:"label,omitempty"`
+	LinkClickIds  *Relation `xmlrpc:"link_click_ids,omitempty"`
+	LinkCodeIds   *Relation `xmlrpc:"link_code_ids,omitempty"`
+	MassMailingId *Many2One `xmlrpc:"mass_mailing_id,omitempty"`
+	MediumId      *Many2One `xmlrpc:"medium_id,omitempty"`
+	RedirectedUrl *String   `xmlrpc:"redirected_url,omitempty"`
+	ShortUrl      *String   `xmlrpc:"short_url,omitempty"`
+	ShortUrlHost  *String   `xmlrpc:"short_url_host,omitempty"`
+	SourceId      *Many2One `xmlrpc:"source_id,omitempty"`
+	Title         *String   `xmlrpc:"title,omitempty"`
+	Url           *String   `xmlrpc:"url,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // LinkTrackers represents array of link.tracker model.
@@ -50,7 +48,7 @@ func (c *Client) CreateLinkTracker(lt *LinkTracker) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateLinkTrackers creates a new link.tracker model and returns its id.
+// CreateLinkTracker creates a new link.tracker model and returns its id.
 func (c *Client) CreateLinkTrackers(lts []*LinkTracker) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range lts {

@@ -2,28 +2,44 @@ package odoo
 
 // StockScrap represents stock.scrap model.
 type StockScrap struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateExpected    *Time      `xmlrpc:"date_expected,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	LocationId      *Many2One  `xmlrpc:"location_id,omitempty"`
-	LotId           *Many2One  `xmlrpc:"lot_id,omitempty"`
-	MoveId          *Many2One  `xmlrpc:"move_id,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	Origin          *String    `xmlrpc:"origin,omitempty"`
-	OwnerId         *Many2One  `xmlrpc:"owner_id,omitempty"`
-	PackageId       *Many2One  `xmlrpc:"package_id,omitempty"`
-	PickingId       *Many2One  `xmlrpc:"picking_id,omitempty"`
-	ProductId       *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductUomId    *Many2One  `xmlrpc:"product_uom_id,omitempty"`
-	ScrapLocationId *Many2One  `xmlrpc:"scrap_location_id,omitempty"`
-	ScrapQty        *Float     `xmlrpc:"scrap_qty,omitempty"`
-	State           *Selection `xmlrpc:"state,omitempty"`
-	Tracking        *Selection `xmlrpc:"tracking,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateDone                 *Time      `xmlrpc:"date_done,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	HasMessage               *Bool      `xmlrpc:"has_message,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	LocationId               *Many2One  `xmlrpc:"location_id,omitempty"`
+	LotId                    *Many2One  `xmlrpc:"lot_id,omitempty"`
+	MessageAttachmentCount   *Int       `xmlrpc:"message_attachment_count,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError          *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter   *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MoveIds                  *Relation  `xmlrpc:"move_ids,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	Origin                   *String    `xmlrpc:"origin,omitempty"`
+	OwnerId                  *Many2One  `xmlrpc:"owner_id,omitempty"`
+	PackageId                *Many2One  `xmlrpc:"package_id,omitempty"`
+	PickingId                *Many2One  `xmlrpc:"picking_id,omitempty"`
+	ProductId                *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductUomCategoryId     *Many2One  `xmlrpc:"product_uom_category_id,omitempty"`
+	ProductUomId             *Many2One  `xmlrpc:"product_uom_id,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
+	ScrapLocationId          *Many2One  `xmlrpc:"scrap_location_id,omitempty"`
+	ScrapQty                 *Float     `xmlrpc:"scrap_qty,omitempty"`
+	ScrapReasonTagIds        *Relation  `xmlrpc:"scrap_reason_tag_ids,omitempty"`
+	ShouldReplenish          *Bool      `xmlrpc:"should_replenish,omitempty"`
+	State                    *Selection `xmlrpc:"state,omitempty"`
+	Tracking                 *Selection `xmlrpc:"tracking,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockScraps represents array of stock.scrap model.
@@ -49,7 +65,7 @@ func (c *Client) CreateStockScrap(ss *StockScrap) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockScraps creates a new stock.scrap model and returns its id.
+// CreateStockScrap creates a new stock.scrap model and returns its id.
 func (c *Client) CreateStockScraps(sss []*StockScrap) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sss {

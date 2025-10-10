@@ -2,29 +2,33 @@ package odoo
 
 // IrActionsReport represents ir.actions.report model.
 type IrActionsReport struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	Attachment      *String    `xmlrpc:"attachment,omitempty"`
-	AttachmentUse   *Bool      `xmlrpc:"attachment_use,omitempty"`
-	BindingModelId  *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType     *Selection `xmlrpc:"binding_type,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	GroupsId        *Relation  `xmlrpc:"groups_id,omitempty"`
-	Help            *String    `xmlrpc:"help,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	Model           *String    `xmlrpc:"model,omitempty"`
-	Multi           *Bool      `xmlrpc:"multi,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	PaperformatId   *Many2One  `xmlrpc:"paperformat_id,omitempty"`
-	PrintReportName *String    `xmlrpc:"print_report_name,omitempty"`
-	ReportFile      *String    `xmlrpc:"report_file,omitempty"`
-	ReportName      *String    `xmlrpc:"report_name,omitempty"`
-	ReportType      *Selection `xmlrpc:"report_type,omitempty"`
-	Type            *String    `xmlrpc:"type,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId           *String    `xmlrpc:"xml_id,omitempty"`
+	Attachment       *String    `xmlrpc:"attachment,omitempty"`
+	AttachmentUse    *Bool      `xmlrpc:"attachment_use,omitempty"`
+	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
+	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Domain           *String    `xmlrpc:"domain,omitempty"`
+	GroupsId         *Relation  `xmlrpc:"groups_id,omitempty"`
+	Help             *String    `xmlrpc:"help,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	IsInvoiceReport  *Bool      `xmlrpc:"is_invoice_report,omitempty"`
+	Model            *String    `xmlrpc:"model,omitempty"`
+	ModelId          *Many2One  `xmlrpc:"model_id,omitempty"`
+	Multi            *Bool      `xmlrpc:"multi,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	PaperformatId    *Many2One  `xmlrpc:"paperformat_id,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
+	PrintReportName  *String    `xmlrpc:"print_report_name,omitempty"`
+	ReportFile       *String    `xmlrpc:"report_file,omitempty"`
+	ReportName       *String    `xmlrpc:"report_name,omitempty"`
+	ReportType       *Selection `xmlrpc:"report_type,omitempty"`
+	Type             *String    `xmlrpc:"type,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId            *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrActionsReports represents array of ir.actions.report model.
@@ -50,7 +54,7 @@ func (c *Client) CreateIrActionsReport(iar *IrActionsReport) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsReports creates a new ir.actions.report model and returns its id.
+// CreateIrActionsReport creates a new ir.actions.report model and returns its id.
 func (c *Client) CreateIrActionsReports(iars []*IrActionsReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iars {

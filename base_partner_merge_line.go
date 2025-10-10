@@ -2,7 +2,6 @@ package odoo
 
 // BasePartnerMergeLine represents base.partner.merge.line model.
 type BasePartnerMergeLine struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	AggrIds     *String   `xmlrpc:"aggr_ids,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateBasePartnerMergeLine(bpml *BasePartnerMergeLine) (int64, 
 	return ids[0], nil
 }
 
-// CreateBasePartnerMergeLines creates a new base.partner.merge.line model and returns its id.
+// CreateBasePartnerMergeLine creates a new base.partner.merge.line model and returns its id.
 func (c *Client) CreateBasePartnerMergeLines(bpmls []*BasePartnerMergeLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bpmls {

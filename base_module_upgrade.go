@@ -2,7 +2,6 @@ package odoo
 
 // BaseModuleUpgrade represents base.module.upgrade model.
 type BaseModuleUpgrade struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -35,7 +34,7 @@ func (c *Client) CreateBaseModuleUpgrade(bmu *BaseModuleUpgrade) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateBaseModuleUpgrades creates a new base.module.upgrade model and returns its id.
+// CreateBaseModuleUpgrade creates a new base.module.upgrade model and returns its id.
 func (c *Client) CreateBaseModuleUpgrades(bmus []*BaseModuleUpgrade) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bmus {

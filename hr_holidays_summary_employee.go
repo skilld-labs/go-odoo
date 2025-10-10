@@ -2,7 +2,6 @@ package odoo
 
 // HrHolidaysSummaryEmployee represents hr.holidays.summary.employee model.
 type HrHolidaysSummaryEmployee struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DateFrom    *Time      `xmlrpc:"date_from,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateHrHolidaysSummaryEmployee(hhse *HrHolidaysSummaryEmployee
 	return ids[0], nil
 }
 
-// CreateHrHolidaysSummaryEmployees creates a new hr.holidays.summary.employee model and returns its id.
+// CreateHrHolidaysSummaryEmployee creates a new hr.holidays.summary.employee model and returns its id.
 func (c *Client) CreateHrHolidaysSummaryEmployees(hhses []*HrHolidaysSummaryEmployee) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hhses {

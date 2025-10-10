@@ -2,16 +2,15 @@ package odoo
 
 // BaseLanguageInstall represents base.language.install model.
 type BaseLanguageInstall struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Lang        *Selection `xmlrpc:"lang,omitempty"`
-	Overwrite   *Bool      `xmlrpc:"overwrite,omitempty"`
-	State       *Selection `xmlrpc:"state,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	FirstLangId *Many2One `xmlrpc:"first_lang_id,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	LangIds     *Relation `xmlrpc:"lang_ids,omitempty"`
+	Overwrite   *Bool     `xmlrpc:"overwrite,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseLanguageInstalls represents array of base.language.install model.
@@ -37,7 +36,7 @@ func (c *Client) CreateBaseLanguageInstall(bli *BaseLanguageInstall) (int64, err
 	return ids[0], nil
 }
 
-// CreateBaseLanguageInstalls creates a new base.language.install model and returns its id.
+// CreateBaseLanguageInstall creates a new base.language.install model and returns its id.
 func (c *Client) CreateBaseLanguageInstalls(blis []*BaseLanguageInstall) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range blis {

@@ -2,16 +2,17 @@ package odoo
 
 // BarcodeNomenclature represents barcode.nomenclature model.
 type BarcodeNomenclature struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	RuleIds     *Relation  `xmlrpc:"rule_ids,omitempty"`
-	UpcEanConv  *Selection `xmlrpc:"upc_ean_conv,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Gs1SeparatorFnc1  *String    `xmlrpc:"gs1_separator_fnc1,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	IsGs1Nomenclature *Bool      `xmlrpc:"is_gs1_nomenclature,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	RuleIds           *Relation  `xmlrpc:"rule_ids,omitempty"`
+	UpcEanConv        *Selection `xmlrpc:"upc_ean_conv,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // BarcodeNomenclatures represents array of barcode.nomenclature model.
@@ -37,7 +38,7 @@ func (c *Client) CreateBarcodeNomenclature(bn *BarcodeNomenclature) (int64, erro
 	return ids[0], nil
 }
 
-// CreateBarcodeNomenclatures creates a new barcode.nomenclature model and returns its id.
+// CreateBarcodeNomenclature creates a new barcode.nomenclature model and returns its id.
 func (c *Client) CreateBarcodeNomenclatures(bns []*BarcodeNomenclature) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bns {

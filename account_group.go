@@ -2,18 +2,17 @@ package odoo
 
 // AccountGroup represents account.group model.
 type AccountGroup struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CodePrefix  *String   `xmlrpc:"code_prefix,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentLeft  *Int      `xmlrpc:"parent_left,omitempty"`
-	ParentRight *Int      `xmlrpc:"parent_right,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	CodePrefixEnd   *String   `xmlrpc:"code_prefix_end,omitempty"`
+	CodePrefixStart *String   `xmlrpc:"code_prefix_start,omitempty"`
+	CompanyId       *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	Name            *String   `xmlrpc:"name,omitempty"`
+	ParentId        *Many2One `xmlrpc:"parent_id,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountGroups represents array of account.group model.
@@ -39,7 +38,7 @@ func (c *Client) CreateAccountGroup(ag *AccountGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountGroups creates a new account.group model and returns its id.
+// CreateAccountGroup creates a new account.group model and returns its id.
 func (c *Client) CreateAccountGroups(ags []*AccountGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ags {

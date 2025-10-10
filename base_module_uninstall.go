@@ -2,7 +2,6 @@ package odoo
 
 // BaseModuleUninstall represents base.module.uninstall model.
 type BaseModuleUninstall struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -38,7 +37,7 @@ func (c *Client) CreateBaseModuleUninstall(bmu *BaseModuleUninstall) (int64, err
 	return ids[0], nil
 }
 
-// CreateBaseModuleUninstalls creates a new base.module.uninstall model and returns its id.
+// CreateBaseModuleUninstall creates a new base.module.uninstall model and returns its id.
 func (c *Client) CreateBaseModuleUninstalls(bmus []*BaseModuleUninstall) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bmus {

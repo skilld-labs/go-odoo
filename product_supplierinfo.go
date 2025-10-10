@@ -2,28 +2,31 @@ package odoo
 
 // ProductSupplierinfo represents product.supplierinfo model.
 type ProductSupplierinfo struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId           *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId          *Many2One `xmlrpc:"currency_id,omitempty"`
-	DateEnd             *Time     `xmlrpc:"date_end,omitempty"`
-	DateStart           *Time     `xmlrpc:"date_start,omitempty"`
-	Delay               *Int      `xmlrpc:"delay,omitempty"`
-	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
-	Id                  *Int      `xmlrpc:"id,omitempty"`
-	MinQty              *Float    `xmlrpc:"min_qty,omitempty"`
-	Name                *Many2One `xmlrpc:"name,omitempty"`
-	Price               *Float    `xmlrpc:"price,omitempty"`
-	ProductCode         *String   `xmlrpc:"product_code,omitempty"`
-	ProductId           *Many2One `xmlrpc:"product_id,omitempty"`
-	ProductName         *String   `xmlrpc:"product_name,omitempty"`
-	ProductTmplId       *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
-	ProductUom          *Many2One `xmlrpc:"product_uom,omitempty"`
-	ProductVariantCount *Int      `xmlrpc:"product_variant_count,omitempty"`
-	Sequence            *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`
+	CompanyId             *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId            *Many2One `xmlrpc:"currency_id,omitempty"`
+	DateEnd               *Time     `xmlrpc:"date_end,omitempty"`
+	DateStart             *Time     `xmlrpc:"date_start,omitempty"`
+	Delay                 *Int      `xmlrpc:"delay,omitempty"`
+	Discount              *Float    `xmlrpc:"discount,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	LastPurchaseDate      *Time     `xmlrpc:"last_purchase_date,omitempty"`
+	MinQty                *Float    `xmlrpc:"min_qty,omitempty"`
+	PartnerId             *Many2One `xmlrpc:"partner_id,omitempty"`
+	Price                 *Float    `xmlrpc:"price,omitempty"`
+	PriceDiscounted       *Float    `xmlrpc:"price_discounted,omitempty"`
+	ProductCode           *String   `xmlrpc:"product_code,omitempty"`
+	ProductId             *Many2One `xmlrpc:"product_id,omitempty"`
+	ProductName           *String   `xmlrpc:"product_name,omitempty"`
+	ProductTmplId         *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	ProductUom            *Many2One `xmlrpc:"product_uom,omitempty"`
+	ProductVariantCount   *Int      `xmlrpc:"product_variant_count,omitempty"`
+	Sequence              *Int      `xmlrpc:"sequence,omitempty"`
+	ShowSetSupplierButton *Bool     `xmlrpc:"show_set_supplier_button,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductSupplierinfos represents array of product.supplierinfo model.
@@ -49,7 +52,7 @@ func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, erro
 	return ids[0], nil
 }
 
-// CreateProductSupplierinfos creates a new product.supplierinfo model and returns its id.
+// CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
 func (c *Client) CreateProductSupplierinfos(pss []*ProductSupplierinfo) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pss {

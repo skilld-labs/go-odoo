@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -140,7 +141,20 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 				staticValue = NewMany2One(intVal, "")
 			} else {
 				name, _ := dynamicValue.([]interface{})[1].(string)
-				staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), name)
+				var id int64
+				switch v := dynamicValue.([]interface{})[0].(type) {
+				case int64:
+					id = v
+				case string:
+					id, _ = strconv.ParseInt(v, 10, 64)
+				case int:
+					id = int64(v)
+				case float64:
+					id = int64(v)
+				default:
+					id = 0
+				}
+				staticValue = NewMany2One(id, name)
 			}
 		case "Relation":
 			staticValue = NewRelation()

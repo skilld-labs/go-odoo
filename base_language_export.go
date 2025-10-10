@@ -2,14 +2,17 @@ package odoo
 
 // BaseLanguageExport represents base.language.export model.
 type BaseLanguageExport struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Data        *String    `xmlrpc:"data,omitempty"`
 	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Domain      *String    `xmlrpc:"domain,omitempty"`
+	ExportType  *Selection `xmlrpc:"export_type,omitempty"`
 	Format      *Selection `xmlrpc:"format,omitempty"`
 	Id          *Int       `xmlrpc:"id,omitempty"`
 	Lang        *Selection `xmlrpc:"lang,omitempty"`
+	ModelId     *Many2One  `xmlrpc:"model_id,omitempty"`
+	ModelName   *String    `xmlrpc:"model_name,omitempty"`
 	Modules     *Relation  `xmlrpc:"modules,omitempty"`
 	Name        *String    `xmlrpc:"name,omitempty"`
 	State       *Selection `xmlrpc:"state,omitempty"`
@@ -40,7 +43,7 @@ func (c *Client) CreateBaseLanguageExport(ble *BaseLanguageExport) (int64, error
 	return ids[0], nil
 }
 
-// CreateBaseLanguageExports creates a new base.language.export model and returns its id.
+// CreateBaseLanguageExport creates a new base.language.export model and returns its id.
 func (c *Client) CreateBaseLanguageExports(bles []*BaseLanguageExport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bles {

@@ -2,9 +2,9 @@ package odoo
 
 // AccountFiscalPositionAccount represents account.fiscal.position.account model.
 type AccountFiscalPositionAccount struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountDestId *Many2One `xmlrpc:"account_dest_id,omitempty"`
 	AccountSrcId  *Many2One `xmlrpc:"account_src_id,omitempty"`
+	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
@@ -37,7 +37,7 @@ func (c *Client) CreateAccountFiscalPositionAccount(afpa *AccountFiscalPositionA
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPositionAccounts creates a new account.fiscal.position.account model and returns its id.
+// CreateAccountFiscalPositionAccount creates a new account.fiscal.position.account model and returns its id.
 func (c *Client) CreateAccountFiscalPositionAccounts(afpas []*AccountFiscalPositionAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afpas {

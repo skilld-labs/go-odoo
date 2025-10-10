@@ -2,7 +2,6 @@ package odoo
 
 // ResCountryState represents res.country.state model.
 type ResCountryState struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Code        *String   `xmlrpc:"code,omitempty"`
 	CountryId   *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateResCountryState(rcs *ResCountryState) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountryStates creates a new res.country.state model and returns its id.
+// CreateResCountryState creates a new res.country.state model and returns its id.
 func (c *Client) CreateResCountryStates(rcss []*ResCountryState) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcss {

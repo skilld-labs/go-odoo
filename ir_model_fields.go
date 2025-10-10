@@ -2,18 +2,20 @@ package odoo
 
 // IrModelFields represents ir.model.fields model.
 type IrModelFields struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	Column1              *String    `xmlrpc:"column1,omitempty"`
 	Column2              *String    `xmlrpc:"column2,omitempty"`
+	CompanyDependent     *Bool      `xmlrpc:"company_dependent,omitempty"`
 	CompleteName         *String    `xmlrpc:"complete_name,omitempty"`
 	Compute              *String    `xmlrpc:"compute,omitempty"`
-	Copy                 *Bool      `xmlrpc:"copy,omitempty"`
+	Copied               *Bool      `xmlrpc:"copied,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyField        *String    `xmlrpc:"currency_field,omitempty"`
 	Depends              *String    `xmlrpc:"depends,omitempty"`
 	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
 	Domain               *String    `xmlrpc:"domain,omitempty"`
 	FieldDescription     *String    `xmlrpc:"field_description,omitempty"`
+	GroupExpand          *Bool      `xmlrpc:"group_expand,omitempty"`
 	Groups               *Relation  `xmlrpc:"groups,omitempty"`
 	Help                 *String    `xmlrpc:"help,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
@@ -25,17 +27,28 @@ type IrModelFields struct {
 	OnDelete             *Selection `xmlrpc:"on_delete,omitempty"`
 	Readonly             *Bool      `xmlrpc:"readonly,omitempty"`
 	Related              *String    `xmlrpc:"related,omitempty"`
+	RelatedFieldId       *Many2One  `xmlrpc:"related_field_id,omitempty"`
 	Relation             *String    `xmlrpc:"relation,omitempty"`
 	RelationField        *String    `xmlrpc:"relation_field,omitempty"`
+	RelationFieldId      *Many2One  `xmlrpc:"relation_field_id,omitempty"`
 	RelationTable        *String    `xmlrpc:"relation_table,omitempty"`
 	Required             *Bool      `xmlrpc:"required,omitempty"`
+	Sanitize             *Bool      `xmlrpc:"sanitize,omitempty"`
+	SanitizeAttributes   *Bool      `xmlrpc:"sanitize_attributes,omitempty"`
+	SanitizeForm         *Bool      `xmlrpc:"sanitize_form,omitempty"`
+	SanitizeOverridable  *Bool      `xmlrpc:"sanitize_overridable,omitempty"`
+	SanitizeStyle        *Bool      `xmlrpc:"sanitize_style,omitempty"`
+	SanitizeTags         *Bool      `xmlrpc:"sanitize_tags,omitempty"`
 	Selectable           *Bool      `xmlrpc:"selectable,omitempty"`
 	Selection            *String    `xmlrpc:"selection,omitempty"`
+	SelectionIds         *Relation  `xmlrpc:"selection_ids,omitempty"`
 	SerializationFieldId *Many2One  `xmlrpc:"serialization_field_id,omitempty"`
 	Size                 *Int       `xmlrpc:"size,omitempty"`
 	State                *Selection `xmlrpc:"state,omitempty"`
 	Store                *Bool      `xmlrpc:"store,omitempty"`
-	TrackVisibility      *Selection `xmlrpc:"track_visibility,omitempty"`
+	StripClasses         *Bool      `xmlrpc:"strip_classes,omitempty"`
+	StripStyle           *Bool      `xmlrpc:"strip_style,omitempty"`
+	Tracking             *Int       `xmlrpc:"tracking,omitempty"`
 	Translate            *Bool      `xmlrpc:"translate,omitempty"`
 	Ttype                *Selection `xmlrpc:"ttype,omitempty"`
 	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
@@ -65,7 +78,7 @@ func (c *Client) CreateIrModelFields(imf *IrModelFields) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelFieldss creates a new ir.model.fields model and returns its id.
+// CreateIrModelFields creates a new ir.model.fields model and returns its id.
 func (c *Client) CreateIrModelFieldss(imfs []*IrModelFields) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imfs {

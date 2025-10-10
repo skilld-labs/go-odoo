@@ -2,22 +2,34 @@ package odoo
 
 // IrMailServer represents ir.mail_server model.
 type IrMailServer struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	Active         *Bool      `xmlrpc:"active,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Sequence       *Int       `xmlrpc:"sequence,omitempty"`
-	SmtpDebug      *Bool      `xmlrpc:"smtp_debug,omitempty"`
-	SmtpEncryption *Selection `xmlrpc:"smtp_encryption,omitempty"`
-	SmtpHost       *String    `xmlrpc:"smtp_host,omitempty"`
-	SmtpPass       *String    `xmlrpc:"smtp_pass,omitempty"`
-	SmtpPort       *Int       `xmlrpc:"smtp_port,omitempty"`
-	SmtpUser       *String    `xmlrpc:"smtp_user,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                           *Bool      `xmlrpc:"active,omitempty"`
+	ActiveMailingIds                 *Relation  `xmlrpc:"active_mailing_ids,omitempty"`
+	CreateDate                       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName                      *String    `xmlrpc:"display_name,omitempty"`
+	FromFilter                       *String    `xmlrpc:"from_filter,omitempty"`
+	GoogleGmailAccessToken           *String    `xmlrpc:"google_gmail_access_token,omitempty"`
+	GoogleGmailAccessTokenExpiration *Int       `xmlrpc:"google_gmail_access_token_expiration,omitempty"`
+	GoogleGmailAuthorizationCode     *String    `xmlrpc:"google_gmail_authorization_code,omitempty"`
+	GoogleGmailRefreshToken          *String    `xmlrpc:"google_gmail_refresh_token,omitempty"`
+	GoogleGmailUri                   *String    `xmlrpc:"google_gmail_uri,omitempty"`
+	Id                               *Int       `xmlrpc:"id,omitempty"`
+	MailTemplateIds                  *Relation  `xmlrpc:"mail_template_ids,omitempty"`
+	MaxEmailSize                     *Float     `xmlrpc:"max_email_size,omitempty"`
+	Name                             *String    `xmlrpc:"name,omitempty"`
+	Sequence                         *Int       `xmlrpc:"sequence,omitempty"`
+	SmtpAuthentication               *Selection `xmlrpc:"smtp_authentication,omitempty"`
+	SmtpAuthenticationInfo           *String    `xmlrpc:"smtp_authentication_info,omitempty"`
+	SmtpDebug                        *Bool      `xmlrpc:"smtp_debug,omitempty"`
+	SmtpEncryption                   *Selection `xmlrpc:"smtp_encryption,omitempty"`
+	SmtpHost                         *String    `xmlrpc:"smtp_host,omitempty"`
+	SmtpPass                         *String    `xmlrpc:"smtp_pass,omitempty"`
+	SmtpPort                         *Int       `xmlrpc:"smtp_port,omitempty"`
+	SmtpSslCertificate               *String    `xmlrpc:"smtp_ssl_certificate,omitempty"`
+	SmtpSslPrivateKey                *String    `xmlrpc:"smtp_ssl_private_key,omitempty"`
+	SmtpUser                         *String    `xmlrpc:"smtp_user,omitempty"`
+	WriteDate                        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                         *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrMailServers represents array of ir.mail_server model.
@@ -43,7 +55,7 @@ func (c *Client) CreateIrMailServer(im *IrMailServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrMailServers creates a new ir.mail_server model and returns its id.
+// CreateIrMailServer creates a new ir.mail_server model and returns its id.
 func (c *Client) CreateIrMailServers(ims []*IrMailServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ims {

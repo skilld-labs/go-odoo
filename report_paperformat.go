@@ -2,27 +2,30 @@ package odoo
 
 // ReportPaperformat represents report.paperformat model.
 type ReportPaperformat struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Default       *Bool      `xmlrpc:"default,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	Dpi           *Int       `xmlrpc:"dpi,omitempty"`
-	Format        *Selection `xmlrpc:"format,omitempty"`
-	HeaderLine    *Bool      `xmlrpc:"header_line,omitempty"`
-	HeaderSpacing *Int       `xmlrpc:"header_spacing,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	MarginBottom  *Float     `xmlrpc:"margin_bottom,omitempty"`
-	MarginLeft    *Float     `xmlrpc:"margin_left,omitempty"`
-	MarginRight   *Float     `xmlrpc:"margin_right,omitempty"`
-	MarginTop     *Float     `xmlrpc:"margin_top,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	Orientation   *Selection `xmlrpc:"orientation,omitempty"`
-	PageHeight    *Int       `xmlrpc:"page_height,omitempty"`
-	PageWidth     *Int       `xmlrpc:"page_width,omitempty"`
-	ReportIds     *Relation  `xmlrpc:"report_ids,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CssMargins       *Bool      `xmlrpc:"css_margins,omitempty"`
+	Default          *Bool      `xmlrpc:"default,omitempty"`
+	DisableShrinking *Bool      `xmlrpc:"disable_shrinking,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Dpi              *Int       `xmlrpc:"dpi,omitempty"`
+	Format           *Selection `xmlrpc:"format,omitempty"`
+	HeaderLine       *Bool      `xmlrpc:"header_line,omitempty"`
+	HeaderSpacing    *Int       `xmlrpc:"header_spacing,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	MarginBottom     *Float     `xmlrpc:"margin_bottom,omitempty"`
+	MarginLeft       *Float     `xmlrpc:"margin_left,omitempty"`
+	MarginRight      *Float     `xmlrpc:"margin_right,omitempty"`
+	MarginTop        *Float     `xmlrpc:"margin_top,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	Orientation      *Selection `xmlrpc:"orientation,omitempty"`
+	PageHeight       *Int       `xmlrpc:"page_height,omitempty"`
+	PageWidth        *Int       `xmlrpc:"page_width,omitempty"`
+	PrintPageHeight  *Float     `xmlrpc:"print_page_height,omitempty"`
+	PrintPageWidth   *Float     `xmlrpc:"print_page_width,omitempty"`
+	ReportIds        *Relation  `xmlrpc:"report_ids,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ReportPaperformats represents array of report.paperformat model.
@@ -48,7 +51,7 @@ func (c *Client) CreateReportPaperformat(rp *ReportPaperformat) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateReportPaperformats creates a new report.paperformat model and returns its id.
+// CreateReportPaperformat creates a new report.paperformat model and returns its id.
 func (c *Client) CreateReportPaperformats(rps []*ReportPaperformat) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rps {

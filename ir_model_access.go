@@ -2,7 +2,6 @@ package odoo
 
 // IrModelAccess represents ir.model.access model.
 type IrModelAccess struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -42,7 +41,7 @@ func (c *Client) CreateIrModelAccess(ima *IrModelAccess) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelAccesss creates a new ir.model.access model and returns its id.
+// CreateIrModelAccess creates a new ir.model.access model and returns its id.
 func (c *Client) CreateIrModelAccesss(imas []*IrModelAccess) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imas {

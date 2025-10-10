@@ -2,7 +2,6 @@ package odoo
 
 // IrModuleCategory represents ir.module.category model.
 type IrModuleCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -11,7 +10,6 @@ type IrModuleCategory struct {
 	Exclusive   *Bool     `xmlrpc:"exclusive,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	ModuleIds   *Relation `xmlrpc:"module_ids,omitempty"`
-	ModuleNr    *Int      `xmlrpc:"module_nr,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`
 	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
 	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
@@ -44,7 +42,7 @@ func (c *Client) CreateIrModuleCategory(imc *IrModuleCategory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleCategorys creates a new ir.module.category model and returns its id.
+// CreateIrModuleCategory creates a new ir.module.category model and returns its id.
 func (c *Client) CreateIrModuleCategorys(imcs []*IrModuleCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imcs {

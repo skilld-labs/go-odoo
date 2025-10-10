@@ -2,7 +2,6 @@ package odoo
 
 // UtmMedium represents utm.medium model.
 type UtmMedium struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -36,7 +35,7 @@ func (c *Client) CreateUtmMedium(um *UtmMedium) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmMediums creates a new utm.medium model and returns its id.
+// CreateUtmMedium creates a new utm.medium model and returns its id.
 func (c *Client) CreateUtmMediums(ums []*UtmMedium) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ums {

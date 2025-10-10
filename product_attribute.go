@@ -2,18 +2,22 @@ package odoo
 
 // ProductAttribute represents product.attribute model.
 type ProductAttribute struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
-	AttributeLineIds *Relation `xmlrpc:"attribute_line_ids,omitempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
-	CreateVariant    *Bool     `xmlrpc:"create_variant,omitempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
-	Id               *Int      `xmlrpc:"id,omitempty"`
-	Name             *String   `xmlrpc:"name,omitempty"`
-	Sequence         *Int      `xmlrpc:"sequence,omitempty"`
-	ValueIds         *Relation `xmlrpc:"value_ids,omitempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                *Bool      `xmlrpc:"active,omitempty"`
+	AttributeLineIds      *Relation  `xmlrpc:"attribute_line_ids,omitempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CreateVariant         *Selection `xmlrpc:"create_variant,omitempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	DisplayType           *Selection `xmlrpc:"display_type,omitempty"`
+	Id                    *Int       `xmlrpc:"id,omitempty"`
+	Name                  *String    `xmlrpc:"name,omitempty"`
+	NumberRelatedProducts *Int       `xmlrpc:"number_related_products,omitempty"`
+	ProductTmplIds        *Relation  `xmlrpc:"product_tmpl_ids,omitempty"`
+	Sequence              *Int       `xmlrpc:"sequence,omitempty"`
+	TemplateValueIds      *Relation  `xmlrpc:"template_value_ids,omitempty"`
+	ValueIds              *Relation  `xmlrpc:"value_ids,omitempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductAttributes represents array of product.attribute model.
@@ -39,7 +43,7 @@ func (c *Client) CreateProductAttribute(pa *ProductAttribute) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductAttributes creates a new product.attribute model and returns its id.
+// CreateProductAttribute creates a new product.attribute model and returns its id.
 func (c *Client) CreateProductAttributes(pas []*ProductAttribute) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pas {

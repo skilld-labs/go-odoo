@@ -2,38 +2,39 @@ package odoo
 
 // MailTemplate represents mail.template model.
 type MailTemplate struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
-	AttachmentIds       *Relation `xmlrpc:"attachment_ids,omitempty"`
-	AutoDelete          *Bool     `xmlrpc:"auto_delete,omitempty"`
-	BodyHtml            *String   `xmlrpc:"body_html,omitempty"`
-	Copyvalue           *String   `xmlrpc:"copyvalue,omitempty"`
-	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
-	EmailCc             *String   `xmlrpc:"email_cc,omitempty"`
-	EmailFrom           *String   `xmlrpc:"email_from,omitempty"`
-	EmailTo             *String   `xmlrpc:"email_to,omitempty"`
-	Id                  *Int      `xmlrpc:"id,omitempty"`
-	Lang                *String   `xmlrpc:"lang,omitempty"`
-	MailServerId        *Many2One `xmlrpc:"mail_server_id,omitempty"`
-	Model               *String   `xmlrpc:"model,omitempty"`
-	ModelId             *Many2One `xmlrpc:"model_id,omitempty"`
-	ModelObjectField    *Many2One `xmlrpc:"model_object_field,omitempty"`
-	Name                *String   `xmlrpc:"name,omitempty"`
-	NullValue           *String   `xmlrpc:"null_value,omitempty"`
-	PartnerTo           *String   `xmlrpc:"partner_to,omitempty"`
-	RefIrActWindow      *Many2One `xmlrpc:"ref_ir_act_window,omitempty"`
-	ReplyTo             *String   `xmlrpc:"reply_to,omitempty"`
-	ReportName          *String   `xmlrpc:"report_name,omitempty"`
-	ReportTemplate      *Many2One `xmlrpc:"report_template,omitempty"`
-	ScheduledDate       *String   `xmlrpc:"scheduled_date,omitempty"`
-	SubModelObjectField *Many2One `xmlrpc:"sub_model_object_field,omitempty"`
-	SubObject           *Many2One `xmlrpc:"sub_object,omitempty"`
-	Subject             *String   `xmlrpc:"subject,omitempty"`
-	UseDefaultTo        *Bool     `xmlrpc:"use_default_to,omitempty"`
-	UserSignature       *Bool     `xmlrpc:"user_signature,omitempty"`
-	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	AttachmentIds     *Relation  `xmlrpc:"attachment_ids,omitempty"`
+	AutoDelete        *Bool      `xmlrpc:"auto_delete,omitempty"`
+	BodyHtml          *String    `xmlrpc:"body_html,omitempty"`
+	CanWrite          *Bool      `xmlrpc:"can_write,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Description       *String    `xmlrpc:"description,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	EmailCc           *String    `xmlrpc:"email_cc,omitempty"`
+	EmailFrom         *String    `xmlrpc:"email_from,omitempty"`
+	EmailLayoutXmlid  *String    `xmlrpc:"email_layout_xmlid,omitempty"`
+	EmailTo           *String    `xmlrpc:"email_to,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	IsTemplateEditor  *Bool      `xmlrpc:"is_template_editor,omitempty"`
+	Lang              *String    `xmlrpc:"lang,omitempty"`
+	MailServerId      *Many2One  `xmlrpc:"mail_server_id,omitempty"`
+	Model             *String    `xmlrpc:"model,omitempty"`
+	ModelId           *Many2One  `xmlrpc:"model_id,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	PartnerTo         *String    `xmlrpc:"partner_to,omitempty"`
+	RefIrActWindow    *Many2One  `xmlrpc:"ref_ir_act_window,omitempty"`
+	RenderModel       *String    `xmlrpc:"render_model,omitempty"`
+	ReplyTo           *String    `xmlrpc:"reply_to,omitempty"`
+	ReportTemplateIds *Relation  `xmlrpc:"report_template_ids,omitempty"`
+	ScheduledDate     *String    `xmlrpc:"scheduled_date,omitempty"`
+	Subject           *String    `xmlrpc:"subject,omitempty"`
+	TemplateCategory  *Selection `xmlrpc:"template_category,omitempty"`
+	TemplateFs        *String    `xmlrpc:"template_fs,omitempty"`
+	UseDefaultTo      *Bool      `xmlrpc:"use_default_to,omitempty"`
+	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailTemplates represents array of mail.template model.
@@ -59,7 +60,7 @@ func (c *Client) CreateMailTemplate(mt *MailTemplate) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailTemplates creates a new mail.template model and returns its id.
+// CreateMailTemplate creates a new mail.template model and returns its id.
 func (c *Client) CreateMailTemplates(mts []*MailTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mts {

@@ -53,12 +53,13 @@ func (g *generator) getModels(models []string) ([]*model, error) {
 	}
 	var mm []*model
 	for _, model := range models {
+		fmt.Printf("info: processing %s model\n", model)
 		mfs, err := g.modelFieldsFromModel(model)
 		if err != nil {
 			return nil, err
 		}
 		if len(mfs) == 0 {
-			fmt.Printf("error: cannot find fields for model %s, cannot generate it.\n", model)
+			fmt.Printf("warn: cannot find any fields of model %s, skipping it.\n", model)
 			continue
 		}
 		idExists := false
@@ -69,7 +70,7 @@ func (g *generator) getModels(models []string) ([]*model, error) {
 			}
 		}
 		if idExists == false {
-			fmt.Printf("error: cannot find ID field for model %s, cannot generate it.\n", model)
+			fmt.Printf("warn: cannot find ID field of model %s, skipping it.\n", model)
 			continue
 		}
 		mm = append(mm, newModel(model, mfs))

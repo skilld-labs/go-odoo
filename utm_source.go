@@ -2,7 +2,6 @@ package odoo
 
 // UtmSource represents utm.source model.
 type UtmSource struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -35,7 +34,7 @@ func (c *Client) CreateUtmSource(us *UtmSource) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateUtmSources creates a new utm.source model and returns its id.
+// CreateUtmSource creates a new utm.source model and returns its id.
 func (c *Client) CreateUtmSources(uss []*UtmSource) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range uss {

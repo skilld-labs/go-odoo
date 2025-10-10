@@ -2,7 +2,6 @@ package odoo
 
 // ResCountryGroup represents res.country.group model.
 type ResCountryGroup struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	CountryIds   *Relation `xmlrpc:"country_ids,omitempty"`
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateResCountryGroup(rcg *ResCountryGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResCountryGroups creates a new res.country.group model and returns its id.
+// CreateResCountryGroup creates a new res.country.group model and returns its id.
 func (c *Client) CreateResCountryGroups(rcgs []*ResCountryGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcgs {

@@ -2,39 +2,61 @@ package odoo
 
 // PurchaseOrderLine represents purchase.order.line model.
 type PurchaseOrderLine struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
-	AccountAnalyticId *Many2One  `xmlrpc:"account_analytic_id,omitempty"`
-	AnalyticTagIds    *Relation  `xmlrpc:"analytic_tag_ids,omitempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
-	DateOrder         *Time      `xmlrpc:"date_order,omitempty"`
-	DatePlanned       *Time      `xmlrpc:"date_planned,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	InvoiceLines      *Relation  `xmlrpc:"invoice_lines,omitempty"`
-	MoveDestIds       *Relation  `xmlrpc:"move_dest_ids,omitempty"`
-	MoveIds           *Relation  `xmlrpc:"move_ids,omitempty"`
-	Name              *String    `xmlrpc:"name,omitempty"`
-	OrderId           *Many2One  `xmlrpc:"order_id,omitempty"`
-	OrderpointId      *Many2One  `xmlrpc:"orderpoint_id,omitempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PriceSubtotal     *Float     `xmlrpc:"price_subtotal,omitempty"`
-	PriceTax          *Float     `xmlrpc:"price_tax,omitempty"`
-	PriceTotal        *Float     `xmlrpc:"price_total,omitempty"`
-	PriceUnit         *Float     `xmlrpc:"price_unit,omitempty"`
-	ProductId         *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductImage      *String    `xmlrpc:"product_image,omitempty"`
-	ProductQty        *Float     `xmlrpc:"product_qty,omitempty"`
-	ProductUom        *Many2One  `xmlrpc:"product_uom,omitempty"`
-	QtyInvoiced       *Float     `xmlrpc:"qty_invoiced,omitempty"`
-	QtyReceived       *Float     `xmlrpc:"qty_received,omitempty"`
-	Sequence          *Int       `xmlrpc:"sequence,omitempty"`
-	State             *Selection `xmlrpc:"state,omitempty"`
-	TaxesId           *Relation  `xmlrpc:"taxes_id,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AnalyticDistribution              interface{} `xmlrpc:"analytic_distribution,omitempty"`
+	AnalyticPrecision                 *Int        `xmlrpc:"analytic_precision,omitempty"`
+	CompanyId                         *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate                        *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                         *Many2One   `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                        *Many2One   `xmlrpc:"currency_id,omitempty"`
+	DateApprove                       *Time       `xmlrpc:"date_approve,omitempty"`
+	DateOrder                         *Time       `xmlrpc:"date_order,omitempty"`
+	DatePlanned                       *Time       `xmlrpc:"date_planned,omitempty"`
+	Discount                          *Float      `xmlrpc:"discount,omitempty"`
+	DisplayName                       *String     `xmlrpc:"display_name,omitempty"`
+	DisplayType                       *Selection  `xmlrpc:"display_type,omitempty"`
+	DistributionAnalyticAccountIds    *Relation   `xmlrpc:"distribution_analytic_account_ids,omitempty"`
+	ForecastedIssue                   *Bool       `xmlrpc:"forecasted_issue,omitempty"`
+	GroupId                           *Many2One   `xmlrpc:"group_id,omitempty"`
+	Id                                *Int        `xmlrpc:"id,omitempty"`
+	InvoiceLines                      *Relation   `xmlrpc:"invoice_lines,omitempty"`
+	IsDownpayment                     *Bool       `xmlrpc:"is_downpayment,omitempty"`
+	LocationFinalId                   *Many2One   `xmlrpc:"location_final_id,omitempty"`
+	MoveDestIds                       *Relation   `xmlrpc:"move_dest_ids,omitempty"`
+	MoveIds                           *Relation   `xmlrpc:"move_ids,omitempty"`
+	Name                              *String     `xmlrpc:"name,omitempty"`
+	OrderId                           *Many2One   `xmlrpc:"order_id,omitempty"`
+	OrderpointId                      *Many2One   `xmlrpc:"orderpoint_id,omitempty"`
+	PartnerId                         *Many2One   `xmlrpc:"partner_id,omitempty"`
+	PriceSubtotal                     *Float      `xmlrpc:"price_subtotal,omitempty"`
+	PriceTax                          *Float      `xmlrpc:"price_tax,omitempty"`
+	PriceTotal                        *Float      `xmlrpc:"price_total,omitempty"`
+	PriceUnit                         *Float      `xmlrpc:"price_unit,omitempty"`
+	PriceUnitDiscounted               *Float      `xmlrpc:"price_unit_discounted,omitempty"`
+	ProductDescriptionVariants        *String     `xmlrpc:"product_description_variants,omitempty"`
+	ProductId                         *Many2One   `xmlrpc:"product_id,omitempty"`
+	ProductNoVariantAttributeValueIds *Relation   `xmlrpc:"product_no_variant_attribute_value_ids,omitempty"`
+	ProductPackagingId                *Many2One   `xmlrpc:"product_packaging_id,omitempty"`
+	ProductPackagingQty               *Float      `xmlrpc:"product_packaging_qty,omitempty"`
+	ProductQty                        *Float      `xmlrpc:"product_qty,omitempty"`
+	ProductTemplateAttributeValueIds  *Relation   `xmlrpc:"product_template_attribute_value_ids,omitempty"`
+	ProductType                       *Selection  `xmlrpc:"product_type,omitempty"`
+	ProductUom                        *Many2One   `xmlrpc:"product_uom,omitempty"`
+	ProductUomCategoryId              *Many2One   `xmlrpc:"product_uom_category_id,omitempty"`
+	ProductUomQty                     *Float      `xmlrpc:"product_uom_qty,omitempty"`
+	PropagateCancel                   *Bool       `xmlrpc:"propagate_cancel,omitempty"`
+	QtyInvoiced                       *Float      `xmlrpc:"qty_invoiced,omitempty"`
+	QtyReceived                       *Float      `xmlrpc:"qty_received,omitempty"`
+	QtyReceivedManual                 *Float      `xmlrpc:"qty_received_manual,omitempty"`
+	QtyReceivedMethod                 *Selection  `xmlrpc:"qty_received_method,omitempty"`
+	QtyToInvoice                      *Float      `xmlrpc:"qty_to_invoice,omitempty"`
+	SaleLineId                        *Many2One   `xmlrpc:"sale_line_id,omitempty"`
+	SaleOrderId                       *Many2One   `xmlrpc:"sale_order_id,omitempty"`
+	Sequence                          *Int        `xmlrpc:"sequence,omitempty"`
+	State                             *Selection  `xmlrpc:"state,omitempty"`
+	TaxCalculationRoundingMethod      *Selection  `xmlrpc:"tax_calculation_rounding_method,omitempty"`
+	TaxesId                           *Relation   `xmlrpc:"taxes_id,omitempty"`
+	WriteDate                         *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                          *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // PurchaseOrderLines represents array of purchase.order.line model.
@@ -60,7 +82,7 @@ func (c *Client) CreatePurchaseOrderLine(pol *PurchaseOrderLine) (int64, error) 
 	return ids[0], nil
 }
 
-// CreatePurchaseOrderLines creates a new purchase.order.line model and returns its id.
+// CreatePurchaseOrderLine creates a new purchase.order.line model and returns its id.
 func (c *Client) CreatePurchaseOrderLines(pols []*PurchaseOrderLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pols {

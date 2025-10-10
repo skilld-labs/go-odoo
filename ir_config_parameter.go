@@ -2,7 +2,6 @@ package odoo
 
 // IrConfigParameter represents ir.config_parameter model.
 type IrConfigParameter struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -36,7 +35,7 @@ func (c *Client) CreateIrConfigParameter(ic *IrConfigParameter) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrConfigParameters creates a new ir.config_parameter model and returns its id.
+// CreateIrConfigParameter creates a new ir.config_parameter model and returns its id.
 func (c *Client) CreateIrConfigParameters(ics []*IrConfigParameter) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

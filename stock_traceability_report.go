@@ -2,7 +2,6 @@ package odoo
 
 // StockTraceabilityReport represents stock.traceability.report model.
 type StockTraceabilityReport struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -34,7 +33,7 @@ func (c *Client) CreateStockTraceabilityReport(str *StockTraceabilityReport) (in
 	return ids[0], nil
 }
 
-// CreateStockTraceabilityReports creates a new stock.traceability.report model and returns its id.
+// CreateStockTraceabilityReport creates a new stock.traceability.report model and returns its id.
 func (c *Client) CreateStockTraceabilityReports(strs []*StockTraceabilityReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range strs {

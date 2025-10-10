@@ -2,19 +2,20 @@ package odoo
 
 // IrActionsActions represents ir.actions.actions model.
 type IrActionsActions struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType    *Selection `xmlrpc:"binding_type,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Help           *String    `xmlrpc:"help,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Type           *String    `xmlrpc:"type,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId          *String    `xmlrpc:"xml_id,omitempty"`
+	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
+	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Help             *String    `xmlrpc:"help,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
+	Type             *String    `xmlrpc:"type,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId            *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrActionsActionss represents array of ir.actions.actions model.
@@ -40,7 +41,7 @@ func (c *Client) CreateIrActionsActions(iaa *IrActionsActions) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsActionss creates a new ir.actions.actions model and returns its id.
+// CreateIrActionsActions creates a new ir.actions.actions model and returns its id.
 func (c *Client) CreateIrActionsActionss(iaas []*IrActionsActions) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaas {

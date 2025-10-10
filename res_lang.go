@@ -2,24 +2,27 @@ package odoo
 
 // ResLang represents res.lang model.
 type ResLang struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
-	Active       *Bool      `xmlrpc:"active,omitempty"`
-	Code         *String    `xmlrpc:"code,omitempty"`
-	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFormat   *String    `xmlrpc:"date_format,omitempty"`
-	DecimalPoint *String    `xmlrpc:"decimal_point,omitempty"`
-	Direction    *Selection `xmlrpc:"direction,omitempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
-	Grouping     *String    `xmlrpc:"grouping,omitempty"`
-	Id           *Int       `xmlrpc:"id,omitempty"`
-	IsoCode      *String    `xmlrpc:"iso_code,omitempty"`
-	Name         *String    `xmlrpc:"name,omitempty"`
-	ThousandsSep *String    `xmlrpc:"thousands_sep,omitempty"`
-	TimeFormat   *String    `xmlrpc:"time_format,omitempty"`
-	Translatable *Bool      `xmlrpc:"translatable,omitempty"`
-	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active          *Bool      `xmlrpc:"active,omitempty"`
+	Code            *String    `xmlrpc:"code,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFormat      *String    `xmlrpc:"date_format,omitempty"`
+	DecimalPoint    *String    `xmlrpc:"decimal_point,omitempty"`
+	Direction       *Selection `xmlrpc:"direction,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	FlagImage       *String    `xmlrpc:"flag_image,omitempty"`
+	FlagImageUrl    *String    `xmlrpc:"flag_image_url,omitempty"`
+	Grouping        *String    `xmlrpc:"grouping,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	IsoCode         *String    `xmlrpc:"iso_code,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	ShortTimeFormat *String    `xmlrpc:"short_time_format,omitempty"`
+	ThousandsSep    *String    `xmlrpc:"thousands_sep,omitempty"`
+	TimeFormat      *String    `xmlrpc:"time_format,omitempty"`
+	UrlCode         *String    `xmlrpc:"url_code,omitempty"`
+	WeekStart       *Selection `xmlrpc:"week_start,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResLangs represents array of res.lang model.
@@ -45,7 +48,7 @@ func (c *Client) CreateResLang(rl *ResLang) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResLangs creates a new res.lang model and returns its id.
+// CreateResLang creates a new res.lang model and returns its id.
 func (c *Client) CreateResLangs(rls []*ResLang) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rls {

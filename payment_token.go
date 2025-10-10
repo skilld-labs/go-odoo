@@ -2,21 +2,22 @@ package odoo
 
 // PaymentToken represents payment.token model.
 type PaymentToken struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	AcquirerId  *Many2One `xmlrpc:"acquirer_id,omitempty"`
-	AcquirerRef *String   `xmlrpc:"acquirer_ref,omitempty"`
-	Active      *Bool     `xmlrpc:"active,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	PartnerId   *Many2One `xmlrpc:"partner_id,omitempty"`
-	PaymentIds  *Relation `xmlrpc:"payment_ids,omitempty"`
-	ShortName   *String   `xmlrpc:"short_name,omitempty"`
-	Verified    *Bool     `xmlrpc:"verified,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PaymentDetails    *String    `xmlrpc:"payment_details,omitempty"`
+	PaymentMethodCode *String    `xmlrpc:"payment_method_code,omitempty"`
+	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	ProviderCode      *Selection `xmlrpc:"provider_code,omitempty"`
+	ProviderId        *Many2One  `xmlrpc:"provider_id,omitempty"`
+	ProviderRef       *String    `xmlrpc:"provider_ref,omitempty"`
+	TransactionIds    *Relation  `xmlrpc:"transaction_ids,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // PaymentTokens represents array of payment.token model.
@@ -42,7 +43,7 @@ func (c *Client) CreatePaymentToken(pt *PaymentToken) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentTokens creates a new payment.token model and returns its id.
+// CreatePaymentToken creates a new payment.token model and returns its id.
 func (c *Client) CreatePaymentTokens(pts []*PaymentToken) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

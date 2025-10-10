@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsActWindowView represents ir.actions.act_window.view model.
 type IrActionsActWindowView struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	ActWindowId *Many2One  `xmlrpc:"act_window_id,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -39,7 +38,7 @@ func (c *Client) CreateIrActionsActWindowView(iaav *IrActionsActWindowView) (int
 	return ids[0], nil
 }
 
-// CreateIrActionsActWindowViews creates a new ir.actions.act_window.view model and returns its id.
+// CreateIrActionsActWindowView creates a new ir.actions.act_window.view model and returns its id.
 func (c *Client) CreateIrActionsActWindowViews(iaavs []*IrActionsActWindowView) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iaavs {

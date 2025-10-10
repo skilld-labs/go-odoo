@@ -2,7 +2,6 @@ package odoo
 
 // CrmMergeOpportunity represents crm.merge.opportunity model.
 type CrmMergeOpportunity struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateCrmMergeOpportunity(cmo *CrmMergeOpportunity) (int64, err
 	return ids[0], nil
 }
 
-// CreateCrmMergeOpportunitys creates a new crm.merge.opportunity model and returns its id.
+// CreateCrmMergeOpportunity creates a new crm.merge.opportunity model and returns its id.
 func (c *Client) CreateCrmMergeOpportunitys(cmos []*CrmMergeOpportunity) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cmos {

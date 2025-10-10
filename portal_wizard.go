@@ -2,12 +2,11 @@ package odoo
 
 // PortalWizard represents portal.wizard model.
 type PortalWizard struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
 	Id             *Int      `xmlrpc:"id,omitempty"`
-	PortalId       *Many2One `xmlrpc:"portal_id,omitempty"`
+	PartnerIds     *Relation `xmlrpc:"partner_ids,omitempty"`
 	UserIds        *Relation `xmlrpc:"user_ids,omitempty"`
 	WelcomeMessage *String   `xmlrpc:"welcome_message,omitempty"`
 	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreatePortalWizard(pw *PortalWizard) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePortalWizards creates a new portal.wizard model and returns its id.
+// CreatePortalWizard creates a new portal.wizard model and returns its id.
 func (c *Client) CreatePortalWizards(pws []*PortalWizard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pws {

@@ -2,13 +2,14 @@ package odoo
 
 // ProjectTags represents project.tags model.
 type ProjectTags struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`
+	ProjectIds  *Relation `xmlrpc:"project_ids,omitempty"`
+	TaskIds     *Relation `xmlrpc:"task_ids,omitempty"`
 	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
@@ -36,7 +37,7 @@ func (c *Client) CreateProjectTags(pt *ProjectTags) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectTagss creates a new project.tags model and returns its id.
+// CreateProjectTags creates a new project.tags model and returns its id.
 func (c *Client) CreateProjectTagss(pts []*ProjectTags) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

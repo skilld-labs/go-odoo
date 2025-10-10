@@ -2,39 +2,47 @@ package odoo
 
 // PaymentTransaction represents payment.transaction model.
 type PaymentTransaction struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
-	AcquirerId        *Many2One  `xmlrpc:"acquirer_id,omitempty"`
-	AcquirerReference *String    `xmlrpc:"acquirer_reference,omitempty"`
-	Amount            *Float     `xmlrpc:"amount,omitempty"`
-	CallbackHash      *String    `xmlrpc:"callback_hash,omitempty"`
-	CallbackMethod    *String    `xmlrpc:"callback_method,omitempty"`
-	CallbackModelId   *Many2One  `xmlrpc:"callback_model_id,omitempty"`
-	CallbackResId     *Int       `xmlrpc:"callback_res_id,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId        *Many2One  `xmlrpc:"currency_id,omitempty"`
-	DateValidate      *Time      `xmlrpc:"date_validate,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	Fees              *Float     `xmlrpc:"fees,omitempty"`
-	Html3Ds           *String    `xmlrpc:"html_3ds,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	PartnerAddress    *String    `xmlrpc:"partner_address,omitempty"`
-	PartnerCity       *String    `xmlrpc:"partner_city,omitempty"`
-	PartnerCountryId  *Many2One  `xmlrpc:"partner_country_id,omitempty"`
-	PartnerEmail      *String    `xmlrpc:"partner_email,omitempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PartnerLang       *Selection `xmlrpc:"partner_lang,omitempty"`
-	PartnerName       *String    `xmlrpc:"partner_name,omitempty"`
-	PartnerPhone      *String    `xmlrpc:"partner_phone,omitempty"`
-	PartnerZip        *String    `xmlrpc:"partner_zip,omitempty"`
-	PaymentTokenId    *Many2One  `xmlrpc:"payment_token_id,omitempty"`
-	Provider          *Selection `xmlrpc:"provider,omitempty"`
-	Reference         *String    `xmlrpc:"reference,omitempty"`
-	State             *Selection `xmlrpc:"state,omitempty"`
-	StateMessage      *String    `xmlrpc:"state_message,omitempty"`
-	Type              *Selection `xmlrpc:"type,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Amount              *Float     `xmlrpc:"amount,omitempty"`
+	ChildTransactionIds *Relation  `xmlrpc:"child_transaction_ids,omitempty"`
+	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId          *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	InvoiceIds          *Relation  `xmlrpc:"invoice_ids,omitempty"`
+	InvoicesCount       *Int       `xmlrpc:"invoices_count,omitempty"`
+	IsPostProcessed     *Bool      `xmlrpc:"is_post_processed,omitempty"`
+	LandingRoute        *String    `xmlrpc:"landing_route,omitempty"`
+	LastStateChange     *Time      `xmlrpc:"last_state_change,omitempty"`
+	Operation           *Selection `xmlrpc:"operation,omitempty"`
+	PartnerAddress      *String    `xmlrpc:"partner_address,omitempty"`
+	PartnerCity         *String    `xmlrpc:"partner_city,omitempty"`
+	PartnerCountryId    *Many2One  `xmlrpc:"partner_country_id,omitempty"`
+	PartnerEmail        *String    `xmlrpc:"partner_email,omitempty"`
+	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerLang         *Selection `xmlrpc:"partner_lang,omitempty"`
+	PartnerName         *String    `xmlrpc:"partner_name,omitempty"`
+	PartnerPhone        *String    `xmlrpc:"partner_phone,omitempty"`
+	PartnerStateId      *Many2One  `xmlrpc:"partner_state_id,omitempty"`
+	PartnerZip          *String    `xmlrpc:"partner_zip,omitempty"`
+	PaymentId           *Many2One  `xmlrpc:"payment_id,omitempty"`
+	PaymentMethodCode   *String    `xmlrpc:"payment_method_code,omitempty"`
+	PaymentMethodId     *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	ProviderCode        *Selection `xmlrpc:"provider_code,omitempty"`
+	ProviderId          *Many2One  `xmlrpc:"provider_id,omitempty"`
+	ProviderReference   *String    `xmlrpc:"provider_reference,omitempty"`
+	Reference           *String    `xmlrpc:"reference,omitempty"`
+	RefundsCount        *Int       `xmlrpc:"refunds_count,omitempty"`
+	SaleOrderIds        *Relation  `xmlrpc:"sale_order_ids,omitempty"`
+	SaleOrderIdsNbr     *Int       `xmlrpc:"sale_order_ids_nbr,omitempty"`
+	SourceTransactionId *Many2One  `xmlrpc:"source_transaction_id,omitempty"`
+	State               *Selection `xmlrpc:"state,omitempty"`
+	StateMessage        *String    `xmlrpc:"state_message,omitempty"`
+	TokenId             *Many2One  `xmlrpc:"token_id,omitempty"`
+	Tokenize            *Bool      `xmlrpc:"tokenize,omitempty"`
+	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // PaymentTransactions represents array of payment.transaction model.
@@ -60,7 +68,7 @@ func (c *Client) CreatePaymentTransaction(pt *PaymentTransaction) (int64, error)
 	return ids[0], nil
 }
 
-// CreatePaymentTransactions creates a new payment.transaction model and returns its id.
+// CreatePaymentTransaction creates a new payment.transaction model and returns its id.
 func (c *Client) CreatePaymentTransactions(pts []*PaymentTransaction) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pts {

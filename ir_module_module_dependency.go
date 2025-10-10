@@ -2,17 +2,13 @@ package odoo
 
 // IrModuleModuleDependency represents ir.module.module.dependency model.
 type IrModuleModuleDependency struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DependId    *Many2One  `xmlrpc:"depend_id,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	ModuleId    *Many2One  `xmlrpc:"module_id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	State       *Selection `xmlrpc:"state,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AutoInstallRequired *Bool      `xmlrpc:"auto_install_required,omitempty"`
+	DependId            *Many2One  `xmlrpc:"depend_id,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	ModuleId            *Many2One  `xmlrpc:"module_id,omitempty"`
+	Name                *String    `xmlrpc:"name,omitempty"`
+	State               *Selection `xmlrpc:"state,omitempty"`
 }
 
 // IrModuleModuleDependencys represents array of ir.module.module.dependency model.
@@ -38,7 +34,7 @@ func (c *Client) CreateIrModuleModuleDependency(immd *IrModuleModuleDependency) 
 	return ids[0], nil
 }
 
-// CreateIrModuleModuleDependencys creates a new ir.module.module.dependency model and returns its id.
+// CreateIrModuleModuleDependency creates a new ir.module.module.dependency model and returns its id.
 func (c *Client) CreateIrModuleModuleDependencys(immds []*IrModuleModuleDependency) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range immds {

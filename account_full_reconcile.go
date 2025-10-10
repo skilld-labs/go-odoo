@@ -2,13 +2,11 @@ package odoo
 
 // AccountFullReconcile represents account.full.reconcile model.
 type AccountFullReconcile struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
 	ExchangeMoveId      *Many2One `xmlrpc:"exchange_move_id,omitempty"`
 	Id                  *Int      `xmlrpc:"id,omitempty"`
-	Name                *String   `xmlrpc:"name,omitempty"`
 	PartialReconcileIds *Relation `xmlrpc:"partial_reconcile_ids,omitempty"`
 	ReconciledLineIds   *Relation `xmlrpc:"reconciled_line_ids,omitempty"`
 	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
@@ -38,7 +36,7 @@ func (c *Client) CreateAccountFullReconcile(afr *AccountFullReconcile) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountFullReconciles creates a new account.full.reconcile model and returns its id.
+// CreateAccountFullReconcile creates a new account.full.reconcile model and returns its id.
 func (c *Client) CreateAccountFullReconciles(afrs []*AccountFullReconcile) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afrs {

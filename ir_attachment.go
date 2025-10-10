@@ -2,31 +2,36 @@ package odoo
 
 // IrAttachment represents ir.attachment model.
 type IrAttachment struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessToken  *String    `xmlrpc:"access_token,omitempty"`
 	Checksum     *String    `xmlrpc:"checksum,omitempty"`
 	CompanyId    *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Datas        *String    `xmlrpc:"datas,omitempty"`
-	DatasFname   *String    `xmlrpc:"datas_fname,omitempty"`
 	DbDatas      *String    `xmlrpc:"db_datas,omitempty"`
 	Description  *String    `xmlrpc:"description,omitempty"`
 	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
 	FileSize     *Int       `xmlrpc:"file_size,omitempty"`
 	Id           *Int       `xmlrpc:"id,omitempty"`
+	ImageHeight  *Int       `xmlrpc:"image_height,omitempty"`
+	ImageSrc     *String    `xmlrpc:"image_src,omitempty"`
+	ImageWidth   *Int       `xmlrpc:"image_width,omitempty"`
 	IndexContent *String    `xmlrpc:"index_content,omitempty"`
+	IsBackground *Bool      `xmlrpc:"is_background,omitempty"`
 	LocalUrl     *String    `xmlrpc:"local_url,omitempty"`
 	Mimetype     *String    `xmlrpc:"mimetype,omitempty"`
 	Name         *String    `xmlrpc:"name,omitempty"`
+	OriginalId   *Many2One  `xmlrpc:"original_id,omitempty"`
 	Public       *Bool      `xmlrpc:"public,omitempty"`
+	Raw          *String    `xmlrpc:"raw,omitempty"`
 	ResField     *String    `xmlrpc:"res_field,omitempty"`
-	ResId        *Int       `xmlrpc:"res_id,omitempty"`
+	ResId        *Many2One  `xmlrpc:"res_id,omitempty"`
 	ResModel     *String    `xmlrpc:"res_model,omitempty"`
 	ResName      *String    `xmlrpc:"res_name,omitempty"`
 	StoreFname   *String    `xmlrpc:"store_fname,omitempty"`
 	Type         *Selection `xmlrpc:"type,omitempty"`
 	Url          *String    `xmlrpc:"url,omitempty"`
+	VoiceIds     *Relation  `xmlrpc:"voice_ids,omitempty"`
 	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
@@ -54,7 +59,7 @@ func (c *Client) CreateIrAttachment(ia *IrAttachment) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrAttachments creates a new ir.attachment model and returns its id.
+// CreateIrAttachment creates a new ir.attachment model and returns its id.
 func (c *Client) CreateIrAttachments(ias []*IrAttachment) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

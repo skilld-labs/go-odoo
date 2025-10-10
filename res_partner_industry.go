@@ -2,7 +2,6 @@ package odoo
 
 // ResPartnerIndustry represents res.partner.industry model.
 type ResPartnerIndustry struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateResPartnerIndustry(rpi *ResPartnerIndustry) (int64, error
 	return ids[0], nil
 }
 
-// CreateResPartnerIndustrys creates a new res.partner.industry model and returns its id.
+// CreateResPartnerIndustry creates a new res.partner.industry model and returns its id.
 func (c *Client) CreateResPartnerIndustrys(rpis []*ResPartnerIndustry) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpis {

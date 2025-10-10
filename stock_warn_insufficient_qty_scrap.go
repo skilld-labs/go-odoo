@@ -2,17 +2,18 @@ package odoo
 
 // StockWarnInsufficientQtyScrap represents stock.warn.insufficient.qty.scrap model.
 type StockWarnInsufficientQtyScrap struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	LocationId  *Many2One `xmlrpc:"location_id,omitempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
-	QuantIds    *Relation `xmlrpc:"quant_ids,omitempty"`
-	ScrapId     *Many2One `xmlrpc:"scrap_id,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
+	Id             *Int      `xmlrpc:"id,omitempty"`
+	LocationId     *Many2One `xmlrpc:"location_id,omitempty"`
+	ProductId      *Many2One `xmlrpc:"product_id,omitempty"`
+	ProductUomName *String   `xmlrpc:"product_uom_name,omitempty"`
+	QuantIds       *Relation `xmlrpc:"quant_ids,omitempty"`
+	Quantity       *Float    `xmlrpc:"quantity,omitempty"`
+	ScrapId        *Many2One `xmlrpc:"scrap_id,omitempty"`
+	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockWarnInsufficientQtyScraps represents array of stock.warn.insufficient.qty.scrap model.
@@ -38,7 +39,7 @@ func (c *Client) CreateStockWarnInsufficientQtyScrap(swiqs *StockWarnInsufficien
 	return ids[0], nil
 }
 
-// CreateStockWarnInsufficientQtyScraps creates a new stock.warn.insufficient.qty.scrap model and returns its id.
+// CreateStockWarnInsufficientQtyScrap creates a new stock.warn.insufficient.qty.scrap model and returns its id.
 func (c *Client) CreateStockWarnInsufficientQtyScraps(swiqss []*StockWarnInsufficientQtyScrap) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range swiqss {

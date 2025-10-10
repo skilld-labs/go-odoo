@@ -2,7 +2,6 @@ package odoo
 
 // IrSequenceDateRange represents ir.sequence.date_range model.
 type IrSequenceDateRange struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
 	DateFrom         *Time     `xmlrpc:"date_from,omitempty"`
@@ -39,7 +38,7 @@ func (c *Client) CreateIrSequenceDateRange(isd *IrSequenceDateRange) (int64, err
 	return ids[0], nil
 }
 
-// CreateIrSequenceDateRanges creates a new ir.sequence.date_range model and returns its id.
+// CreateIrSequenceDateRange creates a new ir.sequence.date_range model and returns its id.
 func (c *Client) CreateIrSequenceDateRanges(isds []*IrSequenceDateRange) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range isds {

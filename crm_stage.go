@@ -2,21 +2,19 @@ package odoo
 
 // CrmStage represents crm.stage model.
 type CrmStage struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Fold           *Bool     `xmlrpc:"fold,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	LegendPriority *String   `xmlrpc:"legend_priority,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	OnChange       *Bool     `xmlrpc:"on_change,omitempty"`
-	Probability    *Float    `xmlrpc:"probability,omitempty"`
-	Requirements   *String   `xmlrpc:"requirements,omitempty"`
-	Sequence       *Int      `xmlrpc:"sequence,omitempty"`
-	TeamId         *Many2One `xmlrpc:"team_id,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
+	Fold         *Bool     `xmlrpc:"fold,omitempty"`
+	Id           *Int      `xmlrpc:"id,omitempty"`
+	IsWon        *Bool     `xmlrpc:"is_won,omitempty"`
+	Name         *String   `xmlrpc:"name,omitempty"`
+	Requirements *String   `xmlrpc:"requirements,omitempty"`
+	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
+	TeamCount    *Int      `xmlrpc:"team_count,omitempty"`
+	TeamId       *Many2One `xmlrpc:"team_id,omitempty"`
+	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // CrmStages represents array of crm.stage model.
@@ -42,7 +40,7 @@ func (c *Client) CreateCrmStage(cs *CrmStage) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmStages creates a new crm.stage model and returns its id.
+// CreateCrmStage creates a new crm.stage model and returns its id.
 func (c *Client) CreateCrmStages(css []*CrmStage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range css {

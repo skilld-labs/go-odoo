@@ -2,7 +2,6 @@ package odoo
 
 // AccountPaymentMethod represents account.payment.method model.
 type AccountPaymentMethod struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	Code        *String    `xmlrpc:"code,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateAccountPaymentMethod(apm *AccountPaymentMethod) (int64, e
 	return ids[0], nil
 }
 
-// CreateAccountPaymentMethods creates a new account.payment.method model and returns its id.
+// CreateAccountPaymentMethod creates a new account.payment.method model and returns its id.
 func (c *Client) CreateAccountPaymentMethods(apms []*AccountPaymentMethod) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apms {

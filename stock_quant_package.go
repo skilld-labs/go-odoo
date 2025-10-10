@@ -2,25 +2,22 @@ package odoo
 
 // StockQuantPackage represents stock.quant.package model.
 type StockQuantPackage struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
-	CompanyId                    *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrentDestinationLocationId *Many2One `xmlrpc:"current_destination_location_id,omitempty"`
-	CurrentPickingId             *Bool     `xmlrpc:"current_picking_id,omitempty"`
-	CurrentPickingMoveLineIds    *Relation `xmlrpc:"current_picking_move_line_ids,omitempty"`
-	CurrentSourceLocationId      *Many2One `xmlrpc:"current_source_location_id,omitempty"`
-	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
-	Id                           *Int      `xmlrpc:"id,omitempty"`
-	IsProcessed                  *Bool     `xmlrpc:"is_processed,omitempty"`
-	LocationId                   *Many2One `xmlrpc:"location_id,omitempty"`
-	MoveLineIds                  *Relation `xmlrpc:"move_line_ids,omitempty"`
-	Name                         *String   `xmlrpc:"name,omitempty"`
-	OwnerId                      *Many2One `xmlrpc:"owner_id,omitempty"`
-	PackagingId                  *Many2One `xmlrpc:"packaging_id,omitempty"`
-	QuantIds                     *Relation `xmlrpc:"quant_ids,omitempty"`
-	WriteDate                    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                     *Many2One `xmlrpc:"write_uid,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	LocationId     *Many2One  `xmlrpc:"location_id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	OwnerId        *Many2One  `xmlrpc:"owner_id,omitempty"`
+	PackDate       *Time      `xmlrpc:"pack_date,omitempty"`
+	PackageTypeId  *Many2One  `xmlrpc:"package_type_id,omitempty"`
+	PackageUse     *Selection `xmlrpc:"package_use,omitempty"`
+	QuantIds       *Relation  `xmlrpc:"quant_ids,omitempty"`
+	ShippingWeight *Float     `xmlrpc:"shipping_weight,omitempty"`
+	ValidSscc      *Bool      `xmlrpc:"valid_sscc,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockQuantPackages represents array of stock.quant.package model.
@@ -46,7 +43,7 @@ func (c *Client) CreateStockQuantPackage(sqp *StockQuantPackage) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateStockQuantPackages creates a new stock.quant.package model and returns its id.
+// CreateStockQuantPackage creates a new stock.quant.package model and returns its id.
 func (c *Client) CreateStockQuantPackages(sqps []*StockQuantPackage) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sqps {

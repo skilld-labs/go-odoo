@@ -2,7 +2,6 @@ package odoo
 
 // IrUiMenu represents ir.ui.menu model.
 type IrUiMenu struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	Action       *String   `xmlrpc:"action,omitempty"`
 	Active       *Bool     `xmlrpc:"active,omitempty"`
 	ChildId      *Relation `xmlrpc:"child_id,omitempty"`
@@ -14,8 +13,7 @@ type IrUiMenu struct {
 	Id           *Int      `xmlrpc:"id,omitempty"`
 	Name         *String   `xmlrpc:"name,omitempty"`
 	ParentId     *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentLeft   *Int      `xmlrpc:"parent_left,omitempty"`
-	ParentRight  *Int      `xmlrpc:"parent_right,omitempty"`
+	ParentPath   *String   `xmlrpc:"parent_path,omitempty"`
 	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
 	WebIcon      *String   `xmlrpc:"web_icon,omitempty"`
 	WebIconData  *String   `xmlrpc:"web_icon_data,omitempty"`
@@ -46,7 +44,7 @@ func (c *Client) CreateIrUiMenu(ium *IrUiMenu) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrUiMenus creates a new ir.ui.menu model and returns its id.
+// CreateIrUiMenu creates a new ir.ui.menu model and returns its id.
 func (c *Client) CreateIrUiMenus(iums []*IrUiMenu) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iums {

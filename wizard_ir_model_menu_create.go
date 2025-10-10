@@ -2,7 +2,6 @@ package odoo
 
 // WizardIrModelMenuCreate represents wizard.ir.model.menu.create model.
 type WizardIrModelMenuCreate struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -36,7 +35,7 @@ func (c *Client) CreateWizardIrModelMenuCreate(wimmc *WizardIrModelMenuCreate) (
 	return ids[0], nil
 }
 
-// CreateWizardIrModelMenuCreates creates a new wizard.ir.model.menu.create model and returns its id.
+// CreateWizardIrModelMenuCreate creates a new wizard.ir.model.menu.create model and returns its id.
 func (c *Client) CreateWizardIrModelMenuCreates(wimmcs []*WizardIrModelMenuCreate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wimmcs {

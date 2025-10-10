@@ -2,31 +2,35 @@ package odoo
 
 // FetchmailServer represents fetchmail.server model.
 type FetchmailServer struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	ActionId      *Many2One  `xmlrpc:"action_id,omitempty"`
-	Active        *Bool      `xmlrpc:"active,omitempty"`
-	Attach        *Bool      `xmlrpc:"attach,omitempty"`
-	Configuration *String    `xmlrpc:"configuration,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Date          *Time      `xmlrpc:"date,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	IsSsl         *Bool      `xmlrpc:"is_ssl,omitempty"`
-	MessageIds    *Relation  `xmlrpc:"message_ids,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	ObjectId      *Many2One  `xmlrpc:"object_id,omitempty"`
-	Original      *Bool      `xmlrpc:"original,omitempty"`
-	Password      *String    `xmlrpc:"password,omitempty"`
-	Port          *Int       `xmlrpc:"port,omitempty"`
-	Priority      *Int       `xmlrpc:"priority,omitempty"`
-	Script        *String    `xmlrpc:"script,omitempty"`
-	Server        *String    `xmlrpc:"server,omitempty"`
-	State         *Selection `xmlrpc:"state,omitempty"`
-	Type          *Selection `xmlrpc:"type,omitempty"`
-	User          *String    `xmlrpc:"user,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                           *Bool      `xmlrpc:"active,omitempty"`
+	Attach                           *Bool      `xmlrpc:"attach,omitempty"`
+	Configuration                    *String    `xmlrpc:"configuration,omitempty"`
+	CreateDate                       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Date                             *Time      `xmlrpc:"date,omitempty"`
+	DisplayName                      *String    `xmlrpc:"display_name,omitempty"`
+	GoogleGmailAccessToken           *String    `xmlrpc:"google_gmail_access_token,omitempty"`
+	GoogleGmailAccessTokenExpiration *Int       `xmlrpc:"google_gmail_access_token_expiration,omitempty"`
+	GoogleGmailAuthorizationCode     *String    `xmlrpc:"google_gmail_authorization_code,omitempty"`
+	GoogleGmailRefreshToken          *String    `xmlrpc:"google_gmail_refresh_token,omitempty"`
+	GoogleGmailUri                   *String    `xmlrpc:"google_gmail_uri,omitempty"`
+	Id                               *Int       `xmlrpc:"id,omitempty"`
+	IsSsl                            *Bool      `xmlrpc:"is_ssl,omitempty"`
+	MessageIds                       *Relation  `xmlrpc:"message_ids,omitempty"`
+	Name                             *String    `xmlrpc:"name,omitempty"`
+	ObjectId                         *Many2One  `xmlrpc:"object_id,omitempty"`
+	Original                         *Bool      `xmlrpc:"original,omitempty"`
+	Password                         *String    `xmlrpc:"password,omitempty"`
+	Port                             *Int       `xmlrpc:"port,omitempty"`
+	Priority                         *Int       `xmlrpc:"priority,omitempty"`
+	Script                           *String    `xmlrpc:"script,omitempty"`
+	Server                           *String    `xmlrpc:"server,omitempty"`
+	ServerType                       *Selection `xmlrpc:"server_type,omitempty"`
+	ServerTypeInfo                   *String    `xmlrpc:"server_type_info,omitempty"`
+	State                            *Selection `xmlrpc:"state,omitempty"`
+	User                             *String    `xmlrpc:"user,omitempty"`
+	WriteDate                        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                         *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // FetchmailServers represents array of fetchmail.server model.
@@ -52,7 +56,7 @@ func (c *Client) CreateFetchmailServer(fs *FetchmailServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateFetchmailServers creates a new fetchmail.server model and returns its id.
+// CreateFetchmailServer creates a new fetchmail.server model and returns its id.
 func (c *Client) CreateFetchmailServers(fss []*FetchmailServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range fss {

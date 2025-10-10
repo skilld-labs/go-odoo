@@ -2,7 +2,6 @@ package odoo
 
 // IrExportsLine represents ir.exports.line model.
 type IrExportsLine struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -36,7 +35,7 @@ func (c *Client) CreateIrExportsLine(iel *IrExportsLine) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrExportsLines creates a new ir.exports.line model and returns its id.
+// CreateIrExportsLine creates a new ir.exports.line model and returns its id.
 func (c *Client) CreateIrExportsLines(iels []*IrExportsLine) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iels {

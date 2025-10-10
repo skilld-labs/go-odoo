@@ -2,7 +2,6 @@ package odoo
 
 // WebEditorConverterTestSub represents web_editor.converter.test.sub model.
 type WebEditorConverterTestSub struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -35,7 +34,7 @@ func (c *Client) CreateWebEditorConverterTestSub(wcts *WebEditorConverterTestSub
 	return ids[0], nil
 }
 
-// CreateWebEditorConverterTestSubs creates a new web_editor.converter.test.sub model and returns its id.
+// CreateWebEditorConverterTestSub creates a new web_editor.converter.test.sub model and returns its id.
 func (c *Client) CreateWebEditorConverterTestSubs(wctss []*WebEditorConverterTestSub) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wctss {

@@ -2,7 +2,7 @@ package odoo
 
 // ResGroups represents res.groups model.
 type ResGroups struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
+	ApiKeyDuration  *Float    `xmlrpc:"api_key_duration,omitempty"`
 	CategoryId      *Many2One `xmlrpc:"category_id,omitempty"`
 	Color           *Int      `xmlrpc:"color,omitempty"`
 	Comment         *String   `xmlrpc:"comment,omitempty"`
@@ -12,7 +12,6 @@ type ResGroups struct {
 	FullName        *String   `xmlrpc:"full_name,omitempty"`
 	Id              *Int      `xmlrpc:"id,omitempty"`
 	ImpliedIds      *Relation `xmlrpc:"implied_ids,omitempty"`
-	IsPortal        *Bool     `xmlrpc:"is_portal,omitempty"`
 	MenuAccess      *Relation `xmlrpc:"menu_access,omitempty"`
 	ModelAccess     *Relation `xmlrpc:"model_access,omitempty"`
 	Name            *String   `xmlrpc:"name,omitempty"`
@@ -48,7 +47,7 @@ func (c *Client) CreateResGroups(rg *ResGroups) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResGroupss creates a new res.groups model and returns its id.
+// CreateResGroups creates a new res.groups model and returns its id.
 func (c *Client) CreateResGroupss(rgs []*ResGroups) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rgs {

@@ -2,17 +2,18 @@ package odoo
 
 // ProcurementGroup represents procurement.group model.
 type ProcurementGroup struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	MoveType    *Selection `xmlrpc:"move_type,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	PartnerId   *Many2One  `xmlrpc:"partner_id,omitempty"`
-	SaleId      *Many2One  `xmlrpc:"sale_id,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	MoveType        *Selection `xmlrpc:"move_type,omitempty"`
+	Name            *String    `xmlrpc:"name,omitempty"`
+	PartnerId       *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PurchaseLineIds *Relation  `xmlrpc:"purchase_line_ids,omitempty"`
+	SaleId          *Many2One  `xmlrpc:"sale_id,omitempty"`
+	StockMoveIds    *Relation  `xmlrpc:"stock_move_ids,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProcurementGroups represents array of procurement.group model.
@@ -38,7 +39,7 @@ func (c *Client) CreateProcurementGroup(pg *ProcurementGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProcurementGroups creates a new procurement.group model and returns its id.
+// CreateProcurementGroup creates a new procurement.group model and returns its id.
 func (c *Client) CreateProcurementGroups(pgs []*ProcurementGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pgs {

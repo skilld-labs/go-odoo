@@ -2,24 +2,31 @@ package odoo
 
 // ImLivechatChannel represents im_livechat.channel model.
 type ImLivechatChannel struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
 	AreYouInside                 *Bool     `xmlrpc:"are_you_inside,omitempty"`
+	AvailableOperatorIds         *Relation `xmlrpc:"available_operator_ids,omitempty"`
+	ButtonBackgroundColor        *String   `xmlrpc:"button_background_color,omitempty"`
 	ButtonText                   *String   `xmlrpc:"button_text,omitempty"`
+	ButtonTextColor              *String   `xmlrpc:"button_text_color,omitempty"`
 	ChannelIds                   *Relation `xmlrpc:"channel_ids,omitempty"`
+	ChatbotScriptCount           *Int      `xmlrpc:"chatbot_script_count,omitempty"`
 	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
 	DefaultMessage               *String   `xmlrpc:"default_message,omitempty"`
 	DisplayName                  *String   `xmlrpc:"display_name,omitempty"`
+	HeaderBackgroundColor        *String   `xmlrpc:"header_background_color,omitempty"`
 	Id                           *Int      `xmlrpc:"id,omitempty"`
-	Image                        *String   `xmlrpc:"image,omitempty"`
-	ImageMedium                  *String   `xmlrpc:"image_medium,omitempty"`
-	ImageSmall                   *String   `xmlrpc:"image_small,omitempty"`
+	Image128                     *String   `xmlrpc:"image_128,omitempty"`
 	InputPlaceholder             *String   `xmlrpc:"input_placeholder,omitempty"`
 	Name                         *String   `xmlrpc:"name,omitempty"`
 	NbrChannel                   *Int      `xmlrpc:"nbr_channel,omitempty"`
+	RatingAvg                    *Float    `xmlrpc:"rating_avg,omitempty"`
+	RatingAvgPercentage          *Float    `xmlrpc:"rating_avg_percentage,omitempty"`
+	RatingCount                  *Int      `xmlrpc:"rating_count,omitempty"`
+	RatingIds                    *Relation `xmlrpc:"rating_ids,omitempty"`
 	RatingPercentageSatisfaction *Int      `xmlrpc:"rating_percentage_satisfaction,omitempty"`
 	RuleIds                      *Relation `xmlrpc:"rule_ids,omitempty"`
 	ScriptExternal               *String   `xmlrpc:"script_external,omitempty"`
+	TitleColor                   *String   `xmlrpc:"title_color,omitempty"`
 	UserIds                      *Relation `xmlrpc:"user_ids,omitempty"`
 	WebPage                      *String   `xmlrpc:"web_page,omitempty"`
 	WriteDate                    *Time     `xmlrpc:"write_date,omitempty"`
@@ -49,7 +56,7 @@ func (c *Client) CreateImLivechatChannel(ic *ImLivechatChannel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateImLivechatChannels creates a new im_livechat.channel model and returns its id.
+// CreateImLivechatChannel creates a new im_livechat.channel model and returns its id.
 func (c *Client) CreateImLivechatChannels(ics []*ImLivechatChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ics {

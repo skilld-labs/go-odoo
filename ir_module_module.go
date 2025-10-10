@@ -2,12 +2,13 @@ package odoo
 
 // IrModuleModule represents ir.module.module model.
 type IrModuleModule struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountTemplates *String    `xmlrpc:"account_templates,omitempty"`
 	Application      *Bool      `xmlrpc:"application,omitempty"`
 	Author           *String    `xmlrpc:"author,omitempty"`
 	AutoInstall      *Bool      `xmlrpc:"auto_install,omitempty"`
 	CategoryId       *Many2One  `xmlrpc:"category_id,omitempty"`
 	Contributors     *String    `xmlrpc:"contributors,omitempty"`
+	CountryIds       *Relation  `xmlrpc:"country_ids,omitempty"`
 	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Demo             *Bool      `xmlrpc:"demo,omitempty"`
@@ -16,14 +17,18 @@ type IrModuleModule struct {
 	DescriptionHtml  *String    `xmlrpc:"description_html,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
 	ExclusionIds     *Relation  `xmlrpc:"exclusion_ids,omitempty"`
+	HasIap           *Bool      `xmlrpc:"has_iap,omitempty"`
 	Icon             *String    `xmlrpc:"icon,omitempty"`
+	IconFlag         *String    `xmlrpc:"icon_flag,omitempty"`
 	IconImage        *String    `xmlrpc:"icon_image,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
+	Imported         *Bool      `xmlrpc:"imported,omitempty"`
 	InstalledVersion *String    `xmlrpc:"installed_version,omitempty"`
 	LatestVersion    *String    `xmlrpc:"latest_version,omitempty"`
 	License          *Selection `xmlrpc:"license,omitempty"`
 	Maintainer       *String    `xmlrpc:"maintainer,omitempty"`
 	MenusByModule    *String    `xmlrpc:"menus_by_module,omitempty"`
+	ModuleType       *Selection `xmlrpc:"module_type,omitempty"`
 	Name             *String    `xmlrpc:"name,omitempty"`
 	PublishedVersion *String    `xmlrpc:"published_version,omitempty"`
 	ReportsByModule  *String    `xmlrpc:"reports_by_module,omitempty"`
@@ -31,6 +36,7 @@ type IrModuleModule struct {
 	Shortdesc        *String    `xmlrpc:"shortdesc,omitempty"`
 	State            *Selection `xmlrpc:"state,omitempty"`
 	Summary          *String    `xmlrpc:"summary,omitempty"`
+	ToBuy            *Bool      `xmlrpc:"to_buy,omitempty"`
 	Url              *String    `xmlrpc:"url,omitempty"`
 	ViewsByModule    *String    `xmlrpc:"views_by_module,omitempty"`
 	Website          *String    `xmlrpc:"website,omitempty"`
@@ -61,7 +67,7 @@ func (c *Client) CreateIrModuleModule(imm *IrModuleModule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleModules creates a new ir.module.module model and returns its id.
+// CreateIrModuleModule creates a new ir.module.module model and returns its id.
 func (c *Client) CreateIrModuleModules(imms []*IrModuleModule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imms {

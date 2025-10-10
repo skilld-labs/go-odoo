@@ -2,14 +2,12 @@ package odoo
 
 // IrModelConstraint represents ir.model.constraint model.
 type IrModelConstraint struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DateInit    *Time     `xmlrpc:"date_init,omitempty"`
-	DateUpdate  *Time     `xmlrpc:"date_update,omitempty"`
 	Definition  *String   `xmlrpc:"definition,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
+	Message     *String   `xmlrpc:"message,omitempty"`
 	Model       *Many2One `xmlrpc:"model,omitempty"`
 	Module      *Many2One `xmlrpc:"module,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`
@@ -41,7 +39,7 @@ func (c *Client) CreateIrModelConstraint(imc *IrModelConstraint) (int64, error) 
 	return ids[0], nil
 }
 
-// CreateIrModelConstraints creates a new ir.model.constraint model and returns its id.
+// CreateIrModelConstraint creates a new ir.model.constraint model and returns its id.
 func (c *Client) CreateIrModelConstraints(imcs []*IrModelConstraint) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imcs {

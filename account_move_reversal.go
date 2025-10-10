@@ -2,15 +2,23 @@ package odoo
 
 // AccountMoveReversal represents account.move.reversal model.
 type AccountMoveReversal struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	Date        *Time     `xmlrpc:"date,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	JournalId   *Many2One `xmlrpc:"journal_id,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	AvailableJournalIds *Relation `xmlrpc:"available_journal_ids,omitempty"`
+	CompanyId           *Many2One `xmlrpc:"company_id,omitempty"`
+	CountryCode         *String   `xmlrpc:"country_code,omitempty"`
+	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId          *Many2One `xmlrpc:"currency_id,omitempty"`
+	Date                *Time     `xmlrpc:"date,omitempty"`
+	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
+	Id                  *Int      `xmlrpc:"id,omitempty"`
+	JournalId           *Many2One `xmlrpc:"journal_id,omitempty"`
+	MoveIds             *Relation `xmlrpc:"move_ids,omitempty"`
+	MoveType            *String   `xmlrpc:"move_type,omitempty"`
+	NewMoveIds          *Relation `xmlrpc:"new_move_ids,omitempty"`
+	Reason              *String   `xmlrpc:"reason,omitempty"`
+	Residual            *Float    `xmlrpc:"residual,omitempty"`
+	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountMoveReversals represents array of account.move.reversal model.
@@ -36,7 +44,7 @@ func (c *Client) CreateAccountMoveReversal(amr *AccountMoveReversal) (int64, err
 	return ids[0], nil
 }
 
-// CreateAccountMoveReversals creates a new account.move.reversal model and returns its id.
+// CreateAccountMoveReversal creates a new account.move.reversal model and returns its id.
 func (c *Client) CreateAccountMoveReversals(amrs []*AccountMoveReversal) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range amrs {

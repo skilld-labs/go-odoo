@@ -2,7 +2,6 @@ package odoo
 
 // IrDefault represents ir.default model.
 type IrDefault struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
 	Condition   *String   `xmlrpc:"condition,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
@@ -39,7 +38,7 @@ func (c *Client) CreateIrDefault(ID *IrDefault) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrDefaults creates a new ir.default model and returns its id.
+// CreateIrDefault creates a new ir.default model and returns its id.
 func (c *Client) CreateIrDefaults(IDs []*IrDefault) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range IDs {

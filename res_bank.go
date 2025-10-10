@@ -2,11 +2,11 @@ package odoo
 
 // ResBank represents res.bank model.
 type ResBank struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	Bic         *String   `xmlrpc:"bic,omitempty"`
 	City        *String   `xmlrpc:"city,omitempty"`
 	Country     *Many2One `xmlrpc:"country,omitempty"`
+	CountryCode *String   `xmlrpc:"country_code,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -45,7 +45,7 @@ func (c *Client) CreateResBank(rb *ResBank) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResBanks creates a new res.bank model and returns its id.
+// CreateResBank creates a new res.bank model and returns its id.
 func (c *Client) CreateResBanks(rbs []*ResBank) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rbs {

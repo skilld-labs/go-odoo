@@ -2,73 +2,89 @@ package odoo
 
 // CalendarEvent represents calendar.event model.
 type CalendarEvent struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	AcceptedCount            *Int       `xmlrpc:"accepted_count,omitempty"`
+	AccessToken              *String    `xmlrpc:"access_token,omitempty"`
 	Active                   *Bool      `xmlrpc:"active,omitempty"`
 	ActivityIds              *Relation  `xmlrpc:"activity_ids,omitempty"`
 	AlarmIds                 *Relation  `xmlrpc:"alarm_ids,omitempty"`
 	Allday                   *Bool      `xmlrpc:"allday,omitempty"`
 	AttendeeIds              *Relation  `xmlrpc:"attendee_ids,omitempty"`
-	AttendeeStatus           *Selection `xmlrpc:"attendee_status,omitempty"`
+	AttendeesCount           *Int       `xmlrpc:"attendees_count,omitempty"`
+	AwaitingCount            *Int       `xmlrpc:"awaiting_count,omitempty"`
 	Byday                    *Selection `xmlrpc:"byday,omitempty"`
 	CategIds                 *Relation  `xmlrpc:"categ_ids,omitempty"`
 	Count                    *Int       `xmlrpc:"count,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrentAttendee          *Many2One  `xmlrpc:"current_attendee,omitempty"`
+	CurrentStatus            *Selection `xmlrpc:"current_status,omitempty"`
 	Day                      *Int       `xmlrpc:"day,omitempty"`
+	DeclinedCount            *Int       `xmlrpc:"declined_count,omitempty"`
 	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayDescription       *Bool      `xmlrpc:"display_description,omitempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
-	DisplayStart             *String    `xmlrpc:"display_start,omitempty"`
 	DisplayTime              *String    `xmlrpc:"display_time,omitempty"`
 	Duration                 *Float     `xmlrpc:"duration,omitempty"`
 	EndType                  *Selection `xmlrpc:"end_type,omitempty"`
-	FinalDate                *Time      `xmlrpc:"final_date,omitempty"`
-	Fr                       *Bool      `xmlrpc:"fr,omitempty"`
+	EventTz                  *Selection `xmlrpc:"event_tz,omitempty"`
+	FollowRecurrence         *Bool      `xmlrpc:"follow_recurrence,omitempty"`
+	Fri                      *Bool      `xmlrpc:"fri,omitempty"`
+	HasMessage               *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	Interval                 *Int       `xmlrpc:"interval,omitempty"`
-	IsAttendee               *Bool      `xmlrpc:"is_attendee,omitempty"`
+	InvalidEmailPartnerIds   *Relation  `xmlrpc:"invalid_email_partner_ids,omitempty"`
 	IsHighlighted            *Bool      `xmlrpc:"is_highlighted,omitempty"`
+	IsOrganizerAlone         *Bool      `xmlrpc:"is_organizer_alone,omitempty"`
 	Location                 *String    `xmlrpc:"location,omitempty"`
-	MessageChannelIds        *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MessageAttachmentCount   *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError          *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter   *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageLastPost          *Time      `xmlrpc:"message_last_post,omitempty"`
 	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
-	MessageUnread            *Bool      `xmlrpc:"message_unread,omitempty"`
-	MessageUnreadCounter     *Int       `xmlrpc:"message_unread_counter,omitempty"`
-	Mo                       *Bool      `xmlrpc:"mo,omitempty"`
+	Mon                      *Bool      `xmlrpc:"mon,omitempty"`
 	MonthBy                  *Selection `xmlrpc:"month_by,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
 	OpportunityId            *Many2One  `xmlrpc:"opportunity_id,omitempty"`
 	PartnerId                *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PartnerIds               *Relation  `xmlrpc:"partner_ids,omitempty"`
 	Privacy                  *Selection `xmlrpc:"privacy,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
+	RecurrenceId             *Many2One  `xmlrpc:"recurrence_id,omitempty"`
+	RecurrenceUpdate         *Selection `xmlrpc:"recurrence_update,omitempty"`
 	Recurrency               *Bool      `xmlrpc:"recurrency,omitempty"`
-	RecurrentId              *Int       `xmlrpc:"recurrent_id,omitempty"`
-	RecurrentIdDate          *Time      `xmlrpc:"recurrent_id_date,omitempty"`
-	ResId                    *Int       `xmlrpc:"res_id,omitempty"`
+	ResId                    *Many2One  `xmlrpc:"res_id,omitempty"`
 	ResModel                 *String    `xmlrpc:"res_model,omitempty"`
 	ResModelId               *Many2One  `xmlrpc:"res_model_id,omitempty"`
+	ResModelName             *String    `xmlrpc:"res_model_name,omitempty"`
 	Rrule                    *String    `xmlrpc:"rrule,omitempty"`
 	RruleType                *Selection `xmlrpc:"rrule_type,omitempty"`
-	Sa                       *Bool      `xmlrpc:"sa,omitempty"`
+	RruleTypeUi              *Selection `xmlrpc:"rrule_type_ui,omitempty"`
+	Sat                      *Bool      `xmlrpc:"sat,omitempty"`
+	ShouldShowStatus         *Bool      `xmlrpc:"should_show_status,omitempty"`
 	ShowAs                   *Selection `xmlrpc:"show_as,omitempty"`
 	Start                    *Time      `xmlrpc:"start,omitempty"`
 	StartDate                *Time      `xmlrpc:"start_date,omitempty"`
-	StartDatetime            *Time      `xmlrpc:"start_datetime,omitempty"`
-	State                    *Selection `xmlrpc:"state,omitempty"`
 	Stop                     *Time      `xmlrpc:"stop,omitempty"`
 	StopDate                 *Time      `xmlrpc:"stop_date,omitempty"`
-	StopDatetime             *Time      `xmlrpc:"stop_datetime,omitempty"`
-	Su                       *Bool      `xmlrpc:"su,omitempty"`
-	Th                       *Bool      `xmlrpc:"th,omitempty"`
-	Tu                       *Bool      `xmlrpc:"tu,omitempty"`
+	Sun                      *Bool      `xmlrpc:"sun,omitempty"`
+	TentativeCount           *Int       `xmlrpc:"tentative_count,omitempty"`
+	Thu                      *Bool      `xmlrpc:"thu,omitempty"`
+	Tue                      *Bool      `xmlrpc:"tue,omitempty"`
+	UnavailablePartnerIds    *Relation  `xmlrpc:"unavailable_partner_ids,omitempty"`
+	Until                    *Time      `xmlrpc:"until,omitempty"`
+	UserCanEdit              *Bool      `xmlrpc:"user_can_edit,omitempty"`
 	UserId                   *Many2One  `xmlrpc:"user_id,omitempty"`
-	We                       *Bool      `xmlrpc:"we,omitempty"`
+	VideocallChannelId       *Many2One  `xmlrpc:"videocall_channel_id,omitempty"`
+	VideocallLocation        *String    `xmlrpc:"videocall_location,omitempty"`
+	VideocallSource          *Selection `xmlrpc:"videocall_source,omitempty"`
 	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
-	WeekList                 *Selection `xmlrpc:"week_list,omitempty"`
+	Wed                      *Bool      `xmlrpc:"wed,omitempty"`
+	Weekday                  *Selection `xmlrpc:"weekday,omitempty"`
 	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
@@ -96,7 +112,7 @@ func (c *Client) CreateCalendarEvent(ce *CalendarEvent) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarEvents creates a new calendar.event model and returns its id.
+// CreateCalendarEvent creates a new calendar.event model and returns its id.
 func (c *Client) CreateCalendarEvents(ces []*CalendarEvent) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ces {

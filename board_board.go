@@ -2,9 +2,7 @@ package odoo
 
 // BoardBoard represents board.board model.
 type BoardBoard struct {
-	LastUpdate  *Time   `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String `xmlrpc:"display_name,omitempty"`
-	Id          *Int    `xmlrpc:"id,omitempty"`
+	Id *Int `xmlrpc:"id,omitempty"`
 }
 
 // BoardBoards represents array of board.board model.
@@ -30,7 +28,7 @@ func (c *Client) CreateBoardBoard(bb *BoardBoard) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateBoardBoards creates a new board.board model and returns its id.
+// CreateBoardBoard creates a new board.board model and returns its id.
 func (c *Client) CreateBoardBoards(bbs []*BoardBoard) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bbs {

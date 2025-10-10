@@ -2,23 +2,23 @@ package odoo
 
 // ProjectTaskType represents project.task.type model.
 type ProjectTaskType struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	Description    *String   `xmlrpc:"description,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Fold           *Bool     `xmlrpc:"fold,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	LegendBlocked  *String   `xmlrpc:"legend_blocked,omitempty"`
-	LegendDone     *String   `xmlrpc:"legend_done,omitempty"`
-	LegendNormal   *String   `xmlrpc:"legend_normal,omitempty"`
-	LegendPriority *String   `xmlrpc:"legend_priority,omitempty"`
-	MailTemplateId *Many2One `xmlrpc:"mail_template_id,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	ProjectIds     *Relation `xmlrpc:"project_ids,omitempty"`
-	Sequence       *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                *Bool     `xmlrpc:"active,omitempty"`
+	AutoValidationState   *Bool     `xmlrpc:"auto_validation_state,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisabledRatingWarning *String   `xmlrpc:"disabled_rating_warning,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Fold                  *Bool     `xmlrpc:"fold,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	MailTemplateId        *Many2One `xmlrpc:"mail_template_id,omitempty"`
+	Name                  *String   `xmlrpc:"name,omitempty"`
+	ProjectIds            *Relation `xmlrpc:"project_ids,omitempty"`
+	RatingTemplateId      *Many2One `xmlrpc:"rating_template_id,omitempty"`
+	Sequence              *Int      `xmlrpc:"sequence,omitempty"`
+	SmsTemplateId         *Many2One `xmlrpc:"sms_template_id,omitempty"`
+	UserId                *Many2One `xmlrpc:"user_id,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectTaskTypes represents array of project.task.type model.
@@ -44,7 +44,7 @@ func (c *Client) CreateProjectTaskType(ptt *ProjectTaskType) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProjectTaskTypes creates a new project.task.type model and returns its id.
+// CreateProjectTaskType creates a new project.task.type model and returns its id.
 func (c *Client) CreateProjectTaskTypes(ptts []*ProjectTaskType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ptts {

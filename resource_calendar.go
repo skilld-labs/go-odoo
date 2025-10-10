@@ -2,18 +2,26 @@ package odoo
 
 // ResourceCalendar represents resource.calendar model.
 type ResourceCalendar struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	AttendanceIds  *Relation `xmlrpc:"attendance_ids,omitempty"`
-	CompanyId      *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	GlobalLeaveIds *Relation `xmlrpc:"global_leave_ids,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	LeaveIds       *Relation `xmlrpc:"leave_ids,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                *Bool      `xmlrpc:"active,omitempty"`
+	AssociatedLeavesCount *Int       `xmlrpc:"associated_leaves_count,omitempty"`
+	AttendanceIds         *Relation  `xmlrpc:"attendance_ids,omitempty"`
+	CompanyId             *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	FlexibleHours         *Bool      `xmlrpc:"flexible_hours,omitempty"`
+	FullTimeRequiredHours *Float     `xmlrpc:"full_time_required_hours,omitempty"`
+	GlobalLeaveIds        *Relation  `xmlrpc:"global_leave_ids,omitempty"`
+	HoursPerDay           *Float     `xmlrpc:"hours_per_day,omitempty"`
+	Id                    *Int       `xmlrpc:"id,omitempty"`
+	LeaveIds              *Relation  `xmlrpc:"leave_ids,omitempty"`
+	Name                  *String    `xmlrpc:"name,omitempty"`
+	TwoWeeksCalendar      *Bool      `xmlrpc:"two_weeks_calendar,omitempty"`
+	TwoWeeksExplanation   *String    `xmlrpc:"two_weeks_explanation,omitempty"`
+	Tz                    *Selection `xmlrpc:"tz,omitempty"`
+	TzOffset              *String    `xmlrpc:"tz_offset,omitempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResourceCalendars represents array of resource.calendar model.
@@ -39,7 +47,7 @@ func (c *Client) CreateResourceCalendar(rc *ResourceCalendar) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceCalendars creates a new resource.calendar model and returns its id.
+// CreateResourceCalendar creates a new resource.calendar model and returns its id.
 func (c *Client) CreateResourceCalendars(rcs []*ResourceCalendar) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcs {

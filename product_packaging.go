@@ -2,18 +2,23 @@ package odoo
 
 // ProductPackaging represents product.packaging model.
 type ProductPackaging struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	Barcode     *String   `xmlrpc:"barcode,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	ProductId   *Many2One `xmlrpc:"product_id,omitempty"`
-	Qty         *Float    `xmlrpc:"qty,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Barcode       *String   `xmlrpc:"barcode,omitempty"`
+	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	Name          *String   `xmlrpc:"name,omitempty"`
+	PackageTypeId *Many2One `xmlrpc:"package_type_id,omitempty"`
+	ProductId     *Many2One `xmlrpc:"product_id,omitempty"`
+	ProductUomId  *Many2One `xmlrpc:"product_uom_id,omitempty"`
+	Purchase      *Bool     `xmlrpc:"purchase,omitempty"`
+	Qty           *Float    `xmlrpc:"qty,omitempty"`
+	RouteIds      *Relation `xmlrpc:"route_ids,omitempty"`
+	Sales         *Bool     `xmlrpc:"sales,omitempty"`
+	Sequence      *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductPackagings represents array of product.packaging model.
@@ -39,7 +44,7 @@ func (c *Client) CreateProductPackaging(pp *ProductPackaging) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductPackagings creates a new product.packaging model and returns its id.
+// CreateProductPackaging creates a new product.packaging model and returns its id.
 func (c *Client) CreateProductPackagings(pps []*ProductPackaging) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pps {

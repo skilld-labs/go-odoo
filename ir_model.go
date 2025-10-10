@@ -2,7 +2,6 @@ package odoo
 
 // IrModel represents ir.model model.
 type IrModel struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessIds         *Relation  `xmlrpc:"access_ids,omitempty"`
 	Count             *Int       `xmlrpc:"count,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
@@ -12,10 +11,16 @@ type IrModel struct {
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	Info              *String    `xmlrpc:"info,omitempty"`
 	InheritedModelIds *Relation  `xmlrpc:"inherited_model_ids,omitempty"`
+	IsMailActivity    *Bool      `xmlrpc:"is_mail_activity,omitempty"`
+	IsMailBlacklist   *Bool      `xmlrpc:"is_mail_blacklist,omitempty"`
 	IsMailThread      *Bool      `xmlrpc:"is_mail_thread,omitempty"`
+	IsMailThreadSms   *Bool      `xmlrpc:"is_mail_thread_sms,omitempty"`
+	IsMailingEnabled  *Bool      `xmlrpc:"is_mailing_enabled,omitempty"`
 	Model             *String    `xmlrpc:"model,omitempty"`
 	Modules           *String    `xmlrpc:"modules,omitempty"`
 	Name              *String    `xmlrpc:"name,omitempty"`
+	Order             *String    `xmlrpc:"order,omitempty"`
+	RuleIds           *Relation  `xmlrpc:"rule_ids,omitempty"`
 	State             *Selection `xmlrpc:"state,omitempty"`
 	Transient         *Bool      `xmlrpc:"transient,omitempty"`
 	ViewIds           *Relation  `xmlrpc:"view_ids,omitempty"`
@@ -46,7 +51,7 @@ func (c *Client) CreateIrModel(im *IrModel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModels creates a new ir.model model and returns its id.
+// CreateIrModel creates a new ir.model model and returns its id.
 func (c *Client) CreateIrModels(ims []*IrModel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ims {

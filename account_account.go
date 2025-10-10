@@ -2,28 +2,60 @@ package odoo
 
 // AccountAccount represents account.account model.
 type AccountAccount struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
-	Code                   *String    `xmlrpc:"code,omitempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId             *Many2One  `xmlrpc:"currency_id,omitempty"`
-	Deprecated             *Bool      `xmlrpc:"deprecated,omitempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
-	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
-	Id                     *Int       `xmlrpc:"id,omitempty"`
-	InternalType           *Selection `xmlrpc:"internal_type,omitempty"`
-	LastTimeEntriesChecked *Time      `xmlrpc:"last_time_entries_checked,omitempty"`
-	Name                   *String    `xmlrpc:"name,omitempty"`
-	Note                   *String    `xmlrpc:"note,omitempty"`
-	OpeningCredit          *Float     `xmlrpc:"opening_credit,omitempty"`
-	OpeningDebit           *Float     `xmlrpc:"opening_debit,omitempty"`
-	Reconcile              *Bool      `xmlrpc:"reconcile,omitempty"`
-	TagIds                 *Relation  `xmlrpc:"tag_ids,omitempty"`
-	TaxIds                 *Relation  `xmlrpc:"tax_ids,omitempty"`
-	UserTypeId             *Many2One  `xmlrpc:"user_type_id,omitempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AccountType                 *Selection `xmlrpc:"account_type,omitempty"`
+	AllowedJournalIds           *Relation  `xmlrpc:"allowed_journal_ids,omitempty"`
+	AssetModelIds               *Relation  `xmlrpc:"asset_model_ids,omitempty"`
+	BudgetItemIds               *Relation  `xmlrpc:"budget_item_ids,omitempty"`
+	CanCreateAsset              *Bool      `xmlrpc:"can_create_asset,omitempty"`
+	Code                        *String    `xmlrpc:"code,omitempty"`
+	CodeMappingIds              *Relation  `xmlrpc:"code_mapping_ids,omitempty"`
+	CodeStore                   *String    `xmlrpc:"code_store,omitempty"`
+	CompanyCurrencyId           *Many2One  `xmlrpc:"company_currency_id,omitempty"`
+	CompanyFiscalCountryCode    *String    `xmlrpc:"company_fiscal_country_code,omitempty"`
+	CompanyIds                  *Relation  `xmlrpc:"company_ids,omitempty"`
+	CreateAsset                 *Selection `xmlrpc:"create_asset,omitempty"`
+	CreateDate                  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                  *Many2One  `xmlrpc:"currency_id,omitempty"`
+	CurrentBalance              *Float     `xmlrpc:"current_balance,omitempty"`
+	Deprecated                  *Bool      `xmlrpc:"deprecated,omitempty"`
+	DisplayMappingTab           *Bool      `xmlrpc:"display_mapping_tab,omitempty"`
+	DisplayName                 *String    `xmlrpc:"display_name,omitempty"`
+	ExcludeProvisionCurrencyIds *Relation  `xmlrpc:"exclude_provision_currency_ids,omitempty"`
+	FormViewRef                 *String    `xmlrpc:"form_view_ref,omitempty"`
+	GroupId                     *Many2One  `xmlrpc:"group_id,omitempty"`
+	HasMessage                  *Bool      `xmlrpc:"has_message,omitempty"`
+	Id                          *Int       `xmlrpc:"id,omitempty"`
+	IncludeInitialBalance       *Bool      `xmlrpc:"include_initial_balance,omitempty"`
+	InternalGroup               *Selection `xmlrpc:"internal_group,omitempty"`
+	MessageAttachmentCount      *Int       `xmlrpc:"message_attachment_count,omitempty"`
+	MessageFollowerIds          *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError             *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter      *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError          *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds                  *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower           *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageNeedaction           *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter    *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds           *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	MultipleAssetsPerLine       *Bool      `xmlrpc:"multiple_assets_per_line,omitempty"`
+	Name                        *String    `xmlrpc:"name,omitempty"`
+	NonTrade                    *Bool      `xmlrpc:"non_trade,omitempty"`
+	Note                        *String    `xmlrpc:"note,omitempty"`
+	OpeningBalance              *Float     `xmlrpc:"opening_balance,omitempty"`
+	OpeningCredit               *Float     `xmlrpc:"opening_credit,omitempty"`
+	OpeningDebit                *Float     `xmlrpc:"opening_debit,omitempty"`
+	PlaceholderCode             *String    `xmlrpc:"placeholder_code,omitempty"`
+	RatingIds                   *Relation  `xmlrpc:"rating_ids,omitempty"`
+	Reconcile                   *Bool      `xmlrpc:"reconcile,omitempty"`
+	RelatedTaxesAmount          *Int       `xmlrpc:"related_taxes_amount,omitempty"`
+	RootId                      *Many2One  `xmlrpc:"root_id,omitempty"`
+	TagIds                      *Relation  `xmlrpc:"tag_ids,omitempty"`
+	TaxIds                      *Relation  `xmlrpc:"tax_ids,omitempty"`
+	Used                        *Bool      `xmlrpc:"used,omitempty"`
+	WebsiteMessageIds           *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAccounts represents array of account.account model.
@@ -49,7 +81,7 @@ func (c *Client) CreateAccountAccount(aa *AccountAccount) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountAccounts creates a new account.account model and returns its id.
+// CreateAccountAccount creates a new account.account model and returns its id.
 func (c *Client) CreateAccountAccounts(aas []*AccountAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aas {

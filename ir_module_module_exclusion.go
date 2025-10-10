@@ -2,7 +2,6 @@ package odoo
 
 // IrModuleModuleExclusion represents ir.module.module.exclusion model.
 type IrModuleModuleExclusion struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String    `xmlrpc:"display_name,omitempty"`
@@ -38,7 +37,7 @@ func (c *Client) CreateIrModuleModuleExclusion(imme *IrModuleModuleExclusion) (i
 	return ids[0], nil
 }
 
-// CreateIrModuleModuleExclusions creates a new ir.module.module.exclusion model and returns its id.
+// CreateIrModuleModuleExclusion creates a new ir.module.module.exclusion model and returns its id.
 func (c *Client) CreateIrModuleModuleExclusions(immes []*IrModuleModuleExclusion) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range immes {

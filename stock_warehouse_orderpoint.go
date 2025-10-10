@@ -2,26 +2,45 @@ package odoo
 
 // StockWarehouseOrderpoint represents stock.warehouse.orderpoint model.
 type StockWarehouseOrderpoint struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	Active        *Bool      `xmlrpc:"active,omitempty"`
-	CompanyId     *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	GroupId       *Many2One  `xmlrpc:"group_id,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	LeadDays      *Int       `xmlrpc:"lead_days,omitempty"`
-	LeadType      *Selection `xmlrpc:"lead_type,omitempty"`
-	LocationId    *Many2One  `xmlrpc:"location_id,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	ProductId     *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductMaxQty *Float     `xmlrpc:"product_max_qty,omitempty"`
-	ProductMinQty *Float     `xmlrpc:"product_min_qty,omitempty"`
-	ProductUom    *Many2One  `xmlrpc:"product_uom,omitempty"`
-	QtyMultiple   *Float     `xmlrpc:"qty_multiple,omitempty"`
-	WarehouseId   *Many2One  `xmlrpc:"warehouse_id,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                 *Bool      `xmlrpc:"active,omitempty"`
+	AllowedLocationIds     *Relation  `xmlrpc:"allowed_location_ids,omitempty"`
+	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DaysToOrder            *Float     `xmlrpc:"days_to_order,omitempty"`
+	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
+	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
+	Id                     *Int       `xmlrpc:"id,omitempty"`
+	LeadDaysDate           *Time      `xmlrpc:"lead_days_date,omitempty"`
+	LocationId             *Many2One  `xmlrpc:"location_id,omitempty"`
+	Name                   *String    `xmlrpc:"name,omitempty"`
+	ProductCategoryId      *Many2One  `xmlrpc:"product_category_id,omitempty"`
+	ProductId              *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductMaxQty          *Float     `xmlrpc:"product_max_qty,omitempty"`
+	ProductMinQty          *Float     `xmlrpc:"product_min_qty,omitempty"`
+	ProductSupplierId      *Many2One  `xmlrpc:"product_supplier_id,omitempty"`
+	ProductTmplId          *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
+	ProductUom             *Many2One  `xmlrpc:"product_uom,omitempty"`
+	ProductUomName         *String    `xmlrpc:"product_uom_name,omitempty"`
+	PurchaseVisibilityDays *Float     `xmlrpc:"purchase_visibility_days,omitempty"`
+	QtyForecast            *Float     `xmlrpc:"qty_forecast,omitempty"`
+	QtyMultiple            *Float     `xmlrpc:"qty_multiple,omitempty"`
+	QtyOnHand              *Float     `xmlrpc:"qty_on_hand,omitempty"`
+	QtyToOrder             *Float     `xmlrpc:"qty_to_order,omitempty"`
+	QtyToOrderComputed     *Float     `xmlrpc:"qty_to_order_computed,omitempty"`
+	QtyToOrderManual       *Float     `xmlrpc:"qty_to_order_manual,omitempty"`
+	RouteId                *Many2One  `xmlrpc:"route_id,omitempty"`
+	RuleIds                *Relation  `xmlrpc:"rule_ids,omitempty"`
+	ShowSupplier           *Bool      `xmlrpc:"show_supplier,omitempty"`
+	SnoozedUntil           *Time      `xmlrpc:"snoozed_until,omitempty"`
+	SupplierId             *Many2One  `xmlrpc:"supplier_id,omitempty"`
+	Trigger                *Selection `xmlrpc:"trigger,omitempty"`
+	UnwantedReplenish      *Bool      `xmlrpc:"unwanted_replenish,omitempty"`
+	VendorId               *Many2One  `xmlrpc:"vendor_id,omitempty"`
+	VisibilityDays         *Float     `xmlrpc:"visibility_days,omitempty"`
+	WarehouseId            *Many2One  `xmlrpc:"warehouse_id,omitempty"`
+	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockWarehouseOrderpoints represents array of stock.warehouse.orderpoint model.
@@ -47,7 +66,7 @@ func (c *Client) CreateStockWarehouseOrderpoint(swo *StockWarehouseOrderpoint) (
 	return ids[0], nil
 }
 
-// CreateStockWarehouseOrderpoints creates a new stock.warehouse.orderpoint model and returns its id.
+// CreateStockWarehouseOrderpoint creates a new stock.warehouse.orderpoint model and returns its id.
 func (c *Client) CreateStockWarehouseOrderpoints(swos []*StockWarehouseOrderpoint) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range swos {

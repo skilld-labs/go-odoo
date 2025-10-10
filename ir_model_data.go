@@ -2,12 +2,9 @@ package odoo
 
 // IrModelData represents ir.model.data model.
 type IrModelData struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	CompleteName *String   `xmlrpc:"complete_name,omitempty"`
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DateInit     *Time     `xmlrpc:"date_init,omitempty"`
-	DateUpdate   *Time     `xmlrpc:"date_update,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
 	Id           *Int      `xmlrpc:"id,omitempty"`
 	Model        *String   `xmlrpc:"model,omitempty"`
@@ -15,7 +12,7 @@ type IrModelData struct {
 	Name         *String   `xmlrpc:"name,omitempty"`
 	Noupdate     *Bool     `xmlrpc:"noupdate,omitempty"`
 	Reference    *String   `xmlrpc:"reference,omitempty"`
-	ResId        *Int      `xmlrpc:"res_id,omitempty"`
+	ResId        *Many2One `xmlrpc:"res_id,omitempty"`
 	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
@@ -43,7 +40,7 @@ func (c *Client) CreateIrModelData(imd *IrModelData) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModelDatas creates a new ir.model.data model and returns its id.
+// CreateIrModelData creates a new ir.model.data model and returns its id.
 func (c *Client) CreateIrModelDatas(imds []*IrModelData) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imds {

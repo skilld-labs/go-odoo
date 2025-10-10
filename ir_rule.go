@@ -2,7 +2,6 @@ package odoo
 
 // IrRule represents ir.rule model.
 type IrRule struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -44,7 +43,7 @@ func (c *Client) CreateIrRule(ir *IrRule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrRules creates a new ir.rule model and returns its id.
+// CreateIrRule creates a new ir.rule model and returns its id.
 func (c *Client) CreateIrRules(irs []*IrRule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range irs {

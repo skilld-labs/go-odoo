@@ -2,16 +2,37 @@ package odoo
 
 // IapAccount represents iap.account model.
 type IapAccount struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountToken *String   `xmlrpc:"account_token,omitempty"`
-	CompanyId    *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	ServiceName  *String   `xmlrpc:"service_name,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	AccountToken             *String    `xmlrpc:"account_token,omitempty"`
+	Balance                  *String    `xmlrpc:"balance,omitempty"`
+	CompanyIds               *Relation  `xmlrpc:"company_ids,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	HasMessage               *Bool      `xmlrpc:"has_message,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	MessageAttachmentCount   *Int       `xmlrpc:"message_attachment_count,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError          *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter   *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
+	SenderName               *String    `xmlrpc:"sender_name,omitempty"`
+	ServiceId                *Many2One  `xmlrpc:"service_id,omitempty"`
+	ServiceLocked            *Bool      `xmlrpc:"service_locked,omitempty"`
+	ServiceName              *String    `xmlrpc:"service_name,omitempty"`
+	State                    *Selection `xmlrpc:"state,omitempty"`
+	WarningThreshold         *Float     `xmlrpc:"warning_threshold,omitempty"`
+	WarningUserIds           *Relation  `xmlrpc:"warning_user_ids,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // IapAccounts represents array of iap.account model.
@@ -37,7 +58,7 @@ func (c *Client) CreateIapAccount(ia *IapAccount) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIapAccounts creates a new iap.account model and returns its id.
+// CreateIapAccount creates a new iap.account model and returns its id.
 func (c *Client) CreateIapAccounts(ias []*IapAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

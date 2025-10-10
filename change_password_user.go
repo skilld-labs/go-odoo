@@ -2,7 +2,6 @@ package odoo
 
 // ChangePasswordUser represents change.password.user model.
 type ChangePasswordUser struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
@@ -38,7 +37,7 @@ func (c *Client) CreateChangePasswordUser(cpu *ChangePasswordUser) (int64, error
 	return ids[0], nil
 }
 
-// CreateChangePasswordUsers creates a new change.password.user model and returns its id.
+// CreateChangePasswordUser creates a new change.password.user model and returns its id.
 func (c *Client) CreateChangePasswordUsers(cpus []*ChangePasswordUser) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cpus {

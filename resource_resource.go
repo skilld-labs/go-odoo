@@ -2,20 +2,33 @@ package odoo
 
 // ResourceResource represents resource.resource model.
 type ResourceResource struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	Active         *Bool      `xmlrpc:"active,omitempty"`
-	CalendarId     *Many2One  `xmlrpc:"calendar_id,omitempty"`
-	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	ResourceType   *Selection `xmlrpc:"resource_type,omitempty"`
-	TimeEfficiency *Float     `xmlrpc:"time_efficiency,omitempty"`
-	UserId         *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	Avatar128         *String    `xmlrpc:"avatar_128,omitempty"`
+	CalendarId        *Many2One  `xmlrpc:"calendar_id,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DepartmentId      *Many2One  `xmlrpc:"department_id,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Email             *String    `xmlrpc:"email,omitempty"`
+	EmployeeId        *Relation  `xmlrpc:"employee_id,omitempty"`
+	HrIconDisplay     *Selection `xmlrpc:"hr_icon_display,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	ImStatus          *String    `xmlrpc:"im_status,omitempty"`
+	JobTitle          *String    `xmlrpc:"job_title,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	Phone             *String    `xmlrpc:"phone,omitempty"`
+	ResourceType      *Selection `xmlrpc:"resource_type,omitempty"`
+	Share             *Bool      `xmlrpc:"share,omitempty"`
+	ShowHrIconDisplay *Bool      `xmlrpc:"show_hr_icon_display,omitempty"`
+	TimeEfficiency    *Float     `xmlrpc:"time_efficiency,omitempty"`
+	Tz                *Selection `xmlrpc:"tz,omitempty"`
+	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
+	WorkEmail         *String    `xmlrpc:"work_email,omitempty"`
+	WorkPhone         *String    `xmlrpc:"work_phone,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XStudioPosition   *Int       `xmlrpc:"x_studio_position,omitempty"`
 }
 
 // ResourceResources represents array of resource.resource model.
@@ -41,7 +54,7 @@ func (c *Client) CreateResourceResource(rr *ResourceResource) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateResourceResources creates a new resource.resource model and returns its id.
+// CreateResourceResource creates a new resource.resource model and returns its id.
 func (c *Client) CreateResourceResources(rrs []*ResourceResource) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rrs {

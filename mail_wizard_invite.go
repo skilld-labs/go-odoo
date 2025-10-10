@@ -2,17 +2,15 @@ package odoo
 
 // MailWizardInvite represents mail.wizard.invite model.
 type MailWizardInvite struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	ChannelIds  *Relation `xmlrpc:"channel_ids,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Message     *String   `xmlrpc:"message,omitempty"`
+	Notify      *Bool     `xmlrpc:"notify,omitempty"`
 	PartnerIds  *Relation `xmlrpc:"partner_ids,omitempty"`
 	ResId       *Int      `xmlrpc:"res_id,omitempty"`
 	ResModel    *String   `xmlrpc:"res_model,omitempty"`
-	SendMail    *Bool     `xmlrpc:"send_mail,omitempty"`
 	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
@@ -40,7 +38,7 @@ func (c *Client) CreateMailWizardInvite(mwi *MailWizardInvite) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailWizardInvites creates a new mail.wizard.invite model and returns its id.
+// CreateMailWizardInvite creates a new mail.wizard.invite model and returns its id.
 func (c *Client) CreateMailWizardInvites(mwis []*MailWizardInvite) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mwis {

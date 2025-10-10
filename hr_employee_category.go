@@ -2,7 +2,6 @@ package odoo
 
 // HrEmployeeCategory represents hr.employee.category model.
 type HrEmployeeCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -37,7 +36,7 @@ func (c *Client) CreateHrEmployeeCategory(hec *HrEmployeeCategory) (int64, error
 	return ids[0], nil
 }
 
-// CreateHrEmployeeCategorys creates a new hr.employee.category model and returns its id.
+// CreateHrEmployeeCategory creates a new hr.employee.category model and returns its id.
 func (c *Client) CreateHrEmployeeCategorys(hecs []*HrEmployeeCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range hecs {

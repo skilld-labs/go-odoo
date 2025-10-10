@@ -2,25 +2,26 @@ package odoo
 
 // IrActionsClient represents ir.actions.client model.
 type IrActionsClient struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType    *Selection `xmlrpc:"binding_type,omitempty"`
-	Context        *String    `xmlrpc:"context,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Help           *String    `xmlrpc:"help,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Params         *String    `xmlrpc:"params,omitempty"`
-	ParamsStore    *String    `xmlrpc:"params_store,omitempty"`
-	ResModel       *String    `xmlrpc:"res_model,omitempty"`
-	Tag            *String    `xmlrpc:"tag,omitempty"`
-	Target         *Selection `xmlrpc:"target,omitempty"`
-	Type           *String    `xmlrpc:"type,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId          *String    `xmlrpc:"xml_id,omitempty"`
+	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
+	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
+	Context          *String    `xmlrpc:"context,omitempty"`
+	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Help             *String    `xmlrpc:"help,omitempty"`
+	Id               *Int       `xmlrpc:"id,omitempty"`
+	Name             *String    `xmlrpc:"name,omitempty"`
+	Params           *String    `xmlrpc:"params,omitempty"`
+	ParamsStore      *String    `xmlrpc:"params_store,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
+	ResModel         *String    `xmlrpc:"res_model,omitempty"`
+	Tag              *String    `xmlrpc:"tag,omitempty"`
+	Target           *Selection `xmlrpc:"target,omitempty"`
+	Type             *String    `xmlrpc:"type,omitempty"`
+	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId            *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrActionsClients represents array of ir.actions.client model.
@@ -46,7 +47,7 @@ func (c *Client) CreateIrActionsClient(iac *IrActionsClient) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsClients creates a new ir.actions.client model and returns its id.
+// CreateIrActionsClient creates a new ir.actions.client model and returns its id.
 func (c *Client) CreateIrActionsClients(iacs []*IrActionsClient) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iacs {

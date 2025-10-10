@@ -2,32 +2,49 @@ package odoo
 
 // ProductCategory represents product.category model.
 type ProductCategory struct {
-	LastUpdate                                  *Time      `xmlrpc:"__last_update,omitempty"`
-	ChildId                                     *Relation  `xmlrpc:"child_id,omitempty"`
-	CompleteName                                *String    `xmlrpc:"complete_name,omitempty"`
-	CreateDate                                  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid                                   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName                                 *String    `xmlrpc:"display_name,omitempty"`
-	Id                                          *Int       `xmlrpc:"id,omitempty"`
-	Name                                        *String    `xmlrpc:"name,omitempty"`
-	ParentId                                    *Many2One  `xmlrpc:"parent_id,omitempty"`
-	ParentLeft                                  *Int       `xmlrpc:"parent_left,omitempty"`
-	ParentRight                                 *Int       `xmlrpc:"parent_right,omitempty"`
-	ProductCount                                *Int       `xmlrpc:"product_count,omitempty"`
-	PropertyAccountCreditorPriceDifferenceCateg *Many2One  `xmlrpc:"property_account_creditor_price_difference_categ,omitempty"`
-	PropertyAccountExpenseCategId               *Many2One  `xmlrpc:"property_account_expense_categ_id,omitempty"`
-	PropertyAccountIncomeCategId                *Many2One  `xmlrpc:"property_account_income_categ_id,omitempty"`
-	PropertyCostMethod                          *Selection `xmlrpc:"property_cost_method,omitempty"`
-	PropertyStockAccountInputCategId            *Many2One  `xmlrpc:"property_stock_account_input_categ_id,omitempty"`
-	PropertyStockAccountOutputCategId           *Many2One  `xmlrpc:"property_stock_account_output_categ_id,omitempty"`
-	PropertyStockJournal                        *Many2One  `xmlrpc:"property_stock_journal,omitempty"`
-	PropertyStockValuationAccountId             *Many2One  `xmlrpc:"property_stock_valuation_account_id,omitempty"`
-	PropertyValuation                           *Selection `xmlrpc:"property_valuation,omitempty"`
-	RemovalStrategyId                           *Many2One  `xmlrpc:"removal_strategy_id,omitempty"`
-	RouteIds                                    *Relation  `xmlrpc:"route_ids,omitempty"`
-	TotalRouteIds                               *Relation  `xmlrpc:"total_route_ids,omitempty"`
-	WriteDate                                   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid                                    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	ChildId                                     *Relation   `xmlrpc:"child_id,omitempty"`
+	CompleteName                                *String     `xmlrpc:"complete_name,omitempty"`
+	CreateDate                                  *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                                   *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisplayName                                 *String     `xmlrpc:"display_name,omitempty"`
+	FilterForStockPutawayRule                   *Bool       `xmlrpc:"filter_for_stock_putaway_rule,omitempty"`
+	HasMessage                                  *Bool       `xmlrpc:"has_message,omitempty"`
+	Id                                          *Int        `xmlrpc:"id,omitempty"`
+	MessageAttachmentCount                      *Int        `xmlrpc:"message_attachment_count,omitempty"`
+	MessageFollowerIds                          *Relation   `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError                             *Bool       `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter                      *Int        `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError                          *Bool       `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds                                  *Relation   `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower                           *Bool       `xmlrpc:"message_is_follower,omitempty"`
+	MessageNeedaction                           *Bool       `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter                    *Int        `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds                           *Relation   `xmlrpc:"message_partner_ids,omitempty"`
+	Name                                        *String     `xmlrpc:"name,omitempty"`
+	PackagingReserveMethod                      *Selection  `xmlrpc:"packaging_reserve_method,omitempty"`
+	ParentId                                    *Many2One   `xmlrpc:"parent_id,omitempty"`
+	ParentPath                                  *String     `xmlrpc:"parent_path,omitempty"`
+	ParentRouteIds                              *Relation   `xmlrpc:"parent_route_ids,omitempty"`
+	ProductCount                                *Int        `xmlrpc:"product_count,omitempty"`
+	ProductPropertiesDefinition                 interface{} `xmlrpc:"product_properties_definition,omitempty"`
+	PropertyAccountCreditorPriceDifferenceCateg *Many2One   `xmlrpc:"property_account_creditor_price_difference_categ,omitempty"`
+	PropertyAccountDownpaymentCategId           *Many2One   `xmlrpc:"property_account_downpayment_categ_id,omitempty"`
+	PropertyAccountExpenseCategId               *Many2One   `xmlrpc:"property_account_expense_categ_id,omitempty"`
+	PropertyAccountIncomeCategId                *Many2One   `xmlrpc:"property_account_income_categ_id,omitempty"`
+	PropertyCostMethod                          *Selection  `xmlrpc:"property_cost_method,omitempty"`
+	PropertyStockAccountInputCategId            *Many2One   `xmlrpc:"property_stock_account_input_categ_id,omitempty"`
+	PropertyStockAccountOutputCategId           *Many2One   `xmlrpc:"property_stock_account_output_categ_id,omitempty"`
+	PropertyStockJournal                        *Many2One   `xmlrpc:"property_stock_journal,omitempty"`
+	PropertyStockValuationAccountId             *Many2One   `xmlrpc:"property_stock_valuation_account_id,omitempty"`
+	PropertyValuation                           *Selection  `xmlrpc:"property_valuation,omitempty"`
+	PutawayRuleIds                              *Relation   `xmlrpc:"putaway_rule_ids,omitempty"`
+	RatingIds                                   *Relation   `xmlrpc:"rating_ids,omitempty"`
+	RemovalStrategyId                           *Many2One   `xmlrpc:"removal_strategy_id,omitempty"`
+	RouteIds                                    *Relation   `xmlrpc:"route_ids,omitempty"`
+	TotalRouteIds                               *Relation   `xmlrpc:"total_route_ids,omitempty"`
+	WebsiteMessageIds                           *Relation   `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                                   *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                                    *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductCategorys represents array of product.category model.
@@ -53,7 +70,7 @@ func (c *Client) CreateProductCategory(pc *ProductCategory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductCategorys creates a new product.category model and returns its id.
+// CreateProductCategory creates a new product.category model and returns its id.
 func (c *Client) CreateProductCategorys(pcs []*ProductCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pcs {
