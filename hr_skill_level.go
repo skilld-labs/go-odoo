@@ -2,16 +2,17 @@ package odoo
 
 // HrSkillLevel represents hr.skill.level model.
 type HrSkillLevel struct {
-	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
-	DefaultLevel  *Bool     `xmlrpc:"default_level,omitempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
-	Id            *Int      `xmlrpc:"id,omitempty"`
-	LevelProgress *Int      `xmlrpc:"level_progress,omitempty"`
-	Name          *String   `xmlrpc:"name,omitempty"`
-	SkillTypeId   *Many2One `xmlrpc:"skill_type_id,omitempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	DefaultLevel          *Bool     `xmlrpc:"default_level,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	LevelProgress         *Int      `xmlrpc:"level_progress,omitempty"`
+	Name                  *String   `xmlrpc:"name,omitempty"`
+	SkillTypeId           *Many2One `xmlrpc:"skill_type_id,omitempty"`
+	TechnicalIsNewDefault *Bool     `xmlrpc:"technical_is_new_default,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrSkillLevels represents array of hr.skill.level model.

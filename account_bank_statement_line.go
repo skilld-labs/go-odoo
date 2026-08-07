@@ -7,6 +7,7 @@ type AccountBankStatementLine struct {
 	AccessToken                           *String     `xmlrpc:"access_token,omitempty"`
 	AccessUrl                             *String     `xmlrpc:"access_url,omitempty"`
 	AccessWarning                         *String     `xmlrpc:"access_warning,omitempty"`
+	AccountFiscalCountryGroupCodes        interface{} `xmlrpc:"account_fiscal_country_group_codes,omitempty"`
 	AccountNumber                         *String     `xmlrpc:"account_number,omitempty"`
 	ActivityCalendarEventId               *Many2One   `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline                  *Time       `xmlrpc:"activity_date_deadline,omitempty"`
@@ -18,6 +19,12 @@ type AccountBankStatementLine struct {
 	ActivityTypeIcon                      *String     `xmlrpc:"activity_type_icon,omitempty"`
 	ActivityTypeId                        *Many2One   `xmlrpc:"activity_type_id,omitempty"`
 	ActivityUserId                        *Many2One   `xmlrpc:"activity_user_id,omitempty"`
+	AdjustingEntriesCount                 *Int        `xmlrpc:"adjusting_entries_count,omitempty"`
+	AdjustingEntriesMoveIds               *Relation   `xmlrpc:"adjusting_entries_move_ids,omitempty"`
+	AdjustingEntryOriginLabel             *String     `xmlrpc:"adjusting_entry_origin_label,omitempty"`
+	AdjustingEntryOriginMoveIds           *Relation   `xmlrpc:"adjusting_entry_origin_move_ids,omitempty"`
+	AdjustingEntryOriginMovesCount        *Int        `xmlrpc:"adjusting_entry_origin_moves_count,omitempty"`
+	Alerts                                interface{} `xmlrpc:"alerts,omitempty"`
 	AlwaysTaxExigible                     *Bool       `xmlrpc:"always_tax_exigible,omitempty"`
 	Amount                                *Float      `xmlrpc:"amount,omitempty"`
 	AmountCurrency                        *Float      `xmlrpc:"amount_currency,omitempty"`
@@ -54,15 +61,20 @@ type AccountBankStatementLine struct {
 	DeliveryDate                          *Time       `xmlrpc:"delivery_date,omitempty"`
 	DirectionSign                         *Int        `xmlrpc:"direction_sign,omitempty"`
 	DisplayInactiveCurrencyWarning        *Bool       `xmlrpc:"display_inactive_currency_warning,omitempty"`
+	DisplayLinkQrCode                     *Bool       `xmlrpc:"display_link_qr_code,omitempty"`
 	DisplayName                           *String     `xmlrpc:"display_name,omitempty"`
 	DisplayQrCode                         *Bool       `xmlrpc:"display_qr_code,omitempty"`
+	DisplaySendButton                     *Bool       `xmlrpc:"display_send_button,omitempty"`
 	DuplicatedRefIds                      *Relation   `xmlrpc:"duplicated_ref_ids,omitempty"`
+	ExchangeDiffPartialIds                *Relation   `xmlrpc:"exchange_diff_partial_ids,omitempty"`
+	ExpectedCurrencyRate                  *Float      `xmlrpc:"expected_currency_rate,omitempty"`
 	FiscalPositionId                      *Many2One   `xmlrpc:"fiscal_position_id,omitempty"`
 	ForeignCurrencyId                     *Many2One   `xmlrpc:"foreign_currency_id,omitempty"`
 	HasMessage                            *Bool       `xmlrpc:"has_message,omitempty"`
 	HasReconciledEntries                  *Bool       `xmlrpc:"has_reconciled_entries,omitempty"`
 	HidePostButton                        *Bool       `xmlrpc:"hide_post_button,omitempty"`
 	HighestName                           *String     `xmlrpc:"highest_name,omitempty"`
+	HighlightSendButton                   *Bool       `xmlrpc:"highlight_send_button,omitempty"`
 	Id                                    *Int        `xmlrpc:"id,omitempty"`
 	InalterableHash                       *String     `xmlrpc:"inalterable_hash,omitempty"`
 	IncotermLocation                      *String     `xmlrpc:"incoterm_location,omitempty"`
@@ -74,6 +86,7 @@ type AccountBankStatementLine struct {
 	InvoiceFilterTypeDomain               *String     `xmlrpc:"invoice_filter_type_domain,omitempty"`
 	InvoiceHasOutstanding                 *Bool       `xmlrpc:"invoice_has_outstanding,omitempty"`
 	InvoiceIncotermId                     *Many2One   `xmlrpc:"invoice_incoterm_id,omitempty"`
+	InvoiceIncotermPlaceholder            *String     `xmlrpc:"invoice_incoterm_placeholder,omitempty"`
 	InvoiceLineIds                        *Relation   `xmlrpc:"invoice_line_ids,omitempty"`
 	InvoiceOrigin                         *String     `xmlrpc:"invoice_origin,omitempty"`
 	InvoiceOutstandingCreditsDebitsWidget *String     `xmlrpc:"invoice_outstanding_credits_debits_widget,omitempty"`
@@ -86,13 +99,26 @@ type AccountBankStatementLine struct {
 	InvoiceUserId                         *Many2One   `xmlrpc:"invoice_user_id,omitempty"`
 	InvoiceVendorBillId                   *Many2One   `xmlrpc:"invoice_vendor_bill_id,omitempty"`
 	IsBeingSent                           *Bool       `xmlrpc:"is_being_sent,omitempty"`
+	IsDraftDuplicatedRefIds               *Bool       `xmlrpc:"is_draft_duplicated_ref_ids,omitempty"`
+	IsExactMoveDuplicate                  *Bool       `xmlrpc:"is_exact_move_duplicate,omitempty"`
 	IsManuallyModified                    *Bool       `xmlrpc:"is_manually_modified,omitempty"`
 	IsMoveSent                            *Bool       `xmlrpc:"is_move_sent,omitempty"`
 	IsPurchaseMatched                     *Bool       `xmlrpc:"is_purchase_matched,omitempty"`
 	IsReconciled                          *Bool       `xmlrpc:"is_reconciled,omitempty"`
+	IsSaleInstalled                       *Bool       `xmlrpc:"is_sale_installed,omitempty"`
 	IsStorno                              *Bool       `xmlrpc:"is_storno,omitempty"`
 	JournalGroupId                        *Many2One   `xmlrpc:"journal_group_id,omitempty"`
 	JournalId                             *Many2One   `xmlrpc:"journal_id,omitempty"`
+	JournalLineIds                        *Relation   `xmlrpc:"journal_line_ids,omitempty"`
+	L10NFrIsCompanyFrench                 *Bool       `xmlrpc:"l10n_fr_is_company_french,omitempty"`
+	L10NFrPdpDisplayInfo                  *Bool       `xmlrpc:"l10n_fr_pdp_display_info,omitempty"`
+	L10NFrPdpErrorMessage                 *String     `xmlrpc:"l10n_fr_pdp_error_message,omitempty"`
+	L10NFrPdpFlow10OperationType          *Selection  `xmlrpc:"l10n_fr_pdp_flow_10_operation_type,omitempty"`
+	L10NFrPdpFlow10ReportType             *Selection  `xmlrpc:"l10n_fr_pdp_flow_10_report_type,omitempty"`
+	L10NFrPdpHasError                     *Bool       `xmlrpc:"l10n_fr_pdp_has_error,omitempty"`
+	L10NFrPdpLastFlowId                   *Many2One   `xmlrpc:"l10n_fr_pdp_last_flow_id,omitempty"`
+	L10NFrPdpSentInFlowIds                *Relation   `xmlrpc:"l10n_fr_pdp_sent_in_flow_ids,omitempty"`
+	L10NFrPdpStatus                       *Selection  `xmlrpc:"l10n_fr_pdp_status,omitempty"`
 	LineIds                               *Relation   `xmlrpc:"line_ids,omitempty"`
 	MachineInvoice                        *Bool       `xmlrpc:"machine_invoice,omitempty"`
 	MachineInvoiceTitle                   *String     `xmlrpc:"machine_invoice_title,omitempty"`
@@ -122,9 +148,9 @@ type AccountBankStatementLine struct {
 	NeededTerms                           *String     `xmlrpc:"needed_terms,omitempty"`
 	NeededTermsDirty                      *Bool       `xmlrpc:"needed_terms_dirty,omitempty"`
 	NextPaymentDate                       *Time       `xmlrpc:"next_payment_date,omitempty"`
+	NoFollowup                            *Bool       `xmlrpc:"no_followup,omitempty"`
 	OriginPaymentId                       *Many2One   `xmlrpc:"origin_payment_id,omitempty"`
 	PartnerBankId                         *Many2One   `xmlrpc:"partner_bank_id,omitempty"`
-	PartnerCredit                         *Float      `xmlrpc:"partner_credit,omitempty"`
 	PartnerCreditWarning                  *String     `xmlrpc:"partner_credit_warning,omitempty"`
 	PartnerId                             *Many2One   `xmlrpc:"partner_id,omitempty"`
 	PartnerName                           *String     `xmlrpc:"partner_name,omitempty"`
@@ -135,24 +161,38 @@ type AccountBankStatementLine struct {
 	PaymentReference                      *String     `xmlrpc:"payment_reference,omitempty"`
 	PaymentState                          *Selection  `xmlrpc:"payment_state,omitempty"`
 	PaymentTermDetails                    *String     `xmlrpc:"payment_term_details,omitempty"`
+	PdpCanSendResponse                    *Bool       `xmlrpc:"pdp_can_send_response,omitempty"`
+	PdpIsSent                             *Bool       `xmlrpc:"pdp_is_sent,omitempty"`
+	PdpLifecycleResidual                  *Float      `xmlrpc:"pdp_lifecycle_residual,omitempty"`
+	PdpPpfLifecycleState                  *Selection  `xmlrpc:"pdp_ppf_lifecycle_state,omitempty"`
+	PdpPpfMoveState                       *Selection  `xmlrpc:"pdp_ppf_move_state,omitempty"`
+	PdpUsesPdp                            *Bool       `xmlrpc:"pdp_uses_pdp,omitempty"`
+	PeppolCanSendResponse                 *Bool       `xmlrpc:"peppol_can_send_response,omitempty"`
+	PeppolIsSent                          *Bool       `xmlrpc:"peppol_is_sent,omitempty"`
+	PeppolMessageUuid                     *String     `xmlrpc:"peppol_message_uuid,omitempty"`
+	PeppolMoveState                       *Selection  `xmlrpc:"peppol_move_state,omitempty"`
+	PeppolResponseIds                     *Relation   `xmlrpc:"peppol_response_ids,omitempty"`
 	PostedBefore                          *Bool       `xmlrpc:"posted_before,omitempty"`
 	PreferredPaymentMethodLineId          *Many2One   `xmlrpc:"preferred_payment_method_line_id,omitempty"`
 	PurchaseId                            *Many2One   `xmlrpc:"purchase_id,omitempty"`
 	PurchaseOrderCount                    *Int        `xmlrpc:"purchase_order_count,omitempty"`
 	PurchaseOrderName                     *String     `xmlrpc:"purchase_order_name,omitempty"`
 	PurchaseVendorBillId                  *Many2One   `xmlrpc:"purchase_vendor_bill_id,omitempty"`
+	PurchaseWarningText                   *String     `xmlrpc:"purchase_warning_text,omitempty"`
 	QrCodeMethod                          *Selection  `xmlrpc:"qr_code_method,omitempty"`
 	QuantityTotal                         *Float      `xmlrpc:"quantity_total,omitempty"`
 	QuickEditMode                         *Bool       `xmlrpc:"quick_edit_mode,omitempty"`
 	QuickEditTotalAmount                  *Float      `xmlrpc:"quick_edit_total_amount,omitempty"`
 	QuickEncodingVals                     interface{} `xmlrpc:"quick_encoding_vals,omitempty"`
 	RatingIds                             *Relation   `xmlrpc:"rating_ids,omitempty"`
+	ReconciledPaymentIds                  *Relation   `xmlrpc:"reconciled_payment_ids,omitempty"`
 	Ref                                   *String     `xmlrpc:"ref,omitempty"`
 	RestrictModeHashTable                 *Bool       `xmlrpc:"restrict_mode_hash_table,omitempty"`
 	ReversalMoveIds                       *Relation   `xmlrpc:"reversal_move_ids,omitempty"`
 	ReversedEntryId                       *Many2One   `xmlrpc:"reversed_entry_id,omitempty"`
 	RunningBalance                        *Float      `xmlrpc:"running_balance,omitempty"`
 	SaleOrderCount                        *Int        `xmlrpc:"sale_order_count,omitempty"`
+	SaleWarningText                       *String     `xmlrpc:"sale_warning_text,omitempty"`
 	SecureSequenceNumber                  *Int        `xmlrpc:"secure_sequence_number,omitempty"`
 	Secured                               *Bool       `xmlrpc:"secured,omitempty"`
 	SendingData                           interface{} `xmlrpc:"sending_data,omitempty"`
@@ -161,9 +201,11 @@ type AccountBankStatementLine struct {
 	SequencePrefix                        *String     `xmlrpc:"sequence_prefix,omitempty"`
 	ShowDeliveryDate                      *Bool       `xmlrpc:"show_delivery_date,omitempty"`
 	ShowDiscountDetails                   *Bool       `xmlrpc:"show_discount_details,omitempty"`
+	ShowJournal                           *Bool       `xmlrpc:"show_journal,omitempty"`
 	ShowNameWarning                       *Bool       `xmlrpc:"show_name_warning,omitempty"`
 	ShowPaymentTermDetails                *Bool       `xmlrpc:"show_payment_term_details,omitempty"`
 	ShowResetToDraftButton                *Bool       `xmlrpc:"show_reset_to_draft_button,omitempty"`
+	ShowTaxableSupplyDate                 *Bool       `xmlrpc:"show_taxable_supply_date,omitempty"`
 	ShowUpdateFpos                        *Bool       `xmlrpc:"show_update_fpos,omitempty"`
 	SourceId                              *Many2One   `xmlrpc:"source_id,omitempty"`
 	State                                 *Selection  `xmlrpc:"state,omitempty"`
@@ -175,8 +217,7 @@ type AccountBankStatementLine struct {
 	StatementName                         *String     `xmlrpc:"statement_name,omitempty"`
 	StatementValid                        *Bool       `xmlrpc:"statement_valid,omitempty"`
 	StatusInPayment                       *Selection  `xmlrpc:"status_in_payment,omitempty"`
-	StockMoveId                           *Many2One   `xmlrpc:"stock_move_id,omitempty"`
-	StockValuationLayerIds                *Relation   `xmlrpc:"stock_valuation_layer_ids,omitempty"`
+	StockMoveIds                          *Relation   `xmlrpc:"stock_move_ids,omitempty"`
 	SuitableJournalIds                    *Relation   `xmlrpc:"suitable_journal_ids,omitempty"`
 	TaxCalculationRoundingMethod          *Selection  `xmlrpc:"tax_calculation_rounding_method,omitempty"`
 	TaxCashBasisCreatedMoveIds            *Relation   `xmlrpc:"tax_cash_basis_created_move_ids,omitempty"`
@@ -186,6 +227,8 @@ type AccountBankStatementLine struct {
 	TaxCountryId                          *Many2One   `xmlrpc:"tax_country_id,omitempty"`
 	TaxLockDateMessage                    *String     `xmlrpc:"tax_lock_date_message,omitempty"`
 	TaxTotals                             *String     `xmlrpc:"tax_totals,omitempty"`
+	TaxableSupplyDate                     *Time       `xmlrpc:"taxable_supply_date,omitempty"`
+	TaxableSupplyDatePlaceholder          *String     `xmlrpc:"taxable_supply_date_placeholder,omitempty"`
 	TaxesLegalNotes                       *String     `xmlrpc:"taxes_legal_notes,omitempty"`
 	TeamId                                *Many2One   `xmlrpc:"team_id,omitempty"`
 	TimesheetCount                        *Int        `xmlrpc:"timesheet_count,omitempty"`
@@ -198,6 +241,7 @@ type AccountBankStatementLine struct {
 	TransactionType                       *String     `xmlrpc:"transaction_type,omitempty"`
 	TypeName                              *String     `xmlrpc:"type_name,omitempty"`
 	UblCiiXmlFile                         *String     `xmlrpc:"ubl_cii_xml_file,omitempty"`
+	UblCiiXmlFilename                     *String     `xmlrpc:"ubl_cii_xml_filename,omitempty"`
 	UblCiiXmlId                           *Many2One   `xmlrpc:"ubl_cii_xml_id,omitempty"`
 	UserId                                *Many2One   `xmlrpc:"user_id,omitempty"`
 	WebsiteMessageIds                     *Relation   `xmlrpc:"website_message_ids,omitempty"`

@@ -2,15 +2,16 @@ package odoo
 
 // StockReturnPicking represents stock.return.picking model.
 type StockReturnPicking struct {
-	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
-	Id                 *Int      `xmlrpc:"id,omitempty"`
-	PickingId          *Many2One `xmlrpc:"picking_id,omitempty"`
-	ProductReturnMoves *Relation `xmlrpc:"product_return_moves,omitempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
+	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	PickingId          *Many2One  `xmlrpc:"picking_id,omitempty"`
+	PickingTypeCode    *Selection `xmlrpc:"picking_type_code,omitempty"`
+	ProductReturnMoves *Relation  `xmlrpc:"product_return_moves,omitempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockReturnPickings represents array of stock.return.picking model.

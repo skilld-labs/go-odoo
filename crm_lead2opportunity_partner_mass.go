@@ -2,23 +2,26 @@ package odoo
 
 // CrmLead2OpportunityPartnerMass represents crm.lead2opportunity.partner.mass model.
 type CrmLead2OpportunityPartnerMass struct {
-	Action            *Selection `xmlrpc:"action,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Deduplicate       *Bool      `xmlrpc:"deduplicate,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	DuplicatedLeadIds *Relation  `xmlrpc:"duplicated_lead_ids,omitempty"`
-	ForceAssignment   *Bool      `xmlrpc:"force_assignment,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	LeadId            *Many2One  `xmlrpc:"lead_id,omitempty"`
-	LeadTomergeIds    *Relation  `xmlrpc:"lead_tomerge_ids,omitempty"`
-	Name              *Selection `xmlrpc:"name,omitempty"`
-	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
-	TeamId            *Many2One  `xmlrpc:"team_id,omitempty"`
-	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
-	UserIds           *Relation  `xmlrpc:"user_ids,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Action              *Selection `xmlrpc:"action,omitempty"`
+	CommercialPartnerId *Many2One  `xmlrpc:"commercial_partner_id,omitempty"`
+	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Deduplicate         *Bool      `xmlrpc:"deduplicate,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	DuplicatedLeadIds   *Relation  `xmlrpc:"duplicated_lead_ids,omitempty"`
+	ForceAssignment     *Bool      `xmlrpc:"force_assignment,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	LeadContactName     *String    `xmlrpc:"lead_contact_name,omitempty"`
+	LeadId              *Many2One  `xmlrpc:"lead_id,omitempty"`
+	LeadPartnerName     *String    `xmlrpc:"lead_partner_name,omitempty"`
+	LeadTomergeIds      *Relation  `xmlrpc:"lead_tomerge_ids,omitempty"`
+	Name                *Selection `xmlrpc:"name,omitempty"`
+	PartnerId           *Many2One  `xmlrpc:"partner_id,omitempty"`
+	TeamId              *Many2One  `xmlrpc:"team_id,omitempty"`
+	UserId              *Many2One  `xmlrpc:"user_id,omitempty"`
+	UserIds             *Relation  `xmlrpc:"user_ids,omitempty"`
+	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CrmLead2OpportunityPartnerMasss represents array of crm.lead2opportunity.partner.mass model.

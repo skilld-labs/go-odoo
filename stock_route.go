@@ -10,8 +10,7 @@ type StockRoute struct {
 	DisplayName            *String   `xmlrpc:"display_name,omitempty"`
 	Id                     *Int      `xmlrpc:"id,omitempty"`
 	Name                   *String   `xmlrpc:"name,omitempty"`
-	PackagingIds           *Relation `xmlrpc:"packaging_ids,omitempty"`
-	PackagingSelectable    *Bool     `xmlrpc:"packaging_selectable,omitempty"`
+	PackageTypeSelectable  *Bool     `xmlrpc:"package_type_selectable,omitempty"`
 	ProductCategSelectable *Bool     `xmlrpc:"product_categ_selectable,omitempty"`
 	ProductIds             *Relation `xmlrpc:"product_ids,omitempty"`
 	ProductSelectable      *Bool     `xmlrpc:"product_selectable,omitempty"`

@@ -3,6 +3,7 @@ package odoo
 // AccountReport represents account.report model.
 type AccountReport struct {
 	Active                   *Bool      `xmlrpc:"active,omitempty"`
+	AllowForeignVat          *Bool      `xmlrpc:"allow_foreign_vat,omitempty"`
 	AvailabilityCondition    *Selection `xmlrpc:"availability_condition,omitempty"`
 	ChartTemplate            *Selection `xmlrpc:"chart_template,omitempty"`
 	ColumnIds                *Relation  `xmlrpc:"column_ids,omitempty"`
@@ -17,7 +18,6 @@ type AccountReport struct {
 	FilterAnalytic           *Bool      `xmlrpc:"filter_analytic,omitempty"`
 	FilterBudgets            *Bool      `xmlrpc:"filter_budgets,omitempty"`
 	FilterDateRange          *Bool      `xmlrpc:"filter_date_range,omitempty"`
-	FilterFiscalPosition     *Bool      `xmlrpc:"filter_fiscal_position,omitempty"`
 	FilterGrowthComparison   *Bool      `xmlrpc:"filter_growth_comparison,omitempty"`
 	FilterHide0Lines         *Selection `xmlrpc:"filter_hide_0_lines,omitempty"`
 	FilterHierarchy          *Selection `xmlrpc:"filter_hierarchy,omitempty"`

@@ -2,14 +2,17 @@ package odoo
 
 // StockInventoryAdjustmentName represents stock.inventory.adjustment.name model.
 type StockInventoryAdjustmentName struct {
-	CreateDate              *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid               *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName             *String   `xmlrpc:"display_name,omitempty"`
-	Id                      *Int      `xmlrpc:"id,omitempty"`
-	InventoryAdjustmentName *String   `xmlrpc:"inventory_adjustment_name,omitempty"`
-	QuantIds                *Relation `xmlrpc:"quant_ids,omitempty"`
-	WriteDate               *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                *Many2One `xmlrpc:"write_uid,omitempty"`
+	AccountingDate           *Time     `xmlrpc:"accounting_date,omitempty"`
+	CountingDate             *Time     `xmlrpc:"counting_date,omitempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	InventoryAdjustmentName  *String   `xmlrpc:"inventory_adjustment_name,omitempty"`
+	QuantIds                 *Relation `xmlrpc:"quant_ids,omitempty"`
+	ShouldShowAccountingDate *Bool     `xmlrpc:"should_show_accounting_date,omitempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockInventoryAdjustmentNames represents array of stock.inventory.adjustment.name model.

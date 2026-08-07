@@ -8,7 +8,7 @@ import (
 	"strings"
 	"text/template"
 
-	odoo "github.com/skilld-labs/go-odoo"
+	odoo "github.com/skilld-labs/go-odoo/v19"
 )
 
 // GeneratorConfiguration is the configuration to create a new *generator by injecting

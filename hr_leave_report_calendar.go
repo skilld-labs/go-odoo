@@ -2,26 +2,29 @@ package odoo
 
 // HrLeaveReportCalendar represents hr.leave.report.calendar model.
 type HrLeaveReportCalendar struct {
-	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
-	DepartmentId    *Many2One  `xmlrpc:"department_id,omitempty"`
-	Description     *String    `xmlrpc:"description,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Duration        *Float     `xmlrpc:"duration,omitempty"`
-	EmployeeId      *Many2One  `xmlrpc:"employee_id,omitempty"`
-	HolidayStatusId *Many2One  `xmlrpc:"holiday_status_id,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	IsAbsent        *Bool      `xmlrpc:"is_absent,omitempty"`
-	IsHatched       *Bool      `xmlrpc:"is_hatched,omitempty"`
-	IsManager       *Bool      `xmlrpc:"is_manager,omitempty"`
-	IsStriked       *Bool      `xmlrpc:"is_striked,omitempty"`
-	JobId           *Many2One  `xmlrpc:"job_id,omitempty"`
-	LeaveId         *Many2One  `xmlrpc:"leave_id,omitempty"`
-	LeaveManagerId  *Many2One  `xmlrpc:"leave_manager_id,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	StartDatetime   *Time      `xmlrpc:"start_datetime,omitempty"`
-	State           *Selection `xmlrpc:"state,omitempty"`
-	StopDatetime    *Time      `xmlrpc:"stop_datetime,omitempty"`
-	Tz              *Selection `xmlrpc:"tz,omitempty"`
+	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
+	DepartmentId       *Many2One  `xmlrpc:"department_id,omitempty"`
+	Description        *String    `xmlrpc:"description,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	Duration           *Float     `xmlrpc:"duration,omitempty"`
+	DurationDisplay    *String    `xmlrpc:"duration_display,omitempty"`
+	EmployeeId         *Many2One  `xmlrpc:"employee_id,omitempty"`
+	HolidayStatusId    *Many2One  `xmlrpc:"holiday_status_id,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	IsAbsent           *Bool      `xmlrpc:"is_absent,omitempty"`
+	IsHatched          *Bool      `xmlrpc:"is_hatched,omitempty"`
+	IsManager          *Bool      `xmlrpc:"is_manager,omitempty"`
+	IsStriked          *Bool      `xmlrpc:"is_striked,omitempty"`
+	JobId              *Many2One  `xmlrpc:"job_id,omitempty"`
+	LeaveId            *Many2One  `xmlrpc:"leave_id,omitempty"`
+	LeaveManagerId     *Many2One  `xmlrpc:"leave_manager_id,omitempty"`
+	MemberOfDepartment *Bool      `xmlrpc:"member_of_department,omitempty"`
+	Name               *String    `xmlrpc:"name,omitempty"`
+	StartDatetime      *Time      `xmlrpc:"start_datetime,omitempty"`
+	State              *Selection `xmlrpc:"state,omitempty"`
+	StopDatetime       *Time      `xmlrpc:"stop_datetime,omitempty"`
+	Tz                 *Selection `xmlrpc:"tz,omitempty"`
+	UserId             *Many2One  `xmlrpc:"user_id,omitempty"`
 }
 
 // HrLeaveReportCalendars represents array of hr.leave.report.calendar model.

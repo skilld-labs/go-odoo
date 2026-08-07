@@ -9,7 +9,6 @@ type AccountReportExternalValue struct {
 	CreateUid                      *Many2One `xmlrpc:"create_uid,omitempty"`
 	Date                           *Time     `xmlrpc:"date,omitempty"`
 	DisplayName                    *String   `xmlrpc:"display_name,omitempty"`
-	ForeignVatFiscalPositionId     *Many2One `xmlrpc:"foreign_vat_fiscal_position_id,omitempty"`
 	Id                             *Int      `xmlrpc:"id,omitempty"`
 	Name                           *String   `xmlrpc:"name,omitempty"`
 	ReportCountryId                *Many2One `xmlrpc:"report_country_id,omitempty"`

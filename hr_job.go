@@ -3,10 +3,12 @@ package odoo
 // HrJob represents hr.job model.
 type HrJob struct {
 	Active                   *Bool     `xmlrpc:"active,omitempty"`
+	AllowedUserIds           *Relation `xmlrpc:"allowed_user_ids,omitempty"`
 	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
 	ContractTypeId           *Many2One `xmlrpc:"contract_type_id,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrentJobSkillIds       *Relation `xmlrpc:"current_job_skill_ids,omitempty"`
 	DepartmentId             *Many2One `xmlrpc:"department_id,omitempty"`
 	Description              *String   `xmlrpc:"description,omitempty"`
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
@@ -14,6 +16,7 @@ type HrJob struct {
 	ExpectedEmployees        *Int      `xmlrpc:"expected_employees,omitempty"`
 	HasMessage               *Bool     `xmlrpc:"has_message,omitempty"`
 	Id                       *Int      `xmlrpc:"id,omitempty"`
+	JobSkillIds              *Relation `xmlrpc:"job_skill_ids,omitempty"`
 	MessageAttachmentCount   *Int      `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError          *Bool     `xmlrpc:"message_has_error,omitempty"`
@@ -30,6 +33,8 @@ type HrJob struct {
 	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	Requirements             *String   `xmlrpc:"requirements,omitempty"`
 	Sequence                 *Int      `xmlrpc:"sequence,omitempty"`
+	SkillIds                 *Relation `xmlrpc:"skill_ids,omitempty"`
+	UserId                   *Many2One `xmlrpc:"user_id,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`

@@ -2,6 +2,8 @@ package odoo
 
 // IrProfile represents ir.profile model.
 type IrProfile struct {
+	ConfigUrl      *String `xmlrpc:"config_url,omitempty"`
+	CpuDuration    *Float  `xmlrpc:"cpu_duration,omitempty"`
 	CreateDate     *Time   `xmlrpc:"create_date,omitempty"`
 	DisplayName    *String `xmlrpc:"display_name,omitempty"`
 	Duration       *Float  `xmlrpc:"duration,omitempty"`
@@ -9,6 +11,7 @@ type IrProfile struct {
 	Id             *Int    `xmlrpc:"id,omitempty"`
 	InitStackTrace *String `xmlrpc:"init_stack_trace,omitempty"`
 	Name           *String `xmlrpc:"name,omitempty"`
+	Others         *String `xmlrpc:"others,omitempty"`
 	Qweb           *String `xmlrpc:"qweb,omitempty"`
 	Session        *String `xmlrpc:"session,omitempty"`
 	Speedscope     *String `xmlrpc:"speedscope,omitempty"`

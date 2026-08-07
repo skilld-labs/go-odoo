@@ -9,7 +9,7 @@ type IrUiMenu struct {
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	GroupsId     *Relation `xmlrpc:"groups_id,omitempty"`
+	GroupIds     *Relation `xmlrpc:"group_ids,omitempty"`
 	Id           *Int      `xmlrpc:"id,omitempty"`
 	Name         *String   `xmlrpc:"name,omitempty"`
 	ParentId     *Many2One `xmlrpc:"parent_id,omitempty"`

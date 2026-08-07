@@ -10,6 +10,7 @@ type HrLeaveMandatoryDay struct {
 	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
 	EndDate            *Time     `xmlrpc:"end_date,omitempty"`
 	Id                 *Int      `xmlrpc:"id,omitempty"`
+	JobIds             *Relation `xmlrpc:"job_ids,omitempty"`
 	Name               *String   `xmlrpc:"name,omitempty"`
 	ResourceCalendarId *Many2One `xmlrpc:"resource_calendar_id,omitempty"`
 	StartDate          *Time     `xmlrpc:"start_date,omitempty"`

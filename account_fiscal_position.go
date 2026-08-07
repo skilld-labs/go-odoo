@@ -17,6 +17,7 @@ type AccountFiscalPosition struct {
 	ForeignVat           *String    `xmlrpc:"foreign_vat,omitempty"`
 	ForeignVatHeaderMode *Selection `xmlrpc:"foreign_vat_header_mode,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
+	IsDomestic           *Bool      `xmlrpc:"is_domestic,omitempty"`
 	Name                 *String    `xmlrpc:"name,omitempty"`
 	Note                 *String    `xmlrpc:"note,omitempty"`
 	Sequence             *Int       `xmlrpc:"sequence,omitempty"`

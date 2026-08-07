@@ -2,24 +2,29 @@ package odoo
 
 // StockPackageType represents stock.package.type model.
 type StockPackageType struct {
-	Barcode                    *String   `xmlrpc:"barcode,omitempty"`
-	BaseWeight                 *Float    `xmlrpc:"base_weight,omitempty"`
-	CompanyId                  *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate                 *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                  *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName                *String   `xmlrpc:"display_name,omitempty"`
-	Height                     *Float    `xmlrpc:"height,omitempty"`
-	Id                         *Int      `xmlrpc:"id,omitempty"`
-	LengthUomName              *String   `xmlrpc:"length_uom_name,omitempty"`
-	MaxWeight                  *Float    `xmlrpc:"max_weight,omitempty"`
-	Name                       *String   `xmlrpc:"name,omitempty"`
-	PackagingLength            *Float    `xmlrpc:"packaging_length,omitempty"`
-	Sequence                   *Int      `xmlrpc:"sequence,omitempty"`
-	StorageCategoryCapacityIds *Relation `xmlrpc:"storage_category_capacity_ids,omitempty"`
-	WeightUomName              *String   `xmlrpc:"weight_uom_name,omitempty"`
-	Width                      *Float    `xmlrpc:"width,omitempty"`
-	WriteDate                  *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                   *Many2One `xmlrpc:"write_uid,omitempty"`
+	Barcode                    *String    `xmlrpc:"barcode,omitempty"`
+	BaseWeight                 *Float     `xmlrpc:"base_weight,omitempty"`
+	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
+	HasQuants                  *Bool      `xmlrpc:"has_quants,omitempty"`
+	Height                     *Float     `xmlrpc:"height,omitempty"`
+	Id                         *Int       `xmlrpc:"id,omitempty"`
+	LengthUomName              *String    `xmlrpc:"length_uom_name,omitempty"`
+	MaxWeight                  *Float     `xmlrpc:"max_weight,omitempty"`
+	Name                       *String    `xmlrpc:"name,omitempty"`
+	PackageUse                 *Selection `xmlrpc:"package_use,omitempty"`
+	PackagingLength            *Float     `xmlrpc:"packaging_length,omitempty"`
+	RouteIds                   *Relation  `xmlrpc:"route_ids,omitempty"`
+	Sequence                   *Int       `xmlrpc:"sequence,omitempty"`
+	SequenceCode               *String    `xmlrpc:"sequence_code,omitempty"`
+	SequenceId                 *Many2One  `xmlrpc:"sequence_id,omitempty"`
+	StorageCategoryCapacityIds *Relation  `xmlrpc:"storage_category_capacity_ids,omitempty"`
+	WeightUomName              *String    `xmlrpc:"weight_uom_name,omitempty"`
+	Width                      *Float     `xmlrpc:"width,omitempty"`
+	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                   *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockPackageTypes represents array of stock.package.type model.

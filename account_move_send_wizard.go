@@ -2,29 +2,38 @@ package odoo
 
 // AccountMoveSendWizard represents account.move.send.wizard model.
 type AccountMoveSendWizard struct {
-	Alerts                  interface{} `xmlrpc:"alerts,omitempty"`
-	CompanyId               *Many2One   `xmlrpc:"company_id,omitempty"`
-	CreateDate              *Time       `xmlrpc:"create_date,omitempty"`
-	CreateUid               *Many2One   `xmlrpc:"create_uid,omitempty"`
-	DisplayName             *String     `xmlrpc:"display_name,omitempty"`
-	DisplayPdfReportId      *Bool       `xmlrpc:"display_pdf_report_id,omitempty"`
-	ExtraEdiCheckboxes      interface{} `xmlrpc:"extra_edi_checkboxes,omitempty"`
-	ExtraEdis               interface{} `xmlrpc:"extra_edis,omitempty"`
-	Id                      *Int        `xmlrpc:"id,omitempty"`
-	InvoiceEdiFormat        *Selection  `xmlrpc:"invoice_edi_format,omitempty"`
-	IsDownloadOnly          *Bool       `xmlrpc:"is_download_only,omitempty"`
-	MailAttachmentsWidget   interface{} `xmlrpc:"mail_attachments_widget,omitempty"`
-	MailBody                *String     `xmlrpc:"mail_body,omitempty"`
-	MailLang                *String     `xmlrpc:"mail_lang,omitempty"`
-	MailPartnerIds          *Relation   `xmlrpc:"mail_partner_ids,omitempty"`
-	MailSubject             *String     `xmlrpc:"mail_subject,omitempty"`
-	MailTemplateId          *Many2One   `xmlrpc:"mail_template_id,omitempty"`
-	MoveId                  *Many2One   `xmlrpc:"move_id,omitempty"`
-	PdfReportId             *Many2One   `xmlrpc:"pdf_report_id,omitempty"`
-	SendingMethodCheckboxes interface{} `xmlrpc:"sending_method_checkboxes,omitempty"`
-	SendingMethods          interface{} `xmlrpc:"sending_methods,omitempty"`
-	WriteDate               *Time       `xmlrpc:"write_date,omitempty"`
-	WriteUid                *Many2One   `xmlrpc:"write_uid,omitempty"`
+	Alerts                   interface{} `xmlrpc:"alerts,omitempty"`
+	AttachmentsNotSupported  interface{} `xmlrpc:"attachments_not_supported,omitempty"`
+	AvailablePdfReportIds    *Relation   `xmlrpc:"available_pdf_report_ids,omitempty"`
+	Body                     *String     `xmlrpc:"body,omitempty"`
+	BodyHasTemplateValue     *Bool       `xmlrpc:"body_has_template_value,omitempty"`
+	CanEditBody              *Bool       `xmlrpc:"can_edit_body,omitempty"`
+	CompanyId                *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisplayAttachmentsWidget *Bool       `xmlrpc:"display_attachments_widget,omitempty"`
+	DisplayName              *String     `xmlrpc:"display_name,omitempty"`
+	DisplayPdfReportId       *Bool       `xmlrpc:"display_pdf_report_id,omitempty"`
+	ExtraEdiCheckboxes       interface{} `xmlrpc:"extra_edi_checkboxes,omitempty"`
+	ExtraEdis                interface{} `xmlrpc:"extra_edis,omitempty"`
+	Id                       *Int        `xmlrpc:"id,omitempty"`
+	InvoiceEdiFormat         *Selection  `xmlrpc:"invoice_edi_format,omitempty"`
+	IsMailTemplateEditor     *Bool       `xmlrpc:"is_mail_template_editor,omitempty"`
+	Lang                     *String     `xmlrpc:"lang,omitempty"`
+	MailAttachmentsWidget    interface{} `xmlrpc:"mail_attachments_widget,omitempty"`
+	MailPartnerIds           *Relation   `xmlrpc:"mail_partner_ids,omitempty"`
+	Model                    *String     `xmlrpc:"model,omitempty"`
+	MoveId                   *Many2One   `xmlrpc:"move_id,omitempty"`
+	PdfReportId              *Many2One   `xmlrpc:"pdf_report_id,omitempty"`
+	RenderModel              *String     `xmlrpc:"render_model,omitempty"`
+	ResIds                   *String     `xmlrpc:"res_ids,omitempty"`
+	SendingMethodCheckboxes  interface{} `xmlrpc:"sending_method_checkboxes,omitempty"`
+	SendingMethods           interface{} `xmlrpc:"sending_methods,omitempty"`
+	Subject                  *String     `xmlrpc:"subject,omitempty"`
+	TemplateId               *Many2One   `xmlrpc:"template_id,omitempty"`
+	TemplateName             *String     `xmlrpc:"template_name,omitempty"`
+	WriteDate                *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountMoveSendWizards represents array of account.move.send.wizard model.

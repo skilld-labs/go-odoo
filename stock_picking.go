@@ -18,20 +18,18 @@ type StockPicking struct {
 	CountryCode                 *String     `xmlrpc:"country_code,omitempty"`
 	CreateDate                  *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                   *Many2One   `xmlrpc:"create_uid,omitempty"`
-	Date                        *Time       `xmlrpc:"date,omitempty"`
 	DateDeadline                *Time       `xmlrpc:"date_deadline,omitempty"`
 	DateDone                    *Time       `xmlrpc:"date_done,omitempty"`
 	DaysToArrive                *Time       `xmlrpc:"days_to_arrive,omitempty"`
 	DelayAlertDate              *Time       `xmlrpc:"delay_alert_date,omitempty"`
 	DelayPass                   *Time       `xmlrpc:"delay_pass,omitempty"`
 	DisplayName                 *String     `xmlrpc:"display_name,omitempty"`
-	GroupId                     *Many2One   `xmlrpc:"group_id,omitempty"`
 	HasDeadlineIssue            *Bool       `xmlrpc:"has_deadline_issue,omitempty"`
 	HasMessage                  *Bool       `xmlrpc:"has_message,omitempty"`
-	HasPackages                 *Bool       `xmlrpc:"has_packages,omitempty"`
 	HasScrapMove                *Bool       `xmlrpc:"has_scrap_move,omitempty"`
 	HasTracking                 *Bool       `xmlrpc:"has_tracking,omitempty"`
 	Id                          *Int        `xmlrpc:"id,omitempty"`
+	IsDateEditable              *Bool       `xmlrpc:"is_date_editable,omitempty"`
 	IsLocked                    *Bool       `xmlrpc:"is_locked,omitempty"`
 	IsSigned                    *Bool       `xmlrpc:"is_signed,omitempty"`
 	JsonPopover                 *String     `xmlrpc:"json_popover,omitempty"`
@@ -49,23 +47,22 @@ type StockPicking struct {
 	MessageNeedactionCounter    *Int        `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds           *Relation   `xmlrpc:"message_partner_ids,omitempty"`
 	MoveIds                     *Relation   `xmlrpc:"move_ids,omitempty"`
-	MoveIdsWithoutPackage       *Relation   `xmlrpc:"move_ids_without_package,omitempty"`
-	MoveLineExist               *Bool       `xmlrpc:"move_line_exist,omitempty"`
 	MoveLineIds                 *Relation   `xmlrpc:"move_line_ids,omitempty"`
-	MoveLineIdsWithoutPackage   *Relation   `xmlrpc:"move_line_ids_without_package,omitempty"`
 	MoveType                    *Selection  `xmlrpc:"move_type,omitempty"`
 	MyActivityDateDeadline      *Time       `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                        *String     `xmlrpc:"name,omitempty"`
 	Note                        *String     `xmlrpc:"note,omitempty"`
 	Origin                      *String     `xmlrpc:"origin,omitempty"`
 	OwnerId                     *Many2One   `xmlrpc:"owner_id,omitempty"`
-	PackageLevelIds             *Relation   `xmlrpc:"package_level_ids,omitempty"`
-	PackageLevelIdsDetails      *Relation   `xmlrpc:"package_level_ids_details,omitempty"`
+	PackageHistoryIds           *Relation   `xmlrpc:"package_history_ids,omitempty"`
+	PackagesCount               *Int        `xmlrpc:"packages_count,omitempty"`
+	PartnerCountryId            *Many2One   `xmlrpc:"partner_country_id,omitempty"`
 	PartnerId                   *Many2One   `xmlrpc:"partner_id,omitempty"`
 	PickingProperties           interface{} `xmlrpc:"picking_properties,omitempty"`
 	PickingTypeCode             *Selection  `xmlrpc:"picking_type_code,omitempty"`
 	PickingTypeEntirePacks      *Bool       `xmlrpc:"picking_type_entire_packs,omitempty"`
 	PickingTypeId               *Many2One   `xmlrpc:"picking_type_id,omitempty"`
+	PickingWarningText          *String     `xmlrpc:"picking_warning_text,omitempty"`
 	Printed                     *Bool       `xmlrpc:"printed,omitempty"`
 	Priority                    *Selection  `xmlrpc:"priority,omitempty"`
 	ProductId                   *Many2One   `xmlrpc:"product_id,omitempty"`
@@ -74,6 +71,7 @@ type StockPicking struct {
 	ProjectId                   *Many2One   `xmlrpc:"project_id,omitempty"`
 	PurchaseId                  *Many2One   `xmlrpc:"purchase_id,omitempty"`
 	RatingIds                   *Relation   `xmlrpc:"rating_ids,omitempty"`
+	ReferenceIds                *Relation   `xmlrpc:"reference_ids,omitempty"`
 	ReturnCount                 *Int        `xmlrpc:"return_count,omitempty"`
 	ReturnId                    *Many2One   `xmlrpc:"return_id,omitempty"`
 	ReturnIds                   *Relation   `xmlrpc:"return_ids,omitempty"`

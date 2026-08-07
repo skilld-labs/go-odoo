@@ -2,29 +2,32 @@ package odoo
 
 // MailGuest represents mail.guest model.
 type MailGuest struct {
-	AccessToken *String    `xmlrpc:"access_token,omitempty"`
-	Avatar1024  *String    `xmlrpc:"avatar_1024,omitempty"`
-	Avatar128   *String    `xmlrpc:"avatar_128,omitempty"`
-	Avatar1920  *String    `xmlrpc:"avatar_1920,omitempty"`
-	Avatar256   *String    `xmlrpc:"avatar_256,omitempty"`
-	Avatar512   *String    `xmlrpc:"avatar_512,omitempty"`
-	ChannelIds  *Relation  `xmlrpc:"channel_ids,omitempty"`
-	CountryId   *Many2One  `xmlrpc:"country_id,omitempty"`
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	ImStatus    *String    `xmlrpc:"im_status,omitempty"`
-	Image1024   *String    `xmlrpc:"image_1024,omitempty"`
-	Image128    *String    `xmlrpc:"image_128,omitempty"`
-	Image1920   *String    `xmlrpc:"image_1920,omitempty"`
-	Image256    *String    `xmlrpc:"image_256,omitempty"`
-	Image512    *String    `xmlrpc:"image_512,omitempty"`
-	Lang        *Selection `xmlrpc:"lang,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	Timezone    *Selection `xmlrpc:"timezone,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AccessToken  *String    `xmlrpc:"access_token,omitempty"`
+	Avatar1024   *String    `xmlrpc:"avatar_1024,omitempty"`
+	Avatar128    *String    `xmlrpc:"avatar_128,omitempty"`
+	Avatar1920   *String    `xmlrpc:"avatar_1920,omitempty"`
+	Avatar256    *String    `xmlrpc:"avatar_256,omitempty"`
+	Avatar512    *String    `xmlrpc:"avatar_512,omitempty"`
+	ChannelIds   *Relation  `xmlrpc:"channel_ids,omitempty"`
+	CountryId    *Many2One  `xmlrpc:"country_id,omitempty"`
+	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
+	Email        *String    `xmlrpc:"email,omitempty"`
+	Id           *Int       `xmlrpc:"id,omitempty"`
+	ImStatus     *String    `xmlrpc:"im_status,omitempty"`
+	Image1024    *String    `xmlrpc:"image_1024,omitempty"`
+	Image128     *String    `xmlrpc:"image_128,omitempty"`
+	Image1920    *String    `xmlrpc:"image_1920,omitempty"`
+	Image256     *String    `xmlrpc:"image_256,omitempty"`
+	Image512     *String    `xmlrpc:"image_512,omitempty"`
+	Lang         *Selection `xmlrpc:"lang,omitempty"`
+	Name         *String    `xmlrpc:"name,omitempty"`
+	OfflineSince *Time      `xmlrpc:"offline_since,omitempty"`
+	PresenceIds  *Relation  `xmlrpc:"presence_ids,omitempty"`
+	Timezone     *Selection `xmlrpc:"timezone,omitempty"`
+	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailGuests represents array of mail.guest model.

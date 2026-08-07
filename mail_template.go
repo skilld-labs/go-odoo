@@ -15,6 +15,8 @@ type MailTemplate struct {
 	EmailFrom         *String    `xmlrpc:"email_from,omitempty"`
 	EmailLayoutXmlid  *String    `xmlrpc:"email_layout_xmlid,omitempty"`
 	EmailTo           *String    `xmlrpc:"email_to,omitempty"`
+	HasDynamicReports *Bool      `xmlrpc:"has_dynamic_reports,omitempty"`
+	HasMailServer     *Bool      `xmlrpc:"has_mail_server,omitempty"`
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	IsTemplateEditor  *Bool      `xmlrpc:"is_template_editor,omitempty"`
 	Lang              *String    `xmlrpc:"lang,omitempty"`

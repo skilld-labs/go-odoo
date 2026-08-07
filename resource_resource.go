@@ -5,6 +5,7 @@ type ResourceResource struct {
 	Active            *Bool      `xmlrpc:"active,omitempty"`
 	Avatar128         *String    `xmlrpc:"avatar_128,omitempty"`
 	CalendarId        *Many2One  `xmlrpc:"calendar_id,omitempty"`
+	Color             *Int       `xmlrpc:"color,omitempty"`
 	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -17,6 +18,7 @@ type ResourceResource struct {
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	ImStatus          *String    `xmlrpc:"im_status,omitempty"`
 	JobTitle          *String    `xmlrpc:"job_title,omitempty"`
+	LeaveDateTo       *Time      `xmlrpc:"leave_date_to,omitempty"`
 	Name              *String    `xmlrpc:"name,omitempty"`
 	Phone             *String    `xmlrpc:"phone,omitempty"`
 	ResourceType      *Selection `xmlrpc:"resource_type,omitempty"`
@@ -26,6 +28,7 @@ type ResourceResource struct {
 	Tz                *Selection `xmlrpc:"tz,omitempty"`
 	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
 	WorkEmail         *String    `xmlrpc:"work_email,omitempty"`
+	WorkLocationId    *Many2One  `xmlrpc:"work_location_id,omitempty"`
 	WorkPhone         *String    `xmlrpc:"work_phone,omitempty"`
 	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`

@@ -4,7 +4,6 @@ package odoo
 type MailCannedResponse struct {
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	Description  *String   `xmlrpc:"description,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
 	GroupIds     *Relation `xmlrpc:"group_ids,omitempty"`
 	Id           *Int      `xmlrpc:"id,omitempty"`

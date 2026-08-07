@@ -20,6 +20,7 @@ type RatingRating struct {
 	PublisherComment  *String    `xmlrpc:"publisher_comment,omitempty"`
 	PublisherDatetime *Time      `xmlrpc:"publisher_datetime,omitempty"`
 	PublisherId       *Many2One  `xmlrpc:"publisher_id,omitempty"`
+	RatedOn           *Time      `xmlrpc:"rated_on,omitempty"`
 	RatedPartnerId    *Many2One  `xmlrpc:"rated_partner_id,omitempty"`
 	RatedPartnerName  *String    `xmlrpc:"rated_partner_name,omitempty"`
 	Rating            *Float     `xmlrpc:"rating,omitempty"`

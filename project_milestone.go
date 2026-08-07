@@ -25,8 +25,9 @@ type ProjectMilestone struct {
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
-	ProductUom               *Many2One `xmlrpc:"product_uom,omitempty"`
+	ProductUomId             *Many2One `xmlrpc:"product_uom_id,omitempty"`
 	ProductUomQty            *Float    `xmlrpc:"product_uom_qty,omitempty"`
+	ProjectAllowMilestones   *Bool     `xmlrpc:"project_allow_milestones,omitempty"`
 	ProjectId                *Many2One `xmlrpc:"project_id,omitempty"`
 	ProjectPartnerId         *Many2One `xmlrpc:"project_partner_id,omitempty"`
 	QuantityPercentage       *Float    `xmlrpc:"quantity_percentage,omitempty"`
@@ -34,6 +35,7 @@ type ProjectMilestone struct {
 	ReachedDate              *Time     `xmlrpc:"reached_date,omitempty"`
 	SaleLineDisplayName      *String   `xmlrpc:"sale_line_display_name,omitempty"`
 	SaleLineId               *Many2One `xmlrpc:"sale_line_id,omitempty"`
+	Sequence                 *Int      `xmlrpc:"sequence,omitempty"`
 	TaskCount                *Int      `xmlrpc:"task_count,omitempty"`
 	TaskIds                  *Relation `xmlrpc:"task_ids,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

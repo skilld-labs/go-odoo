@@ -23,9 +23,9 @@ type StockLot struct {
 	DisplayName                 *String     `xmlrpc:"display_name,omitempty"`
 	HasMessage                  *Bool       `xmlrpc:"has_message,omitempty"`
 	Id                          *Int        `xmlrpc:"id,omitempty"`
-	LastDeliveryPartnerId       *Many2One   `xmlrpc:"last_delivery_partner_id,omitempty"`
 	LocationId                  *Many2One   `xmlrpc:"location_id,omitempty"`
 	LotProperties               interface{} `xmlrpc:"lot_properties,omitempty"`
+	LotValuated                 *Bool       `xmlrpc:"lot_valuated,omitempty"`
 	MessageAttachmentCount      *Int        `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds          *Relation   `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError             *Bool       `xmlrpc:"message_has_error,omitempty"`
@@ -39,21 +39,19 @@ type StockLot struct {
 	MyActivityDateDeadline      *Time       `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                        *String     `xmlrpc:"name,omitempty"`
 	Note                        *String     `xmlrpc:"note,omitempty"`
+	PartnerIds                  *Relation   `xmlrpc:"partner_ids,omitempty"`
 	ProductId                   *Many2One   `xmlrpc:"product_id,omitempty"`
 	ProductQty                  *Float      `xmlrpc:"product_qty,omitempty"`
 	ProductUomId                *Many2One   `xmlrpc:"product_uom_id,omitempty"`
 	PurchaseOrderCount          *Int        `xmlrpc:"purchase_order_count,omitempty"`
 	PurchaseOrderIds            *Relation   `xmlrpc:"purchase_order_ids,omitempty"`
 	QuantIds                    *Relation   `xmlrpc:"quant_ids,omitempty"`
-	QuantitySvl                 *Float      `xmlrpc:"quantity_svl,omitempty"`
 	RatingIds                   *Relation   `xmlrpc:"rating_ids,omitempty"`
 	Ref                         *String     `xmlrpc:"ref,omitempty"`
 	SaleOrderCount              *Int        `xmlrpc:"sale_order_count,omitempty"`
 	SaleOrderIds                *Relation   `xmlrpc:"sale_order_ids,omitempty"`
 	StandardPrice               *Float      `xmlrpc:"standard_price,omitempty"`
-	StockValuationLayerIds      *Relation   `xmlrpc:"stock_valuation_layer_ids,omitempty"`
 	TotalValue                  *Float      `xmlrpc:"total_value,omitempty"`
-	ValueSvl                    *Float      `xmlrpc:"value_svl,omitempty"`
 	WebsiteMessageIds           *Relation   `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                   *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                    *Many2One   `xmlrpc:"write_uid,omitempty"`

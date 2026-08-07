@@ -17,6 +17,7 @@ type ProductPricelistItem struct {
 	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
 	FixedPrice          *Float     `xmlrpc:"fixed_price,omitempty"`
 	Id                  *Int       `xmlrpc:"id,omitempty"`
+	IsPricelistRequired *Bool      `xmlrpc:"is_pricelist_required,omitempty"`
 	MinQuantity         *Float     `xmlrpc:"min_quantity,omitempty"`
 	Name                *String    `xmlrpc:"name,omitempty"`
 	PercentPrice        *Float     `xmlrpc:"percent_price,omitempty"`
@@ -30,7 +31,7 @@ type ProductPricelistItem struct {
 	PricelistId         *Many2One  `xmlrpc:"pricelist_id,omitempty"`
 	ProductId           *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductTmplId       *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
-	ProductUom          *String    `xmlrpc:"product_uom,omitempty"`
+	ProductUomName      *String    `xmlrpc:"product_uom_name,omitempty"`
 	ProductVariantCount *Int       `xmlrpc:"product_variant_count,omitempty"`
 	RuleTip             *String    `xmlrpc:"rule_tip,omitempty"`
 	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`

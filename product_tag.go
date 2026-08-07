@@ -7,11 +7,13 @@ type ProductTag struct {
 	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
 	Id                 *Int      `xmlrpc:"id,omitempty"`
+	Image              *String   `xmlrpc:"image,omitempty"`
 	Name               *String   `xmlrpc:"name,omitempty"`
 	ProductIds         *Relation `xmlrpc:"product_ids,omitempty"`
 	ProductProductIds  *Relation `xmlrpc:"product_product_ids,omitempty"`
 	ProductTemplateIds *Relation `xmlrpc:"product_template_ids,omitempty"`
 	Sequence           *Int      `xmlrpc:"sequence,omitempty"`
+	VisibleToCustomers *Bool     `xmlrpc:"visible_to_customers,omitempty"`
 	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
 }

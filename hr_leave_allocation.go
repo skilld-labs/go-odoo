@@ -19,6 +19,8 @@ type HrLeaveAllocation struct {
 	AlreadyAccrued                *Bool      `xmlrpc:"already_accrued,omitempty"`
 	ApproverId                    *Many2One  `xmlrpc:"approver_id,omitempty"`
 	CanApprove                    *Bool      `xmlrpc:"can_approve,omitempty"`
+	CanRefuse                     *Bool      `xmlrpc:"can_refuse,omitempty"`
+	CanValidate                   *Bool      `xmlrpc:"can_validate,omitempty"`
 	CarriedOverDaysExpirationDate *Time      `xmlrpc:"carried_over_days_expiration_date,omitempty"`
 	CreateDate                    *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                     *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -63,6 +65,7 @@ type HrLeaveAllocation struct {
 	State                         *Selection `xmlrpc:"state,omitempty"`
 	TypeRequestUnit               *Selection `xmlrpc:"type_request_unit,omitempty"`
 	ValidationType                *Selection `xmlrpc:"validation_type,omitempty"`
+	VirtualRemainingLeaves        *Float     `xmlrpc:"virtual_remaining_leaves,omitempty"`
 	WebsiteMessageIds             *Relation  `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                     *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                      *Many2One  `xmlrpc:"write_uid,omitempty"`

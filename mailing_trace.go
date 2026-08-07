@@ -10,6 +10,7 @@ type MailingTrace struct {
 	FailureReason      *String    `xmlrpc:"failure_reason,omitempty"`
 	FailureType        *Selection `xmlrpc:"failure_type,omitempty"`
 	Id                 *Int       `xmlrpc:"id,omitempty"`
+	IsTestTrace        *Bool      `xmlrpc:"is_test_trace,omitempty"`
 	LinksClickDatetime *Time      `xmlrpc:"links_click_datetime,omitempty"`
 	LinksClickIds      *Relation  `xmlrpc:"links_click_ids,omitempty"`
 	MailMailId         *Many2One  `xmlrpc:"mail_mail_id,omitempty"`

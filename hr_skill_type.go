@@ -2,17 +2,20 @@ package odoo
 
 // HrSkillType represents hr.skill.type model.
 type HrSkillType struct {
-	Active        *Bool     `xmlrpc:"active,omitempty"`
-	Color         *Int      `xmlrpc:"color,omitempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
-	Id            *Int      `xmlrpc:"id,omitempty"`
-	Name          *String   `xmlrpc:"name,omitempty"`
-	SkillIds      *Relation `xmlrpc:"skill_ids,omitempty"`
-	SkillLevelIds *Relation `xmlrpc:"skill_level_ids,omitempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active          *Bool     `xmlrpc:"active,omitempty"`
+	Color           *Int      `xmlrpc:"color,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	IsCertification *Bool     `xmlrpc:"is_certification,omitempty"`
+	LevelsCount     *Int      `xmlrpc:"levels_count,omitempty"`
+	Name            *String   `xmlrpc:"name,omitempty"`
+	Sequence        *Int      `xmlrpc:"sequence,omitempty"`
+	SkillIds        *Relation `xmlrpc:"skill_ids,omitempty"`
+	SkillLevelIds   *Relation `xmlrpc:"skill_level_ids,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrSkillTypes represents array of hr.skill.type model.

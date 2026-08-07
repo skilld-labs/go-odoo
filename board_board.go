@@ -2,7 +2,8 @@ package odoo
 
 // BoardBoard represents board.board model.
 type BoardBoard struct {
-	Id *Int `xmlrpc:"id,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
 }
 
 // BoardBoards represents array of board.board model.

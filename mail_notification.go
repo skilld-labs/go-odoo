@@ -9,6 +9,7 @@ type MailNotification struct {
 	Id                 *Int       `xmlrpc:"id,omitempty"`
 	IsRead             *Bool      `xmlrpc:"is_read,omitempty"`
 	LetterId           *Many2One  `xmlrpc:"letter_id,omitempty"`
+	MailEmailAddress   *String    `xmlrpc:"mail_email_address,omitempty"`
 	MailMailId         *Many2One  `xmlrpc:"mail_mail_id,omitempty"`
 	MailMessageId      *Many2One  `xmlrpc:"mail_message_id,omitempty"`
 	NotificationStatus *Selection `xmlrpc:"notification_status,omitempty"`

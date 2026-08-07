@@ -22,6 +22,7 @@ type PaymentLinkWizard struct {
 	OpenInstallmentsPreview *String     `xmlrpc:"open_installments_preview,omitempty"`
 	PartnerEmail            *String     `xmlrpc:"partner_email,omitempty"`
 	PartnerId               *Many2One   `xmlrpc:"partner_id,omitempty"`
+	PrepaymentAmount        *Float      `xmlrpc:"prepayment_amount,omitempty"`
 	ResId                   *Int        `xmlrpc:"res_id,omitempty"`
 	ResModel                *String     `xmlrpc:"res_model,omitempty"`
 	WarningMessage          *String     `xmlrpc:"warning_message,omitempty"`

@@ -2,17 +2,18 @@ package odoo
 
 // WebTourTourStep represents web_tour.tour.step model.
 type WebTourTourStep struct {
-	Content     *String   `xmlrpc:"content,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Run         *String   `xmlrpc:"run,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	TourId      *Many2One `xmlrpc:"tour_id,omitempty"`
-	Trigger     *String   `xmlrpc:"trigger,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	Content         *String    `xmlrpc:"content,omitempty"`
+	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
+	Id              *Int       `xmlrpc:"id,omitempty"`
+	Run             *String    `xmlrpc:"run,omitempty"`
+	Sequence        *Int       `xmlrpc:"sequence,omitempty"`
+	TooltipPosition *Selection `xmlrpc:"tooltip_position,omitempty"`
+	TourId          *Many2One  `xmlrpc:"tour_id,omitempty"`
+	Trigger         *String    `xmlrpc:"trigger,omitempty"`
+	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // WebTourTourSteps represents array of web_tour.tour.step model.

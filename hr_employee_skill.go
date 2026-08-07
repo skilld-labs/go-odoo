@@ -2,18 +2,24 @@ package odoo
 
 // HrEmployeeSkill represents hr.employee.skill model.
 type HrEmployeeSkill struct {
-	Color         *Int      `xmlrpc:"color,omitempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
-	EmployeeId    *Many2One `xmlrpc:"employee_id,omitempty"`
-	Id            *Int      `xmlrpc:"id,omitempty"`
-	LevelProgress *Int      `xmlrpc:"level_progress,omitempty"`
-	SkillId       *Many2One `xmlrpc:"skill_id,omitempty"`
-	SkillLevelId  *Many2One `xmlrpc:"skill_level_id,omitempty"`
-	SkillTypeId   *Many2One `xmlrpc:"skill_type_id,omitempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	CertificationSkillTypeCount *Int      `xmlrpc:"certification_skill_type_count,omitempty"`
+	Color                       *Int      `xmlrpc:"color,omitempty"`
+	CreateDate                  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName                 *String   `xmlrpc:"display_name,omitempty"`
+	DisplayWarningMessage       *Bool     `xmlrpc:"display_warning_message,omitempty"`
+	EmployeeId                  *Many2One `xmlrpc:"employee_id,omitempty"`
+	Id                          *Int      `xmlrpc:"id,omitempty"`
+	IsCertification             *Bool     `xmlrpc:"is_certification,omitempty"`
+	LevelProgress               *Int      `xmlrpc:"level_progress,omitempty"`
+	LevelsCount                 *Int      `xmlrpc:"levels_count,omitempty"`
+	SkillId                     *Many2One `xmlrpc:"skill_id,omitempty"`
+	SkillLevelId                *Many2One `xmlrpc:"skill_level_id,omitempty"`
+	SkillTypeId                 *Many2One `xmlrpc:"skill_type_id,omitempty"`
+	ValidFrom                   *Time     `xmlrpc:"valid_from,omitempty"`
+	ValidTo                     *Time     `xmlrpc:"valid_to,omitempty"`
+	WriteDate                   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrEmployeeSkills represents array of hr.employee.skill model.

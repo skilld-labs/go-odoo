@@ -16,6 +16,7 @@ type MailActivity struct {
 	DateDeadline              *Time      `xmlrpc:"date_deadline,omitempty"`
 	DateDone                  *Time      `xmlrpc:"date_done,omitempty"`
 	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
+	Feedback                  *String    `xmlrpc:"feedback,omitempty"`
 	HasRecommendedActivities  *Bool      `xmlrpc:"has_recommended_activities,omitempty"`
 	Icon                      *String    `xmlrpc:"icon,omitempty"`
 	Id                        *Int       `xmlrpc:"id,omitempty"`
@@ -23,7 +24,6 @@ type MailActivity struct {
 	Note                      *String    `xmlrpc:"note,omitempty"`
 	PreviousActivityTypeId    *Many2One  `xmlrpc:"previous_activity_type_id,omitempty"`
 	RecommendedActivityTypeId *Many2One  `xmlrpc:"recommended_activity_type_id,omitempty"`
-	RequestPartnerId          *Many2One  `xmlrpc:"request_partner_id,omitempty"`
 	ResId                     *Many2One  `xmlrpc:"res_id,omitempty"`
 	ResModel                  *String    `xmlrpc:"res_model,omitempty"`
 	ResModelId                *Many2One  `xmlrpc:"res_model_id,omitempty"`

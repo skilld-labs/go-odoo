@@ -27,9 +27,31 @@ It is **highly recommanded** to not remove them, since you would not be able to 
 
 #### Custom skilld-labs models
 
-All other models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 11**. (note that models structure changed between odoo major versions).
+All other models (not core one) are specific to skilld-labs usage. They use our own odoo instance which is **version 19**. (note that models structure changed between odoo major versions).
 
 If you're ok to work with those models, you can use this library instance, if not you should fork the repository and generate you own models by following steps above.
+
+#### Odoo version branches
+
+Generated models are tied to the odoo major version they were introspected from, so this
+repository keeps one branch per odoo version:
+
+| Branch | Odoo version | Import path | Released as |
+| ------ | ------------ | ----------- | ----------- |
+| `master` | 11 | `github.com/skilld-labs/go-odoo` | tags up to `v1.10.0` |
+| `18.0` | 18 | `github.com/skilld-labs/go-odoo` | untagged, pin a commit |
+| `19.0` | 19 | `github.com/skilld-labs/go-odoo/v19` | untagged, pin the branch |
+
+Each version branch is cut from the previous one, so the core library changes stay shared and
+only the generated models differ. Pick the branch matching your odoo instance.
+
+Note that the **bare import path resolves to odoo 11**, since that is where the `v1.x` tags
+live. The odoo 19 models are a separate module, and since the branch carries no `v19.x.y` tag
+yet you have to ask for the branch by name:
+
+```bash
+go get github.com/skilld-labs/go-odoo/v19@19.0
+```
 
 ### Enjoy coding!
 
@@ -39,7 +61,7 @@ If you're ok to work with those models, you can use this library instance, if no
 package main
 
 import (
-	odoo "github.com/skilld-labs/go-odoo"
+	odoo "github.com/skilld-labs/go-odoo/v19"
 )
 
 func main() {

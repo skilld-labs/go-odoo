@@ -5,6 +5,7 @@ type PurchaseOrder struct {
 	AccessToken                  *String    `xmlrpc:"access_token,omitempty"`
 	AccessUrl                    *String    `xmlrpc:"access_url,omitempty"`
 	AccessWarning                *String    `xmlrpc:"access_warning,omitempty"`
+	Acknowledged                 *Bool      `xmlrpc:"acknowledged,omitempty"`
 	ActivityCalendarEventId      *Many2One  `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline         *Time      `xmlrpc:"activity_date_deadline,omitempty"`
 	ActivityExceptionDecoration  *Selection `xmlrpc:"activity_exception_decoration,omitempty"`
@@ -34,10 +35,11 @@ type PurchaseOrder struct {
 	DefaultLocationDestIdUsage   *Selection `xmlrpc:"default_location_dest_id_usage,omitempty"`
 	DestAddressId                *Many2One  `xmlrpc:"dest_address_id,omitempty"`
 	DisplayName                  *String    `xmlrpc:"display_name,omitempty"`
+	DuplicatedOrderIds           *Relation  `xmlrpc:"duplicated_order_ids,omitempty"`
 	EffectiveDate                *Time      `xmlrpc:"effective_date,omitempty"`
 	FiscalPositionId             *Many2One  `xmlrpc:"fiscal_position_id,omitempty"`
-	GroupId                      *Many2One  `xmlrpc:"group_id,omitempty"`
 	HasMessage                   *Bool      `xmlrpc:"has_message,omitempty"`
+	HasSaleOrder                 *Bool      `xmlrpc:"has_sale_order,omitempty"`
 	Id                           *Int       `xmlrpc:"id,omitempty"`
 	IncomingPickingCount         *Int       `xmlrpc:"incoming_picking_count,omitempty"`
 	IncotermId                   *Many2One  `xmlrpc:"incoterm_id,omitempty"`
@@ -45,10 +47,10 @@ type PurchaseOrder struct {
 	InvoiceCount                 *Int       `xmlrpc:"invoice_count,omitempty"`
 	InvoiceIds                   *Relation  `xmlrpc:"invoice_ids,omitempty"`
 	InvoiceStatus                *Selection `xmlrpc:"invoice_status,omitempty"`
+	IsLate                       *Bool      `xmlrpc:"is_late,omitempty"`
 	IsShipped                    *Bool      `xmlrpc:"is_shipped,omitempty"`
-	MailReceptionConfirmed       *Bool      `xmlrpc:"mail_reception_confirmed,omitempty"`
-	MailReceptionDeclined        *Bool      `xmlrpc:"mail_reception_declined,omitempty"`
-	MailReminderConfirmed        *Bool      `xmlrpc:"mail_reminder_confirmed,omitempty"`
+	LockConfirmedPo              *Selection `xmlrpc:"lock_confirmed_po,omitempty"`
+	Locked                       *Bool      `xmlrpc:"locked,omitempty"`
 	MessageAttachmentCount       *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds           *Relation  `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError              *Bool      `xmlrpc:"message_has_error,omitempty"`
@@ -61,7 +63,7 @@ type PurchaseOrder struct {
 	MessagePartnerIds            *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	MyActivityDateDeadline       *Time      `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                         *String    `xmlrpc:"name,omitempty"`
-	Notes                        *String    `xmlrpc:"notes,omitempty"`
+	Note                         *String    `xmlrpc:"note,omitempty"`
 	OnTimeRate                   *Float     `xmlrpc:"on_time_rate,omitempty"`
 	OrderLine                    *Relation  `xmlrpc:"order_line,omitempty"`
 	Origin                       *String    `xmlrpc:"origin,omitempty"`
@@ -74,11 +76,14 @@ type PurchaseOrder struct {
 	Priority                     *Selection `xmlrpc:"priority,omitempty"`
 	ProductId                    *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProjectId                    *Many2One  `xmlrpc:"project_id,omitempty"`
+	PurchaseWarningText          *String    `xmlrpc:"purchase_warning_text,omitempty"`
 	RatingIds                    *Relation  `xmlrpc:"rating_ids,omitempty"`
 	ReceiptReminderEmail         *Bool      `xmlrpc:"receipt_reminder_email,omitempty"`
 	ReceiptStatus                *Selection `xmlrpc:"receipt_status,omitempty"`
+	ReferenceIds                 *Relation  `xmlrpc:"reference_ids,omitempty"`
 	ReminderDateBeforeReceipt    *Int       `xmlrpc:"reminder_date_before_receipt,omitempty"`
 	SaleOrderCount               *Int       `xmlrpc:"sale_order_count,omitempty"`
+	ShowComparison               *Bool      `xmlrpc:"show_comparison,omitempty"`
 	State                        *Selection `xmlrpc:"state,omitempty"`
 	TaxCalculationRoundingMethod *Selection `xmlrpc:"tax_calculation_rounding_method,omitempty"`
 	TaxCountryId                 *Many2One  `xmlrpc:"tax_country_id,omitempty"`

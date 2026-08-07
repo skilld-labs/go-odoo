@@ -25,6 +25,7 @@ type ProjectUpdate struct {
 	EmailCc                     *String    `xmlrpc:"email_cc,omitempty"`
 	HasMessage                  *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                          *Int       `xmlrpc:"id,omitempty"`
+	LabelTasks                  *String    `xmlrpc:"label_tasks,omitempty"`
 	MessageAttachmentCount      *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds          *Relation  `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError             *Bool      `xmlrpc:"message_has_error,omitempty"`

@@ -2,22 +2,24 @@ package odoo
 
 // MailScheduledMessage represents mail.scheduled.message model.
 type MailScheduledMessage struct {
-	AttachmentIds          *Relation `xmlrpc:"attachment_ids,omitempty"`
-	AuthorId               *Many2One `xmlrpc:"author_id,omitempty"`
-	Body                   *String   `xmlrpc:"body,omitempty"`
-	CreateDate             *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName            *String   `xmlrpc:"display_name,omitempty"`
-	Id                     *Int      `xmlrpc:"id,omitempty"`
-	IsNote                 *Bool     `xmlrpc:"is_note,omitempty"`
-	Model                  *String   `xmlrpc:"model,omitempty"`
-	NotificationParameters *String   `xmlrpc:"notification_parameters,omitempty"`
-	PartnerIds             *Relation `xmlrpc:"partner_ids,omitempty"`
-	ResId                  *Many2One `xmlrpc:"res_id,omitempty"`
-	ScheduledDate          *Time     `xmlrpc:"scheduled_date,omitempty"`
-	Subject                *String   `xmlrpc:"subject,omitempty"`
-	WriteDate              *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One `xmlrpc:"write_uid,omitempty"`
+	AttachmentIds            *Relation   `xmlrpc:"attachment_ids,omitempty"`
+	AuthorId                 *Many2One   `xmlrpc:"author_id,omitempty"`
+	Body                     *String     `xmlrpc:"body,omitempty"`
+	CompositionCommentOption *Selection  `xmlrpc:"composition_comment_option,omitempty"`
+	CreateDate               *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisplayName              *String     `xmlrpc:"display_name,omitempty"`
+	Id                       *Int        `xmlrpc:"id,omitempty"`
+	IsNote                   *Bool       `xmlrpc:"is_note,omitempty"`
+	Model                    *String     `xmlrpc:"model,omitempty"`
+	NotificationParameters   *String     `xmlrpc:"notification_parameters,omitempty"`
+	PartnerIds               *Relation   `xmlrpc:"partner_ids,omitempty"`
+	ResId                    *Many2One   `xmlrpc:"res_id,omitempty"`
+	ScheduledDate            *Time       `xmlrpc:"scheduled_date,omitempty"`
+	SendContext              interface{} `xmlrpc:"send_context,omitempty"`
+	Subject                  *String     `xmlrpc:"subject,omitempty"`
+	WriteDate                *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailScheduledMessages represents array of mail.scheduled.message model.

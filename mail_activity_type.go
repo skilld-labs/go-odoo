@@ -18,7 +18,6 @@ type MailActivityType struct {
 	Icon                 *String    `xmlrpc:"icon,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
 	InitialResModel      *Selection `xmlrpc:"initial_res_model,omitempty"`
-	KeepDone             *Bool      `xmlrpc:"keep_done,omitempty"`
 	MailTemplateIds      *Relation  `xmlrpc:"mail_template_ids,omitempty"`
 	Name                 *String    `xmlrpc:"name,omitempty"`
 	PreviousTypeIds      *Relation  `xmlrpc:"previous_type_ids,omitempty"`

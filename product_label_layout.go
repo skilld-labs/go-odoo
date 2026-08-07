@@ -18,6 +18,8 @@ type ProductLabelLayout struct {
 	Rows           *Int       `xmlrpc:"rows,omitempty"`
 	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	ZplPreview     *String    `xmlrpc:"zpl_preview,omitempty"`
+	ZplTemplate    *Selection `xmlrpc:"zpl_template,omitempty"`
 }
 
 // ProductLabelLayouts represents array of product.label.layout model.

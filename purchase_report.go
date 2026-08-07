@@ -24,7 +24,7 @@ type PurchaseReport struct {
 	PriceTotal          *Float     `xmlrpc:"price_total,omitempty"`
 	ProductId           *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductTmplId       *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
-	ProductUom          *Many2One  `xmlrpc:"product_uom,omitempty"`
+	ProductUomId        *Many2One  `xmlrpc:"product_uom_id,omitempty"`
 	QtyBilled           *Float     `xmlrpc:"qty_billed,omitempty"`
 	QtyOrdered          *Float     `xmlrpc:"qty_ordered,omitempty"`
 	QtyReceived         *Float     `xmlrpc:"qty_received,omitempty"`

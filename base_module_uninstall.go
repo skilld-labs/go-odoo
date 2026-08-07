@@ -2,16 +2,16 @@ package odoo
 
 // BaseModuleUninstall represents base.module.uninstall model.
 type BaseModuleUninstall struct {
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	ModelIds    *Relation `xmlrpc:"model_ids,omitempty"`
-	ModuleId    *Many2One `xmlrpc:"module_id,omitempty"`
-	ModuleIds   *Relation `xmlrpc:"module_ids,omitempty"`
-	ShowAll     *Bool     `xmlrpc:"show_all,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate        *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
+	Id                *Int      `xmlrpc:"id,omitempty"`
+	ImpactedModuleIds *Relation `xmlrpc:"impacted_module_ids,omitempty"`
+	ModelIds          *Relation `xmlrpc:"model_ids,omitempty"`
+	ModuleIds         *Relation `xmlrpc:"module_ids,omitempty"`
+	ShowAll           *Bool     `xmlrpc:"show_all,omitempty"`
+	WriteDate         *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // BaseModuleUninstalls represents array of base.module.uninstall model.

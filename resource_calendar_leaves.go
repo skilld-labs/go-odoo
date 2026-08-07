@@ -2,21 +2,22 @@ package odoo
 
 // ResourceCalendarLeaves represents resource.calendar.leaves model.
 type ResourceCalendarLeaves struct {
-	CalendarId   *Many2One  `xmlrpc:"calendar_id,omitempty"`
-	CompanyId    *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFrom     *Time      `xmlrpc:"date_from,omitempty"`
-	DateTo       *Time      `xmlrpc:"date_to,omitempty"`
-	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
-	HolidayId    *Many2One  `xmlrpc:"holiday_id,omitempty"`
-	Id           *Int       `xmlrpc:"id,omitempty"`
-	Name         *String    `xmlrpc:"name,omitempty"`
-	ResourceId   *Many2One  `xmlrpc:"resource_id,omitempty"`
-	TimeType     *Selection `xmlrpc:"time_type,omitempty"`
-	TimesheetIds *Relation  `xmlrpc:"timesheet_ids,omitempty"`
-	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CalendarId              *Many2One  `xmlrpc:"calendar_id,omitempty"`
+	CompanyId               *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate              *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid               *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DateFrom                *Time      `xmlrpc:"date_from,omitempty"`
+	DateTo                  *Time      `xmlrpc:"date_to,omitempty"`
+	DisplayName             *String    `xmlrpc:"display_name,omitempty"`
+	ElligibleForAccrualRate *Bool      `xmlrpc:"elligible_for_accrual_rate,omitempty"`
+	HolidayId               *Many2One  `xmlrpc:"holiday_id,omitempty"`
+	Id                      *Int       `xmlrpc:"id,omitempty"`
+	Name                    *String    `xmlrpc:"name,omitempty"`
+	ResourceId              *Many2One  `xmlrpc:"resource_id,omitempty"`
+	TimeType                *Selection `xmlrpc:"time_type,omitempty"`
+	TimesheetIds            *Relation  `xmlrpc:"timesheet_ids,omitempty"`
+	WriteDate               *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResourceCalendarLeavess represents array of resource.calendar.leaves model.

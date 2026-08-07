@@ -8,6 +8,7 @@ type HrLeaveType struct {
 	AllocationCount                 *Int       `xmlrpc:"allocation_count,omitempty"`
 	AllocationNotifSubtypeId        *Many2One  `xmlrpc:"allocation_notif_subtype_id,omitempty"`
 	AllocationValidationType        *Selection `xmlrpc:"allocation_validation_type,omitempty"`
+	AllowRequestOnTop               *Bool      `xmlrpc:"allow_request_on_top,omitempty"`
 	AllowsNegative                  *Bool      `xmlrpc:"allows_negative,omitempty"`
 	Color                           *Int       `xmlrpc:"color,omitempty"`
 	CompanyId                       *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -17,12 +18,15 @@ type HrLeaveType struct {
 	CreateDate                      *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                       *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName                     *String    `xmlrpc:"display_name,omitempty"`
-	EmployeeRequests                *Selection `xmlrpc:"employee_requests,omitempty"`
+	ElligibleForAccrualRate         *Bool      `xmlrpc:"elligible_for_accrual_rate,omitempty"`
+	EmployeeRequests                *Bool      `xmlrpc:"employee_requests,omitempty"`
 	GroupDaysLeave                  *Float     `xmlrpc:"group_days_leave,omitempty"`
 	HasValidAllocation              *Bool      `xmlrpc:"has_valid_allocation,omitempty"`
+	HideOnDashboard                 *Bool      `xmlrpc:"hide_on_dashboard,omitempty"`
 	IconId                          *Many2One  `xmlrpc:"icon_id,omitempty"`
 	Id                              *Int       `xmlrpc:"id,omitempty"`
 	IncludePublicHolidaysInDuration *Bool      `xmlrpc:"include_public_holidays_in_duration,omitempty"`
+	IsUsed                          *Bool      `xmlrpc:"is_used,omitempty"`
 	LeaveNotifSubtypeId             *Many2One  `xmlrpc:"leave_notif_subtype_id,omitempty"`
 	LeaveValidationType             *Selection `xmlrpc:"leave_validation_type,omitempty"`
 	LeavesTaken                     *Float     `xmlrpc:"leaves_taken,omitempty"`
@@ -30,15 +34,11 @@ type HrLeaveType struct {
 	MaxLeaves                       *Float     `xmlrpc:"max_leaves,omitempty"`
 	Name                            *String    `xmlrpc:"name,omitempty"`
 	RequestUnit                     *Selection `xmlrpc:"request_unit,omitempty"`
-	RequiresAllocation              *Selection `xmlrpc:"requires_allocation,omitempty"`
+	RequiresAllocation              *Bool      `xmlrpc:"requires_allocation,omitempty"`
 	ResponsibleIds                  *Relation  `xmlrpc:"responsible_ids,omitempty"`
 	Sequence                        *Int       `xmlrpc:"sequence,omitempty"`
-	ShowOnDashboard                 *Bool      `xmlrpc:"show_on_dashboard,omitempty"`
 	SupportDocument                 *Bool      `xmlrpc:"support_document,omitempty"`
 	TimeType                        *Selection `xmlrpc:"time_type,omitempty"`
-	TimesheetGenerate               *Bool      `xmlrpc:"timesheet_generate,omitempty"`
-	TimesheetProjectId              *Many2One  `xmlrpc:"timesheet_project_id,omitempty"`
-	TimesheetTaskId                 *Many2One  `xmlrpc:"timesheet_task_id,omitempty"`
 	Unpaid                          *Bool      `xmlrpc:"unpaid,omitempty"`
 	VirtualRemainingLeaves          *Float     `xmlrpc:"virtual_remaining_leaves,omitempty"`
 	WriteDate                       *Time      `xmlrpc:"write_date,omitempty"`

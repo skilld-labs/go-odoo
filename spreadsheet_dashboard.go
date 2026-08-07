@@ -2,13 +2,15 @@ package odoo
 
 // SpreadsheetDashboard represents spreadsheet.dashboard model.
 type SpreadsheetDashboard struct {
-	CompanyId               *Many2One `xmlrpc:"company_id,omitempty"`
+	CompanyIds              *Relation `xmlrpc:"company_ids,omitempty"`
 	CreateDate              *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid               *Many2One `xmlrpc:"create_uid,omitempty"`
 	DashboardGroupId        *Many2One `xmlrpc:"dashboard_group_id,omitempty"`
 	DisplayName             *String   `xmlrpc:"display_name,omitempty"`
+	FavoriteUserIds         *Relation `xmlrpc:"favorite_user_ids,omitempty"`
 	GroupIds                *Relation `xmlrpc:"group_ids,omitempty"`
 	Id                      *Int      `xmlrpc:"id,omitempty"`
+	IsFavorite              *Bool     `xmlrpc:"is_favorite,omitempty"`
 	IsPublished             *Bool     `xmlrpc:"is_published,omitempty"`
 	MainDataModelIds        *Relation `xmlrpc:"main_data_model_ids,omitempty"`
 	Name                    *String   `xmlrpc:"name,omitempty"`

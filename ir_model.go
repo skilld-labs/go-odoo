@@ -2,12 +2,14 @@ package odoo
 
 // IrModel represents ir.model model.
 type IrModel struct {
+	Abstract          *Bool      `xmlrpc:"abstract,omitempty"`
 	AccessIds         *Relation  `xmlrpc:"access_ids,omitempty"`
 	Count             *Int       `xmlrpc:"count,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
 	FieldId           *Relation  `xmlrpc:"field_id,omitempty"`
+	FoldName          *String    `xmlrpc:"fold_name,omitempty"`
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	Info              *String    `xmlrpc:"info,omitempty"`
 	InheritedModelIds *Relation  `xmlrpc:"inherited_model_ids,omitempty"`

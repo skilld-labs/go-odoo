@@ -6,7 +6,6 @@ type StockLocation struct {
 	Barcode                  *String    `xmlrpc:"barcode,omitempty"`
 	ChildIds                 *Relation  `xmlrpc:"child_ids,omitempty"`
 	ChildInternalLocationIds *Relation  `xmlrpc:"child_internal_location_ids,omitempty"`
-	Comment                  *String    `xmlrpc:"comment,omitempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
 	CompleteName             *String    `xmlrpc:"complete_name,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
@@ -17,6 +16,8 @@ type StockLocation struct {
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	IncomingMoveLineIds      *Relation  `xmlrpc:"incoming_move_line_ids,omitempty"`
 	IsEmpty                  *Bool      `xmlrpc:"is_empty,omitempty"`
+	IsValuedExternal         *Bool      `xmlrpc:"is_valued_external,omitempty"`
+	IsValuedInternal         *Bool      `xmlrpc:"is_valued_internal,omitempty"`
 	LastInventoryDate        *Time      `xmlrpc:"last_inventory_date,omitempty"`
 	LocationId               *Many2One  `xmlrpc:"location_id,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
@@ -24,18 +25,13 @@ type StockLocation struct {
 	NextInventoryDate        *Time      `xmlrpc:"next_inventory_date,omitempty"`
 	OutgoingMoveLineIds      *Relation  `xmlrpc:"outgoing_move_line_ids,omitempty"`
 	ParentPath               *String    `xmlrpc:"parent_path,omitempty"`
-	Posx                     *Int       `xmlrpc:"posx,omitempty"`
-	Posy                     *Int       `xmlrpc:"posy,omitempty"`
-	Posz                     *Int       `xmlrpc:"posz,omitempty"`
 	PutawayRuleIds           *Relation  `xmlrpc:"putaway_rule_ids,omitempty"`
 	QuantIds                 *Relation  `xmlrpc:"quant_ids,omitempty"`
 	RemovalStrategyId        *Many2One  `xmlrpc:"removal_strategy_id,omitempty"`
 	ReplenishLocation        *Bool      `xmlrpc:"replenish_location,omitempty"`
-	ScrapLocation            *Bool      `xmlrpc:"scrap_location,omitempty"`
 	StorageCategoryId        *Many2One  `xmlrpc:"storage_category_id,omitempty"`
 	Usage                    *Selection `xmlrpc:"usage,omitempty"`
-	ValuationInAccountId     *Many2One  `xmlrpc:"valuation_in_account_id,omitempty"`
-	ValuationOutAccountId    *Many2One  `xmlrpc:"valuation_out_account_id,omitempty"`
+	ValuationAccountId       *Many2One  `xmlrpc:"valuation_account_id,omitempty"`
 	WarehouseId              *Many2One  `xmlrpc:"warehouse_id,omitempty"`
 	WarehouseViewIds         *Relation  `xmlrpc:"warehouse_view_ids,omitempty"`
 	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`

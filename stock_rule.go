@@ -2,37 +2,34 @@ package odoo
 
 // StockRule represents stock.rule model.
 type StockRule struct {
-	Action                 *Selection `xmlrpc:"action,omitempty"`
-	Active                 *Bool      `xmlrpc:"active,omitempty"`
-	Auto                   *Selection `xmlrpc:"auto,omitempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Delay                  *Int       `xmlrpc:"delay,omitempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
-	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
-	GroupPropagationOption *Selection `xmlrpc:"group_propagation_option,omitempty"`
-	Id                     *Int       `xmlrpc:"id,omitempty"`
-	LocationDestFromRule   *Bool      `xmlrpc:"location_dest_from_rule,omitempty"`
-	LocationDestId         *Many2One  `xmlrpc:"location_dest_id,omitempty"`
-	LocationSrcId          *Many2One  `xmlrpc:"location_src_id,omitempty"`
-	Name                   *String    `xmlrpc:"name,omitempty"`
-	PartnerAddressId       *Many2One  `xmlrpc:"partner_address_id,omitempty"`
-	PickingTypeCodeDomain  *String    `xmlrpc:"picking_type_code_domain,omitempty"`
-	PickingTypeId          *Many2One  `xmlrpc:"picking_type_id,omitempty"`
-	ProcureMethod          *Selection `xmlrpc:"procure_method,omitempty"`
-	PropagateCancel        *Bool      `xmlrpc:"propagate_cancel,omitempty"`
-	PropagateCarrier       *Bool      `xmlrpc:"propagate_carrier,omitempty"`
-	PropagateWarehouseId   *Many2One  `xmlrpc:"propagate_warehouse_id,omitempty"`
-	PushDomain             *String    `xmlrpc:"push_domain,omitempty"`
-	RouteCompanyId         *Many2One  `xmlrpc:"route_company_id,omitempty"`
-	RouteId                *Many2One  `xmlrpc:"route_id,omitempty"`
-	RouteSequence          *Int       `xmlrpc:"route_sequence,omitempty"`
-	RuleMessage            *String    `xmlrpc:"rule_message,omitempty"`
-	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
-	WarehouseId            *Many2One  `xmlrpc:"warehouse_id,omitempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Action                *Selection  `xmlrpc:"action,omitempty"`
+	Active                *Bool       `xmlrpc:"active,omitempty"`
+	Auto                  *Selection  `xmlrpc:"auto,omitempty"`
+	CompanyId             *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate            *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One   `xmlrpc:"create_uid,omitempty"`
+	Delay                 *Int        `xmlrpc:"delay,omitempty"`
+	DisplayName           *String     `xmlrpc:"display_name,omitempty"`
+	Id                    *Int        `xmlrpc:"id,omitempty"`
+	LocationDestFromRule  *Bool       `xmlrpc:"location_dest_from_rule,omitempty"`
+	LocationDestId        *Many2One   `xmlrpc:"location_dest_id,omitempty"`
+	LocationSrcId         *Many2One   `xmlrpc:"location_src_id,omitempty"`
+	Name                  *String     `xmlrpc:"name,omitempty"`
+	PartnerAddressId      *Many2One   `xmlrpc:"partner_address_id,omitempty"`
+	PickingTypeCodeDomain interface{} `xmlrpc:"picking_type_code_domain,omitempty"`
+	PickingTypeId         *Many2One   `xmlrpc:"picking_type_id,omitempty"`
+	ProcureMethod         *Selection  `xmlrpc:"procure_method,omitempty"`
+	PropagateCancel       *Bool       `xmlrpc:"propagate_cancel,omitempty"`
+	PropagateCarrier      *Bool       `xmlrpc:"propagate_carrier,omitempty"`
+	PushDomain            *String     `xmlrpc:"push_domain,omitempty"`
+	RouteCompanyId        *Many2One   `xmlrpc:"route_company_id,omitempty"`
+	RouteId               *Many2One   `xmlrpc:"route_id,omitempty"`
+	RouteSequence         *Int        `xmlrpc:"route_sequence,omitempty"`
+	RuleMessage           *String     `xmlrpc:"rule_message,omitempty"`
+	Sequence              *Int        `xmlrpc:"sequence,omitempty"`
+	WarehouseId           *Many2One   `xmlrpc:"warehouse_id,omitempty"`
+	WriteDate             *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockRules represents array of stock.rule model.

@@ -5,21 +5,29 @@ type ResourceCalendar struct {
 	Active                *Bool      `xmlrpc:"active,omitempty"`
 	AssociatedLeavesCount *Int       `xmlrpc:"associated_leaves_count,omitempty"`
 	AttendanceIds         *Relation  `xmlrpc:"attendance_ids,omitempty"`
+	AttendanceIds1StWeek  *Relation  `xmlrpc:"attendance_ids_1st_week,omitempty"`
+	AttendanceIds2NdWeek  *Relation  `xmlrpc:"attendance_ids_2nd_week,omitempty"`
 	CompanyId             *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	DurationBased         *Bool      `xmlrpc:"duration_based,omitempty"`
 	FlexibleHours         *Bool      `xmlrpc:"flexible_hours,omitempty"`
 	FullTimeRequiredHours *Float     `xmlrpc:"full_time_required_hours,omitempty"`
 	GlobalLeaveIds        *Relation  `xmlrpc:"global_leave_ids,omitempty"`
 	HoursPerDay           *Float     `xmlrpc:"hours_per_day,omitempty"`
+	HoursPerWeek          *Float     `xmlrpc:"hours_per_week,omitempty"`
 	Id                    *Int       `xmlrpc:"id,omitempty"`
+	IsFulltime            *Bool      `xmlrpc:"is_fulltime,omitempty"`
 	LeaveIds              *Relation  `xmlrpc:"leave_ids,omitempty"`
 	Name                  *String    `xmlrpc:"name,omitempty"`
+	ScheduleType          *Selection `xmlrpc:"schedule_type,omitempty"`
 	TwoWeeksCalendar      *Bool      `xmlrpc:"two_weeks_calendar,omitempty"`
 	TwoWeeksExplanation   *String    `xmlrpc:"two_weeks_explanation,omitempty"`
 	Tz                    *Selection `xmlrpc:"tz,omitempty"`
 	TzOffset              *String    `xmlrpc:"tz_offset,omitempty"`
+	WorkResourcesCount    *Int       `xmlrpc:"work_resources_count,omitempty"`
+	WorkTimeRate          *Float     `xmlrpc:"work_time_rate,omitempty"`
 	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

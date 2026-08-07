@@ -21,7 +21,7 @@ type ProductSupplierinfo struct {
 	ProductId             *Many2One `xmlrpc:"product_id,omitempty"`
 	ProductName           *String   `xmlrpc:"product_name,omitempty"`
 	ProductTmplId         *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
-	ProductUom            *Many2One `xmlrpc:"product_uom,omitempty"`
+	ProductUomId          *Many2One `xmlrpc:"product_uom_id,omitempty"`
 	ProductVariantCount   *Int      `xmlrpc:"product_variant_count,omitempty"`
 	Sequence              *Int      `xmlrpc:"sequence,omitempty"`
 	ShowSetSupplierButton *Bool     `xmlrpc:"show_set_supplier_button,omitempty"`

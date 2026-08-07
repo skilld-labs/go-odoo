@@ -2,27 +2,28 @@ package odoo
 
 // AccountBankStatement represents account.bank.statement model.
 type AccountBankStatement struct {
-	AttachmentIds      *Relation `xmlrpc:"attachment_ids,omitempty"`
-	BalanceEnd         *Float    `xmlrpc:"balance_end,omitempty"`
-	BalanceEndReal     *Float    `xmlrpc:"balance_end_real,omitempty"`
-	BalanceStart       *Float    `xmlrpc:"balance_start,omitempty"`
-	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId         *Many2One `xmlrpc:"currency_id,omitempty"`
-	Date               *Time     `xmlrpc:"date,omitempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
-	FirstLineIndex     *String   `xmlrpc:"first_line_index,omitempty"`
-	Id                 *Int      `xmlrpc:"id,omitempty"`
-	IsComplete         *Bool     `xmlrpc:"is_complete,omitempty"`
-	IsValid            *Bool     `xmlrpc:"is_valid,omitempty"`
-	JournalId          *Many2One `xmlrpc:"journal_id,omitempty"`
-	LineIds            *Relation `xmlrpc:"line_ids,omitempty"`
-	Name               *String   `xmlrpc:"name,omitempty"`
-	ProblemDescription *String   `xmlrpc:"problem_description,omitempty"`
-	Reference          *String   `xmlrpc:"reference,omitempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
+	AttachmentIds               *Relation `xmlrpc:"attachment_ids,omitempty"`
+	BalanceEnd                  *Float    `xmlrpc:"balance_end,omitempty"`
+	BalanceEndReal              *Float    `xmlrpc:"balance_end_real,omitempty"`
+	BalanceStart                *Float    `xmlrpc:"balance_start,omitempty"`
+	CompanyId                   *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate                  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                   *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                  *Many2One `xmlrpc:"currency_id,omitempty"`
+	Date                        *Time     `xmlrpc:"date,omitempty"`
+	DisplayName                 *String   `xmlrpc:"display_name,omitempty"`
+	FirstLineIndex              *String   `xmlrpc:"first_line_index,omitempty"`
+	Id                          *Int      `xmlrpc:"id,omitempty"`
+	IsComplete                  *Bool     `xmlrpc:"is_complete,omitempty"`
+	IsValid                     *Bool     `xmlrpc:"is_valid,omitempty"`
+	JournalHasInvalidStatements *Bool     `xmlrpc:"journal_has_invalid_statements,omitempty"`
+	JournalId                   *Many2One `xmlrpc:"journal_id,omitempty"`
+	LineIds                     *Relation `xmlrpc:"line_ids,omitempty"`
+	Name                        *String   `xmlrpc:"name,omitempty"`
+	ProblemDescription          *String   `xmlrpc:"problem_description,omitempty"`
+	Reference                   *String   `xmlrpc:"reference,omitempty"`
+	WriteDate                   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountBankStatements represents array of account.bank.statement model.

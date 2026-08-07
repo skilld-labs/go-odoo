@@ -11,7 +11,6 @@ type SmsComposer struct {
 	Id                         *Int       `xmlrpc:"id,omitempty"`
 	MassForceSend              *Bool      `xmlrpc:"mass_force_send,omitempty"`
 	MassKeepLog                *Bool      `xmlrpc:"mass_keep_log,omitempty"`
-	MassUseBlacklist           *Bool      `xmlrpc:"mass_use_blacklist,omitempty"`
 	NumberFieldName            *String    `xmlrpc:"number_field_name,omitempty"`
 	Numbers                    *String    `xmlrpc:"numbers,omitempty"`
 	RecipientInvalidCount      *Int       `xmlrpc:"recipient_invalid_count,omitempty"`
@@ -27,6 +26,7 @@ type SmsComposer struct {
 	ResModelDescription        *String    `xmlrpc:"res_model_description,omitempty"`
 	SanitizedNumbers           *String    `xmlrpc:"sanitized_numbers,omitempty"`
 	TemplateId                 *Many2One  `xmlrpc:"template_id,omitempty"`
+	UseExclusionList           *Bool      `xmlrpc:"use_exclusion_list,omitempty"`
 	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                   *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

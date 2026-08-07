@@ -12,7 +12,6 @@ type SaleOrderDiscount struct {
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
 	Id                 *Int       `xmlrpc:"id,omitempty"`
 	SaleOrderId        *Many2One  `xmlrpc:"sale_order_id,omitempty"`
-	TaxIds             *Relation  `xmlrpc:"tax_ids,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

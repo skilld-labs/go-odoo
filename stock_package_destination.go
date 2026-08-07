@@ -9,7 +9,6 @@ type StockPackageDestination struct {
 	Id               *Int      `xmlrpc:"id,omitempty"`
 	LocationDestId   *Many2One `xmlrpc:"location_dest_id,omitempty"`
 	MoveLineIds      *Relation `xmlrpc:"move_line_ids,omitempty"`
-	PickingId        *Many2One `xmlrpc:"picking_id,omitempty"`
 	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }

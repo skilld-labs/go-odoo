@@ -2,17 +2,16 @@ package odoo
 
 // StockRequestCount represents stock.request.count model.
 type StockRequestCount struct {
-	AccountingDate *Time      `xmlrpc:"accounting_date,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	InventoryDate  *Time      `xmlrpc:"inventory_date,omitempty"`
-	QuantIds       *Relation  `xmlrpc:"quant_ids,omitempty"`
-	SetCount       *Selection `xmlrpc:"set_count,omitempty"`
-	UserId         *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate           *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName          *String   `xmlrpc:"display_name,omitempty"`
+	Id                   *Int      `xmlrpc:"id,omitempty"`
+	InventoryDate        *Time     `xmlrpc:"inventory_date,omitempty"`
+	QuantIds             *Relation `xmlrpc:"quant_ids,omitempty"`
+	ShowExpectedQuantity *Bool     `xmlrpc:"show_expected_quantity,omitempty"`
+	UserId               *Many2One `xmlrpc:"user_id,omitempty"`
+	WriteDate            *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockRequestCounts represents array of stock.request.count model.

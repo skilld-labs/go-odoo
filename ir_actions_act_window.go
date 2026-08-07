@@ -5,6 +5,7 @@ type IrActionsActWindow struct {
 	BindingModelId    *Many2One  `xmlrpc:"binding_model_id,omitempty"`
 	BindingType       *Selection `xmlrpc:"binding_type,omitempty"`
 	BindingViewTypes  *String    `xmlrpc:"binding_view_types,omitempty"`
+	Cache             *Bool      `xmlrpc:"cache,omitempty"`
 	Context           *String    `xmlrpc:"context,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -12,7 +13,7 @@ type IrActionsActWindow struct {
 	Domain            *String    `xmlrpc:"domain,omitempty"`
 	EmbeddedActionIds *Relation  `xmlrpc:"embedded_action_ids,omitempty"`
 	Filter            *Bool      `xmlrpc:"filter,omitempty"`
-	GroupsId          *Relation  `xmlrpc:"groups_id,omitempty"`
+	GroupIds          *Relation  `xmlrpc:"group_ids,omitempty"`
 	Help              *String    `xmlrpc:"help,omitempty"`
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	Limit             *Int       `xmlrpc:"limit,omitempty"`

@@ -5,7 +5,6 @@ type AccountFullReconcile struct {
 	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
-	ExchangeMoveId      *Many2One `xmlrpc:"exchange_move_id,omitempty"`
 	Id                  *Int      `xmlrpc:"id,omitempty"`
 	PartialReconcileIds *Relation `xmlrpc:"partial_reconcile_ids,omitempty"`
 	ReconciledLineIds   *Relation `xmlrpc:"reconciled_line_ids,omitempty"`

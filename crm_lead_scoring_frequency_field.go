@@ -2,6 +2,7 @@ package odoo
 
 // CrmLeadScoringFrequencyField represents crm.lead.scoring.frequency.field model.
 type CrmLeadScoringFrequencyField struct {
+	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`

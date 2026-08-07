@@ -6,8 +6,10 @@ type ValidateAccountMove struct {
 	AbnormalDatePartnerIds   *Relation `xmlrpc:"abnormal_date_partner_ids,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayForceHash         *Bool     `xmlrpc:"display_force_hash,omitempty"`
 	DisplayForcePost         *Bool     `xmlrpc:"display_force_post,omitempty"`
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	ForceHash                *Bool     `xmlrpc:"force_hash,omitempty"`
 	ForcePost                *Bool     `xmlrpc:"force_post,omitempty"`
 	Id                       *Int      `xmlrpc:"id,omitempty"`
 	IgnoreAbnormalAmount     *Bool     `xmlrpc:"ignore_abnormal_amount,omitempty"`

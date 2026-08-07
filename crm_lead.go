@@ -18,6 +18,7 @@ type CrmLead struct {
 	CampaignId                      *Many2One   `xmlrpc:"campaign_id,omitempty"`
 	City                            *String     `xmlrpc:"city,omitempty"`
 	Color                           *Int        `xmlrpc:"color,omitempty"`
+	CommercialPartnerId             *Many2One   `xmlrpc:"commercial_partner_id,omitempty"`
 	CompanyCurrency                 *Many2One   `xmlrpc:"company_currency,omitempty"`
 	CompanyId                       *Many2One   `xmlrpc:"company_id,omitempty"`
 	ContactName                     *String     `xmlrpc:"contact_name,omitempty"`
@@ -50,6 +51,7 @@ type CrmLead struct {
 	IsAutomatedProbability          *Bool       `xmlrpc:"is_automated_probability,omitempty"`
 	IsBlacklisted                   *Bool       `xmlrpc:"is_blacklisted,omitempty"`
 	IsPartnerVisible                *Bool       `xmlrpc:"is_partner_visible,omitempty"`
+	IsRotting                       *Bool       `xmlrpc:"is_rotting,omitempty"`
 	LangActiveCount                 *Int        `xmlrpc:"lang_active_count,omitempty"`
 	LangCode                        *String     `xmlrpc:"lang_code,omitempty"`
 	LangId                          *Many2One   `xmlrpc:"lang_id,omitempty"`
@@ -71,11 +73,10 @@ type CrmLead struct {
 	MessageNeedaction               *Bool       `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter        *Int        `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds               *Relation   `xmlrpc:"message_partner_ids,omitempty"`
-	Mobile                          *String     `xmlrpc:"mobile,omitempty"`
-	MobileBlacklisted               *Bool       `xmlrpc:"mobile_blacklisted,omitempty"`
 	MyActivityDateDeadline          *Time       `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                            *String     `xmlrpc:"name,omitempty"`
 	OrderIds                        *Relation   `xmlrpc:"order_ids,omitempty"`
+	OriginChannelId                 *Many2One   `xmlrpc:"origin_channel_id,omitempty"`
 	PartnerEmailUpdate              *Bool       `xmlrpc:"partner_email_update,omitempty"`
 	PartnerId                       *Many2One   `xmlrpc:"partner_id,omitempty"`
 	PartnerIsBlacklisted            *Bool       `xmlrpc:"partner_is_blacklisted,omitempty"`
@@ -99,22 +100,24 @@ type CrmLead struct {
 	RecurringRevenueProrated        *Float      `xmlrpc:"recurring_revenue_prorated,omitempty"`
 	Referred                        *String     `xmlrpc:"referred,omitempty"`
 	RevealId                        *String     `xmlrpc:"reveal_id,omitempty"`
+	RottingDays                     *Int        `xmlrpc:"rotting_days,omitempty"`
 	SaleAmountTotal                 *Float      `xmlrpc:"sale_amount_total,omitempty"`
 	SaleOrderCount                  *Int        `xmlrpc:"sale_order_count,omitempty"`
 	ShowEnrichButton                *Bool       `xmlrpc:"show_enrich_button,omitempty"`
 	SourceId                        *Many2One   `xmlrpc:"source_id,omitempty"`
 	StageId                         *Many2One   `xmlrpc:"stage_id,omitempty"`
+	StageIdColor                    *Int        `xmlrpc:"stage_id_color,omitempty"`
 	StateId                         *Many2One   `xmlrpc:"state_id,omitempty"`
 	Street                          *String     `xmlrpc:"street,omitempty"`
 	Street2                         *String     `xmlrpc:"street2,omitempty"`
 	TagIds                          *Relation   `xmlrpc:"tag_ids,omitempty"`
 	TeamId                          *Many2One   `xmlrpc:"team_id,omitempty"`
-	Title                           *Many2One   `xmlrpc:"title,omitempty"`
 	Type                            *Selection  `xmlrpc:"type,omitempty"`
 	UserCompanyIds                  *Relation   `xmlrpc:"user_company_ids,omitempty"`
 	UserId                          *Many2One   `xmlrpc:"user_id,omitempty"`
 	Website                         *String     `xmlrpc:"website,omitempty"`
 	WebsiteMessageIds               *Relation   `xmlrpc:"website_message_ids,omitempty"`
+	WonStatus                       *Selection  `xmlrpc:"won_status,omitempty"`
 	WriteDate                       *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                        *Many2One   `xmlrpc:"write_uid,omitempty"`
 	Zip                             *String     `xmlrpc:"zip,omitempty"`

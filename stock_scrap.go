@@ -2,6 +2,7 @@ package odoo
 
 // StockScrap represents stock.scrap model.
 type StockScrap struct {
+	AllowedUomIds            *Relation  `xmlrpc:"allowed_uom_ids,omitempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -28,7 +29,6 @@ type StockScrap struct {
 	PackageId                *Many2One  `xmlrpc:"package_id,omitempty"`
 	PickingId                *Many2One  `xmlrpc:"picking_id,omitempty"`
 	ProductId                *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductUomCategoryId     *Many2One  `xmlrpc:"product_uom_category_id,omitempty"`
 	ProductUomId             *Many2One  `xmlrpc:"product_uom_id,omitempty"`
 	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
 	ScrapLocationId          *Many2One  `xmlrpc:"scrap_location_id,omitempty"`

@@ -2,15 +2,17 @@ package odoo
 
 // ResCountryGroup represents res.country.group model.
 type ResCountryGroup struct {
-	CountryIds   *Relation `xmlrpc:"country_ids,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	Name         *String   `xmlrpc:"name,omitempty"`
-	PricelistIds *Relation `xmlrpc:"pricelist_ids,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	Code            *String   `xmlrpc:"code,omitempty"`
+	CountryIds      *Relation `xmlrpc:"country_ids,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	ExcludeStateIds *Relation `xmlrpc:"exclude_state_ids,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	Name            *String   `xmlrpc:"name,omitempty"`
+	PricelistIds    *Relation `xmlrpc:"pricelist_ids,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResCountryGroups represents array of res.country.group model.

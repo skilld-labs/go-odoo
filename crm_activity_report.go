@@ -23,6 +23,7 @@ type CrmActivityReport struct {
 	TagIds             *Relation  `xmlrpc:"tag_ids,omitempty"`
 	TeamId             *Many2One  `xmlrpc:"team_id,omitempty"`
 	UserId             *Many2One  `xmlrpc:"user_id,omitempty"`
+	WonStatus          *Selection `xmlrpc:"won_status,omitempty"`
 }
 
 // CrmActivityReports represents array of crm.activity.report model.

@@ -3,6 +3,7 @@ package odoo
 // HrEmployee represents hr.employee model.
 type HrEmployee struct {
 	Active                      *Bool       `xmlrpc:"active,omitempty"`
+	ActiveEmployee              *Bool       `xmlrpc:"active_employee,omitempty"`
 	ActivityCalendarEventId     *Many2One   `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline        *Time       `xmlrpc:"activity_date_deadline,omitempty"`
 	ActivityExceptionDecoration *Selection  `xmlrpc:"activity_exception_decoration,omitempty"`
@@ -19,16 +20,20 @@ type HrEmployee struct {
 	AllocationDisplay           *String     `xmlrpc:"allocation_display,omitempty"`
 	AllocationRemainingDisplay  *String     `xmlrpc:"allocation_remaining_display,omitempty"`
 	AllocationsCount            *Int        `xmlrpc:"allocations_count,omitempty"`
+	AllowedCountryStateIds      *Relation   `xmlrpc:"allowed_country_state_ids,omitempty"`
 	Avatar1024                  *String     `xmlrpc:"avatar_1024,omitempty"`
 	Avatar128                   *String     `xmlrpc:"avatar_128,omitempty"`
 	Avatar1920                  *String     `xmlrpc:"avatar_1920,omitempty"`
 	Avatar256                   *String     `xmlrpc:"avatar_256,omitempty"`
 	Avatar512                   *String     `xmlrpc:"avatar_512,omitempty"`
-	BankAccountId               *Many2One   `xmlrpc:"bank_account_id,omitempty"`
+	BankAccountIds              *Relation   `xmlrpc:"bank_account_ids,omitempty"`
 	Barcode                     *String     `xmlrpc:"barcode,omitempty"`
 	Birthday                    *Time       `xmlrpc:"birthday,omitempty"`
+	BirthdayPublicDisplay       *Bool       `xmlrpc:"birthday_public_display,omitempty"`
+	BirthdayPublicDisplayString *String     `xmlrpc:"birthday_public_display_string,omitempty"`
 	CategoryIds                 *Relation   `xmlrpc:"category_ids,omitempty"`
 	Certificate                 *Selection  `xmlrpc:"certificate,omitempty"`
+	CertificationIds            *Relation   `xmlrpc:"certification_ids,omitempty"`
 	ChildAllCount               *Int        `xmlrpc:"child_all_count,omitempty"`
 	ChildCount                  *Int        `xmlrpc:"child_count,omitempty"`
 	ChildIds                    *Relation   `xmlrpc:"child_ids,omitempty"`
@@ -38,18 +43,31 @@ type HrEmployee struct {
 	CompanyCountryCode          *String     `xmlrpc:"company_country_code,omitempty"`
 	CompanyCountryId            *Many2One   `xmlrpc:"company_country_id,omitempty"`
 	CompanyId                   *Many2One   `xmlrpc:"company_id,omitempty"`
+	ContractDateEnd             *Time       `xmlrpc:"contract_date_end,omitempty"`
+	ContractDateStart           *Time       `xmlrpc:"contract_date_start,omitempty"`
+	ContractTemplateId          *Many2One   `xmlrpc:"contract_template_id,omitempty"`
+	ContractTypeId              *Many2One   `xmlrpc:"contract_type_id,omitempty"`
+	ContractWage                *Float      `xmlrpc:"contract_wage,omitempty"`
+	CountryCode                 *String     `xmlrpc:"country_code,omitempty"`
 	CountryId                   *Many2One   `xmlrpc:"country_id,omitempty"`
 	CountryOfBirth              *Many2One   `xmlrpc:"country_of_birth,omitempty"`
 	CreateDate                  *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                   *Many2One   `xmlrpc:"create_uid,omitempty"`
 	CurrencyId                  *Many2One   `xmlrpc:"currency_id,omitempty"`
+	CurrentDateVersion          *Time       `xmlrpc:"current_date_version,omitempty"`
+	CurrentEmployeeSkillIds     *Relation   `xmlrpc:"current_employee_skill_ids,omitempty"`
 	CurrentLeaveId              *Many2One   `xmlrpc:"current_leave_id,omitempty"`
 	CurrentLeaveState           *Selection  `xmlrpc:"current_leave_state,omitempty"`
+	CurrentVersionId            *Many2One   `xmlrpc:"current_version_id,omitempty"`
+	DateEnd                     *Time       `xmlrpc:"date_end,omitempty"`
+	DateStart                   *Time       `xmlrpc:"date_start,omitempty"`
+	DateVersion                 *Time       `xmlrpc:"date_version,omitempty"`
 	DepartmentColor             *Int        `xmlrpc:"department_color,omitempty"`
 	DepartmentId                *Many2One   `xmlrpc:"department_id,omitempty"`
 	DepartureDate               *Time       `xmlrpc:"departure_date,omitempty"`
 	DepartureDescription        *String     `xmlrpc:"departure_description,omitempty"`
 	DepartureReasonId           *Many2One   `xmlrpc:"departure_reason_id,omitempty"`
+	DisplayCertificationPage    *Bool       `xmlrpc:"display_certification_page,omitempty"`
 	DisplayName                 *String     `xmlrpc:"display_name,omitempty"`
 	DistanceHomeWork            *Int        `xmlrpc:"distance_home_work,omitempty"`
 	DistanceHomeWorkUnit        *Selection  `xmlrpc:"distance_home_work_unit,omitempty"`
@@ -57,16 +75,20 @@ type HrEmployee struct {
 	Email                       *String     `xmlrpc:"email,omitempty"`
 	EmergencyContact            *String     `xmlrpc:"emergency_contact,omitempty"`
 	EmergencyPhone              *String     `xmlrpc:"emergency_phone,omitempty"`
+	EmployeeId                  *Many2One   `xmlrpc:"employee_id,omitempty"`
 	EmployeeProperties          interface{} `xmlrpc:"employee_properties,omitempty"`
 	EmployeeSkillIds            *Relation   `xmlrpc:"employee_skill_ids,omitempty"`
 	EmployeeType                *Selection  `xmlrpc:"employee_type,omitempty"`
-	Gender                      *Selection  `xmlrpc:"gender,omitempty"`
+	ExceptionalLocationId       *Many2One   `xmlrpc:"exceptional_location_id,omitempty"`
+	FridayLocationId            *Many2One   `xmlrpc:"friday_location_id,omitempty"`
 	HasMessage                  *Bool       `xmlrpc:"has_message,omitempty"`
+	HasMultipleBankAccounts     *Bool       `xmlrpc:"has_multiple_bank_accounts,omitempty"`
 	HasTimesheet                *Bool       `xmlrpc:"has_timesheet,omitempty"`
 	HasWorkPermit               *String     `xmlrpc:"has_work_permit,omitempty"`
 	HourlyCost                  *Float      `xmlrpc:"hourly_cost,omitempty"`
 	HrIconDisplay               *Selection  `xmlrpc:"hr_icon_display,omitempty"`
 	HrPresenceState             *Selection  `xmlrpc:"hr_presence_state,omitempty"`
+	HrResponsibleId             *Many2One   `xmlrpc:"hr_responsible_id,omitempty"`
 	Id                          *Int        `xmlrpc:"id,omitempty"`
 	IdCard                      *String     `xmlrpc:"id_card,omitempty"`
 	IdentificationId            *String     `xmlrpc:"identification_id,omitempty"`
@@ -77,19 +99,28 @@ type HrEmployee struct {
 	Image256                    *String     `xmlrpc:"image_256,omitempty"`
 	Image512                    *String     `xmlrpc:"image_512,omitempty"`
 	IsAbsent                    *Bool       `xmlrpc:"is_absent,omitempty"`
+	IsCurrent                   *Bool       `xmlrpc:"is_current,omitempty"`
+	IsCustomJobTitle            *Bool       `xmlrpc:"is_custom_job_title,omitempty"`
 	IsFlexible                  *Bool       `xmlrpc:"is_flexible,omitempty"`
 	IsFullyFlexible             *Bool       `xmlrpc:"is_fully_flexible,omitempty"`
+	IsFuture                    *Bool       `xmlrpc:"is_future,omitempty"`
+	IsInContract                *Bool       `xmlrpc:"is_in_contract,omitempty"`
+	IsPast                      *Bool       `xmlrpc:"is_past,omitempty"`
 	IsSubordinate               *Bool       `xmlrpc:"is_subordinate,omitempty"`
+	IsTrustedBankAccount        *Bool       `xmlrpc:"is_trusted_bank_account,omitempty"`
+	IsUserActive                *Bool       `xmlrpc:"is_user_active,omitempty"`
 	JobId                       *Many2One   `xmlrpc:"job_id,omitempty"`
 	JobTitle                    *String     `xmlrpc:"job_title,omitempty"`
 	KmHomeWork                  *Int        `xmlrpc:"km_home_work,omitempty"`
 	Lang                        *Selection  `xmlrpc:"lang,omitempty"`
 	LastActivity                *Time       `xmlrpc:"last_activity,omitempty"`
 	LastActivityTime            *String     `xmlrpc:"last_activity_time,omitempty"`
+	LastModifiedDate            *Time       `xmlrpc:"last_modified_date,omitempty"`
+	LastModifiedUid             *Many2One   `xmlrpc:"last_modified_uid,omitempty"`
 	LeaveDateFrom               *Time       `xmlrpc:"leave_date_from,omitempty"`
 	LeaveDateTo                 *Time       `xmlrpc:"leave_date_to,omitempty"`
 	LeaveManagerId              *Many2One   `xmlrpc:"leave_manager_id,omitempty"`
-	LeavesCount                 *Float      `xmlrpc:"leaves_count,omitempty"`
+	LegalName                   *String     `xmlrpc:"legal_name,omitempty"`
 	Marital                     *Selection  `xmlrpc:"marital,omitempty"`
 	MemberOfDepartment          *Bool       `xmlrpc:"member_of_department,omitempty"`
 	MessageAttachmentCount      *Int        `xmlrpc:"message_attachment_count,omitempty"`
@@ -104,16 +135,18 @@ type HrEmployee struct {
 	MessageNeedactionCounter    *Int        `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds           *Relation   `xmlrpc:"message_partner_ids,omitempty"`
 	MobilePhone                 *String     `xmlrpc:"mobile_phone,omitempty"`
+	MondayLocationId            *Many2One   `xmlrpc:"monday_location_id,omitempty"`
 	MyActivityDateDeadline      *Time       `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                        *String     `xmlrpc:"name,omitempty"`
 	NewlyHired                  *Bool       `xmlrpc:"newly_hired,omitempty"`
-	Notes                       *String     `xmlrpc:"notes,omitempty"`
 	ParentId                    *Many2One   `xmlrpc:"parent_id,omitempty"`
+	PassportExpirationDate      *Time       `xmlrpc:"passport_expiration_date,omitempty"`
 	PassportId                  *String     `xmlrpc:"passport_id,omitempty"`
 	PermitNo                    *String     `xmlrpc:"permit_no,omitempty"`
 	Phone                       *String     `xmlrpc:"phone,omitempty"`
 	Pin                         *String     `xmlrpc:"pin,omitempty"`
 	PlaceOfBirth                *String     `xmlrpc:"place_of_birth,omitempty"`
+	PrimaryBankAccountId        *Many2One   `xmlrpc:"primary_bank_account_id,omitempty"`
 	PrivateCarPlate             *String     `xmlrpc:"private_car_plate,omitempty"`
 	PrivateCity                 *String     `xmlrpc:"private_city,omitempty"`
 	PrivateCountryId            *Many2One   `xmlrpc:"private_country_id,omitempty"`
@@ -125,27 +158,40 @@ type HrEmployee struct {
 	PrivateZip                  *String     `xmlrpc:"private_zip,omitempty"`
 	RatingIds                   *Relation   `xmlrpc:"rating_ids,omitempty"`
 	RelatedPartnersCount        *Int        `xmlrpc:"related_partners_count,omitempty"`
-	RemainingLeaves             *Float      `xmlrpc:"remaining_leaves,omitempty"`
 	ResourceCalendarId          *Many2One   `xmlrpc:"resource_calendar_id,omitempty"`
 	ResourceId                  *Many2One   `xmlrpc:"resource_id,omitempty"`
 	ResumeLineIds               *Relation   `xmlrpc:"resume_line_ids,omitempty"`
+	SalaryDistribution          interface{} `xmlrpc:"salary_distribution,omitempty"`
+	SaturdayLocationId          *Many2One   `xmlrpc:"saturday_location_id,omitempty"`
+	Sex                         *Selection  `xmlrpc:"sex,omitempty"`
 	Share                       *Bool       `xmlrpc:"share,omitempty"`
 	ShowHrIconDisplay           *Bool       `xmlrpc:"show_hr_icon_display,omitempty"`
 	ShowLeaves                  *Bool       `xmlrpc:"show_leaves,omitempty"`
-	Sinid                       *String     `xmlrpc:"sinid,omitempty"`
 	SkillIds                    *Relation   `xmlrpc:"skill_ids,omitempty"`
 	SpouseBirthdate             *Time       `xmlrpc:"spouse_birthdate,omitempty"`
 	SpouseCompleteName          *String     `xmlrpc:"spouse_complete_name,omitempty"`
 	Ssnid                       *String     `xmlrpc:"ssnid,omitempty"`
+	StructureTypeId             *Many2One   `xmlrpc:"structure_type_id,omitempty"`
 	StudyField                  *String     `xmlrpc:"study_field,omitempty"`
 	StudySchool                 *String     `xmlrpc:"study_school,omitempty"`
 	SubordinateIds              *Relation   `xmlrpc:"subordinate_ids,omitempty"`
+	SundayLocationId            *Many2One   `xmlrpc:"sunday_location_id,omitempty"`
+	ThursdayLocationId          *Many2One   `xmlrpc:"thursday_location_id,omitempty"`
+	TodayLocationName           *String     `xmlrpc:"today_location_name,omitempty"`
+	TrialDateEnd                *Time       `xmlrpc:"trial_date_end,omitempty"`
+	TuesdayLocationId           *Many2One   `xmlrpc:"tuesday_location_id,omitempty"`
 	Tz                          *Selection  `xmlrpc:"tz,omitempty"`
 	UserId                      *Many2One   `xmlrpc:"user_id,omitempty"`
 	UserPartnerId               *Many2One   `xmlrpc:"user_partner_id,omitempty"`
+	VersionId                   *Many2One   `xmlrpc:"version_id,omitempty"`
+	VersionIds                  *Relation   `xmlrpc:"version_ids,omitempty"`
+	VersionRevision             *String     `xmlrpc:"version_revision,omitempty"`
+	VersionsCount               *Int        `xmlrpc:"versions_count,omitempty"`
 	VisaExpire                  *Time       `xmlrpc:"visa_expire,omitempty"`
 	VisaNo                      *String     `xmlrpc:"visa_no,omitempty"`
+	Wage                        *Float      `xmlrpc:"wage,omitempty"`
 	WebsiteMessageIds           *Relation   `xmlrpc:"website_message_ids,omitempty"`
+	WednesdayLocationId         *Many2One   `xmlrpc:"wednesday_location_id,omitempty"`
 	WorkContactId               *Many2One   `xmlrpc:"work_contact_id,omitempty"`
 	WorkEmail                   *String     `xmlrpc:"work_email,omitempty"`
 	WorkLocationId              *Many2One   `xmlrpc:"work_location_id,omitempty"`

@@ -2,21 +2,21 @@ package odoo
 
 // CalendarAlarm represents calendar.alarm model.
 type CalendarAlarm struct {
-	AlarmType            *Selection `xmlrpc:"alarm_type,omitempty"`
-	Body                 *String    `xmlrpc:"body,omitempty"`
-	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
-	Duration             *Int       `xmlrpc:"duration,omitempty"`
-	DurationMinutes      *Int       `xmlrpc:"duration_minutes,omitempty"`
-	Id                   *Int       `xmlrpc:"id,omitempty"`
-	Interval             *Selection `xmlrpc:"interval,omitempty"`
-	MailTemplateId       *Many2One  `xmlrpc:"mail_template_id,omitempty"`
-	Name                 *String    `xmlrpc:"name,omitempty"`
-	SmsNotifyResponsible *Bool      `xmlrpc:"sms_notify_responsible,omitempty"`
-	SmsTemplateId        *Many2One  `xmlrpc:"sms_template_id,omitempty"`
-	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AlarmType         *Selection `xmlrpc:"alarm_type,omitempty"`
+	Body              *String    `xmlrpc:"body,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Duration          *Int       `xmlrpc:"duration,omitempty"`
+	DurationMinutes   *Int       `xmlrpc:"duration_minutes,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	Interval          *Selection `xmlrpc:"interval,omitempty"`
+	MailTemplateId    *Many2One  `xmlrpc:"mail_template_id,omitempty"`
+	Name              *String    `xmlrpc:"name,omitempty"`
+	NotifyResponsible *Bool      `xmlrpc:"notify_responsible,omitempty"`
+	SmsTemplateId     *Many2One  `xmlrpc:"sms_template_id,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarAlarms represents array of calendar.alarm model.

@@ -16,7 +16,7 @@ type IrFilters struct {
 	ModelId             *Selection `xmlrpc:"model_id,omitempty"`
 	Name                *String    `xmlrpc:"name,omitempty"`
 	Sort                *String    `xmlrpc:"sort,omitempty"`
-	UserId              *Many2One  `xmlrpc:"user_id,omitempty"`
+	UserIds             *Relation  `xmlrpc:"user_ids,omitempty"`
 	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

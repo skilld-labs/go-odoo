@@ -2,19 +2,29 @@ package odoo
 
 // HrResumeLine represents hr.resume.line model.
 type HrResumeLine struct {
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateEnd     *Time      `xmlrpc:"date_end,omitempty"`
-	DateStart   *Time      `xmlrpc:"date_start,omitempty"`
-	Description *String    `xmlrpc:"description,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	DisplayType *Selection `xmlrpc:"display_type,omitempty"`
-	EmployeeId  *Many2One  `xmlrpc:"employee_id,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	LineTypeId  *Many2One  `xmlrpc:"line_type_id,omitempty"`
-	Name        *String    `xmlrpc:"name,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Avatar128            *String     `xmlrpc:"avatar_128,omitempty"`
+	CertificateFile      *String     `xmlrpc:"certificate_file,omitempty"`
+	CertificateFilename  *String     `xmlrpc:"certificate_filename,omitempty"`
+	Color                *String     `xmlrpc:"color,omitempty"`
+	CompanyId            *Many2One   `xmlrpc:"company_id,omitempty"`
+	CourseType           *Selection  `xmlrpc:"course_type,omitempty"`
+	CreateDate           *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DateEnd              *Time       `xmlrpc:"date_end,omitempty"`
+	DateStart            *Time       `xmlrpc:"date_start,omitempty"`
+	DepartmentId         *Many2One   `xmlrpc:"department_id,omitempty"`
+	Description          *String     `xmlrpc:"description,omitempty"`
+	DisplayName          *String     `xmlrpc:"display_name,omitempty"`
+	Duration             *Int        `xmlrpc:"duration,omitempty"`
+	EmployeeId           *Many2One   `xmlrpc:"employee_id,omitempty"`
+	ExternalUrl          *String     `xmlrpc:"external_url,omitempty"`
+	Id                   *Int        `xmlrpc:"id,omitempty"`
+	IsCourse             *Bool       `xmlrpc:"is_course,omitempty"`
+	LineTypeId           *Many2One   `xmlrpc:"line_type_id,omitempty"`
+	Name                 *String     `xmlrpc:"name,omitempty"`
+	ResumeLineProperties interface{} `xmlrpc:"resume_line_properties,omitempty"`
+	WriteDate            *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrResumeLines represents array of hr.resume.line model.

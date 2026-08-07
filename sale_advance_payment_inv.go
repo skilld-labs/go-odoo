@@ -2,29 +2,27 @@ package odoo
 
 // SaleAdvancePaymentInv represents sale.advance.payment.inv model.
 type SaleAdvancePaymentInv struct {
-	AdvancePaymentMethod        *Selection `xmlrpc:"advance_payment_method,omitempty"`
-	Amount                      *Float     `xmlrpc:"amount,omitempty"`
-	AmountInvoiced              *Float     `xmlrpc:"amount_invoiced,omitempty"`
-	AmountToInvoice             *Float     `xmlrpc:"amount_to_invoice,omitempty"`
-	CompanyId                   *Many2One  `xmlrpc:"company_id,omitempty"`
-	ConsolidatedBilling         *Bool      `xmlrpc:"consolidated_billing,omitempty"`
-	Count                       *Int       `xmlrpc:"count,omitempty"`
-	CreateDate                  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid                   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId                  *Many2One  `xmlrpc:"currency_id,omitempty"`
-	DateEndInvoiceTimesheet     *Time      `xmlrpc:"date_end_invoice_timesheet,omitempty"`
-	DateStartInvoiceTimesheet   *Time      `xmlrpc:"date_start_invoice_timesheet,omitempty"`
-	DeductDownPayments          *Bool      `xmlrpc:"deduct_down_payments,omitempty"`
-	DisplayDraftInvoiceWarning  *Bool      `xmlrpc:"display_draft_invoice_warning,omitempty"`
-	DisplayInvoiceAmountWarning *Bool      `xmlrpc:"display_invoice_amount_warning,omitempty"`
-	DisplayName                 *String    `xmlrpc:"display_name,omitempty"`
-	FixedAmount                 *Float     `xmlrpc:"fixed_amount,omitempty"`
-	HasDownPayments             *Bool      `xmlrpc:"has_down_payments,omitempty"`
-	Id                          *Int       `xmlrpc:"id,omitempty"`
-	InvoicingTimesheetEnabled   *Bool      `xmlrpc:"invoicing_timesheet_enabled,omitempty"`
-	SaleOrderIds                *Relation  `xmlrpc:"sale_order_ids,omitempty"`
-	WriteDate                   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid                    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AdvancePaymentMethod       *Selection `xmlrpc:"advance_payment_method,omitempty"`
+	Amount                     *Float     `xmlrpc:"amount,omitempty"`
+	AmountInvoiced             *Float     `xmlrpc:"amount_invoiced,omitempty"`
+	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
+	ConsolidatedBilling        *Bool      `xmlrpc:"consolidated_billing,omitempty"`
+	Count                      *Int       `xmlrpc:"count,omitempty"`
+	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId                 *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DateEndInvoiceTimesheet    *Time      `xmlrpc:"date_end_invoice_timesheet,omitempty"`
+	DateStartInvoiceTimesheet  *Time      `xmlrpc:"date_start_invoice_timesheet,omitempty"`
+	DeductDownPayments         *Bool      `xmlrpc:"deduct_down_payments,omitempty"`
+	DisplayDraftInvoiceWarning *Bool      `xmlrpc:"display_draft_invoice_warning,omitempty"`
+	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
+	FixedAmount                *Float     `xmlrpc:"fixed_amount,omitempty"`
+	HasDownPayments            *Bool      `xmlrpc:"has_down_payments,omitempty"`
+	Id                         *Int       `xmlrpc:"id,omitempty"`
+	InvoicingTimesheetEnabled  *Bool      `xmlrpc:"invoicing_timesheet_enabled,omitempty"`
+	SaleOrderIds               *Relation  `xmlrpc:"sale_order_ids,omitempty"`
+	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                   *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // SaleAdvancePaymentInvs represents array of sale.advance.payment.inv model.

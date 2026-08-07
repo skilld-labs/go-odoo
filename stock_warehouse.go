@@ -9,7 +9,6 @@ type StockWarehouse struct {
 	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CrossdockRouteId   *Many2One  `xmlrpc:"crossdock_route_id,omitempty"`
 	DeliveryRouteId    *Many2One  `xmlrpc:"delivery_route_id,omitempty"`
 	DeliverySteps      *Selection `xmlrpc:"delivery_steps,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`

@@ -17,6 +17,7 @@ type PaymentMethod struct {
 	ProviderIds            *Relation  `xmlrpc:"provider_ids,omitempty"`
 	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
 	SupportExpressCheckout *Bool      `xmlrpc:"support_express_checkout,omitempty"`
+	SupportManualCapture   *Selection `xmlrpc:"support_manual_capture,omitempty"`
 	SupportRefund          *Selection `xmlrpc:"support_refund,omitempty"`
 	SupportTokenization    *Bool      `xmlrpc:"support_tokenization,omitempty"`
 	SupportedCountryIds    *Relation  `xmlrpc:"supported_country_ids,omitempty"`

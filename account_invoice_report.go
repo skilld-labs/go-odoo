@@ -25,6 +25,7 @@ type AccountInvoiceReport struct {
 	PriceSubtotal         *Float     `xmlrpc:"price_subtotal,omitempty"`
 	PriceSubtotalCurrency *Float     `xmlrpc:"price_subtotal_currency,omitempty"`
 	PriceTotal            *Float     `xmlrpc:"price_total,omitempty"`
+	PriceTotalCurrency    *Float     `xmlrpc:"price_total_currency,omitempty"`
 	ProductCategId        *Many2One  `xmlrpc:"product_categ_id,omitempty"`
 	ProductId             *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductUomId          *Many2One  `xmlrpc:"product_uom_id,omitempty"`

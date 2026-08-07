@@ -2,30 +2,42 @@ package odoo
 
 // ImLivechatReportChannel represents im_livechat.report.channel model.
 type ImLivechatReportChannel struct {
-	ChannelId         *Many2One `xmlrpc:"channel_id,omitempty"`
-	ChannelName       *String   `xmlrpc:"channel_name,omitempty"`
-	CountryId         *Many2One `xmlrpc:"country_id,omitempty"`
-	DayNumber         *String   `xmlrpc:"day_number,omitempty"`
-	DaysOfActivity    *Int      `xmlrpc:"days_of_activity,omitempty"`
-	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
-	Duration          *Float    `xmlrpc:"duration,omitempty"`
-	Id                *Int      `xmlrpc:"id,omitempty"`
-	IsAnonymous       *Int      `xmlrpc:"is_anonymous,omitempty"`
-	IsHappy           *Int      `xmlrpc:"is_happy,omitempty"`
-	IsUnrated         *Int      `xmlrpc:"is_unrated,omitempty"`
-	IsWithoutAnswer   *Int      `xmlrpc:"is_without_answer,omitempty"`
-	LivechatChannelId *Many2One `xmlrpc:"livechat_channel_id,omitempty"`
-	NbrMessage        *Int      `xmlrpc:"nbr_message,omitempty"`
-	NbrSpeaker        *Int      `xmlrpc:"nbr_speaker,omitempty"`
-	PartnerId         *Many2One `xmlrpc:"partner_id,omitempty"`
-	Rating            *Int      `xmlrpc:"rating,omitempty"`
-	RatingText        *String   `xmlrpc:"rating_text,omitempty"`
-	StartDate         *Time     `xmlrpc:"start_date,omitempty"`
-	StartDateHour     *String   `xmlrpc:"start_date_hour,omitempty"`
-	StartHour         *String   `xmlrpc:"start_hour,omitempty"`
-	TechnicalName     *String   `xmlrpc:"technical_name,omitempty"`
-	TimeToAnswer      *Float    `xmlrpc:"time_to_answer,omitempty"`
-	Uuid              *String   `xmlrpc:"uuid,omitempty"`
+	AgentProvidingHelpHistory  *Many2One  `xmlrpc:"agent_providing_help_history,omitempty"`
+	AgentRequestingHelpHistory *Many2One  `xmlrpc:"agent_requesting_help_history,omitempty"`
+	CallDurationHour           *Float     `xmlrpc:"call_duration_hour,omitempty"`
+	ChannelId                  *Many2One  `xmlrpc:"channel_id,omitempty"`
+	ChannelName                *String    `xmlrpc:"channel_name,omitempty"`
+	ChatbotAnswersPath         *String    `xmlrpc:"chatbot_answers_path,omitempty"`
+	ChatbotAnswersPathStr      *String    `xmlrpc:"chatbot_answers_path_str,omitempty"`
+	ChatbotScriptId            *Many2One  `xmlrpc:"chatbot_script_id,omitempty"`
+	ConversationTagIds         *Relation  `xmlrpc:"conversation_tag_ids,omitempty"`
+	CountryId                  *Many2One  `xmlrpc:"country_id,omitempty"`
+	DayNumber                  *Selection `xmlrpc:"day_number,omitempty"`
+	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
+	Duration                   *Float     `xmlrpc:"duration,omitempty"`
+	HandledByAgent             *Int       `xmlrpc:"handled_by_agent,omitempty"`
+	HandledByBot               *Int       `xmlrpc:"handled_by_bot,omitempty"`
+	HasCall                    *Float     `xmlrpc:"has_call,omitempty"`
+	Id                         *Int       `xmlrpc:"id,omitempty"`
+	LangId                     *Many2One  `xmlrpc:"lang_id,omitempty"`
+	LeadsCreated               *Int       `xmlrpc:"leads_created,omitempty"`
+	LivechatChannelId          *Many2One  `xmlrpc:"livechat_channel_id,omitempty"`
+	NbrMessage                 *Int       `xmlrpc:"nbr_message,omitempty"`
+	NumberOfCalls              *Float     `xmlrpc:"number_of_calls,omitempty"`
+	PartnerId                  *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PercentageOfCalls          *Float     `xmlrpc:"percentage_of_calls,omitempty"`
+	Rating                     *Int       `xmlrpc:"rating,omitempty"`
+	RatingText                 *String    `xmlrpc:"rating_text,omitempty"`
+	SessionExpertiseIds        *Relation  `xmlrpc:"session_expertise_ids,omitempty"`
+	SessionExpertises          *String    `xmlrpc:"session_expertises,omitempty"`
+	SessionOutcome             *Selection `xmlrpc:"session_outcome,omitempty"`
+	StartDate                  *Time      `xmlrpc:"start_date,omitempty"`
+	StartDateHour              *String    `xmlrpc:"start_date_hour,omitempty"`
+	StartDateMinutes           *String    `xmlrpc:"start_date_minutes,omitempty"`
+	StartHour                  *String    `xmlrpc:"start_hour,omitempty"`
+	TimeToAnswer               *Float     `xmlrpc:"time_to_answer,omitempty"`
+	Uuid                       *String    `xmlrpc:"uuid,omitempty"`
+	VisitorPartnerId           *Many2One  `xmlrpc:"visitor_partner_id,omitempty"`
 }
 
 // ImLivechatReportChannels represents array of im_livechat.report.channel model.

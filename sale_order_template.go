@@ -2,26 +2,25 @@ package odoo
 
 // SaleOrderTemplate represents sale.order.template model.
 type SaleOrderTemplate struct {
-	Active                     *Bool     `xmlrpc:"active,omitempty"`
-	CompanyId                  *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate                 *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid                  *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName                *String   `xmlrpc:"display_name,omitempty"`
-	Id                         *Int      `xmlrpc:"id,omitempty"`
-	JournalId                  *Many2One `xmlrpc:"journal_id,omitempty"`
-	MailTemplateId             *Many2One `xmlrpc:"mail_template_id,omitempty"`
-	Name                       *String   `xmlrpc:"name,omitempty"`
-	Note                       *String   `xmlrpc:"note,omitempty"`
-	NumberOfDays               *Int      `xmlrpc:"number_of_days,omitempty"`
-	PrepaymentPercent          *Float    `xmlrpc:"prepayment_percent,omitempty"`
-	QuotationDocumentIds       *Relation `xmlrpc:"quotation_document_ids,omitempty"`
-	RequirePayment             *Bool     `xmlrpc:"require_payment,omitempty"`
-	RequireSignature           *Bool     `xmlrpc:"require_signature,omitempty"`
-	SaleOrderTemplateLineIds   *Relation `xmlrpc:"sale_order_template_line_ids,omitempty"`
-	SaleOrderTemplateOptionIds *Relation `xmlrpc:"sale_order_template_option_ids,omitempty"`
-	Sequence                   *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate                  *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid                   *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                   *Bool     `xmlrpc:"active,omitempty"`
+	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	JournalId                *Many2One `xmlrpc:"journal_id,omitempty"`
+	MailTemplateId           *Many2One `xmlrpc:"mail_template_id,omitempty"`
+	Name                     *String   `xmlrpc:"name,omitempty"`
+	Note                     *String   `xmlrpc:"note,omitempty"`
+	NumberOfDays             *Int      `xmlrpc:"number_of_days,omitempty"`
+	PrepaymentPercent        *Float    `xmlrpc:"prepayment_percent,omitempty"`
+	QuotationDocumentIds     *Relation `xmlrpc:"quotation_document_ids,omitempty"`
+	RequirePayment           *Bool     `xmlrpc:"require_payment,omitempty"`
+	RequireSignature         *Bool     `xmlrpc:"require_signature,omitempty"`
+	SaleOrderTemplateLineIds *Relation `xmlrpc:"sale_order_template_line_ids,omitempty"`
+	Sequence                 *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // SaleOrderTemplates represents array of sale.order.template model.

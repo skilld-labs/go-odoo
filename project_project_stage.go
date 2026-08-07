@@ -3,6 +3,7 @@ package odoo
 // ProjectProjectStage represents project.project.stage model.
 type ProjectProjectStage struct {
 	Active         *Bool     `xmlrpc:"active,omitempty"`
+	Color          *Int      `xmlrpc:"color,omitempty"`
 	CompanyId      *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`

@@ -5,19 +5,17 @@ type ResourceCalendarAttendance struct {
 	CalendarId       *Many2One  `xmlrpc:"calendar_id,omitempty"`
 	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DateFrom         *Time      `xmlrpc:"date_from,omitempty"`
-	DateTo           *Time      `xmlrpc:"date_to,omitempty"`
 	DayPeriod        *Selection `xmlrpc:"day_period,omitempty"`
 	Dayofweek        *Selection `xmlrpc:"dayofweek,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
 	DisplayType      *Selection `xmlrpc:"display_type,omitempty"`
+	DurationBased    *Bool      `xmlrpc:"duration_based,omitempty"`
 	DurationDays     *Float     `xmlrpc:"duration_days,omitempty"`
 	DurationHours    *Float     `xmlrpc:"duration_hours,omitempty"`
 	HourFrom         *Float     `xmlrpc:"hour_from,omitempty"`
 	HourTo           *Float     `xmlrpc:"hour_to,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
 	Name             *String    `xmlrpc:"name,omitempty"`
-	ResourceId       *Many2One  `xmlrpc:"resource_id,omitempty"`
 	Sequence         *Int       `xmlrpc:"sequence,omitempty"`
 	TwoWeeksCalendar *Bool      `xmlrpc:"two_weeks_calendar,omitempty"`
 	WeekType         *Selection `xmlrpc:"week_type,omitempty"`

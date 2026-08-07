@@ -2,8 +2,9 @@ package odoo
 
 // ResUsersApikeysShow represents res.users.apikeys.show model.
 type ResUsersApikeysShow struct {
-	Id  *Int    `xmlrpc:"id,omitempty"`
-	Key *String `xmlrpc:"key,omitempty"`
+	DisplayName *String `xmlrpc:"display_name,omitempty"`
+	Id          *Int    `xmlrpc:"id,omitempty"`
+	Key         *String `xmlrpc:"key,omitempty"`
 }
 
 // ResUsersApikeysShows represents array of res.users.apikeys.show model.

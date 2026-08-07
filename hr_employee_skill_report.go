@@ -9,6 +9,7 @@ type HrEmployeeSkillReport struct {
 	EmployeeId                 *Many2One `xmlrpc:"employee_id,omitempty"`
 	HasDepartmentManagerAccess *Bool     `xmlrpc:"has_department_manager_access,omitempty"`
 	Id                         *Int      `xmlrpc:"id,omitempty"`
+	JobId                      *Many2One `xmlrpc:"job_id,omitempty"`
 	LevelProgress              *Float    `xmlrpc:"level_progress,omitempty"`
 	SkillId                    *Many2One `xmlrpc:"skill_id,omitempty"`
 	SkillLevel                 *String   `xmlrpc:"skill_level,omitempty"`

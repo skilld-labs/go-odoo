@@ -2,17 +2,18 @@ package odoo
 
 // ChatbotMessage represents chatbot.message model.
 type ChatbotMessage struct {
-	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
-	DiscussChannelId   *Many2One `xmlrpc:"discuss_channel_id,omitempty"`
-	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
-	Id                 *Int      `xmlrpc:"id,omitempty"`
-	MailMessageId      *Many2One `xmlrpc:"mail_message_id,omitempty"`
-	ScriptStepId       *Many2One `xmlrpc:"script_step_id,omitempty"`
-	UserRawAnswer      *String   `xmlrpc:"user_raw_answer,omitempty"`
-	UserScriptAnswerId *Many2One `xmlrpc:"user_script_answer_id,omitempty"`
-	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	DiscussChannelId      *Many2One `xmlrpc:"discuss_channel_id,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	MailMessageId         *Many2One `xmlrpc:"mail_message_id,omitempty"`
+	ScriptStepId          *Many2One `xmlrpc:"script_step_id,omitempty"`
+	UserRawAnswer         *String   `xmlrpc:"user_raw_answer,omitempty"`
+	UserRawScriptAnswerId *Int      `xmlrpc:"user_raw_script_answer_id,omitempty"`
+	UserScriptAnswerId    *Many2One `xmlrpc:"user_script_answer_id,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ChatbotMessages represents array of chatbot.message model.

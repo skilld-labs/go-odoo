@@ -6,9 +6,9 @@ type HrLeaveAccrualPlan struct {
 	Active              *Bool      `xmlrpc:"active,omitempty"`
 	AddedValueType      *Selection `xmlrpc:"added_value_type,omitempty"`
 	AllocationIds       *Relation  `xmlrpc:"allocation_ids,omitempty"`
+	CanBeCarryover      *Bool      `xmlrpc:"can_be_carryover,omitempty"`
 	CarryoverDate       *Selection `xmlrpc:"carryover_date,omitempty"`
-	CarryoverDay        *Int       `xmlrpc:"carryover_day,omitempty"`
-	CarryoverDayDisplay *Selection `xmlrpc:"carryover_day_display,omitempty"`
+	CarryoverDay        *Selection `xmlrpc:"carryover_day,omitempty"`
 	CarryoverMonth      *Selection `xmlrpc:"carryover_month,omitempty"`
 	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`

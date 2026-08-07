@@ -9,8 +9,11 @@ type ChatbotScriptStep struct {
 	CrmTeamId              *Many2One  `xmlrpc:"crm_team_id,omitempty"`
 	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
 	Id                     *Int       `xmlrpc:"id,omitempty"`
+	IsForwardOperator      *Bool      `xmlrpc:"is_forward_operator,omitempty"`
 	IsForwardOperatorChild *Bool      `xmlrpc:"is_forward_operator_child,omitempty"`
 	Message                *String    `xmlrpc:"message,omitempty"`
+	Name                   *String    `xmlrpc:"name,omitempty"`
+	OperatorExpertiseIds   *Relation  `xmlrpc:"operator_expertise_ids,omitempty"`
 	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
 	StepType               *Selection `xmlrpc:"step_type,omitempty"`
 	TriggeringAnswerIds    *Relation  `xmlrpc:"triggering_answer_ids,omitempty"`

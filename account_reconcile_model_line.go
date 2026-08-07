@@ -3,7 +3,6 @@ package odoo
 // AccountReconcileModelLine represents account.reconcile.model.line model.
 type AccountReconcileModelLine struct {
 	AccountId                      *Many2One   `xmlrpc:"account_id,omitempty"`
-	AllowPaymentTolerance          *Bool       `xmlrpc:"allow_payment_tolerance,omitempty"`
 	Amount                         *Float      `xmlrpc:"amount,omitempty"`
 	AmountString                   *String     `xmlrpc:"amount_string,omitempty"`
 	AmountType                     *Selection  `xmlrpc:"amount_type,omitempty"`
@@ -14,15 +13,11 @@ type AccountReconcileModelLine struct {
 	CreateUid                      *Many2One   `xmlrpc:"create_uid,omitempty"`
 	DisplayName                    *String     `xmlrpc:"display_name,omitempty"`
 	DistributionAnalyticAccountIds *Relation   `xmlrpc:"distribution_analytic_account_ids,omitempty"`
-	ForceTaxIncluded               *Bool       `xmlrpc:"force_tax_included,omitempty"`
 	Id                             *Int        `xmlrpc:"id,omitempty"`
-	JournalId                      *Many2One   `xmlrpc:"journal_id,omitempty"`
 	Label                          *String     `xmlrpc:"label,omitempty"`
 	ModelId                        *Many2One   `xmlrpc:"model_id,omitempty"`
-	PaymentToleranceParam          *Float      `xmlrpc:"payment_tolerance_param,omitempty"`
-	RuleType                       *Selection  `xmlrpc:"rule_type,omitempty"`
+	PartnerId                      *Many2One   `xmlrpc:"partner_id,omitempty"`
 	Sequence                       *Int        `xmlrpc:"sequence,omitempty"`
-	ShowForceTaxIncluded           *Bool       `xmlrpc:"show_force_tax_included,omitempty"`
 	TaxIds                         *Relation   `xmlrpc:"tax_ids,omitempty"`
 	WriteDate                      *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                       *Many2One   `xmlrpc:"write_uid,omitempty"`

@@ -10,35 +10,33 @@ type HrLeaveAccrualLevel struct {
 	ActionWithUnusedAccruals *Selection `xmlrpc:"action_with_unused_accruals,omitempty"`
 	AddedValue               *Float     `xmlrpc:"added_value,omitempty"`
 	AddedValueType           *Selection `xmlrpc:"added_value_type,omitempty"`
+	CanBeCarryover           *Bool      `xmlrpc:"can_be_carryover,omitempty"`
 	CanModifyValueType       *Bool      `xmlrpc:"can_modify_value_type,omitempty"`
 	CapAccruedTime           *Bool      `xmlrpc:"cap_accrued_time,omitempty"`
 	CapAccruedTimeYearly     *Bool      `xmlrpc:"cap_accrued_time_yearly,omitempty"`
+	CarryoverOptions         *Selection `xmlrpc:"carryover_options,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
-	FirstDay                 *Int       `xmlrpc:"first_day,omitempty"`
-	FirstDayDisplay          *Selection `xmlrpc:"first_day_display,omitempty"`
+	FirstDay                 *Selection `xmlrpc:"first_day,omitempty"`
 	FirstMonth               *Selection `xmlrpc:"first_month,omitempty"`
-	FirstMonthDay            *Int       `xmlrpc:"first_month_day,omitempty"`
-	FirstMonthDayDisplay     *Selection `xmlrpc:"first_month_day_display,omitempty"`
+	FirstMonthDay            *Selection `xmlrpc:"first_month_day,omitempty"`
 	Frequency                *Selection `xmlrpc:"frequency,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	MaximumLeave             *Float     `xmlrpc:"maximum_leave,omitempty"`
 	MaximumLeaveYearly       *Float     `xmlrpc:"maximum_leave_yearly,omitempty"`
+	MilestoneDate            *Selection `xmlrpc:"milestone_date,omitempty"`
 	PostponeMaxDays          *Int       `xmlrpc:"postpone_max_days,omitempty"`
-	SecondDay                *Int       `xmlrpc:"second_day,omitempty"`
-	SecondDayDisplay         *Selection `xmlrpc:"second_day_display,omitempty"`
+	SecondDay                *Selection `xmlrpc:"second_day,omitempty"`
 	SecondMonth              *Selection `xmlrpc:"second_month,omitempty"`
-	SecondMonthDay           *Int       `xmlrpc:"second_month_day,omitempty"`
-	SecondMonthDayDisplay    *Selection `xmlrpc:"second_month_day_display,omitempty"`
+	SecondMonthDay           *Selection `xmlrpc:"second_month_day,omitempty"`
 	Sequence                 *Int       `xmlrpc:"sequence,omitempty"`
 	StartCount               *Int       `xmlrpc:"start_count,omitempty"`
 	StartType                *Selection `xmlrpc:"start_type,omitempty"`
 	WeekDay                  *Selection `xmlrpc:"week_day,omitempty"`
 	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
-	YearlyDay                *Int       `xmlrpc:"yearly_day,omitempty"`
-	YearlyDayDisplay         *Selection `xmlrpc:"yearly_day_display,omitempty"`
+	YearlyDay                *Selection `xmlrpc:"yearly_day,omitempty"`
 	YearlyMonth              *Selection `xmlrpc:"yearly_month,omitempty"`
 }
 

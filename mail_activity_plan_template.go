@@ -12,6 +12,7 @@ type MailActivityPlanTemplate struct {
 	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
 	Icon            *String    `xmlrpc:"icon,omitempty"`
 	Id              *Int       `xmlrpc:"id,omitempty"`
+	NextActivityIds *Relation  `xmlrpc:"next_activity_ids,omitempty"`
 	Note            *String    `xmlrpc:"note,omitempty"`
 	PlanId          *Many2One  `xmlrpc:"plan_id,omitempty"`
 	ResModel        *Selection `xmlrpc:"res_model,omitempty"`

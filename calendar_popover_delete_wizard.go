@@ -2,14 +2,23 @@ package odoo
 
 // CalendarPopoverDeleteWizard represents calendar.popover.delete.wizard model.
 type CalendarPopoverDeleteWizard struct {
-	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Delete      *Selection `xmlrpc:"delete,omitempty"`
-	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	Id          *Int       `xmlrpc:"id,omitempty"`
-	Record      *Many2One  `xmlrpc:"record,omitempty"`
-	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Body                 *String    `xmlrpc:"body,omitempty"`
+	BodyHasTemplateValue *Bool      `xmlrpc:"body_has_template_value,omitempty"`
+	CalendarEventId      *Many2One  `xmlrpc:"calendar_event_id,omitempty"`
+	CanEditBody          *Bool      `xmlrpc:"can_edit_body,omitempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Delete               *Selection `xmlrpc:"delete,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
+	IsMailTemplateEditor *Bool      `xmlrpc:"is_mail_template_editor,omitempty"`
+	Lang                 *String    `xmlrpc:"lang,omitempty"`
+	RecipientIds         *Relation  `xmlrpc:"recipient_ids,omitempty"`
+	RenderModel          *String    `xmlrpc:"render_model,omitempty"`
+	Subject              *String    `xmlrpc:"subject,omitempty"`
+	TemplateId           *Many2One  `xmlrpc:"template_id,omitempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // CalendarPopoverDeleteWizards represents array of calendar.popover.delete.wizard model.

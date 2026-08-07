@@ -102,6 +102,7 @@ type MailingMailing struct {
 	State                       *Selection `xmlrpc:"state,omitempty"`
 	Subject                     *String    `xmlrpc:"subject,omitempty"`
 	Total                       *Int       `xmlrpc:"total,omitempty"`
+	UseExclusionList            *Bool      `xmlrpc:"use_exclusion_list,omitempty"`
 	UseLeads                    *Bool      `xmlrpc:"use_leads,omitempty"`
 	UserId                      *Many2One  `xmlrpc:"user_id,omitempty"`
 	WarningMessage              *String    `xmlrpc:"warning_message,omitempty"`

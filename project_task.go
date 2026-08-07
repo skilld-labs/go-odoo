@@ -19,6 +19,7 @@ type ProjectTask struct {
 	AllocatedHours                *Float      `xmlrpc:"allocated_hours,omitempty"`
 	AllowBillable                 *Bool       `xmlrpc:"allow_billable,omitempty"`
 	AllowMilestones               *Bool       `xmlrpc:"allow_milestones,omitempty"`
+	AllowRecurringTasks           *Bool       `xmlrpc:"allow_recurring_tasks,omitempty"`
 	AllowTaskDependencies         *Bool       `xmlrpc:"allow_task_dependencies,omitempty"`
 	AllowTimesheets               *Bool       `xmlrpc:"allow_timesheets,omitempty"`
 	AnalyticAccountActive         *Bool       `xmlrpc:"analytic_account_active,omitempty"`
@@ -49,16 +50,22 @@ type ProjectTask struct {
 	DurationTracking              interface{} `xmlrpc:"duration_tracking,omitempty"`
 	EffectiveHours                *Float      `xmlrpc:"effective_hours,omitempty"`
 	EmailCc                       *String     `xmlrpc:"email_cc,omitempty"`
+	EmailFrom                     *String     `xmlrpc:"email_from,omitempty"`
 	EncodeUomInDays               *Bool       `xmlrpc:"encode_uom_in_days,omitempty"`
 	HasLateAndUnreachedMilestone  *Bool       `xmlrpc:"has_late_and_unreached_milestone,omitempty"`
 	HasMessage                    *Bool       `xmlrpc:"has_message,omitempty"`
 	HasMultiSol                   *Bool       `xmlrpc:"has_multi_sol,omitempty"`
+	HasProjectTemplate            *Bool       `xmlrpc:"has_project_template,omitempty"`
+	HasTemplateAncestor           *Bool       `xmlrpc:"has_template_ancestor,omitempty"`
 	HtmlFieldHistory              interface{} `xmlrpc:"html_field_history,omitempty"`
 	HtmlFieldHistoryMetadata      interface{} `xmlrpc:"html_field_history_metadata,omitempty"`
 	Id                            *Int        `xmlrpc:"id,omitempty"`
 	IsClosed                      *Bool       `xmlrpc:"is_closed,omitempty"`
 	IsProjectMapEmpty             *Bool       `xmlrpc:"is_project_map_empty,omitempty"`
+	IsRotting                     *Bool       `xmlrpc:"is_rotting,omitempty"`
+	IsTemplate                    *Bool       `xmlrpc:"is_template,omitempty"`
 	IsTimeoffTask                 *Bool       `xmlrpc:"is_timeoff_task,omitempty"`
+	LastSolOfCustomer             *Many2One   `xmlrpc:"last_sol_of_customer,omitempty"`
 	LeaveTypesCount               *Int        `xmlrpc:"leave_types_count,omitempty"`
 	LinkPreviewName               *String     `xmlrpc:"link_preview_name,omitempty"`
 	MessageAttachmentCount        *Int        `xmlrpc:"message_attachment_count,omitempty"`
@@ -77,6 +84,7 @@ type ProjectTask struct {
 	Overtime                      *Float      `xmlrpc:"overtime,omitempty"`
 	ParentId                      *Many2One   `xmlrpc:"parent_id,omitempty"`
 	PartnerId                     *Many2One   `xmlrpc:"partner_id,omitempty"`
+	PartnerPhone                  *String     `xmlrpc:"partner_phone,omitempty"`
 	PersonalStageId               *Many2One   `xmlrpc:"personal_stage_id,omitempty"`
 	PersonalStageTypeId           *Many2One   `xmlrpc:"personal_stage_type_id,omitempty"`
 	PersonalStageTypeIds          *Relation   `xmlrpc:"personal_stage_type_ids,omitempty"`
@@ -108,12 +116,14 @@ type ProjectTask struct {
 	RepeatType                    *Selection  `xmlrpc:"repeat_type,omitempty"`
 	RepeatUnit                    *Selection  `xmlrpc:"repeat_unit,omitempty"`
 	RepeatUntil                   *Time       `xmlrpc:"repeat_until,omitempty"`
+	RoleIds                       *Relation   `xmlrpc:"role_ids,omitempty"`
+	RottingDays                   *Int        `xmlrpc:"rotting_days,omitempty"`
 	SaleLineId                    *Many2One   `xmlrpc:"sale_line_id,omitempty"`
 	SaleOrderId                   *Many2One   `xmlrpc:"sale_order_id,omitempty"`
 	SaleOrderState                *Selection  `xmlrpc:"sale_order_state,omitempty"`
 	Sequence                      *Int        `xmlrpc:"sequence,omitempty"`
-	ShowDisplayInProject          *Bool       `xmlrpc:"show_display_in_project,omitempty"`
 	StageId                       *Many2One   `xmlrpc:"stage_id,omitempty"`
+	StageIdColor                  *Int        `xmlrpc:"stage_id_color,omitempty"`
 	State                         *Selection  `xmlrpc:"state,omitempty"`
 	SubtaskAllocatedHours         *Float      `xmlrpc:"subtask_allocated_hours,omitempty"`
 	SubtaskCompletionPercentage   *Float      `xmlrpc:"subtask_completion_percentage,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // ReportProjectTaskUser represents report.project.task.user model.
 type ReportProjectTaskUser struct {
-	Active                   *Bool      `xmlrpc:"active,omitempty"`
 	AllocatedHours           *Float     `xmlrpc:"allocated_hours,omitempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
@@ -13,10 +12,13 @@ type ReportProjectTaskUser struct {
 	DelayEndingsDays         *Float     `xmlrpc:"delay_endings_days,omitempty"`
 	DependentIds             *Relation  `xmlrpc:"dependent_ids,omitempty"`
 	Description              *String    `xmlrpc:"description,omitempty"`
+	DisplayInProject         *Bool      `xmlrpc:"display_in_project,omitempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
 	EffectiveHours           *Float     `xmlrpc:"effective_hours,omitempty"`
+	HasTemplateAncestor      *Bool      `xmlrpc:"has_template_ancestor,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	IsClosed                 *Bool      `xmlrpc:"is_closed,omitempty"`
+	IsTemplate               *Bool      `xmlrpc:"is_template,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
 	MilestoneId              *Many2One  `xmlrpc:"milestone_id,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
@@ -37,10 +39,8 @@ type ReportProjectTaskUser struct {
 	SaleOrderId              *Many2One  `xmlrpc:"sale_order_id,omitempty"`
 	StageId                  *Many2One  `xmlrpc:"stage_id,omitempty"`
 	State                    *Selection `xmlrpc:"state,omitempty"`
-	SubtaskEffectiveHours    *Float     `xmlrpc:"subtask_effective_hours,omitempty"`
 	TagIds                   *Relation  `xmlrpc:"tag_ids,omitempty"`
 	TaskId                   *Many2One  `xmlrpc:"task_id,omitempty"`
-	TotalHoursSpent          *Float     `xmlrpc:"total_hours_spent,omitempty"`
 	UserIds                  *Relation  `xmlrpc:"user_ids,omitempty"`
 	UserSkillIds             *Relation  `xmlrpc:"user_skill_ids,omitempty"`
 	WorkingDaysClose         *Float     `xmlrpc:"working_days_close,omitempty"`

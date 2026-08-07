@@ -2,23 +2,29 @@ package odoo
 
 // ProjectTaskType represents project.task.type model.
 type ProjectTaskType struct {
-	Active                *Bool     `xmlrpc:"active,omitempty"`
-	AutoValidationState   *Bool     `xmlrpc:"auto_validation_state,omitempty"`
-	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisabledRatingWarning *String   `xmlrpc:"disabled_rating_warning,omitempty"`
-	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
-	Fold                  *Bool     `xmlrpc:"fold,omitempty"`
-	Id                    *Int      `xmlrpc:"id,omitempty"`
-	MailTemplateId        *Many2One `xmlrpc:"mail_template_id,omitempty"`
-	Name                  *String   `xmlrpc:"name,omitempty"`
-	ProjectIds            *Relation `xmlrpc:"project_ids,omitempty"`
-	RatingTemplateId      *Many2One `xmlrpc:"rating_template_id,omitempty"`
-	Sequence              *Int      `xmlrpc:"sequence,omitempty"`
-	SmsTemplateId         *Many2One `xmlrpc:"sms_template_id,omitempty"`
-	UserId                *Many2One `xmlrpc:"user_id,omitempty"`
-	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active                *Bool      `xmlrpc:"active,omitempty"`
+	AutoValidationState   *Bool      `xmlrpc:"auto_validation_state,omitempty"`
+	Color                 *Int       `xmlrpc:"color,omitempty"`
+	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName           *String    `xmlrpc:"display_name,omitempty"`
+	Fold                  *Bool      `xmlrpc:"fold,omitempty"`
+	Id                    *Int       `xmlrpc:"id,omitempty"`
+	MailTemplateId        *Many2One  `xmlrpc:"mail_template_id,omitempty"`
+	Name                  *String    `xmlrpc:"name,omitempty"`
+	ProjectIds            *Relation  `xmlrpc:"project_ids,omitempty"`
+	RatingActive          *Bool      `xmlrpc:"rating_active,omitempty"`
+	RatingRequestDeadline *Time      `xmlrpc:"rating_request_deadline,omitempty"`
+	RatingStatus          *Selection `xmlrpc:"rating_status,omitempty"`
+	RatingStatusPeriod    *Selection `xmlrpc:"rating_status_period,omitempty"`
+	RatingTemplateId      *Many2One  `xmlrpc:"rating_template_id,omitempty"`
+	RottingThresholdDays  *Int       `xmlrpc:"rotting_threshold_days,omitempty"`
+	Sequence              *Int       `xmlrpc:"sequence,omitempty"`
+	ShowRatingActive      *Bool      `xmlrpc:"show_rating_active,omitempty"`
+	SmsTemplateId         *Many2One  `xmlrpc:"sms_template_id,omitempty"`
+	UserId                *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate             *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectTaskTypes represents array of project.task.type model.

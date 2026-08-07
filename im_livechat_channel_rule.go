@@ -5,7 +5,7 @@ type ImLivechatChannelRule struct {
 	Action                  *Selection `xmlrpc:"action,omitempty"`
 	AutoPopupTimer          *Int       `xmlrpc:"auto_popup_timer,omitempty"`
 	ChannelId               *Many2One  `xmlrpc:"channel_id,omitempty"`
-	ChatbotOnlyIfNoOperator *Bool      `xmlrpc:"chatbot_only_if_no_operator,omitempty"`
+	ChatbotEnabledCondition *Selection `xmlrpc:"chatbot_enabled_condition,omitempty"`
 	ChatbotScriptId         *Many2One  `xmlrpc:"chatbot_script_id,omitempty"`
 	CountryIds              *Relation  `xmlrpc:"country_ids,omitempty"`
 	CreateDate              *Time      `xmlrpc:"create_date,omitempty"`

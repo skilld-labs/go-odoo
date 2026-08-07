@@ -25,6 +25,7 @@ type CalendarEvent struct {
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
 	DisplayTime              *String    `xmlrpc:"display_time,omitempty"`
 	Duration                 *Float     `xmlrpc:"duration,omitempty"`
+	EffectivePrivacy         *Selection `xmlrpc:"effective_privacy,omitempty"`
 	EndType                  *Selection `xmlrpc:"end_type,omitempty"`
 	EventTz                  *Selection `xmlrpc:"event_tz,omitempty"`
 	FollowRecurrence         *Bool      `xmlrpc:"follow_recurrence,omitempty"`
@@ -49,6 +50,7 @@ type CalendarEvent struct {
 	Mon                      *Bool      `xmlrpc:"mon,omitempty"`
 	MonthBy                  *Selection `xmlrpc:"month_by,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
+	Notes                    *String    `xmlrpc:"notes,omitempty"`
 	OpportunityId            *Many2One  `xmlrpc:"opportunity_id,omitempty"`
 	PartnerId                *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PartnerIds               *Relation  `xmlrpc:"partner_ids,omitempty"`

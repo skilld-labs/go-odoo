@@ -36,6 +36,7 @@ type ProjectProject struct {
 	AllocatedHours               *Float      `xmlrpc:"allocated_hours,omitempty"`
 	AllowBillable                *Bool       `xmlrpc:"allow_billable,omitempty"`
 	AllowMilestones              *Bool       `xmlrpc:"allow_milestones,omitempty"`
+	AllowRecurringTasks          *Bool       `xmlrpc:"allow_recurring_tasks,omitempty"`
 	AllowTaskDependencies        *Bool       `xmlrpc:"allow_task_dependencies,omitempty"`
 	AllowTimesheets              *Bool       `xmlrpc:"allow_timesheets,omitempty"`
 	AnalyticAccountActive        *Bool       `xmlrpc:"analytic_account_active,omitempty"`
@@ -70,6 +71,8 @@ type ProjectProject struct {
 	IsMilestoneDeadlineExceeded  *Bool       `xmlrpc:"is_milestone_deadline_exceeded,omitempty"`
 	IsMilestoneExceeded          *Bool       `xmlrpc:"is_milestone_exceeded,omitempty"`
 	IsProjectOvertime            *Bool       `xmlrpc:"is_project_overtime,omitempty"`
+	IsRotting                    *Bool       `xmlrpc:"is_rotting,omitempty"`
+	IsTemplate                   *Bool       `xmlrpc:"is_template,omitempty"`
 	LabelTasks                   *String     `xmlrpc:"label_tasks,omitempty"`
 	LastUpdateColor              *Int        `xmlrpc:"last_update_color,omitempty"`
 	LastUpdateId                 *Many2One   `xmlrpc:"last_update_id,omitempty"`
@@ -97,18 +100,15 @@ type ProjectProject struct {
 	PrivacyVisibility            *Selection  `xmlrpc:"privacy_visibility,omitempty"`
 	PrivacyVisibilityWarning     *String     `xmlrpc:"privacy_visibility_warning,omitempty"`
 	PurchaseOrdersCount          *Int        `xmlrpc:"purchase_orders_count,omitempty"`
-	RatingActive                 *Bool       `xmlrpc:"rating_active,omitempty"`
 	RatingAvg                    *Float      `xmlrpc:"rating_avg,omitempty"`
 	RatingAvgPercentage          *Float      `xmlrpc:"rating_avg_percentage,omitempty"`
 	RatingCount                  *Int        `xmlrpc:"rating_count,omitempty"`
 	RatingIds                    *Relation   `xmlrpc:"rating_ids,omitempty"`
 	RatingPercentageSatisfaction *Int        `xmlrpc:"rating_percentage_satisfaction,omitempty"`
-	RatingRequestDeadline        *Time       `xmlrpc:"rating_request_deadline,omitempty"`
-	RatingStatus                 *Selection  `xmlrpc:"rating_status,omitempty"`
-	RatingStatusPeriod           *Selection  `xmlrpc:"rating_status_period,omitempty"`
 	ReinvoicedSaleOrderId        *Many2One   `xmlrpc:"reinvoiced_sale_order_id,omitempty"`
 	RemainingHours               *Float      `xmlrpc:"remaining_hours,omitempty"`
 	ResourceCalendarId           *Many2One   `xmlrpc:"resource_calendar_id,omitempty"`
+	RottingDays                  *Int        `xmlrpc:"rotting_days,omitempty"`
 	SaleLineEmployeeIds          *Relation   `xmlrpc:"sale_line_employee_ids,omitempty"`
 	SaleLineId                   *Many2One   `xmlrpc:"sale_line_id,omitempty"`
 	SaleOrderCount               *Int        `xmlrpc:"sale_order_count,omitempty"`
@@ -116,7 +116,9 @@ type ProjectProject struct {
 	SaleOrderLineCount           *Int        `xmlrpc:"sale_order_line_count,omitempty"`
 	SaleOrderState               *Selection  `xmlrpc:"sale_order_state,omitempty"`
 	Sequence                     *Int        `xmlrpc:"sequence,omitempty"`
+	ShowRatings                  *Bool       `xmlrpc:"show_ratings,omitempty"`
 	StageId                      *Many2One   `xmlrpc:"stage_id,omitempty"`
+	StageIdColor                 *Int        `xmlrpc:"stage_id_color,omitempty"`
 	TagIds                       *Relation   `xmlrpc:"tag_ids,omitempty"`
 	TaskCompletionPercentage     *Float      `xmlrpc:"task_completion_percentage,omitempty"`
 	TaskCount                    *Int        `xmlrpc:"task_count,omitempty"`
@@ -126,7 +128,7 @@ type ProjectProject struct {
 	TimesheetEncodeUomId         *Many2One   `xmlrpc:"timesheet_encode_uom_id,omitempty"`
 	TimesheetIds                 *Relation   `xmlrpc:"timesheet_ids,omitempty"`
 	TimesheetProductId           *Many2One   `xmlrpc:"timesheet_product_id,omitempty"`
-	TotalTimesheetTime           *Int        `xmlrpc:"total_timesheet_time,omitempty"`
+	TotalTimesheetTime           *Float      `xmlrpc:"total_timesheet_time,omitempty"`
 	TypeIds                      *Relation   `xmlrpc:"type_ids,omitempty"`
 	UpdateCount                  *Int        `xmlrpc:"update_count,omitempty"`
 	UpdateIds                    *Relation   `xmlrpc:"update_ids,omitempty"`

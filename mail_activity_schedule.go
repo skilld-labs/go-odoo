@@ -14,6 +14,7 @@ type MailActivitySchedule struct {
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
 	Error                    *String    `xmlrpc:"error,omitempty"`
 	HasError                 *Bool      `xmlrpc:"has_error,omitempty"`
+	HasWarning               *Bool      `xmlrpc:"has_warning,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	IsBatchMode              *Bool      `xmlrpc:"is_batch_mode,omitempty"`
 	Note                     *String    `xmlrpc:"note,omitempty"`
@@ -23,11 +24,12 @@ type MailActivitySchedule struct {
 	PlanHasUserOnDemand      *Bool      `xmlrpc:"plan_has_user_on_demand,omitempty"`
 	PlanId                   *Many2One  `xmlrpc:"plan_id,omitempty"`
 	PlanOnDemandUserId       *Many2One  `xmlrpc:"plan_on_demand_user_id,omitempty"`
-	PlanSummary              *String    `xmlrpc:"plan_summary,omitempty"`
+	PlanScheduleLineIds      *Relation  `xmlrpc:"plan_schedule_line_ids,omitempty"`
 	ResIds                   *String    `xmlrpc:"res_ids,omitempty"`
 	ResModel                 *String    `xmlrpc:"res_model,omitempty"`
 	ResModelId               *Many2One  `xmlrpc:"res_model_id,omitempty"`
 	Summary                  *String    `xmlrpc:"summary,omitempty"`
+	Warning                  *String    `xmlrpc:"warning,omitempty"`
 	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

@@ -8,8 +8,11 @@ type HrDepartureWizard struct {
 	DepartureDescription *String   `xmlrpc:"departure_description,omitempty"`
 	DepartureReasonId    *Many2One `xmlrpc:"departure_reason_id,omitempty"`
 	DisplayName          *String   `xmlrpc:"display_name,omitempty"`
-	EmployeeId           *Many2One `xmlrpc:"employee_id,omitempty"`
+	EmployeeIds          *Relation `xmlrpc:"employee_ids,omitempty"`
 	Id                   *Int      `xmlrpc:"id,omitempty"`
+	IsUserEmployee       *Bool     `xmlrpc:"is_user_employee,omitempty"`
+	RemoveRelatedUser    *Bool     `xmlrpc:"remove_related_user,omitempty"`
+	SetDateEnd           *Bool     `xmlrpc:"set_date_end,omitempty"`
 	WriteDate            *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid             *Many2One `xmlrpc:"write_uid,omitempty"`
 }

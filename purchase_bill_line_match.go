@@ -21,6 +21,7 @@ type PurchaseBillLineMatch struct {
 	PurchaseAmountUntaxed *Float    `xmlrpc:"purchase_amount_untaxed,omitempty"`
 	PurchaseOrderId       *Many2One `xmlrpc:"purchase_order_id,omitempty"`
 	QtyInvoiced           *Float    `xmlrpc:"qty_invoiced,omitempty"`
+	QtyToInvoice          *Float    `xmlrpc:"qty_to_invoice,omitempty"`
 	Reference             *String   `xmlrpc:"reference,omitempty"`
 	State                 *String   `xmlrpc:"state,omitempty"`
 }

@@ -2,6 +2,7 @@ package odoo
 
 // StockMoveLine represents stock.move.line model.
 type StockMoveLine struct {
+	AllowedUomIds              *Relation  `xmlrpc:"allowed_uom_ids,omitempty"`
 	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
 	ConsumeLineIds             *Relation  `xmlrpc:"consume_line_ids,omitempty"`
 	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
@@ -10,6 +11,7 @@ type StockMoveLine struct {
 	DescriptionPicking         *String    `xmlrpc:"description_picking,omitempty"`
 	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
 	Id                         *Int       `xmlrpc:"id,omitempty"`
+	IsEntirePack               *Bool      `xmlrpc:"is_entire_pack,omitempty"`
 	IsInventory                *Bool      `xmlrpc:"is_inventory,omitempty"`
 	IsLocked                   *Bool      `xmlrpc:"is_locked,omitempty"`
 	LocationDestId             *Many2One  `xmlrpc:"location_dest_id,omitempty"`
@@ -20,32 +22,32 @@ type StockMoveLine struct {
 	LotName                    *String    `xmlrpc:"lot_name,omitempty"`
 	LotsVisible                *Bool      `xmlrpc:"lots_visible,omitempty"`
 	MoveId                     *Many2One  `xmlrpc:"move_id,omitempty"`
+	MovePartnerId              *Many2One  `xmlrpc:"move_partner_id,omitempty"`
 	Origin                     *String    `xmlrpc:"origin,omitempty"`
 	OwnerId                    *Many2One  `xmlrpc:"owner_id,omitempty"`
+	PackageHistoryId           *Many2One  `xmlrpc:"package_history_id,omitempty"`
 	PackageId                  *Many2One  `xmlrpc:"package_id,omitempty"`
-	PackageLevelId             *Many2One  `xmlrpc:"package_level_id,omitempty"`
 	Picked                     *Bool      `xmlrpc:"picked,omitempty"`
 	PickingCode                *Selection `xmlrpc:"picking_code,omitempty"`
 	PickingId                  *Many2One  `xmlrpc:"picking_id,omitempty"`
 	PickingLocationDestId      *Many2One  `xmlrpc:"picking_location_dest_id,omitempty"`
 	PickingLocationId          *Many2One  `xmlrpc:"picking_location_id,omitempty"`
 	PickingPartnerId           *Many2One  `xmlrpc:"picking_partner_id,omitempty"`
-	PickingTypeEntirePacks     *Bool      `xmlrpc:"picking_type_entire_packs,omitempty"`
 	PickingTypeId              *Many2One  `xmlrpc:"picking_type_id,omitempty"`
 	PickingTypeUseCreateLots   *Bool      `xmlrpc:"picking_type_use_create_lots,omitempty"`
 	PickingTypeUseExistingLots *Bool      `xmlrpc:"picking_type_use_existing_lots,omitempty"`
 	ProduceLineIds             *Relation  `xmlrpc:"produce_line_ids,omitempty"`
 	ProductCategoryName        *String    `xmlrpc:"product_category_name,omitempty"`
 	ProductId                  *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductPackagingQty        *Float     `xmlrpc:"product_packaging_qty,omitempty"`
-	ProductUomCategoryId       *Many2One  `xmlrpc:"product_uom_category_id,omitempty"`
 	ProductUomId               *Many2One  `xmlrpc:"product_uom_id,omitempty"`
 	QuantId                    *Many2One  `xmlrpc:"quant_id,omitempty"`
 	Quantity                   *Float     `xmlrpc:"quantity,omitempty"`
 	QuantityProductUom         *Float     `xmlrpc:"quantity_product_uom,omitempty"`
 	Reference                  *String    `xmlrpc:"reference,omitempty"`
+	ResultPackageDestName      *String    `xmlrpc:"result_package_dest_name,omitempty"`
 	ResultPackageId            *Many2One  `xmlrpc:"result_package_id,omitempty"`
 	ScheduledDate              *Time      `xmlrpc:"scheduled_date,omitempty"`
+	ScrapId                    *Many2One  `xmlrpc:"scrap_id,omitempty"`
 	State                      *Selection `xmlrpc:"state,omitempty"`
 	Tracking                   *Selection `xmlrpc:"tracking,omitempty"`
 	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`

@@ -11,7 +11,7 @@ type IrActionsReport struct {
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
 	Domain           *String    `xmlrpc:"domain,omitempty"`
-	GroupsId         *Relation  `xmlrpc:"groups_id,omitempty"`
+	GroupIds         *Relation  `xmlrpc:"group_ids,omitempty"`
 	Help             *String    `xmlrpc:"help,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
 	IsInvoiceReport  *Bool      `xmlrpc:"is_invoice_report,omitempty"`

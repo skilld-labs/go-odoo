@@ -2,27 +2,29 @@ package odoo
 
 // MailTemplatePreview represents mail.template.preview model.
 type MailTemplatePreview struct {
-	AttachmentIds  *Relation  `xmlrpc:"attachment_ids,omitempty"`
-	BodyHtml       *String    `xmlrpc:"body_html,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	EmailCc        *String    `xmlrpc:"email_cc,omitempty"`
-	EmailFrom      *String    `xmlrpc:"email_from,omitempty"`
-	EmailTo        *String    `xmlrpc:"email_to,omitempty"`
-	ErrorMsg       *String    `xmlrpc:"error_msg,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	Lang           *Selection `xmlrpc:"lang,omitempty"`
-	MailTemplateId *Many2One  `xmlrpc:"mail_template_id,omitempty"`
-	ModelId        *Many2One  `xmlrpc:"model_id,omitempty"`
-	NoRecord       *Bool      `xmlrpc:"no_record,omitempty"`
-	PartnerIds     *Relation  `xmlrpc:"partner_ids,omitempty"`
-	ReplyTo        *String    `xmlrpc:"reply_to,omitempty"`
-	ResourceRef    *String    `xmlrpc:"resource_ref,omitempty"`
-	ScheduledDate  *String    `xmlrpc:"scheduled_date,omitempty"`
-	Subject        *String    `xmlrpc:"subject,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AttachmentIds                *Relation  `xmlrpc:"attachment_ids,omitempty"`
+	BodyHtml                     *String    `xmlrpc:"body_html,omitempty"`
+	CreateDate                   *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                    *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName                  *String    `xmlrpc:"display_name,omitempty"`
+	EmailCc                      *String    `xmlrpc:"email_cc,omitempty"`
+	EmailFrom                    *String    `xmlrpc:"email_from,omitempty"`
+	EmailTo                      *String    `xmlrpc:"email_to,omitempty"`
+	ErrorMsg                     *String    `xmlrpc:"error_msg,omitempty"`
+	HasAttachments               *Bool      `xmlrpc:"has_attachments,omitempty"`
+	HasSeveralLanguagesInstalled *Bool      `xmlrpc:"has_several_languages_installed,omitempty"`
+	Id                           *Int       `xmlrpc:"id,omitempty"`
+	Lang                         *Selection `xmlrpc:"lang,omitempty"`
+	MailTemplateId               *Many2One  `xmlrpc:"mail_template_id,omitempty"`
+	ModelId                      *Many2One  `xmlrpc:"model_id,omitempty"`
+	NoRecord                     *Bool      `xmlrpc:"no_record,omitempty"`
+	PartnerIds                   *Relation  `xmlrpc:"partner_ids,omitempty"`
+	ReplyTo                      *String    `xmlrpc:"reply_to,omitempty"`
+	ResourceRef                  *String    `xmlrpc:"resource_ref,omitempty"`
+	ScheduledDate                *String    `xmlrpc:"scheduled_date,omitempty"`
+	Subject                      *String    `xmlrpc:"subject,omitempty"`
+	WriteDate                    *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailTemplatePreviews represents array of mail.template.preview model.

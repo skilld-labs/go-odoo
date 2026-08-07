@@ -2,26 +2,32 @@ package odoo
 
 // ResGroups represents res.groups model.
 type ResGroups struct {
-	ApiKeyDuration  *Float    `xmlrpc:"api_key_duration,omitempty"`
-	CategoryId      *Many2One `xmlrpc:"category_id,omitempty"`
-	Color           *Int      `xmlrpc:"color,omitempty"`
-	Comment         *String   `xmlrpc:"comment,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	FullName        *String   `xmlrpc:"full_name,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	ImpliedIds      *Relation `xmlrpc:"implied_ids,omitempty"`
-	MenuAccess      *Relation `xmlrpc:"menu_access,omitempty"`
-	ModelAccess     *Relation `xmlrpc:"model_access,omitempty"`
-	Name            *String   `xmlrpc:"name,omitempty"`
-	RuleGroups      *Relation `xmlrpc:"rule_groups,omitempty"`
-	Share           *Bool     `xmlrpc:"share,omitempty"`
-	TransImpliedIds *Relation `xmlrpc:"trans_implied_ids,omitempty"`
-	Users           *Relation `xmlrpc:"users,omitempty"`
-	ViewAccess      *Relation `xmlrpc:"view_access,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
+	AllImpliedByIds    *Relation   `xmlrpc:"all_implied_by_ids,omitempty"`
+	AllImpliedIds      *Relation   `xmlrpc:"all_implied_ids,omitempty"`
+	AllUserIds         *Relation   `xmlrpc:"all_user_ids,omitempty"`
+	AllUsersCount      *Int        `xmlrpc:"all_users_count,omitempty"`
+	ApiKeyDuration     *Float      `xmlrpc:"api_key_duration,omitempty"`
+	Comment            *String     `xmlrpc:"comment,omitempty"`
+	CreateDate         *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisjointIds        *Relation   `xmlrpc:"disjoint_ids,omitempty"`
+	DisplayName        *String     `xmlrpc:"display_name,omitempty"`
+	FullName           *String     `xmlrpc:"full_name,omitempty"`
+	Id                 *Int        `xmlrpc:"id,omitempty"`
+	ImpliedByIds       *Relation   `xmlrpc:"implied_by_ids,omitempty"`
+	ImpliedIds         *Relation   `xmlrpc:"implied_ids,omitempty"`
+	MenuAccess         *Relation   `xmlrpc:"menu_access,omitempty"`
+	ModelAccess        *Relation   `xmlrpc:"model_access,omitempty"`
+	Name               *String     `xmlrpc:"name,omitempty"`
+	PrivilegeId        *Many2One   `xmlrpc:"privilege_id,omitempty"`
+	RuleGroups         *Relation   `xmlrpc:"rule_groups,omitempty"`
+	Sequence           *Int        `xmlrpc:"sequence,omitempty"`
+	Share              *Bool       `xmlrpc:"share,omitempty"`
+	UserIds            *Relation   `xmlrpc:"user_ids,omitempty"`
+	ViewAccess         *Relation   `xmlrpc:"view_access,omitempty"`
+	ViewGroupHierarchy interface{} `xmlrpc:"view_group_hierarchy,omitempty"`
+	WriteDate          *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResGroupss represents array of res.groups model.

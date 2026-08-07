@@ -2,19 +2,21 @@ package odoo
 
 // CrmStage represents crm.stage model.
 type CrmStage struct {
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Fold         *Bool     `xmlrpc:"fold,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	IsWon        *Bool     `xmlrpc:"is_won,omitempty"`
-	Name         *String   `xmlrpc:"name,omitempty"`
-	Requirements *String   `xmlrpc:"requirements,omitempty"`
-	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
-	TeamCount    *Int      `xmlrpc:"team_count,omitempty"`
-	TeamId       *Many2One `xmlrpc:"team_id,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	Color                *Int      `xmlrpc:"color,omitempty"`
+	CreateDate           *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName          *String   `xmlrpc:"display_name,omitempty"`
+	Fold                 *Bool     `xmlrpc:"fold,omitempty"`
+	Id                   *Int      `xmlrpc:"id,omitempty"`
+	IsWon                *Bool     `xmlrpc:"is_won,omitempty"`
+	Name                 *String   `xmlrpc:"name,omitempty"`
+	Requirements         *String   `xmlrpc:"requirements,omitempty"`
+	RottingThresholdDays *Int      `xmlrpc:"rotting_threshold_days,omitempty"`
+	Sequence             *Int      `xmlrpc:"sequence,omitempty"`
+	TeamCount            *Int      `xmlrpc:"team_count,omitempty"`
+	TeamIds              *Relation `xmlrpc:"team_ids,omitempty"`
+	WriteDate            *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // CrmStages represents array of crm.stage model.
