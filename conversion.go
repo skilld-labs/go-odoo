@@ -138,9 +138,19 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 			if intVal, ok := dynamicValue.(int64); ok {
 				// for many2one_reference field type
 				staticValue = NewMany2One(intVal, "")
-			} else {
-				name, _ := dynamicValue.([]interface{})[1].(string)
-				staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), name)
+			} else if pair, ok := dynamicValue.([]interface{}); ok && len(pair) > 0 {
+				var name string
+				if len(pair) > 1 {
+					name, _ = pair[1].(string)
+				}
+				if id, ok := pair[0].(int64); ok {
+					staticValue = NewMany2One(id, name)
+				} else {
+					// Virtual models (e.g. account.root) expose string ids over
+					// XML-RPC (["60", "60"]); keep the name with a zero id since
+					// there is no usable integer id.
+					staticValue = NewMany2One(0, name)
+				}
 			}
 		case "Relation":
 			staticValue = NewRelation()
