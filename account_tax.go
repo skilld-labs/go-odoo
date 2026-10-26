@@ -2,12 +2,15 @@ package odoo
 
 // AccountTax represents account.tax model.
 type AccountTax struct {
+	AccountMoveLineIds            *Relation  `xmlrpc:"account_move_line_ids,omitempty"`
+	AccountReconcileModelLineIds  *Relation  `xmlrpc:"account_reconcile_model_line_ids,omitempty"`
 	Active                        *Bool      `xmlrpc:"active,omitempty"`
 	Amount                        *Float     `xmlrpc:"amount,omitempty"`
 	AmountType                    *Selection `xmlrpc:"amount_type,omitempty"`
 	Analytic                      *Bool      `xmlrpc:"analytic,omitempty"`
 	CashBasisTransitionAccountId  *Many2One  `xmlrpc:"cash_basis_transition_account_id,omitempty"`
 	ChildrenTaxIds                *Relation  `xmlrpc:"children_tax_ids,omitempty"`
+	CompanyCountryCode            *String    `xmlrpc:"company_country_code,omitempty"`
 	CompanyId                     *Many2One  `xmlrpc:"company_id,omitempty"`
 	CompanyPriceInclude           *Selection `xmlrpc:"company_price_include,omitempty"`
 	CountryCode                   *String    `xmlrpc:"country_code,omitempty"`
@@ -43,6 +46,7 @@ type AccountTax struct {
 	OriginalTaxIds                *Relation  `xmlrpc:"original_tax_ids,omitempty"`
 	PriceInclude                  *Bool      `xmlrpc:"price_include,omitempty"`
 	PriceIncludeOverride          *Selection `xmlrpc:"price_include_override,omitempty"`
+	PurchaseOrderLineIds          *Relation  `xmlrpc:"purchase_order_line_ids,omitempty"`
 	RatingIds                     *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RefundRepartitionLineIds      *Relation  `xmlrpc:"refund_repartition_line_ids,omitempty"`
 	RepartitionLineIds            *Relation  `xmlrpc:"repartition_line_ids,omitempty"`

@@ -24,7 +24,7 @@ type AccountMoveLine struct {
 	CompanyCurrencyId                           *Many2One   `xmlrpc:"company_currency_id,omitempty"`
 	CompanyId                                   *Many2One   `xmlrpc:"company_id,omitempty"`
 	CountReconciledLines                        *Int        `xmlrpc:"count_reconciled_lines,omitempty"`
-	CountReconciledLinesExcludingExchangeDiff   *Bool       `xmlrpc:"count_reconciled_lines_excluding_exchange_diff,omitempty"`
+	CountReconciledLinesExcludingExchangeDiff   *Int        `xmlrpc:"count_reconciled_lines_excluding_exchange_diff,omitempty"`
 	CreateDate                                  *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                                   *Many2One   `xmlrpc:"create_uid,omitempty"`
 	Credit                                      *Float      `xmlrpc:"credit,omitempty"`

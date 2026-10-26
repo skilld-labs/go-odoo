@@ -237,6 +237,7 @@ type ResConfigSettings struct {
 	PeppolExternalProvider                      *String     `xmlrpc:"peppol_external_provider,omitempty"`
 	PeppolParentCompanyName                     *String     `xmlrpc:"peppol_parent_company_name,omitempty"`
 	PeppolParticipationRole                     *Selection  `xmlrpc:"peppol_participation_role,omitempty"`
+	PeppolPurchaseJournalRequired               *Bool       `xmlrpc:"peppol_purchase_journal_required,omitempty"`
 	PeppolUseParentCompany                      *Bool       `xmlrpc:"peppol_use_parent_company,omitempty"`
 	PoDoubleValidation                          *Selection  `xmlrpc:"po_double_validation,omitempty"`
 	PoDoubleValidationAmount                    *Float      `xmlrpc:"po_double_validation_amount,omitempty"`

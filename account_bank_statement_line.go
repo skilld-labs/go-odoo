@@ -193,6 +193,7 @@ type AccountBankStatementLine struct {
 	RunningBalance                        *Float      `xmlrpc:"running_balance,omitempty"`
 	SaleOrderCount                        *Int        `xmlrpc:"sale_order_count,omitempty"`
 	SaleWarningText                       *String     `xmlrpc:"sale_warning_text,omitempty"`
+	SanitizePaymentReference              *String     `xmlrpc:"sanitize_payment_reference,omitempty"`
 	SecureSequenceNumber                  *Int        `xmlrpc:"secure_sequence_number,omitempty"`
 	Secured                               *Bool       `xmlrpc:"secured,omitempty"`
 	SendingData                           interface{} `xmlrpc:"sending_data,omitempty"`

@@ -2,21 +2,22 @@ package odoo
 
 // AccountAccruedOrdersWizard represents account.accrued.orders.wizard model.
 type AccountAccruedOrdersWizard struct {
-	AccountId     *Many2One `xmlrpc:"account_id,omitempty"`
-	Amount        *Float    `xmlrpc:"amount,omitempty"`
-	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId    *Many2One `xmlrpc:"currency_id,omitempty"`
-	Date          *Time     `xmlrpc:"date,omitempty"`
-	DisplayAmount *Bool     `xmlrpc:"display_amount,omitempty"`
-	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
-	Id            *Int      `xmlrpc:"id,omitempty"`
-	JournalId     *Many2One `xmlrpc:"journal_id,omitempty"`
-	PreviewData   *String   `xmlrpc:"preview_data,omitempty"`
-	ReversalDate  *Time     `xmlrpc:"reversal_date,omitempty"`
-	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
+	AccountId     *Many2One   `xmlrpc:"account_id,omitempty"`
+	AccountTypes  interface{} `xmlrpc:"account_types,omitempty"`
+	Amount        *Float      `xmlrpc:"amount,omitempty"`
+	CompanyId     *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate    *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One   `xmlrpc:"create_uid,omitempty"`
+	CurrencyId    *Many2One   `xmlrpc:"currency_id,omitempty"`
+	Date          *Time       `xmlrpc:"date,omitempty"`
+	DisplayAmount *Bool       `xmlrpc:"display_amount,omitempty"`
+	DisplayName   *String     `xmlrpc:"display_name,omitempty"`
+	Id            *Int        `xmlrpc:"id,omitempty"`
+	JournalId     *Many2One   `xmlrpc:"journal_id,omitempty"`
+	PreviewData   *String     `xmlrpc:"preview_data,omitempty"`
+	ReversalDate  *Time       `xmlrpc:"reversal_date,omitempty"`
+	WriteDate     *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAccruedOrdersWizards represents array of account.accrued.orders.wizard model.
